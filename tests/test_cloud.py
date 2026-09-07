@@ -202,9 +202,7 @@ def test_missing_etag_prevents_unconditional_write(tmp_path):
     (tmp_path / "runs").mkdir()
     (tmp_path / "runs/x").write_text("work")
     cloud = NoEtagS3()
-    cloud.objects["latest.json"] = json.dumps(
-        {"schema": 1, "files": {"runs/x": "a" * 64}}
-    ).encode()
+    cloud.objects["latest.json"] = json.dumps({"schema": 1, "files": {"runs/x": "a" * 64}}).encode()
     with pytest.raises(ValueError, match="ETag"):
         backup(tmp_path, "bucket", "region", cloud)
     assert cloud.uploads == []
