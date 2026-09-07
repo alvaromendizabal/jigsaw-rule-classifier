@@ -24,7 +24,7 @@ from jigsaw_rules.uncertainty import paired_auc_interval
 def run_semantic(root: Path, spec: dict, *, cloud: dict | None = None, encoder=None) -> Path:
     (root / "runs").mkdir(exist_ok=True, parents=True)
     with FileLock(str(root / "runs/semantic.lock"), timeout=1):
-        with Progress(root / "logs/semantic.jsonl", "semantic_experiment") as log:
+        with Progress(root / "runs/semantic.jsonl", "semantic_experiment") as log:
             return _run(root, spec, cloud=cloud, encoder=encoder, log=log)
 
 
@@ -48,6 +48,7 @@ def _run(root, spec, *, cloud, encoder, log):
     run_id, provenance = fingerprint(root / "data/raw", config)
     run_dir = root / "runs" / run_id
     run_dir.mkdir(exist_ok=True, parents=True)
+    log.emit("experiment_identified", run_id=run_id)
     atomic_json(run_dir / "provenance.json", provenance)
 
     def sync():

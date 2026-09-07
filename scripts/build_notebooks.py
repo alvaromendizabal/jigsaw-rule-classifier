@@ -174,6 +174,39 @@ def notebooks():
             ),
         ]
     )
+    outputs["notebooks/04_semantic_benchmark.ipynb"] = notebook(
+        [
+            (
+                "md",
+                "# 04 · Semantic rule generalization\n\n**Question:** Does a frozen semantic encoder transfer better to a new rule?\n\nThis notebook reviews completed Qwen3 embedding experiments. Restore the latest S3 snapshot first. To compute a new experiment, use `uv run --extra semantic jigsaw semantic --cloud` on a CPU workspace with at least 8 GB RAM and 4 GB currently free. Completed embedding shards are reused.\n\nThe original lexical baseline remains unchanged. Software verification uses an explicitly labeled test encoder on synthetic data; those numbers are never model-performance evidence.",
+            ),
+            ("code", SETUP),
+            (
+                "code",
+                "from jigsaw_rules.review import review_run\nis_demo = (root / 'data/raw/SYNTHETIC.txt').exists()\nif is_demo:\n    from tests.helpers import TestEncoder\n    from jigsaw_rules.embeddings import load_spec\n    from jigsaw_rules.pipeline import run_baseline\n    from jigsaw_rules.semantic_pipeline import run_semantic\n    source = Path.cwd()\n    if source.name == 'notebooks': source = source.parent\n    spec = load_spec(source)\n    spec['baseline_run'] = run_baseline(root).name\n    run_dir = run_semantic(root, spec, encoder=TestEncoder())\n    display(HTML('<b>SYNTHETIC SOFTWARE TEST — test vectors, not Qwen performance</b>'))\nelse:\n    candidates = []\n    for path in (root / 'runs').glob('*/status.json'):\n        status = json.loads(path.read_text())\n        if status.get('experiment') == 'semantic' and status.get('status') == 'completed' and status.get('synthetic') is False:\n            finished = json.loads((path.parent / 'review/complete.json').read_text())['finished_at']\n            candidates.append((finished, path.parent))\n    if not candidates: raise FileNotFoundError('Restore the completed semantic experiment with uv run jigsaw restore first.')\n    run_dir = max(candidates)[1]\nevidence = review_run(root, run_dir.name, allow_synthetic=is_demo)\nprint('Data kind:', evidence['data_kind'], '| Run:', evidence['run_id'])",
+            ),
+            (
+                "md",
+                "## Compare the same validation assignments\nThe semantic experiment reuses the original split files and checks their hashes, row coverage, and training-text isolation. The encoder is frozen. The scaler and classifier see only training-fold rows. The example-margin model uses a predeclared temperature of 0.1; its outputs are not claimed to be calibrated.",
+            ),
+            (
+                "code",
+                "comparison = json.loads((run_dir / 'review/comparison.json').read_text())\nrecords = comparison['baseline'] + comparison['semantic']\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k,v in r['metrics'].items() if isinstance(v, float)}} for r in records])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Lexical and semantic generalization on the same splits')\nfig.update_yaxes(range=[0, 1])\nfig.add_hline(y=.5, line_dash='dash')\nfig.show()",
+            ),
+            (
+                "md",
+                "## Uncertainty and probability quality\nPaired bootstrap intervals resample normalized comment groups shared across rules. They are conditional on the two observed rules and fixed OOF predictions. They do not estimate performance across arbitrary future policies or remove model-selection bias. Inspect Brier, log loss, and calibration alongside ranking AUC.",
+            ),
+            (
+                "code",
+                "intervals = pd.DataFrame(json.loads((run_dir / 'review/uncertainty.json').read_text()))\ndisplay(intervals[['model','protocol','observed_delta','ci_lower','ci_upper','draws']].round(4))\nstats = json.loads((run_dir / 'embeddings/statistics.json').read_text())\ndisplay(pd.DataFrame(stats.items(), columns=['Measurement','Value']))\nprint('Encoding time includes tokenization/inference; total invocation time is in performance/timing.json.')\nprint('Truncation counts refer to unique encoded inputs, not expanded training rows.')\ndisplay(FileLink(str(root / 'reports/private/report.html')))\ndisplay(FileLink(str(root / 'reports/private/results.json')))",
+            ),
+            (
+                "md",
+                "## Next experiment\nUse the evidence to decide whether a rule-conditioned cross-encoder or instruction model adds value. Keep the observed two-rule validation limitation visible. The current preview submission checks row alignment and probability format; a scored Kaggle submission requires the later offline inference package and account eligibility.",
+            ),
+        ]
+    )
     model = (ROOT / "src/jigsaw_rules/model.py").read_text()
     model = model.replace("from __future__ import annotations\n", "").replace(
         "from jigsaw_rules.data import EXAMPLES\n", ""

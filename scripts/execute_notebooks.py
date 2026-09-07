@@ -86,7 +86,9 @@ def execute_inprocess(nb, env):
     from IPython.utils.capture import capture_output
 
     before = os.environ.copy()
+    before_path = sys.path[:]
     os.environ.update(env)
+    sys.path.insert(0, str(Path.cwd()))
     InteractiveShell.clear_instance()
     shell = InteractiveShell.instance()
     count = 0
@@ -113,6 +115,7 @@ def execute_inprocess(nb, env):
     finally:
         os.environ.clear()
         os.environ.update(before)
+        sys.path[:] = before_path
         InteractiveShell.clear_instance()
 
 

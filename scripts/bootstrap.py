@@ -58,7 +58,7 @@ def main() -> None:
         uv = shutil.which("uv")
     if not uv:
         raise RuntimeError("uv installation did not make its executable available")
-    run([uv, "sync", "--locked", "--group", "dev"], "environment", root)
+    run([uv, "sync", "--locked", "--extra", "semantic", "--group", "dev"], "environment", root)
     run(
         [
             uv,

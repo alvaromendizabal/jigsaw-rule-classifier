@@ -1,6 +1,6 @@
 # Phase 2 · Semantic rule generalization
 
-Status: experiment design; neural implementation and hardware execution have not started. The completed lexical baseline is preserved as the comparison reference.
+Status: Phase 2A is implemented: frozen Qwen3 embedding/example comparison and a fold-fitted classifier. The exact lexical reference is preserved. A rule-conditioned cross-encoder is the next separate experiment (Phase 2B).
 
 ## Question and reference
 
@@ -17,7 +17,7 @@ The predeclared reference is `rule_examples` from run `c15c2c2318fc0ed619c6`: he
 | Rule-conditioned cross-encoder | Jointly encode rule, comment, and support examples; train within each retained fold | Test interactions independent embeddings cannot represent |
 | Context ablations | Remove examples, permute their order, remove rule text, compare maximum/mean similarity | Test reliance on the intended evidence |
 
-Candidate first frozen encoder: **Qwen/Qwen3-Embedding-0.6B**. Its model card lists 0.6B parameters, up to 1,024 embedding dimensions, Apache-2.0 licensing, and a Transformers compatibility floor of 4.51.0. The implementation must record an immutable model commit, tokenizer revision, precision, pooling, prompt, and truncation settings; these are not yet locked. [Official model card](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B).
+Implemented frozen encoder: **Qwen/Qwen3-Embedding-0.6B**. Its model card lists 0.6B parameters, up to 1,024 embedding dimensions, Apache-2.0 licensing, and a Transformers compatibility floor of 4.51.0. Revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3` is pinned in `configs/semantic.json`; Hub object hashes are in `configs/model.json`. Inference uses CPU float32, SDPA, last non-padding-token pooling, unit normalization, and a 256-token cap. The exact prompt and all execution settings are recorded. [Official model card](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B).
 
 Published benchmark claims do not establish performance on this dataset. The fifth-place competition writeup describes a diverse ensemble involving per-rule specialists and embedding models, motivating candidate families rather than guaranteeing a result. [Team writeup](https://www.kaggle.com/c/jigsaw-agile-community-rules/writeups/5th-place-solution-diverse-ensemble).
 
@@ -41,4 +41,20 @@ Long steps emit UTC start/heartbeat/completion events, completed/total batch cou
 
 The current small CPU workspace supports saved review and lexical baselines. Do not assume it can efficiently run the neural candidate. Lock compatible dependencies, estimate weight/activation memory, and run a bounded smoke batch on the intended hardware. Record measured memory, latency, disk usage, maximum runtime, and spend limit.
 
-The next pull request must test cached-batch resume, corruption, model/prompt invalidation, padding/pooling, inference-mode determinism, fold isolation, and row alignment. Include a small real-model integration test. Merge after CI and hardware smoke tests pass; then execute the full experiment with cloud checkpoints. This release does not install neural dependencies or launch a GPU job.
+The next pull request must test cached-batch resume, corruption, model/prompt invalidation, padding/pooling, inference-mode determinism, fold isolation, and row alignment. Include a small real-model integration test. Merge after CI and hardware smoke tests pass; then execute the full experiment with cloud checkpoints. This release installs CPU neural dependencies through the `semantic` extra and verifies the real pinned model. It does not launch a GPU job. The four-example integration passed in approximately 16 seconds with 3.83 GiB peak RSS; full-dataset memory and runtime are recorded separately.
+
+
+## Running or reviewing
+
+Run `bash bootstrap.sh` after pulling the release. It installs the locked semantic extra and checks the code. To review a completed semantic experiment on the existing small instance, restore S3 and open `notebooks/04_semantic_benchmark.ipynb`; review does not load Qwen weights.
+
+A fresh computation needs a CPU workspace with at least 8 GB RAM and 4 GB free. The current 4 GB Studio instance is suitable for review but is too small for the measured model footprint. On suitable hardware:
+
+```bash
+uv run --extra semantic python scripts/verify_semantic.py
+uv run --extra semantic jigsaw semantic --cloud
+```
+
+Rerun the same command after interruption. Completed 64-input shards are checksummed and reused; the active incomplete shard restarts. With `--cloud`, S3 snapshots follow each committed shard and model stage. Model weights remain in the local persistent Hub download directory and can be redownloaded by their immutable revision. Cached embeddings can be reused without loading weights.
+
+The margin model uses an untuned temperature of 0.1, so its probability metrics are diagnostics rather than evidence of calibration. Bootstrap intervals use 500 paired draws of normalized comment groups shared across rules and are conditional on fixed OOF predictions. Source revisions, data hashes, model assets, split files, and cache contracts remain traceable.

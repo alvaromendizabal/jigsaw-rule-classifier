@@ -10,7 +10,8 @@ from pathlib import Path, PurePosixPath
 import pandas as pd
 
 from jigsaw_rules.metrics import evaluate
-from jigsaw_rules.runtime import Progress, atomic_bytes, atomic_json, digest
+from jigsaw_rules.report import build_report
+from jigsaw_rules.runtime import Progress, atomic_json, digest
 
 
 def verified_stage(run_dir: Path, name: str) -> dict:
@@ -114,7 +115,7 @@ def review_run(root: Path, run_id: str | None = None, *, allow_synthetic: bool =
         }
         output = root / "reports/private"
         atomic_json(output / "results.json", evidence)
-        atomic_bytes(output / "report.html", (run_dir / "review/report.html").read_bytes())
+        build_report(output, results, predictions, synthetic=synthetic)
         log.emit("REVIEW_VERIFIED", run_id=run_dir.name, data_kind=evidence["data_kind"])
         for result in results:
             print(

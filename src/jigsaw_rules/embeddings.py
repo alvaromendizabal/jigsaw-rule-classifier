@@ -75,7 +75,7 @@ def prepare_model(root: Path, spec: dict) -> Path:
         if actual != entry["digest"]:
             raise ValueError(f"Model asset differs from pinned Hub object: {name}")
 
-    with Progress(root / "logs/model_download.jsonl", "model_download") as log:
+    with Progress(root / "runs/model_download.jsonl", "model_download") as log:
         for name in MODEL_FILES:
             path = destination / name
             if path.is_file() and prior.get(name) == digest(path):
@@ -252,7 +252,7 @@ def encode_cached(
             "encode_seconds": 0.0,
         },
     )
-    with Progress(root / "logs/embeddings.jsonl", "embedding_cache") as log:
+    with Progress(root / "runs/embeddings.jsonl", "embedding_cache") as log:
         for start in range(0, len(unique), shard_size):
             batch = unique[start : start + shard_size]
             name = "batch_" + content_key(batch)[:20]
