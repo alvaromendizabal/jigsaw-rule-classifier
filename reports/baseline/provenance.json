@@ -1,0 +1,45 @@
+{
+  "data": {
+    "sample_submission.csv": "6524e86a03abe387f0867247629e08493770a6f9d37120cc8165322e7486a066",
+    "test.csv": "107b8b329200171f55d2523e6d32670641b53d5be41e0c1d5b9da0b8813cdd41",
+    "train.csv": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a"
+  },
+  "code": {
+    "__init__.py": "18de2b5e416ec22954f81d5e04f148407913381f6bd898780c3246259a657694",
+    "cli.py": "988663b5f8bf9138432010a4b6ece15a54883b5f1a1f53b4250c6bc4a0f19a5e",
+    "cloud.py": "25d135b0f2ab9113de8f28216bcbc1a4a70652c2b2736fef9f3c04bbea7fc3a6",
+    "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "download.py": "2afaebc821d93e1ffa94644463822155e3dcbeb0f4289e87bb655d0e38d56cfc",
+    "metrics.py": "ab379c5a5014e6f7f50bb267e34d53ff9fe90419b16f288aa34a00a62855f85b",
+    "model.py": "99820c4626b157661fd5e4202576cd0205d6e475070c6421ba78f18eb75265bb",
+    "pipeline.py": "5debb7dfe7bbb43aca301c3fddd86623f5e8a486b289684101673282b7fda6f7",
+    "report.py": "8ecec1def8be3b03e9b0f7af220fb09a3e894838a77e4be5662a934bf8b81524",
+    "runtime.py": "8369169b24ac7c941661909db1255c76bc9a8a1206a4434be9146cfa233d447b",
+    "splits.py": "781d52813bb4fcb85713144f6c39279efa6f431e414aa737f31d030687c07b0f"
+  },
+  "config": {
+    "seed": 2025,
+    "folds": 3,
+    "synthetic": false,
+    "models": [
+      "comment_only",
+      "rule_examples"
+    ],
+    "protocols": [
+      "seen_rule",
+      "heldout_rule"
+    ],
+    "submission_model": "rule_examples"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "plotly": "7.0.0"
+    }
+  }
+}
