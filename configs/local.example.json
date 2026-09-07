@@ -1,0 +1,7 @@
+{
+  "region": "us-west-2",
+  "bucket": "your-project-bucket",
+  "domain_id": "your-existing-domain",
+  "user_profile": "your-existing-user-profile",
+  "space": "jigsaw-rules-dev"
+}
