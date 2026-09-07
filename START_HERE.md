@@ -1,12 +1,10 @@
 # Start with the evidence
 
-**Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [04 · Semantic benchmark](notebooks/04_semantic_benchmark.ipynb). The supporting notebooks explain the data audit and lexical reference. No AWS account, private data, or model download is required to read them.
+**Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [04 · Semantic benchmark](notebooks/04_semantic_benchmark.ipynb). The other three notebooks explain the audit, validation, and lexical reference. No AWS account, private data, or model download is required to read the five executed public notebooks.
 
-## Continue in your existing SageMaker checkout
+## Update an existing SageMaker checkout
 
-Your supplied log already shows successful bootstrap, 57 passing tests, and a completed restore. Do not repeat training to display those results.
-
-Close the project notebook tabs before updating so an old browser tab cannot autosave over an updated file. This continuation requires the existing `main` checkout and locked `.venv`; it stops on another branch rather than switching your work silently.
+Use the existing locked environment and restored artifacts. Close project notebook tabs before updating so an old browser tab cannot autosave over a newer file. This block preserves tracked notebook changes in a named stash, requires `main`, fast-forwards, and verifies the source and five public notebooks. It does not repeat bootstrap or original training.
 
 <!-- workspace-update:start -->
 ```bash
@@ -19,46 +17,53 @@ git pull --ff-only origin main &&
 ```
 <!-- workspace-update:end -->
 
-The named stash preserves tracked notebook changes, including local outputs and any source edits, before the update. It is retained for inspection with `git stash list`; **do not automatically pop or drop it**. The updated canonical notebooks come from `main`, while the pre-update local versions remain in the stash. A stash is local Git storage, not an S3 backup. No local changes to save is a successful no-op. Unrelated source changes, untracked files, private data, model weights, saved runs, and `configs/local.json` are left in place by this command. An unrelated conflicting edit, divergent branch, failed pull, or failed quality gate stops the sequence before notebook execution. Do not use `git reset --hard`, `git clean`, or a force push to bypass those protections.
+The stash is retained for inspection with `git stash list`; do not automatically pop or drop it. No local notebook changes is a successful no-op. Unrelated edits, untracked files, private data, model weights, runs, and `configs/local.json` remain in place. An unrelated conflicting edit, divergent branch, failed pull, or failed quality gate stops the sequence. Do not use `git reset --hard`, `git clean`, or a force push. A stash is local Git storage, not an S3 backup.
 
-Open the canonical notebooks in `notebooks/` after the command completes. It verifies all five public notebooks against the checked-in aggregate evidence, not model weights. It emits UTC start/finish events, cell progress, 15-second heartbeats, stage time, total invocation time, and `NOTEBOOKS_VERIFIED`. Matching completed notebook checkpoints are reused. The checkpoint path is printed in `logs/notebook_execution.jsonl`. Default verification does not rewrite the canonical notebook files, so verification itself does not dirty the next pull. No dependency reinstall, model download, retraining, or new AWS resource is requested.
+A terminal prefix such as `^[[200~` is a paste-control sequence. Press **Ctrl+C**, manually type `bind 'set enable-bracketed-paste off'`, and press Enter before pasting again. This changes only the current Bash session; pasted newlines can execute immediately. Copy only code, without the prompt or a trailing `~`.
 
-A terminal prefix such as `^[[200~` is a paste-control sequence, not part of the command. Press **Ctrl+C**, manually type `bind 'set enable-bracketed-paste off'`, and press Enter before pasting again. This changes only the current Bash session; pasted newlines can execute commands immediately, so inspect the copied text first. Copy only the code, without the shell prompt or a trailing `~`.
+## After the notebooks pass: real-data submission handoff
 
-To execute all five public notebooks and atomically refresh their canonical files deliberately:
+Run this in the fully restored checkout after the quality gate passes:
+
+```bash
+cd "$HOME/projects/jigsaw-rule-classifier" &&
+.venv/bin/python -m jigsaw_rules.cli review --run-id c15c2c2318fc0ed619c6 &&
+.venv/bin/python scripts/execute_notebooks.py --kaggle &&
+.venv/bin/python -m jigsaw_rules.cli backup
+```
+
+This recalculates the selected lexical reference's metrics from saved OOF predictions, executes the standalone notebook against real downloaded competition data, and snapshots completed work to the existing private S3 bucket. Expected events: `REVIEW_VERIFIED`, `NOTEBOOKS_VERIFIED` with `mode="kaggle"`, and `snapshot_committed`.
+
+The first offline inference execution fits the inexpensive lexical reference once on all training rows. Matching completed notebook checkpoints are reused subsequently. It does not rerun original cross-validation, load Qwen, download weights, launch a training job, or resize compute. A CSV establishes inference validity, not new model quality.
+
+Inspect `reports/private/report.html`, `kaggle_output/submission.csv`, and `kaggle_output/submission_manifest.json`. The executed inference notebook and original CSV/manifest live in checksummed `runs/notebook_execution/` checkpoints, included in backup. `kaggle_output/` contains ignored convenience copies; restoring the snapshot and rerunning inference recreates them from a matching cache. Do not add private reports, data, predictions, credentials, or local configuration to GitHub.
+
+## Durability and progress
+
+The runners emit UTC timestamps, cell/batch progress, 15-second heartbeats, stage time, and total invocation time. Live logs are `logs/notebook_execution.jsonl`, `logs/commands.jsonl`, and `logs/cloud.jsonl`. Committed event logs under `runs/` are backed up; the top-level `logs/` directory is local. Run backup, training, and restore sequentially.
+
+An incomplete checkout cannot publish a latest snapshot that omits previously saved paths. Restore missing work first; never force-delete local conflicts. Access errors are not treated as an empty bucket. Conditional publication compares the previous ETag (`If-Match`) or requires an absent first snapshot (`If-None-Match`), preventing a competing backup from silently replacing the latest pointer. Old content-addressed snapshots remain. Changed model/data artifacts during upload stop publication; JSONL logs are captured as byte snapshots while they may continue appending. An interrupted upload can reuse already-uploaded content objects on retry. [AWS conditional writes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes.html).
+
+Completed notebooks, model folds, and embedding shards are reusable when their contracts and checksums match. An active interrupted notebook, CPU solver fold, or embedding shard restarts. Neural optimizer-state recovery is not implemented. No software can guarantee that external services never fail; failed work must remain visible without destroying valid checkpoints.
+
+Routine public verification does not rewrite canonical notebooks. Deliberate publication is separate:
 
 ```bash
 .venv/bin/python scripts/execute_notebooks.py --publish
 ```
 
-Publication is allowed only for public aggregate notebooks. Synthetic or private Kaggle execution cannot overwrite them. A failed notebook does not replace its last-good canonical file; completed earlier notebooks remain cached. An interrupted active notebook restarts from its first cell, while its completed predecessors are reused. Review and publish changes through a feature branch and pull request, not a force push. Routine verification does not require `--publish`.
+Only public aggregate evidence can be published. Private or synthetic execution cannot overwrite the five public notebooks. Failed execution preserves the last-good canonical file. Publish intentional source/output changes through a feature branch and reviewed pull request. The aggregate reader checks committed checksums and provenance; private `jigsaw review` recomputes metrics from saved row-level predictions.
 
-## Recalculate private metrics without retraining
+## Run and submit on Kaggle
 
-The public notebooks verify aggregate checksums and provenance; they do **not** recompute metrics from row-level predictions. The stricter private review remains:
+Download the canonical `kaggle/submission.ipynb` from SageMaker and import it into a Kaggle notebook. Attach the official `jigsaw-agile-community-rules` competition data, use CPU/no accelerator, disable internet, and select **Save Version → Save & Run All**. The notebook must produce `/kaggle/working/submission.csv` and `SUBMISSION_VALIDATED`.
 
-```bash
-.venv/bin/python -m jigsaw_rules.cli review
-```
+For this code competition, submit the successful saved notebook version through the late-submission flow when available to the signed-in account. The downloaded preview CSV is not a hidden-test score. The October 23, 2025 deadline has passed; a visible public late-submission entry does not establish eligibility for a specific account. Record a score only after Kaggle returns one. [Official competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules).
 
-Your existing private `configs/local.json` and restored run files remain in place. In a new workspace, restore the current S3 snapshot before private review or any new backup. Never replace the latest snapshot from a partially populated checkout.
+The explicitly synthetic software-only inference check is `scripts/execute_notebooks.py --synthetic`. It never establishes competition performance.
 
-## Explicit model work
+## Next model experiment, not another setup cycle
 
-The semantic comparison is a completed embedding benchmark, not a verified top-performing competition model. Keep the lexical reference while testing a joint rule/comment cross-encoder with context ablations. See [PHASE_2.md](docs/PHASE_2.md).
+The semantic benchmark is completed, not a proven top-performing model. Preserve the lexical reference while testing a joint rule/comment cross-encoder with support-context ablations and training-fold-only calibration; see [PHASE_2.md](docs/PHASE_2.md). Its implementation, measured comparison, and optimizer-state recovery remain outstanding.
 
-Do not rerun Qwen on the current 4 GB Studio app: the recorded process alone peaked at 3.854 GiB. Review does not require resizing. Approve hardware, maximum runtime, and spending before any paid model experiment. Completed embedding shards and model folds resume; an active CPU solver does not resume within an iteration. GPU optimizer-state recovery is not implemented yet.
-
-## Kaggle and verification
-
-The standalone `kaggle/submission.ipynb` is the offline lexical reference. Its synthetic integration test is explicit:
-
-```bash
-.venv/bin/python scripts/execute_notebooks.py --synthetic
-```
-
-That test never establishes competition performance. To deliberately fit offline inference against existing real competition data, use `--kaggle`; its validated CSV and manifest are copied to `kaggle_output/`. A preview CSV is not a scored submission. The 2025 competition has ended; authenticated late-submission eligibility is still unverified.
-
-The complete source gate is `.venv/bin/python scripts/verify.py`. `tests/test_workspace_update.py` exercises the documented update block against disposable local Git repositories; its notebook runner is a stub, so these tests verify update safety rather than notebook execution or model quality. Existing notebook tests and CI cover actual execution. Training is not a prerequisite for reading or publishing the five portfolio notebooks.
-
-When finished using Studio, stop the JupyterLab app to stop its compute billing. Do not delete the space or S3 snapshots; persistent storage remains billable.
+Do not rerun Qwen on the recorded 4 GB Studio app: the process alone peaked at 3.854 GiB. Saved review needs no resize. Approve hardware, maximum runtime, and spending before paid model experiments. Stop the JupyterLab app when finished; do not delete the space or S3 snapshots. Persistent storage remains billable.
