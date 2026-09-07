@@ -1,0 +1,87 @@
+{
+  "data": {
+    "sample_submission.csv": "6524e86a03abe387f0867247629e08493770a6f9d37120cc8165322e7486a066",
+    "test.csv": "107b8b329200171f55d2523e6d32670641b53d5be41e0c1d5b9da0b8813cdd41",
+    "train.csv": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a"
+  },
+  "code": {
+    "__init__.py": "18de2b5e416ec22954f81d5e04f148407913381f6bd898780c3246259a657694",
+    "cli.py": "ae5decb6c409d788b91de17d8088447eed9b2d5d235ce8a74e5a1f1ce12e1c1a",
+    "cloud.py": "25d135b0f2ab9113de8f28216bcbc1a4a70652c2b2736fef9f3c04bbea7fc3a6",
+    "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "download.py": "2afaebc821d93e1ffa94644463822155e3dcbeb0f4289e87bb655d0e38d56cfc",
+    "embeddings.py": "12a9b1b4a3700205d82c745cbb8ee809ab39dcddfaef2b016dbea7851eec0f13",
+    "metrics.py": "ab379c5a5014e6f7f50bb267e34d53ff9fe90419b16f288aa34a00a62855f85b",
+    "model.py": "99820c4626b157661fd5e4202576cd0205d6e475070c6421ba78f18eb75265bb",
+    "pipeline.py": "d0b7ebaec235f78cb07ea6406def576666b452f8cfb03d82ca9b0ac098ba24f6",
+    "report.py": "8ecec1def8be3b03e9b0f7af220fb09a3e894838a77e4be5662a934bf8b81524",
+    "review.py": "2bf517055df0be4a568325987834e7397c19e5ac0d60042f12bd9b4fa5945c6f",
+    "runtime.py": "8369169b24ac7c941661909db1255c76bc9a8a1206a4434be9146cfa233d447b",
+    "semantic.py": "29e2783b17068f1af462f330ae41d3202f2a65b366b68e73ef1ac94a6ecff18b",
+    "semantic_pipeline.py": "504a5a69ac7f0a38e0a1d1a91c39d629697b0b1e920244a91253e80b62ffdbe5",
+    "splits.py": "781d52813bb4fcb85713144f6c39279efa6f431e414aa737f31d030687c07b0f",
+    "uncertainty.py": "69803244a4f88527616f3dcb313c555083029a5569bce3f8e687966352757c9d"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "plotly": "7.0.0"
+    }
+  },
+  "config": {
+    "experiment": "semantic",
+    "synthetic": false,
+    "spec": {
+      "schema": 1,
+      "model_id": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "baseline_run": "c15c2c2318fc0ed619c6",
+      "max_length": 256,
+      "micro_batch": 4,
+      "cache_batch": 64,
+      "threads": 4,
+      "dtype": "float32",
+      "device": "cpu",
+      "include_rule": true,
+      "instruction": "Represent the meaning of the comment in relation to the community rule.",
+      "margin_temperature": 0.1,
+      "classifier_c": 1.0,
+      "seed": 2025,
+      "max_seconds": 7200
+    },
+    "encoder": {
+      "model_id": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "max_length": 256,
+      "micro_batch": 4,
+      "threads": 4,
+      "dtype": "float32",
+      "device": "cpu",
+      "include_rule": true,
+      "instruction": "Represent the meaning of the comment in relation to the community rule.",
+      "pooling": "last_non_padding_token_l2_normalized",
+      "software": {
+        "torch": "2.10.0+cpu",
+        "transformers": "4.57.6",
+        "numpy": "2.3.5"
+      },
+      "implementation": "16d9310a15f8fecf642bb3cf3f82c7d7b82bae2ad30d76016b75ae63f56c08ef"
+    },
+    "models": [
+      "semantic_margin",
+      "semantic_classifier"
+    ],
+    "protocols": [
+      "seen_rule",
+      "heldout_rule"
+    ]
+  },
+  "original_provenance_sha256": "b4d40087d5c919ae05baadd91312df14e3ae787444a30a3acbf926cbc875297f",
+  "validation_sha256": "4e2d1f81a38d7a44c1605b271d0ed0e1f92abadf59066dd93b293cbdd9844df2",
+  "note": "Aggregate provenance export; row memberships remain in the private original run."
+}

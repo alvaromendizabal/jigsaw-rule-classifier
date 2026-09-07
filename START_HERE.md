@@ -15,15 +15,17 @@ uv run jigsaw restore
 uv run jigsaw review
 ```
 
-Bootstrap installs the locked environment, registers **Python (Jigsaw Rules)**, and runs the quality gate. Restore verifies hashes and reuses matching local files. Review selects the latest completed real experiment, verifies its saved artifacts, and recalculates metrics without fitting or loading a neural model. Expected markers are `BOOTSTRAP_COMPLETED`, `RESTORE_COMPLETED`, and `REVIEW_VERIFIED` with `data_kind: competition`.
+Bootstrap installs the locked environment, registers **Python (Jigsaw Rules)**, and runs the quality gate. Restore verifies hashes and reuses matching local files. Review selects the latest completed real experiment, verifies its saved artifacts, and recalculates metrics without fitting or loading a neural model. Expected markers are `BOOTSTRAP_COMPLETED`, a completed `cloud_restore` event, and `REVIEW_VERIFIED` with `data_kind: competition`.
 
 The existing `configs/local.json` supplies private S3 settings. Keep working in the checkout under `projects/`; the earlier archive directory is historical. There is no new clone, Kaggle login, or baseline computation in this sequence.
 
 ## 2. Open the semantic comparison
 
-Open **notebooks/04_semantic_benchmark.ipynb**, select **Python (Jigsaw Rules)**, and use **Run → Run All Cells**. It compares the saved Qwen3 semantic models with the lexical reference, showing rule macro AUC, per-rule results, probability quality, paired uncertainty intervals, runtime, and memory. Its plots and tables use saved evidence.
+Open **notebooks/04_semantic_benchmark.ipynb**. It is already executed with the real results; you can inspect it immediately on GitHub or in JupyterLab. If you later want to refresh the displays after restoring new results, select **Python (Jigsaw Rules)** and run its cells. It compares the saved Qwen3 semantic models with the lexical reference, showing rule macro AUC, per-rule results, probability quality, paired uncertainty intervals, runtime, and memory. Its plots and tables use saved evidence.
 
 The current small CPU app can review the completed experiment without loading Qwen weights. `notebooks/03_saved_results.ipynb` remains available for general saved-run review. The exported `reports/private/results.json` and HTML identify real versus synthetic data explicitly.
+
+The completed semantic run is `4e7e6c00d269c451c0a3`. Held-out-rule AUC is 0.6351 for the frozen margin and 0.5858 for the learned similarity classifier, versus 0.6156 for the lexical reference. The margin gain is uncertain and probability quality does not improve. The reference remains in place.
 
 ## 3. New model work after review
 

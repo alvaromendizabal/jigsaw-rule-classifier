@@ -1,0 +1,28 @@
+{
+  "train_rows": 2029,
+  "preview_test_rows": 10,
+  "train_rules": [
+    "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "No legal advice: Do not offer or request legal advice."
+  ],
+  "preview_test_rules": [
+    "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "No legal advice: Do not offer or request legal advice."
+  ],
+  "duplicate_training_bodies": 162,
+  "train_test_body_overlap": 10,
+  "label_prevalence": 0.5081320847708231,
+  "by_rule": [
+    {
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "size": 1012,
+      "mean": 0.43280632411067194
+    },
+    {
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "size": 1017,
+      "mean": 0.5830875122910522
+    }
+  ],
+  "test_note": "Downloaded test is a preview; hidden evaluation can replace it."
+}

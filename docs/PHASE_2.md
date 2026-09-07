@@ -1,6 +1,6 @@
 # Phase 2 · Semantic rule generalization
 
-Status: Phase 2A is implemented: frozen Qwen3 embedding/example comparison and a fold-fitted classifier. The exact lexical reference is preserved. A rule-conditioned cross-encoder is the next separate experiment (Phase 2B).
+Status: Phase 2A is implemented and its real-data benchmark is complete: frozen Qwen3 embedding/example comparison and a fold-fitted classifier. The exact lexical reference is preserved. A rule-conditioned cross-encoder is the next separate experiment (Phase 2B).
 
 ## Question and reference
 
@@ -41,12 +41,12 @@ Long steps emit UTC start/heartbeat/completion events, completed/total batch cou
 
 The current small CPU workspace supports saved review and lexical baselines. Do not assume it can efficiently run the neural candidate. Lock compatible dependencies, estimate weight/activation memory, and run a bounded smoke batch on the intended hardware. Record measured memory, latency, disk usage, maximum runtime, and spend limit.
 
-The next pull request must test cached-batch resume, corruption, model/prompt invalidation, padding/pooling, inference-mode determinism, fold isolation, and row alignment. Include a small real-model integration test. Merge after CI and hardware smoke tests pass; then execute the full experiment with cloud checkpoints. This release installs CPU neural dependencies through the `semantic` extra and verifies the real pinned model. It does not launch a GPU job. The four-example integration passed in approximately 16 seconds with 3.83 GiB peak RSS; full-dataset memory and runtime are recorded separately.
+The implementation tests cached-batch resume, corruption, model/prompt invalidation, padding/pooling, inference-mode consistency, fold isolation, and row alignment. A small real-model integration check passed locally and in GitHub Actions. The full experiment completed on CPU; the original source and every committed artifact were verified before publication. This release installs CPU neural dependencies through the `semantic` extra and verifies the real pinned model. It does not launch a GPU job. The four-example integration passed locally in approximately 16 seconds with 3.83 GiB peak RSS. The full benchmark took 1,004.7 seconds with 3.854 GiB peak RSS. These timings exclude the prior model download.
 
 
 ## Running or reviewing
 
-Run `bash bootstrap.sh` after pulling the release. It installs the locked semantic extra and checks the code. To review a completed semantic experiment on the existing small instance, restore S3 and open `notebooks/04_semantic_benchmark.ipynb`; review does not load Qwen weights.
+Run `bash bootstrap.sh` after pulling the release. It installs the locked semantic extra and checks the code. To review a completed semantic experiment on the existing small instance, open the already executed `notebooks/04_semantic_benchmark.ipynb`. Restore S3 if refreshing its displays; review does not load Qwen weights.
 
 A fresh computation needs a CPU workspace with at least 8 GB RAM and 4 GB free. The current 4 GB Studio instance is suitable for review but is too small for the measured model footprint. On suitable hardware:
 
@@ -58,3 +58,9 @@ uv run --extra semantic jigsaw semantic --cloud
 Rerun the same command after interruption. Completed 64-input shards are checksummed and reused; the active incomplete shard restarts. With `--cloud`, S3 snapshots follow each committed shard and model stage. Model weights remain in the local persistent Hub download directory and can be redownloaded by their immutable revision. Cached embeddings can be reused without loading weights.
 
 The margin model uses an untuned temperature of 0.1, so its probability metrics are diagnostics rather than evidence of calibration. Bootstrap intervals use 500 paired draws of normalized comment groups shared across rules and are conditional on fixed OOF predictions. Source revisions, data hashes, model assets, split files, and cache contracts remain traceable.
+
+## Recorded decision
+
+The frozen margin scored 0.63507 held-out-rule macro AUC, versus 0.61556 for the contextual lexical reference. The paired delta interval spans −0.01323 to +0.04914, and its probability losses do not improve. The learned similarity classifier scored 0.58577 and has substantially poorer held-out probability quality. Familiar-rule semantic results are also below the lexical reference. Preserve the lexical model as the reference and test a joint rule/comment cross-encoder next. Do not tune this frozen benchmark repeatedly against the same two rules and claim an untouched final test.
+
+The public [experiment record](../reports/semantic/README.md) includes both successful and unsuccessful outcomes, per-rule differences, original source/data provenance, and observed hardware behavior.

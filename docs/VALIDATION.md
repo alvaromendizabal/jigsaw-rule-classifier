@@ -8,7 +8,7 @@ Verified September 7, 2026. These are software checks, not a Kaggle performance 
 | Full `bash bootstrap.sh` | Passed; `BOOTSTRAP_COMPLETED` |
 | Python compilation | Passed |
 | Ruff and formatting | Passed |
-| Automated tests | 54 passed; warnings treated as errors |
+| Automated tests | 57 passed; warnings treated as errors |
 | Generated notebook consistency | Passed |
 | All six notebooks, sequential code-cell execution | Passed using the explicit in-process IPython engine; output notebooks retained |
 | Standard Jupyter kernel launch in this workspace | Blocked by the workspace's socket restrictions; not claimed as passed |
@@ -47,3 +47,5 @@ The real pinned Qwen3 encoder passed an authored four-example integration test: 
 The 16 added tests cover last-token pooling with both padding directions, invalid vectors, input order and deduplication, interrupted shards, corruption, model/prompt invalidation, feature-order invariance, fold-only scaling/fitting, exact reference splits, source-data identity, reuse without fitting, rejection of test encoders on real data, and paired grouped uncertainty intervals. CI synthetic notebooks explicitly label their deterministic test vectors.
 
 The full real benchmark uses the original 2,029 training rows and five saved split assignments. Public aggregate evidence is kept in `reports/semantic/`; raw inputs, OOF predictions, portable classifier states, and embedding shards remain private. A separate source commit is recorded for the original run because later presentation changes must not rewrite its provenance.
+
+The real semantic review notebook was executed locally using the explicit in-process engine, checked for errors/stderr, and committed with aggregate tables and figures visible. Three additional tests protect those outputs during source regeneration and invalidate them when code or narrative changes. The full real experiment finished at 2026-09-07T01:42:55Z in 1,004.708 seconds; review recomputed every reported metric from the saved private OOF predictions and verified all 16 source-module hashes against its original commit. The recorded Qwen integration in [Quality run 4](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34073870803) passed alongside six ordinary encrypted Jupyter notebooks; subsequent Quality runs validate the final notebook-output changes.

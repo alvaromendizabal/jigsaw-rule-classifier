@@ -4,7 +4,7 @@ Predict whether a comment violates a supplied community rule, using the rule tex
 
 This project studies how text models behave when policies change. It combines explicit validation, auditable probability metrics, resumable experiments, and portable offline inference. Built by Alvaro Mendizabal for an employer-facing NLP portfolio.
 
-**Current milestone:** A pinned Qwen3 embedding benchmark is implemented and being evaluated against the preserved lexical baseline. See [Phase 2](docs/PHASE_2.md) for its implementation, verification, and measured evidence. This repository does not claim a medal or leaderboard result.
+**Current milestone:** The pinned Qwen3 embedding benchmark is complete and compared with the preserved lexical baseline. See [Phase 2](docs/PHASE_2.md) for its implementation, verification, and measured evidence. This repository does not claim a medal or leaderboard result.
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
@@ -19,9 +19,27 @@ Run `c15c2c2318fc0ed619c6` evaluated **2,029 competition training rows**. Each m
 
 ![Baseline generalization comparison](reports/baseline/comparison.svg)
 
-Adding lexical example features changes familiar-rule AUC very little and gives a modest descriptive improvement in held-out ranking. Probability losses do not improve. No significance claim is made. Semantic understanding and broader validation are the next research questions.
+Adding lexical example features changes familiar-rule AUC very little and gives a modest descriptive improvement in held-out ranking. Probability losses do not improve. The lexical reference remains the comparison point for the semantic experiments below.
 
 The audit found 162 duplicate training bodies and overlap between training and all 10 preview test comments. The preview tests submission plumbing; it cannot establish independent model performance. [Inspect the recorded evidence](reports/baseline/README.md) and [the Phase 2 experiment plan](docs/PHASE_2.md).
+
+## Recorded semantic experiment
+
+Run `4e7e6c00d269c451c0a3` uses frozen **Qwen3-Embedding-0.6B**, pinned to an immutable Hub revision, with the exact original validation assignments. Only the similarity classifier learns from fold labels; Qwen weights remain frozen.
+
+| Model | Familiar-rule macro AUC | Held-out-rule macro AUC | Held-out log loss | Held-out Brier |
+| --- | ---: | ---: | ---: | ---: |
+| Lexical rule/example reference | 0.7287 | 0.6156 | 0.6736 | 0.2405 |
+| Frozen semantic margin | 0.6351 | 0.6351 | 0.6786 | 0.2423 |
+| Fold-fitted semantic classifier | 0.6013 | 0.5858 | 0.8264 | 0.2976 |
+
+![Semantic and lexical comparison](reports/semantic/comparison.svg)
+
+The margin's held-out AUC gain is **+0.0195**, with a paired 95% bootstrap interval of **−0.0132 to +0.0491**. This does not establish a reliable improvement. Its advertising AUC improves, legal-advice AUC declines, and probability losses worsen slightly. The learned similarity classifier performs worse. **The lexical model remains the reference; neither semantic candidate is promoted as an overall replacement.**
+
+The frozen margin produces the same predictions in both protocols because it fits no fold labels. The two columns are not independent replications. Only two labeled rules are observed. The next experiment will test joint rule/comment encoding and context ablations. [Detailed experiment record](reports/semantic/README.md).
+
+The full run took **1,004.7 seconds** on CPU after weights were already downloaded, with **3.854 GiB** peak process memory and **1 of 1,875** unique inputs truncated at 256 tokens. Runtime, original source hashes, paired intervals, and the negative results are retained. **Notebook 04 is committed with real outputs already displayed.**
 
 ## Start here
 

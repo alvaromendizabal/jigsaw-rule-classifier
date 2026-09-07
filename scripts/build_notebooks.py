@@ -178,12 +178,12 @@ def notebooks():
         [
             (
                 "md",
-                "# 04 · Semantic rule generalization\n\n**Question:** Does a frozen semantic encoder transfer better to a new rule?\n\nThis notebook reviews completed Qwen3 embedding experiments. Restore the latest S3 snapshot first. To compute a new experiment, use `uv run --extra semantic jigsaw semantic --cloud` on a CPU workspace with at least 8 GB RAM and 4 GB currently free. Completed embedding shards are reused.\n\nThe original lexical baseline remains unchanged. Software verification uses an explicitly labeled test encoder on synthetic data; those numbers are never model-performance evidence.",
+                "# 04 · Semantic rule generalization\n\n**Question:** Does a frozen semantic encoder transfer better to a new rule?\n\nThe committed notebook already displays the reviewed real results. Open it to inspect the tables and figures. To refresh the computation of these displays, restore the latest S3 snapshot first. To compute a new experiment, use `uv run --extra semantic jigsaw semantic --cloud` on a CPU workspace with at least 8 GB RAM and 4 GB currently free. Completed embedding shards are reused.\n\nThe original lexical baseline remains unchanged. Software verification uses an explicitly labeled test encoder on synthetic data; those numbers are never model-performance evidence.",
             ),
-            ("code", SETUP),
+            ("code", SETUP.replace('print("Project:", root)', 'print("Project:", root.name)')),
             (
                 "code",
-                "from jigsaw_rules.review import review_run\nis_demo = (root / 'data/raw/SYNTHETIC.txt').exists()\nif is_demo:\n    from tests.helpers import TestEncoder\n    from jigsaw_rules.embeddings import load_spec\n    from jigsaw_rules.pipeline import run_baseline\n    from jigsaw_rules.semantic_pipeline import run_semantic\n    source = Path.cwd()\n    if source.name == 'notebooks': source = source.parent\n    spec = load_spec(source)\n    spec['baseline_run'] = run_baseline(root).name\n    run_dir = run_semantic(root, spec, encoder=TestEncoder())\n    display(HTML('<b>SYNTHETIC SOFTWARE TEST — test vectors, not Qwen performance</b>'))\nelse:\n    candidates = []\n    for path in (root / 'runs').glob('*/status.json'):\n        status = json.loads(path.read_text())\n        if status.get('experiment') == 'semantic' and status.get('status') == 'completed' and status.get('synthetic') is False:\n            finished = json.loads((path.parent / 'review/complete.json').read_text())['finished_at']\n            candidates.append((finished, path.parent))\n    if not candidates: raise FileNotFoundError('Restore the completed semantic experiment with uv run jigsaw restore first.')\n    run_dir = max(candidates)[1]\nevidence = review_run(root, run_dir.name, allow_synthetic=is_demo)\nprint('Data kind:', evidence['data_kind'], '| Run:', evidence['run_id'])",
+                "from jigsaw_rules.review import review_run\nis_demo = (root / 'data/raw/SYNTHETIC.txt').exists()\nif is_demo:\n    from tests.helpers import TestEncoder\n    from jigsaw_rules.embeddings import load_spec\n    from jigsaw_rules.pipeline import run_baseline\n    from jigsaw_rules.semantic_pipeline import run_semantic\n    source = Path.cwd()\n    if source.name == 'notebooks': source = source.parent\n    spec = load_spec(source)\n    spec['baseline_run'] = run_baseline(root).name\n    run_dir = run_semantic(root, spec, encoder=TestEncoder())\n    display(HTML('<b>SYNTHETIC SOFTWARE TEST — test vectors, not Qwen performance</b>'))\nelse:\n    candidates = []\n    for path in (root / 'runs').glob('*/status.json'):\n        status = json.loads(path.read_text())\n        if status.get('experiment') == 'semantic' and status.get('status') == 'completed' and status.get('synthetic') is False:\n            finished = json.loads((path.parent / 'review/complete.json').read_text())['finished_at']\n            candidates.append((finished, path.parent))\n    if not candidates: raise FileNotFoundError('Restore the completed semantic experiment with uv run jigsaw restore first.')\n    run_dir = max(candidates)[1]\nimport contextlib\nimport io\nwith contextlib.redirect_stdout(io.StringIO()):\n    evidence = review_run(root, run_dir.name, allow_synthetic=is_demo)\nprint('Data kind:', evidence['data_kind'], '| Run:', evidence['run_id'])",
             ),
             (
                 "md",
@@ -191,7 +191,7 @@ def notebooks():
             ),
             (
                 "code",
-                "comparison = json.loads((run_dir / 'review/comparison.json').read_text())\nrecords = comparison['baseline'] + comparison['semantic']\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k,v in r['metrics'].items() if isinstance(v, float)}} for r in records])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Lexical and semantic generalization on the same splits')\nfig.update_yaxes(range=[0, 1])\nfig.add_hline(y=.5, line_dash='dash')\nfig.show()",
+                "comparison = json.loads((run_dir / 'review/comparison.json').read_text())\nrecords = comparison['baseline'] + comparison['semantic']\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k,v in r['metrics'].items() if isinstance(v, float)}} for r in records])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Lexical and semantic generalization on the same splits')\nfig.update_yaxes(range=[0, 1])\nfig.add_hline(y=.5, line_dash='dash')\nfig.show()\nif not is_demo:\n    from IPython.display import SVG\n    display(SVG((root / 'reports/semantic/comparison.svg').read_text()))",
             ),
             (
                 "md",
@@ -199,11 +199,11 @@ def notebooks():
             ),
             (
                 "code",
-                "intervals = pd.DataFrame(json.loads((run_dir / 'review/uncertainty.json').read_text()))\ndisplay(intervals[['model','protocol','observed_delta','ci_lower','ci_upper','draws']].round(4))\nstats = json.loads((run_dir / 'embeddings/statistics.json').read_text())\ndisplay(pd.DataFrame(stats.items(), columns=['Measurement','Value']))\nprint('Encoding time includes tokenization/inference; total invocation time is in performance/timing.json.')\nprint('Truncation counts refer to unique encoded inputs, not expanded training rows.')\ndisplay(FileLink(str(root / 'reports/private/report.html')))\ndisplay(FileLink(str(root / 'reports/private/results.json')))",
+                "intervals = pd.DataFrame(json.loads((run_dir / 'review/uncertainty.json').read_text()))\ndisplay(intervals[['model','protocol','observed_delta','ci_lower','ci_upper','draws']].round(4))\nper_rule = pd.DataFrame([{'Model':r['model'], 'Protocol':r['protocol'], 'Rule':rule, 'ROC AUC':auc} for r in records for rule,auc in r['metrics']['per_rule_auc'].items()])\ndisplay(per_rule.round(4))\ntiming = json.loads((run_dir / 'performance/timing.json').read_text())\nprint('Total first completion (seconds):', round(timing['first_completion_wall_seconds'], 3))\nstats = json.loads((run_dir / 'embeddings/statistics.json').read_text())\ndisplay(pd.DataFrame(stats.items(), columns=['Measurement','Value']))\nprint('Encoding time includes tokenization/inference; total invocation time is in performance/timing.json.')\nprint('Truncation counts refer to unique encoded inputs, not expanded training rows.')\ndisplay(HTML('<p>Local detailed exports: <code>reports/private/report.html</code> and <code>reports/private/results.json</code>.</p>'))",
             ),
             (
                 "md",
-                "## Next experiment\nUse the evidence to decide whether a rule-conditioned cross-encoder or instruction model adds value. Keep the observed two-rule validation limitation visible. The current preview submission checks row alignment and probability format; a scored Kaggle submission requires the later offline inference package and account eligibility.",
+                "## Decision from the real benchmark\nThe frozen margin reached held-out-rule macro AUC **0.6351**, versus **0.6156** for the lexical reference. Its paired 95% interval for the difference spans **−0.0132 to +0.0491**. It is a descriptive gain without conclusive evidence of improvement. The learned similarity classifier scored **0.5858** and degraded probability quality. The lexical model remains the reference.\n\nThe frozen margin has identical predictions in both protocols because it does not fit on fold labels; these are not independent replications. Familiar-rule lexical performance remains substantially stronger. These statements describe the recorded real run, not the synthetic CI values.\n\n## Next experiment\nTest a rule-conditioned cross-encoder and context ablations against the preserved reference. Keep the observed two-rule validation limitation visible. The current preview submission checks row alignment and probability format; a scored Kaggle submission requires the later offline inference package and account eligibility.",
             ),
         ]
     )
@@ -277,19 +277,38 @@ submission.head()""",
     return outputs
 
 
+def same_sources(actual, expected) -> bool:
+    """Execution outputs may evolve; generated narrative and code must match exactly."""
+    fields = ("cell_type", "id", "source")
+    return (
+        actual.metadata.get("kernelspec") == expected.metadata.get("kernelspec")
+        and len(actual.cells) == len(expected.cells)
+        and all(
+            all(a.get(field) == b.get(field) for field in fields)
+            for a, b in zip(actual.cells, expected.cells, strict=True)
+        )
+    )
+
+
+def write_notebook(path: Path, expected) -> None:
+    """Keep verified outputs only while their entire generated source is unchanged."""
+    if path.exists() and same_sources(nbf.read(path, as_version=4), expected):
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(nbf.writes(expected))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     for relative, nb in notebooks().items():
         path = ROOT / relative
-        content = nbf.writes(nb)
         if args.check:
-            if not path.exists() or path.read_text() != content:
+            if not path.exists() or not same_sources(nbf.read(path, as_version=4), nb):
                 raise ValueError(f"Notebook source is stale: {relative}")
         else:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(content)
+            write_notebook(path, nb)
     print("NOTEBOOK_SOURCES_VERIFIED" if args.check else "NOTEBOOKS_CREATED")
 
 
