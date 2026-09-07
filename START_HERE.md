@@ -1,56 +1,53 @@
-# Continue the Jigsaw project
+# Start with the evidence
 
-Your Git checkout, Kaggle authentication, private configuration, and lexical baseline review are already complete. Continue in the existing **SageMaker Studio → JupyterLab → jigsaw-rules-dev** space in **Oregon (`us-west-2`)**.
+**Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [04 · Semantic benchmark](notebooks/04_semantic_benchmark.ipynb). The supporting notebooks explain the data audit and lexical reference. No AWS account, private data, or model download is required to read them.
 
-## 1. Update the existing checkout and restore saved work
+## Continue in your existing SageMaker checkout
 
-In the JupyterLab Terminal:
+Your supplied log already shows successful bootstrap, 57 passing tests, and a completed restore. Do not repeat training to display those results.
 
 ```bash
-export PATH="$HOME/.local/bin:$PATH"
 cd "$HOME/projects/jigsaw-rule-classifier"
 git pull --ff-only
-bash bootstrap.sh
-uv run jigsaw restore
-uv run jigsaw review
+.venv/bin/python scripts/execute_notebooks.py --notebook 03 --notebook 04
 ```
 
-Bootstrap installs the locked environment, registers **Python (Jigsaw Rules)**, and runs the quality gate. Restore verifies hashes and reuses matching local files. Review selects the latest completed real experiment, verifies its saved artifacts, and recalculates metrics without fitting or loading a neural model. Expected markers are `BOOTSTRAP_COMPLETED`, a completed `cloud_restore` event, and `REVIEW_VERIFIED` with `data_kind: competition`.
+Open the canonical notebooks in `notebooks/`. The command runs their cells against the checked-in aggregate evidence, not model weights. It emits UTC start/finish events, cell progress, 15-second heartbeats, stage time, total invocation time, and `NOTEBOOKS_VERIFIED`. Matching completed notebook checkpoints are reused. The checkpoint path is printed in the log.
 
-The existing `configs/local.json` supplies private S3 settings. Keep working in the checkout under `projects/`; the earlier archive directory is historical. There is no new clone, Kaggle login, or baseline computation in this sequence.
-
-## 2. Open the semantic comparison
-
-Open **notebooks/04_semantic_benchmark.ipynb**. It is already executed with the real results; you can inspect it immediately on GitHub or in JupyterLab. If you later want to refresh the displays after restoring new results, select **Python (Jigsaw Rules)** and run its cells. It compares the saved Qwen3 semantic models with the lexical reference, showing rule macro AUC, per-rule results, probability quality, paired uncertainty intervals, runtime, and memory. Its plots and tables use saved evidence.
-
-The current small CPU app can review the completed experiment without loading Qwen weights. `notebooks/03_saved_results.ipynb` remains available for general saved-run review. The exported `reports/private/results.json` and HTML identify real versus synthetic data explicitly.
-
-The completed semantic run is `4e7e6c00d269c451c0a3`. Held-out-rule AUC is 0.6351 for the frozen margin and 0.5858 for the learned similarity classifier, versus 0.6156 for the lexical reference. The margin gain is uncertain and probability quality does not improve. The reference remains in place.
-
-## 3. New model work after review
-
-Phase 2A implements a pinned frozen encoder, order-invariant example comparisons, and a fold-fitted classifier. Phase 2B will test a rule-conditioned cross-encoder and context ablations, using the same validation discipline. See [PHASE_2.md](docs/PHASE_2.md) and [ROADMAP.md](docs/ROADMAP.md).
-
-To compute a fresh semantic experiment, use a CPU environment with at least 8 GB RAM and 4 GB free. The measured Qwen process exceeds the capacity of the current 4 GB app. Review does not require resizing. On suitable hardware:
+To execute all five public notebooks and atomically refresh their canonical files:
 
 ```bash
-uv run --extra semantic python scripts/verify_semantic.py
-uv run --extra semantic jigsaw semantic --cloud
+.venv/bin/python scripts/execute_notebooks.py --publish
 ```
 
-The integration check downloads pinned public model assets, verifies their hashes, and checks pooling, batching consistency, and cache reuse. Full computation records UTC events, elapsed time, throughput, peak memory, and 15-second heartbeats. Completed 64-input shards and folds are reused after interruption; an incomplete shard or fold restarts. Changed model, data, source, or execution settings create a new experiment identity.
+Publication is allowed only for public aggregate notebooks. Synthetic or private Kaggle execution cannot overwrite them. A failed notebook does not replace its last-good canonical file; completed earlier notebooks remain cached. An interrupted active notebook restarts from its first cell, while its completed predecessors are reused. Review and publish changes through a feature branch and pull request, not a force push.
 
-## Continued use
+## Recalculate private metrics without retraining
 
-- Inspect saved results: `uv run jigsaw review`.
-- Save local data and experiment artifacts: `uv run jigsaw backup`.
-- Verify source, tests, and notebook consistency: `uv run --extra semantic python scripts/verify.py`.
-- Develop each new phase on a feature branch, document the pull request, and merge after Quality passes.
+The public notebooks verify aggregate checksums and provenance; they do **not** recompute metrics from row-level predictions. The stricter private review remains:
 
-S3 backup is a snapshot of the local project. Restore the current snapshot before working in a new checkout and before publishing another backup; do not replace the latest snapshot from a partially populated directory. Original snapshots remain immutable. Git preserves source history. Do not share competition comments, private configuration, or row-level predictions in the public repository.
+```bash
+.venv/bin/python -m jigsaw_rules.cli review
+```
 
-When finished using Studio, stop the JupyterLab app to stop compute billing. Space disk and S3 checkpoints persist; storage remains billable.
+Your existing private `configs/local.json` and restored run files remain in place. In a new workspace, restore the current S3 snapshot before private review or any new backup. Never replace the latest snapshot from a partially populated checkout.
 
-## Kaggle later
+## Explicit model work
 
-The existing standalone `kaggle/submission.ipynb` runs the lexical reference offline and creates an exact-format `submission.csv`. The semantic experiment also validates preview predictions locally, but its offline Kaggle model bundle is a later deliverable. A preview file is not a scored submission. Authenticated late-submission availability remains to be checked; the original competition ended in 2025.
+The semantic comparison is a completed embedding benchmark, not a verified top-performing competition model. Keep the lexical reference while testing a joint rule/comment cross-encoder with context ablations. See [PHASE_2.md](docs/PHASE_2.md).
+
+Do not rerun Qwen on the current 4 GB Studio app: the recorded process alone peaked at 3.854 GiB. Review does not require resizing. Approve hardware, maximum runtime, and spending before any paid model experiment. Completed embedding shards and model folds resume; an active CPU solver does not resume within an iteration. GPU optimizer-state recovery is not implemented yet.
+
+## Kaggle and verification
+
+The standalone `kaggle/submission.ipynb` is the offline lexical reference. Its synthetic integration test is explicit:
+
+```bash
+.venv/bin/python scripts/execute_notebooks.py --synthetic
+```
+
+That test never establishes competition performance. To deliberately fit offline inference against existing real competition data, use `--kaggle`; its validated CSV and manifest are copied to `kaggle_output/`. A preview CSV is not a scored submission. The 2025 competition has ended; authenticated late-submission eligibility is still unverified.
+
+The complete source gate is `.venv/bin/python scripts/verify.py`. Training is not a prerequisite for reading or publishing the five portfolio notebooks.
+
+When finished using Studio, stop the JupyterLab app to stop its compute billing. Do not delete the space or S3 snapshots; persistent storage remains billable.

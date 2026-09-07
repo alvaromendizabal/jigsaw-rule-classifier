@@ -28,24 +28,7 @@ def notebook(cells):
     return nb
 
 
-SETUP = """import os
-from pathlib import Path
-import json
-import pandas as pd
-import plotly.express as px
-from IPython.display import display, HTML, FileLink
-from jigsaw_rules.data import load_data, audit
-from jigsaw_rules.runtime import Progress, environment
-
-root = Path(os.environ.get("JIGSAW_ROOT", Path.cwd())).resolve()
-if root.name == "notebooks":
-    root = root.parent
-px.defaults.template = "plotly_white"
-px.defaults.color_discrete_sequence = ["#087f8c", "#bd633b", "#334ea0", "#70923b"]
-display(HTML("<div style='padding:18px;background:#edf6f5;border-left:5px solid #087f8c'>"
-             "<b>Jigsaw research workspace</b><br>Every result must identify its data and validation protocol.</div>"))
-print("Project:", root)
-"""
+SETUP = 'import os\nfrom pathlib import Path\nimport pandas as pd\nfrom IPython.display import display\nfrom jigsaw_rules.review import public_evidence\nfrom jigsaw_rules.runtime import environment\n\nroot = Path(os.environ.get("JIGSAW_ROOT", Path.cwd())).resolve()\nif root.name == "notebooks":\n    root = root.parent\nbaseline = public_evidence(root, "baseline")\nsemantic = public_evidence(root, "semantic")\nassert baseline["training_sha256"] == semantic["training_sha256"]\nprint("Competition data | 2,029 training rows | recorded local cross-validation")\nprint("Verification: aggregate file checksums and provenance; no model fitting.")\n\nnames = {"comment_only": "Comment-only TF-IDF", "rule_examples": "Rule/example TF-IDF",\n         "semantic_margin": "Frozen semantic margin", "semantic_classifier": "Semantic classifier"}\nprotocols = {"seen_rule": "Familiar rules", "heldout_rule": "Held-out rule"}\n\ndef metric_table(records):\n    return pd.DataFrame([{"Model": names[r["model"]], "Validation": protocols[r["protocol"]],\n        "Rule macro AUC": r["metrics"]["rule_macro_auc"],\n        "Log loss": r["metrics"]["log_loss"], "Brier": r["metrics"]["brier"],\n        "Average precision": r["metrics"]["average_precision"]} for r in records]).round(4)\n'
 
 
 def notebooks():
@@ -54,28 +37,28 @@ def notebooks():
         [
             (
                 "md",
-                "# 00 · Environment and data\n\n**Question:** Are we working with the intended files in a reproducible environment?\n\nRun `bash bootstrap.sh` once, then authenticate Kaggle and run `uv run jigsaw download`. This notebook checks the files; it does not ask you to paste credentials. Run notebooks **00 → 01 → 02** in order.",
+                "# 00 · Environment and data\n\n**Question:** Which data and environment produced the recorded experiment?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.",
             ),
             ("code", SETUP),
             (
                 "md",
-                "## Inspect the environment\nPackage versions are pinned in `uv.lock`. Long operations report UTC timestamps, elapsed time, and 15-second heartbeats.",
+                "## Reproduction environment\nThe original experiment environment and this notebook-execution environment are reported separately. `uv.lock` pins the project environment; rendering a historical result does not rerun that experiment.",
             ),
             (
                 "code",
-                "display(pd.DataFrame(environment()['packages'].items(), columns=['Package', 'Version']))",
+                'recorded = baseline["provenance"]["environment"]\ncurrent = environment()\nprint("Recorded experiment Python:", recorded["python"])\nprint("Notebook execution Python:", current["python"])\ndisplay(pd.DataFrame({"Recorded experiment": recorded["packages"],\n                      "Notebook execution": current["packages"]}))',
             ),
             (
                 "md",
-                "## Validate the competition files\nA row asks whether one comment violates one supplied rule. Positive examples violate that rule; negative examples do not. The downloaded test file is only a preview of hidden evaluation inputs.",
+                "## Recorded data contract\nOne row pairs a comment with a rule and examples. These are the saved audit counts, not a fresh read of raw CSV files. The preview test is not an independent evaluation set.",
             ),
             (
                 "code",
-                "with Progress(root / 'logs/notebooks.jsonl', '00_schema'):\n    train, test, sample = load_data(root / 'data/raw')\n    overview = audit(train, test)\ndisplay(pd.DataFrame({'File': ['train.csv', 'test.csv', 'sample_submission.csv'], 'Rows': [len(train), len(test), len(sample)]}))\nprint('Schema checks passed')\nif (root / 'data/raw/SYNTHETIC.txt').exists():\n    print('SYNTHETIC SOFTWARE TEST — not competition data')",
+                'audit = baseline["audit"]\ndisplay(pd.DataFrame({"Recorded file": ["train.csv", "test.csv (preview)"],\n                      "Rows": [audit["train_rows"], audit["preview_test_rows"]]}))\nprint("Training SHA-256:", baseline["training_sha256"])\nprint("Lexical run:", baseline["run_id"])\nprint("Semantic run:", semantic["run_id"])',
             ),
             (
                 "md",
-                "## Next\nOpen **01_data_and_validation.ipynb**. Raw comments, credentials, and trained weights are excluded from Git. Your private S3 snapshots preserve data and completed run artifacts.",
+                "## Continue\n[01 · Data and validation](01_data_and_validation.ipynb) explains the leakage controls. For the employer overview, start with [03 · Results](03_saved_results.ipynb). To audit raw files locally, use `uv run jigsaw audit`; raw data remain private.",
             ),
         ]
     )
@@ -83,32 +66,28 @@ def notebooks():
         [
             (
                 "md",
-                "# 01 · Data and validation\n\n**Question:** What would a convincing test of rule generalization look like?\n\nThe official training set contains only two rules. A random split alone mostly tests familiar policies. We therefore report seen-rule and held-out-rule performance separately.",
+                "# 01 · Data and validation\n\n**Question:** What does the validation design actually test?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.",
             ),
             ("code", SETUP),
             (
-                "code",
-                "train, test, sample = load_data(root / 'data/raw')\noverview = audit(train, test)\ndisplay(pd.DataFrame(overview['by_rule']))\nprint('Duplicate bodies:', overview['duplicate_training_bodies'])\nprint('Train/preview-test overlap:', overview['train_test_body_overlap'])",
-            ),
-            (
                 "md",
-                "## Class balance and comment length\nRule imbalance and long comments affect both measurement and future transformer token budgets. These plots use only supplied data.",
+                "## Two observed rules, not broad policy coverage\nThe recorded training audit exposes different violation prevalence across the two rules. Count and rate are shown together so sample size stays visible.",
             ),
             (
                 "code",
-                "by_rule = pd.DataFrame(overview['by_rule'])\nfig = px.bar(by_rule, x='rule', y='mean', color='rule', title='Violation prevalence by rule', labels={'mean': 'Violation rate', 'rule': 'Rule'})\nfig.update_layout(showlegend=False, height=420)\nfig.update_yaxes(range=[0, 1])\nfig.show()\nlengths = train.assign(characters=train.body.str.len())\npx.histogram(lengths, x='characters', color='rule', nbins=35, title='Comment length distribution', barmode='overlay', opacity=.6).show()",
+                'audit = baseline["audit"]\nby_rule = pd.DataFrame(audit["by_rule"]).rename(columns={"rule": "Rule", "size": "Rows", "mean": "Violation rate"})\nby_rule["Rule"] = by_rule["Rule"].str.split(":").str[0]\ndisplay(by_rule.round(4))\ndisplay(pd.DataFrame({"Audit finding": ["Duplicate training bodies", "Train / preview-test overlap"],\n                      "Count": [audit["duplicate_training_bodies"], audit["train_test_body_overlap"]]}))',
             ),
             (
                 "md",
-                "## Freeze the validation design\n1. **Seen rule:** stratify by rule and label; group normalized duplicate comments.\n2. **Held-out rule:** train on other rules and evaluate the omitted rule.\n3. Purge training rows if their body or support examples contain a validation body.\n4. Fit vocabulary only on the remaining training rows.\n\nProvided validation examples are legitimate model inputs. We do not convert validation examples into new supervised training rows. Exact-text checks do not detect every paraphrase or shared source. Two rules are too few to estimate transfer across all community policies.",
+                "## Leakage controls\n**Familiar-rule validation** stratifies by rule and target while grouping normalized duplicate comments. **Held-out-rule validation** excludes all training rows from the evaluated rule. Both purge training rows whose body or supplied examples contain a validation body. Vocabulary and learned similarity classifiers are fitted only on retained training-fold rows.\n\nProvided validation examples remain legitimate inputs; their labels are not added as training observations. The semantic experiment reused the original saved splits. This aggregate-only view does not re-run the purging audit or reconstruct row assignments.",
             ),
             (
                 "code",
-                "from jigsaw_rules.splits import make_splits\nrows = []\nfor protocol in ['seen_rule', 'heldout_rule']:\n    for fold, (ti, vi, purged) in enumerate(make_splits(train, protocol, folds=3, seed=2025)):\n        rows.append({'Protocol': protocol, 'Fold': fold, 'Training rows': len(ti), 'Validation rows': len(vi), 'Purged rows': purged})\ndisplay(pd.DataFrame(rows))",
+                'config = baseline["provenance"]["config"]\ndisplay(pd.DataFrame({"Predeclared setting": ["Seed", "Familiar-rule folds", "Observed labeled rules"],\n                      "Value": [config["seed"], config["folds"], len(audit["train_rules"])]}))\nprint("Protocol limitations: exact-text isolation does not prove near-duplicate or shared-origin isolation.")',
             ),
             (
                 "md",
-                "## Metric contract\nThe official overview calls the metric **column-averaged AUC**. We report **rule macro AUC** (equal-weight mean of rule-specific ROC AUC), consistent with published descriptions of the challenge, and also **pooled AUC** so the distinction stays visible. The overview does not expose executable scorer code.\n\nSecondary diagnostics: average precision, log loss, Brier score, calibration error, and precision/recall/F1 at a predeclared 0.5 threshold. We never replace an undefined single-class AUC with a favorable number.\n\nNext: **02_baseline_and_review.ipynb**.",
+                "## Metric contract\nThe official overview names **column-averaged AUC**. The project reports **rule macro ROC AUC**, the equal-weight mean of the rule-specific AUCs, and pooled AUC separately. The official overview does not expose executable scoring code.\n\nLog loss, Brier score, average precision, and calibration error diagnose different properties; AUC alone does not establish probability calibration. Threshold metrics use a predeclared 0.5 threshold. Only two labeled rules means two transfer cases, not a representative sample of future policies.\n\nRaw comment-length distributions and row-level errors are not inferred from these aggregate files. Continue to [02 · Baseline](02_baseline_and_review.ipynb).",
             ),
         ]
     )
@@ -116,36 +95,25 @@ def notebooks():
         [
             (
                 "md",
-                "# 02 · Baseline and review\n\n**Question:** Does rule/example context help, and what breaks when the rule changes?\n\nThese CPU models are reference baselines, not the final advanced models. `comment_only` learns TF-IDF lexical patterns. `rule_examples` adds comment-to-rule/example cosine similarities and positive-minus-negative similarity features. The latter is predeclared for the starter submission. No test labels influence model choice.",
+                "# 02 · Baseline and review\n\n**Question:** Does adding rule/example context improve the lexical reference?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.",
             ),
             ("code", SETUP),
             (
                 "md",
-                "## Run or resume the experiment\nCompleted stages are reused only when data, source, configuration, package versions, and output checksums match. If a fold is interrupted, that fold restarts; earlier completed folds remain valid. With cloud backup enabled, every completed stage is copied to S3. GPU optimizer-state recovery belongs to the later neural training phase.",
+                "## Controlled feature comparison\n`comment_only` uses comment TF-IDF with logistic regression. `rule_examples` adds comment-to-rule/example cosine similarities, positive/negative maximum similarity, and their margin. Both are evaluated under the recorded split design. This is a lexical reference, not a claim of deep rule understanding.",
+            ),
+            ("code", 'display(metric_table(baseline["results"]))'),
+            (
+                "md",
+                "![Lexical validation comparison](../reports/baseline/comparison.svg)\n\n## Held-out-rule feature effect\nThe difference below is descriptive. It is not a significance claim or a score from Kaggle.",
             ),
             (
                 "code",
-                "from jigsaw_rules.pipeline import run_baseline\nuse_cloud = os.environ.get('JIGSAW_CLOUD', '1') == '1'\nconfig_path = root / 'configs/local.json'\nif use_cloud and not config_path.exists():\n    raise FileNotFoundError('Create configs/local.json from the example, or explicitly set JIGSAW_CLOUD=0 for local verification.')\ncloud = json.loads(config_path.read_text()) if use_cloud else None\nrun_dir = run_baseline(root, cloud=cloud)",
+                'held = {r["model"]: r["metrics"] for r in baseline["results"] if r["protocol"] == "heldout_rule"}\ndisplay(pd.DataFrame([{"Metric": metric, "Rule/example minus comment-only": held["rule_examples"][metric] - held["comment_only"][metric]}\n    for metric in ["rule_macro_auc", "log_loss", "brier"]]).round(4))',
             ),
             (
                 "md",
-                "## Compare ranking and probability quality\nA strong seen-rule result with weak held-out-rule AUC indicates poor policy transfer. AUC does not establish calibration. Keep the held-out-rule analysis separate from leaderboard results.",
-            ),
-            (
-                "code",
-                "results = json.loads((run_dir / 'review/results.json').read_text())\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k, v in r['metrics'].items() if isinstance(v, float)}} for r in results])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Baseline validation comparison')\nfig.update_yaxes(range=[0, 1])\nfig.show()\ndisplay(FileLink(str(run_dir / 'review/report.html')))",
-            ),
-            (
-                "md",
-                "## Investigate failures\nReview errors by rule and subreddit locally. Row IDs below let you join to private comments when needed. Avoid publishing raw comments or model outputs that expose them without a deliberate review.",
-            ),
-            (
-                "code",
-                "errors = pd.read_csv(run_dir / 'review/error_review.csv')\ndisplay(errors.head(12))\ncoefficients = pd.read_csv(run_dir / 'full_training/coefficients.csv')\ncontext = coefficients[coefficients.feature.str.contains('similarity')]\ndisplay(context)\nprint('Preview submission:', run_dir / 'full_training/submission.csv')",
-            ),
-            (
-                "md",
-                "## Next phase\nCompare an embedding/example matcher and a cross-encoder, then an instruction model with LoRA. Add confidence intervals, stricter near-duplicate audits, rule/example ablations, and nested calibration before selecting a final ensemble. The baseline's lexical coefficients describe association, not a causal explanation.\n\nUse **kaggle/submission.ipynb** for portable offline inference. It regenerates the submission using whichever test rows Kaggle provides. Late scoring remains dependent on your signed-in account's eligibility.",
+                "## Interpretation and reproducibility\nRule/example features modestly improve held-out ranking, while probability losses do not improve. The lexical model remains the reference for later candidates. Coefficients describe association, not causal effects. Raw examples and row-level errors are intentionally absent from the public notebook.\n\nTraining is explicit: `uv run jigsaw baseline --cloud`. That command fits or resumes a source-fingerprinted experiment; it is not required to read these results. Valid completed folds are reused, but an interrupted CPU solver restarts its active fold. Source changes can create a new experiment identity.\n\n[03 · Results](03_saved_results.ipynb) is the consolidated employer overview.",
             ),
         ]
     )
@@ -153,24 +121,28 @@ def notebooks():
         [
             (
                 "md",
-                "# 03 · Review completed evidence\n\n**Question:** What did the completed experiment establish, and what should we test next?\n\nThis notebook checks saved artifacts and recalculates metrics from out-of-fold predictions. It never trains a model. Open this notebook after restoring a saved run; you do not need to repeat notebook 02 when reviewing historical results.",
+                "# 03 · Results and model decision\n\n**Question:** What did the completed experiments establish?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.\n\n**Current decision:** retain the lexical rule/example reference. No semantic candidate has established an overall replacement, and no leaderboard or medal result is claimed.",
             ),
             ("code", SETUP),
             (
-                "code",
-                "from jigsaw_rules.review import review_run\nis_demo = (root / 'data/raw/SYNTHETIC.txt').exists()\nevidence = review_run(root, os.environ.get('JIGSAW_RUN_ID'), allow_synthetic=is_demo)\nprint('Data kind:', evidence['data_kind'])\nprint('Run:', evidence['run_id'])\nprint('Training rows:', evidence['training_rows'])\nprint('Training SHA-256:', evidence['training_sha256'])\nif evidence['data_kind'] == 'synthetic':\n    display(HTML('<b>SYNTHETIC SOFTWARE TEST — not competition performance</b>'))",
-            ),
-            (
                 "md",
-                "## The generalization gap\nCompare the two validation protocols separately. A small difference between models is not evidence of a statistically reliable improvement. With only two rules, new-rule transfer remains weakly measured. AUC evaluates ranking; probability quality needs log loss, Brier score, and calibration diagnostics as well.",
+                "## Compare model quality\nHigher rule macro AUC is better. Lower log loss and Brier score are better. Familiar-rule and held-out-rule results answer different questions; do not pool their conclusions.",
             ),
             (
                 "code",
-                "records = evidence['results']\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k, v in r['metrics'].items() if isinstance(v, float)}} for r in records])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Saved out-of-fold evidence: familiar versus held-out rules')\nfig.update_yaxes(range=[0, 1])\nfig.add_hline(y=0.5, line_dash='dash', annotation_text='Chance ranking')\nfig.show()\ndisplay(FileLink(str(root / 'reports/private/report.html')))\ndisplay(FileLink(str(root / 'reports/private/results.json')))",
+                'records = baseline["results"] + semantic["results"]\ndisplay(metric_table(records))',
             ),
             (
                 "md",
-                "## Phase 2 decision\nThe next controlled experiment compares a frozen semantic embedding/example matcher with a rule-conditioned cross-encoder under the same saved splits. Start from a pinned model revision, preserve embedding batches, record latency and peak memory, and compare per-rule as well as aggregate performance.\n\nSee `docs/PHASE_2.md` for the predeclared experiment and hardware gate. This review does not download weights or launch a paid job. Historical results remain valid evidence for their recorded source version; a code update does not require retraining merely to view them.",
+                "![Recorded semantic and lexical comparison](../reports/semantic/comparison.svg)\n\n## Does the semantic margin improve transfer?\nThese paired bootstrap intervals resample normalized comment groups and condition on the two observed rules and fixed predictions. They do not quantify transfer to arbitrary new policies.",
+            ),
+            (
+                "code",
+                'intervals = pd.DataFrame(semantic["uncertainty"])\ndisplay(intervals.loc[intervals.protocol == "heldout_rule", ["model", "observed_delta", "ci_lower", "ci_upper", "draws"]].round(4))\nprint("Evidence verified for", baseline["training_rows"], "competition training rows.")\nprint("New training performed by this notebook: none.")',
+            ),
+            (
+                "md",
+                "## Decision\nThe frozen semantic margin has a **+0.0195** held-out AUC difference, with a paired 95% interval of **−0.0132 to +0.0491**. That interval includes no improvement, and probability losses worsen slightly. The learned semantic classifier performs worse. A negative experiment is retained rather than hidden.\n\nThe margin makes identical predictions in both validation protocols because it fits no fold labels. Those columns are not independent replications. The 10-row preview test checks inference plumbing, not generalization.\n\nContinue to [04 · Semantic benchmark](04_semantic_benchmark.ipynb) for per-rule diagnostics, runtime, and the next controlled experiment. Full OOF verification is `uv run jigsaw review` after restoring private artifacts.",
             ),
         ]
     )
@@ -178,32 +150,36 @@ def notebooks():
         [
             (
                 "md",
-                "# 04 · Semantic rule generalization\n\n**Question:** Does a frozen semantic encoder transfer better to a new rule?\n\nThe committed notebook already displays the reviewed real results. Open it to inspect the tables and figures. To refresh the computation of these displays, restore the latest S3 snapshot first. To compute a new experiment, use `uv run --extra semantic jigsaw semantic --cloud` on a CPU workspace with at least 8 GB RAM and 4 GB currently free. Completed embedding shards are reused.\n\nThe original lexical baseline remains unchanged. Software verification uses an explicitly labeled test encoder on synthetic data; those numbers are never model-performance evidence.",
+                "# 04 · Semantic rule generalization\n\n**Question:** Where does a frozen semantic encoder help or fail?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.\n\nThe recorded encoder is **Qwen3-Embedding-0.6B**, pinned to an immutable Hub revision. Qwen weights are frozen; only the similarity classifier learns fold labels. The semantic margin uses a predeclared temperature of 0.1 and is not claimed to be calibrated.",
             ),
-            ("code", SETUP.replace('print("Project:", root)', 'print("Project:", root.name)')),
-            (
-                "code",
-                "from jigsaw_rules.review import review_run\nis_demo = (root / 'data/raw/SYNTHETIC.txt').exists()\nif is_demo:\n    from tests.helpers import TestEncoder\n    from jigsaw_rules.embeddings import load_spec\n    from jigsaw_rules.pipeline import run_baseline\n    from jigsaw_rules.semantic_pipeline import run_semantic\n    source = Path.cwd()\n    if source.name == 'notebooks': source = source.parent\n    spec = load_spec(source)\n    spec['baseline_run'] = run_baseline(root).name\n    run_dir = run_semantic(root, spec, encoder=TestEncoder())\n    display(HTML('<b>SYNTHETIC SOFTWARE TEST — test vectors, not Qwen performance</b>'))\nelse:\n    candidates = []\n    for path in (root / 'runs').glob('*/status.json'):\n        status = json.loads(path.read_text())\n        if status.get('experiment') == 'semantic' and status.get('status') == 'completed' and status.get('synthetic') is False:\n            finished = json.loads((path.parent / 'review/complete.json').read_text())['finished_at']\n            candidates.append((finished, path.parent))\n    if not candidates: raise FileNotFoundError('Restore the completed semantic experiment with uv run jigsaw restore first.')\n    run_dir = max(candidates)[1]\nimport contextlib\nimport io\nwith contextlib.redirect_stdout(io.StringIO()):\n    evidence = review_run(root, run_dir.name, allow_synthetic=is_demo)\nprint('Data kind:', evidence['data_kind'], '| Run:', evidence['run_id'])",
-            ),
+            ("code", SETUP),
             (
                 "md",
-                "## Compare the same validation assignments\nThe semantic experiment reuses the original split files and checks their hashes, row coverage, and training-text isolation. The encoder is frozen. The scaler and classifier see only training-fold rows. The example-margin model uses a predeclared temperature of 0.1; its outputs are not claimed to be calibrated.",
+                "## Held-out behavior by rule\nAggregate improvements can conceal deterioration on individual policies. The table keeps the two observed rules separate.",
             ),
             (
                 "code",
-                "comparison = json.loads((run_dir / 'review/comparison.json').read_text())\nrecords = comparison['baseline'] + comparison['semantic']\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k,v in r['metrics'].items() if isinstance(v, float)}} for r in records])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Lexical and semantic generalization on the same splits')\nfig.update_yaxes(range=[0, 1])\nfig.add_hline(y=.5, line_dash='dash')\nfig.show()\nif not is_demo:\n    from IPython.display import SVG\n    display(SVG((root / 'reports/semantic/comparison.svg').read_text()))",
+                'records = baseline["results"] + semantic["results"]\nper_rule = pd.DataFrame([{"Model": names[r["model"]], "Rule": rule.split(":")[0], "ROC AUC": auc}\n    for r in records if r["protocol"] == "heldout_rule" for rule, auc in r["metrics"]["per_rule_auc"].items()])\ndisplay(per_rule.pivot(index="Model", columns="Rule", values="ROC AUC").round(4))',
             ),
             (
                 "md",
-                "## Uncertainty and probability quality\nPaired bootstrap intervals resample normalized comment groups shared across rules. They are conditional on the two observed rules and fixed OOF predictions. They do not estimate performance across arbitrary future policies or remove model-selection bias. Inspect Brier, log loss, and calibration alongside ranking AUC.",
+                "## Probability diagnostics\nCalibration error uses 10 equal-width bins. Precision, recall, and F1 use the fixed 0.5 diagnostic threshold; this is not a tuned deployment decision. Threshold selection and calibration fitting require nested validation.",
             ),
             (
                 "code",
-                "intervals = pd.DataFrame(json.loads((run_dir / 'review/uncertainty.json').read_text()))\ndisplay(intervals[['model','protocol','observed_delta','ci_lower','ci_upper','draws']].round(4))\nper_rule = pd.DataFrame([{'Model':r['model'], 'Protocol':r['protocol'], 'Rule':rule, 'ROC AUC':auc} for r in records for rule,auc in r['metrics']['per_rule_auc'].items()])\ndisplay(per_rule.round(4))\ntiming = json.loads((run_dir / 'performance/timing.json').read_text())\nprint('Total first completion (seconds):', round(timing['first_completion_wall_seconds'], 3))\nstats = json.loads((run_dir / 'embeddings/statistics.json').read_text())\ndisplay(pd.DataFrame(stats.items(), columns=['Measurement','Value']))\nprint('Encoding time includes tokenization/inference; total invocation time is in performance/timing.json.')\nprint('Truncation counts refer to unique encoded inputs, not expanded training rows.')\ndisplay(HTML('<p>Local detailed exports: <code>reports/private/report.html</code> and <code>reports/private/results.json</code>.</p>'))",
+                'diagnostics = pd.DataFrame([{"Model": names[r["model"]],\n    "Pooled AUC": r["metrics"]["pooled_auc"], "Calibration error": r["metrics"]["ece_10_equal_width_bins"],\n    "Precision@0.5": r["metrics"]["precision_at_0_5"], "Recall@0.5": r["metrics"]["recall_at_0_5"],\n    "F1@0.5": r["metrics"]["f1_at_0_5"]} for r in records if r["protocol"] == "heldout_rule"])\ndisplay(diagnostics.round(4))',
             ),
             (
                 "md",
-                "## Decision from the real benchmark\nThe frozen margin reached held-out-rule macro AUC **0.6351**, versus **0.6156** for the lexical reference. Its paired 95% interval for the difference spans **−0.0132 to +0.0491**. It is a descriptive gain without conclusive evidence of improvement. The learned similarity classifier scored **0.5858** and degraded probability quality. The lexical model remains the reference.\n\nThe frozen margin has identical predictions in both protocols because it does not fit on fold labels; these are not independent replications. Familiar-rule lexical performance remains substantially stronger. These statements describe the recorded real run, not the synthetic CI values.\n\n## Next experiment\nTest a rule-conditioned cross-encoder and context ablations against the preserved reference. Keep the observed two-rule validation limitation visible. The current preview submission checks row alignment and probability format; a scored Kaggle submission requires the later offline inference package and account eligibility.",
+                "## Recorded runtime and memory\nThese are measurements from the first successful model invocation, not the time required to render this notebook. They do not claim that earlier failed attempts cost no time. Truncation counts refer to unique encoded inputs.",
+            ),
+            (
+                "code",
+                'timing = semantic["timing"]\nencoder = timing["encoder"]\ndisplay(pd.DataFrame({"Measurement": ["First successful invocation (seconds)", "Encoding (seconds)", "Peak process memory (GiB)", "Unique inputs", "Truncated inputs"],\n    "Value": [timing["first_completion_wall_seconds"], encoder["encode_seconds"], encoder["peak_rss_gib"], encoder["unique_texts"], encoder["truncated_rows"]]}).round(3))',
+            ),
+            (
+                "md",
+                "## What to test next\nThe next model experiment should jointly encode rule, comment, and support examples. Predeclare comment-only, rule-plus-comment, and positive/negative-example ablations; preserve the split registry; then compare cross-encoder or parameter-efficient fine-tuning candidates with the unchanged lexical reference. More complexity is accepted only when measured evidence supports it.\n\nBefore any paid run, approve hardware, maximum duration, and spending limits. Current embedding checkpoints resume at completed shards, and CPU training resumes at completed folds—not inside an interrupted solver. GPU optimizer-state resume is a later deliverable.\n\nThe standalone [Kaggle notebook](../kaggle/submission.ipynb) is an offline lexical reference. A preview CSV is not a scored submission, and authenticated late-scoring eligibility remains unverified.\n\nReturn to [03 · Results and decision](03_saved_results.ipynb).",
             ),
         ]
     )

@@ -1,51 +1,35 @@
 # Verification record
 
-Verified September 7, 2026. These are software checks, not a Kaggle performance claim.
+## Notebook publication
 
-| Check | Observed result |
-| --- | --- |
-| Fresh project environment from `uv sync --locked --extra semantic --group dev` | Passed; Python 3.12.14, pinned dependencies installed |
-| Full `bash bootstrap.sh` | Passed; `BOOTSTRAP_COMPLETED` |
-| Python compilation | Passed |
-| Ruff and formatting | Passed |
-| Automated tests | 57 passed; warnings treated as errors |
-| Generated notebook consistency | Passed |
-| All six notebooks, sequential code-cell execution | Passed using the explicit in-process IPython engine; output notebooks retained |
-| Standard Jupyter kernel launch in this workspace | Blocked by the workspace's socket restrictions; not claimed as passed |
-| Actual Kaggle dataset download | Completed in Studio; original file hashes recovered from S3 |
-| Actual Kaggle-hosted offline execution/scoring | Pending |
-| GitHub Actions | Tests and ordinary Jupyter execution passed in [the initial run](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34071531044); [Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml) records each revision |
-| Pull-request review and merge | [PR #1](https://github.com/alvaromendizabal/jigsaw-rule-classifier/pull/1) records the release and its checks |
-| SageMaker space | API verified private 30 GB space; CPU JupyterLab app running |
-| S3 settings | API verified versioning enabled, AES-256 encryption, all public-access blocks enabled, HTTPS-only bucket policy |
-| Studio role S3 permissions | Actual completed S3 snapshots recovered; download hashes verified |
-| S3 backup/restore implementation | In-memory tests passed: interrupted transfer, manifest preservation, reuse, path traversal, corruption, and local conflict protection |
+The suite contains **77 tests**, including 20 notebook checkpoint/publication regressions added to the 57-test foundation. [Candidate CI run 34079272166](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34079272166) passed compilation, Ruff, formatting, tests, source consistency, five encrypted Jupyter executions on committed real aggregate evidence, checkpoint reuse, standalone synthetic Kaggle inference, and the real pinned encoder integration. The public executions completed in 9.239 seconds; the second pass reused all five in 0.121 seconds. These are notebook-rendering times, not model benchmark times.
 
-## Tests cover meaningful failure modes
+The executed public notebooks are committed at their canonical paths. Final CI checks these committed sources before execution; it does not regenerate stale sources to make the check pass. [PR #3](https://github.com/alvaromendizabal/jigsaw-rule-classifier/pull/3) records the final publication commit and CI result. Public rendering verifies aggregate integrity and provenance; it does not replace private OOF metric recomputation.
 
-- Macro per-rule AUC versus pooled AUC, equal rule weighting, undefined AUC, and invalid probabilities.
-- Missing columns, invalid labels, blank text, duplicate IDs, and exact submission row order.
-- Held-out-rule isolation, duplicate-comment grouping, training-example leakage purge, vocabulary isolation, and determinism.
-- Completed-stage reuse without refitting, output corruption, interrupted stage recovery, heartbeat events, and data/config fingerprint changes.
-- Interrupted file downloads resume at file boundaries; manually supplied files need no network download.
-- S3 uploads commit a manifest only after successful object transfers; restore checks integrity and protects unrelated local files.
+Notebook execution records UTC timestamps, per-cell progress, 15-second heartbeats, and nested stage/total clocks. Atomic publication rejects synthetic/private runs, stale source, unexecuted cells, execution errors, and stderr. Reuse requires matching source, input, environment, and output hashes. Completed notebooks are reused; an active interrupted notebook restarts from its first cell. Source regeneration retains verified outputs only when the generated narrative and code remain unchanged.
+
+## Tested failure modes
+
+The tests distinguish macro per-rule AUC from pooled AUC; reject undefined AUC, invalid probabilities, schema violations, duplicate IDs, and wrong submission order; and verify held-out-rule isolation, duplicate grouping, example leakage purging, vocabulary isolation, and deterministic splits.
+
+Runtime tests cover reuse without fitting, output corruption, interrupted stages, input/configuration changes, nested timing, and heartbeat events. Notebook tests additionally reject unapproved paths, synthetic provenance, mutated public artifacts, and concurrent canonical-source edits. An intentionally failed cell must leave its canonical notebook unchanged and must not create a completed checkpoint.
+
+S3 tests cover interrupted transfers, manifest preservation, content reuse, unsafe paths, corruption, and local conflict protection. Download tests verify file-boundary resume and use of manually supplied files without network access.
+
+## Recorded model evidence
+
+The original baseline and semantic runs use the same 2,029 competition training rows and five saved validation assignments. Their public aggregate evidence is in `reports/baseline/` and `reports/semantic/`. Private OOF predictions, model states, and embedding shards remain outside Git. Original source/data hashes are retained rather than relabeled as new experiments after presentation changes.
+
+The historical semantic release recomputed every reported metric from private OOF predictions and verified its 16 source-module hashes against the original run commit. The full real experiment finished at 2026-09-07T01:42:55Z in 1,004.708 seconds. These are historical training/review checks, not work repeated by the public notebook runner.
+
+The real pinned Qwen3 encoder integration checks 1,024-dimensional unit vectors, single/batched consistency, and a second cache pass with encoding disabled. Its historical local four-example check measured a maximum absolute vector difference of 2.403e-7, took 16.217 seconds after downloading weights, and peaked at 3.831 GiB RSS. This is a software integration measurement, not a competition score or a throughput benchmark. [Recorded semantic CI](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34073870803).
+
+Semantic tests cover both padding directions, invalid vectors, input order and deduplication, interrupted shards, corruption, model/prompt changes, feature ordering, fold-only scaling/fitting, reference-split identity, source-data identity, reuse without fitting, rejection of test encoders on real data, and paired grouped uncertainty intervals.
 
 ## Evidence boundaries
 
-The repository publishes reviewed aggregate metrics from the completed competition-data run, with original source/data hashes. Private OOF predictions were recovered and used to recalculate those metrics; the saved results matched. Tests and CI notebooks use explicitly labeled synthetic data. Raw competition CSVs and per-row predictions are excluded from Git.
+Five public notebooks now execute against real, reviewed aggregate evidence. The standalone Kaggle integration uses explicitly synthetic input and never establishes competition performance. The in-process engine tests cell logic but not Jupyter transport; the GitHub Actions workflow uses ordinary Jupyter kernels with CurveZMQ encryption required. No warning suppression is used.
 
-The CI workflow executes notebooks using ordinary Jupyter kernels, with CurveZMQ encryption required. The in-process engine verifies cell logic and captures rich outputs, but it does not validate kernel transport, browser integration, or SageMaker-specific networking. The foundation release passed with pinned Node 24 Actions and encrypted kernel connections. The semantic release keeps these requirements and adds a real pinned-encoder integration step. Warning suppression is not used.
+Completed CPU folds and embedding shards resume; interrupted solver iterations do not. Frozen embeddings are cached in 64-input shards and can be reused without loading weights. Fine-tuning optimizer/RNG checkpointing remains a later phase. Snapshots assume one writer; a new workspace must restore its saved state before publishing a replacement manifest.
 
-The baseline resumes completed folds and stages, not interrupted solver iterations. Frozen semantic embeddings resume completed 64-input shards and reuse cached vectors without loading weights. Fine-tuning optimizer and RNG checkpointing is a later phase. Source code and data fingerprints prevent reusing old model artifacts as a new experiment. Historical completed results remain reviewable without retraining through `jigsaw review`.
-
-The added review tests reject synthetic results by default, verify artifact checksums, recompute metrics from OOF predictions, reject inconsistent provenance and unsafe paths, and assert that viewing saved results neither fits a model nor modifies its run directory.
-
-## Semantic encoder verification
-
-The real pinned Qwen3 encoder passed an authored four-example integration test: 1,024-dimensional unit vectors, consistent single/batched outputs (maximum absolute difference 2.403e-7), and a second cache pass that reused all inputs with encoding disabled. The local integration took 16.217 seconds after downloading weights and peaked at 3.831 GiB RSS. This is an integration measurement, not a competition score or throughput benchmark.
-
-The 16 added tests cover last-token pooling with both padding directions, invalid vectors, input order and deduplication, interrupted shards, corruption, model/prompt invalidation, feature-order invariance, fold-only scaling/fitting, exact reference splits, source-data identity, reuse without fitting, rejection of test encoders on real data, and paired grouped uncertainty intervals. CI synthetic notebooks explicitly label their deterministic test vectors.
-
-The full real benchmark uses the original 2,029 training rows and five saved split assignments. Public aggregate evidence is kept in `reports/semantic/`; raw inputs, OOF predictions, portable classifier states, and embedding shards remain private. A separate source commit is recorded for the original run because later presentation changes must not rewrite its provenance.
-
-The real semantic review notebook was executed locally using the explicit in-process engine, checked for errors/stderr, and committed with aggregate tables and figures visible. Three additional tests protect those outputs during source regeneration and invalidate them when code or narrative changes. The full real experiment finished at 2026-09-07T01:42:55Z in 1,004.708 seconds; review recomputed every reported metric from the saved private OOF predictions and verified all 16 source-module hashes against its original commit. The recorded Qwen integration in [Quality run 4](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34073870803) passed alongside six ordinary encrypted Jupyter notebooks; subsequent Quality runs validate the final notebook-output changes.
+Kaggle-hosted execution, an authenticated late submission, a leaderboard score, joint cross-encoder/LoRA training, and nested calibration are not completed by this publication milestone. No AWS training job or instance resize was launched for it. A running Studio app and persistent storage can still incur charges.

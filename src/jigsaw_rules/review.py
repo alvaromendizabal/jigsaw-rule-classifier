@@ -126,3 +126,70 @@ def review_run(root: Path, run_id: str | None = None, *, allow_synthetic: bool =
         print(f"REPORT {output / 'report.html'}", flush=True)
         print(f"RESULTS {output / 'results.json'}", flush=True)
         return evidence
+
+
+def public_evidence(root: Path, kind: str) -> dict:
+    """Verify committed aggregate evidence, without private rows or model execution.
+
+    This verifies byte integrity and provenance consistency, not authenticity of an
+    untrusted repository. Use ``review_run`` to recompute metrics from private OOF rows.
+    """
+    required = {
+        "baseline": {"audit/audit.json", "provenance.json", "results.json", "status.json"},
+        "semantic": {
+            "audit.json",
+            "provenance.json",
+            "results.json",
+            "timing.json",
+            "uncertainty.json",
+        },
+    }
+    if kind not in required:
+        raise ValueError("Evidence kind must be baseline or semantic")
+    directory = root / "reports" / kind
+    metadata = json.loads((directory / "metadata.json").read_text())
+    if (
+        metadata.get("schema") != 1
+        or metadata.get("data_kind") != "competition"
+        or not re.fullmatch(r"[0-9a-f]{20}", str(metadata.get("run_id", "")))
+        or set(metadata.get("files", {})) != required[kind]
+    ):
+        raise ValueError("Invalid public evidence contract")
+    records = {}
+    for filename, expected in metadata["files"].items():
+        path = directory / filename
+        if not path.resolve().is_relative_to(directory.resolve()):
+            raise ValueError("Unsafe public evidence path")
+        if not path.is_file() or digest(path) != expected:
+            raise ValueError(f"Public evidence checksum mismatch: {kind}/{filename}")
+        records[filename] = json.loads(path.read_text())
+    provenance = records["provenance.json"]
+    audit = records["audit/audit.json" if kind == "baseline" else "audit.json"]
+    if (
+        provenance["config"].get("synthetic") is not False
+        or metadata.get("training_rows") != audit["train_rows"]
+        or audit["train_rows"] <= 0
+        or not re.fullmatch(r"[0-9a-f]{64}", provenance["data"].get("train.csv", ""))
+    ):
+        raise ValueError("Public data identity is inconsistent")
+    results = records["results.json"]
+    expected_pairs = {
+        (model, protocol)
+        for model in provenance["config"]["models"]
+        for protocol in provenance["config"]["protocols"]
+    }
+    pairs = [(row["model"], row["protocol"]) for row in results]
+    if len(pairs) != len(set(pairs)) or set(pairs) != expected_pairs:
+        raise ValueError("Public result coverage is inconsistent")
+    return {
+        "run_id": metadata["run_id"],
+        "data_kind": "competition",
+        "verification": "committed aggregate checksums; not OOF recomputation",
+        "training_rows": audit["train_rows"],
+        "training_sha256": provenance["data"]["train.csv"],
+        "results": results,
+        "audit": audit,
+        "provenance": provenance,
+        "timing": records.get("timing.json"),
+        "uncertainty": records.get("uncertainty.json"),
+    }
