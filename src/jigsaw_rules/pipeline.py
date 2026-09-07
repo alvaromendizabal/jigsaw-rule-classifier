@@ -109,7 +109,16 @@ def _run_baseline(root: Path, *, data_dir, folds, seed, cloud) -> Path:
             ):
                 raise ValueError("Every training row must have exactly one OOF prediction")
             metric = evaluate(oof.rule_violation, oof.probability, oof.rule)
-            results.append({"model": name, "protocol": protocol, "metrics": metric})
+            results.append(
+                {
+                    "run_id": run_id,
+                    "data_kind": "synthetic" if is_synthetic else "competition",
+                    "training_rows": len(train),
+                    "model": name,
+                    "protocol": protocol,
+                    "metrics": metric,
+                }
+            )
             oof["model"], oof["protocol"] = name, protocol
             all_oof.append(oof)
     combined = pd.concat(all_oof, ignore_index=True)

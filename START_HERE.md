@@ -1,97 +1,74 @@
-# Start the Jigsaw project
+# Continue the Jigsaw project
 
-Your next practical milestone is **one real-data baseline run with a saved report**. The advanced model phase begins after that evidence is available.
+Your real-data baseline is complete. Its run ID is `c15c2c2318fc0ed619c6`. Use this Git repository as the source of truth, restore the saved experiment, and open notebook 03. Existing Kaggle authentication and accepted competition rules do not need to be repeated.
 
-## 1. Open the space already created for you
+## 1. Open the existing AWS workspace
 
-In **AWS → SageMaker AI → Studio**, choose region **Oregon (`us-west-2`)**, the existing domain ending in `erusdc`, and its default user. Open **JupyterLab → Jigsaw Rule Classification (`jigsaw-rules-dev`)**.
+Use **SageMaker AI → Studio → JupyterLab → jigsaw-rules-dev**, in **Oregon (`us-west-2`)**. The space already has persistent disk and a working CPU app. Keep this CPU instance for reviewing results. GPU model work is a separate next phase.
 
-The space has 30 GB of persistent disk. Start a small CPU instance, such as the smallest CPU option offered by the Studio selector. This dataset and baseline do not need a GPU. Starting the app incurs compute charges; stopping it preserves the space disk but storage remains billable. The domain's user defaults specify 60-minute idle shutdown; confirm the space's effective idle setting when starting it. No app or training job was launched by this setup.
+## 2. Connect the source code to Git
 
-The private, encrypted, versioned S3 bucket is configured in the bundled `configs/local.json`. This file is excluded from Git. Existing role policy simulation allowed S3 listing, reading, and writing; the first backup tests actual access from the running Studio role.
+The first setup used an archive at `$HOME/jigsaw-rule-classifier`. Clone the Git repository under `$HOME/projects/` so the original working directory stays intact. Both directories use the normal project name.
 
-## 2. Place the project in this space
-
-Download `jigsaw-rule-classifier.zip`, then upload it to the JupyterLab home folder. Open a **Terminal** and run this whole block:
+In the JupyterLab **Terminal**, run:
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
-cd "$HOME"
-python3 -m zipfile -e jigsaw-rule-classifier.zip "$HOME"
-cd "$HOME/jigsaw-rule-classifier"
+PROJECT_DIR="$HOME/projects/jigsaw-rule-classifier"
+if [ ! -d "$PROJECT_DIR/.git" ]; then
+  git clone https://github.com/alvaromendizabal/jigsaw-rule-classifier.git "$PROJECT_DIR"
+fi
+cd "$PROJECT_DIR"
+git pull --ff-only
+if [ ! -f configs/local.json ]; then
+  cp "$HOME/jigsaw-rule-classifier/configs/local.json" configs/local.json
+fi
 bash bootstrap.sh
-```
-
-Bootstrap creates an isolated environment and notebook kernel, then runs the quality gate. It emits timestamps and heartbeats during installation and verification. Expected final marker: **`BOOTSTRAP_COMPLETED`**. Invoke it with `bash`; do not paste its internal shell settings into your interactive terminal.
-
-This is the initial project archive. After creating the GitHub repository, use Git branches and edit the original filenames for subsequent changes. Do not repeatedly unpack archives over modified work.
-
-## 3. Authenticate Kaggle and download its files
-
-You already accepted the rules in your Kaggle account. This new AWS space still needs that account's local authentication.
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-cd "$HOME/jigsaw-rule-classifier"
-uv run kaggle auth login
-uv run jigsaw download
-uv run jigsaw backup
-```
-
-Follow the official CLI's browser login instructions. If you already installed a supported Kaggle credential in this space, skip `auth login` and run the download directly. Do not re-create credentials unless the CLI reports that authentication is missing or expired. Your email is not an API credential.
-
-The downloader retrieves the three CSVs separately and records their hashes. Completed downloads are reused. If you prefer Kaggle's **Download All**, extract its three CSVs into `data/raw/`, then run `uv run jigsaw audit` and `uv run jigsaw backup`.
-
-Expected result: `train.csv`, `test.csv`, and `sample_submission.csv` pass schema checks, followed by a `snapshot_committed` event from S3.
-
-## 4. Run the explanatory notebooks in order
-
-In JupyterLab, select **Python (Jigsaw Rules)** as the kernel. Use **Run → Run All Cells** on each notebook, in order:
-
-1. `notebooks/00_environment_and_data.ipynb`
-2. `notebooks/01_data_and_validation.ipynb`
-3. `notebooks/02_baseline_and_review.ipynb`
-
-Notebook 02 trains two CPU models across both validation protocols, generates predictions, and saves an interactive HTML review. Cloud snapshots are on by default in this notebook. You can instead run the whole experiment from the terminal:
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-cd "$HOME/jigsaw-rule-classifier"
-uv run jigsaw baseline --cloud
-```
-
-A `heartbeat` means the process is alive; it is not proof a model is improving. Fold and stage completion events show concrete progress. `elapsed_seconds` reports time since the named stage began. Expected final marker: **`RUN_COMPLETED`**. The following `REPORT` line gives the exact report location.
-
-If the run stops, rerun the same command. If you stop or restart the same space, its local data and completed stages remain on disk. To recover into a fresh project directory on a different machine, configure the same S3 bucket and use:
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
 uv run jigsaw restore
-uv run jigsaw baseline --cloud
+uv run jigsaw review --run-id c15c2c2318fc0ed619c6
 ```
 
-Restore refuses to replace different local content. Use a fresh directory when restoring an older snapshot. Only files in the latest committed snapshot are recoverable; the active incomplete fold restarts. S3 data restoration does not restore source code—retain Git history and this archive.
+The configuration copy reuses the private bucket settings from the original project. If you originally extracted the archive elsewhere, use that directory in the `cp` line. The configuration is ignored by Git. A fresh contributor instead creates it from `configs/local.example.json` using their own bucket.
 
-## 5. Create the public GitHub repository
+Bootstrap installs the locked environment, registers **Python (Jigsaw Rules)**, and runs the quality checks. Restore verifies checksums and reuses matching local files. It refuses to overwrite different files. The final review checks the old run without fitting any model, even though the current repository source has changed.
 
-The linked GitHub connection here can work with existing repositories but does not expose a create-repository action. Create it on GitHub using:
+Expected output:
 
-**Name:** `jigsaw-rule-classifier`
+```text
+BOOTSTRAP_COMPLETED
+... REVIEW_VERIFIED ... data_kind: competition
+seen_rule    comment_only   rule_macro_auc=0.728140
+seen_rule    rule_examples  rule_macro_auc=0.728672
+heldout_rule comment_only   rule_macro_auc=0.604086
+heldout_rule rule_examples  rule_macro_auc=0.615563
+REPORT .../reports/private/report.html
+RESULTS .../reports/private/results.json
+```
 
-**Description:** `Rule-conditioned NLP with unseen-rule validation, resumable AWS experiments, calibrated evaluation, and offline Kaggle inference.`
+## 3. View the real evidence
 
-Choose **Public** and **Add a README**. Then send the repository link in this conversation. I can use that existing repository to publish the tested files on a feature branch, open a documented pull request, check CI, and merge once its required checks pass. Those remote actions have not happened yet. No terminal token setup is required for this handoff.
+Open `projects/jigsaw-rule-classifier/notebooks/03_saved_results.ipynb` in JupyterLab. Select **Python (Jigsaw Rules)** and **Run → Run All Cells**. It shows the run identity, metrics, comparison chart, and links to verified exports.
 
-The archive includes `docs/PULL_REQUEST.md` with the change rationale and verification boundary. Git ignores `configs/local.json`, raw data, experiments, models, and tokens. Real-data notebook outputs require review before public commits.
+The exported `reports/private/results.json` explicitly says `data_kind: competition`. If sharing a result in chat, use that file or its accompanying HTML. Synthetic smoke tests are labeled `synthetic` and are rejected by the review command unless explicitly enabled.
 
-## 6. What to return before Phase 2
+**Do not rerun notebook 02 merely to open your old results.** It runs an experiment under the current code fingerprint. Notebook 03 reviews completed work.
 
-Send the new GitHub link and either the generated `review/report.html` or its `review/results.json`, plus the last progress lines if anything stopped. These are the inputs needed to choose the next model and GPU budget from evidence.
+## 4. Next modeling phase
 
-Do not spend time on GPU fine-tuning yet. Phase 2 will compare semantic embeddings and a cross-encoder under the same validation protocol; Phase 3 will introduce LoRA and checkpointed neural training.
+[PHASE_2.md](docs/PHASE_2.md) predeclares the semantic experiments: an embedding/example matcher, then a rule-conditioned cross-encoder, compared on the same split memberships. Held-out-rule AUC **0.6156** is the reference to improve, alongside per-rule ranking, probability quality, latency, and memory.
 
-## Later: the Kaggle notebook
+The next implementation must pin model revisions and neural dependencies, checkpoint embedding batches, and pass an interruption/resume test and a bounded hardware smoke test before a full run. No neural model or GPU job is included in this release. The next experiment will be developed through its own pull request.
 
-Import `kaggle/submission.ipynb` into Kaggle. Attach **Jigsaw – Agile Community Rules Classification**, select CPU, turn **Internet off**, and **Save Version → Save & Run All**. It uses the canonical baseline model code and predicts every row in the test file supplied at execution.
+## Continued use
 
-If your signed-in account enables **Late Submission**, choose the completed notebook version and its `submission.csv`. This setup has not verified that account-level permission or submitted anything. The original competition ended in 2025; new medals are not available for late work.
+- Review the latest completed real experiment: `uv run jigsaw review`.
+- Save new data and experiment artifacts: `uv run jigsaw backup`.
+- Run or resume a new baseline: `uv run jigsaw baseline --cloud`.
+- Verify the source: `uv run python scripts/verify.py`.
+- Review changes: use a feature branch and pull request; merge after Quality passes.
+
+When finished using Studio, stop the JupyterLab app to stop compute billing. Space disk and S3 snapshots persist; storage remains billable. Git keeps source history. S3 preserves committed experiment checkpoints; the active incomplete fold restarts after an interruption.
+
+## Kaggle later
+
+The standalone `kaggle/submission.ipynb` creates `submission.csv` offline with the required columns. Import it into Kaggle, attach the competition data, turn internet off, and save a completed notebook version. Late submission availability must be checked in the signed-in account. The original competition ended in 2025; this release does not claim a leaderboard score or medal.

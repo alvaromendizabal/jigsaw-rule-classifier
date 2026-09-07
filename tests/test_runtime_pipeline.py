@@ -71,6 +71,8 @@ def test_end_to_end_resumes_without_refitting(tmp_path, monkeypatch):
     predictions = pd.read_csv(first / "full_training/submission.csv")
     assert len(predictions) == 8
     assert "SYNTHETIC" in (first / "review/report.html").read_text()
+    records = json.loads((first / "review/results.json").read_text())
+    assert all(r["data_kind"] == "synthetic" and r["run_id"] == first.name for r in records)
 
     def should_not_fit(*args, **kwargs):
         raise AssertionError("Completed work should not be refitted")

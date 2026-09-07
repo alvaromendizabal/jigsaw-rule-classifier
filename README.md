@@ -4,32 +4,46 @@ Predict whether a comment violates a supplied community rule, using the rule tex
 
 This project studies how text models behave when policies change. It combines explicit validation, auditable probability metrics, resumable experiments, and portable offline inference. Built by Alvaro Mendizabal for an employer-facing NLP portfolio.
 
-**Current milestone:** Phase 0 infrastructure and Phase 1 reference implementation. Software checks use labeled synthetic fixtures; real competition training and leaderboard scores are not yet established. No medal-level result is claimed.
+**Current milestone:** The real-data CPU baseline is complete and preserved in S3. Next: semantic rule generalization. This repository contains a reproducible reference system, not a state-of-the-art performance claim.
+
+[![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
+
+## Recorded baseline
+
+Run `c15c2c2318fc0ed619c6` evaluated **2,029 competition training rows**. Each model has one out-of-fold prediction per row in each protocol. Results are local cross-validation, **not leaderboard scores**.
+
+| Model | Familiar-rule macro AUC | Held-out-rule macro AUC | Held-out log loss | Held-out Brier |
+| --- | ---: | ---: | ---: | ---: |
+| Comment-only TF-IDF | 0.7281 | 0.6041 | 0.6731 | 0.2400 |
+| Rule/example TF-IDF | 0.7287 | 0.6156 | 0.6736 | 0.2405 |
+
+![Baseline generalization comparison](reports/baseline/comparison.svg)
+
+Adding lexical example features changes familiar-rule AUC very little and gives a modest descriptive improvement in held-out ranking. Probability losses do not improve. No significance claim is made. Semantic understanding and broader validation are the next research questions.
+
+The audit found 162 duplicate training bodies and overlap between training and all 10 preview test comments. The preview tests submission plumbing; it cannot establish independent model performance. [Inspect the recorded evidence](reports/baseline/README.md) and [the Phase 2 experiment plan](docs/PHASE_2.md).
 
 ## Start here
 
-See [START_HERE.md](START_HERE.md) for the exact SageMaker setup and notebook order.
+For the existing AWS project, follow [START_HERE.md](START_HERE.md): clone this repository into the persistent workspace, reuse its private configuration, restore the saved snapshot, and review it. Existing Kaggle authentication remains valid.
 
 ```bash
-export PATH="$HOME/.local/bin:$PATH"
 bash bootstrap.sh
-uv run kaggle auth login
-uv run jigsaw download
-uv run jigsaw backup
+uv run jigsaw restore
+uv run jigsaw review --run-id c15c2c2318fc0ed619c6
 ```
 
-The Kaggle login step is needed only if this new space has no working Kaggle credentials. Existing supported Kaggle credentials are reused by the official CLI. Never put tokens in a notebook, command history, Git, or chat. Linked GitHub/Hugging Face/AWS accounts do not authenticate Kaggle automatically.
+`review` validates saved checksums and recomputes metrics from saved predictions. It never trains a model. Its exports identify the run, dataset kind, row count, and training file hash. By default it refuses synthetic results. Open **notebooks/03_saved_results.ipynb** for an interactive review.
 
-Select **Python (Jigsaw Rules)** and run these notebooks in order:
-
-| Notebook | Question and output |
+| Notebook | Purpose |
 | --- | --- |
-| `00_environment_and_data.ipynb` | Is the environment reproducible and the data schema correct? |
-| `01_data_and_validation.ipynb` | What do the labels and rules look like, and how will validation prevent leakage? |
-| `02_baseline_and_review.ipynb` | Does example context help, and how does performance change on a held-out rule? |
-| `kaggle/submission.ipynb` | Can the baseline regenerate an exact-format submission offline? |
+| `00_environment_and_data.ipynb` | Verify environment and data contracts |
+| `01_data_and_validation.ipynb` | Inspect labels, duplicates, and validation splits |
+| `02_baseline_and_review.ipynb` | Run or resume a baseline under the current source fingerprint |
+| `03_saved_results.ipynb` | Review an already completed run without retraining |
+| `kaggle/submission.ipynb` | Regenerate an exact-format submission offline |
 
-The equivalent terminal experiment is `uv run jigsaw baseline --cloud`. Rerun the same command after an interruption. Outputs include an offline HTML review, OOF predictions, split memberships, metrics, coefficients, a local model, a preview submission, and UTC JSONL logs.
+A new baseline is `uv run jigsaw baseline --cloud`. Rerun that command after an interruption to reuse matching completed stages. A source or environment change deliberately creates a new experiment fingerprint; use `review` to inspect historical runs without recomputing them.
 
 ## Evaluation
 
@@ -64,9 +78,9 @@ The baseline does not establish deep semantic rule understanding. [ROADMAP.md](d
 - S3 backup uses immutable content objects and publishes its manifest last. A failed backup retains the prior committed snapshot.
 - Restore verifies hashes and refuses to overwrite differing local work. Cloud snapshots assume a single writer.
 - No arbitrary unpickling during resume. The exported `model.joblib` is for trusted local use only.
-- No raw comments, credentials, run outputs, or weights are included by default in Git commits.
+- Raw comments, credentials, per-row predictions, and weights are excluded from Git. Only reviewed aggregate evidence is published.
 
-`uv run python scripts/verify.py` runs compilation, Ruff, formatting, pytest, and notebook source-consistency checks. CI also runs notebook execution in a Jupyter kernel. `--engine inprocess` is an explicit option for environments that cannot open Jupyter sockets; it tests cell logic and rich outputs, not kernel integration.
+`uv run python scripts/verify.py` runs compilation, Ruff, formatting, pytest, and notebook source-consistency checks. CI also executes all five notebooks in a Jupyter kernel and retains logs and executed synthetic notebooks as downloadable artifacts for 30 days. Source and reviewed evidence remain in Git; experiment artifacts remain in S3. `--engine inprocess` is an explicit option for environments that cannot open Jupyter sockets; it tests cell logic and rich outputs, not kernel integration.
 
 ## Kaggle compatibility and competition status
 

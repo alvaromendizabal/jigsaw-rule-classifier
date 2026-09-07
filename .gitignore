@@ -19,4 +19,6 @@ dist/
 *.zip
 configs/local.json
 reports/private/
-
+examples/
+reports/baseline/comparison.png
+MANIFEST.sha256

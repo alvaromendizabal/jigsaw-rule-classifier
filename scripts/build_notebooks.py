@@ -149,6 +149,31 @@ def notebooks():
             ),
         ]
     )
+    outputs["notebooks/03_saved_results.ipynb"] = notebook(
+        [
+            (
+                "md",
+                "# 03 · Review completed evidence\n\n**Question:** What did the completed experiment establish, and what should we test next?\n\nThis notebook checks saved artifacts and recalculates metrics from out-of-fold predictions. It never trains a model. Open this notebook after restoring a saved run; you do not need to repeat notebook 02 when reviewing historical results.",
+            ),
+            ("code", SETUP),
+            (
+                "code",
+                "from jigsaw_rules.review import review_run\nis_demo = (root / 'data/raw/SYNTHETIC.txt').exists()\nevidence = review_run(root, os.environ.get('JIGSAW_RUN_ID'), allow_synthetic=is_demo)\nprint('Data kind:', evidence['data_kind'])\nprint('Run:', evidence['run_id'])\nprint('Training rows:', evidence['training_rows'])\nprint('Training SHA-256:', evidence['training_sha256'])\nif evidence['data_kind'] == 'synthetic':\n    display(HTML('<b>SYNTHETIC SOFTWARE TEST — not competition performance</b>'))",
+            ),
+            (
+                "md",
+                "## The generalization gap\nCompare the two validation protocols separately. A small difference between models is not evidence of a statistically reliable improvement. With only two rules, new-rule transfer remains weakly measured. AUC evaluates ranking; probability quality needs log loss, Brier score, and calibration diagnostics as well.",
+            ),
+            (
+                "code",
+                "records = evidence['results']\nsummary = pd.DataFrame([{'Model': r['model'], 'Protocol': r['protocol'], **{k: v for k, v in r['metrics'].items() if isinstance(v, float)}} for r in records])\ndisplay(summary.round(4))\nfig = px.bar(summary, x='Protocol', y='rule_macro_auc', color='Model', barmode='group', title='Saved out-of-fold evidence: familiar versus held-out rules')\nfig.update_yaxes(range=[0, 1])\nfig.add_hline(y=0.5, line_dash='dash', annotation_text='Chance ranking')\nfig.show()\ndisplay(FileLink(str(root / 'reports/private/report.html')))\ndisplay(FileLink(str(root / 'reports/private/results.json')))",
+            ),
+            (
+                "md",
+                "## Phase 2 decision\nThe next controlled experiment compares a frozen semantic embedding/example matcher with a rule-conditioned cross-encoder under the same saved splits. Start from a pinned model revision, preserve embedding batches, record latency and peak memory, and compare per-rule as well as aggregate performance.\n\nSee `docs/PHASE_2.md` for the predeclared experiment and hardware gate. This review does not download weights or launch a paid job. Historical results remain valid evidence for their recorded source version; a code update does not require retraining merely to view them.",
+            ),
+        ]
+    )
     model = (ROOT / "src/jigsaw_rules/model.py").read_text()
     model = model.replace("from __future__ import annotations\n", "").replace(
         "from jigsaw_rules.data import EXAMPLES\n", ""

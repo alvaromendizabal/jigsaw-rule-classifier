@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "run_id": "c15c2c2318fc0ed619c6",
+  "data_kind": "competition",
+  "evaluation": "local cross-validation; not a Kaggle leaderboard score",
+  "training_rows": 2029,
+  "verified_on": "2026-09-07",
+  "snapshot_created_at": "2026-09-07T00:25:52.178102+00:00",
+  "files": {
+    "audit/audit.json": "78c6bf6d32ea4bf419efd281ed01cf56f4b1ea4f6d68ee2a27fb6f267f64767c",
+    "provenance.json": "77d397e487a489dc91e2e443fc5d6e0bd4ca1e1d66afbc2ad6dff257617c00a5",
+    "results.json": "1370a329d3b395c4aac4cd671562ffbd3b739a0500b8e63e4fe6299826882cc5",
+    "status.json": "46c17b3e15d6affa62d4bb00abeecd05f312736968c9ed64a9b4e35789cac5d9"
+  },
+  "note": "Original artifacts retained byte-for-byte. Source hashes identify the completed baseline; later review improvements do not retroactively change that run.",
+  "source_commit": "632e0a71ccae70b05f9fa4e03ce1d0b7d2474d81"
+}

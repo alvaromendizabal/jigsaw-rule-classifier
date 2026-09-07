@@ -13,7 +13,7 @@ The goal is a defensible, high-performing rule-conditioned classifier and an und
 
 ## Candidate families
 
-Begin Phase 2 by checking current official model cards, licenses, hardware requirements, and competition-winning writeups. Candidate families include embedding models, DeBERTa-style cross-encoders, and Qwen-style instruction models. Exact model IDs, revisions, GPU types, and dependency pins are deliberately not declared final before that inspection and the first real-data run.
+Begin Phase 2 by checking current official model cards, licenses, hardware requirements, and competition-winning writeups. Candidate families include embedding models, DeBERTa-style cross-encoders, and Qwen-style instruction models. The first real-data run is complete. `docs/PHASE_2.md` records the resulting experiment design and initial model candidate; immutable model revisions and neural dependencies will be locked with its implementation.
 
 The expensive model is not automatically the best model. Compare ranking accuracy, calibration, inference latency, peak RAM/VRAM, and cost per evaluated comment. Distillation may give a better employer-facing deployment story than running a large ensemble everywhere.
 
