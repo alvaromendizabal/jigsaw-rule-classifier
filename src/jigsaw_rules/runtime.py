@@ -61,11 +61,22 @@ def fingerprint(data_dir: Path, config: dict) -> tuple[str, dict]:
 class Progress:
     """Every long operation emits start, heartbeat, finish/failure, and elapsed seconds."""
 
-    def __init__(self, path: Path, stage: str, heartbeat_seconds: float = 15):
+    _context = threading.local()
+
+    def __init__(
+        self,
+        path: Path,
+        stage: str,
+        heartbeat_seconds: float = 15,
+        *,
+        total_started: float | None = None,
+    ):
         self.path = path
         self.stage = stage
         self.interval = heartbeat_seconds
         self.started = time.monotonic()
+        self.total_started = self.started if total_started is None else total_started
+        self.explicit_total_started = total_started
         self.stop = threading.Event()
         self.guard = threading.Lock()
         self.thread: threading.Thread | None = None
@@ -76,6 +87,8 @@ class Progress:
             "stage": self.stage,
             "event": event,
             "elapsed_seconds": round(time.monotonic() - self.started, 3),
+            "stage_elapsed_seconds": round(time.monotonic() - self.started, 3),
+            "total_elapsed_seconds": round(time.monotonic() - self.total_started, 3),
             **fields,
         }
         line = json.dumps(record, allow_nan=False)
@@ -91,6 +104,11 @@ class Progress:
             self.emit("heartbeat")
 
     def __enter__(self) -> Progress:
+        self.previous_total_started = getattr(self._context, "started", None)
+        inherited = self.previous_total_started
+        if self.explicit_total_started is None and inherited is not None:
+            self.total_started = inherited
+        self._context.started = self.total_started
         self.emit("started")
         self.thread = threading.Thread(target=self._heartbeat, daemon=True)
         self.thread.start()
@@ -100,7 +118,12 @@ class Progress:
         self.stop.set()
         if self.thread:
             self.thread.join(timeout=2)
-        self.emit("failed" if error else "completed", error_type=kind.__name__ if kind else None)
+        try:
+            self.emit(
+                "failed" if error else "completed", error_type=kind.__name__ if kind else None
+            )
+        finally:
+            self._context.started = self.previous_total_started
 
 
 def stage(directory: Path, name: str, action: Callable[[Path], None]) -> Path:
