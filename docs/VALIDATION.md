@@ -14,7 +14,8 @@ Verified September 7, 2026. These are software checks, not a Kaggle performance 
 | Standard Jupyter kernel launch in this workspace | Blocked by the workspace's socket restrictions; not claimed as passed |
 | Actual Kaggle dataset download | Completed in Studio; original file hashes recovered from S3 |
 | Actual Kaggle-hosted offline execution/scoring | Pending |
-| GitHub Actions and pull-request merge | Publication in progress; the Quality workflow run is the authoritative CI record |
+| GitHub Actions | Tests and ordinary Jupyter execution passed in [the initial run](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34071531044); [Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml) records each revision |
+| Pull-request review and merge | [PR #1](https://github.com/alvaromendizabal/jigsaw-rule-classifier/pull/1) records the release and its checks |
 | SageMaker space | API verified private 30 GB space; CPU JupyterLab app running |
 | S3 settings | API verified versioning enabled, AES-256 encryption, all public-access blocks enabled, HTTPS-only bucket policy |
 | Studio role S3 permissions | Actual completed S3 snapshots recovered; download hashes verified |
@@ -33,7 +34,7 @@ Verified September 7, 2026. These are software checks, not a Kaggle performance 
 
 The repository publishes reviewed aggregate metrics from the completed competition-data run, with original source/data hashes. Private OOF predictions were recovered and used to recalculate those metrics; the saved results matched. Tests and CI notebooks use explicitly labeled synthetic data. Raw competition CSVs and per-row predictions are excluded from Git.
 
-The CI workflow retains ordinary Jupyter execution as a gate after publication. The in-process engine verifies real notebook cell logic and captures rich outputs, but it does not validate kernel transport, browser integration, or SageMaker-specific networking. Those facts must not be inferred from the passing local tests.
+The CI workflow executes notebooks using ordinary Jupyter kernels, with CurveZMQ encryption required. The in-process engine verifies cell logic and captures rich outputs, but it does not validate kernel transport, browser integration, or SageMaker-specific networking. The initial CI run passed and exposed old Action runtime and plaintext-kernel warnings; the release updates Actions to pinned Node 24 versions and requires encrypted kernel connections. Warning suppression is not used.
 
 The baseline resumes completed folds and stages, not interrupted solver iterations. Neural optimizer and RNG checkpointing is a later phase. Source code and data fingerprints prevent reusing old model artifacts as a new experiment. Historical completed results remain reviewable without retraining through `jigsaw review`.
 

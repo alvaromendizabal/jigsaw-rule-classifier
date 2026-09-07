@@ -45,6 +45,7 @@ def main() -> None:
                 "argv": [sys.executable, "-m", "ipykernel_launcher", "-f", "{connection_file}"],
                 "display_name": "Jigsaw verification",
                 "language": "python",
+                "metadata": {"supported_encryption": ["curve"]},
             }
         )
     )
@@ -64,10 +65,16 @@ def main() -> None:
                 client = NotebookClient(
                     nb, timeout=600, kernel_name="jigsaw-verification", allow_errors=False
                 )
-                client.execute(cwd=str(root), env=env)
+                client.execute(cwd=str(root), env=env, transport_encryption="required")
             else:
                 execute_inprocess(nb, env)
-            nb.metadata["verification"] = {"engine": args.engine, "synthetic": args.synthetic}
+            nb.metadata["verification"] = {
+                "engine": args.engine,
+                "synthetic": args.synthetic,
+                "transport_encryption": "required"
+                if args.engine == "jupyter"
+                else "not_applicable",
+            }
             nbformat.write(nb, output / path.name)
             log.emit("notebook_completed", notebook=path.name)
     print(f"EXECUTED_NOTEBOOKS {output}")
