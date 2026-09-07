@@ -1,0 +1,12 @@
+{
+  "model_id": "Qwen/Qwen3-Embedding-0.6B",
+  "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "files": {
+    "config.json": {"algorithm": "git-sha1", "digest": "cef2749ee93607b8f9a58ec72f4f6bfaf874e71d"},
+    "tokenizer.json": {"algorithm": "sha256", "digest": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a"},
+    "tokenizer_config.json": {"algorithm": "git-sha1", "digest": "7345216a0785dc7086e8c245b2a9d3896ce2b756"},
+    "merges.txt": {"algorithm": "git-sha1", "digest": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7"},
+    "vocab.json": {"algorithm": "git-sha1", "digest": "4783fe10ac3adce15ac8f358ef5462739852c569"},
+    "model.safetensors": {"algorithm": "sha256", "digest": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"}
+  }
+}

@@ -27,6 +27,8 @@ def main() -> None:
             "backup",
             "restore",
             "review",
+            "semantic",
+            "model-download",
         ],
     )
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -70,6 +72,15 @@ def main() -> None:
             if not (sample_dir / "SYNTHETIC.txt").exists():
                 synthetic(sample_dir)
             run_baseline(root, data_dir=sample_dir)
+        elif args.command in {"semantic", "model-download"}:
+            from jigsaw_rules.embeddings import load_spec, prepare_model
+            from jigsaw_rules.semantic_pipeline import run_semantic
+
+            spec = load_spec(root)
+            if args.command == "semantic":
+                run_semantic(root, spec, cloud=config)
+            else:
+                prepare_model(root, spec)
         elif args.command == "backup":
             backup(root, config["bucket"], config["region"])
         elif args.command == "review":

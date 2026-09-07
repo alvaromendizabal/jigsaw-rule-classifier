@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "data_kind": "authored integration examples",
+  "model_id": "Qwen/Qwen3-Embedding-0.6B",
+  "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "contract": {
+    "model_id": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "max_length": 256,
+    "micro_batch": 4,
+    "threads": 4,
+    "dtype": "float32",
+    "device": "cpu",
+    "include_rule": true,
+    "instruction": "Represent the meaning of the comment in relation to the community rule.",
+    "pooling": "last_non_padding_token_l2_normalized",
+    "software": {
+      "torch": "2.10.0+cpu",
+      "transformers": "4.57.6",
+      "numpy": "2.3.5"
+    },
+    "implementation": "16d9310a15f8fecf642bb3cf3f82c7d7b82bae2ad30d76016b75ae63f56c08ef"
+  },
+  "rows": 4,
+  "dimensions": 1024,
+  "maximum_batch_difference": 2.4028122425079346e-07,
+  "reused_rows": 4,
+  "elapsed_seconds": 16.216942526996718,
+  "peak_rss_gib": 3.831043243408203,
+  "note": "Real model integration, not a competition performance result."
+}

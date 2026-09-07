@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "model_id": "Qwen/Qwen3-Embedding-0.6B",
+  "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "baseline_run": "c15c2c2318fc0ed619c6",
+  "max_length": 256,
+  "micro_batch": 4,
+  "cache_batch": 64,
+  "threads": 4,
+  "dtype": "float32",
+  "device": "cpu",
+  "include_rule": true,
+  "instruction": "Represent the meaning of the comment in relation to the community rule.",
+  "margin_temperature": 0.1,
+  "classifier_c": 1.0,
+  "seed": 2025,
+  "max_seconds": 7200
+}
