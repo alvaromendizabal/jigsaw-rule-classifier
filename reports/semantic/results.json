@@ -1,0 +1,138 @@
+[
+  {
+    "model": "semantic_margin",
+    "protocol": "seen_rule",
+    "metrics": {
+      "rule_macro_auc": 0.635074832083826,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.713518050053299,
+        "No legal advice: Do not offer or request legal advice.": 0.556631614114353
+      },
+      "pooled_auc": 0.6220870450892084,
+      "average_precision": 0.6216904784123097,
+      "log_loss": 0.678620548443604,
+      "brier": 0.24234971556808318,
+      "ece_10_equal_width_bins": 0.060747466389199464,
+      "precision_at_0_5": 0.5893027698185291,
+      "recall_at_0_5": 0.5984481086323957,
+      "f1_at_0_5": 0.5938402309913379,
+      "confusion_matrix_at_0_5": [
+        [
+          568,
+          430
+        ],
+        [
+          414,
+          617
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "run_id": "4e7e6c00d269c451c0a3",
+    "data_kind": "competition",
+    "training_rows": 2029,
+    "probability_note": "Fixed temperature, not calibrated"
+  },
+  {
+    "model": "semantic_classifier",
+    "protocol": "seen_rule",
+    "metrics": {
+      "rule_macro_auc": 0.6012939595835286,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6542846005759471,
+        "No legal advice: Do not offer or request legal advice.": 0.5483033185911101
+      },
+      "pooled_auc": 0.6140991974249177,
+      "average_precision": 0.6082677965575529,
+      "log_loss": 0.6741685176306983,
+      "brier": 0.2408546479518145,
+      "ece_10_equal_width_bins": 0.040440317400782765,
+      "precision_at_0_5": 0.5815109343936382,
+      "recall_at_0_5": 0.5674102812803103,
+      "f1_at_0_5": 0.5743740795287187,
+      "confusion_matrix_at_0_5": [
+        [
+          577,
+          421
+        ],
+        [
+          446,
+          585
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "run_id": "4e7e6c00d269c451c0a3",
+    "data_kind": "competition",
+    "training_rows": 2029,
+    "probability_note": "Fold-fitted logistic probabilities; not separately calibrated"
+  },
+  {
+    "model": "semantic_margin",
+    "protocol": "heldout_rule",
+    "metrics": {
+      "rule_macro_auc": 0.635074832083826,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.713518050053299,
+        "No legal advice: Do not offer or request legal advice.": 0.556631614114353
+      },
+      "pooled_auc": 0.6220870450892084,
+      "average_precision": 0.6216904784123097,
+      "log_loss": 0.6786205484436039,
+      "brier": 0.24234971556808318,
+      "ece_10_equal_width_bins": 0.06074746638919949,
+      "precision_at_0_5": 0.5893027698185291,
+      "recall_at_0_5": 0.5984481086323957,
+      "f1_at_0_5": 0.5938402309913379,
+      "confusion_matrix_at_0_5": [
+        [
+          568,
+          430
+        ],
+        [
+          414,
+          617
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "run_id": "4e7e6c00d269c451c0a3",
+    "data_kind": "competition",
+    "training_rows": 2029,
+    "probability_note": "Fixed temperature, not calibrated"
+  },
+  {
+    "model": "semantic_classifier",
+    "protocol": "heldout_rule",
+    "metrics": {
+      "rule_macro_auc": 0.5857702273650566,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6379806850906082,
+        "No legal advice: Do not offer or request legal advice.": 0.5335597696395049
+      },
+      "pooled_auc": 0.4914183361874087,
+      "average_precision": 0.5320940793287045,
+      "log_loss": 0.8264339897444046,
+      "brier": 0.29761820267222033,
+      "ece_10_equal_width_bins": 0.1679237416232214,
+      "precision_at_0_5": 0.5198973042362003,
+      "recall_at_0_5": 0.39282250242483024,
+      "f1_at_0_5": 0.44751381215469616,
+      "confusion_matrix_at_0_5": [
+        [
+          624,
+          374
+        ],
+        [
+          626,
+          405
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "run_id": "4e7e6c00d269c451c0a3",
+    "data_kind": "competition",
+    "training_rows": 2029,
+    "probability_note": "Fold-fitted logistic probabilities; not separately calibrated"
+  }
+]

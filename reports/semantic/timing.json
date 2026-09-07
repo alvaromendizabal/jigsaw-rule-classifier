@@ -1,0 +1,12 @@
+{
+  "first_completion_wall_seconds": 1004.7074859229979,
+  "encoder": {
+    "unique_texts": 1875,
+    "encoded_texts": 1875,
+    "reused_texts": 0,
+    "truncated_rows": 1,
+    "encode_seconds": 983.6895047399812,
+    "peak_rss_gib": 3.854236602783203
+  },
+  "note": "First successful invocation, including downloads if needed. Earlier failed invocations are in logs."
+}

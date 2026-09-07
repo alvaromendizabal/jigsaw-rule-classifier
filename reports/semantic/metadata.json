@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "run_id": "4e7e6c00d269c451c0a3",
+  "source_commit": "6b6e9b1d472958872670d97cef4910161025ecd7",
+  "data_kind": "competition",
+  "training_rows": 2029,
+  "evaluation": "local cross-validation; not a Kaggle leaderboard score",
+  "verified_on": "2026-09-07",
+  "original_provenance_sha256": "b4d40087d5c919ae05baadd91312df14e3ae787444a30a3acbf926cbc875297f",
+  "files": {
+    "results.json": "111ab3c578a324d6da1083a1cbfcb9ce11d7c5a580e40acd4a16102b9e633e23",
+    "uncertainty.json": "aaf024d4af128ba0c5ba8b3c8134dd0c3c2aa1b98061266de93e1361d0ec6c66",
+    "timing.json": "b7dad94938ccdc7c89305f259ebcac9459badfc33bfbf6861d2be66d3bca76d1",
+    "audit.json": "78c6bf6d32ea4bf419efd281ed01cf56f4b1ea4f6d68ee2a27fb6f267f64767c",
+    "provenance.json": "efaddb35b5e6c6040726e3ac4891193c04ce7925b27d28727c423f108862217a"
+  }
+}

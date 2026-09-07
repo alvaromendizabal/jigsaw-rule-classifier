@@ -67,6 +67,11 @@ def build_report(
                 "F1 @ 0.5": m["f1_at_0_5"],
             }
         )
+    phase = (
+        "Semantic reference experiments"
+        if any(r["model"].startswith("semantic_") for r in results)
+        else "Lexical reference experiments"
+    )
     banner = (
         "SYNTHETIC SOFTWARE DEMONSTRATION — NOT COMPETITION PERFORMANCE"
         if synthetic
@@ -96,5 +101,5 @@ No decision threshold or calibration model is fitted to these evaluation labels.
 <p>Training and inference durations are recorded in <code>events.jsonl</code> and each fold's metrics.
 Inspect <code>oof.csv</code> for row-level errors and each fold's <code>split.json</code> for provenance.</p>
 <details><summary>Full metric definitions and values</summary><pre>{html.escape(json.dumps(results, indent=2))}</pre></details>
-</section><small>Alvaro Mendizabal · Phase 1 reference experiments</small></main></body></html>"""
+</section><small>Alvaro Mendizabal · {phase}</small></main></body></html>"""
     atomic_bytes(directory / "report.html", page.encode())

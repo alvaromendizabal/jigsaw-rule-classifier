@@ -4,7 +4,7 @@ Predict whether a comment violates a supplied community rule, using the rule tex
 
 This project studies how text models behave when policies change. It combines explicit validation, auditable probability metrics, resumable experiments, and portable offline inference. Built by Alvaro Mendizabal for an employer-facing NLP portfolio.
 
-**Current milestone:** The real-data CPU baseline is complete and preserved in S3. Next: semantic rule generalization. This repository contains a reproducible reference system, not a state-of-the-art performance claim.
+**Current milestone:** The pinned Qwen3 embedding benchmark is complete and compared with the preserved lexical baseline. See [Phase 2](docs/PHASE_2.md) for its implementation, verification, and measured evidence. This repository does not claim a medal or leaderboard result.
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
@@ -19,21 +19,39 @@ Run `c15c2c2318fc0ed619c6` evaluated **2,029 competition training rows**. Each m
 
 ![Baseline generalization comparison](reports/baseline/comparison.svg)
 
-Adding lexical example features changes familiar-rule AUC very little and gives a modest descriptive improvement in held-out ranking. Probability losses do not improve. No significance claim is made. Semantic understanding and broader validation are the next research questions.
+Adding lexical example features changes familiar-rule AUC very little and gives a modest descriptive improvement in held-out ranking. Probability losses do not improve. The lexical reference remains the comparison point for the semantic experiments below.
 
 The audit found 162 duplicate training bodies and overlap between training and all 10 preview test comments. The preview tests submission plumbing; it cannot establish independent model performance. [Inspect the recorded evidence](reports/baseline/README.md) and [the Phase 2 experiment plan](docs/PHASE_2.md).
 
+## Recorded semantic experiment
+
+Run `4e7e6c00d269c451c0a3` uses frozen **Qwen3-Embedding-0.6B**, pinned to an immutable Hub revision, with the exact original validation assignments. Only the similarity classifier learns from fold labels; Qwen weights remain frozen.
+
+| Model | Familiar-rule macro AUC | Held-out-rule macro AUC | Held-out log loss | Held-out Brier |
+| --- | ---: | ---: | ---: | ---: |
+| Lexical rule/example reference | 0.7287 | 0.6156 | 0.6736 | 0.2405 |
+| Frozen semantic margin | 0.6351 | 0.6351 | 0.6786 | 0.2423 |
+| Fold-fitted semantic classifier | 0.6013 | 0.5858 | 0.8264 | 0.2976 |
+
+![Semantic and lexical comparison](reports/semantic/comparison.svg)
+
+The margin's held-out AUC gain is **+0.0195**, with a paired 95% bootstrap interval of **−0.0132 to +0.0491**. This does not establish a reliable improvement. Its advertising AUC improves, legal-advice AUC declines, and probability losses worsen slightly. The learned similarity classifier performs worse. **The lexical model remains the reference; neither semantic candidate is promoted as an overall replacement.**
+
+The frozen margin produces the same predictions in both protocols because it fits no fold labels. The two columns are not independent replications. Only two labeled rules are observed. The next experiment will test joint rule/comment encoding and context ablations. [Detailed experiment record](reports/semantic/README.md).
+
+The full run took **1,004.7 seconds** on CPU after weights were already downloaded, with **3.854 GiB** peak process memory and **1 of 1,875** unique inputs truncated at 256 tokens. Runtime, original source hashes, paired intervals, and the negative results are retained. **Notebook 04 is committed with real outputs already displayed.**
+
 ## Start here
 
-For the existing AWS project, follow [START_HERE.md](START_HERE.md): clone this repository into the persistent workspace, reuse its private configuration, restore the saved snapshot, and review it. Existing Kaggle authentication remains valid.
+For the existing AWS project, follow [START_HERE.md](START_HERE.md): update the existing checkout, restore the saved snapshot, and open the semantic comparison. Existing Kaggle authentication remains valid.
 
 ```bash
 bash bootstrap.sh
 uv run jigsaw restore
-uv run jigsaw review --run-id c15c2c2318fc0ed619c6
+uv run jigsaw review
 ```
 
-`review` validates saved checksums and recomputes metrics from saved predictions. It never trains a model. Its exports identify the run, dataset kind, row count, and training file hash. By default it refuses synthetic results. Open **notebooks/03_saved_results.ipynb** for an interactive review.
+`review` validates saved checksums and recomputes metrics from saved predictions. It never trains a model. Its exports identify the run, dataset kind, row count, and training file hash. By default it refuses synthetic results. Open **notebooks/04_semantic_benchmark.ipynb** for the semantic comparison, or notebook 03 for general saved-run review.
 
 | Notebook | Purpose |
 | --- | --- |
@@ -41,6 +59,7 @@ uv run jigsaw review --run-id c15c2c2318fc0ed619c6
 | `01_data_and_validation.ipynb` | Inspect labels, duplicates, and validation splits |
 | `02_baseline_and_review.ipynb` | Run or resume a baseline under the current source fingerprint |
 | `03_saved_results.ipynb` | Review an already completed run without retraining |
+| `04_semantic_benchmark.ipynb` | Compare saved semantic and lexical evidence without loading model weights |
 | `kaggle/submission.ipynb` | Regenerate an exact-format submission offline |
 
 A new baseline is `uv run jigsaw baseline --cloud`. Rerun that command after an interruption to reuse matching completed stages. A source or environment change deliberately creates a new experiment fingerprint; use `review` to inspect historical runs without recomputing them.
@@ -65,7 +84,7 @@ The two initial models are deliberately interpretable CPU references:
 1. TF-IDF comment features with logistic regression.
 2. The same features plus comment-to-rule/example similarities, positive/negative maximum similarities, and their margin.
 
-The baseline does not establish deep semantic rule understanding. [ROADMAP.md](docs/ROADMAP.md) specifies the embedding, encoder, LoRA, ensemble, calibration, and deployment phases and their acceptance gates.
+The lexical baseline does not establish deep semantic rule understanding. Phase 2 adds frozen Qwen3 embeddings, example comparison, and a classifier fitted within each training fold. The semantic benchmark uses pinned CPU PyTorch and Transformers dependencies, hashed model assets, and atomic embedding shards. [ROADMAP.md](docs/ROADMAP.md) specifies the embedding, encoder, LoRA, ensemble, calibration, and deployment phases and their acceptance gates.
 
 ## Reliability
 
@@ -80,7 +99,7 @@ The baseline does not establish deep semantic rule understanding. [ROADMAP.md](d
 - No arbitrary unpickling during resume. The exported `model.joblib` is for trusted local use only.
 - Raw comments, credentials, per-row predictions, and weights are excluded from Git. Only reviewed aggregate evidence is published.
 
-`uv run python scripts/verify.py` runs compilation, Ruff, formatting, pytest, and notebook source-consistency checks. CI also executes all five notebooks in a Jupyter kernel and retains logs and executed synthetic notebooks as downloadable artifacts for 30 days. Source and reviewed evidence remain in Git; experiment artifacts remain in S3. `--engine inprocess` is an explicit option for environments that cannot open Jupyter sockets; it tests cell logic and rich outputs, not kernel integration.
+`uv run python scripts/verify.py` runs compilation, Ruff, formatting, pytest, and notebook source-consistency checks. CI also executes all six notebooks in a Jupyter kernel and retains logs and executed synthetic notebooks as downloadable artifacts for 30 days. Source and reviewed evidence remain in Git; experiment artifacts remain in S3. `--engine inprocess` is an explicit option for environments that cannot open Jupyter sockets; it tests cell logic and rich outputs, not kernel integration.
 
 ## Kaggle compatibility and competition status
 
