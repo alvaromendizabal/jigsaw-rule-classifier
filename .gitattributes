@@ -1,0 +1,4 @@
+# Keep the repository's language profile focused on authored Python and notebooks.
+reports/**/*.svg linguist-generated=true
+reports/**/*.json linguist-generated=true
+*.ipynb linguist-generated=false

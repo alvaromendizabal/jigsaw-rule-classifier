@@ -1,0 +1,4868 @@
+{
+  "folds": [
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 16558,
+      "retained": 489,
+      "rejected": 16069,
+      "decisions": {
+        "rare": 6423,
+        "retained": 489,
+        "constant_or_near_constant": 9587,
+        "exact_duplicate": 59
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "7374428f851766c04c297b26151e5f404743542da31579febe8f6fcc1fbcadfd",
+      "family": "word",
+      "screen_seconds": 0.2695744630036643,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 47632,
+      "retained": 3710,
+      "rejected": 43922,
+      "decisions": {
+        "constant_or_near_constant": 23321,
+        "rare": 19166,
+        "retained": 3710,
+        "exact_duplicate": 1435
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "d785b39d4b07d494f1eacab26616567c25e57301d73274181f79586868713f17",
+      "family": "character",
+      "screen_seconds": 0.9727090930027771,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 1512,
+      "retained": 128,
+      "rejected": 1384,
+      "decisions": {
+        "screen_budget": 920,
+        "high_training_correlation": 84,
+        "retained": 128,
+        "constant_or_near_constant": 343,
+        "exact_duplicate": 30,
+        "rare": 7
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "b337a8ec657c6dde204031a481b57fc7043d33557eed40cae8eb0342378a5e67",
+      "family": "structure",
+      "screen_seconds": 0.09768564199475804,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 143
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "600f1ba604ffeac1e1b589ba79d8df1cdc87a2941055ac3b7073622b6d30a77b",
+      "family": "lexical",
+      "screen_seconds": 0.04350889900524635,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 16558,
+      "retained": 85,
+      "rejected": 16473,
+      "decisions": {
+        "constant_or_near_constant": 16184,
+        "rare": 289,
+        "retained": 85
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 1024,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "caf99b1efe66d57cccd8455b98cb9b442d97028b97d007af8fa6b989bde60394",
+      "family": "support_tokens",
+      "screen_seconds": 0.1480496709991712,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 6144,
+      "retained": 256,
+      "rejected": 5888,
+      "decisions": {
+        "screen_budget": 5888,
+        "retained": 256
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 256,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "6b59cf704ccacb0f521b457cf3a03f96b77fe6797f2d96d515a7072ebdf9996b",
+      "family": "semantic",
+      "screen_seconds": 0.36791856099443976,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 32,
+      "retained": 31,
+      "rejected": 1,
+      "decisions": {
+        "retained": 31,
+        "high_training_correlation": 1
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 48,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "ef4e292da93dd8cc6413667c3bcdf94d619be8474e56fcc30fdaeeeb0868fe24",
+      "family": "semantic_scalar",
+      "screen_seconds": 0.016046568998717703,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 107,
+        "exact_duplicate": 36
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "adc82398e7ea510cee56a0bb53746e2c53dfa97e29edebe5518b1094d9e7e0dd",
+      "family": "ranks",
+      "screen_seconds": 0.07921488699503243,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 65,
+      "retained": 25,
+      "rejected": 40,
+      "decisions": {
+        "rare": 40,
+        "retained": 25
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "ecbd6985f919c1708ef8f8dccb1a96374afbfdcf79deccd7542f4dcb40300115",
+      "family": "community",
+      "screen_seconds": 0.04147413600003347,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "candidates": 9,
+      "retained": 8,
+      "rejected": 1,
+      "decisions": {
+        "retained": 8,
+        "constant_or_near_constant": 1
+      },
+      "training_rows": 237,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 9,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "b4b9c857cf596fef511de92bb1a2971cc0cb8d2a7c2f034ac3e4cf96d5b452a6",
+      "family": "target_context",
+      "screen_seconds": 0.01602762599941343,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "e8572ddab57909344d0642fb5ad98c1596af55f9cb2936dbc23ee7258341c071",
+      "validation_row_ids_sha256": "326ef4e6daa714611e7b9d7562359ed5b65efa6b6d10bb6e4350e169a15efb25"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 18492,
+      "retained": 706,
+      "rejected": 17786,
+      "decisions": {
+        "rare": 8685,
+        "constant_or_near_constant": 9061,
+        "retained": 706,
+        "exact_duplicate": 40
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "1d6100466c8b30b459ffe3b407e99cd463a3a9f36e66f6b96637e2e614dd122a",
+      "family": "word",
+      "screen_seconds": 0.2642949389992282,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 49351,
+      "retained": 4096,
+      "rejected": 45255,
+      "decisions": {
+        "rare": 20314,
+        "constant_or_near_constant": 22551,
+        "retained": 4096,
+        "exact_duplicate": 1848,
+        "screen_budget": 542
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "e693b2fe3e14ae1a192751ddaec0aee02afe062e4b08628d9b87668f4a6f36cd",
+      "family": "character",
+      "screen_seconds": 0.7830816630012123,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 1512,
+      "retained": 128,
+      "rejected": 1384,
+      "decisions": {
+        "high_training_correlation": 66,
+        "screen_budget": 945,
+        "retained": 128,
+        "constant_or_near_constant": 342,
+        "exact_duplicate": 30,
+        "rare": 1
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "b21e69d7a3c10e6a461e96ea2b52cdea39af0e05dbffe544cfa7854499086c70",
+      "family": "structure",
+      "screen_seconds": 0.19235239200497745,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "screen_budget": 137,
+        "retained": 64,
+        "high_training_correlation": 6
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "c926b9c738d5198361082bcff9e6c2e7d5f9362bb6dbac4d764112dedaeaa72e",
+      "family": "lexical",
+      "screen_seconds": 0.5459620980036561,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 18492,
+      "retained": 105,
+      "rejected": 18387,
+      "decisions": {
+        "constant_or_near_constant": 18066,
+        "rare": 321,
+        "retained": 105
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 1024,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "2d1cd423c6e29e074d60db7bfb4a55fa5a41153665ccd464e94a5cb5c0f19f68",
+      "family": "support_tokens",
+      "screen_seconds": 0.3597141170030227,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 6144,
+      "retained": 256,
+      "rejected": 5888,
+      "decisions": {
+        "screen_budget": 5888,
+        "retained": 256
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 256,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "d502c888975845f2cff2bc5627955bfa4338b0310eb6eb216d83406c714127e0",
+      "family": "semantic",
+      "screen_seconds": 0.8933102839946514,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 32,
+      "retained": 31,
+      "rejected": 1,
+      "decisions": {
+        "retained": 31,
+        "high_training_correlation": 1
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 48,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "24b7b1aa0d73563d8e0e5b2f393af5c1d83f93c804cd4e0ff99e2dca5c4e15ea",
+      "family": "semantic_scalar",
+      "screen_seconds": 0.020769886003108695,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "screen_budget": 108,
+        "retained": 64,
+        "high_training_correlation": 1,
+        "exact_duplicate": 34
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "9cca6b6e35956a8c1ae89139b0e42826658ab0bd27cc62b0e94cd04ef91733d6",
+      "family": "ranks",
+      "screen_seconds": 0.044976365999900736,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 70,
+      "retained": 23,
+      "rejected": 47,
+      "decisions": {
+        "rare": 47,
+        "retained": 23
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "bba068b939d9109f0ab20523c49ef8d27f36857c50248c1fa21a4edc7b358c64",
+      "family": "community",
+      "screen_seconds": 0.007762250002997462,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "candidates": 9,
+      "retained": 8,
+      "rejected": 1,
+      "decisions": {
+        "retained": 8,
+        "constant_or_near_constant": 1
+      },
+      "training_rows": 287,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 9,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "e6c50102b5c54a5a359731dd5840bc2623c135e3463fa81826f53b49b0d95a7e",
+      "family": "target_context",
+      "screen_seconds": 0.006191893000504933,
+      "validation_rows": 677,
+      "train_row_ids_sha256": "09c9778412742560b9f5d402b103bd71c2aa1413c8d8e08c2a404ee2885f0924",
+      "validation_row_ids_sha256": "863261f73dcffadef8037a2d4880f51fe74880ca6c9db415c6178ffae0cab21d"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 18363,
+      "retained": 599,
+      "rejected": 17764,
+      "decisions": {
+        "rare": 7828,
+        "constant_or_near_constant": 9896,
+        "retained": 599,
+        "exact_duplicate": 40
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "49820ab1804390793d0f7d30cc79444a0db4638389c9e7369ce0bd7e5809bbbb",
+      "family": "word",
+      "screen_seconds": 0.25280991999898106,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 51236,
+      "retained": 4096,
+      "rejected": 47140,
+      "decisions": {
+        "rare": 20478,
+        "constant_or_near_constant": 24696,
+        "retained": 4096,
+        "exact_duplicate": 1704,
+        "screen_budget": 262
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "a8939841c730e7ed72dc2298bed9224ebbe9d76b7742ee1a188cc4c5294bebff",
+      "family": "character",
+      "screen_seconds": 0.8833282500054338,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 1512,
+      "retained": 128,
+      "rejected": 1384,
+      "decisions": {
+        "high_training_correlation": 62,
+        "screen_budget": 948,
+        "retained": 128,
+        "constant_or_near_constant": 342,
+        "exact_duplicate": 30,
+        "rare": 2
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "93fc57d3cfd534c93f9daea3ce1fc453c86f8a398aa08ec8ee2c9478c34bb039",
+      "family": "structure",
+      "screen_seconds": 0.10551397100061877,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 139,
+        "high_training_correlation": 4
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "cfcb13c6e903ac128aba47fa52452ec53bc6953e19b118c30240697961a7ad6a",
+      "family": "lexical",
+      "screen_seconds": 0.0473346250000759,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 18363,
+      "retained": 89,
+      "rejected": 18274,
+      "decisions": {
+        "constant_or_near_constant": 17854,
+        "rare": 420,
+        "retained": 89
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 1024,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "87e88a7de26973110ced37d6c5e42a5153d5f0abbc72f4739c8781eb9853b39c",
+      "family": "support_tokens",
+      "screen_seconds": 0.1939464120005141,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 6144,
+      "retained": 256,
+      "rejected": 5888,
+      "decisions": {
+        "screen_budget": 5888,
+        "retained": 256
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 256,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "3c481a5f7d9fe93d3862efd65427f3e27a76dc2a7d89c1065ad7b84fe12d30a6",
+      "family": "semantic",
+      "screen_seconds": 0.4162220109938062,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 32,
+      "retained": 31,
+      "rejected": 1,
+      "decisions": {
+        "retained": 31,
+        "high_training_correlation": 1
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 48,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "dc6a5afd782b5dd05ecaa3dd652a1b613ffd8caad2ed5de5ec5a5ddf2e128d8a",
+      "family": "semantic_scalar",
+      "screen_seconds": 0.021780317001685034,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "screen_budget": 107,
+        "retained": 64,
+        "exact_duplicate": 36
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "4bf7e91254c7339c41bed34b17b3f7dc5b4fbb77ac4b2053a7b7a569eb30f363",
+      "family": "ranks",
+      "screen_seconds": 0.03178045899403514,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 63,
+      "retained": 29,
+      "rejected": 34,
+      "decisions": {
+        "retained": 29,
+        "rare": 34
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "1559beac4fec87c3abe732192c1691bef52d523dada486c91a90e6b901a05819",
+      "family": "community",
+      "screen_seconds": 0.0061471259978134185,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "candidates": 9,
+      "retained": 8,
+      "rejected": 1,
+      "decisions": {
+        "retained": 8,
+        "constant_or_near_constant": 1
+      },
+      "training_rows": 279,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 9,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "e6b9c343fbd9e1859a8bfff27aa55c6f109d0e56dc321f9932c238113e037a77",
+      "family": "target_context",
+      "screen_seconds": 0.006892491001053713,
+      "validation_rows": 676,
+      "train_row_ids_sha256": "f53affc8862881d8b8228457fb7ff10b5319347cbbd96761fe84522cca647672",
+      "validation_row_ids_sha256": "fbb1d40988cea911c87fc55cab9562ba3a599d9de6a935456be5a5fbf7114f17"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 28523,
+      "retained": 2988,
+      "rejected": 25535,
+      "decisions": {
+        "rare": 25101,
+        "retained": 2988,
+        "constant_or_near_constant": 405,
+        "exact_duplicate": 29
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "6b4b63d19b21f7ef5407633a882130dd6fbe12b838f8786c9f1469465e1501ee",
+      "family": "word",
+      "screen_seconds": 0.48352108799736015,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 39426,
+      "retained": 4096,
+      "rejected": 35330,
+      "decisions": {
+        "rare": 24703,
+        "constant_or_near_constant": 306,
+        "screen_budget": 5362,
+        "retained": 4096,
+        "exact_duplicate": 4959
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "8e4b82ec45366375b1288611cc1d29ff97fc12e9abe8114041747e4da10bea3e",
+      "family": "character",
+      "screen_seconds": 0.8670236339967232,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 1512,
+      "retained": 128,
+      "rejected": 1384,
+      "decisions": {
+        "high_training_correlation": 79,
+        "screen_budget": 862,
+        "retained": 128,
+        "constant_or_near_constant": 369,
+        "rare": 4,
+        "exact_duplicate": 70
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "98bd94365bea79e42ff4c3e796b365af3a3247088e1365f2c51d0652bf64b352",
+      "family": "structure",
+      "screen_seconds": 0.2086388329989859,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 143
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "f78db61d09f4da0daed3359dd501f1abfc1c476fc0d893a52ce70bbe0410fc45",
+      "family": "lexical",
+      "screen_seconds": 0.0609336350025842,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 28523,
+      "retained": 240,
+      "rejected": 28283,
+      "decisions": {
+        "constant_or_near_constant": 27717,
+        "rare": 566,
+        "retained": 240
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 1024,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "8ef2f9bc5ba9d60212f0ca5b327570067d9da9177e6e4f37ad8897a397497e98",
+      "family": "support_tokens",
+      "screen_seconds": 0.2596353499975521,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 6144,
+      "retained": 256,
+      "rejected": 5888,
+      "decisions": {
+        "screen_budget": 5888,
+        "retained": 256
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 256,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "036f991022c3a8dfc6897016e4f2217f3c2917dd61ab9540d375d967d2526cb4",
+      "family": "semantic",
+      "screen_seconds": 0.8186474359972635,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 32,
+      "retained": 31,
+      "rejected": 1,
+      "decisions": {
+        "retained": 31,
+        "high_training_correlation": 1
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 48,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "0d5e009c881a9e658001faad35c079d6c5779e9adcb89c18ba9004f762d9658f",
+      "family": "semantic_scalar",
+      "screen_seconds": 0.04107613499945728,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 107,
+        "exact_duplicate": 36
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "4a37c36051bb56a260624b6510ba6bdb5ecabcdbed7ff0a4d1352c34665b47c0",
+      "family": "ranks",
+      "screen_seconds": 0.05848349999723723,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 82,
+      "retained": 45,
+      "rejected": 37,
+      "decisions": {
+        "rare": 37,
+        "retained": 45
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "07215eaab04d56eac74a73b81c16798e68690f228aed460558b488e395965b36",
+      "family": "community",
+      "screen_seconds": 0.007750332995783538,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "candidates": 9,
+      "retained": 4,
+      "rejected": 5,
+      "decisions": {
+        "retained": 4,
+        "constant_or_near_constant": 2,
+        "exact_duplicate": 3
+      },
+      "training_rows": 961,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 9,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "0d38923dab62e48fcddec35c0ea449b144bbfd358ab850e616e4319e68929352",
+      "family": "target_context",
+      "screen_seconds": 0.007797076003043912,
+      "validation_rows": 1012,
+      "train_row_ids_sha256": "d32ddd9cec1bae0533feb1a44239f71cf18cd7e333113c00d848f2fd6625554e",
+      "validation_row_ids_sha256": "41dfa336d59fd8507ac315bbde593cf565044bb917b7d8ba16ade939af93f815"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 17599,
+      "retained": 1584,
+      "rejected": 16015,
+      "decisions": {
+        "retained": 1584,
+        "rare": 15209,
+        "exact_duplicate": 540,
+        "constant_or_near_constant": 266
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "4d2b197bab89bfcaefb6a03c1ab2cb7a45b54083ffa167564071705ed3a9404f",
+      "family": "word",
+      "screen_seconds": 0.3013245059992187,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 60000,
+      "retained": 4096,
+      "rejected": 55904,
+      "decisions": {
+        "screen_budget": 5015,
+        "retained": 4096,
+        "exact_duplicate": 6655,
+        "rare": 43201,
+        "constant_or_near_constant": 1033
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "2e284ba811c1690ece82af5beb57dec249997a596a1f1781e11b91d0462e970c",
+      "family": "character",
+      "screen_seconds": 1.5596224320033798,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 1512,
+      "retained": 128,
+      "rejected": 1384,
+      "decisions": {
+        "screen_budget": 839,
+        "high_training_correlation": 118,
+        "retained": 128,
+        "constant_or_near_constant": 390,
+        "exact_duplicate": 33,
+        "rare": 4
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "8eab4c6fc68ddd97e342aa806a5ae290bde649e2b77446fcc4062fa77d790f2a",
+      "family": "structure",
+      "screen_seconds": 0.21113524000247708,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 118,
+        "high_training_correlation": 25
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "f5b413966a691078d52b255b164e034928a41dd1135adb3837a6dbd133e8b9be",
+      "family": "lexical",
+      "screen_seconds": 0.07814324399805628,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 17599,
+      "retained": 135,
+      "rejected": 17464,
+      "decisions": {
+        "constant_or_near_constant": 16885,
+        "rare": 573,
+        "retained": 135,
+        "exact_duplicate": 6
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 1024,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "2b0d41ebff51894497f7d9d858a72395a41621657cc77b20f96943f4850cef1e",
+      "family": "support_tokens",
+      "screen_seconds": 0.16795299599471036,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 6144,
+      "retained": 256,
+      "rejected": 5888,
+      "decisions": {
+        "screen_budget": 5888,
+        "retained": 256
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 256,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "fd1e333be82c2ee118b73935dba971242757d45a53af6841ef4dc5b6d6020aa4",
+      "family": "semantic",
+      "screen_seconds": 0.9075929999962682,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 32,
+      "retained": 31,
+      "rejected": 1,
+      "decisions": {
+        "retained": 31,
+        "high_training_correlation": 1
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 48,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "2ba7ff64330132db3bd580b513bb3570b046152f80c609dc87e42dc68037782e",
+      "family": "semantic_scalar",
+      "screen_seconds": 0.054996156999550294,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "screen_budget": 109,
+        "retained": 64,
+        "high_training_correlation": 1,
+        "exact_duplicate": 33
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "a754456a37c6ed382b556409fa03e28423dce2f66208839ea84a9e1b61925351",
+      "family": "ranks",
+      "screen_seconds": 0.05994397000176832,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 93,
+      "retained": 59,
+      "rejected": 34,
+      "decisions": {
+        "rare": 34,
+        "retained": 59
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "5436e1647a65b8445caab2fb7d635028c233e17d23cecd35c91e00f6967a5b90",
+      "family": "community",
+      "screen_seconds": 0.008255947002908215,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "candidates": 9,
+      "retained": 4,
+      "rejected": 5,
+      "decisions": {
+        "retained": 4,
+        "constant_or_near_constant": 2,
+        "exact_duplicate": 3
+      },
+      "training_rows": 975,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 9,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "6b31159bd438e4c3e43285ce0c574d35ad1fec014f27913c158064ac96b67629",
+      "family": "target_context",
+      "screen_seconds": 0.00636599599965848,
+      "validation_rows": 1017,
+      "train_row_ids_sha256": "abda4832f3969b23987a9109fbcdd3e21f1bf59c99890dda396a9cf1d9e05c78",
+      "validation_row_ids_sha256": "e430ead27367cf976726b6b322fdcf1735feededc1e5e67c01aa2598f22708aa"
+    }
+  ],
+  "stability": [
+    {
+      "protocol": "seen_rule",
+      "family": "word",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.3719862227324914
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "word",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.4259501965923984
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "word",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.4532293986636971
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "character",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.46922642574816487
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "character",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.4982725527831094
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "character",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.4827149321266968
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "structure",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.23671497584541062
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "structure",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.26108374384236455
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "structure",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.3689839572192513
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "lexical",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.31958762886597936
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "lexical",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.47126436781609193
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "lexical",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.5058823529411764
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "support_tokens",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.5833333333333334
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "support_tokens",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.6571428571428571
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "support_tokens",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.5645161290322581
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "semantic",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.17701149425287357
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "semantic",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.2832080200501253
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "semantic",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.19069767441860466
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "semantic_scalar",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "semantic_scalar",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "semantic_scalar",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "ranks",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.28
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "ranks",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.4222222222222222
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "ranks",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.5421686746987951
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "community",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.5483870967741935
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "community",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 0.6875
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "community",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 0.4444444444444444
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "target_context",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "target_context",
+      "fold_a": 0,
+      "fold_b": 2,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "seen_rule",
+      "family": "target_context",
+      "fold_a": 1,
+      "fold_b": 2,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "word",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.16395112016293278
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "character",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.1271326362135388
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "structure",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.0847457627118644
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "lexical",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.2549019607843137
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "support_tokens",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.171875
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "semantic",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.09168443496801706
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "semantic_scalar",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 1.0
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "ranks",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.13274336283185842
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "community",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 0.35064935064935066
+    },
+    {
+      "protocol": "heldout_rule",
+      "family": "target_context",
+      "fold_a": 0,
+      "fold_b": 1,
+      "retained_jaccard": 1.0
+    }
+  ],
+  "model_folds": [
+    {
+      "protocol": "seen_rule",
+      "model": "word_screened",
+      "fold": 0,
+      "retained_features": 489,
+      "metrics": {
+        "rule_macro_auc": 0.6996133791994975,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7780606756078319,
+          "No legal advice: Do not offer or request legal advice.": 0.6211660827911631
+        },
+        "pooled_auc": 0.7165007573170838,
+        "average_precision": 0.7087796972104744,
+        "log_loss": 0.6135529561851816,
+        "brier": 0.21344108408267706,
+        "ece_10_equal_width_bins": 0.05519184783889905,
+        "precision_at_0_5": 0.6511627906976745,
+        "recall_at_0_5": 0.6530612244897959,
+        "f1_at_0_5": 0.6521106259097526,
+        "confusion_matrix_at_0_5": [
+          [
+            213,
+            120
+          ],
+          [
+            119,
+            224
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_character",
+      "fold": 0,
+      "retained_features": 4199,
+      "metrics": {
+        "rule_macro_auc": 0.7175338782299059,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8077888546223913,
+          "No legal advice: Do not offer or request legal advice.": 0.6272789018374205
+        },
+        "pooled_auc": 0.7347464082157961,
+        "average_precision": 0.7237275830353609,
+        "log_loss": 0.5980042888589204,
+        "brier": 0.20686392855513697,
+        "ece_10_equal_width_bins": 0.03569100163296222,
+        "precision_at_0_5": 0.6716417910447762,
+        "recall_at_0_5": 0.6559766763848397,
+        "f1_at_0_5": 0.6637168141592921,
+        "confusion_matrix_at_0_5": [
+          [
+            223,
+            110
+          ],
+          [
+            118,
+            225
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_structure",
+      "fold": 0,
+      "retained_features": 617,
+      "metrics": {
+        "rule_macro_auc": 0.6979461892209711,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7806067560783189,
+          "No legal advice: Do not offer or request legal advice.": 0.6152856223636234
+        },
+        "pooled_auc": 0.7151349600329192,
+        "average_precision": 0.6929725590953892,
+        "log_loss": 0.6312189846347865,
+        "brier": 0.21830150077556792,
+        "ece_10_equal_width_bins": 0.0591623114601019,
+        "precision_at_0_5": 0.6618075801749271,
+        "recall_at_0_5": 0.6618075801749271,
+        "f1_at_0_5": 0.6618075801749271,
+        "confusion_matrix_at_0_5": [
+          [
+            217,
+            116
+          ],
+          [
+            116,
+            227
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_lexical",
+      "fold": 0,
+      "retained_features": 553,
+      "metrics": {
+        "rule_macro_auc": 0.7030545689496688,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7556479954098831,
+          "No legal advice: Do not offer or request legal advice.": 0.6504611424894545
+        },
+        "pooled_auc": 0.7132175907686112,
+        "average_precision": 0.7157194696616697,
+        "log_loss": 0.6339458889580959,
+        "brier": 0.21764838919332882,
+        "ece_10_equal_width_bins": 0.04410825688345929,
+        "precision_at_0_5": 0.6657060518731989,
+        "recall_at_0_5": 0.673469387755102,
+        "f1_at_0_5": 0.6695652173913044,
+        "confusion_matrix_at_0_5": [
+          [
+            217,
+            116
+          ],
+          [
+            112,
+            231
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_support_tokens",
+      "fold": 0,
+      "retained_features": 574,
+      "metrics": {
+        "rule_macro_auc": 0.6610500828729802,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7321595065624327,
+          "No legal advice: Do not offer or request legal advice.": 0.5899406591835276
+        },
+        "pooled_auc": 0.6837391327187246,
+        "average_precision": 0.6571810697658795,
+        "log_loss": 0.6469670350825015,
+        "brier": 0.22690295443269248,
+        "ece_10_equal_width_bins": 0.055844779994492694,
+        "precision_at_0_5": 0.6424242424242425,
+        "recall_at_0_5": 0.6180758017492711,
+        "f1_at_0_5": 0.6300148588410104,
+        "confusion_matrix_at_0_5": [
+          [
+            215,
+            118
+          ],
+          [
+            131,
+            212
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_semantic",
+      "fold": 0,
+      "retained_features": 745,
+      "metrics": {
+        "rule_macro_auc": 0.7294759996835414,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8264003442587678,
+          "No legal advice: Do not offer or request legal advice.": 0.6325516551083148
+        },
+        "pooled_auc": 0.7473625228727268,
+        "average_precision": 0.7270408112131926,
+        "log_loss": 0.5943232710792422,
+        "brier": 0.2059491915170974,
+        "ece_10_equal_width_bins": 0.0665979347894578,
+        "precision_at_0_5": 0.7,
+        "recall_at_0_5": 0.6326530612244898,
+        "f1_at_0_5": 0.664624808575804,
+        "confusion_matrix_at_0_5": [
+          [
+            240,
+            93
+          ],
+          [
+            126,
+            217
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_semantic_scalar",
+      "fold": 0,
+      "retained_features": 520,
+      "metrics": {
+        "rule_macro_auc": 0.7006389258873753,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7880298357598795,
+          "No legal advice: Do not offer or request legal advice.": 0.613248016014871
+        },
+        "pooled_auc": 0.7184881674677593,
+        "average_precision": 0.7120168191021734,
+        "log_loss": 0.6102731128492223,
+        "brier": 0.2134217654653105,
+        "ece_10_equal_width_bins": 0.07145777664401683,
+        "precision_at_0_5": 0.6363636363636364,
+        "recall_at_0_5": 0.5918367346938775,
+        "f1_at_0_5": 0.6132930513595166,
+        "confusion_matrix_at_0_5": [
+          [
+            217,
+            116
+          ],
+          [
+            140,
+            203
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_ranks",
+      "fold": 0,
+      "retained_features": 553,
+      "metrics": {
+        "rule_macro_auc": 0.6798232630036003,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.735817255970738,
+          "No legal advice: Do not offer or request legal advice.": 0.6238292700364625
+        },
+        "pooled_auc": 0.6943590821141841,
+        "average_precision": 0.6737963666576416,
+        "log_loss": 0.6423128818230482,
+        "brier": 0.22420439574463147,
+        "ece_10_equal_width_bins": 0.055150031539784976,
+        "precision_at_0_5": 0.6356589147286822,
+        "recall_at_0_5": 0.717201166180758,
+        "f1_at_0_5": 0.673972602739726,
+        "confusion_matrix_at_0_5": [
+          [
+            192,
+            141
+          ],
+          [
+            97,
+            246
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_community",
+      "fold": 0,
+      "retained_features": 514,
+      "metrics": {
+        "rule_macro_auc": 0.7066449691112598,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7655992254177724,
+          "No legal advice: Do not offer or request legal advice.": 0.6476907128047473
+        },
+        "pooled_auc": 0.7185363205771369,
+        "average_precision": 0.7007667010754779,
+        "log_loss": 0.6124397993830368,
+        "brier": 0.21322073071485675,
+        "ece_10_equal_width_bins": 0.048963886712333315,
+        "precision_at_0_5": 0.6519174041297935,
+        "recall_at_0_5": 0.6443148688046647,
+        "f1_at_0_5": 0.6480938416422287,
+        "confusion_matrix_at_0_5": [
+          [
+            215,
+            118
+          ],
+          [
+            122,
+            221
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_target_context",
+      "fold": 0,
+      "retained_features": 497,
+      "metrics": {
+        "rule_macro_auc": 0.7031484153780341,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7471311769346626,
+          "No legal advice: Do not offer or request legal advice.": 0.6591656538214057
+        },
+        "pooled_auc": 0.6702124865390171,
+        "average_precision": 0.6581721550707197,
+        "log_loss": 0.6887118059220666,
+        "brier": 0.24062044791023274,
+        "ece_10_equal_width_bins": 0.12094860577911797,
+        "precision_at_0_5": 0.6030150753768844,
+        "recall_at_0_5": 0.6997084548104956,
+        "f1_at_0_5": 0.6477732793522267,
+        "confusion_matrix_at_0_5": [
+          [
+            175,
+            158
+          ],
+          [
+            103,
+            240
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "semantic_scalar_only",
+      "fold": 0,
+      "retained_features": 31,
+      "metrics": {
+        "rule_macro_auc": 0.6264602158392989,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.718138133830596,
+          "No legal advice: Do not offer or request legal advice.": 0.5347822978480017
+        },
+        "pooled_auc": 0.6345354100456141,
+        "average_precision": 0.6303019134120851,
+        "log_loss": 0.6667743392932094,
+        "brier": 0.2381753628164643,
+        "ece_10_equal_width_bins": 0.06740706422190165,
+        "precision_at_0_5": 0.6120996441281139,
+        "recall_at_0_5": 0.5014577259475219,
+        "f1_at_0_5": 0.5512820512820513,
+        "confusion_matrix_at_0_5": [
+          [
+            224,
+            109
+          ],
+          [
+            171,
+            172
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "community_only",
+      "fold": 0,
+      "retained_features": 25,
+      "metrics": {
+        "rule_macro_auc": 0.6225097924327956,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.638384852614215,
+          "No legal advice: Do not offer or request legal advice.": 0.6066347322513763
+        },
+        "pooled_auc": 0.6332396536478169,
+        "average_precision": 0.6287481869151386,
+        "log_loss": 0.6570675331881486,
+        "brier": 0.2338128267189815,
+        "ece_10_equal_width_bins": 0.06458997556549255,
+        "precision_at_0_5": 0.6017441860465116,
+        "recall_at_0_5": 0.6034985422740525,
+        "f1_at_0_5": 0.6026200873362445,
+        "confusion_matrix_at_0_5": [
+          [
+            196,
+            137
+          ],
+          [
+            136,
+            207
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_transfer",
+      "fold": 0,
+      "retained_features": 4571,
+      "metrics": {
+        "rule_macro_auc": 0.7075859318471156,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7615649429821415,
+          "No legal advice: Do not offer or request legal advice.": 0.6536069207120897
+        },
+        "pooled_auc": 0.7191448007774538,
+        "average_precision": 0.7254962725493127,
+        "log_loss": 0.6742617698817147,
+        "brier": 0.22365981485507105,
+        "ece_10_equal_width_bins": 0.09267600793679373,
+        "precision_at_0_5": 0.6647230320699709,
+        "recall_at_0_5": 0.6647230320699709,
+        "f1_at_0_5": 0.6647230320699709,
+        "confusion_matrix_at_0_5": [
+          [
+            218,
+            115
+          ],
+          [
+            115,
+            228
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_with_coordinates",
+      "fold": 0,
+      "retained_features": 4827,
+      "metrics": {
+        "rule_macro_auc": 0.7382207516071329,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7951660331349064,
+          "No legal advice: Do not offer or request legal advice.": 0.6812754700793593
+        },
+        "pooled_auc": 0.7480366664040133,
+        "average_precision": 0.7511596278598872,
+        "log_loss": 0.6164135382033844,
+        "brier": 0.21077071777435175,
+        "ece_10_equal_width_bins": 0.0863602203269819,
+        "precision_at_0_5": 0.6783625730994152,
+        "recall_at_0_5": 0.6763848396501457,
+        "f1_at_0_5": 0.6773722627737226,
+        "confusion_matrix_at_0_5": [
+          [
+            223,
+            110
+          ],
+          [
+            111,
+            232
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_with_metadata",
+      "fold": 0,
+      "retained_features": 4604,
+      "metrics": {
+        "rule_macro_auc": 0.7151856491510304,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.752348848884745,
+          "No legal advice: Do not offer or request legal advice.": 0.678022449417316
+        },
+        "pooled_auc": 0.7254835009937051,
+        "average_precision": 0.7213843161423694,
+        "log_loss": 0.7078042472609235,
+        "brier": 0.23115841408430599,
+        "ece_10_equal_width_bins": 0.1403851264087534,
+        "precision_at_0_5": 0.6735294117647059,
+        "recall_at_0_5": 0.6676384839650146,
+        "f1_at_0_5": 0.6705710102489019,
+        "confusion_matrix_at_0_5": [
+          [
+            222,
+            111
+          ],
+          [
+            114,
+            229
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_character",
+      "fold": 0,
+      "retained_features": 861,
+      "metrics": {
+        "rule_macro_auc": 0.6883823590332887,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7342752635731191,
+          "No legal advice: Do not offer or request legal advice.": 0.6424894544934582
+        },
+        "pooled_auc": 0.7008728845463539,
+        "average_precision": 0.7078545055771839,
+        "log_loss": 0.7060671784400611,
+        "brier": 0.23352314208920685,
+        "ece_10_equal_width_bins": 0.10855576688418894,
+        "precision_at_0_5": 0.6511627906976745,
+        "recall_at_0_5": 0.6530612244897959,
+        "f1_at_0_5": 0.6521106259097526,
+        "confusion_matrix_at_0_5": [
+          [
+            213,
+            120
+          ],
+          [
+            119,
+            224
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_structure",
+      "fold": 0,
+      "retained_features": 4443,
+      "metrics": {
+        "rule_macro_auc": 0.7077144822765287,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7523847091730617,
+          "No legal advice: Do not offer or request legal advice.": 0.6630442553799956
+        },
+        "pooled_auc": 0.7176476768313503,
+        "average_precision": 0.7223033479632562,
+        "log_loss": 0.6440477387831767,
+        "brier": 0.21974734607320695,
+        "ece_10_equal_width_bins": 0.08246763776167587,
+        "precision_at_0_5": 0.647887323943662,
+        "recall_at_0_5": 0.6705539358600583,
+        "f1_at_0_5": 0.6590257879656161,
+        "confusion_matrix_at_0_5": [
+          [
+            208,
+            125
+          ],
+          [
+            113,
+            230
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_lexical",
+      "fold": 0,
+      "retained_features": 4507,
+      "metrics": {
+        "rule_macro_auc": 0.7003757141400667,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7684142580506347,
+          "No legal advice: Do not offer or request legal advice.": 0.6323371702294988
+        },
+        "pooled_auc": 0.7150211435925722,
+        "average_precision": 0.7098230760966451,
+        "log_loss": 0.6639643290738905,
+        "brier": 0.2251933212421461,
+        "ece_10_equal_width_bins": 0.10038002463660328,
+        "precision_at_0_5": 0.6476964769647696,
+        "recall_at_0_5": 0.6967930029154519,
+        "f1_at_0_5": 0.6713483146067416,
+        "confusion_matrix_at_0_5": [
+          [
+            203,
+            130
+          ],
+          [
+            104,
+            239
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_support_tokens",
+      "fold": 0,
+      "retained_features": 4486,
+      "metrics": {
+        "rule_macro_auc": 0.7279579534568582,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7930861364125368,
+          "No legal advice: Do not offer or request legal advice.": 0.6628297705011796
+        },
+        "pooled_auc": 0.7390276573950044,
+        "average_precision": 0.7388620188868691,
+        "log_loss": 0.6535525210454376,
+        "brier": 0.2125311908619547,
+        "ece_10_equal_width_bins": 0.07118158534569123,
+        "precision_at_0_5": 0.672566371681416,
+        "recall_at_0_5": 0.6647230320699709,
+        "f1_at_0_5": 0.6686217008797654,
+        "confusion_matrix_at_0_5": [
+          [
+            222,
+            111
+          ],
+          [
+            115,
+            228
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_semantic_scalar",
+      "fold": 0,
+      "retained_features": 4540,
+      "metrics": {
+        "rule_macro_auc": 0.6884516042321878,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.74420856343685,
+          "No legal advice: Do not offer or request legal advice.": 0.6326946450275255
+        },
+        "pooled_auc": 0.7035256831175198,
+        "average_precision": 0.705810312828464,
+        "log_loss": 0.6998992606658231,
+        "brier": 0.23081921618605883,
+        "ece_10_equal_width_bins": 0.10232567502173838,
+        "precision_at_0_5": 0.6432584269662921,
+        "recall_at_0_5": 0.6676384839650146,
+        "f1_at_0_5": 0.6552217453505007,
+        "confusion_matrix_at_0_5": [
+          [
+            206,
+            127
+          ],
+          [
+            114,
+            229
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_ranks",
+      "fold": 0,
+      "retained_features": 4507,
+      "metrics": {
+        "rule_macro_auc": 0.7241688834009712,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7818260058810873,
+          "No legal advice: Do not offer or request legal advice.": 0.6665117609208551
+        },
+        "pooled_auc": 0.7336169989231214,
+        "average_precision": 0.7349284185484963,
+        "log_loss": 0.637742189962974,
+        "brier": 0.21696478458631607,
+        "ece_10_equal_width_bins": 0.09021235380519751,
+        "precision_at_0_5": 0.6638418079096046,
+        "recall_at_0_5": 0.685131195335277,
+        "f1_at_0_5": 0.6743185078909613,
+        "confusion_matrix_at_0_5": [
+          [
+            214,
+            119
+          ],
+          [
+            108,
+            235
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_screened",
+      "fold": 1,
+      "retained_features": 706,
+      "metrics": {
+        "rule_macro_auc": 0.7569602035057168,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8365796232876712,
+          "No legal advice: Do not offer or request legal advice.": 0.6773407837237624
+        },
+        "pooled_auc": 0.772570535651931,
+        "average_precision": 0.7470998545119658,
+        "log_loss": 0.5809193596265129,
+        "brier": 0.19826180903555354,
+        "ece_10_equal_width_bins": 0.07955097509601683,
+        "precision_at_0_5": 0.6540284360189573,
+        "recall_at_0_5": 0.8023255813953488,
+        "f1_at_0_5": 0.720626631853786,
+        "confusion_matrix_at_0_5": [
+          [
+            187,
+            146
+          ],
+          [
+            68,
+            276
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_character",
+      "fold": 1,
+      "retained_features": 4802,
+      "metrics": {
+        "rule_macro_auc": 0.7774029241058942,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.863423944063927,
+          "No legal advice: Do not offer or request legal advice.": 0.6913819041478615
+        },
+        "pooled_auc": 0.7920420420420422,
+        "average_precision": 0.7630260782188305,
+        "log_loss": 0.5552928959653913,
+        "brier": 0.18761564015606905,
+        "ece_10_equal_width_bins": 0.07559368462512892,
+        "precision_at_0_5": 0.6813725490196079,
+        "recall_at_0_5": 0.8081395348837209,
+        "f1_at_0_5": 0.7393617021276596,
+        "confusion_matrix_at_0_5": [
+          [
+            203,
+            130
+          ],
+          [
+            66,
+            278
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_structure",
+      "fold": 1,
+      "retained_features": 834,
+      "metrics": {
+        "rule_macro_auc": 0.7188960789462193,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8133204908675801,
+          "No legal advice: Do not offer or request legal advice.": 0.6244716670248585
+        },
+        "pooled_auc": 0.7346270689293946,
+        "average_precision": 0.6995300185508738,
+        "log_loss": 0.6070200179569223,
+        "brier": 0.2079195425553167,
+        "ece_10_equal_width_bins": 0.05132983144848097,
+        "precision_at_0_5": 0.6693989071038251,
+        "recall_at_0_5": 0.7122093023255814,
+        "f1_at_0_5": 0.6901408450704225,
+        "confusion_matrix_at_0_5": [
+          [
+            212,
+            121
+          ],
+          [
+            99,
+            245
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_lexical",
+      "fold": 1,
+      "retained_features": 770,
+      "metrics": {
+        "rule_macro_auc": 0.7475159065700727,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8044021118721462,
+          "No legal advice: Do not offer or request legal advice.": 0.6906297012679992
+        },
+        "pooled_auc": 0.7579876388015924,
+        "average_precision": 0.7345208684743271,
+        "log_loss": 0.5812652810860286,
+        "brier": 0.19928925224383537,
+        "ece_10_equal_width_bins": 0.05541716312062493,
+        "precision_at_0_5": 0.6666666666666666,
+        "recall_at_0_5": 0.7267441860465116,
+        "f1_at_0_5": 0.6954102920723226,
+        "confusion_matrix_at_0_5": [
+          [
+            208,
+            125
+          ],
+          [
+            94,
+            250
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_support_tokens",
+      "fold": 1,
+      "retained_features": 811,
+      "metrics": {
+        "rule_macro_auc": 0.6722029770771938,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7620576484018265,
+          "No legal advice: Do not offer or request legal advice.": 0.5823483057525611
+        },
+        "pooled_auc": 0.694339688525735,
+        "average_precision": 0.6642192532001204,
+        "log_loss": 0.6286403810043372,
+        "brier": 0.2197987024347171,
+        "ece_10_equal_width_bins": 0.054045037411004374,
+        "precision_at_0_5": 0.6328125,
+        "recall_at_0_5": 0.7063953488372093,
+        "f1_at_0_5": 0.6675824175824175,
+        "confusion_matrix_at_0_5": [
+          [
+            192,
+            141
+          ],
+          [
+            101,
+            243
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_semantic",
+      "fold": 1,
+      "retained_features": 962,
+      "metrics": {
+        "rule_macro_auc": 0.7610306260469752,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8429295091324202,
+          "No legal advice: Do not offer or request legal advice.": 0.6791317429615302
+        },
+        "pooled_auc": 0.7774285913820799,
+        "average_precision": 0.7678549694803123,
+        "log_loss": 0.5554079522841581,
+        "brier": 0.18989611918806867,
+        "ece_10_equal_width_bins": 0.02227882215284615,
+        "precision_at_0_5": 0.6842105263157895,
+        "recall_at_0_5": 0.7558139534883721,
+        "f1_at_0_5": 0.7182320441988951,
+        "confusion_matrix_at_0_5": [
+          [
+            213,
+            120
+          ],
+          [
+            84,
+            260
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_semantic_scalar",
+      "fold": 1,
+      "retained_features": 737,
+      "metrics": {
+        "rule_macro_auc": 0.7533868718210474,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8411458333333334,
+          "No legal advice: Do not offer or request legal advice.": 0.6656279103087613
+        },
+        "pooled_auc": 0.769510789859627,
+        "average_precision": 0.7556218137976125,
+        "log_loss": 0.5730645496410068,
+        "brier": 0.19623608941901308,
+        "ece_10_equal_width_bins": 0.06567199026657224,
+        "precision_at_0_5": 0.6535626535626535,
+        "recall_at_0_5": 0.7732558139534884,
+        "f1_at_0_5": 0.7083888149134487,
+        "confusion_matrix_at_0_5": [
+          [
+            192,
+            141
+          ],
+          [
+            78,
+            266
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_ranks",
+      "fold": 1,
+      "retained_features": 770,
+      "metrics": {
+        "rule_macro_auc": 0.7380938509561269,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8139626141552512,
+          "No legal advice: Do not offer or request legal advice.": 0.6622250877570026
+        },
+        "pooled_auc": 0.7508642363293526,
+        "average_precision": 0.7245662064589697,
+        "log_loss": 0.5851858145631573,
+        "brier": 0.20084538780782352,
+        "ece_10_equal_width_bins": 0.03793243094914256,
+        "precision_at_0_5": 0.6666666666666666,
+        "recall_at_0_5": 0.7616279069767442,
+        "f1_at_0_5": 0.7109905020352781,
+        "confusion_matrix_at_0_5": [
+          [
+            202,
+            131
+          ],
+          [
+            82,
+            262
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_community",
+      "fold": 1,
+      "retained_features": 729,
+      "metrics": {
+        "rule_macro_auc": 0.7187565780951457,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7412956621004567,
+          "No legal advice: Do not offer or request legal advice.": 0.6962174940898347
+        },
+        "pooled_auc": 0.7312705147007473,
+        "average_precision": 0.7227061033988749,
+        "log_loss": 0.5941211049636024,
+        "brier": 0.20642763073204703,
+        "ece_10_equal_width_bins": 0.037367779905394395,
+        "precision_at_0_5": 0.6568364611260054,
+        "recall_at_0_5": 0.7122093023255814,
+        "f1_at_0_5": 0.6834030683403068,
+        "confusion_matrix_at_0_5": [
+          [
+            205,
+            128
+          ],
+          [
+            99,
+            245
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_target_context",
+      "fold": 1,
+      "retained_features": 714,
+      "metrics": {
+        "rule_macro_auc": 0.7635977180940612,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8268229166666667,
+          "No legal advice: Do not offer or request legal advice.": 0.7003725195214557
+        },
+        "pooled_auc": 0.7728760737481668,
+        "average_precision": 0.7658293668381972,
+        "log_loss": 0.5738746549464634,
+        "brier": 0.19673229400681577,
+        "ece_10_equal_width_bins": 0.06288144592078464,
+        "precision_at_0_5": 0.6620370370370371,
+        "recall_at_0_5": 0.8313953488372093,
+        "f1_at_0_5": 0.7371134020618557,
+        "confusion_matrix_at_0_5": [
+          [
+            187,
+            146
+          ],
+          [
+            58,
+            286
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "semantic_scalar_only",
+      "fold": 1,
+      "retained_features": 31,
+      "metrics": {
+        "rule_macro_auc": 0.6069724504161895,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6849671803652968,
+          "No legal advice: Do not offer or request legal advice.": 0.5289777204670821
+        },
+        "pooled_auc": 0.634279628465675,
+        "average_precision": 0.6170116222852624,
+        "log_loss": 0.6570972184888745,
+        "brier": 0.23352593106369568,
+        "ece_10_equal_width_bins": 0.03757209367126639,
+        "precision_at_0_5": 0.5883777239709443,
+        "recall_at_0_5": 0.7063953488372093,
+        "f1_at_0_5": 0.6420079260237781,
+        "confusion_matrix_at_0_5": [
+          [
+            163,
+            170
+          ],
+          [
+            101,
+            243
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "community_only",
+      "fold": 1,
+      "retained_features": 23,
+      "metrics": {
+        "rule_macro_auc": 0.6125727535023067,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5735766267123288,
+          "No legal advice: Do not offer or request legal advice.": 0.6515688802922845
+        },
+        "pooled_auc": 0.631782945736434,
+        "average_precision": 0.6335272914692033,
+        "log_loss": 0.652279026561884,
+        "brier": 0.23300691727840203,
+        "ece_10_equal_width_bins": 0.10548453448779789,
+        "precision_at_0_5": 0.5705521472392638,
+        "recall_at_0_5": 0.5406976744186046,
+        "f1_at_0_5": 0.5552238805970149,
+        "confusion_matrix_at_0_5": [
+          [
+            193,
+            140
+          ],
+          [
+            158,
+            186
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_transfer",
+      "fold": 1,
+      "retained_features": 5194,
+      "metrics": {
+        "rule_macro_auc": 0.7143167663777088,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8018336187214611,
+          "No legal advice: Do not offer or request legal advice.": 0.6267999140339566
+        },
+        "pooled_auc": 0.7300439974858579,
+        "average_precision": 0.7009143176770813,
+        "log_loss": 0.6274181737925637,
+        "brier": 0.2155174036581056,
+        "ece_10_equal_width_bins": 0.09674589819188506,
+        "precision_at_0_5": 0.6827794561933535,
+        "recall_at_0_5": 0.6569767441860465,
+        "f1_at_0_5": 0.6696296296296296,
+        "confusion_matrix_at_0_5": [
+          [
+            228,
+            105
+          ],
+          [
+            118,
+            226
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_with_coordinates",
+      "fold": 1,
+      "retained_features": 5450,
+      "metrics": {
+        "rule_macro_auc": 0.7383593476296042,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8330479452054794,
+          "No legal advice: Do not offer or request legal advice.": 0.6436707500537289
+        },
+        "pooled_auc": 0.7548711502199874,
+        "average_precision": 0.7341011597511323,
+        "log_loss": 0.5869423559211989,
+        "brier": 0.20272785696260684,
+        "ece_10_equal_width_bins": 0.08038462543416423,
+        "precision_at_0_5": 0.6971428571428572,
+        "recall_at_0_5": 0.7093023255813954,
+        "f1_at_0_5": 0.7031700288184438,
+        "confusion_matrix_at_0_5": [
+          [
+            227,
+            106
+          ],
+          [
+            100,
+            244
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_with_metadata",
+      "fold": 1,
+      "retained_features": 5225,
+      "metrics": {
+        "rule_macro_auc": 0.7277288813705401,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7853524543378996,
+          "No legal advice: Do not offer or request legal advice.": 0.6701053084031807
+        },
+        "pooled_auc": 0.7400132690830366,
+        "average_precision": 0.7215689860372392,
+        "log_loss": 0.6211806173800402,
+        "brier": 0.2121994000752084,
+        "ece_10_equal_width_bins": 0.08745309030103053,
+        "precision_at_0_5": 0.659400544959128,
+        "recall_at_0_5": 0.7034883720930233,
+        "f1_at_0_5": 0.680731364275668,
+        "confusion_matrix_at_0_5": [
+          [
+            208,
+            125
+          ],
+          [
+            102,
+            242
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_character",
+      "fold": 1,
+      "retained_features": 1098,
+      "metrics": {
+        "rule_macro_auc": 0.6892685530803517,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.771939212328767,
+          "No legal advice: Do not offer or request legal advice.": 0.6065978938319364
+        },
+        "pooled_auc": 0.703776450869474,
+        "average_precision": 0.6795135287194036,
+        "log_loss": 0.6615189649776907,
+        "brier": 0.22796518359280654,
+        "ece_10_equal_width_bins": 0.10896116583867518,
+        "precision_at_0_5": 0.6584615384615384,
+        "recall_at_0_5": 0.622093023255814,
+        "f1_at_0_5": 0.6397608370702541,
+        "confusion_matrix_at_0_5": [
+          [
+            222,
+            111
+          ],
+          [
+            130,
+            214
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_structure",
+      "fold": 1,
+      "retained_features": 5066,
+      "metrics": {
+        "rule_macro_auc": 0.7149206822794152,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7867437214611872,
+          "No legal advice: Do not offer or request legal advice.": 0.6430976430976431
+        },
+        "pooled_auc": 0.7309606117745652,
+        "average_precision": 0.7185524661067095,
+        "log_loss": 0.6055379137278804,
+        "brier": 0.21001648073166718,
+        "ece_10_equal_width_bins": 0.04726773185250704,
+        "precision_at_0_5": 0.6763005780346821,
+        "recall_at_0_5": 0.6802325581395349,
+        "f1_at_0_5": 0.6782608695652174,
+        "confusion_matrix_at_0_5": [
+          [
+            221,
+            112
+          ],
+          [
+            110,
+            234
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_lexical",
+      "fold": 1,
+      "retained_features": 5130,
+      "metrics": {
+        "rule_macro_auc": 0.7120438428354761,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8098244863013698,
+          "No legal advice: Do not offer or request legal advice.": 0.6142631993695824
+        },
+        "pooled_auc": 0.7299916195265033,
+        "average_precision": 0.6992213312635978,
+        "log_loss": 0.6211364794034703,
+        "brier": 0.21405304376760104,
+        "ece_10_equal_width_bins": 0.07527509207510263,
+        "precision_at_0_5": 0.6827794561933535,
+        "recall_at_0_5": 0.6569767441860465,
+        "f1_at_0_5": 0.6696296296296296,
+        "confusion_matrix_at_0_5": [
+          [
+            228,
+            105
+          ],
+          [
+            118,
+            226
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_support_tokens",
+      "fold": 1,
+      "retained_features": 5089,
+      "metrics": {
+        "rule_macro_auc": 0.7308529782241437,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8253781392694065,
+          "No legal advice: Do not offer or request legal advice.": 0.636327817178881
+        },
+        "pooled_auc": 0.7470493749563517,
+        "average_precision": 0.7151858714634095,
+        "log_loss": 0.6009829772578863,
+        "brier": 0.2060943087664724,
+        "ece_10_equal_width_bins": 0.08228573287313788,
+        "precision_at_0_5": 0.7029411764705882,
+        "recall_at_0_5": 0.6947674418604651,
+        "f1_at_0_5": 0.6988304093567251,
+        "confusion_matrix_at_0_5": [
+          [
+            232,
+            101
+          ],
+          [
+            105,
+            239
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_semantic_scalar",
+      "fold": 1,
+      "retained_features": 5163,
+      "metrics": {
+        "rule_macro_auc": 0.7148263924156066,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7978381849315068,
+          "No legal advice: Do not offer or request legal advice.": 0.6318145998997063
+        },
+        "pooled_auc": 0.7297995670088693,
+        "average_precision": 0.6955611442832855,
+        "log_loss": 0.6274387677908801,
+        "brier": 0.2155129602889778,
+        "ece_10_equal_width_bins": 0.09379124000502878,
+        "precision_at_0_5": 0.6726726726726727,
+        "recall_at_0_5": 0.6511627906976745,
+        "f1_at_0_5": 0.6617429837518464,
+        "confusion_matrix_at_0_5": [
+          [
+            224,
+            109
+          ],
+          [
+            120,
+            224
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_ranks",
+      "fold": 1,
+      "retained_features": 5130,
+      "metrics": {
+        "rule_macro_auc": 0.7217905213114335,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8079337899543378,
+          "No legal advice: Do not offer or request legal advice.": 0.6356472526685292
+        },
+        "pooled_auc": 0.7386339828200293,
+        "average_precision": 0.7096129665564527,
+        "log_loss": 0.612073510403351,
+        "brier": 0.2100730381338184,
+        "ece_10_equal_width_bins": 0.07768077634332714,
+        "precision_at_0_5": 0.6812865497076024,
+        "recall_at_0_5": 0.6773255813953488,
+        "f1_at_0_5": 0.6793002915451894,
+        "confusion_matrix_at_0_5": [
+          [
+            224,
+            109
+          ],
+          [
+            111,
+            233
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_screened",
+      "fold": 2,
+      "retained_features": 599,
+      "metrics": {
+        "rule_macro_auc": 0.6672137993831866,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6578031987377179,
+          "No legal advice: Do not offer or request legal advice.": 0.6766244000286553
+        },
+        "pooled_auc": 0.6754080274586718,
+        "average_precision": 0.6572299133798076,
+        "log_loss": 0.6359778495150155,
+        "brier": 0.2238835410031764,
+        "ece_10_equal_width_bins": 0.05463875982108918,
+        "precision_at_0_5": 0.5953488372093023,
+        "recall_at_0_5": 0.7441860465116279,
+        "f1_at_0_5": 0.661498708010336,
+        "confusion_matrix_at_0_5": [
+          [
+            158,
+            174
+          ],
+          [
+            88,
+            256
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_character",
+      "fold": 2,
+      "retained_features": 4695,
+      "metrics": {
+        "rule_macro_auc": 0.7204429717192546,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7548052786344402,
+          "No legal advice: Do not offer or request legal advice.": 0.686080664804069
+        },
+        "pooled_auc": 0.7239247688428131,
+        "average_precision": 0.6899152168913982,
+        "log_loss": 0.6085805196553844,
+        "brier": 0.2108645690446578,
+        "ece_10_equal_width_bins": 0.029883895512333725,
+        "precision_at_0_5": 0.6370192307692307,
+        "recall_at_0_5": 0.7703488372093024,
+        "f1_at_0_5": 0.6973684210526315,
+        "confusion_matrix_at_0_5": [
+          [
+            181,
+            151
+          ],
+          [
+            79,
+            265
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_structure",
+      "fold": 2,
+      "retained_features": 727,
+      "metrics": {
+        "rule_macro_auc": 0.6416457175943748,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6228214874847593,
+          "No legal advice: Do not offer or request legal advice.": 0.6604699477039903
+        },
+        "pooled_auc": 0.6486498318856823,
+        "average_precision": 0.6129520509318157,
+        "log_loss": 0.6899235442480018,
+        "brier": 0.2417576679156326,
+        "ece_10_equal_width_bins": 0.07196753602402547,
+        "precision_at_0_5": 0.6093366093366094,
+        "recall_at_0_5": 0.7209302325581395,
+        "f1_at_0_5": 0.6604527296937417,
+        "confusion_matrix_at_0_5": [
+          [
+            173,
+            159
+          ],
+          [
+            96,
+            248
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_lexical",
+      "fold": 2,
+      "retained_features": 663,
+      "metrics": {
+        "rule_macro_auc": 0.685899183589247,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.714587965287241,
+          "No legal advice: Do not offer or request legal advice.": 0.657210401891253
+        },
+        "pooled_auc": 0.6974817876155787,
+        "average_precision": 0.6842641337189932,
+        "log_loss": 0.635266599676938,
+        "brier": 0.22158205141407727,
+        "ece_10_equal_width_bins": 0.05468239023367434,
+        "precision_at_0_5": 0.6370967741935484,
+        "recall_at_0_5": 0.688953488372093,
+        "f1_at_0_5": 0.6620111731843575,
+        "confusion_matrix_at_0_5": [
+          [
+            197,
+            135
+          ],
+          [
+            107,
+            237
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_support_tokens",
+      "fold": 2,
+      "retained_features": 688,
+      "metrics": {
+        "rule_macro_auc": 0.6393829344291789,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6432977121136054,
+          "No legal advice: Do not offer or request legal advice.": 0.6354681567447524
+        },
+        "pooled_auc": 0.6549190949845894,
+        "average_precision": 0.6515173999702476,
+        "log_loss": 0.6590727746280116,
+        "brier": 0.2338411419260832,
+        "ece_10_equal_width_bins": 0.07106407530694787,
+        "precision_at_0_5": 0.6098191214470284,
+        "recall_at_0_5": 0.686046511627907,
+        "f1_at_0_5": 0.6456908344733242,
+        "confusion_matrix_at_0_5": [
+          [
+            181,
+            151
+          ],
+          [
+            108,
+            236
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_semantic",
+      "fold": 2,
+      "retained_features": 855,
+      "metrics": {
+        "rule_macro_auc": 0.7429419070984808,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8095101484615937,
+          "No legal advice: Do not offer or request legal advice.": 0.676373665735368
+        },
+        "pooled_auc": 0.7556913701316895,
+        "average_precision": 0.7189303536329144,
+        "log_loss": 0.5890526581090456,
+        "brier": 0.20060026938060752,
+        "ece_10_equal_width_bins": 0.0463330521826708,
+        "precision_at_0_5": 0.6796875,
+        "recall_at_0_5": 0.7587209302325582,
+        "f1_at_0_5": 0.717032967032967,
+        "confusion_matrix_at_0_5": [
+          [
+            209,
+            123
+          ],
+          [
+            83,
+            261
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_semantic_scalar",
+      "fold": 2,
+      "retained_features": 630,
+      "metrics": {
+        "rule_macro_auc": 0.6878171130125517,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.717385067775945,
+          "No legal advice: Do not offer or request legal advice.": 0.6582491582491582
+        },
+        "pooled_auc": 0.6949250490333427,
+        "average_precision": 0.6782639436971041,
+        "log_loss": 0.619196788593984,
+        "brier": 0.21743719788820728,
+        "ece_10_equal_width_bins": 0.047132663871447295,
+        "precision_at_0_5": 0.6280788177339901,
+        "recall_at_0_5": 0.7412790697674418,
+        "f1_at_0_5": 0.68,
+        "confusion_matrix_at_0_5": [
+          [
+            181,
+            151
+          ],
+          [
+            89,
+            255
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_ranks",
+      "fold": 2,
+      "retained_features": 663,
+      "metrics": {
+        "rule_macro_auc": 0.6958737989545793,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7127949508714051,
+          "No legal advice: Do not offer or request legal advice.": 0.6789526470377536
+        },
+        "pooled_auc": 0.7074898430933034,
+        "average_precision": 0.676358328314415,
+        "log_loss": 0.6299069539280212,
+        "brier": 0.21945818084702137,
+        "ece_10_equal_width_bins": 0.06470385842785546,
+        "precision_at_0_5": 0.6191588785046729,
+        "recall_at_0_5": 0.7703488372093024,
+        "f1_at_0_5": 0.6865284974093264,
+        "confusion_matrix_at_0_5": [
+          [
+            169,
+            163
+          ],
+          [
+            79,
+            265
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_community",
+      "fold": 2,
+      "retained_features": 628,
+      "metrics": {
+        "rule_macro_auc": 0.6480161273625087,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6133902316574625,
+          "No legal advice: Do not offer or request legal advice.": 0.682642023067555
+        },
+        "pooled_auc": 0.6543236901092744,
+        "average_precision": 0.6485956835596313,
+        "log_loss": 0.6594695821490137,
+        "brier": 0.23440324772152882,
+        "ece_10_equal_width_bins": 0.08171862470274778,
+        "precision_at_0_5": 0.5995145631067961,
+        "recall_at_0_5": 0.7180232558139535,
+        "f1_at_0_5": 0.6534391534391535,
+        "confusion_matrix_at_0_5": [
+          [
+            167,
+            165
+          ],
+          [
+            97,
+            247
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "word_target_context",
+      "fold": 2,
+      "retained_features": 607,
+      "metrics": {
+        "rule_macro_auc": 0.6653944741923761,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6239331564225775,
+          "No legal advice: Do not offer or request legal advice.": 0.7068557919621747
+        },
+        "pooled_auc": 0.6594284113196973,
+        "average_precision": 0.5979678399801088,
+        "log_loss": 0.7029494487211714,
+        "brier": 0.2407532103122156,
+        "ece_10_equal_width_bins": 0.10475126930974325,
+        "precision_at_0_5": 0.6095444685466378,
+        "recall_at_0_5": 0.8168604651162791,
+        "f1_at_0_5": 0.698136645962733,
+        "confusion_matrix_at_0_5": [
+          [
+            152,
+            180
+          ],
+          [
+            63,
+            281
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "semantic_scalar_only",
+      "fold": 2,
+      "retained_features": 31,
+      "metrics": {
+        "rule_macro_auc": 0.6336421669968131,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6888761385641541,
+          "No legal advice: Do not offer or request legal advice.": 0.578408195429472
+        },
+        "pooled_auc": 0.6463382600168114,
+        "average_precision": 0.645386310387586,
+        "log_loss": 0.6502623381270523,
+        "brier": 0.23115599496878,
+        "ece_10_equal_width_bins": 0.02938520770753071,
+        "precision_at_0_5": 0.6202898550724638,
+        "recall_at_0_5": 0.622093023255814,
+        "f1_at_0_5": 0.6211901306240929,
+        "confusion_matrix_at_0_5": [
+          [
+            201,
+            131
+          ],
+          [
+            130,
+            214
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "community_only",
+      "fold": 2,
+      "retained_features": 29,
+      "metrics": {
+        "rule_macro_auc": 0.5906399813971447,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5460625403428243,
+          "No legal advice: Do not offer or request legal advice.": 0.6352174224514651
+        },
+        "pooled_auc": 0.6048744396189409,
+        "average_precision": 0.6021961249286447,
+        "log_loss": 0.6693281753591096,
+        "brier": 0.24025085060166357,
+        "ece_10_equal_width_bins": 0.0794337987467165,
+        "precision_at_0_5": 0.5595854922279793,
+        "recall_at_0_5": 0.627906976744186,
+        "f1_at_0_5": 0.5917808219178082,
+        "confusion_matrix_at_0_5": [
+          [
+            162,
+            170
+          ],
+          [
+            128,
+            216
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_transfer",
+      "fold": 2,
+      "retained_features": 5071,
+      "metrics": {
+        "rule_macro_auc": 0.6774773387460147,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7070214444524134,
+          "No legal advice: Do not offer or request legal advice.": 0.6479332330396159
+        },
+        "pooled_auc": 0.6865105771924909,
+        "average_precision": 0.6897623506052397,
+        "log_loss": 0.6813778763033789,
+        "brier": 0.23709357311055987,
+        "ece_10_equal_width_bins": 0.12461987788281344,
+        "precision_at_0_5": 0.6190476190476191,
+        "recall_at_0_5": 0.6424418604651163,
+        "f1_at_0_5": 0.630527817403709,
+        "confusion_matrix_at_0_5": [
+          [
+            196,
+            136
+          ],
+          [
+            123,
+            221
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_with_coordinates",
+      "fold": 2,
+      "retained_features": 5327,
+      "metrics": {
+        "rule_macro_auc": 0.7316918970345305,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7733988381266584,
+          "No legal advice: Do not offer or request legal advice.": 0.6899849559424027
+        },
+        "pooled_auc": 0.7431703558419726,
+        "average_precision": 0.7334557553563498,
+        "log_loss": 0.6231584787339847,
+        "brier": 0.21155744895672848,
+        "ece_10_equal_width_bins": 0.08331361965011516,
+        "precision_at_0_5": 0.6666666666666666,
+        "recall_at_0_5": 0.7034883720930233,
+        "f1_at_0_5": 0.6845827439886846,
+        "confusion_matrix_at_0_5": [
+          [
+            211,
+            121
+          ],
+          [
+            102,
+            242
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "all_with_metadata",
+      "fold": 2,
+      "retained_features": 5108,
+      "metrics": {
+        "rule_macro_auc": 0.6839570236165187,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6695115828731263,
+          "No legal advice: Do not offer or request legal advice.": 0.6984024643599112
+        },
+        "pooled_auc": 0.686860815354441,
+        "average_precision": 0.6699500486122638,
+        "log_loss": 0.7254257228686658,
+        "brier": 0.24253103338251106,
+        "ece_10_equal_width_bins": 0.12947198269981516,
+        "precision_at_0_5": 0.6256410256410256,
+        "recall_at_0_5": 0.7093023255813954,
+        "f1_at_0_5": 0.6648501362397821,
+        "confusion_matrix_at_0_5": [
+          [
+            186,
+            146
+          ],
+          [
+            100,
+            244
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_character",
+      "fold": 2,
+      "retained_features": 975,
+      "metrics": {
+        "rule_macro_auc": 0.6459362743126731,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6718066413253961,
+          "No legal advice: Do not offer or request legal advice.": 0.6200659072999499
+        },
+        "pooled_auc": 0.6537545530961054,
+        "average_precision": 0.660806858146805,
+        "log_loss": 0.7259156039560617,
+        "brier": 0.2535425933769992,
+        "ece_10_equal_width_bins": 0.14584634434556812,
+        "precision_at_0_5": 0.6040462427745664,
+        "recall_at_0_5": 0.6075581395348837,
+        "f1_at_0_5": 0.6057971014492753,
+        "confusion_matrix_at_0_5": [
+          [
+            195,
+            137
+          ],
+          [
+            135,
+            209
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_structure",
+      "fold": 2,
+      "retained_features": 4943,
+      "metrics": {
+        "rule_macro_auc": 0.7016753264420438,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7419852255612134,
+          "No legal advice: Do not offer or request legal advice.": 0.6613654273228742
+        },
+        "pooled_auc": 0.711053516391146,
+        "average_precision": 0.7083984890579679,
+        "log_loss": 0.6363027489661943,
+        "brier": 0.221706402777243,
+        "ece_10_equal_width_bins": 0.08503269838863813,
+        "precision_at_0_5": 0.6383561643835617,
+        "recall_at_0_5": 0.6773255813953488,
+        "f1_at_0_5": 0.6572637517630465,
+        "confusion_matrix_at_0_5": [
+          [
+            200,
+            132
+          ],
+          [
+            111,
+            233
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_lexical",
+      "fold": 2,
+      "retained_features": 5007,
+      "metrics": {
+        "rule_macro_auc": 0.6833679710475968,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7041884816753927,
+          "No legal advice: Do not offer or request legal advice.": 0.6625474604198008
+        },
+        "pooled_auc": 0.6931563463154945,
+        "average_precision": 0.6965923273978568,
+        "log_loss": 0.6644808002004071,
+        "brier": 0.23229373667448275,
+        "ece_10_equal_width_bins": 0.12209126152821567,
+        "precision_at_0_5": 0.6075949367088608,
+        "recall_at_0_5": 0.6976744186046512,
+        "f1_at_0_5": 0.6495263870094723,
+        "confusion_matrix_at_0_5": [
+          [
+            177,
+            155
+          ],
+          [
+            104,
+            240
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_support_tokens",
+      "fold": 2,
+      "retained_features": 4982,
+      "metrics": {
+        "rule_macro_auc": 0.684576442725884,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7190705013268307,
+          "No legal advice: Do not offer or request legal advice.": 0.6500823841249375
+        },
+        "pooled_auc": 0.6944697394228075,
+        "average_precision": 0.6861932695691437,
+        "log_loss": 0.6651622044807051,
+        "brier": 0.2303305061693661,
+        "ece_10_equal_width_bins": 0.09731470432393462,
+        "precision_at_0_5": 0.6336088154269972,
+        "recall_at_0_5": 0.6686046511627907,
+        "f1_at_0_5": 0.6506364922206507,
+        "confusion_matrix_at_0_5": [
+          [
+            199,
+            133
+          ],
+          [
+            114,
+            230
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_semantic_scalar",
+      "fold": 2,
+      "retained_features": 5040,
+      "metrics": {
+        "rule_macro_auc": 0.6698147550348228,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6805206913863586,
+          "No legal advice: Do not offer or request legal advice.": 0.6591088186832869
+        },
+        "pooled_auc": 0.6817736060521155,
+        "average_precision": 0.6704724692678895,
+        "log_loss": 0.6800114711907929,
+        "brier": 0.23593736758114597,
+        "ece_10_equal_width_bins": 0.1084391413795809,
+        "precision_at_0_5": 0.6166219839142091,
+        "recall_at_0_5": 0.6686046511627907,
+        "f1_at_0_5": 0.6415620641562064,
+        "confusion_matrix_at_0_5": [
+          [
+            189,
+            143
+          ],
+          [
+            114,
+            230
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "without_ranks",
+      "fold": 2,
+      "retained_features": 5007,
+      "metrics": {
+        "rule_macro_auc": 0.6775632901462838,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7007458939969877,
+          "No legal advice: Do not offer or request legal advice.": 0.6543806862955799
+        },
+        "pooled_auc": 0.6871322499299524,
+        "average_precision": 0.6908973959367517,
+        "log_loss": 0.6776818493918481,
+        "brier": 0.23582592897800225,
+        "ece_10_equal_width_bins": 0.12368480269023482,
+        "precision_at_0_5": 0.6169014084507042,
+        "recall_at_0_5": 0.6366279069767442,
+        "f1_at_0_5": 0.6266094420600858,
+        "confusion_matrix_at_0_5": [
+          [
+            196,
+            136
+          ],
+          [
+            125,
+            219
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_screened",
+      "fold": 0,
+      "retained_features": 2988,
+      "metrics": {
+        "rule_macro_auc": 0.637087728509379,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.637087728509379
+        },
+        "pooled_auc": 0.637087728509379,
+        "average_precision": 0.5536484336517578,
+        "log_loss": 0.6601178007336507,
+        "brier": 0.23349671180240744,
+        "ece_10_equal_width_bins": 0.022235059048128107,
+        "precision_at_0_5": 0.6008230452674898,
+        "recall_at_0_5": 0.3333333333333333,
+        "f1_at_0_5": 0.4287812041116006,
+        "confusion_matrix_at_0_5": [
+          [
+            477,
+            97
+          ],
+          [
+            292,
+            146
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_character",
+      "fold": 0,
+      "retained_features": 7084,
+      "metrics": {
+        "rule_macro_auc": 0.6853929008957408,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6853929008957408
+        },
+        "pooled_auc": 0.6853929008957408,
+        "average_precision": 0.6000028693180763,
+        "log_loss": 0.657214726189681,
+        "brier": 0.23102467056269324,
+        "ece_10_equal_width_bins": 0.0970386138043378,
+        "precision_at_0_5": 0.68125,
+        "recall_at_0_5": 0.24885844748858446,
+        "f1_at_0_5": 0.36454849498327757,
+        "confusion_matrix_at_0_5": [
+          [
+            523,
+            51
+          ],
+          [
+            329,
+            109
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_structure",
+      "fold": 0,
+      "retained_features": 3116,
+      "metrics": {
+        "rule_macro_auc": 0.5256312347859291,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5256312347859291
+        },
+        "pooled_auc": 0.5256312347859291,
+        "average_precision": 0.44621513474204344,
+        "log_loss": 0.9428307674849534,
+        "brier": 0.3049163920094127,
+        "ece_10_equal_width_bins": 0.21061925769351436,
+        "precision_at_0_5": 0.44473684210526315,
+        "recall_at_0_5": 0.3858447488584475,
+        "f1_at_0_5": 0.4132029339853301,
+        "confusion_matrix_at_0_5": [
+          [
+            363,
+            211
+          ],
+          [
+            269,
+            169
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_lexical",
+      "fold": 0,
+      "retained_features": 3052,
+      "metrics": {
+        "rule_macro_auc": 0.5368160628768714,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5368160628768714
+        },
+        "pooled_auc": 0.5368160628768714,
+        "average_precision": 0.4479472907393353,
+        "log_loss": 1.4392459690101382,
+        "brier": 0.3181935197899681,
+        "ece_10_equal_width_bins": 0.22020537306622595,
+        "precision_at_0_5": 0.4713375796178344,
+        "recall_at_0_5": 0.5068493150684932,
+        "f1_at_0_5": 0.4884488448844885,
+        "confusion_matrix_at_0_5": [
+          [
+            325,
+            249
+          ],
+          [
+            216,
+            222
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_support_tokens",
+      "fold": 0,
+      "retained_features": 3228,
+      "metrics": {
+        "rule_macro_auc": 0.5861295403560689,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5861295403560689
+        },
+        "pooled_auc": 0.5861295403560689,
+        "average_precision": 0.5337586641233468,
+        "log_loss": 0.6948053999401282,
+        "brier": 0.2471052598329465,
+        "ece_10_equal_width_bins": 0.07778428132715744,
+        "precision_at_0_5": 0.5678233438485805,
+        "recall_at_0_5": 0.410958904109589,
+        "f1_at_0_5": 0.4768211920529801,
+        "confusion_matrix_at_0_5": [
+          [
+            437,
+            137
+          ],
+          [
+            258,
+            180
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_semantic",
+      "fold": 0,
+      "retained_features": 3244,
+      "metrics": {
+        "rule_macro_auc": 0.5536052376179339,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5536052376179339
+        },
+        "pooled_auc": 0.5536052376179339,
+        "average_precision": 0.48973044471973354,
+        "log_loss": 0.9534904299570831,
+        "brier": 0.31992252335222643,
+        "ece_10_equal_width_bins": 0.2707607534371201,
+        "precision_at_0_5": 0.6190476190476191,
+        "recall_at_0_5": 0.02968036529680365,
+        "f1_at_0_5": 0.05664488017429194,
+        "confusion_matrix_at_0_5": [
+          [
+            566,
+            8
+          ],
+          [
+            425,
+            13
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_semantic_scalar",
+      "fold": 0,
+      "retained_features": 3019,
+      "metrics": {
+        "rule_macro_auc": 0.6854644965236345,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6854644965236345
+        },
+        "pooled_auc": 0.6854644965236345,
+        "average_precision": 0.6085511346706471,
+        "log_loss": 0.6264865675433353,
+        "brier": 0.21966140809341117,
+        "ece_10_equal_width_bins": 0.026158492769355984,
+        "precision_at_0_5": 0.6114285714285714,
+        "recall_at_0_5": 0.4885844748858447,
+        "f1_at_0_5": 0.5431472081218274,
+        "confusion_matrix_at_0_5": [
+          [
+            438,
+            136
+          ],
+          [
+            224,
+            214
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_ranks",
+      "fold": 0,
+      "retained_features": 3052,
+      "metrics": {
+        "rule_macro_auc": 0.595114791656723,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.595114791656723
+        },
+        "pooled_auc": 0.595114791656723,
+        "average_precision": 0.5501790195483932,
+        "log_loss": 0.7016036492651173,
+        "brier": 0.2513832210998523,
+        "ece_10_equal_width_bins": 0.12545822611914437,
+        "precision_at_0_5": 0.527027027027027,
+        "recall_at_0_5": 0.5342465753424658,
+        "f1_at_0_5": 0.5306122448979592,
+        "confusion_matrix_at_0_5": [
+          [
+            364,
+            210
+          ],
+          [
+            204,
+            234
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_community",
+      "fold": 0,
+      "retained_features": 3033,
+      "metrics": {
+        "rule_macro_auc": 0.6002000700046138,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6002000700046138
+        },
+        "pooled_auc": 0.6002000700046138,
+        "average_precision": 0.5263521909418186,
+        "log_loss": 0.7073181867524315,
+        "brier": 0.2518126662661182,
+        "ece_10_equal_width_bins": 0.11543131808595589,
+        "precision_at_0_5": 0.5434782608695652,
+        "recall_at_0_5": 0.17123287671232876,
+        "f1_at_0_5": 0.2604166666666667,
+        "confusion_matrix_at_0_5": [
+          [
+            511,
+            63
+          ],
+          [
+            363,
+            75
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_target_context",
+      "fold": 0,
+      "retained_features": 2992,
+      "metrics": {
+        "rule_macro_auc": 0.6434020651361111,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6434020651361111
+        },
+        "pooled_auc": 0.6434020651361111,
+        "average_precision": 0.5436416809573544,
+        "log_loss": 0.6857871326066179,
+        "brier": 0.2457875671676193,
+        "ece_10_equal_width_bins": 0.114616492980563,
+        "precision_at_0_5": 0.6153846153846154,
+        "recall_at_0_5": 0.1278538812785388,
+        "f1_at_0_5": 0.21172022684310018,
+        "confusion_matrix_at_0_5": [
+          [
+            539,
+            35
+          ],
+          [
+            382,
+            56
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "semantic_scalar_only",
+      "fold": 0,
+      "retained_features": 31,
+      "metrics": {
+        "rule_macro_auc": 0.6620845464814726,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6620845464814726
+        },
+        "pooled_auc": 0.6620845464814726,
+        "average_precision": 0.5989378203054603,
+        "log_loss": 0.6855092140548851,
+        "brier": 0.2476863663453931,
+        "ece_10_equal_width_bins": 0.1495650663173398,
+        "precision_at_0_5": 0.48346636259977194,
+        "recall_at_0_5": 0.9680365296803652,
+        "f1_at_0_5": 0.6448669201520912,
+        "confusion_matrix_at_0_5": [
+          [
+            121,
+            453
+          ],
+          [
+            14,
+            424
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "community_only",
+      "fold": 0,
+      "retained_features": 45,
+      "metrics": {
+        "rule_macro_auc": 0.5373868391325792,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5373868391325792
+        },
+        "pooled_auc": 0.5373868391325792,
+        "average_precision": 0.46201830404301913,
+        "log_loss": 0.7106408263964754,
+        "brier": 0.25626657560662414,
+        "ece_10_equal_width_bins": 0.10280702634448445,
+        "precision_at_0_5": 0.5351681957186545,
+        "recall_at_0_5": 0.3995433789954338,
+        "f1_at_0_5": 0.45751633986928103,
+        "confusion_matrix_at_0_5": [
+          [
+            422,
+            152
+          ],
+          [
+            263,
+            175
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "all_transfer",
+      "fold": 0,
+      "retained_features": 7611,
+      "metrics": {
+        "rule_macro_auc": 0.5435977598523539,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5435977598523539
+        },
+        "pooled_auc": 0.5435977598523539,
+        "average_precision": 0.4471726339817075,
+        "log_loss": 1.5805460503921749,
+        "brier": 0.3430326363629289,
+        "ece_10_equal_width_bins": 0.27069519309432993,
+        "precision_at_0_5": 0.47468354430379744,
+        "recall_at_0_5": 0.5136986301369864,
+        "f1_at_0_5": 0.4934210526315789,
+        "confusion_matrix_at_0_5": [
+          [
+            325,
+            249
+          ],
+          [
+            213,
+            225
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "all_with_coordinates",
+      "fold": 0,
+      "retained_features": 7867,
+      "metrics": {
+        "rule_macro_auc": 0.5256829427394079,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5256829427394079
+        },
+        "pooled_auc": 0.5256829427394079,
+        "average_precision": 0.4356681929335465,
+        "log_loss": 1.6545543122732411,
+        "brier": 0.3651392907985685,
+        "ece_10_equal_width_bins": 0.32002610702659245,
+        "precision_at_0_5": 0.44594594594594594,
+        "recall_at_0_5": 0.3013698630136986,
+        "f1_at_0_5": 0.35967302452316074,
+        "confusion_matrix_at_0_5": [
+          [
+            410,
+            164
+          ],
+          [
+            306,
+            132
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "all_with_metadata",
+      "fold": 0,
+      "retained_features": 7660,
+      "metrics": {
+        "rule_macro_auc": 0.5486770718979206,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5486770718979206
+        },
+        "pooled_auc": 0.5486770718979206,
+        "average_precision": 0.4478253668428808,
+        "log_loss": 1.6349307921871403,
+        "brier": 0.34463119653479385,
+        "ece_10_equal_width_bins": 0.2887158814753028,
+        "precision_at_0_5": 0.46564885496183206,
+        "recall_at_0_5": 0.4178082191780822,
+        "f1_at_0_5": 0.4404332129963899,
+        "confusion_matrix_at_0_5": [
+          [
+            364,
+            210
+          ],
+          [
+            255,
+            183
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_character",
+      "fold": 0,
+      "retained_features": 3515,
+      "metrics": {
+        "rule_macro_auc": 0.5306190635291872,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5306190635291872
+        },
+        "pooled_auc": 0.5306190635291872,
+        "average_precision": 0.44528934849333446,
+        "log_loss": 1.5130674398383668,
+        "brier": 0.34872351882010927,
+        "ece_10_equal_width_bins": 0.28730474833775516,
+        "precision_at_0_5": 0.4533333333333333,
+        "recall_at_0_5": 0.4657534246575342,
+        "f1_at_0_5": 0.4594594594594595,
+        "confusion_matrix_at_0_5": [
+          [
+            328,
+            246
+          ],
+          [
+            234,
+            204
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_structure",
+      "fold": 0,
+      "retained_features": 7483,
+      "metrics": {
+        "rule_macro_auc": 0.5778841105436494,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5778841105436494
+        },
+        "pooled_auc": 0.5778841105436494,
+        "average_precision": 0.48122716208980726,
+        "log_loss": 1.2363788847817485,
+        "brier": 0.30281787260203125,
+        "ece_10_equal_width_bins": 0.19939734365809553,
+        "precision_at_0_5": 0.5031712473572939,
+        "recall_at_0_5": 0.54337899543379,
+        "f1_at_0_5": 0.5225027442371021,
+        "confusion_matrix_at_0_5": [
+          [
+            339,
+            235
+          ],
+          [
+            200,
+            238
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_lexical",
+      "fold": 0,
+      "retained_features": 7547,
+      "metrics": {
+        "rule_macro_auc": 0.5840373570076209,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5840373570076209
+        },
+        "pooled_auc": 0.5840373570076209,
+        "average_precision": 0.5072948412478131,
+        "log_loss": 0.9423158980177667,
+        "brier": 0.2986641901209017,
+        "ece_10_equal_width_bins": 0.20604415969631742,
+        "precision_at_0_5": 0.5055187637969095,
+        "recall_at_0_5": 0.5228310502283106,
+        "f1_at_0_5": 0.5140291806958474,
+        "confusion_matrix_at_0_5": [
+          [
+            350,
+            224
+          ],
+          [
+            209,
+            229
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_support_tokens",
+      "fold": 0,
+      "retained_features": 7371,
+      "metrics": {
+        "rule_macro_auc": 0.544202345154567,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.544202345154567
+        },
+        "pooled_auc": 0.544202345154567,
+        "average_precision": 0.4427843795058661,
+        "log_loss": 1.69792517109321,
+        "brier": 0.3425094064628461,
+        "ece_10_equal_width_bins": 0.2704011713070874,
+        "precision_at_0_5": 0.4817987152034261,
+        "recall_at_0_5": 0.5136986301369864,
+        "f1_at_0_5": 0.4972375690607735,
+        "confusion_matrix_at_0_5": [
+          [
+            332,
+            242
+          ],
+          [
+            213,
+            225
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_semantic_scalar",
+      "fold": 0,
+      "retained_features": 7580,
+      "metrics": {
+        "rule_macro_auc": 0.5384707173881915,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5384707173881915
+        },
+        "pooled_auc": 0.5384707173881915,
+        "average_precision": 0.44733909207175504,
+        "log_loss": 1.5398890509201897,
+        "brier": 0.342067186068953,
+        "ece_10_equal_width_bins": 0.2617550680305621,
+        "precision_at_0_5": 0.4782608695652174,
+        "recall_at_0_5": 0.4771689497716895,
+        "f1_at_0_5": 0.4777142857142857,
+        "confusion_matrix_at_0_5": [
+          [
+            346,
+            228
+          ],
+          [
+            229,
+            209
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_ranks",
+      "fold": 0,
+      "retained_features": 7547,
+      "metrics": {
+        "rule_macro_auc": 0.5417840039457147,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5417840039457147
+        },
+        "pooled_auc": 0.5417840039457147,
+        "average_precision": 0.4423637730638191,
+        "log_loss": 1.7085257593165997,
+        "brier": 0.3479715065599407,
+        "ece_10_equal_width_bins": 0.27521617431223744,
+        "precision_at_0_5": 0.4723809523809524,
+        "recall_at_0_5": 0.5662100456621004,
+        "f1_at_0_5": 0.5150571131879543,
+        "confusion_matrix_at_0_5": [
+          [
+            297,
+            277
+          ],
+          [
+            190,
+            248
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_screened",
+      "fold": 1,
+      "retained_features": 1584,
+      "metrics": {
+        "rule_macro_auc": 0.5416076712590283,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5416076712590283
+        },
+        "pooled_auc": 0.5416076712590283,
+        "average_precision": 0.6221999368456441,
+        "log_loss": 0.6961375059279504,
+        "brier": 0.2506530144523917,
+        "ece_10_equal_width_bins": 0.06822550760022993,
+        "precision_at_0_5": 0.5986013986013986,
+        "recall_at_0_5": 0.7217537942664418,
+        "f1_at_0_5": 0.654434250764526,
+        "confusion_matrix_at_0_5": [
+          [
+            137,
+            287
+          ],
+          [
+            165,
+            428
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_character",
+      "fold": 1,
+      "retained_features": 5680,
+      "metrics": {
+        "rule_macro_auc": 0.539654856979223,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.539654856979223
+        },
+        "pooled_auc": 0.539654856979223,
+        "average_precision": 0.6258190107809696,
+        "log_loss": 0.7160818801103548,
+        "brier": 0.25855620193116763,
+        "ece_10_equal_width_bins": 0.10231558728629328,
+        "precision_at_0_5": 0.6,
+        "recall_at_0_5": 0.7133220910623946,
+        "f1_at_0_5": 0.6517719568567026,
+        "confusion_matrix_at_0_5": [
+          [
+            142,
+            282
+          ],
+          [
+            170,
+            423
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_structure",
+      "fold": 1,
+      "retained_features": 1712,
+      "metrics": {
+        "rule_macro_auc": 0.5545157338763562,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5545157338763562
+        },
+        "pooled_auc": 0.5545157338763562,
+        "average_precision": 0.6162573150732411,
+        "log_loss": 0.737270114673262,
+        "brier": 0.26327236619529687,
+        "ece_10_equal_width_bins": 0.12108606122914357,
+        "precision_at_0_5": 0.6129518072289156,
+        "recall_at_0_5": 0.6863406408094435,
+        "f1_at_0_5": 0.6475735879077168,
+        "confusion_matrix_at_0_5": [
+          [
+            167,
+            257
+          ],
+          [
+            186,
+            407
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_lexical",
+      "fold": 1,
+      "retained_features": 1648,
+      "metrics": {
+        "rule_macro_auc": 0.6350822488784245,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.6350822488784245
+        },
+        "pooled_auc": 0.6350822488784245,
+        "average_precision": 0.7199135396597682,
+        "log_loss": 0.7288657731049757,
+        "brier": 0.24624341652983459,
+        "ece_10_equal_width_bins": 0.11985208999356788,
+        "precision_at_0_5": 0.6194225721784777,
+        "recall_at_0_5": 0.7959527824620574,
+        "f1_at_0_5": 0.6966789667896679,
+        "confusion_matrix_at_0_5": [
+          [
+            134,
+            290
+          ],
+          [
+            121,
+            472
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_support_tokens",
+      "fold": 1,
+      "retained_features": 1719,
+      "metrics": {
+        "rule_macro_auc": 0.5430056635591334,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5430056635591334
+        },
+        "pooled_auc": 0.5430056635591334,
+        "average_precision": 0.6220174777663721,
+        "log_loss": 0.7076943959510555,
+        "brier": 0.255452730924443,
+        "ece_10_equal_width_bins": 0.10321545714592889,
+        "precision_at_0_5": 0.6100151745068285,
+        "recall_at_0_5": 0.6779089376053963,
+        "f1_at_0_5": 0.6421725239616614,
+        "confusion_matrix_at_0_5": [
+          [
+            167,
+            257
+          ],
+          [
+            191,
+            402
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_semantic",
+      "fold": 1,
+      "retained_features": 1840,
+      "metrics": {
+        "rule_macro_auc": 0.4778906424003309,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.4778906424003309
+        },
+        "pooled_auc": 0.4778906424003309,
+        "average_precision": 0.5694050974676608,
+        "log_loss": 0.8767612823375799,
+        "brier": 0.30750113850678035,
+        "ece_10_equal_width_bins": 0.22038542908061948,
+        "precision_at_0_5": 0.5640287769784172,
+        "recall_at_0_5": 0.6610455311973018,
+        "f1_at_0_5": 0.6086956521739131,
+        "confusion_matrix_at_0_5": [
+          [
+            121,
+            303
+          ],
+          [
+            201,
+            392
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_semantic_scalar",
+      "fold": 1,
+      "retained_features": 1615,
+      "metrics": {
+        "rule_macro_auc": 0.5580117089312419,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5580117089312419
+        },
+        "pooled_auc": 0.5580117089312419,
+        "average_precision": 0.6333866993730601,
+        "log_loss": 0.8227126426570414,
+        "brier": 0.30089162479489623,
+        "ece_10_equal_width_bins": 0.23346343137513534,
+        "precision_at_0_5": 0.6666666666666666,
+        "recall_at_0_5": 0.26644182124789206,
+        "f1_at_0_5": 0.38072289156626504,
+        "confusion_matrix_at_0_5": [
+          [
+            345,
+            79
+          ],
+          [
+            435,
+            158
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_ranks",
+      "fold": 1,
+      "retained_features": 1648,
+      "metrics": {
+        "rule_macro_auc": 0.5458175570333132,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5458175570333132
+        },
+        "pooled_auc": 0.5458175570333132,
+        "average_precision": 0.6273787381122482,
+        "log_loss": 0.7107058790033224,
+        "brier": 0.2555430325704871,
+        "ece_10_equal_width_bins": 0.10810003398096751,
+        "precision_at_0_5": 0.5885850178359097,
+        "recall_at_0_5": 0.8347386172006745,
+        "f1_at_0_5": 0.6903765690376569,
+        "confusion_matrix_at_0_5": [
+          [
+            78,
+            346
+          ],
+          [
+            98,
+            495
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_community",
+      "fold": 1,
+      "retained_features": 1643,
+      "metrics": {
+        "rule_macro_auc": 0.5071371185847466,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5071371185847466
+        },
+        "pooled_auc": 0.5071371185847466,
+        "average_precision": 0.5789176028490646,
+        "log_loss": 0.7387019180246849,
+        "brier": 0.26716191270366024,
+        "ece_10_equal_width_bins": 0.12119291860924804,
+        "precision_at_0_5": 0.5883233532934131,
+        "recall_at_0_5": 0.6627318718381113,
+        "f1_at_0_5": 0.6233148295003965,
+        "confusion_matrix_at_0_5": [
+          [
+            149,
+            275
+          ],
+          [
+            200,
+            393
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "word_target_context",
+      "fold": 1,
+      "retained_features": 1588,
+      "metrics": {
+        "rule_macro_auc": 0.5383940787171084,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5383940787171084
+        },
+        "pooled_auc": 0.5383940787171084,
+        "average_precision": 0.6077040365764588,
+        "log_loss": 0.7143927914388959,
+        "brier": 0.2564852870462312,
+        "ece_10_equal_width_bins": 0.09165339242683532,
+        "precision_at_0_5": 0.6025477707006369,
+        "recall_at_0_5": 0.7976391231028668,
+        "f1_at_0_5": 0.6865021770682148,
+        "confusion_matrix_at_0_5": [
+          [
+            112,
+            312
+          ],
+          [
+            120,
+            473
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "semantic_scalar_only",
+      "fold": 1,
+      "retained_features": 31,
+      "metrics": {
+        "rule_macro_auc": 0.5418801107257628,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5418801107257628
+        },
+        "pooled_auc": 0.5418801107257628,
+        "average_precision": 0.6207151042714214,
+        "log_loss": 1.0113412994415438,
+        "brier": 0.3621866910838545,
+        "ece_10_equal_width_bins": 0.3269934179857182,
+        "precision_at_0_5": 0.6338028169014085,
+        "recall_at_0_5": 0.07588532883642496,
+        "f1_at_0_5": 0.1355421686746988,
+        "confusion_matrix_at_0_5": [
+          [
+            398,
+            26
+          ],
+          [
+            548,
+            45
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "community_only",
+      "fold": 1,
+      "retained_features": 59,
+      "metrics": {
+        "rule_macro_auc": 0.5265021954246077,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5265021954246077
+        },
+        "pooled_auc": 0.5265021954246077,
+        "average_precision": 0.6086401422699371,
+        "log_loss": 0.75925523797123,
+        "brier": 0.2769326247884617,
+        "ece_10_equal_width_bins": 0.167795524594552,
+        "precision_at_0_5": 0.602291325695581,
+        "recall_at_0_5": 0.6205733558178752,
+        "f1_at_0_5": 0.6112956810631229,
+        "confusion_matrix_at_0_5": [
+          [
+            181,
+            243
+          ],
+          [
+            225,
+            368
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "all_transfer",
+      "fold": 1,
+      "retained_features": 6102,
+      "metrics": {
+        "rule_macro_auc": 0.5650275223519678,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5650275223519678
+        },
+        "pooled_auc": 0.5650275223519678,
+        "average_precision": 0.6428390335248542,
+        "log_loss": 1.007462941273038,
+        "brier": 0.3367719656023295,
+        "ece_10_equal_width_bins": 0.27548399290993975,
+        "precision_at_0_5": 0.6412213740458015,
+        "recall_at_0_5": 0.28330522765598654,
+        "f1_at_0_5": 0.3929824561403509,
+        "confusion_matrix_at_0_5": [
+          [
+            330,
+            94
+          ],
+          [
+            425,
+            168
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "all_with_coordinates",
+      "fold": 1,
+      "retained_features": 6358,
+      "metrics": {
+        "rule_macro_auc": 0.5499300009545324,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5499300009545324
+        },
+        "pooled_auc": 0.5499300009545324,
+        "average_precision": 0.6317015807968485,
+        "log_loss": 0.9698762026922495,
+        "brier": 0.31143776758549124,
+        "ece_10_equal_width_bins": 0.2293068993204125,
+        "precision_at_0_5": 0.6217712177121771,
+        "recall_at_0_5": 0.5682967959527825,
+        "f1_at_0_5": 0.5938325991189427,
+        "confusion_matrix_at_0_5": [
+          [
+            219,
+            205
+          ],
+          [
+            256,
+            337
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "all_with_metadata",
+      "fold": 1,
+      "retained_features": 6165,
+      "metrics": {
+        "rule_macro_auc": 0.5439283782493876,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5439283782493876
+        },
+        "pooled_auc": 0.5439283782493876,
+        "average_precision": 0.6274318041723237,
+        "log_loss": 1.0239285739853343,
+        "brier": 0.3436921129913934,
+        "ece_10_equal_width_bins": 0.2812582618552231,
+        "precision_at_0_5": 0.6381322957198443,
+        "recall_at_0_5": 0.2765598650927487,
+        "f1_at_0_5": 0.38588235294117645,
+        "confusion_matrix_at_0_5": [
+          [
+            331,
+            93
+          ],
+          [
+            429,
+            164
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_character",
+      "fold": 1,
+      "retained_features": 2006,
+      "metrics": {
+        "rule_macro_auc": 0.5553867447262082,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5553867447262082
+        },
+        "pooled_auc": 0.5553867447262082,
+        "average_precision": 0.6361612817276797,
+        "log_loss": 1.0331171766467209,
+        "brier": 0.3458728524802708,
+        "ece_10_equal_width_bins": 0.29046429093505705,
+        "precision_at_0_5": 0.6624472573839663,
+        "recall_at_0_5": 0.26475548060708265,
+        "f1_at_0_5": 0.3783132530120482,
+        "confusion_matrix_at_0_5": [
+          [
+            344,
+            80
+          ],
+          [
+            436,
+            157
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_structure",
+      "fold": 1,
+      "retained_features": 5974,
+      "metrics": {
+        "rule_macro_auc": 0.6344856661045531,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.6344856661045531
+        },
+        "pooled_auc": 0.6344856661045531,
+        "average_precision": 0.7171080233479249,
+        "log_loss": 0.8164884530727856,
+        "brier": 0.2724592285663304,
+        "ece_10_equal_width_bins": 0.18470404306450935,
+        "precision_at_0_5": 0.6866359447004609,
+        "recall_at_0_5": 0.5025295109612141,
+        "f1_at_0_5": 0.5803310613437196,
+        "confusion_matrix_at_0_5": [
+          [
+            288,
+            136
+          ],
+          [
+            295,
+            298
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_lexical",
+      "fold": 1,
+      "retained_features": 6038,
+      "metrics": {
+        "rule_macro_auc": 0.5693507588532882,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5693507588532882
+        },
+        "pooled_auc": 0.5693507588532882,
+        "average_precision": 0.6374710743448004,
+        "log_loss": 0.8770849307611885,
+        "brier": 0.3083948733447369,
+        "ece_10_equal_width_bins": 0.2327434635474726,
+        "precision_at_0_5": 0.6451612903225806,
+        "recall_at_0_5": 0.37099494097807756,
+        "f1_at_0_5": 0.47109207708779444,
+        "confusion_matrix_at_0_5": [
+          [
+            303,
+            121
+          ],
+          [
+            373,
+            220
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_support_tokens",
+      "fold": 1,
+      "retained_features": 5967,
+      "metrics": {
+        "rule_macro_auc": 0.5225548060708264,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5225548060708264
+        },
+        "pooled_auc": 0.5225548060708264,
+        "average_precision": 0.616751875502422,
+        "log_loss": 1.110065094063388,
+        "brier": 0.3539597868662245,
+        "ece_10_equal_width_bins": 0.29310013524165146,
+        "precision_at_0_5": 0.6428571428571429,
+        "recall_at_0_5": 0.2580101180438449,
+        "f1_at_0_5": 0.36823104693140796,
+        "confusion_matrix_at_0_5": [
+          [
+            339,
+            85
+          ],
+          [
+            440,
+            153
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_semantic_scalar",
+      "fold": 1,
+      "retained_features": 6071,
+      "metrics": {
+        "rule_macro_auc": 0.5342796461866429,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5342796461866429
+        },
+        "pooled_auc": 0.5342796461866429,
+        "average_precision": 0.629814080457928,
+        "log_loss": 0.8525160924542032,
+        "brier": 0.29654722718981685,
+        "ece_10_equal_width_bins": 0.18295377922857997,
+        "precision_at_0_5": 0.6071428571428571,
+        "recall_at_0_5": 0.5160202360876898,
+        "f1_at_0_5": 0.5578851412944393,
+        "confusion_matrix_at_0_5": [
+          [
+            226,
+            198
+          ],
+          [
+            287,
+            306
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "without_ranks",
+      "fold": 1,
+      "retained_features": 6038,
+      "metrics": {
+        "rule_macro_auc": 0.5919692004199943,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5919692004199943
+        },
+        "pooled_auc": 0.5919692004199943,
+        "average_precision": 0.6609638958362601,
+        "log_loss": 0.9197498331915032,
+        "brier": 0.31182040762043095,
+        "ece_10_equal_width_bins": 0.2383786875546106,
+        "precision_at_0_5": 0.6792452830188679,
+        "recall_at_0_5": 0.3642495784148398,
+        "f1_at_0_5": 0.47420417124039516,
+        "confusion_matrix_at_0_5": [
+          [
+            322,
+            102
+          ],
+          [
+            377,
+            216
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    }
+  ]
+}

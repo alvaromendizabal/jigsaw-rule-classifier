@@ -1,0 +1,1430 @@
+[
+  {
+    "model": "word_screened",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7081540529154019,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7589832625332125,
+        "No legal advice: Do not offer or request legal advice.": 0.6573248432975913
+      },
+      "pooled_auc": 0.71895245388935,
+      "average_precision": 0.7000246304155958,
+      "log_loss": 0.6101356486547475,
+      "brier": 0.21185544173243306,
+      "ece_10_equal_width_bins": 0.036245726678411354,
+      "precision_at_0_5": 0.6321070234113713,
+      "recall_at_0_5": 0.7332686711930165,
+      "f1_at_0_5": 0.6789402784014369,
+      "confusion_matrix_at_0_5": [
+        [
+          558,
+          440
+        ],
+        [
+          275,
+          756
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.31842198599042604
+  },
+  {
+    "model": "word_character",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7373259443726201,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8086845496635006,
+        "No legal advice: Do not offer or request legal advice.": 0.6659673390817398
+      },
+      "pooled_auc": 0.7490985851431281,
+      "average_precision": 0.7227512275065763,
+      "log_loss": 0.5872767970055397,
+      "brier": 0.20177439761612617,
+      "ece_10_equal_width_bins": 0.036902859166186235,
+      "precision_at_0_5": 0.6626402070750647,
+      "recall_at_0_5": 0.7449078564500485,
+      "f1_at_0_5": 0.7013698630136986,
+      "confusion_matrix_at_0_5": [
+        [
+          607,
+          391
+        ],
+        [
+          263,
+          768
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.5054886420039111
+  },
+  {
+    "model": "word_structure",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.685445295226783,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7381469460487169,
+        "No legal advice: Do not offer or request legal advice.": 0.6327436444048491
+      },
+      "pooled_auc": 0.6990916848245472,
+      "average_precision": 0.6625119736926472,
+      "log_loss": 0.6427032536626917,
+      "brier": 0.2226523057393795,
+      "ece_10_equal_width_bins": 0.05016939445741228,
+      "precision_at_0_5": 0.6451612903225806,
+      "recall_at_0_5": 0.6983511154219205,
+      "f1_at_0_5": 0.6707033069399162,
+      "confusion_matrix_at_0_5": [
+        [
+          602,
+          396
+        ],
+        [
+          311,
+          720
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.28751772199757397
+  },
+  {
+    "model": "word_lexical",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7113118790520883,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7568373824638442,
+        "No legal advice: Do not offer or request legal advice.": 0.6657863756403322
+      },
+      "pooled_auc": 0.7214895358126535,
+      "average_precision": 0.7069981092841724,
+      "log_loss": 0.6168083970490509,
+      "brier": 0.21283321913242145,
+      "ece_10_equal_width_bins": 0.027699219504292893,
+      "precision_at_0_5": 0.6563071297989032,
+      "recall_at_0_5": 0.6964112512124151,
+      "f1_at_0_5": 0.6757647058823529,
+      "confusion_matrix_at_0_5": [
+        [
+          622,
+          376
+        ],
+        [
+          313,
+          718
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.31877180099399993
+  },
+  {
+    "model": "word_support_tokens",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.658017451602429,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7143891301926717,
+        "No legal advice: Do not offer or request legal advice.": 0.6016457730121862
+      },
+      "pooled_auc": 0.677528675197145,
+      "average_precision": 0.6546445552115453,
+      "log_loss": 0.6448853865471873,
+      "brier": 0.22684412552332966,
+      "ece_10_equal_width_bins": 0.05057421270645639,
+      "precision_at_0_5": 0.6276112624886467,
+      "recall_at_0_5": 0.6702230843840931,
+      "f1_at_0_5": 0.648217636022514,
+      "confusion_matrix_at_0_5": [
+        [
+          588,
+          410
+        ],
+        [
+          340,
+          691
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.28295865499967476
+  },
+  {
+    "model": "word_semantic",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7438999322940517,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8247776558000415,
+        "No legal advice: Do not offer or request legal advice.": 0.663022208788062
+      },
+      "pooled_auc": 0.7581564681253875,
+      "average_precision": 0.7348678415539306,
+      "log_loss": 0.5795827066671551,
+      "brier": 0.19881079756390885,
+      "ece_10_equal_width_bins": 0.03150565875154489,
+      "precision_at_0_5": 0.6871508379888268,
+      "recall_at_0_5": 0.7158098933074685,
+      "f1_at_0_5": 0.701187648456057,
+      "confusion_matrix_at_0_5": [
+        [
+          662,
+          336
+        ],
+        [
+          293,
+          738
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.42694492699956754
+  },
+  {
+    "model": "word_semantic_scalar",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7108951832642065,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7797718485991121,
+        "No legal advice: Do not offer or request legal advice.": 0.642018517929301
+      },
+      "pooled_auc": 0.7247472636835262,
+      "average_precision": 0.7105372084098229,
+      "log_loss": 0.600831125422656,
+      "brier": 0.2090253779022424,
+      "ece_10_equal_width_bins": 0.031846223974285826,
+      "precision_at_0_5": 0.6395759717314488,
+      "recall_at_0_5": 0.7022308438409312,
+      "f1_at_0_5": 0.6694405917706888,
+      "confusion_matrix_at_0_5": [
+        [
+          590,
+          408
+        ],
+        [
+          307,
+          724
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.2692529299965827
+  },
+  {
+    "model": "word_ranks",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7026056231142008,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7537030849760552,
+        "No legal advice: Do not offer or request legal advice.": 0.6515081612523466
+      },
+      "pooled_auc": 0.7152423178072925,
+      "average_precision": 0.6847730024386414,
+      "log_loss": 0.6191184846855498,
+      "brier": 0.21482909281510784,
+      "ece_10_equal_width_bins": 0.034982511975108564,
+      "precision_at_0_5": 0.6399006622516556,
+      "recall_at_0_5": 0.7497575169738119,
+      "f1_at_0_5": 0.6904868244752121,
+      "confusion_matrix_at_0_5": [
+        [
+          563,
+          435
+        ],
+        [
+          258,
+          773
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.32723382700351067
+  },
+  {
+    "model": "word_community",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6900993961029358,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.707136095333556,
+        "No legal advice: Do not offer or request legal advice.": 0.6730626968723155
+      },
+      "pooled_auc": 0.700297782762421,
+      "average_precision": 0.6851504289342754,
+      "log_loss": 0.6219964169423483,
+      "brier": 0.21801149109344134,
+      "ece_10_equal_width_bins": 0.04839549314510577,
+      "precision_at_0_5": 0.6343416370106761,
+      "recall_at_0_5": 0.6915615906886518,
+      "f1_at_0_5": 0.6617169373549884,
+      "confusion_matrix_at_0_5": [
+        [
+          587,
+          411
+        ],
+        [
+          318,
+          713
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.240733120997902
+  },
+  {
+    "model": "word_target_context",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.701738309366507,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7216600639587609,
+        "No legal advice: Do not offer or request legal advice.": 0.6818165547742531
+      },
+      "pooled_auc": 0.698778254860837,
+      "average_precision": 0.6583940517833226,
+      "log_loss": 0.6551385655680554,
+      "brier": 0.22602087530852114,
+      "ece_10_equal_width_bins": 0.08741327802033756,
+      "precision_at_0_5": 0.6250968241673122,
+      "recall_at_0_5": 0.7827352085354026,
+      "f1_at_0_5": 0.6950904392764858,
+      "confusion_matrix_at_0_5": [
+        [
+          514,
+          484
+        ],
+        [
+          224,
+          807
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.27879707000101916
+  },
+  {
+    "model": "semantic_scalar_only",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6207282931028302,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6956191430798848,
+        "No legal advice: Do not offer or request legal advice.": 0.5458374431257755
+      },
+      "pooled_auc": 0.6359469666782643,
+      "average_precision": 0.6300947206115886,
+      "log_loss": 0.6580441650335461,
+      "brier": 0.2342853884637492,
+      "ece_10_equal_width_bins": 0.030757519629220954,
+      "precision_at_0_5": 0.6053897978825794,
+      "recall_at_0_5": 0.6100872938894277,
+      "f1_at_0_5": 0.6077294685990338,
+      "confusion_matrix_at_0_5": [
+        [
+          588,
+          410
+        ],
+        [
+          402,
+          629
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.17526615200767992
+  },
+  {
+    "model": "community_only",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6107621874298652,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5908309865877522,
+        "No legal advice: Do not offer or request legal advice.": 0.6306933882719782
+      },
+      "pooled_auc": 0.6246241270125119,
+      "average_precision": 0.6244558046244284,
+      "log_loss": 0.6595546574471868,
+      "brier": 0.2356888757349602,
+      "ece_10_equal_width_bins": 0.07888322021278409,
+      "precision_at_0_5": 0.5767045454545454,
+      "recall_at_0_5": 0.5906886517943744,
+      "f1_at_0_5": 0.5836128413991375,
+      "confusion_matrix_at_0_5": [
+        [
+          551,
+          447
+        ],
+        [
+          422,
+          609
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.14594399500492727
+  },
+  {
+    "model": "all_transfer",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6991415216501793,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7551071547897474,
+        "No legal advice: Do not offer or request legal advice.": 0.6431758885106112
+      },
+      "pooled_auc": 0.711216808009812,
+      "average_precision": 0.7042509875134071,
+      "log_loss": 0.6610027129022616,
+      "brier": 0.22541871490453622,
+      "ece_10_equal_width_bins": 0.10430070247338528,
+      "precision_at_0_5": 0.6547041707080504,
+      "recall_at_0_5": 0.6547041707080504,
+      "f1_at_0_5": 0.6547041707080504,
+      "confusion_matrix_at_0_5": [
+        [
+          642,
+          356
+        ],
+        [
+          356,
+          675
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.889439944003243
+  },
+  {
+    "model": "all_with_coordinates",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7359206404303014,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7998464671535168,
+        "No legal advice: Do not offer or request legal advice.": 0.6719948137070858
+      },
+      "pooled_auc": 0.7483444094785108,
+      "average_precision": 0.7388437135531714,
+      "log_loss": 0.6088273328774338,
+      "brier": 0.2083492360147339,
+      "ece_10_equal_width_bins": 0.0744387677118301,
+      "precision_at_0_5": 0.680568720379147,
+      "recall_at_0_5": 0.6964112512124151,
+      "f1_at_0_5": 0.6883988494726749,
+      "confusion_matrix_at_0_5": [
+        [
+          661,
+          337
+        ],
+        [
+          313,
+          718
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 1.0673709479960962
+  },
+  {
+    "model": "all_with_metadata",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7065998493997898,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7313334287941705,
+        "No legal advice: Do not offer or request legal advice.": 0.681866270005409
+      },
+      "pooled_auc": 0.7163842719386397,
+      "average_precision": 0.7007523006853663,
+      "log_loss": 0.6847721723873292,
+      "brier": 0.22862151815598053,
+      "ece_10_equal_width_bins": 0.11197187329198649,
+      "precision_at_0_5": 0.6517775752051048,
+      "recall_at_0_5": 0.6935014548981572,
+      "f1_at_0_5": 0.6719924812030075,
+      "confusion_matrix_at_0_5": [
+        [
+          616,
+          382
+        ],
+        [
+          316,
+          715
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 1.296119485006784
+  },
+  {
+    "model": "without_character",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6741056881410556,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.724138068190858,
+        "No legal advice: Do not offer or request legal advice.": 0.6240733080912534
+      },
+      "pooled_auc": 0.6857507449428439,
+      "average_precision": 0.6814297807016797,
+      "log_loss": 0.6978160178362128,
+      "brier": 0.23833852462665614,
+      "ece_10_equal_width_bins": 0.11933235027649607,
+      "precision_at_0_5": 0.6374384236453202,
+      "recall_at_0_5": 0.6275460717749758,
+      "f1_at_0_5": 0.6324535679374389,
+      "confusion_matrix_at_0_5": [
+        [
+          630,
+          368
+        ],
+        [
+          384,
+          647
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.7904215479939012
+  },
+  {
+    "model": "without_structure",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7084046367429557,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7594625554866116,
+        "No legal advice: Do not offer or request legal advice.": 0.6573467179993
+      },
+      "pooled_auc": 0.7196546341956463,
+      "average_precision": 0.715262323103437,
+      "log_loss": 0.6286180864033266,
+      "brier": 0.21715322408981902,
+      "ece_10_equal_width_bins": 0.06427431112436235,
+      "precision_at_0_5": 0.6538461538461539,
+      "recall_at_0_5": 0.6760426770126091,
+      "f1_at_0_5": 0.664759179780639,
+      "confusion_matrix_at_0_5": [
+        [
+          629,
+          369
+        ],
+        [
+          334,
+          697
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.8533920340050827
+  },
+  {
+    "model": "without_lexical",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6981533973675622,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7605006920910695,
+        "No legal advice: Do not offer or request legal advice.": 0.6358061026440548
+      },
+      "pooled_auc": 0.7114325644499475,
+      "average_precision": 0.7002050290278659,
+      "log_loss": 0.6498463794704655,
+      "brier": 0.22384187372218187,
+      "ece_10_equal_width_bins": 0.09281709439261462,
+      "precision_at_0_5": 0.6438356164383562,
+      "recall_at_0_5": 0.6838021338506305,
+      "f1_at_0_5": 0.6632173095014111,
+      "confusion_matrix_at_0_5": [
+        [
+          608,
+          390
+        ],
+        [
+          326,
+          705
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.8953118910067133
+  },
+  {
+    "model": "without_support_tokens",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7140033431311676,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7788570155760266,
+        "No legal advice: Do not offer or request legal advice.": 0.6491496706863088
+      },
+      "pooled_auc": 0.72638779012924,
+      "average_precision": 0.7103448425369816,
+      "log_loss": 0.6398800542431058,
+      "brier": 0.2163136294864833,
+      "ece_10_equal_width_bins": 0.07314227703389464,
+      "precision_at_0_5": 0.6689059500959693,
+      "recall_at_0_5": 0.6760426770126091,
+      "f1_at_0_5": 0.6724553786782441,
+      "confusion_matrix_at_0_5": [
+        [
+          653,
+          345
+        ],
+        [
+          334,
+          697
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 1.0038109939996502
+  },
+  {
+    "model": "without_semantic_scalar",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6904427919147273,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7412056703737291,
+        "No legal advice: Do not offer or request legal advice.": 0.6396799134557256
+      },
+      "pooled_auc": 0.7042222174708292,
+      "average_precision": 0.6898656495522262,
+      "log_loss": 0.6690959588612608,
+      "brier": 0.22741731135646545,
+      "ece_10_equal_width_bins": 0.09384680103017277,
+      "precision_at_0_5": 0.6431261770244822,
+      "recall_at_0_5": 0.6624636275460718,
+      "f1_at_0_5": 0.652651696129957,
+      "confusion_matrix_at_0_5": [
+        [
+          619,
+          379
+        ],
+        [
+          348,
+          683
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.9358601969943265
+  },
+  {
+    "model": "without_ranks",
+    "protocol": "seen_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.7067005345086526,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7628792579510922,
+        "No legal advice: Do not offer or request legal advice.": 0.6505218110662128
+      },
+      "pooled_auc": 0.7190753961851928,
+      "average_precision": 0.7103323250521638,
+      "log_loss": 0.6424841878496445,
+      "brier": 0.22094922089013022,
+      "ece_10_equal_width_bins": 0.08993782735978562,
+      "precision_at_0_5": 0.653663177925785,
+      "recall_at_0_5": 0.6663433559650824,
+      "f1_at_0_5": 0.659942363112392,
+      "confusion_matrix_at_0_5": [
+        [
+          634,
+          364
+        ],
+        [
+          344,
+          687
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.7816212270045071
+  },
+  {
+    "model": "word_screened",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5893476998842037,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.637087728509379,
+        "No legal advice: Do not offer or request legal advice.": 0.5416076712590283
+      },
+      "pooled_auc": 0.6177204068661086,
+      "average_precision": 0.5993241008962982,
+      "log_loss": 0.6781720344362642,
+      "brier": 0.24209600199217285,
+      "ece_10_equal_width_bins": 0.04052202583866336,
+      "precision_at_0_5": 0.5991649269311065,
+      "recall_at_0_5": 0.5567410281280311,
+      "f1_at_0_5": 0.5771744595274007,
+      "confusion_matrix_at_0_5": [
+        [
+          614,
+          384
+        ],
+        [
+          457,
+          574
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.14187076899543172
+  },
+  {
+    "model": "word_character",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6125238789374818,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6853929008957408,
+        "No legal advice: Do not offer or request legal advice.": 0.539654856979223
+      },
+      "pooled_auc": 0.6383392390989544,
+      "average_precision": 0.6117609514199731,
+      "log_loss": 0.6867208353751542,
+      "brier": 0.24482435878434847,
+      "ece_10_equal_width_bins": 0.09192374649773082,
+      "precision_at_0_5": 0.6150289017341041,
+      "recall_at_0_5": 0.516003879728419,
+      "f1_at_0_5": 0.5611814345991561,
+      "confusion_matrix_at_0_5": [
+        [
+          665,
+          333
+        ],
+        [
+          499,
+          532
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.23390513900085352
+  },
+  {
+    "model": "word_structure",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5400734843311427,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5256312347859291,
+        "No legal advice: Do not offer or request legal advice.": 0.5545157338763562
+      },
+      "pooled_auc": 0.5627724896932566,
+      "average_precision": 0.5417225946097716,
+      "log_loss": 0.8397971627981647,
+      "brier": 0.28404306807991253,
+      "ece_10_equal_width_bins": 0.1615437481372575,
+      "precision_at_0_5": 0.5517241379310345,
+      "recall_at_0_5": 0.5586808923375364,
+      "f1_at_0_5": 0.5551807228915663,
+      "confusion_matrix_at_0_5": [
+        [
+          530,
+          468
+        ],
+        [
+          455,
+          576
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.21943528399424395
+  },
+  {
+    "model": "word_lexical",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.585949155877648,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5368160628768714,
+        "No legal advice: Do not offer or request legal advice.": 0.6350822488784245
+      },
+      "pooled_auc": 0.5933175759861138,
+      "average_precision": 0.5726122226589302,
+      "log_loss": 1.0831046137043803,
+      "brier": 0.2821298159873285,
+      "ece_10_equal_width_bins": 0.1699050828321731,
+      "precision_at_0_5": 0.5628548256285483,
+      "recall_at_0_5": 0.6731328806983511,
+      "f1_at_0_5": 0.6130742049469965,
+      "confusion_matrix_at_0_5": [
+        [
+          459,
+          539
+        ],
+        [
+          337,
+          694
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.21234962500602705
+  },
+  {
+    "model": "word_support_tokens",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5645676019576011,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5861295403560689,
+        "No legal advice: Do not offer or request legal advice.": 0.5430056635591334
+      },
+      "pooled_auc": 0.598482124287372,
+      "average_precision": 0.5931584279739075,
+      "log_loss": 0.701265778916527,
+      "brier": 0.2512892805821096,
+      "ece_10_equal_width_bins": 0.0747710324627343,
+      "precision_at_0_5": 0.5963114754098361,
+      "recall_at_0_5": 0.5645004849660524,
+      "f1_at_0_5": 0.5799701046337817,
+      "confusion_matrix_at_0_5": [
+        [
+          604,
+          394
+        ],
+        [
+          449,
+          582
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.2240022490004776
+  },
+  {
+    "model": "word_semantic",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5157479400091324,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5536052376179339,
+        "No legal advice: Do not offer or request legal advice.": 0.4778906424003309
+      },
+      "pooled_auc": 0.5784439878787643,
+      "average_precision": 0.5587193752361329,
+      "log_loss": 0.9150313155514475,
+      "brier": 0.3136965261182103,
+      "ece_10_equal_width_bins": 0.24413363655469308,
+      "precision_at_0_5": 0.5656424581005587,
+      "recall_at_0_5": 0.39282250242483024,
+      "f1_at_0_5": 0.4636519748139668,
+      "confusion_matrix_at_0_5": [
+        [
+          687,
+          311
+        ],
+        [
+          626,
+          405
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.28727039000659715
+  },
+  {
+    "model": "word_semantic_scalar",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6217381027274382,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6854644965236345,
+        "No legal advice: Do not offer or request legal advice.": 0.5580117089312419
+      },
+      "pooled_auc": 0.5896059820902717,
+      "average_precision": 0.6009973252795944,
+      "log_loss": 0.7248413819300477,
+      "brier": 0.260376602960543,
+      "ece_10_equal_width_bins": 0.11004088221946005,
+      "precision_at_0_5": 0.6337308347529813,
+      "recall_at_0_5": 0.36081474296799226,
+      "f1_at_0_5": 0.45982694684796044,
+      "confusion_matrix_at_0_5": [
+        [
+          783,
+          215
+        ],
+        [
+          659,
+          372
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.17964842599758413
+  },
+  {
+    "model": "word_ranks",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5704661743450181,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.595114791656723,
+        "No legal advice: Do not offer or request legal advice.": 0.5458175570333132
+      },
+      "pooled_auc": 0.6058265901346825,
+      "average_precision": 0.603914584581993,
+      "log_loss": 0.7061659793014675,
+      "brier": 0.25346825228055,
+      "ece_10_equal_width_bins": 0.10302376046881866,
+      "precision_at_0_5": 0.5673151750972762,
+      "recall_at_0_5": 0.7070805043646945,
+      "f1_at_0_5": 0.6295336787564767,
+      "confusion_matrix_at_0_5": [
+        [
+          442,
+          556
+        ],
+        [
+          302,
+          729
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.18808378600078868
+  },
+  {
+    "model": "word_community",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5536685942946802,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6002000700046138,
+        "No legal advice: Do not offer or request legal advice.": 0.5071371185847466
+      },
+      "pooled_auc": 0.5977950080568508,
+      "average_precision": 0.5692782114821003,
+      "log_loss": 0.723048721352669,
+      "brier": 0.2595062018141617,
+      "ece_10_equal_width_bins": 0.11608313021527766,
+      "precision_at_0_5": 0.5806451612903226,
+      "recall_at_0_5": 0.4539282250242483,
+      "f1_at_0_5": 0.5095264017419706,
+      "confusion_matrix_at_0_5": [
+        [
+          660,
+          338
+        ],
+        [
+          563,
+          468
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.15656238500378095
+  },
+  {
+    "model": "word_target_context",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5908980719266097,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6434020651361111,
+        "No legal advice: Do not offer or request legal advice.": 0.5383940787171084
+      },
+      "pooled_auc": 0.6213401584935146,
+      "average_precision": 0.5918962555598127,
+      "log_loss": 0.7001252080292039,
+      "brier": 0.25114960813191123,
+      "ece_10_equal_width_bins": 0.10307607941857623,
+      "precision_at_0_5": 0.6038812785388128,
+      "recall_at_0_5": 0.513094083414161,
+      "f1_at_0_5": 0.5547981122181437,
+      "confusion_matrix_at_0_5": [
+        [
+          651,
+          347
+        ],
+        [
+          502,
+          529
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.16139867099991534
+  },
+  {
+    "model": "semantic_scalar_only",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6019823286036177,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6620845464814726,
+        "No legal advice: Do not offer or request legal advice.": 0.5418801107257628
+      },
+      "pooled_auc": 0.49543704285389406,
+      "average_precision": 0.5499802204545834,
+      "log_loss": 0.848826725557217,
+      "brier": 0.3050776084641784,
+      "ece_10_equal_width_bins": 0.21014607686738565,
+      "precision_at_0_5": 0.4947257383966245,
+      "recall_at_0_5": 0.45489815712900095,
+      "f1_at_0_5": 0.47397675593734206,
+      "confusion_matrix_at_0_5": [
+        [
+          519,
+          479
+        ],
+        [
+          562,
+          469
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.11606480600312352
+  },
+  {
+    "model": "community_only",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5319445172785935,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5373868391325792,
+        "No legal advice: Do not offer or request legal advice.": 0.5265021954246077
+      },
+      "pooled_auc": 0.5362966476114208,
+      "average_precision": 0.5385137031683453,
+      "log_loss": 0.7350079316559753,
+      "brier": 0.26662506354054666,
+      "ece_10_equal_width_bins": 0.09715691136226032,
+      "precision_at_0_5": 0.5788912579957356,
+      "recall_at_0_5": 0.5266731328806984,
+      "f1_at_0_5": 0.5515490096495683,
+      "confusion_matrix_at_0_5": [
+        [
+          603,
+          395
+        ],
+        [
+          488,
+          543
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.09375257599458564
+  },
+  {
+    "model": "all_transfer",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5543126411021608,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5435977598523539,
+        "No legal advice: Do not offer or request legal advice.": 0.5650275223519678
+      },
+      "pooled_auc": 0.5385815277499714,
+      "average_precision": 0.517252302080938,
+      "log_loss": 1.29328678319276,
+      "brier": 0.3398945869969705,
+      "ece_10_equal_width_bins": 0.2702836378109274,
+      "precision_at_0_5": 0.5339673913043478,
+      "recall_at_0_5": 0.38118331716779824,
+      "f1_at_0_5": 0.44482173174872663,
+      "confusion_matrix_at_0_5": [
+        [
+          655,
+          343
+        ],
+        [
+          638,
+          393
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.8142592720032553
+  },
+  {
+    "model": "all_with_coordinates",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5378064718469702,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5256829427394079,
+        "No legal advice: Do not offer or request legal advice.": 0.5499300009545324
+      },
+      "pooled_auc": 0.5562103839104008,
+      "average_precision": 0.5339644258188262,
+      "log_loss": 1.3113716438285696,
+      "brier": 0.33822236171641,
+      "ece_10_equal_width_bins": 0.2689747317771541,
+      "precision_at_0_5": 0.5596658711217184,
+      "recall_at_0_5": 0.45489815712900095,
+      "f1_at_0_5": 0.50187265917603,
+      "confusion_matrix_at_0_5": [
+        [
+          629,
+          369
+        ],
+        [
+          562,
+          469
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.8644456909969449
+  },
+  {
+    "model": "all_with_metadata",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5463027250736541,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5486770718979206,
+        "No legal advice: Do not offer or request legal advice.": 0.5439283782493876
+      },
+      "pooled_auc": 0.5420035026405867,
+      "average_precision": 0.5180610388780276,
+      "log_loss": 1.3286768461938483,
+      "brier": 0.3441604976862782,
+      "ece_10_equal_width_bins": 0.2796461091900814,
+      "precision_at_0_5": 0.5338461538461539,
+      "recall_at_0_5": 0.33656644034917554,
+      "f1_at_0_5": 0.412849494348602,
+      "confusion_matrix_at_0_5": [
+        [
+          695,
+          303
+        ],
+        [
+          684,
+          347
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.9233603929969831
+  },
+  {
+    "model": "without_character",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5430029041276977,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5306190635291872,
+        "No legal advice: Do not offer or request legal advice.": 0.5553867447262082
+      },
+      "pooled_auc": 0.5274302241728851,
+      "average_precision": 0.5133714176713295,
+      "log_loss": 1.272506816596364,
+      "brier": 0.34729467324710994,
+      "ece_10_equal_width_bins": 0.2832261108351238,
+      "precision_at_0_5": 0.5254730713245997,
+      "recall_at_0_5": 0.3501454898157129,
+      "f1_at_0_5": 0.420256111757858,
+      "confusion_matrix_at_0_5": [
+        [
+          672,
+          326
+        ],
+        [
+          670,
+          361
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.6134575629985193
+  },
+  {
+    "model": "without_structure",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.6061848883241012,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5778841105436494,
+        "No legal advice: Do not offer or request legal advice.": 0.6344856661045531
+      },
+      "pooled_auc": 0.6000235193957264,
+      "average_precision": 0.5881234533221708,
+      "log_loss": 1.0259163077380546,
+      "brier": 0.2876011446649648,
+      "ece_10_equal_width_bins": 0.18501036333066845,
+      "precision_at_0_5": 0.5909592061742006,
+      "recall_at_0_5": 0.5198836081474297,
+      "f1_at_0_5": 0.5531475748194015,
+      "confusion_matrix_at_0_5": [
+        [
+          627,
+          371
+        ],
+        [
+          495,
+          536
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.5309624319997965
+  },
+  {
+    "model": "without_lexical",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5766940579304546,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5840373570076209,
+        "No legal advice: Do not offer or request legal advice.": 0.5693507588532882
+      },
+      "pooled_auc": 0.5675648095414884,
+      "average_precision": 0.5573853662716818,
+      "log_loss": 0.9096200410932042,
+      "brier": 0.30354152123900935,
+      "ece_10_equal_width_bins": 0.21629071615725673,
+      "precision_at_0_5": 0.5654911838790933,
+      "recall_at_0_5": 0.4354995150339476,
+      "f1_at_0_5": 0.49205479452054796,
+      "confusion_matrix_at_0_5": [
+        [
+          653,
+          345
+        ],
+        [
+          582,
+          449
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.5739127649940201
+  },
+  {
+    "model": "without_support_tokens",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5333785756126967,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.544202345154567,
+        "No legal advice: Do not offer or request legal advice.": 0.5225548060708264
+      },
+      "pooled_auc": 0.5202665272348771,
+      "average_precision": 0.5057644799549106,
+      "log_loss": 1.4032666443366586,
+      "brier": 0.3482487050681866,
+      "ece_10_equal_width_bins": 0.27344052589810025,
+      "precision_at_0_5": 0.5361702127659574,
+      "recall_at_0_5": 0.36663433559650827,
+      "f1_at_0_5": 0.43548387096774194,
+      "confusion_matrix_at_0_5": [
+        [
+          671,
+          327
+        ],
+        [
+          653,
+          378
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.6267899960075738
+  },
+  {
+    "model": "without_semantic_scalar",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5363751817874172,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5384707173881915,
+        "No legal advice: Do not offer or request legal advice.": 0.5342796461866429
+      },
+      "pooled_auc": 0.5427421282915006,
+      "average_precision": 0.5232919954958736,
+      "log_loss": 1.1953556360556095,
+      "brier": 0.31925111993781374,
+      "ece_10_equal_width_bins": 0.2222573298779668,
+      "precision_at_0_5": 0.5472901168969182,
+      "recall_at_0_5": 0.49951503394762364,
+      "f1_at_0_5": 0.5223123732251521,
+      "confusion_matrix_at_0_5": [
+        [
+          572,
+          426
+        ],
+        [
+          516,
+          515
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.5940133190015331
+  },
+  {
+    "model": "without_ranks",
+    "protocol": "heldout_rule",
+    "run_id": "9ec008d506b0bc64a717",
+    "metrics": {
+      "rule_macro_auc": 0.5668766021828545,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5417840039457147,
+        "No legal advice: Do not offer or request legal advice.": 0.5919692004199943
+      },
+      "pooled_auc": 0.5456412339713373,
+      "average_precision": 0.5181415954060788,
+      "log_loss": 1.313165615939352,
+      "brier": 0.32985141409001395,
+      "ece_10_equal_width_bins": 0.2514919124626678,
+      "precision_at_0_5": 0.5504151838671412,
+      "recall_at_0_5": 0.45004849660523766,
+      "f1_at_0_5": 0.4951974386339381,
+      "confusion_matrix_at_0_5": [
+        [
+          619,
+          379
+        ],
+        [
+          567,
+          464
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "training_rows": 2029,
+    "data_kind": "competition",
+    "fit_and_interpret_seconds": 0.561915753998619
+  }
+]

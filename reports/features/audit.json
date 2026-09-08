@@ -1,0 +1,54 @@
+[
+  {
+    "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "target": 0,
+    "log_characters": 4.788690291690197,
+    "log_words": 2.5501886908129254,
+    "uppercase_fraction": 0.0735348552667349,
+    "punctuation_fraction": 0.11807736499925423,
+    "url": 0.8432055749128919,
+    "question": 0.17073170731707318,
+    "quotation": 0.07317073170731707,
+    "negation": 0.12369337979094076,
+    "rows": 574
+  },
+  {
+    "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "target": 1,
+    "log_characters": 4.828828861208044,
+    "log_words": 2.8241093353680697,
+    "uppercase_fraction": 0.059541982193913975,
+    "punctuation_fraction": 0.08504686540648133,
+    "url": 0.8287671232876712,
+    "question": 0.24429223744292236,
+    "quotation": 0.02054794520547945,
+    "negation": 0.10273972602739725,
+    "rows": 438
+  },
+  {
+    "rule": "No legal advice: Do not offer or request legal advice.",
+    "target": 0,
+    "log_characters": 5.0340612414906944,
+    "log_words": 3.3749035645348,
+    "uppercase_fraction": 0.02947982362594469,
+    "punctuation_fraction": 0.03520068718512127,
+    "url": 0.03537735849056604,
+    "question": 0.3018867924528302,
+    "quotation": 0.1792452830188679,
+    "negation": 0.5023584905660378,
+    "rows": 424
+  },
+  {
+    "rule": "No legal advice: Do not offer or request legal advice.",
+    "target": 1,
+    "log_characters": 5.271234380237947,
+    "log_words": 3.598751653080961,
+    "uppercase_fraction": 0.028610799309671364,
+    "punctuation_fraction": 0.03387465860196293,
+    "url": 0.023608768971332208,
+    "question": 0.209106239460371,
+    "quotation": 0.1315345699831366,
+    "negation": 0.6053962900505903,
+    "rows": 593
+  }
+]

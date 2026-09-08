@@ -1,0 +1,56 @@
+{
+  "cache": "b8fef4f8c6bf3e0c473c",
+  "unique_pairs": 11835,
+  "requested_pairs": 12174,
+  "original_inference_seconds": 1658.648885302,
+  "truncated_pairs": 26,
+  "contract": {
+    "config": {
+      "model_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "files": {
+        "README.md": {
+          "algorithm": "git-sha1",
+          "digest": "e0d26329f017dc3a92f03a99578a92fdee6c9837"
+        },
+        "config.json": {
+          "algorithm": "git-sha1",
+          "digest": "69a0f734d3ab525dc1eb951b46f1d0f7dd52230c"
+        },
+        "model.safetensors": {
+          "algorithm": "sha256",
+          "digest": "ebc79588dd73ccfb6a3f6078519cfbf512c5305384c5ea1845bc71cd32216e86"
+        },
+        "special_tokens_map.json": {
+          "algorithm": "git-sha1",
+          "digest": "21ee423233314af53c84b2a229398f8b425672f5"
+        },
+        "spm.model": {
+          "algorithm": "sha256",
+          "digest": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+        },
+        "tokenizer.json": {
+          "algorithm": "git-sha1",
+          "digest": "12cc2e86bad0e731393847b017b32a7405ebd4f8"
+        },
+        "tokenizer_config.json": {
+          "algorithm": "git-sha1",
+          "digest": "734481711f0d172bd376a6d06c545286d58d8159"
+        }
+      },
+      "batch_size": 8,
+      "max_length": 256,
+      "threads": 2,
+      "seed": 2025,
+      "description": "Frozen NLI representation research; no encoder fine-tuning or competition submission.",
+      "inference_workers": 4
+    },
+    "batch_order": "combined_character_length_then_input_hash",
+    "source_sha256": "418a798988a3fe87ee38e49c473cf899963c39d3de4632a0e90e24da444bd900",
+    "software": {
+      "torch": "2.10.0+cpu",
+      "transformers": "4.57.6",
+      "numpy": "2.3.5"
+    }
+  }
+}

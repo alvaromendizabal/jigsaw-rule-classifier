@@ -27,7 +27,52 @@ def notebook(cells):
     return nb
 
 
-SETUP = 'import os\nfrom pathlib import Path\nimport pandas as pd\nfrom IPython.display import display\nfrom jigsaw_rules.review import public_evidence\nfrom jigsaw_rules.runtime import environment\n\nroot = Path(os.environ.get("JIGSAW_ROOT", Path.cwd())).resolve()\nif root.name == "notebooks":\n    root = root.parent\nbaseline = public_evidence(root, "baseline")\nsemantic = public_evidence(root, "semantic")\nassert baseline["training_sha256"] == semantic["training_sha256"]\nprint("Competition data | 2,029 training rows | recorded local cross-validation")\nprint("Verification: aggregate file checksums and provenance; no model fitting.")\n\nnames = {"comment_only": "Comment-only TF-IDF", "rule_examples": "Rule/example TF-IDF",\n         "semantic_margin": "Frozen semantic margin", "semantic_classifier": "Semantic classifier"}\nprotocols = {"seen_rule": "Familiar rules", "heldout_rule": "Held-out rule"}\n\ndef metric_table(records):\n    return pd.DataFrame([{"Model": names[r["model"]], "Validation": protocols[r["protocol"]],\n        "Rule macro AUC": r["metrics"]["rule_macro_auc"],\n        "Log loss": r["metrics"]["log_loss"], "Brier": r["metrics"]["brier"],\n        "Average precision": r["metrics"]["average_precision"]} for r in records]).round(4)\n'
+SETUP = """import os
+from pathlib import Path
+import pandas as pd
+from IPython.display import display
+from jigsaw_rules.review import public_evidence
+from jigsaw_rules.runtime import environment
+
+root = Path(os.environ.get("JIGSAW_ROOT", Path.cwd())).resolve()
+if root.name == "notebooks":
+    root = root.parent
+baseline = public_evidence(root, "baseline")
+semantic = public_evidence(root, "semantic")
+assert baseline["training_sha256"] == semantic["training_sha256"]
+print("Competition evidence | 2,029 rows | two labeled rules")
+print("Aggregate checksums verified. This notebook performs no model fitting.")
+protocols = {"seen_rule": "Familiar rules", "heldout_rule": "Held-out rule"}
+
+def metric_table(records, heldout=False):
+    return pd.DataFrame([{"Representation": r["model"], "Validation": protocols[r["protocol"]],
+        "Rule macro AUC": r["metrics"]["rule_macro_auc"],
+        "Log loss": r["metrics"]["log_loss"], "Brier": r["metrics"]["brier"],
+        "Average precision": r["metrics"]["average_precision"]}
+        for r in records if not heldout or r["protocol"] == "heldout_rule"]).round(4)
+"""
+
+RESEARCH_SETUP = """import sys
+sys.path.insert(0, str(root / "scripts"))
+from build_research_report import display_figure
+from jigsaw_rules.features import feature_evidence
+from jigsaw_rules.research import research_evidence
+from jigsaw_rules.diagnostics import diagnostic_evidence
+from jigsaw_rules.pairs import pairs_evidence
+from jigsaw_rules.robustness import robustness_evidence
+from jigsaw_rules.gate import feature_gate
+from jigsaw_rules.instructions import instruction_evidence
+
+controls = feature_evidence(root)
+research = research_evidence(root)
+sensitivity = diagnostic_evidence(root)
+pairs = pairs_evidence(root)
+robustness = robustness_evidence(root)
+assert all(item is not None for item in (controls, research, sensitivity, pairs, robustness))
+gate = feature_gate(root)
+instructions = instruction_evidence(root)
+print("Verified research runs:", gate["studies"])
+"""
 
 
 def notebooks():
@@ -36,28 +81,37 @@ def notebooks():
         [
             (
                 "md",
-                "# 00 · Environment and data\n\n**Question:** Which data and environment produced the recorded experiment?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.",
+                "# 00 · Environment and evidence\n\n**Question:** Which data, code and environment produced the results?\n\nThe five public notebooks are executed views of checksummed competition-data aggregates. Private comments, labels by row, model weights and prediction files are excluded. Opening or executing these notebooks needs no AWS account or model downloads.",
             ),
             ("code", SETUP),
             (
                 "md",
-                "## Reproduction environment\nThe original experiment environment and this notebook-execution environment are reported separately. `uv.lock` pins the project environment; rendering a historical result does not rerun that experiment.",
+                "## Reproduction environment\nThe original reference environment and the current notebook environment are separate records. `uv.lock` fixes dependencies; a historical result is not relabeled as a fresh experiment.",
             ),
             (
                 "code",
-                'recorded = baseline["provenance"]["environment"]\ncurrent = environment()\nprint("Recorded experiment Python:", recorded["python"])\nprint("Notebook execution Python:", current["python"])\ndisplay(pd.DataFrame({"Recorded experiment": recorded["packages"],\n                      "Notebook execution": current["packages"]}))',
+                'recorded = baseline["provenance"]["environment"]\ncurrent = environment()\nprint("Recorded Python:", recorded["python"])\nprint("Notebook Python:", current["python"])\ndisplay(pd.DataFrame({"Original reference": recorded["packages"], "Notebook execution": current["packages"]}))',
             ),
             (
                 "md",
-                "## Recorded data contract\nOne row pairs a comment with a rule and examples. These are the saved audit counts, not a fresh read of raw CSV files. The preview test is not an independent evaluation set.",
+                "## Data identity and limits\nEach observation contains a comment, rule, community, four labeled support examples and a binary target. There are no timestamps or longitudinal entity records. The ten-row preview test is not independent evidence of performance.",
             ),
             (
                 "code",
-                'audit = baseline["audit"]\ndisplay(pd.DataFrame({"Recorded file": ["train.csv", "test.csv (preview)"],\n                      "Rows": [audit["train_rows"], audit["preview_test_rows"]]}))\nprint("Training SHA-256:", baseline["training_sha256"])\nprint("Lexical run:", baseline["run_id"])\nprint("Semantic run:", semantic["run_id"])',
+                'audit = baseline["audit"]\ndisplay(pd.DataFrame({"File": ["train.csv", "test.csv (preview)"], "Rows": [audit["train_rows"], audit["preview_test_rows"]]}))\nprint("Training SHA-256:", baseline["training_sha256"])\nprint("Reference run:", baseline["run_id"])',
             ),
             (
                 "md",
-                "## Continue\n[01 · Data and validation](01_data_and_validation.ipynb) explains the leakage controls. For the employer overview, start with [03 · Results](03_saved_results.ipynb). To audit raw files locally, use `uv run jigsaw audit`; raw data remain private.",
+                "## Research lineage\nEach study records its source fingerprint, input identity, configuration and complete-stage checksums. The notebook executor additionally binds its cache to source, reports, environment and executed output.",
+            ),
+            ("code", RESEARCH_SETUP),
+            (
+                "code",
+                'display(pd.DataFrame([{"Study": name, "Run": run_id} for name, run_id in gate["studies"].items()]))',
+            ),
+            (
+                "md",
+                "## Review path\nContinue to [01 · Validation](01_data_and_validation.ipynb), then [02 · Feature research](02_baseline_and_review.ipynb). [03 · Results](03_saved_results.ipynb) provides the compact decision view. Reading aggregate evidence and recomputing private OOF metrics are distinct operations; the latter is documented in [VALIDATION.md](../docs/VALIDATION.md).",
             ),
         ]
     )
@@ -65,28 +119,41 @@ def notebooks():
         [
             (
                 "md",
-                "# 01 · Data and validation\n\n**Question:** What does the validation design actually test?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.",
+                "# 01 · Data and validation\n\n**Question:** What can these splits establish about unseen community rules?\n\nOnly two rule types have labels. We explicitly retain that limit throughout the research; thousands of candidate features cannot manufacture additional policy coverage.",
             ),
             ("code", SETUP),
+            ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Two observed rules, not broad policy coverage\nThe recorded training audit exposes different violation prevalence across the two rules. Count and rate are shown together so sample size stays visible.",
+                "## Rule and duplicate audit\nCount and violation prevalence are reported together. Repeated comments are grouped before splitting. Preview-test overlap makes that file useful for schema checks only.",
             ),
             (
                 "code",
-                'audit = baseline["audit"]\nby_rule = pd.DataFrame(audit["by_rule"]).rename(columns={"rule": "Rule", "size": "Rows", "mean": "Violation rate"})\nby_rule["Rule"] = by_rule["Rule"].str.split(":").str[0]\ndisplay(by_rule.round(4))\ndisplay(pd.DataFrame({"Audit finding": ["Duplicate training bodies", "Train / preview-test overlap"],\n                      "Count": [audit["duplicate_training_bodies"], audit["train_test_body_overlap"]]}))',
+                'audit = baseline["audit"]\nby_rule = pd.DataFrame(audit["by_rule"])\nby_rule["rule"] = by_rule["rule"].str.split(":").str[0]\ndisplay(by_rule.round(4))\ndisplay(pd.DataFrame({"Finding": ["Duplicate training bodies", "Train / preview-test overlap", "Comment equals its own support example"], "Rows": [audit["duplicate_training_bodies"], audit["train_test_body_overlap"], sensitivity["audit"]["self_support_rows"]]}))',
             ),
             (
                 "md",
-                "## Leakage controls\n**Familiar-rule validation** stratifies by rule and target while grouping normalized duplicate comments. **Held-out-rule validation** excludes all training rows from the evaluated rule. Both purge training rows whose body or supplied examples contain a validation body. Vocabulary and learned similarity classifiers are fitted only on retained training-fold rows.\n\nProvided validation examples remain legitimate inputs; their labels are not added as training observations. The semantic experiment reused the original saved splits. This aggregate-only view does not re-run the purging audit or reconstruct row assignments.",
+                "## Two validation questions\n**Familiar-rule CV** stratifies by rule and target, grouping normalized duplicate comments. **Held-out-rule CV** excludes the evaluated rule from training. Both purge any training row whose comment or supplied examples contain a validation comment. The research reuses the preserved row assignments.\n\nThis is stringent: the familiar-rule folds retain only 237–287 training rows. Sparse fold estimates are a real limitation, not grounds for weakening the boundary.",
             ),
             (
                 "code",
-                'config = baseline["provenance"]["config"]\ndisplay(pd.DataFrame({"Predeclared setting": ["Seed", "Familiar-rule folds", "Observed labeled rules"],\n                      "Value": [config["seed"], config["folds"], len(audit["train_rules"])]}))\nprint("Protocol limitations: exact-text isolation does not prove near-duplicate or shared-origin isolation.")',
+                'split_audit = pd.DataFrame(robustness["audit"]["folds"])\ndisplay(split_audit.rename(columns={"before": "Exact-purged train rows", "after": "Near-copy-purged train rows"}))',
             ),
             (
                 "md",
-                "## Metric contract\nThe official overview names **column-averaged AUC**. The project reports **rule macro ROC AUC**, the equal-weight mean of the rule-specific AUCs, and pooled AUC separately. The official overview does not expose executable scoring code.\n\nLog loss, Brier score, average precision, and calibration error diagnose different properties; AUC alone does not establish probability calibration. Threshold metrics use a predeclared 0.5 threshold. Only two labeled rules means two transfer cases, not a representative sample of future policies.\n\nRaw comment-length distributions and row-level errors are not inferred from these aggregate files. Continue to [02 · Baseline](02_baseline_and_review.ipynb).",
+                "## Learned features obey the same boundary\nVocabulary, IDF, scalers, empirical ranks, feature screening and NB token weights use outer training rows only. Target/context encodings additionally use three inner comment-group folds, purging inner validation comments from training comments and examples; the prior is fitted inside each inner fold. Unseen groups fall back to training priors.\n\nProvided positive/negative examples are legitimate per-row inputs. Their semantics are not the current row's unknown target. Frozen encoders use no competition-label fitting. The 18 self-support rows are excluded in a separate scoring sensitivity analysis.",
+            ),
+            (
+                "md",
+                "## Approximate-copy stress test\nA second pass requires character-ngram cosine ≥0.95, token-set Jaccard ≥0.90 and at least 40 characters, with a fixed hashing representation. It uses text only, removes training rows, and keeps validation rows fixed. Thresholds were not optimized on outcomes. No additional copies met both thresholds after exact purging; this does **not** prove paraphrase or shared-origin isolation.",
+            ),
+            (
+                "code",
+                'print(robustness["audit"]["interpretation"])\ndisplay(metric_table(robustness["results"], heldout=True))',
+            ),
+            (
+                "md",
+                "## Inference scope\nTemporal, rolling, lag, season, team, opponent and coaching variables are unavailable or inapplicable. Row order is not time. There is no legitimate external ranking system for these comments. External model weights are pinned and license documented; competition-specific permission for any future data augmentation must be verified before use.\n\nThe project computes **rule macro ROC AUC** as its local approximation to the competition's column-averaged AUC description. Pooled AUC is separate. No official scoring implementation or independent Kaggle score has confirmed equivalence.\n\nContinue to [02 · Feature research](02_baseline_and_review.ipynb).",
             ),
         ]
     )
@@ -94,25 +161,93 @@ def notebooks():
         [
             (
                 "md",
-                "# 02 · Baseline and review\n\n**Question:** Does adding rule/example context improve the lexical reference?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.",
+                "# 02 · Feature engineering as a research gate\n\n**Question:** Which representations improve rule-conditioned transfer, and is the evidence strong enough to finish feature engineering?\n\n**Gate: OPEN.** Broad generation, screening and controlled experiments have executed. Independent confirmation of the selected feature representation has not. The research keeps the original lexical reference and does not trigger final retraining.",
             ),
             ("code", SETUP),
+            ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Controlled feature comparison\n`comment_only` uses comment TF-IDF with logistic regression. `rule_examples` adds comment-to-rule/example cosine similarities, positive/negative maximum similarity, and their margin. Both are evaluated under the recorded split design. This is a lexical reference, not a claim of deep rule understanding.",
-            ),
-            ("code", 'display(metric_table(baseline["results"]))'),
-            (
-                "md",
-                "![Lexical validation comparison](../reports/baseline/comparison.svg)\n\n## Held-out-rule feature effect\nThe difference below is descriptive. It is not a significance claim or a score from Kaggle.",
+                "## 1 · Establish the reference\nComment-only TF-IDF measures lexical transfer. The rule/example reference adds similarities to the rule and supplied examples. The early four-candidate study isolated rule text, support contrasts, structure and their combination. These are historical, preserved experiments.",
             ),
             (
                 "code",
-                'held = {r["model"]: r["metrics"] for r in baseline["results"] if r["protocol"] == "heldout_rule"}\ndisplay(pd.DataFrame([{"Metric": metric, "Rule/example minus comment-only": held["rule_examples"][metric] - held["comment_only"][metric]}\n    for metric in ["rule_macro_auc", "log_loss", "brier"]]).round(4))',
+                'display(metric_table(baseline["results"], heldout=True))\ndisplay(metric_table(controls["results"], heldout=True))',
             ),
             (
                 "md",
-                "## Interpretation and reproducibility\nRule/example features modestly improve held-out ranking, while probability losses do not improve. The lexical model remains the reference for later candidates. Coefficients describe association, not causal effects. Raw examples and row-level errors are intentionally absent from the public notebook.\n\nTraining is explicit: `uv run jigsaw baseline --cloud`. That command fits or resumes a source-fingerprinted experiment; it is not required to read these results. Valid completed folds are reused, but an interrupted CPU solver restarts its active fold. Source changes can create a new experiment identity.\n\n[03 · Results](03_saved_results.ipynb) is the consolidated employer overview.",
+                "## 2 · Search broadly, with a rationale\nThe broad bank contains word and character ngrams; 1,512 structural/context interactions; 207 lexical similarity transformations; support-conditioned token products; 6,144 frozen embedding coordinates/interactions; 32 semantic geometry summaries; 207 training-relative ranks; community indicators; and nine nested target/frequency/novelty candidates.\n\nThe separate joint-text probe adds 99 entailment/contradiction/neutral transformations from frozen DeBERTa. Support summaries are invariant to swapping the two positive or two negative examples. Every family has provenance, availability and leakage notes in the [feature catalog](../docs/FEATURE_RESEARCH.md). Counts below are **per-fold candidate columns**, not a sum over repeated CV fits.",
+            ),
+            (
+                "code",
+                'screen = pd.DataFrame(research["screening"]["folds"])\ncounts = screen.groupby(["protocol", "fold"])[["candidates", "retained", "rejected"]].sum()\njoint_counts = pd.DataFrame(pairs["screening"])\ncombined_counts = counts + joint_counts[joint_counts.model == "all_nli"].set_index(["protocol", "fold"])[["candidates", "retained", "rejected"]]\nif instructions is not None:\n    instruction_counts = pd.DataFrame(instructions["screening"])\n    combined_counts += instruction_counts[instruction_counts.model == "instruction_features"].set_index(["protocol", "fold"])[["candidates", "retained", "rejected"]]\nprint("Per-fold screened bank totals, including each joint-text family once:")\ndisplay(combined_counts)\ndisplay(screen.groupby("family")[["candidates", "retained"]].agg(["min", "max"]))\ndisplay_figure(root, "screening")',
+            ),
+            (
+                "md",
+                "## 3 · Screen inside training boundaries\nThe screen rejects nonfinite/schema errors, constant or nearly constant columns, features seen in fewer than three training rows, exact duplicates and suspicious perfect separators. Training-label effect scores impose fixed budgets. Dense redundancy screening checks |correlation| ≥0.995 within the strongest budgeted pool; sparse duplicates use column hashes to avoid a quadratic comparison of vocabulary columns.\n\nNo outer validation statistic participates. Detailed per-feature decisions and selected column hashes are private reproducibility artifacts. Unscreened controls below test whether the screen itself discarded useful lexical signal.",
+            ),
+            (
+                "code",
+                'decisions = pd.DataFrame([{"Family": r["family"], "Reason": reason, "Columns": count} for r in research["screening"]["folds"] for reason, count in r["decisions"].items()])\ndisplay(decisions.groupby("Reason").Columns.sum().to_frame("Column decisions across five folds"))\nassert (screen.candidates == screen.retained + screen.rejected).all()\nassert screen.missing_or_nonfinite.sum() == 0',
+            ),
+            (
+                "md",
+                "## 4 · Separate feature effects from model tuning\nTwenty-one broad configurations run on the same five saved folds: 105 fits. A fixed logistic classifier (C=2, liblinear, seed 2025) measures additions to the same screened-word control, family-only controls and leave-one-family-out ablations. No hyperparameter sweep is used. Scaling and fixed per-family budgets are part of the tested representation.\n\nIntervals use 1,000 paired normalized-comment-group bootstrap draws. The wide intervals adjust simultaneously for the study's planned contrasts. They condition on fixed OOF predictions and two rules; they do not correct for repeated research across studies or establish performance on arbitrary unseen policies.",
+            ),
+            (
+                "code",
+                'display_figure(root, "ablation")\neffects = pd.DataFrame(research["uncertainty"])\nheld_effects = effects[effects.protocol == "heldout_rule"]\ndisplay(held_effects.loc[held_effects.contrast.str.startswith("add_"), ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))',
+            ),
+            (
+                "md",
+                "## 5 · Keep the negative findings visible\nCharacter ngrams and compact semantic geometry improve the matched screened-word control at pointwise confidence, but their simultaneous intervals include zero. Raw embedding coordinates and the structural expansion hurt transfer. Community and nested target encodings do not establish robust gains. The all-family representation is substantially worse than the historical reference. More features are not automatically better.",
+            ),
+            (
+                "code",
+                'display(metric_table(research["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\ndisplay(held_effects.loc[held_effects.contrast.str.startswith("remove_"), ["contrast", "observed_delta", "simultaneous_lower", "simultaneous_upper"]].round(4))',
+            ),
+            (
+                "md",
+                "## 6 · Attribute performance and inspect stability\nWhole-family permutation within each validation rule measures dependence while avoiding impossible cross-rule shuffles. Repeated permutations and coefficient summaries are descriptive; correlated families can substitute for one another. Retained-name Jaccard measures selection stability separately from predictive usefulness. Raw token identities are excluded from public output.\n\nSHAP is not added merely as decoration: these fixed linear probes already expose coefficients, matched ablations and group permutation. Those diagnostics directly answer the current feature questions without another correlated attribution summary.",
+            ),
+            (
+                "code",
+                'display_figure(root, "stability")\npermutation = pd.DataFrame(research["importance"])\npermutation["mean_permutation_drop"] = permutation.within_rule_permutation_auc_drops.map(lambda values: sum(values) / len(values))\nselected_importance = permutation[(permutation.protocol == "heldout_rule") & (permutation.model == "all_transfer")]\ndisplay(selected_importance.groupby("family").agg(mean_auc_drop=("mean_permutation_drop", "mean"), minimum_fold_drop=("mean_permutation_drop", "min"), maximum_fold_drop=("mean_permutation_drop", "max"), mean_absolute_logit=("mean_absolute_logit_contribution", "mean")).round(4))',
+            ),
+            (
+                "md",
+                "## 7 · Challenge the selection and representation choices\nFifty-five additional fits compare full word/character vocabularies, training-only NB log-count weighting, and five 128-component SVD representations fitted only on outer training rows. None of the low-rank alternatives improves the original reference. Label-free lexical support scores and seven frozen Qwen geometry scores isolate aggregation effects. The normalized positive/negative centroid margin is the strongest observed geometry alternative; its uncertainty still matters. Self-support exclusion preserves the main ranking advantage, but does not create new policies.",
+            ),
+            (
+                "code",
+                'display(metric_table(sensitivity["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\nintervals = pd.DataFrame(sensitivity["uncertainty"])\ndisplay(intervals.loc[(intervals.protocol == "heldout_rule") & intervals.contrast.isin(["qwen_centroid", "character_full", "reweight_word", "reweight_character"]), ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\nselected = ["original_reference", "qwen_centroid", "qwen_maximum", "word_semantic_scalar"]\nrows = [r for r in sensitivity["sensitivity"] if r["protocol"] == "heldout_rule" and r["model"] in selected]\ndisplay(metric_table(rows, heldout=True))',
+            ),
+            (
+                "md",
+                "## 8 · Joint text encoding without model fine-tuning\nThe pinned `cross-encoder/nli-deberta-v3-small` model jointly reads the comment with (a) a fixed violation hypothesis, (b) a compliance hypothesis, or (c) each supplied example. The encoder stays frozen. Rule-only, support-only, combined, word-plus-NLI and broad-plus-NLI probes use the same fixed classifier and folds: 25 fits. A fixed zero-shot rule margin is reported separately.\n\nWeights are trained on general NLI, not moderation judgments. Entailment is a feature hypothesis, not an assertion that NLI understands every policy. Inference batches have immutable hashes, truncation diagnostics, verified completion markers and S3 checkpoints.",
+            ),
+            (
+                "code",
+                'display(metric_table(pairs["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\nni = pd.DataFrame(pairs["uncertainty"])\ndisplay(ni.loc[ni.protocol == "heldout_rule", ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\ndisplay(pd.Series({k: v for k, v in pairs["inference"].items() if k != "contract"}, name="NLI inference"))\nns = pd.DataFrame(pairs["screening"])\ndisplay(ns.groupby("model")[["candidates", "retained"]].agg(["min", "max"]))',
+            ),
+            (
+                "md",
+                "## 9 · Fixed instruction likelihoods\nA separate frozen Qwen3-0.6B probe scores Yes/No token likelihoods under three fixed templates: rule only, examples only, and both. Thinking and generation are disabled. There is no competition-label fine-tuning or prompt sweep. Thirty-six probability, margin, answer-mass and context-difference candidates feed the same fixed classifier, with lexical and semantic additions. Support examples are sorted within their label groups. Field budgets preserve the question when text is long. A general NLI failure does not settle this task-aligned representation hypothesis.",
+            ),
+            (
+                "code",
+                'if instructions is None:\n    print("The bounded instruction-feature experiment has no published results yet.")\nelse:\n    display(metric_table(instructions["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\n    ii = pd.DataFrame(instructions["uncertainty"])\n    display(ii.loc[ii.protocol == "heldout_rule", ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\n    display(pd.Series({k: v for k, v in instructions["inference"].items() if k != "contract"}, name="Instruction inference"))',
+            ),
+            (
+                "md",
+                "## 10 · Completion is an evidence decision\nBroad exploration is implemented and executed, but the best observed score is selected from many experiments on the same two rule types. The honest next research requirement is independent policy coverage or a separately locked confirmation design. Additional random interactions or a larger classifier would not resolve that limit.\n\nThe original offline classifier deliberately remains the reference; it does not silently consume an unpromoted feature bank. Final feature dimensionality and model promotion are unresolved. The gate cannot be closed by a successful pipeline run or a high candidate count.",
+            ),
+            (
+                "code",
+                'display(pd.DataFrame(gate["criteria"]))\nprint("Final training justified:", gate["final_training_authorized_by_evidence"])\nprint(gate["decision"])',
+            ),
+            (
+                "md",
+                "## Reproduce or inspect\nThe default notebook reads evidence only. The tested commands `jigsaw research --export`, `jigsaw diagnostics`, `jigsaw robustness`, `jigsaw pairs` and `jigsaw instructions` reproduce the separate studies after restoring private artifacts. Completed folds and encoding batches resume; changed dependencies or source create distinct identities. [VALIDATION.md](../docs/VALIDATION.md) records executed checks, cloud lineage and limits.\n\nContinue to [03 · Results and decision](03_saved_results.ipynb).",
             ),
         ]
     )
@@ -120,28 +255,34 @@ def notebooks():
         [
             (
                 "md",
-                "# 03 · Results and model decision\n\n**Question:** What did the completed experiments establish?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.\n\n**Current decision:** retain the lexical rule/example reference. No semantic candidate has established an overall replacement, and no leaderboard or medal result is claimed.",
+                "# 03 · Results and model decision\n\n**Decision:** Keep feature engineering open and retain the lexical reference. A large executed search has exposed useful semantic signals and many negative findings. It has not established a final representation with independent confirmation.",
             ),
             ("code", SETUP),
+            ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Compare model quality\nHigher rule macro AUC is better. Lower log loss and Brier score are better. Familiar-rule and held-out-rule results answer different questions; do not pool their conclusions.",
+                "## Compare representations on identical held-out rows\nThese are local rule-macro AUC results, not leaderboard scores. The same fixed classifier is used for learned feature probes. Frozen scores require no competition-label fitting. Probability losses remain visible alongside ranking.",
             ),
             (
                 "code",
-                'records = baseline["results"] + semantic["results"]\ndisplay(metric_table(records))',
+                'records = [r for r in baseline["results"] if r["model"] == "rule_examples"]\nrecords += [r for r in research["results"] if r["model"] in ["word_screened", "word_semantic_scalar", "all_transfer", "all_with_metadata"]]\nrecords += [r for r in sensitivity["results"] if r["model"] in ["qwen_centroid", "character_full", "word_character_nb"]]\nrecords += pairs["results"]\nif instructions is not None:\n    records += instructions["results"]\ndisplay(metric_table(records, heldout=True).sort_values("Rule macro AUC", ascending=False))',
             ),
             (
                 "md",
-                "![Recorded semantic and lexical comparison](../reports/semantic/comparison.svg)\n\n## Does the semantic margin improve transfer?\nThese paired bootstrap intervals resample normalized comment groups and condition on the two observed rules and fixed predictions. They do not quantify transfer to arbitrary new policies.",
+                "## What the feature work established\nCompact semantic relationships and character patterns deserve more attention than high-dimensional structural expansion or raw coordinate selection. Target/context and community features have not justified their availability and transfer risks. Unscreened controls are essential: screening reduces size but can also remove useful signal.\n\nSee [02 · Feature research](02_baseline_and_review.ipynb) for candidate counts, matched additions/removals, simultaneous intervals, stability, negative findings and the feature catalog.",
+            ),
+            ("code", 'display_figure(root, "ablation")'),
+            (
+                "md",
+                "## Promotion and artifact lineage\nThe notebooks consume the latest verified research aggregates. The offline submission path still fits the explicitly named original lexical reference. No final candidate has been selected, no novel feature artifact has been promoted, and no CSV has been submitted to Kaggle. This is a deliberate open gate, not stale-model reuse disguised as a new result.",
             ),
             (
                 "code",
-                'intervals = pd.DataFrame(semantic["uncertainty"])\ndisplay(intervals.loc[intervals.protocol == "heldout_rule", ["model", "observed_delta", "ci_lower", "ci_upper", "draws"]].round(4))\nprint("Evidence verified for", baseline["training_rows"], "competition training rows.")\nprint("New training performed by this notebook: none.")',
+                'display(pd.DataFrame(gate["criteria"]))\nprint("Gate:", gate["status"])\nprint(gate["decision"])',
             ),
             (
                 "md",
-                "## Decision\nThe frozen semantic margin has a **+0.0195** held-out AUC difference, with a paired 95% interval of **−0.0132 to +0.0491**. That interval includes no improvement, and probability losses worsen slightly. The learned semantic classifier performs worse. A negative experiment is retained rather than hidden.\n\nThe margin makes identical predictions in both validation protocols because it fits no fold labels. Those columns are not independent replications. The 10-row preview test checks inference plumbing, not generalization.\n\nContinue to [04 · Semantic benchmark](04_semantic_benchmark.ipynb) for per-rule diagnostics, runtime, and the next controlled experiment. Full OOF verification is `uv run jigsaw review` after restoring private artifacts.",
+                "## Remaining uncertainty\nTwo labeled policies cannot establish broad unseen-rule generalization. Repeatedly inspecting the same held-out scores also creates selection bias; within-study simultaneous intervals only address part of that problem. Calibration, final representation selection and final retraining remain downstream of the feature gate.\n\n[04 · Semantic diagnostics](04_semantic_benchmark.ipynb) examines policy-level behavior and probability quality. The [research record](../docs/FEATURE_RESEARCH.md) describes which high-value avenues were explored, ruled inapplicable, or remain unresolved.",
             ),
         ]
     )
@@ -149,56 +290,39 @@ def notebooks():
         [
             (
                 "md",
-                "# 04 · Semantic rule generalization\n\n**Question:** Where does a frozen semantic encoder help or fail?\n\nThis notebook renders recorded **competition-data** evidence. It verifies the committed artifact hashes, not private out-of-fold predictions. No credentials, raw comments, weight downloads, or training are needed. Full private metric recomputation remains `uv run jigsaw review`.\n\nThe recorded encoder is **Qwen3-Embedding-0.6B**, pinned to an immutable Hub revision. Qwen weights are frozen; only the similarity classifier learns fold labels. The semantic margin uses a predeclared temperature of 0.1 and is not claimed to be calibrated.",
+                "# 04 · Semantic diagnostics\n\n**Question:** Why do compact semantic relationships transfer more plausibly than raw embedding coordinates?\n\nFrozen Qwen embeddings summarize each comment and its supplied examples. The joint DeBERTa probe adds rule/support entailment relationships. Neither encoder is fine-tuned on competition labels.",
             ),
             ("code", SETUP),
+            ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Held-out behavior by rule\nAggregate improvements can conceal deterioration on individual policies. The table keeps the two observed rules separate.",
+                "## Examine each observed policy\nA mean over two policies can conceal deterioration on one. These tables preserve per-policy AUC and do not treat identical label-free predictions across validation protocols as independent replications.",
             ),
             (
                 "code",
-                'records = baseline["results"] + semantic["results"]\nper_rule = pd.DataFrame([{"Model": names[r["model"]], "Rule": rule.split(":")[0], "ROC AUC": auc}\n    for r in records if r["protocol"] == "heldout_rule" for rule, auc in r["metrics"]["per_rule_auc"].items()])\ndisplay(per_rule.pivot(index="Model", columns="Rule", values="ROC AUC").round(4))',
+                'records = baseline["results"] + semantic["results"]\nrecords += [r for r in sensitivity["results"] if r["model"] in ["qwen_centroid", "qwen_mean", "qwen_maximum"]]\nrecords += pairs["results"]\nif instructions is not None:\n    records += instructions["results"]\nper_rule = pd.DataFrame([{"Representation": r["model"], "Rule": rule.split(":")[0], "ROC AUC": auc} for r in records if r["protocol"] == "heldout_rule" for rule, auc in r["metrics"]["per_rule_auc"].items()])\ndisplay(per_rule.pivot(index="Representation", columns="Rule", values="ROC AUC").round(4))',
             ),
             (
                 "md",
-                "## Probability diagnostics\nCalibration error uses 10 equal-width bins. Precision, recall, and F1 use the fixed 0.5 diagnostic threshold; this is not a tuned deployment decision. Threshold selection and calibration fitting require nested validation.",
+                "## Probability quality and operating points\nCalibration error uses ten equal-width bins. Precision, recall and F1 use a fixed diagnostic threshold of 0.5; threshold selection and calibration fitting are not claimed as completed. The temperatures of label-free scores are fixed transformations, not fitted calibrators.",
             ),
             (
                 "code",
-                'diagnostics = pd.DataFrame([{"Model": names[r["model"]],\n    "Pooled AUC": r["metrics"]["pooled_auc"], "Calibration error": r["metrics"]["ece_10_equal_width_bins"],\n    "Precision@0.5": r["metrics"]["precision_at_0_5"], "Recall@0.5": r["metrics"]["recall_at_0_5"],\n    "F1@0.5": r["metrics"]["f1_at_0_5"]} for r in records if r["protocol"] == "heldout_rule"])\ndisplay(diagnostics.round(4))',
+                'diagnostics = pd.DataFrame([{"Representation": r["model"], "Pooled AUC": r["metrics"]["pooled_auc"], "Calibration error": r["metrics"]["ece_10_equal_width_bins"], "Precision@0.5": r["metrics"]["precision_at_0_5"], "Recall@0.5": r["metrics"]["recall_at_0_5"], "F1@0.5": r["metrics"]["f1_at_0_5"]} for r in records if r["protocol"] == "heldout_rule"])\ndisplay(diagnostics.round(4))',
             ),
             (
                 "md",
-                "## Recorded runtime and memory\nThese are measurements from the first successful model invocation, not the time required to render this notebook. They do not claim that earlier failed attempts cost no time. Truncation counts refer to unique encoded inputs.",
+                "## Compute and resumability\nThe original Qwen run encoded 1,875 unique texts; the broad study reused all verified embeddings. The NLI probe deduplicates comment–hypothesis pairs and records truncated pairs. Batches are hashed and published only after all files complete. The bounded AWS processing job checkpoints completed work to its own experiment prefix.",
             ),
             (
                 "code",
-                'timing = semantic["timing"]\nencoder = timing["encoder"]\ndisplay(pd.DataFrame({"Measurement": ["First successful invocation (seconds)", "Encoding (seconds)", "Peak process memory (GiB)", "Unique inputs", "Truncated inputs"],\n    "Value": [timing["first_completion_wall_seconds"], encoder["encode_seconds"], encoder["peak_rss_gib"], encoder["unique_texts"], encoder["truncated_rows"]]}).round(3))',
+                'timing = semantic["timing"]\nprint("Original Qwen encoder:", timing["encoder"])\ndisplay(pd.Series({k: v for k, v in pairs["inference"].items() if k != "contract"}, name="NLI inference"))',
             ),
             (
                 "md",
-                "## What to test next\nThe next model experiment should jointly encode rule, comment, and support examples. Predeclare comment-only, rule-plus-comment, and positive/negative-example ablations; preserve the split registry; then compare cross-encoder or parameter-efficient fine-tuning candidates with the unchanged lexical reference. More complexity is accepted only when measured evidence supports it.\n\nBefore any paid run, approve hardware, maximum duration, and spending limits. Current embedding checkpoints resume at completed shards, and CPU training resumes at completed folds—not inside an interrupted solver. GPU optimizer-state resume is a later deliverable.\n\nThe standalone [Kaggle notebook](../kaggle/submission.ipynb) is an offline lexical reference. A preview CSV is not a scored submission, and authenticated late-scoring eligibility remains unverified.\n\nReturn to [03 · Results and decision](03_saved_results.ipynb).",
+                "## Interpretation and next research boundary\nA positive-versus-negative centroid comparison uses the supplied task context directly and does not need hundreds of learned coefficients from a tiny fold. This is a plausible explanation for its transfer behavior, not a causal proof. Raw coordinates and many structural interactions are unstable across policies. General NLI features must earn their place through rule/support ablations, rather than being assumed superior because they use a transformer.\n\nFurther prompt or encoder searches would reuse already-inspected policies. Independent confirmation and a documented, legitimate source of broader rule coverage are the major unresolved avenues. [02 · Feature gate](02_baseline_and_review.ipynb) remains open. The [Kaggle notebook](../kaggle/submission.ipynb) remains the user's offline lexical-reference workflow; no automatic upload is performed.",
             ),
         ]
-    )
-    feature_sections = [
-        (
-            "md",
-            "## Next experiment · task-informed feature ablations\n\n**Hypothesis:** a rule violation depends on a comment's relationship to the supplied policy and its positive/negative examples, not toxicity alone. Word overlap, character similarity, and contrastive support statistics probe different relationships. Structural cues can also be shortcuts, so they are tested separately.\n\nFour predeclared candidates share the same training-only word vocabulary and saved, purged reference splits. They add (1) rule text similarity, (2) order-invariant positive/negative support contrasts, (3) writing structure, or (4) all groups. The combined candidate has 26 dense features plus the sparse comment representation. No validation labels enter vocabulary, scaling, or feature construction.\n\nRun `.venv/bin/python -m jigsaw_rules.cli features --cloud --export` in your existing SageMaker checkout. This is a new CPU experiment, not a rerun of the lexical/Qwen baselines. It makes **no submission CSV**. Completed folds are resumed; S3 checkpoints follow each fold. The fixed reference remains unchanged.",
-        ),
-        (
-            "code",
-            'import subprocess\nimport sys\nfrom jigsaw_rules.features import feature_evidence\n\n# Opt in only in your own configured workspace. Publication keeps this False.\nRUN_FEATURE_EXPERIMENT = False\nCHECKPOINT_TO_S3 = True\nif RUN_FEATURE_EXPERIMENT:\n    command = [sys.executable, "-m", "jigsaw_rules.cli", "features", "--export"]\n    if CHECKPOINT_TO_S3:\n        command.append("--cloud")\n    subprocess.run(command, cwd=root, check=True)\nfeature_run = feature_evidence(root)\nif feature_run is None:\n    print("Feature ablation code is ready; no competition-data ablation results are published yet.")\nelse:\n    feature_table = pd.DataFrame([{"Candidate": r["model"], "Protocol": r["protocol"],\n        "Rule macro AUC": r["metrics"]["rule_macro_auc"], "Log loss": r["metrics"]["log_loss"],\n        "Brier": r["metrics"]["brier"], "Original fit seconds": r["fit_seconds"]}\n        for r in feature_run["results"]])\n    display(feature_table.round(4))\n    display(pd.DataFrame(feature_run["audit"]).round(4))\n    intervals = pd.DataFrame(feature_run["uncertainty"])\n    display(intervals.loc[:, ["model", "protocol", "observed_delta", "ci_lower", "ci_upper"]].round(4))\n    import matplotlib.pyplot as plt\n    held = intervals.loc[intervals.protocol == "heldout_rule"].sort_values("observed_delta")\n    fig, ax = plt.subplots(figsize=(9, 4.5))\n    positions = range(len(held))\n    ax.hlines(positions, held.ci_lower, held.ci_upper)\n    ax.scatter(held.observed_delta, positions)\n    ax.axvline(0, linestyle="--", linewidth=1)\n    ax.set_yticks(list(positions), held.model.str.replace("_", " "))\n    ax.set_xlabel("Held-out rule macro AUC difference from the fixed lexical reference")\n    ax.set_title("Task-informed feature ablations | paired 95% group-bootstrap intervals")\n    ax.spines[["top", "right"]].set_visible(False)\n    fig.tight_layout()\n    from io import StringIO\n    from IPython.display import SVG\n    buffer = StringIO()\n    fig.savefig(buffer, format="svg")\n    display(SVG(buffer.getvalue()))\n    plt.close(fig)\n    coefficients = pd.DataFrame(feature_run["coefficients"])\n    combined = coefficients.loc[coefficients.model == "combined"]\n    display(combined.groupby(["protocol", "feature"]).coefficient.agg(["mean", "min", "max"]).round(4))\n',
-        ),
-        (
-            "md",
-            "### How to read the next results\nCompare each candidate against the preserved rule/example reference on the **same rows**. Inspect held-out rule macro AUC first, then each rule, log loss, Brier score, and paired comment-group intervals. These four-candidate exploratory intervals are not multiplicity-adjusted; they do not certify a winner. No automatic promotion, calibration claim, or leaderboard claim is made.\n\nWriting-structure associations and standardized dense coefficients are descriptive, not causal, and only two rules are observed. Coefficient ranges show sensitivity across folds; different regularization/scaling means this comparison is not solely a feature-count experiment. Candidate improvement here should motivate a separately validated joint rule/comment encoder, not a claim that lexical features solve arbitrary policy understanding.",
-        ),
-    ]
-    nb = outputs["notebooks/02_baseline_and_review.ipynb"]
-    outputs["notebooks/02_baseline_and_review.ipynb"] = notebook(
-        [(c.cell_type.replace("markdown", "md"), c.source) for c in nb.cells] + feature_sections
     )
     model = (ROOT / "src/jigsaw_rules/model.py").read_text()
     model = model.replace("from __future__ import annotations\n", "").replace(

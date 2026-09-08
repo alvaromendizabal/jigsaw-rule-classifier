@@ -1,6 +1,6 @@
 # Phase 2 · Semantic rule generalization
 
-Status: Phase 2A is implemented and its real-data benchmark is complete: frozen Qwen3 embedding/example comparison and a fold-fitted classifier. The exact lexical reference is preserved. A rule-conditioned cross-encoder is the next separate experiment (Phase 2B).
+Status: Phase 2A is implemented and its real-data benchmark is complete: frozen Qwen3 embedding/example comparison and a fold-fitted classifier. The exact lexical reference is preserved. Phase 2B now includes an executed frozen DeBERTa NLI feature probe, explicit rule/support ablations and low-rank controls. These did not justify model promotion; the feature gate remains open. See [the current research record](FEATURE_RESEARCH.md).
 
 ## Question and reference
 
@@ -12,14 +12,14 @@ The predeclared reference is `rule_examples` from run `c15c2c2318fc0ed619c6`: he
 
 | Experiment | Inputs and fitting | Purpose |
 | --- | --- | --- |
-| Frozen semantic example matcher | Embed rule/comment and provided positive/negative examples; score similarity margin | Test semantic transfer without fitting the encoder |
+| Frozen semantic example matcher | Embed comment and provided positive/negative examples; score similarity margin | Test semantic transfer without fitting the encoder |
 | Embedding feature classifier | Fit a regularized classifier on semantic similarities using retained training-fold rows | Test supervised ranking and probability quality |
 | Rule-conditioned cross-encoder | Jointly encode rule, comment, and support examples; train within each retained fold | Test interactions independent embeddings cannot represent |
 | Context ablations | Remove examples, permute their order, remove rule text, compare maximum/mean similarity | Test reliance on the intended evidence |
 
 Implemented frozen encoder: **Qwen/Qwen3-Embedding-0.6B**. Its model card lists 0.6B parameters, up to 1,024 embedding dimensions, Apache-2.0 licensing, and a Transformers compatibility floor of 4.51.0. Revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3` is pinned in `configs/semantic.json`; Hub object hashes are in `configs/model.json`. Inference uses CPU float32, SDPA, last non-padding-token pooling, unit normalization, and a 256-token cap. The exact prompt and all execution settings are recorded. [Official model card](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B).
 
-Published benchmark claims do not establish performance on this dataset. The fifth-place competition writeup describes a diverse ensemble involving per-rule specialists and embedding models, motivating candidate families rather than guaranteeing a result. [Team writeup](https://www.kaggle.com/c/jigsaw-agile-community-rules/writeups/5th-place-solution-diverse-ensemble).
+Published benchmark claims do not establish performance on this dataset. Community-sensitive moderation and policy-conditioned prompting motivate the feature families; the [current research record](FEATURE_RESEARCH.md#research-sources-and-external-data-feasibility) links verified primary sources. The body of the linked competition writeup was not retrievable, so its methods are not asserted here.
 
 ## Measurement contract
 
@@ -61,6 +61,6 @@ The margin model uses an untuned temperature of 0.1, so its probability metrics 
 
 ## Recorded decision
 
-The frozen margin scored 0.63507 held-out-rule macro AUC, versus 0.61556 for the contextual lexical reference. The paired delta interval spans −0.01323 to +0.04914, and its probability losses do not improve. The learned similarity classifier scored 0.58577 and has substantially poorer held-out probability quality. Familiar-rule semantic results are also below the lexical reference. Preserve the lexical model as the reference and test a joint rule/comment cross-encoder next. Do not tune this frozen benchmark repeatedly against the same two rules and claim an untouched final test.
+The frozen margin scored 0.63507 held-out-rule macro AUC, versus 0.61556 for the contextual lexical reference. The paired delta interval spans −0.01323 to +0.04914, and its probability losses do not improve. The learned similarity classifier scored 0.58577 and has substantially poorer held-out probability quality. Familiar-rule semantic results are also below the lexical reference. Preserve the lexical model as the reference. The subsequent joint NLI probe and additional feature studies are recorded in [FEATURE_RESEARCH.md](FEATURE_RESEARCH.md). Do not tune this frozen benchmark repeatedly against the same two rules and claim an untouched final test.
 
 The public [experiment record](../reports/semantic/README.md) includes both successful and unsuccessful outcomes, per-rule differences, original source/data provenance, and observed hardware behavior.

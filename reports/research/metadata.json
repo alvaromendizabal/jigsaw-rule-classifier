@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "data_kind": "competition",
+  "run_id": "9ec008d506b0bc64a717",
+  "baseline_run": "c15c2c2318fc0ed619c6",
+  "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "source_sha256": {
+    "research.py": "67eb9980a2d7ff56299af29611c7ce656ee0d859c3098fbf55f4979ebca5cf99",
+    "representations.py": "b1da1f2b8e5de748f73814542f568b603dfacad1b83226de8042f2ba8f939f44",
+    "context.py": "66305667ae678d015c2087ee47a7683038c9c49a7d78a7f7369b4caae7ce2003",
+    "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "embeddings.py": "8dbebfc74ee917bef55b3ac884ccf5df7bec1c4706ee15be5e68592c5f08f8a7",
+    "semantic.py": "29e2783b17068f1af462f330ae41d3202f2a65b366b68e73ef1ac94a6ecff18b",
+    "metrics.py": "ab379c5a5014e6f7f50bb267e34d53ff9fe90419b16f288aa34a00a62855f85b",
+    "runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866",
+    "uncertainty.py": "01be335afdf24ce0e718bfdb37640198c544185b8111ae7dde4e3288ebc9a576"
+  },
+  "implementation_sha256": "8a98faacf6b357b71eebca4654bc64710473367661370859f4da28de567ae9ba",
+  "files": {
+    "results.json": "32fc069ed9df45eb432a00c54e215ae0c8431bfee9d9dfbe33431456eef7fd22",
+    "uncertainty.json": "d74fef6c8610b602fd0250fb4a3b1c189849a504c7c6d2f7f40be2faf41ee9cc",
+    "screening.json": "3fd5ef3699f254e7e9d308ea14381fd9565feee3118027df1106689cee08bfc9",
+    "importance.json": "4a88421cbd89edbb030eb69f3c9c161a7b8341b32454ee4f7591e0a676f1f8f8",
+    "catalog.json": "cffe05ad3a59fa063b3566fad6e4e6d16ae033da4efec784981668f78596c910"
+  },
+  "selection": "Exploratory feature research; no automatic model promotion or leaderboard claim."
+}

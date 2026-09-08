@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "data_kind": "competition",
+  "run_id": "28fdc0063dd3085842da",
+  "source_sha256": "9c4c4a444242a392d8ceaa41f18a7330d17dea9c3778b4446525fd7865d968b0",
+  "broad_run": "9ec008d506b0bc64a717",
+  "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "variants": [
+    "word_full",
+    "character_full",
+    "word_character_full",
+    "word_nb",
+    "character_nb",
+    "word_character_nb",
+    "latent_word",
+    "latent_character",
+    "latent_joint_lexical",
+    "latent_qwen_body",
+    "latent_qwen_interaction"
+  ],
+  "files": {
+    "results.json": "c7bdec98ef9ec93ba12d5bf3a81272be24adee7e54daa15ab07f1e93fe165fe7",
+    "uncertainty.json": "a0f87a075e4976a0f78e5169517c2521549630f47536528d577b659eac93b757",
+    "sensitivity.json": "d235db26c037d985e44b0c99101e808c8ca42ef5943920ca4890e6223a0d622c",
+    "audit.json": "bdaf1c349afc295842fbff0425a036c7c1ea0a2831c70b3ab0dc8fb3a62541cc"
+  }
+}

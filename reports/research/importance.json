@@ -1,0 +1,5672 @@
+[
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_screened",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.76607295347223,
+    "within_rule_permutation_auc_drops": [
+      0.24168356341646757,
+      0.23126452355136928,
+      0.1918133812751741
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_character",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.5287019233247224,
+    "within_rule_permutation_auc_drops": [
+      0.12332863802932637,
+      0.11285428161202615,
+      0.07548381930822434
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_character",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.4248471298857283,
+    "within_rule_permutation_auc_drops": [
+      0.06258878703060622,
+      0.055723910796749654,
+      0.07936952780319917
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_structure",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.49306420567717085,
+    "within_rule_permutation_auc_drops": [
+      0.10766038726106575,
+      0.10433299502230886,
+      0.08926598350890269
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_structure",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8227761295847755,
+    "within_rule_permutation_auc_drops": [
+      0.10748919521334388,
+      0.1293856931350701,
+      0.11638474648191388
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_lexical",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.5633264889188324,
+    "within_rule_permutation_auc_drops": [
+      0.15148074429683356,
+      0.14961087651697513,
+      0.11153860680900596
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_lexical",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6448254178753888,
+    "within_rule_permutation_auc_drops": [
+      0.08693706327369555,
+      0.05285876618631047,
+      0.06561260707136785
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_support_tokens",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.7260601177977922,
+    "within_rule_permutation_auc_drops": [
+      0.17470162827450236,
+      0.1667554221835308,
+      0.13920768945288742
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_support_tokens",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.46181390152762314,
+    "within_rule_permutation_auc_drops": [
+      0.005341265214452218,
+      0.027650844840139355,
+      -0.006051326868868778
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_semantic",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.3302803248074311,
+    "within_rule_permutation_auc_drops": [
+      0.024983327286198787,
+      0.03256985240354515,
+      0.013568311946881684
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_semantic",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.9704871984799476,
+    "within_rule_permutation_auc_drops": [
+      0.1834151142928946,
+      0.1698234445740312,
+      0.1892381308304023
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_semantic_scalar",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.6599888007682128,
+    "within_rule_permutation_auc_drops": [
+      0.13538657536943732,
+      0.1338786319143358,
+      0.10328954959718883
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_semantic_scalar",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5336607541290654,
+    "within_rule_permutation_auc_drops": [
+      0.059126608487248045,
+      0.05859196279025525,
+      0.051777405563236956
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_ranks",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.5472727447639566,
+    "within_rule_permutation_auc_drops": [
+      0.14273816650096727,
+      0.15038293798709346,
+      0.11722335856574362
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_ranks",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6689310995583077,
+    "within_rule_permutation_auc_drops": [
+      0.06862081659304131,
+      0.035057022473317434,
+      0.054413549531123984
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_community",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.6148290612390935,
+    "within_rule_permutation_auc_drops": [
+      0.13466962342225952,
+      0.13530005508491016,
+      0.09988344265392779
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_community",
+    "family": "community",
+    "retained_features": 25,
+    "mean_absolute_logit_contribution": 0.6031969423009419,
+    "within_rule_permutation_auc_drops": [
+      0.07218646169537435,
+      0.06331364134238426,
+      0.05960531333946684
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_target_context",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.6704657096967186,
+    "within_rule_permutation_auc_drops": [
+      0.10970636643719867,
+      0.104823504388182,
+      0.08128501380783903
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_target_context",
+    "family": "target_context",
+    "retained_features": 8,
+    "mean_absolute_logit_contribution": 1.1106947686062119,
+    "within_rule_permutation_auc_drops": [
+      0.07800083556240822,
+      0.07633294053066908,
+      0.09076009766571447
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "semantic_scalar_only",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6401812141301223,
+    "within_rule_permutation_auc_drops": [
+      0.14993420238311994,
+      0.129154581819582,
+      0.130541294579534
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "community_only",
+    "family": "community",
+    "retained_features": 25,
+    "mean_absolute_logit_contribution": 0.7306619739492711,
+    "within_rule_permutation_auc_drops": [
+      0.10905263661161035,
+      0.0812307471439665,
+      0.1446506534656229
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.2754709679126212,
+    "within_rule_permutation_auc_drops": [
+      0.02348453413988405,
+      0.029119161740852828,
+      0.01739657655182425
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.210696491152111,
+    "within_rule_permutation_auc_drops": [
+      0.01804668689060085,
+      0.01652888550966991,
+      0.024598628460754224
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6561162942082277,
+    "within_rule_permutation_auc_drops": [
+      0.0472491756658846,
+      0.03569867858311526,
+      0.03376929277486429
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.29246139632355483,
+    "within_rule_permutation_auc_drops": [
+      0.012255350316815683,
+      0.022716401739033554,
+      0.03364910171272495
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.39713930926740454,
+    "within_rule_permutation_auc_drops": [
+      -0.003929515373957138,
+      0.005499295841563834,
+      0.004745784962431165
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5409549522547414,
+    "within_rule_permutation_auc_drops": [
+      0.03653971604999695,
+      0.04941336470462887,
+      0.05225186791798708
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5883411361009888,
+    "within_rule_permutation_auc_drops": [
+      0.01019609114294151,
+      0.01366347746571206,
+      -0.0005933368902543146
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.19291126143528514,
+    "within_rule_permutation_auc_drops": [
+      0.007128582800328909,
+      0.01288195289956362,
+      0.0033467888935976298
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.13190914588653632,
+    "within_rule_permutation_auc_drops": [
+      0.005858249969422413,
+      0.0032481199012570627,
+      0.008328492352513428
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.4459960232366266,
+    "within_rule_permutation_auc_drops": [
+      0.02202891460657508,
+      0.020052149222425486,
+      0.013337664684598849
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.24027872884130785,
+    "within_rule_permutation_auc_drops": [
+      0.012437866801049635,
+      0.022710197270761068,
+      0.029006322460850442
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.38768969029341166,
+    "within_rule_permutation_auc_drops": [
+      -0.0034187914915163597,
+      -0.0030047688619950774,
+      0.005729066274032801
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.38859917189836524,
+    "within_rule_permutation_auc_drops": [
+      0.009000029899383755,
+      0.015603668534927673,
+      0.014663755687401414
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4645927722930091,
+    "within_rule_permutation_auc_drops": [
+      0.007285548156131694,
+      0.009821638663551013,
+      -0.006978548758565184
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.8315655267286632,
+    "within_rule_permutation_auc_drops": [
+      0.09690271482457335,
+      0.09542239663626328,
+      0.11880368662941332
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.23881178946660422,
+    "within_rule_permutation_auc_drops": [
+      0.01612308508252447,
+      0.02021718679655704,
+      0.008601054387338047
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.17374771570742376,
+    "within_rule_permutation_auc_drops": [
+      0.00948250806820572,
+      0.007515607019460413,
+      0.014350031364099847
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.7436378148065609,
+    "within_rule_permutation_auc_drops": [
+      0.027807892238497667,
+      0.02603997130746194,
+      0.017314666033393822
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3044184996948818,
+    "within_rule_permutation_auc_drops": [
+      0.012830355823537531,
+      0.022475300460477632,
+      0.02895247562411818
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.3982633117483877,
+    "within_rule_permutation_auc_drops": [
+      -0.0025392555553873652,
+      0.0006220774230366599,
+      0.0021326654686435464
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.4730395236793997,
+    "within_rule_permutation_auc_drops": [
+      0.02194508634340575,
+      0.02507890045397776,
+      0.030052607327545666
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6153531240967887,
+    "within_rule_permutation_auc_drops": [
+      0.006073405289748091,
+      0.008379731774273091,
+      -0.0003704477771420134
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "community",
+    "retained_features": 25,
+    "mean_absolute_logit_contribution": 0.4207292908595399,
+    "within_rule_permutation_auc_drops": [
+      0.014135490081026658,
+      0.008846605192623924,
+      0.008277014494576074
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "target_context",
+    "retained_features": 8,
+    "mean_absolute_logit_contribution": 0.550831026951325,
+    "within_rule_permutation_auc_drops": [
+      -0.0005670589160566841,
+      0.01957684080381994,
+      0.020858272454210347
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.3484953891063328,
+    "within_rule_permutation_auc_drops": [
+      0.039234244833476484,
+      0.0451368657244513,
+      0.034740716373342195
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.7156938013831632,
+    "within_rule_permutation_auc_drops": [
+      0.05064186480554911,
+      0.056122924125285856,
+      0.04248309799007477
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3166109632904048,
+    "within_rule_permutation_auc_drops": [
+      0.007866413296009345,
+      0.012184701421065869,
+      0.024572901709977613
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.43710560135478205,
+    "within_rule_permutation_auc_drops": [
+      0.0013896893664249177,
+      -0.0022988439470650324,
+      -0.005470618122612847
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5651083187530225,
+    "within_rule_permutation_auc_drops": [
+      0.05500380341596589,
+      0.052128606669584965,
+      0.047619623443026504
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6001826111372779,
+    "within_rule_permutation_auc_drops": [
+      0.013924270239543457,
+      -0.004934575138343833,
+      0.03188766727124692
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.3510661812974879,
+    "within_rule_permutation_auc_drops": [
+      0.04027007568389862,
+      0.04476698198987972,
+      0.02803298111763386
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.26017181183682564,
+    "within_rule_permutation_auc_drops": [
+      0.023277720240022948,
+      0.023876973167689775,
+      0.029917563999000363
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3144916720120242,
+    "within_rule_permutation_auc_drops": [
+      0.02183014728674415,
+      0.020819297112608104,
+      0.03058073448710763
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.4096143858961894,
+    "within_rule_permutation_auc_drops": [
+      -0.002631225260291692,
+      -0.004983740421743099,
+      -0.0025777232586763343
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.541553755455534,
+    "within_rule_permutation_auc_drops": [
+      0.05446217641025153,
+      0.047098696799639295,
+      0.04887151849146121
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5745319873078037,
+    "within_rule_permutation_auc_drops": [
+      0.017572600136925853,
+      0.004299837523435546,
+      0.043314627493903246
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.2764277625167783,
+    "within_rule_permutation_auc_drops": [
+      0.02486019166545972,
+      0.034913186490251324,
+      0.022906482803283
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.21244713701211027,
+    "within_rule_permutation_auc_drops": [
+      0.021266667477178758,
+      0.019033634478908934,
+      0.026725547104756386
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6668346148544354,
+    "within_rule_permutation_auc_drops": [
+      0.047142948503102966,
+      0.04099285906210348,
+      0.036416580429257994
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.39989089949884093,
+    "within_rule_permutation_auc_drops": [
+      0.001604794692068201,
+      -0.003068599252220139,
+      -0.006111703780266264
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5497359809208162,
+    "within_rule_permutation_auc_drops": [
+      0.056163509552042856,
+      0.05429634917652171,
+      0.04472278028109822
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6673108570587467,
+    "within_rule_permutation_auc_drops": [
+      0.026885050652125098,
+      0.0003574619788774269,
+      0.043924083182516394
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.29585412938148353,
+    "within_rule_permutation_auc_drops": [
+      0.02582599406695929,
+      0.030143260505814617,
+      0.02186320659093388
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.22741538037764006,
+    "within_rule_permutation_auc_drops": [
+      0.0190105151431047,
+      0.018564292092398516,
+      0.02921422727031897
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6480869397872919,
+    "within_rule_permutation_auc_drops": [
+      0.05734327637489589,
+      0.045004360587472036,
+      0.04440236948950982
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.34137392608759204,
+    "within_rule_permutation_auc_drops": [
+      0.019218162287671814,
+      0.02568834973301637,
+      0.04032311363230845
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5477925218770908,
+    "within_rule_permutation_auc_drops": [
+      0.05619158605289065,
+      0.05692096872916719,
+      0.05699950140175081
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5901147536288542,
+    "within_rule_permutation_auc_drops": [
+      0.02494865148727954,
+      0.009285313657997007,
+      0.039388038731736685
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.3006442375190795,
+    "within_rule_permutation_auc_drops": [
+      0.035148258922880316,
+      0.04049730151522701,
+      0.026697301391137573
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.2281462026051184,
+    "within_rule_permutation_auc_drops": [
+      0.02545978301866869,
+      0.021364045581182545,
+      0.03217890552472058
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6276189145201374,
+    "within_rule_permutation_auc_drops": [
+      0.05795848529772529,
+      0.04595894495139885,
+      0.044622776815313125
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3664295609302304,
+    "within_rule_permutation_auc_drops": [
+      0.016407479192174668,
+      0.02366676219325814,
+      0.04030637438712226
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.40535292237888243,
+    "within_rule_permutation_auc_drops": [
+      -0.0045370533178314965,
+      0.004446155293810428,
+      0.00708278895320158
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6586942863922662,
+    "within_rule_permutation_auc_drops": [
+      0.02531955049847756,
+      -0.006465462306904035,
+      0.037268509045404574
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "word",
+    "retained_features": 489,
+    "mean_absolute_logit_contribution": 0.28946288913620033,
+    "within_rule_permutation_auc_drops": [
+      0.0284458820715896,
+      0.03278638065476325,
+      0.021675845750170786
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "character",
+    "retained_features": 3710,
+    "mean_absolute_logit_contribution": 0.2186992480693981,
+    "within_rule_permutation_auc_drops": [
+      0.020785148180725965,
+      0.019552593382875183,
+      0.02832240161573374
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6856249600210101,
+    "within_rule_permutation_auc_drops": [
+      0.04931029618024074,
+      0.04346778299852727,
+      0.04021444313966582
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5729791189856863,
+    "within_rule_permutation_auc_drops": [
+      0.019864211519942887,
+      0.03799698284399411,
+      0.04391178705448562
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "support_tokens",
+    "retained_features": 85,
+    "mean_absolute_logit_contribution": 0.3985460315860197,
+    "within_rule_permutation_auc_drops": [
+      0.0007789491990495279,
+      0.007857896253198993,
+      0.010311907029416867
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5374834200518941,
+    "within_rule_permutation_auc_drops": [
+      0.03700821237265217,
+      0.04881033910131638,
+      0.05165104208069837
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_screened",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.6362726933493702,
+    "within_rule_permutation_auc_drops": [
+      0.2637993466770836,
+      0.217771155675329,
+      0.25712273727327195
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_character",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.42386965578907176,
+    "within_rule_permutation_auc_drops": [
+      0.0934400877674294,
+      0.08108075933543624,
+      0.09264283873601953
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_character",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.45797738532920507,
+    "within_rule_permutation_auc_drops": [
+      0.11750874372980258,
+      0.0719762693147592,
+      0.08902554574882693
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_structure",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.41213168077807577,
+    "within_rule_permutation_auc_drops": [
+      0.10144452746031196,
+      0.09092769434483783,
+      0.09491460651153538
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_structure",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.7868910127479569,
+    "within_rule_permutation_auc_drops": [
+      0.11587833256420232,
+      0.06088566798363515,
+      0.114205131196351
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_lexical",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.5434817473353478,
+    "within_rule_permutation_auc_drops": [
+      0.2083803000126595,
+      0.1710244630311667,
+      0.19474029389027758
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_lexical",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.42413978594728174,
+    "within_rule_permutation_auc_drops": [
+      0.03272798604425686,
+      0.029406458168344418,
+      0.03803395195641457
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_support_tokens",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.6161877995022924,
+    "within_rule_permutation_auc_drops": [
+      0.19217148640171267,
+      0.16126060330669967,
+      0.19294672028136217
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_support_tokens",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.4630485556253452,
+    "within_rule_permutation_auc_drops": [
+      -0.028270659573486734,
+      -0.006692629135521155,
+      -0.010552610132952944
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_semantic",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.3014021753710305,
+    "within_rule_permutation_auc_drops": [
+      0.04110530904719023,
+      0.034729946500612896,
+      0.04947703530250547
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_semantic",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.9003712221465374,
+    "within_rule_permutation_auc_drops": [
+      0.21444904512432217,
+      0.1857637662204481,
+      0.19990307123135576
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_semantic_scalar",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.6106476754774575,
+    "within_rule_permutation_auc_drops": [
+      0.21853913295001892,
+      0.1746319463764724,
+      0.2068443531300571
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_semantic_scalar",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.25929224889597974,
+    "within_rule_permutation_auc_drops": [
+      0.02730379458875165,
+      0.01331432141167832,
+      0.011350296170683727
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_ranks",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.5487681466426544,
+    "within_rule_permutation_auc_drops": [
+      0.20362328304049926,
+      0.15717155816275052,
+      0.1884854262532053
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_ranks",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3630648087322056,
+    "within_rule_permutation_auc_drops": [
+      0.03478159374763867,
+      0.01854894795864992,
+      0.03434667279027526
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_community",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.4848648963589148,
+    "within_rule_permutation_auc_drops": [
+      0.12657179290107934,
+      0.09795643692523714,
+      0.1171883299286709
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_community",
+    "family": "community",
+    "retained_features": 23,
+    "mean_absolute_logit_contribution": 0.6198091387264173,
+    "within_rule_permutation_auc_drops": [
+      0.07455389551421154,
+      0.0881945379791308,
+      0.08863931649574064
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_target_context",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.5726124111523464,
+    "within_rule_permutation_auc_drops": [
+      0.15882980356427878,
+      0.12473564184299035,
+      0.14699552289324314
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_target_context",
+    "family": "target_context",
+    "retained_features": 8,
+    "mean_absolute_logit_contribution": 0.5099503273657794,
+    "within_rule_permutation_auc_drops": [
+      0.087114818028728,
+      0.09210482645420992,
+      0.10190440186193517
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "semantic_scalar_only",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3912847088347326,
+    "within_rule_permutation_auc_drops": [
+      0.1086614070119244,
+      0.08559358369226122,
+      0.1250336341531511
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "community_only",
+    "family": "community",
+    "retained_features": 23,
+    "mean_absolute_logit_contribution": 0.7131292895868351,
+    "within_rule_permutation_auc_drops": [
+      0.09610144284460254,
+      0.0814999902325253,
+      0.15506876616463383
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.2730786609533684,
+    "within_rule_permutation_auc_drops": [
+      0.039795351933303635,
+      0.039905876198593204,
+      0.03472505892991895
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.2525632047248336,
+    "within_rule_permutation_auc_drops": [
+      0.04496576155144172,
+      0.0343251483122784,
+      0.03341634766738588
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8623940051377683,
+    "within_rule_permutation_auc_drops": [
+      0.08025847252521323,
+      0.087653378485133,
+      0.07119499593108758
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.40234311424743247,
+    "within_rule_permutation_auc_drops": [
+      0.030008327040442317,
+      0.018978931511265285,
+      0.006046239286138233
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.39372811164944127,
+    "within_rule_permutation_auc_drops": [
+      -0.011289874296741775,
+      -0.014039299564428953,
+      -0.01828545998089337
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.25237641881263245,
+    "within_rule_permutation_auc_drops": [
+      0.01130202230578392,
+      0.012252104714442602,
+      0.013057745033890789
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.35906541297270506,
+    "within_rule_permutation_auc_drops": [
+      0.0025067449242252016,
+      0.0011563953927695714,
+      0.004322686356668659
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.18745272483198175,
+    "within_rule_permutation_auc_drops": [
+      0.018180762466548428,
+      0.018354621981252373,
+      0.016126046913809367
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.17265389556037591,
+    "within_rule_permutation_auc_drops": [
+      0.018249851632520686,
+      0.014213645919508133,
+      0.013990726695204403
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.489929520178198,
+    "within_rule_permutation_auc_drops": [
+      0.03695211214201677,
+      0.04104416649615761,
+      0.03680039428090298
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3384482177542307,
+    "within_rule_permutation_auc_drops": [
+      0.01758220180896708,
+      0.010866614508045824,
+      -0.002590044462403074
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.31608884563696465,
+    "within_rule_permutation_auc_drops": [
+      -0.011248381696592813,
+      -0.017918980346798286,
+      -0.012895991360952319
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3110813783554025,
+    "within_rule_permutation_auc_drops": [
+      -0.004864861698692824,
+      -0.003451970429300233,
+      -0.008243875072742268
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.28443919798635947,
+    "within_rule_permutation_auc_drops": [
+      -0.003799463288770344,
+      -0.009388268125243404,
+      -0.005013811853107786
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.9518479639447612,
+    "within_rule_permutation_auc_drops": [
+      0.10205295142722293,
+      0.11640114162611259,
+      0.11855187206761097
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.24279775277278953,
+    "within_rule_permutation_auc_drops": [
+      0.02951314904485447,
+      0.027954730837226882,
+      0.025580621164771222
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.22648750506346862,
+    "within_rule_permutation_auc_drops": [
+      0.031370138404348435,
+      0.02142049732607343,
+      0.021477649319386338
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8544601968222907,
+    "within_rule_permutation_auc_drops": [
+      0.07494231746567992,
+      0.0668482818935493,
+      0.06074010654490114
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.41562408791529837,
+    "within_rule_permutation_auc_drops": [
+      0.02875472840839166,
+      0.02259433847117831,
+      0.0036588814220609445
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.37211623835119056,
+    "within_rule_permutation_auc_drops": [
+      -0.008887949555302366,
+      -0.012448470054670868,
+      -0.01804083610932017
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.24310621153916837,
+    "within_rule_permutation_auc_drops": [
+      0.004036052377461519,
+      0.0044143388489971125,
+      0.00287899380843315
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3390640036485684,
+    "within_rule_permutation_auc_drops": [
+      -0.0035921152896889463,
+      -0.0022164193916234254,
+      0.00307535148188387
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "community",
+    "retained_features": 23,
+    "mean_absolute_logit_contribution": 0.3751169944868103,
+    "within_rule_permutation_auc_drops": [
+      0.020011044606415784,
+      0.009263686823299588,
+      0.019643595124959945
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "target_context",
+    "retained_features": 8,
+    "mean_absolute_logit_contribution": 0.37891501736971683,
+    "within_rule_permutation_auc_drops": [
+      0.031077708341306742,
+      0.027146192475861253,
+      0.03075634769314628
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.34763611593070726,
+    "within_rule_permutation_auc_drops": [
+      0.07460944131762581,
+      0.06820547019058754,
+      0.06415608912033965
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.9482216728129937,
+    "within_rule_permutation_auc_drops": [
+      0.10260012934160412,
+      0.06587049941757028,
+      0.10065048314192149
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.43887356222272306,
+    "within_rule_permutation_auc_drops": [
+      0.018694409729275607,
+      0.040505460370978796,
+      0.022461687885853565
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.4231077840131833,
+    "within_rule_permutation_auc_drops": [
+      -0.0026541080556856667,
+      -0.0015563865115745257,
+      -0.011424717580448496
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.2629091654446867,
+    "within_rule_permutation_auc_drops": [
+      0.026190340817089597,
+      0.011340609197238116,
+      0.02135889476838726
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4203060836688129,
+    "within_rule_permutation_auc_drops": [
+      0.010864617312491553,
+      -0.0027308678326056768,
+      -0.0012323539914347315
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.363600328496656,
+    "within_rule_permutation_auc_drops": [
+      0.074977603809395,
+      0.057857520851181565,
+      0.0712814043475658
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.35686683162292765,
+    "within_rule_permutation_auc_drops": [
+      0.08014087565762562,
+      0.05548085430840999,
+      0.056120217556160146
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.43184691981131224,
+    "within_rule_permutation_auc_drops": [
+      0.01601504347492222,
+      0.03938596134521166,
+      0.01769475777030971
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.42417549433433177,
+    "within_rule_permutation_auc_drops": [
+      -0.004023022689000122,
+      -0.01195617093405632,
+      -0.015307384572677107
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.24196375839562936,
+    "within_rule_permutation_auc_drops": [
+      0.0322563757228852,
+      0.005821905541375072,
+      0.022011862712915664
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.24751568071185212,
+    "within_rule_permutation_auc_drops": [
+      0.016427297604432622,
+      -9.567371715790696e-05,
+      0.007131069143784252
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.2747835508889187,
+    "within_rule_permutation_auc_drops": [
+      0.03863916737691686,
+      0.038337771017519895,
+      0.034674025025097865
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.25731791303628176,
+    "within_rule_permutation_auc_drops": [
+      0.04342917832630189,
+      0.033307506259770525,
+      0.03270644623270491
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8686600773336823,
+    "within_rule_permutation_auc_drops": [
+      0.07709001186326492,
+      0.08258148312523861,
+      0.06735179750973241
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.3992603277960156,
+    "within_rule_permutation_auc_drops": [
+      -0.00431474740850657,
+      -0.006217971270069844,
+      -0.01657197353035844
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.26570047237690236,
+    "within_rule_permutation_auc_drops": [
+      0.020595425558901814,
+      0.0016275073735999568,
+      0.012886726060272413
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.22460512575582747,
+    "within_rule_permutation_auc_drops": [
+      0.0020173016782514264,
+      -0.004478709113381996,
+      -0.002077075709489784
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.29347950534121814,
+    "within_rule_permutation_auc_drops": [
+      0.041861947157870505,
+      0.04190345509157456,
+      0.036215488154154096
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.2757563008160633,
+    "within_rule_permutation_auc_drops": [
+      0.04401087974003115,
+      0.039548121357360744,
+      0.03519420438230558
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8354917432906551,
+    "within_rule_permutation_auc_drops": [
+      0.08270873629916187,
+      0.08365030475134128,
+      0.07810292734740787
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3964152933332065,
+    "within_rule_permutation_auc_drops": [
+      0.026575876226807127,
+      0.014634766677265265,
+      0.008689648353740531
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.23170464757312215,
+    "within_rule_permutation_auc_drops": [
+      0.012237917342569848,
+      -0.0003998377832536981,
+      0.008338571275761653
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3747794884278543,
+    "within_rule_permutation_auc_drops": [
+      0.005678410299193248,
+      -0.0028608887132277605,
+      -0.005112544614511938
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.2807502559147944,
+    "within_rule_permutation_auc_drops": [
+      0.049717469280142534,
+      0.04573929723986203,
+      0.03850208156077439
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.257226577238111,
+    "within_rule_permutation_auc_drops": [
+      0.05166866800228065,
+      0.039350015658626614,
+      0.03751617996736045
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8069654009902728,
+    "within_rule_permutation_auc_drops": [
+      0.08822917264675323,
+      0.09264694237870796,
+      0.07695619592775138
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4452474682600293,
+    "within_rule_permutation_auc_drops": [
+      0.041097707437240505,
+      0.027145260962387896,
+      0.015637769018024494
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.39389104543211817,
+    "within_rule_permutation_auc_drops": [
+      -0.010882906410358273,
+      -0.013856416252537973,
+      -0.015462590817580057
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3878824113553062,
+    "within_rule_permutation_auc_drops": [
+      0.012430537461960545,
+      -0.0009794423333205904,
+      0.003679600888413903
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "word",
+    "retained_features": 706,
+    "mean_absolute_logit_contribution": 0.2791069503675862,
+    "within_rule_permutation_auc_drops": [
+      0.03930014710399421,
+      0.038766945725102864,
+      0.03560204628133068
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.2552546380410353,
+    "within_rule_permutation_auc_drops": [
+      0.04275138152264901,
+      0.033793832960666514,
+      0.03390391255285774
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.7955626500890484,
+    "within_rule_permutation_auc_drops": [
+      0.07237768453749571,
+      0.07830531494140858,
+      0.06356384972085549
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.25541625505799515,
+    "within_rule_permutation_auc_drops": [
+      0.014209517359792367,
+      0.009105574869701538,
+      0.0001390600113639895
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "support_tokens",
+    "retained_features": 105,
+    "mean_absolute_logit_contribution": 0.3994805446439249,
+    "within_rule_permutation_auc_drops": [
+      -0.010274781447772274,
+      -0.01817226384362436,
+      -0.019445286256620453
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.2556493384792751,
+    "within_rule_permutation_auc_drops": [
+      0.011033524088892355,
+      0.012755394160687716,
+      0.011242765782030872
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_screened",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.6931377739587391,
+    "within_rule_permutation_auc_drops": [
+      0.15640021216219746,
+      0.15477458621982443,
+      0.17735943510697416
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_character",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.4612919316243356,
+    "within_rule_permutation_auc_drops": [
+      0.06345412444618026,
+      0.05629955634819661,
+      0.07433640663634056
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_character",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.47363655929775506,
+    "within_rule_permutation_auc_drops": [
+      0.10632930325245238,
+      0.10371381299617233,
+      0.09315648849747404
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_structure",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.40548111620795607,
+    "within_rule_permutation_auc_drops": [
+      0.07627749085179869,
+      0.0652672224474441,
+      0.08025471512182603
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_structure",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.7496271190788929,
+    "within_rule_permutation_auc_drops": [
+      0.07904588507186316,
+      0.06740011707424631,
+      0.07217387184609358
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_lexical",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.5099025332519517,
+    "within_rule_permutation_auc_drops": [
+      0.09653034459884846,
+      0.0927927682209172,
+      0.11483914760934733
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_lexical",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5934034976524216,
+    "within_rule_permutation_auc_drops": [
+      0.09776863434193206,
+      0.05538335603868383,
+      0.12048203461724472
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_support_tokens",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.6612081947132402,
+    "within_rule_permutation_auc_drops": [
+      0.10036077777535779,
+      0.09961048171539677,
+      0.11467724196562423
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_support_tokens",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.43199589386952436,
+    "within_rule_permutation_auc_drops": [
+      -0.015431092584502926,
+      -0.0035118947052945604,
+      0.013041245466270834
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_semantic",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.31192774902465936,
+    "within_rule_permutation_auc_drops": [
+      0.022650507972968303,
+      0.0051832297346329215,
+      0.033113080413563756
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_semantic",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.9753501766643351,
+    "within_rule_permutation_auc_drops": [
+      0.22223737016907097,
+      0.20689068760128593,
+      0.2095588674852884
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_semantic_scalar",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.6084795711080729,
+    "within_rule_permutation_auc_drops": [
+      0.08536980028966412,
+      0.0864316863922403,
+      0.10126056170780828
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_semantic_scalar",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.467358118805009,
+    "within_rule_permutation_auc_drops": [
+      0.07685818398392863,
+      0.07913964614879143,
+      0.08190066227959125
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_ranks",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.4956406848220315,
+    "within_rule_permutation_auc_drops": [
+      0.09991622349192164,
+      0.09270737171872656,
+      0.11688398556284696
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_ranks",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.524168378701879,
+    "within_rule_permutation_auc_drops": [
+      0.08441110853134892,
+      0.07420783790761276,
+      0.11387249075153183
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_community",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.5654713735348246,
+    "within_rule_permutation_auc_drops": [
+      0.06700188843119548,
+      0.05368515084059067,
+      0.08329662849527919
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_community",
+    "family": "community",
+    "retained_features": 29,
+    "mean_absolute_logit_contribution": 0.5137382209082584,
+    "within_rule_permutation_auc_drops": [
+      0.0651628566516842,
+      0.10596925211099029,
+      0.04565781926380774
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_target_context",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.6789072762171927,
+    "within_rule_permutation_auc_drops": [
+      0.0684537529213648,
+      0.056221686293437045,
+      0.08147042552261508
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_target_context",
+    "family": "target_context",
+    "retained_features": 8,
+    "mean_absolute_logit_contribution": 0.8418035260179706,
+    "within_rule_permutation_auc_drops": [
+      0.08638956680221943,
+      0.12315174432442133,
+      0.07451078464196437
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "semantic_scalar_only",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5718830765957494,
+    "within_rule_permutation_auc_drops": [
+      0.14922572296630204,
+      0.11230687793547833,
+      0.17409830359590867
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "community_only",
+    "family": "community",
+    "retained_features": 29,
+    "mean_absolute_logit_contribution": 0.5741306525012226,
+    "within_rule_permutation_auc_drops": [
+      0.08952291312119554,
+      0.10116342885436203,
+      0.0861479356632876
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.24350916345438364,
+    "within_rule_permutation_auc_drops": [
+      0.015228127051950757,
+      0.014460008102436639,
+      0.021928369779270263
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.19702455724390827,
+    "within_rule_permutation_auc_drops": [
+      0.024377782380349045,
+      0.025450035571792595,
+      0.018750923192410673
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8348092023369263,
+    "within_rule_permutation_auc_drops": [
+      0.03605498047305944,
+      0.024799391885140576,
+      0.052726890669669846
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3836213056070827,
+    "within_rule_permutation_auc_drops": [
+      0.020300076601110773,
+      0.0149245682598802,
+      0.013604930715400254
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.37490326597167684,
+    "within_rule_permutation_auc_drops": [
+      0.0007833568104029798,
+      -0.004750152336220892,
+      0.0001058956189342597
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6512876398503562,
+    "within_rule_permutation_auc_drops": [
+      0.08057351434375826,
+      0.04491614146462686,
+      0.06320101321100824
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_transfer",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.23973384991024418,
+    "within_rule_permutation_auc_drops": [
+      0.014474917134834842,
+      0.017159958470400083,
+      0.015496339350221655
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.17902691703174428,
+    "within_rule_permutation_auc_drops": [
+      0.004728810596469346,
+      0.0021870254481446416,
+      0.012039027605444619
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.14204121085642876,
+    "within_rule_permutation_auc_drops": [
+      0.015146594284528136,
+      0.01387330742791626,
+      0.006903989227537433
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.48051500855904783,
+    "within_rule_permutation_auc_drops": [
+      0.01962078630116104,
+      0.014276205820883847,
+      0.03213029297688563
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.30395814108375613,
+    "within_rule_permutation_auc_drops": [
+      0.01723607712809927,
+      0.011573090478695258,
+      0.013798154703909216
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.28247365023658894,
+    "within_rule_permutation_auc_drops": [
+      0.0007313543828471047,
+      -0.004033357605500276,
+      -0.0002701441656549619
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.4528184551686446,
+    "within_rule_permutation_auc_drops": [
+      0.026693977054563667,
+      0.01031046999625751,
+      0.02824506233064783
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.23480709020358803,
+    "within_rule_permutation_auc_drops": [
+      0.012771204059519148,
+      0.013985747504511536,
+      0.010531724044643531
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_coordinates",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.8961021789392054,
+    "within_rule_permutation_auc_drops": [
+      0.1005445505137259,
+      0.12229980493739778,
+      0.09385875311925274
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.22042412590857882,
+    "within_rule_permutation_auc_drops": [
+      0.010373127237610413,
+      0.005554480954323093,
+      0.01698470572961086
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.17585306706461823,
+    "within_rule_permutation_auc_drops": [
+      0.016670163295252394,
+      0.018765195119607725,
+      0.011993704506610303
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.9156937203512342,
+    "within_rule_permutation_auc_drops": [
+      0.028276647848582748,
+      0.022040061000356714,
+      0.0375115969202684
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3805351454480104,
+    "within_rule_permutation_auc_drops": [
+      0.021389458417266027,
+      0.019057943675039546,
+      0.012346820064335517
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.3608598001419542,
+    "within_rule_permutation_auc_drops": [
+      -0.0034066451829656286,
+      -0.0058244812575134475,
+      0.0018988689312087192
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6302519200928839,
+    "within_rule_permutation_auc_drops": [
+      0.06338635687611216,
+      0.03709535143023457,
+      0.04881317782437988
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.15673393502167546,
+    "within_rule_permutation_auc_drops": [
+      0.0027403731515913687,
+      0.005426503731532861,
+      0.004012241935336114
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "community",
+    "retained_features": 29,
+    "mean_absolute_logit_contribution": 0.3845519648364017,
+    "within_rule_permutation_auc_drops": [
+      -0.0020681937677579088,
+      0.008722546937788067,
+      0.009858094475785562
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "all_with_metadata",
+    "family": "target_context",
+    "retained_features": 8,
+    "mean_absolute_logit_contribution": 0.4719557082196062,
+    "within_rule_permutation_auc_drops": [
+      0.01667611175127326,
+      0.014541027075342328,
+      0.02020263675544065
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_character",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.30365974657394923,
+    "within_rule_permutation_auc_drops": [
+      0.0222705427982689,
+      0.020695074118892376,
+      0.02834392924058915
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_character",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8821015166815738,
+    "within_rule_permutation_auc_drops": [
+      0.03829889967256239,
+      0.025148684811659106,
+      0.03517488257752954
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_character",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.45108095196137593,
+    "within_rule_permutation_auc_drops": [
+      0.0012527260845260901,
+      -0.01538507971652936,
+      -0.011759358973930212
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_character",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.4299766375520043,
+    "within_rule_permutation_auc_drops": [
+      0.011747623907160998,
+      0.005232169946867038,
+      -0.012593711174635702
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_character",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6920380391019458,
+    "within_rule_permutation_auc_drops": [
+      0.07341175312253612,
+      0.05762923921772789,
+      0.053930708654118975
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_character",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.25106393157565365,
+    "within_rule_permutation_auc_drops": [
+      0.016768228685747122,
+      0.013957244753678877,
+      0.015246098299670607
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_structure",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.31994181792427456,
+    "within_rule_permutation_auc_drops": [
+      0.012218575668396459,
+      0.015179782841356348,
+      0.028310987305128932
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_structure",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.30429064700040376,
+    "within_rule_permutation_auc_drops": [
+      0.034689218310298586,
+      0.0377276629285187,
+      0.027662574771167292
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_structure",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4031232956390458,
+    "within_rule_permutation_auc_drops": [
+      0.008258891058694373,
+      0.0021156337000021175,
+      0.006210312681110941
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_structure",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.3864238262987063,
+    "within_rule_permutation_auc_drops": [
+      0.006493660081367536,
+      0.004795495986835818,
+      -0.00849124306864868
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_structure",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.5432515947580877,
+    "within_rule_permutation_auc_drops": [
+      0.0630067821852458,
+      0.04604731147333918,
+      0.0362537033473872
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_structure",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.35302428667161334,
+    "within_rule_permutation_auc_drops": [
+      0.034200180982063455,
+      0.02347722647163686,
+      0.028848151765775376
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_lexical",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.2488475616238531,
+    "within_rule_permutation_auc_drops": [
+      0.013436201880491105,
+      0.010051679404943004,
+      0.01829025631292014
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_lexical",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.20427370244130671,
+    "within_rule_permutation_auc_drops": [
+      0.023050746194823724,
+      0.022027494870956454,
+      0.01701326114438173
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_lexical",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.825569290795262,
+    "within_rule_permutation_auc_drops": [
+      0.03331267545408423,
+      0.020228787611871746,
+      0.049537113014401335
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_lexical",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.38267700830506807,
+    "within_rule_permutation_auc_drops": [
+      0.011693463542633786,
+      0.006394937033891157,
+      -0.010607452218510005
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_lexical",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6283945762574457,
+    "within_rule_permutation_auc_drops": [
+      0.06272925093892234,
+      0.0464640617664861,
+      0.04149238820873036
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_lexical",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.3293334718628395,
+    "within_rule_permutation_auc_drops": [
+      0.033011900143809614,
+      0.033862282733446714,
+      0.02694143205434618
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_support_tokens",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.27056122948482453,
+    "within_rule_permutation_auc_drops": [
+      0.01843431401960738,
+      0.018114715847201257,
+      0.028304903978047413
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_support_tokens",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.21509548680144688,
+    "within_rule_permutation_auc_drops": [
+      0.029701349949365907,
+      0.028012854183158575,
+      0.021243131023299888
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_support_tokens",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8070975211530972,
+    "within_rule_permutation_auc_drops": [
+      0.03725453267853096,
+      0.025730341308508375,
+      0.05346048519661151
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_support_tokens",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4084790869571892,
+    "within_rule_permutation_auc_drops": [
+      0.016661922031199206,
+      0.017306050803375106,
+      0.013676219704639392
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_support_tokens",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6342007429597833,
+    "within_rule_permutation_auc_drops": [
+      0.0730863593479778,
+      0.04798465076901137,
+      0.05616667431449818
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_support_tokens",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.27031584041067613,
+    "within_rule_permutation_auc_drops": [
+      0.014472265955127073,
+      0.012828632157175002,
+      0.012720290876339524
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_semantic_scalar",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.26093771342170075,
+    "within_rule_permutation_auc_drops": [
+      0.019099599565508663,
+      0.02032254868879968,
+      0.025729539789061784
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_semantic_scalar",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.21775323004727723,
+    "within_rule_permutation_auc_drops": [
+      0.032786608955005736,
+      0.03319612502135261,
+      0.021227584885700534
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_semantic_scalar",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6600361465224854,
+    "within_rule_permutation_auc_drops": [
+      0.032991700312372196,
+      0.023614666504944815,
+      0.054219819544370496
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_semantic_scalar",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4233138521530616,
+    "within_rule_permutation_auc_drops": [
+      0.03612645442832485,
+      0.030352495870158203,
+      0.026046354479671963
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_semantic_scalar",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.366094295540433,
+    "within_rule_permutation_auc_drops": [
+      4.7666001832036287e-05,
+      -0.012650954306265172,
+      0.0026118821342842047
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_semantic_scalar",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.20327410847754168,
+    "within_rule_permutation_auc_drops": [
+      0.01986909548432836,
+      0.014925719159598394,
+      0.01350979266916652
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_ranks",
+    "family": "word",
+    "retained_features": 599,
+    "mean_absolute_logit_contribution": 0.24662183495076767,
+    "within_rule_permutation_auc_drops": [
+      0.013435564775289732,
+      0.012147471645183372,
+      0.019096948385800783
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_ranks",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.2008764468495942,
+    "within_rule_permutation_auc_drops": [
+      0.02383950812354607,
+      0.025127292976942273,
+      0.016886290958844752
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_ranks",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8421819976151158,
+    "within_rule_permutation_auc_drops": [
+      0.035426438942044225,
+      0.025353890488305497,
+      0.053391313040782484
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_ranks",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4128788896000222,
+    "within_rule_permutation_auc_drops": [
+      0.03673939715780272,
+      0.02151383907843718,
+      0.027090894879352678
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_ranks",
+    "family": "support_tokens",
+    "retained_features": 89,
+    "mean_absolute_logit_contribution": 0.3767822999559132,
+    "within_rule_permutation_auc_drops": [
+      -0.0033913662185151017,
+      -0.008441110853134925,
+      0.0015018778907011088
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "without_ranks",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.6278134890483578,
+    "within_rule_permutation_auc_drops": [
+      0.07654015673825798,
+      0.03883907625356475,
+      0.060349976427364393
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_screened",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.3800525745511825,
+    "within_rule_permutation_auc_drops": [
+      0.13899694525320982,
+      0.11097322323516778,
+      0.14301624425246212
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_character",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.24918336795959636,
+    "within_rule_permutation_auc_drops": [
+      0.035960892877030415,
+      0.02178098101920345,
+      0.04061858622500114
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_character",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.38394145654756096,
+    "within_rule_permutation_auc_drops": [
+      0.10940607449127315,
+      0.14810351136779465,
+      0.13370483509140374
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_structure",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.5059939485887865,
+    "within_rule_permutation_auc_drops": [
+      0.02429478306524757,
+      0.013686697532337422,
+      0.021538351391341748
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_structure",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.214996100418865,
+    "within_rule_permutation_auc_drops": [
+      0.015122587625093442,
+      0.007493675719536075,
+      0.018531335019808193
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_lexical",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.32039235168728686,
+    "within_rule_permutation_auc_drops": [
+      0.022123049019139862,
+      0.0077124401381001295,
+      0.016176634369083454
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_lexical",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 2.2626791031090594,
+    "within_rule_permutation_auc_drops": [
+      0.018819706298824235,
+      -0.009450622881962634,
+      -0.03239702162187952
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_support_tokens",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.37654773835356753,
+    "within_rule_permutation_auc_drops": [
+      0.07898986524111806,
+      0.05745748015210084,
+      0.07758181789254293
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_support_tokens",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3727492284611162,
+    "within_rule_permutation_auc_drops": [
+      -0.02850699250632427,
+      0.01906830222901046,
+      0.0026470494646237963
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_semantic",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.2881600269395589,
+    "within_rule_permutation_auc_drops": [
+      0.041799914085246526,
+      0.03372154073791234,
+      0.0505146930138578
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_semantic",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 2.0256609098152603,
+    "within_rule_permutation_auc_drops": [
+      0.02419534469317297,
+      0.024839705344215757,
+      0.011117209997931754
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_semantic_scalar",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.3730073197179382,
+    "within_rule_permutation_auc_drops": [
+      0.096956390307543,
+      0.06982562487073019,
+      0.10332442365519534
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_semantic_scalar",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.29475673011207604,
+    "within_rule_permutation_auc_drops": [
+      0.08319809714731197,
+      0.08037006984551254,
+      0.07593114091610587
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_ranks",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.30966907337596367,
+    "within_rule_permutation_auc_drops": [
+      0.036473994876935256,
+      0.007780058231110942,
+      0.030750322180325695
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_ranks",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6133258805077431,
+    "within_rule_permutation_auc_drops": [
+      0.07362019314909407,
+      0.04238858924792788,
+      0.06612253989467498
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_community",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.3601265936490432,
+    "within_rule_permutation_auc_drops": [
+      0.08469563903075417,
+      0.05969285475633612,
+      0.0809746551477255
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_community",
+    "family": "community",
+    "retained_features": 45,
+    "mean_absolute_logit_contribution": 0.4959091951765439,
+    "within_rule_permutation_auc_drops": [
+      0.01504701446231671,
+      0.027598125785562977,
+      0.0452902009450622
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_target_context",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.34640927538297456,
+    "within_rule_permutation_auc_drops": [
+      0.0949974543776747,
+      0.07280479849808263,
+      0.09526196044739299
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_target_context",
+    "family": "target_context",
+    "retained_features": 4,
+    "mean_absolute_logit_contribution": 0.64675818523782,
+    "within_rule_permutation_auc_drops": [
+      0.03891421252764371,
+      0.058941100663452706,
+      0.0638633000811416
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "semantic_scalar_only",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.31042342382378896,
+    "within_rule_permutation_auc_drops": [
+      0.14613065406583614,
+      0.1770082573624171,
+      0.1244212686745263
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "community_only",
+    "family": "community",
+    "retained_features": 45,
+    "mean_absolute_logit_contribution": 0.5299530332236092,
+    "within_rule_permutation_auc_drops": [
+      0.036826006714078874,
+      0.04553481934036557,
+      0.027936216250616597
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.29551632260406335,
+    "within_rule_permutation_auc_drops": [
+      0.006125403719790645,
+      0.0018137559066393472,
+      0.005807200929152212
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.37860037773009275,
+    "within_rule_permutation_auc_drops": [
+      0.008118148696164118,
+      0.016840882694541315,
+      0.01215136906750669
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.2307347048023551,
+    "within_rule_permutation_auc_drops": [
+      -0.0043673333015129545,
+      -0.020249630089255843,
+      0.008539767393760056
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 1.9790564139679363,
+    "within_rule_permutation_auc_drops": [
+      0.0026550045343897155,
+      0.018764020810462467,
+      0.010838782556123028
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3409322665424747,
+    "within_rule_permutation_auc_drops": [
+      0.003301353952874231,
+      0.00027047237204269603,
+      0.0020603630693841746
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3237807114584456,
+    "within_rule_permutation_auc_drops": [
+      0.019131942787138256,
+      0.01749319841535013,
+      0.02013030404276639
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_transfer",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.2596100092670325,
+    "within_rule_permutation_auc_drops": [
+      0.004371310836396081,
+      0.005226480836237002,
+      0.0004653715813087711
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.20020137146751213,
+    "within_rule_permutation_auc_drops": [
+      0.003428635069129604,
+      0.0006722033952237805,
+      0.00330135395287412
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.2934654479234291,
+    "within_rule_permutation_auc_drops": [
+      0.008165879114759855,
+      0.015110655020444619,
+      0.011709862695495898
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.2545621109981893,
+    "within_rule_permutation_auc_drops": [
+      0.0010102938602771783,
+      -0.0137861359044118,
+      0.010679681160803867
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 1.8062164305137784,
+    "within_rule_permutation_auc_drops": [
+      0.006946764673126271,
+      0.019384516252207606,
+      0.008591475347238808
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3313580055910955,
+    "within_rule_permutation_auc_drops": [
+      0.004041175441108713,
+      -2.7842744180883727e-05,
+      0.0024780042320970974
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3893134354196568,
+    "within_rule_permutation_auc_drops": [
+      0.0013125865113837731,
+      0.001002338790511148,
+      0.0008233497207771334
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.273925052137146,
+    "within_rule_permutation_auc_drops": [
+      0.0003142252557555292,
+      0.001654654511320075,
+      -0.00184955372058615
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_coordinates",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 1.8481480780934283,
+    "within_rule_permutation_auc_drops": [
+      -0.000346045534819317,
+      -0.0015114632555326413,
+      -0.0013722495346283337
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.2970067035563056,
+    "within_rule_permutation_auc_drops": [
+      0.0054054699059711275,
+      0.0022473072088842194,
+      0.005154885208343285
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.3323215399812075,
+    "within_rule_permutation_auc_drops": [
+      0.0068254498591953094,
+      0.01410831622993336,
+      0.01009498353300553
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.2930952594971963,
+    "within_rule_permutation_auc_drops": [
+      -0.0023268579065438555,
+      -0.016741444322466714,
+      0.003543983580736043
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 2.1766346893258484,
+    "within_rule_permutation_auc_drops": [
+      0.005512863347811647,
+      0.016063274624918522,
+      0.004176411627130117
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.34697389457378575,
+    "within_rule_permutation_auc_drops": [
+      0.0018415986508202309,
+      -0.000807439581245073,
+      0.0008591475347239363
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3923647998601796,
+    "within_rule_permutation_auc_drops": [
+      0.01721874850842442,
+      0.014410608881039955,
+      0.01890920083369141
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.2975867744712149,
+    "within_rule_permutation_auc_drops": [
+      0.0035519386505019623,
+      0.0036434219528105327,
+      0.0010102938602771783
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "community",
+    "retained_features": 45,
+    "mean_absolute_logit_contribution": 0.3797032250240459,
+    "within_rule_permutation_auc_drops": [
+      -0.004041175441108602,
+      0.0003221803255214484,
+      0.003353061906352983
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "all_with_metadata",
+    "family": "target_context",
+    "retained_features": 4,
+    "mean_absolute_logit_contribution": 0.6641915157103099,
+    "within_rule_permutation_auc_drops": [
+      0.0116462221373681,
+      0.021677565112246056,
+      0.015890251857508808
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.4458232814770105,
+    "within_rule_permutation_auc_drops": [
+      0.008579542742589874,
+      0.0016665871159691203,
+      0.0070243266033444
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.2916460114898,
+    "within_rule_permutation_auc_drops": [
+      0.00019092167438317098,
+      0.005138975068811336,
+      0.00429573767361946
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 1.8954730572115606,
+    "within_rule_permutation_auc_drops": [
+      0.0025098245111609963,
+      -0.006499291998790735,
+      -0.006543044882503568
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3649986783436328,
+    "within_rule_permutation_auc_drops": [
+      -0.005162840278109204,
+      -0.0035121633016721443,
+      0.004124703673651142
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3448156825943224,
+    "within_rule_permutation_auc_drops": [
+      0.012712201486007046,
+      0.02516586320462033,
+      0.01764036720602047
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_character",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.26355466545025064,
+    "within_rule_permutation_auc_drops": [
+      0.0028717801855122627,
+      0.005580481440822238,
+      1.193260464904533e-05
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.23035395482059648,
+    "within_rule_permutation_auc_drops": [
+      0.01213545892797474,
+      0.005803223394269086,
+      0.011507008416463682
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.3208918825644392,
+    "within_rule_permutation_auc_drops": [
+      0.022027588181948277,
+      0.033630057435603655,
+      0.029481488552654644
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 1.8034643817943392,
+    "within_rule_permutation_auc_drops": [
+      -0.005131019999045416,
+      -0.0032058931156826453,
+      -0.01001941037022891
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.36914405348287543,
+    "within_rule_permutation_auc_drops": [
+      -0.0012648560927879249,
+      0.002072295674032998,
+      0.009784735812133016
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.3470677933999831,
+    "within_rule_permutation_auc_drops": [
+      0.017532973764179838,
+      0.030654861343134,
+      0.023336197158449035
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_structure",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.2861096717687365,
+    "within_rule_permutation_auc_drops": [
+      0.011534851160644566,
+      0.01332076432310303,
+      0.011300176602548784
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.29200321885349906,
+    "within_rule_permutation_auc_drops": [
+      0.0067896520452485065,
+      0.0015472610694795552,
+      0.00739025981257857
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.3803159322189082,
+    "within_rule_permutation_auc_drops": [
+      0.005524795952460471,
+      0.017306254275849975,
+      0.01225876250934721
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.1905572937776818,
+    "within_rule_permutation_auc_drops": [
+      -0.006495314463907831,
+      -0.04239256678281067,
+      0.004315625348034313
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3395731381220536,
+    "within_rule_permutation_auc_drops": [
+      -0.004773041859577165,
+      -0.0009029004184366585,
+      0.004108793534119304
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.362791231857463,
+    "within_rule_permutation_auc_drops": [
+      0.025758515902184476,
+      0.03685186069081825,
+      0.02762795729718548
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_lexical",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.604518258987447,
+    "within_rule_permutation_auc_drops": [
+      0.018519402415159147,
+      0.01995529250791528,
+      0.007748237952046821
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.303665836869516,
+    "within_rule_permutation_auc_drops": [
+      0.0060617631616628476,
+      0.0012966763718518237,
+      0.005759470510556364
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.39690649160626,
+    "within_rule_permutation_auc_drops": [
+      0.01108936725375087,
+      0.019680842600989568,
+      0.01475665441585916
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.1896246469039378,
+    "within_rule_permutation_auc_drops": [
+      -0.0014677103718199191,
+      -0.0232924442747362,
+      0.00418038916201291
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 2.2419015494497296,
+    "within_rule_permutation_auc_drops": [
+      0.005146930138577255,
+      0.01964106725215986,
+      0.009160262835504973
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.2939096887537072,
+    "within_rule_permutation_auc_drops": [
+      0.009017071579717761,
+      0.018606908182584703,
+      0.010771164463112326
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_support_tokens",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.2432381291091204,
+    "within_rule_permutation_auc_drops": [
+      0.00029036004645754954,
+      0.005123064929279497,
+      0.0009585859067984259
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.29507129385295006,
+    "within_rule_permutation_auc_drops": [
+      0.005286143859481673,
+      0.0009904061858623248,
+      0.005302053999013623
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.37736449510841463,
+    "within_rule_permutation_auc_drops": [
+      0.007748237952046821,
+      0.017023849299158456,
+      0.01256503269533682
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.1886548440636164,
+    "within_rule_permutation_auc_drops": [
+      -0.002573465069288683,
+      -0.012501392137209022,
+      0.012736066695304915
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 1.9116263354236607,
+    "within_rule_permutation_auc_drops": [
+      0.019392471321973526,
+      0.032247864063767895,
+      0.0255636166929184
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3323769332810737,
+    "within_rule_permutation_auc_drops": [
+      0.004072995720172501,
+      0.0009029004184367695,
+      0.00195694716242667
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_semantic_scalar",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.2516212777424069,
+    "within_rule_permutation_auc_drops": [
+      0.0028240497669165254,
+      0.00612938125467366,
+      0.0007955069765962497
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "word",
+    "retained_features": 2988,
+    "mean_absolute_logit_contribution": 0.29556162512006745,
+    "within_rule_permutation_auc_drops": [
+      0.006065740696545974,
+      0.0017143175345648576,
+      0.005616279254769152
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.380117401571768,
+    "within_rule_permutation_auc_drops": [
+      0.008253384882185522,
+      0.01633175822951971,
+      0.012517302276741082
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 1.2157659938078307,
+    "within_rule_permutation_auc_drops": [
+      -0.0004653715813087711,
+      -0.019362639810351023,
+      0.004120726138768349
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 2.22828233129142,
+    "within_rule_permutation_auc_drops": [
+      0.005612301719886137,
+      0.0194501455777768,
+      0.007123764975418889
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "support_tokens",
+    "retained_features": 240,
+    "mean_absolute_logit_contribution": 0.3391667905744002,
+    "within_rule_permutation_auc_drops": [
+      0.0022910600925970526,
+      -0.0008153946510108812,
+      0.00041764116271303386
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "without_ranks",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.32699812545521506,
+    "within_rule_permutation_auc_drops": [
+      0.020591698089192367,
+      0.017222726043307546,
+      0.022795252414363754
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_screened",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.8255399962000907,
+    "within_rule_permutation_auc_drops": [
+      0.061587228355976964,
+      0.04257811257119215,
+      0.08457157402399063
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_character",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.4338919622301428,
+    "within_rule_permutation_auc_drops": [
+      0.011472286741544435,
+      0.009308679881637971,
+      0.03334698845015749
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_character",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.6857975143763918,
+    "within_rule_permutation_auc_drops": [
+      0.04807462852779282,
+      -0.008922889687867919,
+      0.04107472398103662
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_structure",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.3819178687961489,
+    "within_rule_permutation_auc_drops": [
+      0.009807820802443579,
+      0.0014278214387986043,
+      0.007596487320627454
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_structure",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.8995211442765849,
+    "within_rule_permutation_auc_drops": [
+      0.06336504502211326,
+      0.04884819752457925,
+      0.08590394221896969
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_lexical",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.553887182652941,
+    "within_rule_permutation_auc_drops": [
+      0.03624439212192576,
+      0.024945114384803846,
+      0.041375003977218605
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_lexical",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.9685193589021142,
+    "within_rule_permutation_auc_drops": [
+      0.142412262560056,
+      0.10614002990868321,
+      0.1135654968341342
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_support_tokens",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.8418597995257997,
+    "within_rule_permutation_auc_drops": [
+      0.04914251169302242,
+      0.03237058131025494,
+      0.07439784912023928
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_support_tokens",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.32424659544907425,
+    "within_rule_permutation_auc_drops": [
+      0.014842979413917101,
+      -0.0016624773298544726,
+      0.010627127811893566
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_semantic",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.5853389470091418,
+    "within_rule_permutation_auc_drops": [
+      0.01330379585732916,
+      0.00838397658213752,
+      0.022264469120875596
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_semantic",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 1.1523412951341214,
+    "within_rule_permutation_auc_drops": [
+      -0.03272455375608524,
+      -0.059383849311145764,
+      -0.025589423780584764
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_semantic_scalar",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.8267678989698863,
+    "within_rule_permutation_auc_drops": [
+      0.04624709663050042,
+      0.029701867701804052,
+      0.06395367335899965
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_semantic_scalar",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.9122131531058087,
+    "within_rule_permutation_auc_drops": [
+      0.04744423939673548,
+      0.020558242387603842,
+      0.01307311718476567
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_ranks",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.5182281225689956,
+    "within_rule_permutation_auc_drops": [
+      0.03394953705176751,
+      0.02112698463202789,
+      0.0422380603900856
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_ranks",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6383977405934869,
+    "within_rule_permutation_auc_drops": [
+      0.03264103216774328,
+      0.015061726431003342,
+      0.0118123389226511
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_community",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.7382101845558764,
+    "within_rule_permutation_auc_drops": [
+      0.04259402144516217,
+      0.02360876897133224,
+      0.05785460880078919
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_community",
+    "family": "community",
+    "retained_features": 59,
+    "mean_absolute_logit_contribution": 0.447687978193059,
+    "within_rule_permutation_auc_drops": [
+      -0.006834849979318491,
+      -0.0014496961405070508,
+      -0.011130245951191498
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_target_context",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.7386256540677065,
+    "within_rule_permutation_auc_drops": [
+      0.05103765630468676,
+      0.03686086098825925,
+      0.06838230615037078
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_target_context",
+    "family": "target_context",
+    "retained_features": 4,
+    "mean_absolute_logit_contribution": 0.45734062095360295,
+    "within_rule_permutation_auc_drops": [
+      0.01015185020204279,
+      0.020166486366095082,
+      0.009905262655509284
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "semantic_scalar_only",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 1.0627954930354853,
+    "within_rule_permutation_auc_drops": [
+      0.014950364313213838,
+      0.0482317286582456,
+      0.01624296032326833
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "community_only",
+    "family": "community",
+    "retained_features": 59,
+    "mean_absolute_logit_contribution": 0.5671045430185997,
+    "within_rule_permutation_auc_drops": [
+      0.02610845079385271,
+      -0.010595310063953756,
+      0.05432681599796352
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.24176042422950578,
+    "within_rule_permutation_auc_drops": [
+      0.004104489484234253,
+      -0.0014437303127685652,
+      0.004673231728658189
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.30889518604407973,
+    "within_rule_permutation_auc_drops": [
+      0.007059562824143217,
+      -0.008443634859524707,
+      0.0024778071208119146
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6402505280619138,
+    "within_rule_permutation_auc_drops": [
+      0.01874065353654264,
+      0.040639218556110523,
+      0.028516656591046408
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5580728119200212,
+    "within_rule_permutation_auc_drops": [
+      0.00598173661268242,
+      0.017094085080657906,
+      0.004625505106748529
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.29605692031021297,
+    "within_rule_permutation_auc_drops": [
+      -0.004267555442425852,
+      -0.004386871997200115,
+      -0.0033607496261415237
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.9786315582202295,
+    "within_rule_permutation_auc_drops": [
+      0.024607050812943343,
+      0.01794123261955516,
+      0.035262019154284174
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_transfer",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.42979674002263357,
+    "within_rule_permutation_auc_drops": [
+      0.002374399440007502,
+      0.0030942759871455117,
+      0.0034204079035284884
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.20797704914328538,
+    "within_rule_permutation_auc_drops": [
+      0.001642591237392077,
+      -0.00047726621909705,
+      0.004538006299913966
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.24512793363764634,
+    "within_rule_permutation_auc_drops": [
+      0.006081167074994398,
+      -0.004370963123230154,
+      0.0006562410512582773
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.5229623457713045,
+    "within_rule_permutation_auc_drops": [
+      0.014735594514620143,
+      0.0318853606541728,
+      0.020176429412326113
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5822836617252916,
+    "within_rule_permutation_auc_drops": [
+      0.02506443093957811,
+      0.034995545515288384,
+      0.02640475357154204
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.2630168222463991,
+    "within_rule_permutation_auc_drops": [
+      2.7840529447265006e-05,
+      0.0010738489929681405,
+      -0.0006681727067359144
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.39739681068564225,
+    "within_rule_permutation_auc_drops": [
+      0.004390849215692438,
+      0.0034880206179006557,
+      0.009923160138725295
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.48327903018731955,
+    "within_rule_permutation_auc_drops": [
+      0.004549937955391492,
+      0.00867431353208814,
+      0.010603264500938514
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_coordinates",
+    "family": "semantic",
+    "retained_features": 256,
+    "mean_absolute_logit_contribution": 0.9653930524344837,
+    "within_rule_permutation_auc_drops": [
+      -0.006097075948964359,
+      -0.011247573896719598,
+      -0.023282637054949373
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.23317870622262535,
+    "within_rule_permutation_auc_drops": [
+      0.004549937955391492,
+      -0.0019488370613127692,
+      0.0058504884024309645
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.2997186468381758,
+    "within_rule_permutation_auc_drops": [
+      0.006248210251678432,
+      -0.008276591682840673,
+      0.003400521811066204
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6384817074602784,
+    "within_rule_permutation_auc_drops": [
+      0.024237169493143362,
+      0.03999490916032966,
+      0.03364329122784693
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5400496077484159,
+    "within_rule_permutation_auc_drops": [
+      -0.00860272359922365,
+      0.001447707531261,
+      -0.012146425276018946
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.3038582691818849,
+    "within_rule_permutation_auc_drops": [
+      -0.003993127366444971,
+      -0.005679468007254385,
+      -0.0032334786343822808
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.8695751833841219,
+    "within_rule_permutation_auc_drops": [
+      0.021540615355245207,
+      0.016231028667790914,
+      0.03312227560533265
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.41649296163690597,
+    "within_rule_permutation_auc_drops": [
+      0.0015471379935728669,
+      0.0006284005218111233,
+      0.0006403321772885384
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "community",
+    "retained_features": 59,
+    "mean_absolute_logit_contribution": 0.3157442895644029,
+    "within_rule_permutation_auc_drops": [
+      -0.004832320468357132,
+      -0.019126443730312692,
+      -0.012778803016322504
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "all_with_metadata",
+    "family": "target_context",
+    "retained_features": 4,
+    "mean_absolute_logit_contribution": 0.15042095567853112,
+    "within_rule_permutation_auc_drops": [
+      0.007719781093894262,
+      0.007238537656304667,
+      0.007672054471984491
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.34748140917016246,
+    "within_rule_permutation_auc_drops": [
+      0.005818670654491043,
+      -0.001503388590155641,
+      0.005719240192179065
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.7968870078371982,
+    "within_rule_permutation_auc_drops": [
+      0.04015399790002849,
+      0.0334563619587005,
+      0.05562935505424915
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.6264913978731789,
+    "within_rule_permutation_auc_drops": [
+      -0.005496515956600612,
+      -0.016111712113016763,
+      0.00789875592605549
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.31762379097377474,
+    "within_rule_permutation_auc_drops": [
+      -0.006105030385949339,
+      -0.006204460848261206,
+      -0.010523720131089154
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.993822348595577,
+    "within_rule_permutation_auc_drops": [
+      0.007075471698113178,
+      0.02976948041617611,
+      0.021461070985395514
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_character",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4395951363919083,
+    "within_rule_permutation_auc_drops": [
+      0.0032533647268445653,
+      -0.0038101753157911977,
+      0.008630564128670803
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.3440497675743729,
+    "within_rule_permutation_auc_drops": [
+      0.009823729676413429,
+      0.007230583219319686,
+      0.014214578892106089
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.4679407920807173,
+    "within_rule_permutation_auc_drops": [
+      0.016123643768494067,
+      0.00223121957427852,
+      0.018947468898151354
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.982652332481248,
+    "within_rule_permutation_auc_drops": [
+      0.08171195392790098,
+      0.0888629927773712,
+      0.10129577778484844
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.2814747692689093,
+    "within_rule_permutation_auc_drops": [
+      -0.0047368672245377,
+      -0.0031976836679500353,
+      -0.0032931369117693565
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.910694303261671,
+    "within_rule_permutation_auc_drops": [
+      0.0083919310191225,
+      0.026472366285914317,
+      0.01953212001654525
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_structure",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.48184236015761855,
+    "within_rule_permutation_auc_drops": [
+      0.012218015208883548,
+      0.0041363072321741745,
+      0.013359476916223856
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.2422825933393921,
+    "within_rule_permutation_auc_drops": [
+      0.0047527760985075496,
+      -0.0013800948168890548,
+      0.0042436921314708
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.3098520938548662,
+    "within_rule_permutation_auc_drops": [
+      0.010555537879028742,
+      -0.009481688886060824,
+      0.0037505170384039
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6309672540406639,
+    "within_rule_permutation_auc_drops": [
+      0.018879856183779187,
+      0.03986366095007776,
+      0.030545038022208648
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.2980486296871135,
+    "within_rule_permutation_auc_drops": [
+      -0.00019488370613141015,
+      -0.0031101848611156946,
+      -0.009294759616914505
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.9790639716856726,
+    "within_rule_permutation_auc_drops": [
+      0.0187883801584523,
+      0.03659836456775578,
+      0.030433675904419366
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_lexical",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.40599629327902614,
+    "within_rule_permutation_auc_drops": [
+      0.006041394890069496,
+      0.003706767634986674,
+      0.010977123039231262
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.24323072426803558,
+    "within_rule_permutation_auc_drops": [
+      0.008276591682840784,
+      0.0002505647650260512,
+      0.005528333704540422
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.3162731601604268,
+    "within_rule_permutation_auc_drops": [
+      0.008952718826561568,
+      -0.008288523338317977,
+      0.005361290527856499
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6798269027090239,
+    "within_rule_permutation_auc_drops": [
+      0.019794616437048718,
+      0.03972843552133387,
+      0.028365522288332556
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.7256177023802689,
+    "within_rule_permutation_auc_drops": [
+      -0.03254160170543119,
+      -0.022801393617359778,
+      -0.041001145438925746
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.9502093765499133,
+    "within_rule_permutation_auc_drops": [
+      0.00118123389226521,
+      0.019357122402876348,
+      0.013570269496325116
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_support_tokens",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.4108355678463634,
+    "within_rule_permutation_auc_drops": [
+      0.0036988131980019157,
+      -0.002346558910560348,
+      0.005452766553183497
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.2467729854292574,
+    "within_rule_permutation_auc_drops": [
+      0.004919819275191695,
+      -0.0005448789334691062,
+      0.008439657641032272
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.3263613202672654,
+    "within_rule_permutation_auc_drops": [
+      0.004736867224537922,
+      -0.014648095707785802,
+      0.0017022495147793748
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.5670196027690557,
+    "within_rule_permutation_auc_drops": [
+      0.007512965732285437,
+      0.027904164943205356,
+      0.02275764421394255
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5083460934704729,
+    "within_rule_permutation_auc_drops": [
+      0.005532310923032857,
+      0.010022590601037273,
+      -0.0001630659581914884
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.3364578895069719,
+    "within_rule_permutation_auc_drops": [
+      -0.0006999904546756142,
+      -0.003849947500715878,
+      -0.004514142988959247
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_semantic_scalar",
+    "family": "ranks",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.431753163355135,
+    "within_rule_permutation_auc_drops": [
+      0.0054289032422284444,
+      -0.004927773712176564,
+      0.002024404212669917
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "word",
+    "retained_features": 1584,
+    "mean_absolute_logit_contribution": 0.24626339765355448,
+    "within_rule_permutation_auc_drops": [
+      0.0012965732285469267,
+      -0.00226303732221822,
+      0.004681186165643281
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "character",
+    "retained_features": 4096,
+    "mean_absolute_logit_contribution": 0.31143881045733635,
+    "within_rule_permutation_auc_drops": [
+      0.008511247573896874,
+      -0.00839193101912239,
+      0.0038300614082535933
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "structure",
+    "retained_features": 128,
+    "mean_absolute_logit_contribution": 0.6604542782021222,
+    "within_rule_permutation_auc_drops": [
+      0.021242323968309607,
+      0.04656129689140609,
+      0.02983311591205573
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "lexical",
+    "retained_features": 64,
+    "mean_absolute_logit_contribution": 0.5833991983639195,
+    "within_rule_permutation_auc_drops": [
+      0.02733542269878142,
+      0.05029590505584025,
+      0.02575248973877642
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "support_tokens",
+    "retained_features": 135,
+    "mean_absolute_logit_contribution": 0.3220564264002808,
+    "within_rule_permutation_auc_drops": [
+      -0.005214133443634861,
+      -0.002103948582519277,
+      -0.00422778325750095
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "without_ranks",
+    "family": "semantic_scalar",
+    "retained_features": 31,
+    "mean_absolute_logit_contribution": 0.9757253134858982,
+    "within_rule_permutation_auc_drops": [
+      0.02414171624932404,
+      0.01642988959241476,
+      0.034681345254382934
+    ],
+    "purpose": "Post-fit validation interpretation only; never used to select features"
+  }
+]

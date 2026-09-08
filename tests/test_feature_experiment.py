@@ -100,54 +100,21 @@ def test_absent_feature_evidence_is_not_fabricated(tmp_path):
     assert feature_evidence(tmp_path) is None
 
 
-def test_feature_analysis_cell_renders_authored_aggregate_fixture(monkeypatch):
-    """Exercise the populated chart branch; this fixture is not competition evidence."""
+def test_research_figures_render_plotly_and_static_fallbacks():
+    """Public figures need no private data and support both notebook renderers."""
     import nbformat
 
-    from scripts.build_notebooks import notebooks
     from scripts.execute_notebooks import execute_inprocess, validate_execution
 
-    record = {
-        "results": [
-            {
-                "model": "combined",
-                "protocol": "heldout_rule",
-                "fit_seconds": 1.0,
-                "metrics": {"rule_macro_auc": 0.6, "log_loss": 0.7, "brier": 0.25},
-            }
-        ],
-        "audit": [{"rule": "Authored fixture", "target": 1, "rows": 20, "url": 0.2}],
-        "uncertainty": [
-            {
-                "model": "combined",
-                "protocol": "heldout_rule",
-                "observed_delta": 0.02,
-                "ci_lower": -0.01,
-                "ci_upper": 0.05,
-            }
-        ],
-        "coefficients": [
-            {
-                "model": "combined",
-                "protocol": "heldout_rule",
-                "fold": 0,
-                "feature": "url",
-                "coefficient": 0.3,
-            }
-        ],
-    }
-    monkeypatch.setattr("jigsaw_rules.features.feature_evidence", lambda root: record)
-    monkeypatch.setenv("MPLBACKEND", "Agg")
-    source = next(
-        c.source
-        for c in notebooks()["notebooks/02_baseline_and_review.ipynb"].cells
-        if c.cell_type == "code" and "RUN_FEATURE_EXPERIMENT" in c.source
+    source = "from pathlib import Path\nfrom scripts.build_research_report import display_figure\n"
+    source += (
+        "for name in ('ablation', 'screening', 'stability'):\n    display_figure(Path.cwd(), name)"
     )
-    setup = (
-        "import pandas as pd\nfrom IPython.display import display\n"
-        "from pathlib import Path\nroot=Path.cwd()\n"
-    )
-    nb = nbformat.v4.new_notebook(cells=[nbformat.v4.new_code_cell(setup + source)])
+    nb = nbformat.v4.new_notebook(cells=[nbformat.v4.new_code_cell(source)])
     execute_inprocess(nb, {})
     validate_execution(nb)
-    assert any("image/svg+xml" in output.get("data", {}) for output in nb.cells[0].outputs)
+    outputs = [item for item in nb.cells[0].outputs if item.output_type == "display_data"]
+    assert len(outputs) == 3
+    for output in outputs:
+        assert "image/svg+xml" in output.data
+        assert "application/vnd.plotly.v1+json" in output.data

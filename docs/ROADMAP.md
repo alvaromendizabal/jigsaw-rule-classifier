@@ -6,14 +6,14 @@ The goal is a defensible, high-performing rule-conditioned classifier and an und
 | --- | --- | --- |
 | 0 · Foundation | Dedicated AWS space and S3 bucket, environment lock, contracts, observability, CI | Quality gate and actual data download; real backup from Studio |
 | 1 · Reference experiments | Lexical baselines, seen-rule and held-out-rule splits, diagnostics, offline inference | Reproducible real-data report, reviewed split artifacts, exact submission schema |
-| 2 · Semantic models | 2A: pinned Qwen3 embeddings and example comparison implemented; 2B: cross-encoder and context ablations next | Better held-out-rule ranking with latency and memory measured; example-order and context ablations |
+| 2 · Feature research gate | Broad lexical, structural, rank, nested target/context, frozen semantic/NLI and low-rank studies executed | Independent confirmation, stable feature-family selection and traceable final representation; gate remains open |
 | 3 · Instruction model | Small-to-medium open instruction model, classification token scoring, LoRA fine-tuning where justified | Pinned model revision and license; GPU smoke test; resumable optimizer/scheduler/RNG checkpoints; full validation |
-| 4 · Robustness and calibration | Near-duplicate audit, grouped bootstrap intervals, nested calibration, human-review thresholds, ensemble | OOF-only selection, frozen final evaluation, per-rule error analysis, bounded confidence claims |
+| 4 · Robustness and calibration | Exact/approximate-copy audit and grouped intervals executed; nested calibration, thresholds and final ensemble remain gated | OOF-only selection, frozen final evaluation, per-rule error analysis, bounded confidence claims |
 | 5 · Submission and portfolio | Offline weights and dependencies, inference budget test, versioned Kaggle notebook, model card and demonstration | Successful offline run; scored late submission only if enabled; public report with accurate claims |
 
 ## Candidate families
 
-Phase 2A uses the pinned Qwen3-Embedding-0.6B model and locked CPU neural dependencies. `docs/PHASE_2.md` records its design, integration gate, and evidence. Next candidates include rule-conditioned cross-encoders and Qwen-style instruction models; check their official cards, licenses, and hardware needs before a new experiment.
+Phase 2A uses the pinned Qwen3-Embedding-0.6B model and locked CPU neural dependencies. `docs/PHASE_2.md` records its design, integration gate, and evidence. The frozen NLI feature study and additional representation controls are executed. A fixed-template Qwen instruction-likelihood probe is the next bounded feature study; no final fine-tuning is triggered. Check [FEATURE_RESEARCH.md](FEATURE_RESEARCH.md) for current results and source limitations.
 
 The expensive model is not automatically the best model. Compare ranking accuracy, calibration, inference latency, peak RAM/VRAM, and cost per evaluated comment. Distillation may give a better employer-facing deployment story than running a large ensemble everywhere.
 
