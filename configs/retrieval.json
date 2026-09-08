@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "name": "semantic-retrieval-feature-study-v1",
+  "development_protocol_commit": "5c16f91c04880d52280bf5a0a71ff688b327bb70",
+  "seed": 2025,
+  "neighbors": [3, 9, 27],
+  "similarity_temperature": 0.1,
+  "spaces": ["body", "support_direction", "body_x_direction"],
+  "maximum_features": 64,
+  "correlation_threshold": 0.995,
+  "batch_size": 256,
+  "variants": {
+    "retrieval_only": ["retrieval"],
+    "word_retrieval": ["word", "retrieval"],
+    "semantic_retrieval": ["semantic_scalar", "retrieval"],
+    "word_semantic_retrieval": ["word", "semantic_scalar", "retrieval"],
+    "all_transfer_retrieval": ["word", "character", "structure", "lexical", "support_tokens", "semantic_scalar", "ranks", "retrieval"]
+  },
+  "matching_controls": {
+    "word_retrieval": "word_screened",
+    "semantic_retrieval": "semantic_scalar_only",
+    "word_semantic_retrieval": "word_semantic_scalar",
+    "all_transfer_retrieval": "all_transfer"
+  },
+  "target_boundary": "Exclude the query policy from every labeled retrieval bank. Training features leave one entire policy out and additionally purge reference body/support matches to those query bodies. Outer validation uses only the purged outer-training bank, excludes a matching query policy, and never accepts a target column. No target label is reassigned across policies.",
+  "feature_maps": ["identity", "signed_square_root", "signed_square", "class_margin_x_supplied_centroid_margin"],
+  "classifier": {"C": 2.0, "solver": "liblinear", "max_iter": 2000},
+  "bootstrap_draws": 1000,
+  "scope": "One additional target-derived feature family on the same seven expanded splits. Five fixed fits per split; no new encoder, label source, model tuning or confirmation access."
+}
