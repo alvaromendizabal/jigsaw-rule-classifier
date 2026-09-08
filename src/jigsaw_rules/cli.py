@@ -30,6 +30,12 @@ def main() -> None:
             "semantic",
             "model-download",
             "features",
+            "research",
+            "pairs",
+            "diagnostics",
+            "robustness",
+            "gate",
+            "instructions",
         ],
     )
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -46,7 +52,7 @@ def main() -> None:
         "--export", action="store_true", help="Publish reviewed aggregate feature evidence"
     )
     args = parser.parse_args()
-    if args.export and args.command != "features":
+    if args.export and args.command not in {"features", "research"}:
         parser.error("--export is only available for the feature experiment")
     root = args.root.resolve()
     config = None
@@ -95,6 +101,33 @@ def main() -> None:
             if args.export:
                 export_features(root, directory)
                 print("FEATURE_AGGREGATES_EXPORTED")
+        elif args.command == "research":
+            from jigsaw_rules.research import export_research, run_research
+
+            directory = run_research(root, args.baseline_run, cloud=config)
+            if args.export:
+                export_research(root, directory)
+                print("RESEARCH_AGGREGATES_EXPORTED")
+        elif args.command == "pairs":
+            from jigsaw_rules.pairs import run_pairs
+
+            run_pairs(root)
+        elif args.command == "diagnostics":
+            from jigsaw_rules.diagnostics import run_diagnostics
+
+            run_diagnostics(root)
+        elif args.command == "robustness":
+            from jigsaw_rules.robustness import run_robustness
+
+            run_robustness(root)
+        elif args.command == "gate":
+            from jigsaw_rules.gate import feature_gate
+
+            print(json.dumps(feature_gate(root), indent=2))
+        elif args.command == "instructions":
+            from jigsaw_rules.instructions import run_instructions
+
+            run_instructions(root)
         elif args.command == "backup":
             backup(root, config["bucket"], config["region"])
         elif args.command == "review":
