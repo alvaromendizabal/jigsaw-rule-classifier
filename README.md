@@ -2,7 +2,7 @@
 
 Predict whether a comment violates a supplied community rule, using the policy text and examples of permitted and prohibited comments.
 
-**Start with [02 · Feature research](notebooks/02_baseline_and_review.ipynb) or [03 · Results and decision](notebooks/03_saved_results.ipynb).** The project treats feature engineering as an explicit completion gate. It has executed a broad feature search; it has not established a final model or an independent generalization claim.
+**Start with [03 · Results and decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The project treats feature engineering as an explicit completion gate. It has executed a broad feature search; it has not established a final model or an independent generalization claim. [Three remaining release milestones](docs/ROADMAP.md#next-three-deliverables).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
@@ -10,7 +10,8 @@ Built by Alvaro Mendizabal. The work combines rule-conditioned NLP, training-onl
 
 ## Research at a glance
 
-- **2,029 labeled comments, two rule types, 100 communities.** Both familiar-rule and held-out-rule validation use saved, duplicate-purged splits.
+- **Completed experiments: 2,029 labeled comments, two rule types, 100 communities.** Both familiar-rule and held-out-rule validation use saved, duplicate-purged splits.
+- **New research boundary: 54,059 host-released rows, six policies.** A committed text-only partition prepares 9,106 additional research rows across four policies and reserves 43,576 rows, including two whole policy types. The new feature study has not run.
 - **89,059–104,800 candidate columns per fold** across the broad, NLI and instruction banks; **4,919–7,975 retained** before final family selection. Five additional 128-component low-rank alternatives test compression of already-counted matrices.
 - **105 broad-study fits**, **55 sensitivity/control fits**, **25 frozen-NLI feature fits**, **10 near-copy stress fits**, and **15 instruction-feature fits**, with fixed classifier settings. Earlier references and the four-candidate study are preserved.
 - Matched family additions, leave-one-family-out ablations, within-rule permutation, coefficient contributions, selection stability, and paired pointwise/simultaneous uncertainty.
@@ -44,13 +45,17 @@ Negative findings are retained: high-dimensional structural expansion, raw embed
 
 Vocabulary, IDF, scaling, ranks, screening, low-rank projections and NB weights use retained training rows only. Target/context features use inner comment-group cross-fitting, including inner example purging and inner-only priors. Supplied support examples are inference inputs, not additional copies of the target label. The frozen encoders do not fit competition labels.
 
-Eighteen comments match their own support examples; an exclusion sensitivity preserves the main semantic ranking pattern. A fixed approximate-copy audit found no additional cross-fold copies after exact purging, without claiming paraphrase isolation. No timestamps or historical entities exist in this schema: rolling, lag, season, coaching and opponent features would be fabricated. No external comment corpus or current-web metadata entered the experiments.
+Eighteen comments match their own support examples; an exclusion sensitivity preserves the main semantic ranking pattern. A fixed approximate-copy audit found no additional cross-fold copies after exact purging, without claiming paraphrase isolation. No timestamps or historical entities exist in this schema: rolling, lag, season, coaching and opponent features would be fabricated. Published feature experiments use the original training data and pinned encoders; the newly prepared released-data cohort has separate provenance.
 
-The competition describes **column-averaged AUC**; this project uses **rule macro ROC AUC** as a local approximation and reports pooled AUC separately. Executable official-scorer parity and an independent Kaggle score remain unverified. Supporting metrics include per-rule AUC, average precision, log loss, Brier, calibration error, confusion matrices and fixed-threshold precision/recall/F1.
+The competition describes **column-averaged AUC**. The [host's per-rule score release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641121) strongly corroborates this project's equal-weight **rule macro ROC AUC**: 2,428 of 2,437 complete score rows agree within 1e-6. Nine discrepancies and six incomplete rows remain disclosed in the [arithmetic audit](reports/released/metric.json). Executable scorer parity and a project leaderboard score are not claimed. Pooled AUC is separate; supporting metrics include per-rule AUC, average precision, log loss, Brier and calibration diagnostics.
 
 ## Completion gate and current decision
 
-**Feature gate: OPEN. Retain the lexical reference.** A successful pipeline and a large feature count cannot establish broad policy transfer. Only two labeled rules are available, and repeated comparisons on the same policies create selection bias. Independent confirmation, final feature selection, calibration and final-model promotion remain incomplete.
+**Feature gate: OPEN. Retain the lexical reference.** A successful pipeline and a large feature count cannot establish broad policy transfer. Completed experiments repeatedly compare the same two policies. The host release now enables a four-policy research round while preserving financial-advice and spoiler policies for later confirmation. Independent confirmation, final feature selection, calibration and final-model promotion remain incomplete.
+
+![Released data research and confirmation boundary](reports/released/boundary.svg)
+
+The additional research rows have passed exact comment/support isolation. Together with the original data they provide 11,135 development rows before duplicate handling; the audit identifies 544 repeated body/policy rows and 39 conflicting-label groups. Reserved targets have not been scored or used for feature selection. This is a public post-competition benchmark with a protocol reserve, not a hidden competition submission. [Boundary, provenance and next study](docs/RELEASED_DATA.md).
 
 `uv run jigsaw gate` renders the current evidence requirements. The public notebooks consume current verified reports. The offline submission notebook deliberately retains the named original lexical reference; an unpromoted feature bank is not silently presented as the final model.
 

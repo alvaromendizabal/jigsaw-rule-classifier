@@ -1,0 +1,13 @@
+{
+  "rows": 2443,
+  "complete_rows": 2437,
+  "incomplete_rows": 6,
+  "absolute_tolerance": 1e-06,
+  "matching_rows": 2428,
+  "discrepant_complete_rows": 9,
+  "maximum_absolute_difference": 0.42375261798579983,
+  "median_absolute_difference": 1.1102230246251565e-16,
+  "interpretation": "Organizer per-policy scores strongly corroborate equal-weight rule macro AUC. Discrepant/incomplete rows remain unresolved; executable scorer parity and a project leaderboard result are not established.",
+  "source_url": "https://storage.googleapis.com/kaggle-forum-message-attachments/3349252/31763/rule_auc.csv",
+  "source_sha256": "43b2af04973e2de8af75d984fd8c798020b442b15d955eb4cfa82141ee9e7c4f"
+}

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "builder_sha256": "dcbc192a7a863d18e6c143cf93f6cdb1c5aac1678be2e96dc340d7fca9c7ed29",
+  "boundary_sha256": "63bb03685a4fc174acf9553ebe19161dbaea29db6162cb2178aa012bcd95e4ff",
+  "files": {
+    "boundary.plotly.json": "b021858e79759dd77f882261ce3830021ef56673b86dd938c8153ce9d93fec1c",
+    "boundary.svg": "2fd7e8a73327d48ca24bcb4bb18c5b9017cc3e15e7fc64bc56046abfebde9f64"
+  }
+}

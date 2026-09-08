@@ -23,7 +23,7 @@ A terminal prefix such as `^[[200~` is a paste-control sequence. Press **Ctrl+C*
 
 ## Review the completed feature research
 
-The original four-candidate study, broad screened bank, full-vocabulary/NB/low-rank controls, frozen NLI probe and approximate-copy stress test have executed. Their current reports are rendered in `02_baseline_and_review.ipynb`. The notebook performs no fitting by default. Do not rerun historical baselines merely to read these results.
+The original four-candidate study, broad screened bank, full-vocabulary/NB/low-rank controls, frozen NLI and instruction probes, and approximate-copy stress test have executed. Their current reports are rendered in `02_baseline_and_review.ipynb`. The notebook performs no fitting by default. Do not rerun historical baselines merely to read these results.
 
 ```bash
 uv run jigsaw gate
@@ -72,6 +72,10 @@ The explicitly synthetic software-only inference check is `scripts/execute_noteb
 
 ## Remain in feature research
 
-Final training is blocked by the feature-completion gate. The major unresolved issue is independent policy coverage and confirmation after feature selection, not another setup cycle. The broad feature banks and frozen probes are not automatically promoted into the offline reference.
+Final training is blocked by the feature-completion gate. The host's six-policy data release is now pinned and partitioned. The next deliverable is a controlled four-policy feature study, followed by a locked confirmation comparison. The broad feature banks and frozen probes are not automatically promoted into the offline reference. [Three release milestones](docs/ROADMAP.md#next-three-deliverables).
+
+The tested preparation command is `uv run python scripts/prepare_released_data.py`; it verifies or downloads the pinned public archive and materializes **only** the 9,106 retained research targets. Together with the original data, this provides 11,135 development rows before duplicate handling. Downstream research should use `jigsaw_rules.released.load_research(root)` and the original training file. Do not replace `data/raw/test.csv` or point the submission notebook at the released solution.
+
+The 43,576-row reserve includes the former Private partition and financial-advice/spoiler policies. Its labels have not been used for selection or scoring. The exact assignment, source hashes, exclusions, data-quality findings and next-study requirements are in [RELEASED_DATA.md](docs/RELEASED_DATA.md). Public notebooks display its aggregate boundary without loading row-level data.
 
 Saved public review needs no model loading or instance resize. Full frozen-encoder experiments require a bounded compute plan and verified checkpoints. The recorded small Studio app is suitable for review, not simultaneous encoder workers. Preserve the Studio space and project snapshots when stopping compute.

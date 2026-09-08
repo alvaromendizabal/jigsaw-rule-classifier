@@ -40,7 +40,7 @@ if root.name == "notebooks":
 baseline = public_evidence(root, "baseline")
 semantic = public_evidence(root, "semantic")
 assert baseline["training_sha256"] == semantic["training_sha256"]
-print("Competition evidence | 2,029 rows | two labeled rules")
+print("Completed feature experiments | 2,029 rows | two labeled rules")
 print("Aggregate checksums verified. This notebook performs no model fitting.")
 protocols = {"seen_rule": "Familiar rules", "heldout_rule": "Held-out rule"}
 
@@ -55,6 +55,7 @@ def metric_table(records, heldout=False):
 RESEARCH_SETUP = """import sys
 sys.path.insert(0, str(root / "scripts"))
 from build_research_report import display_figure
+from build_release_report import display_boundary
 from jigsaw_rules.features import feature_evidence
 from jigsaw_rules.research import research_evidence
 from jigsaw_rules.diagnostics import diagnostic_evidence
@@ -62,6 +63,7 @@ from jigsaw_rules.pairs import pairs_evidence
 from jigsaw_rules.robustness import robustness_evidence
 from jigsaw_rules.gate import feature_gate
 from jigsaw_rules.instructions import instruction_evidence
+from jigsaw_rules.released import released_evidence
 
 controls = feature_evidence(root)
 research = research_evidence(root)
@@ -71,6 +73,8 @@ robustness = robustness_evidence(root)
 assert all(item is not None for item in (controls, research, sensitivity, pairs, robustness))
 gate = feature_gate(root)
 instructions = instruction_evidence(root)
+released = released_evidence(root)
+assert released is not None
 print("Verified research runs:", gate["studies"])
 """
 
@@ -119,7 +123,7 @@ def notebooks():
         [
             (
                 "md",
-                "# 01 · Data and validation\n\n**Question:** What can these splits establish about unseen community rules?\n\nOnly two rule types have labels. We explicitly retain that limit throughout the research; thousands of candidate features cannot manufacture additional policy coverage.",
+                "# 01 · Data and validation\n\n**Question:** What can these splits establish about unseen community rules?\n\nThe completed feature studies use two labeled rule types. The host has now released six-policy evaluation data, and a separate target-blind partition reserves confirmation before expanded research. New data availability does not retroactively broaden the old results.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
@@ -153,7 +157,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Inference scope\nTemporal, rolling, lag, season, team, opponent and coaching variables are unavailable or inapplicable. Row order is not time. There is no legitimate external ranking system for these comments. External model weights are pinned and license documented; competition-specific permission for any future data augmentation must be verified before use.\n\nThe project computes **rule macro ROC AUC** as its local approximation to the competition's column-averaged AUC description. Pooled AUC is separate. No official scoring implementation or independent Kaggle score has confirmed equivalence.\n\nContinue to [02 · Feature research](02_baseline_and_review.ipynb).",
+                "## Inference scope\nTemporal, rolling, lag, season, team, opponent and coaching variables are unavailable or inapplicable. Row order is not time. There is no legitimate external ranking system for these comments. External model weights are pinned and license documented; the official overview permits public external data. The host-released competition corpus has separately verified CC0 provenance and a pinned version.\n\nThe project reports **rule macro ROC AUC** and pooled AUC separately. The host's per-rule score attachment strongly corroborates equal-weight rule averaging: 2,428 of 2,437 complete rows agree within 1e-6. Nine discrepancies and six incomplete rows remain explicit; executable scorer parity and a project leaderboard result are not claimed.\n\nContinue to [02 · Feature research](02_baseline_and_review.ipynb).",
             ),
         ]
     )
@@ -239,7 +243,19 @@ def notebooks():
             ),
             (
                 "md",
-                "## 10 · Completion is an evidence decision\nBroad exploration is implemented and executed, but the best observed score is selected from many experiments on the same two rule types. The honest next research requirement is independent policy coverage or a separately locked confirmation design. Additional random interactions or a larger classifier would not resolve that limit.\n\nThe original offline classifier deliberately remains the reference; it does not silently consume an unpromoted feature bank. Final feature dimensionality and model promotion are unresolved. The gate cannot be closed by a successful pipeline run or a high candidate count.",
+                "## 10 · Completion is an evidence decision\nBroad exploration is implemented and executed, but the best observed score is selected from many experiments on the same two rule types. The host release now supplies the next research boundary: 9,106 additional research rows across four policies, with 43,576 rows reserved. Medical advice and illegal-activity promotion broaden development; financial advice and spoilers stay outside research labels. The new study has not run. Additional random interactions or a larger classifier would not replace that study.\n\nThe original offline classifier deliberately remains the reference; it does not silently consume an unpromoted feature bank. Final feature dimensionality and model promotion are unresolved. The gate cannot be closed by a successful pipeline run or a high candidate count.",
+            ),
+            (
+                "md",
+                "## 11 · A protected route beyond two policies\nThe [host-released dataset](https://www.kaggle.com/datasets/sorenj/jigsaw-agile-community-rules-classification/data) was verified against the original training and preview files. The committed protocol uses policy, Public/Private metadata and normalized text to assign roles **before interpreting research labels**. Research rows are removed when their comment or any supplied example exposes a reserved body. Reserved rows already exposed by historical training/preview inputs are reported as exclusions.\n\nThe reserve is a research protocol, not a security boundary around public data. Its targets have not been scored or used for selection. Exact-copy isolation does not establish paraphrase independence. The original 2,029 rows plus 9,106 additions provide 11,135 development rows before duplicate handling. The audit finds 544 repeated body/policy rows and 39 conflicting-label groups; the next study must address them with grouped validation and a documented sensitivity analysis. It must also respect the strong class imbalance in promotion comments.",
+            ),
+            (
+                "code",
+                'display_boundary(root)\ndisplay(pd.Series(released["boundary"]["role_counts"], name="Released rows"))\ndisplay(pd.DataFrame(released["boundary"]["research_label_counts"]))\nprint("Confirmation targets exposed:", released["boundary"]["confirmation_targets_accessed"])\nprint("Protocol commit:", released["boundary"]["protocol_commit"])',
+            ),
+            (
+                "md",
+                "## 12 · The next deliverable\nRun the strongest existing feature families and their controls on frozen four-policy development folds, then freeze one representation for confirmation. Preserve the two reserved policy types and former Private partition until that decision is committed. After successful confirmation, connect the accepted representation to offline inference, complete probability-quality and deployment-budget checks, and publish a concise demonstration and model card. [Exact boundary and next-study requirements](../docs/RELEASED_DATA.md) · [Milestones and acceptance gates](../docs/ROADMAP.md).",
             ),
             (
                 "code",
@@ -282,7 +298,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Remaining uncertainty\nTwo labeled policies cannot establish broad unseen-rule generalization. Repeatedly inspecting the same held-out scores also creates selection bias; within-study simultaneous intervals only address part of that problem. Calibration, final representation selection and final retraining remain downstream of the feature gate.\n\n[04 · Semantic diagnostics](04_semantic_benchmark.ipynb) examines policy-level behavior and probability quality. The [research record](../docs/FEATURE_RESEARCH.md) describes which high-value avenues were explored, ruled inapplicable, or remain unresolved.",
+                "## Remaining uncertainty\nThe completed two-policy studies cannot establish broad unseen-rule generalization. The new release prepares a four-policy research round and two completely reserved policy types. Its confirmation labels remain outside the research loader. Repeatedly inspecting old held-out scores creates selection bias; within-study simultaneous intervals only address part of that problem. Calibration, final representation selection and final retraining remain downstream of the feature gate.\n\n[04 · Semantic diagnostics](04_semantic_benchmark.ipynb) examines policy-level behavior and probability quality. The [research record](../docs/FEATURE_RESEARCH.md) describes which high-value avenues were explored, ruled inapplicable, or remain unresolved.",
             ),
         ]
     )
@@ -320,7 +336,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Interpretation and next research boundary\nA positive-versus-negative centroid comparison uses the supplied task context directly and does not need hundreds of learned coefficients from a tiny fold. This is a plausible explanation for its transfer behavior, not a causal proof. Raw coordinates and many structural interactions are unstable across policies. General NLI features must earn their place through rule/support ablations, rather than being assumed superior because they use a transformer.\n\nFurther prompt or encoder searches would reuse already-inspected policies. Independent confirmation and a documented, legitimate source of broader rule coverage are the major unresolved avenues. [02 · Feature gate](02_baseline_and_review.ipynb) remains open. The [Kaggle notebook](../kaggle/submission.ipynb) remains the user's offline lexical-reference workflow; no automatic upload is performed.",
+                "## Interpretation and next research boundary\nA positive-versus-negative centroid comparison uses the supplied task context directly and does not need hundreds of learned coefficients from a tiny fold. This is a plausible explanation for its transfer behavior, not a causal proof. Raw coordinates and many structural interactions are unstable across policies. General NLI features must earn their place through rule/support ablations, rather than being assumed superior because they use a transformer.\n\nFurther prompt or encoder searches would reuse already-inspected policies. The host release now provides legitimate broader rule coverage. Its protected partition is prepared; expanded feature comparisons and independent confirmation remain unexecuted. [02 · Feature gate](02_baseline_and_review.ipynb) remains open. The [Kaggle notebook](../kaggle/submission.ipynb) remains the user's offline lexical-reference workflow; no automatic upload is performed.",
             ),
         ]
     )
