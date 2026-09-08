@@ -14,6 +14,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from jigsaw_rules.expanded import expanded_evidence
+from jigsaw_rules.retrieval import retrieval_evidence
 from jigsaw_rules.runtime import atomic_bytes, atomic_json, digest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,10 +47,16 @@ MODELS = {
     "all_with_coordinates": "All + embedding coordinates",
     "all_with_metadata": "All + community/target context",
     "qwen_centroid": "Frozen semantic centroid",
+    "semantic_retrieval": "Semantic comparisons + retrieval",
+    "word_semantic_retrieval": "Words + semantics + retrieval",
 }
 
 
 def _save(root: Path, name: str, plot: go.Figure, fig, title: str, subtitle: str) -> None:
+    metadata = json.loads((root / "reports/expanded/metadata.json").read_text())
+    if metadata.get("software_test"):
+        title = "SYNTHETIC LAYOUT TEST · " + title
+        subtitle = "Authored software-test scores; not competition or development performance"
     plot.update_layout(
         template="plotly_white",
         height=550,
@@ -122,6 +129,11 @@ def build(root: Path = ROOT) -> None:
     )
 
     records = {r["model"]: r for r in evidence["results"] if r["protocol"] == "heldout_rule"}
+    retrieval = retrieval_evidence(root)
+    if retrieval is not None:
+        records.update(
+            {r["model"]: r for r in retrieval["results"] if r["protocol"] == "heldout_rule"}
+        )
     selected = [name for name in MODELS if name in records]
     ordered = sorted(selected, key=lambda n: records[n]["metrics"]["rule_macro_auc"])
     scores = [records[n]["metrics"]["rule_macro_auc"] for n in ordered]
@@ -138,7 +150,7 @@ def build(root: Path = ROOT) -> None:
         )
     )
     plot.update_xaxes(range=[0.35, min(1, max(scores) + 0.06)], title="Policy-macro ROC AUC")
-    fig, ax = plt.subplots(figsize=(11.6, 6.4))
+    fig, ax = plt.subplots(figsize=(11.6, 7.0))
     ax.barh(labels, scores, color=colors, height=0.62)
     for i, score in enumerate(scores):
         ax.text(score + 0.004, i, f"{score:.4f}", va="center", fontsize=9)
@@ -152,7 +164,8 @@ def build(root: Path = ROOT) -> None:
         plot,
         fig,
         "Representation quality under the same validation boundary",
-        "11,135 development rows · four-policy transfer · exploratory development results",
+        f"{evidence['audit']['development_rows']:,} development rows · four-policy transfer · "
+        "exploratory development results",
     )
 
     chosen = [
@@ -245,6 +258,9 @@ def build(root: Path = ROOT) -> None:
             "schema": 1,
             "builder_sha256": digest(Path(__file__)),
             "evidence_sha256": digest(folder / "metadata.json"),
+            "retrieval_sha256": digest(root / "reports/retrieval/metadata.json")
+            if retrieval
+            else None,
             "files": {name: digest(folder / name) for name in sorted(FILES)},
         },
     )
@@ -258,6 +274,12 @@ def verify_figures(root: Path) -> dict:
         or set(manifest["files"]) != FILES
         or manifest["builder_sha256"] != digest(root / "scripts/build_expanded_report.py")
         or manifest["evidence_sha256"] != digest(folder / "metadata.json")
+        or manifest.get("retrieval_sha256")
+        != (
+            digest(root / "reports/retrieval/metadata.json")
+            if (root / "reports/retrieval/metadata.json").exists()
+            else None
+        )
         or any(digest(folder / name) != sha for name, sha in manifest["files"].items())
     ):
         raise ValueError("Expanded-study figure contract differs")

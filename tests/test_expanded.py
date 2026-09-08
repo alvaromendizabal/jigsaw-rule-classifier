@@ -182,6 +182,7 @@ def test_complete_small_study_and_resume_without_refitting(tmp_path, monkeypatch
     evidence["metadata"] = {
         "run_id": directory.name,
         "private_checkpoint_sha256": digest(directory / "review/complete.json"),
+        "files": {name: digest(directory / "review" / name) for name in expanded.PUBLIC_FILES},
     }
     monkeypatch.setattr(retrieval, "expanded_evidence", lambda root: evidence)
     monkeypatch.setattr(retrieval, "load_development", lambda root: data)
@@ -194,6 +195,16 @@ def test_complete_small_study_and_resume_without_refitting(tmp_path, monkeypatch
     assert len(retrieval_oof) == 120 * 5 * 2
     assert len(list(retrieval_run.glob("*_model_*/complete.json"))) == 30
     assert retrieval.retrieval_evidence(tmp_path) is not None
+    from scripts import verify_expanded
+
+    monkeypatch.setattr(verify_expanded, "expanded_evidence", lambda root: evidence)
+    monkeypatch.setattr(verify_expanded, "load_development", lambda root: data)
+    monkeypatch.setattr(verify_expanded, "load_plan", lambda root: plan)
+    checked = verify_expanded.verify(tmp_path)
+    assert checked["expanded_metric_records"] == 90
+    assert checked["retrieval_metric_records"] == 10
+    assert checked["model_prediction_replays"] == 12
+    assert checked["new_model_fits"] == 0
     before = {p: digest(p) for p in directory.glob("*/complete.json")}
 
     def forbidden(*args, **kwargs):
@@ -233,3 +244,24 @@ def test_cloud_archive_rejects_traversal_before_writing(tmp_path):
     with pytest.raises(ValueError, match="safe regular"):
         extract(archive, root)
     assert not (tmp_path / "escaped").exists()
+
+
+def test_resume_ignores_files_from_interrupted_cloud_upload():
+    from scripts.expanded_processing import restorable_objects
+
+    prefix = "experiments/expanded-features-test/checkpoint/"
+    names = [
+        "runs/embeddings/cache/contract.json",
+        "runs/embeddings/cache/batch_done/inputs.json",
+        "runs/embeddings/cache/batch_done/vectors.npy",
+        "runs/embeddings/cache/batch_done/complete.json",
+        "runs/embeddings/cache/batch_incomplete/inputs.json",
+        "runs/expanded/study/provenance.json",
+        "runs/expanded/study/unfinished/model.joblib",
+    ]
+    entries = [{"Key": prefix + name} for name in names]
+    restored = {x["Key"][len(prefix) :] for x in restorable_objects(entries, prefix)}
+    assert len(restored) == 5
+    assert not any("incomplete" in name or "unfinished" in name for name in restored)
+    with pytest.raises(ValueError, match="outside"):
+        restorable_objects([{"Key": "unrelated/private"}], prefix)

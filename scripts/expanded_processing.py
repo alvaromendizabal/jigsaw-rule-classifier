@@ -23,6 +23,26 @@ RELEASE_SHA = "0b809ee83a0925d77be5f11e29dc60e5af46e6523366b24348bb5259d41ab967"
 ROOTS = ("runs/embeddings/", "runs/expanded_embeddings/", "runs/expanded/")
 
 
+def restorable_objects(entries: list[dict], prefix: str) -> list[dict]:
+    """Ignore an interrupted upload until its stage completion marker exists."""
+    keys = {item["Key"] for item in entries}
+    if any(not key.startswith(prefix) for key in keys):
+        raise ValueError("Checkpoint entry is outside the requested prefix")
+    result = []
+    for item in entries:
+        relative = item["Key"][len(prefix) :]
+        path = Path(relative)
+        marker = prefix + path.parent.as_posix() + "/complete.json"
+        standalone = len(path.parts) == 4 and path.name in {
+            "contract.json",
+            "provenance.json",
+            "completed.json",
+        }
+        if marker in keys or standalone:
+            result.append(item)
+    return result
+
+
 def sha256(path: Path) -> str:
     value = hashlib.sha256()
     with path.open("rb") as stream:
@@ -126,6 +146,8 @@ def main() -> None:
             Bucket=bucket, Prefix=checkpoint_prefix, **expected
         ):
             entries.extend(page.get("Contents", []))
+        listed_count = len(entries)
+        entries = restorable_objects(entries, checkpoint_prefix)
 
         def restore_checkpoint(item) -> None:
             relative = item["Key"][len(checkpoint_prefix) :]
@@ -143,7 +165,11 @@ def main() -> None:
 
         with ThreadPoolExecutor(max_workers=8) as pool:
             list(pool.map(restore_checkpoint, entries))
-        emit("prior_checkpoint_restored", files=len(entries))
+        emit(
+            "prior_checkpoint_restored",
+            files=len(entries),
+            uncommitted_objects_ignored=listed_count - len(entries),
+        )
     originals = {p.relative_to(root).as_posix() for p in (root / "runs").rglob("complete.json")}
     # Resumed stages need copying to this run's prefix; the original 32 embedding
     # shards remain in the pinned source snapshot and are never duplicated.
