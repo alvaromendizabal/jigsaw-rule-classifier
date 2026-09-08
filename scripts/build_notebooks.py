@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import ast
 import hashlib
 from pathlib import Path
 
@@ -183,6 +182,24 @@ def notebooks():
             ),
         ]
     )
+    feature_sections = [
+        (
+            "md",
+            "## Next experiment · task-informed feature ablations\n\n**Hypothesis:** a rule violation depends on a comment's relationship to the supplied policy and its positive/negative examples, not toxicity alone. Word overlap, character similarity, and contrastive support statistics probe different relationships. Structural cues can also be shortcuts, so they are tested separately.\n\nFour predeclared candidates share the same training-only word vocabulary and saved, purged reference splits. They add (1) rule text similarity, (2) order-invariant positive/negative support contrasts, (3) writing structure, or (4) all groups. The combined candidate has 26 dense features plus the sparse comment representation. No validation labels enter vocabulary, scaling, or feature construction.\n\nRun `.venv/bin/python -m jigsaw_rules.cli features --cloud --export` in your existing SageMaker checkout. This is a new CPU experiment, not a rerun of the lexical/Qwen baselines. It makes **no submission CSV**. Completed folds are resumed; S3 checkpoints follow each fold. The fixed reference remains unchanged.",
+        ),
+        (
+            "code",
+            'import subprocess\nimport sys\nfrom jigsaw_rules.features import feature_evidence\n\n# Opt in only in your own configured workspace. Publication keeps this False.\nRUN_FEATURE_EXPERIMENT = False\nCHECKPOINT_TO_S3 = True\nif RUN_FEATURE_EXPERIMENT:\n    command = [sys.executable, "-m", "jigsaw_rules.cli", "features", "--export"]\n    if CHECKPOINT_TO_S3:\n        command.append("--cloud")\n    subprocess.run(command, cwd=root, check=True)\nfeature_run = feature_evidence(root)\nif feature_run is None:\n    print("Feature ablation code is ready; no competition-data ablation results are published yet.")\nelse:\n    feature_table = pd.DataFrame([{"Candidate": r["model"], "Protocol": r["protocol"],\n        "Rule macro AUC": r["metrics"]["rule_macro_auc"], "Log loss": r["metrics"]["log_loss"],\n        "Brier": r["metrics"]["brier"], "Original fit seconds": r["fit_seconds"]}\n        for r in feature_run["results"]])\n    display(feature_table.round(4))\n    display(pd.DataFrame(feature_run["audit"]).round(4))\n    intervals = pd.DataFrame(feature_run["uncertainty"])\n    display(intervals.loc[:, ["model", "protocol", "observed_delta", "ci_lower", "ci_upper"]].round(4))\n    import matplotlib.pyplot as plt\n    held = intervals.loc[intervals.protocol == "heldout_rule"].sort_values("observed_delta")\n    fig, ax = plt.subplots(figsize=(9, 4.5))\n    positions = range(len(held))\n    ax.hlines(positions, held.ci_lower, held.ci_upper)\n    ax.scatter(held.observed_delta, positions)\n    ax.axvline(0, linestyle="--", linewidth=1)\n    ax.set_yticks(list(positions), held.model.str.replace("_", " "))\n    ax.set_xlabel("Held-out rule macro AUC difference from the fixed lexical reference")\n    ax.set_title("Task-informed feature ablations | paired 95% group-bootstrap intervals")\n    ax.spines[["top", "right"]].set_visible(False)\n    fig.tight_layout()\n    from io import StringIO\n    from IPython.display import SVG\n    buffer = StringIO()\n    fig.savefig(buffer, format="svg")\n    display(SVG(buffer.getvalue()))\n    plt.close(fig)\n    coefficients = pd.DataFrame(feature_run["coefficients"])\n    combined = coefficients.loc[coefficients.model == "combined"]\n    display(combined.groupby(["protocol", "feature"]).coefficient.agg(["mean", "min", "max"]).round(4))\n',
+        ),
+        (
+            "md",
+            "### How to read the next results\nCompare each candidate against the preserved rule/example reference on the **same rows**. Inspect held-out rule macro AUC first, then each rule, log loss, Brier score, and paired comment-group intervals. These four-candidate exploratory intervals are not multiplicity-adjusted; they do not certify a winner. No automatic promotion, calibration claim, or leaderboard claim is made.\n\nWriting-structure associations and standardized dense coefficients are descriptive, not causal, and only two rules are observed. Coefficient ranges show sensitivity across folds; different regularization/scaling means this comparison is not solely a feature-count experiment. Candidate improvement here should motivate a separately validated joint rule/comment encoder, not a claim that lexical features solve arbitrary policy understanding.",
+        ),
+    ]
+    nb = outputs["notebooks/02_baseline_and_review.ipynb"]
+    outputs["notebooks/02_baseline_and_review.ipynb"] = notebook(
+        [(c.cell_type.replace("markdown", "md"), c.source) for c in nb.cells] + feature_sections
+    )
     model = (ROOT / "src/jigsaw_rules/model.py").read_text()
     model = model.replace("from __future__ import annotations\n", "").replace(
         "from jigsaw_rules.data import EXAMPLES\n", ""
@@ -192,56 +209,66 @@ def notebooks():
         .read_text()
         .replace("from __future__ import annotations\n", "")
     )
-    runtime = (ROOT / "src/jigsaw_rules/runtime.py").read_text()
-    progress_node = next(
-        n for n in ast.parse(runtime).body if isinstance(n, ast.ClassDef) and n.name == "Progress"
+    runtime = (
+        (ROOT / "src/jigsaw_rules/runtime.py")
+        .read_text()
+        .replace("from __future__ import annotations\n", "")
     )
-    progress_code = ast.get_source_segment(runtime, progress_node)
+    submission = (ROOT / "src/jigsaw_rules/submission.py").read_text()
+    submission = "\n".join(
+        line
+        for line in submission.splitlines()
+        if not line.startswith("from jigsaw_rules.")
+        and line != "from __future__ import annotations"
+    )
+    source_sha = hashlib.sha256((data + model + runtime + submission).encode()).hexdigest()
     outputs["kaggle/submission.ipynb"] = notebook(
         [
             (
                 "md",
-                "# Jigsaw · Rule and example baseline\n\nSelf-contained offline CPU inference. Add the official competition dataset, disable internet, then **Save Version → Save & Run All**. The official runtime limit is 12 hours. The completed notebook writes `/kaggle/working/submission.csv`.\n\nThis is a reference baseline; no medal-level result is claimed. The competition ended October 23, 2025. A late-submission button was visible but disabled while signed out on September 7, 2026; authenticated eligibility is unverified.\n\nSource: https://www.kaggle.com/competitions/jigsaw-agile-community-rules/overview",
+                "# Jigsaw · Generate and download your submission\n\nRun this notebook yourself to fit the unchanged lexical reference, generate predictions, validate the CSV, and display a **Download submission.csv** link. Nothing is uploaded or submitted to Kaggle automatically.\n\nWorks in SageMaker/Jupyter and Kaggle. On Kaggle, attach the official competition data and disable internet. A preview CSV is not a leaderboard score. This completed competition's late-scoring eligibility is not assumed.\n\n**Recovery:** completed model fitting and prediction batches are checksummed and reusable. An interrupted active fit or batch restarts; correct earlier work is kept. Private output and download payloads must never be committed to the public repository.",
             ),
             (
                 "code",
-                "from __future__ import annotations\nimport os\nos.environ['OMP_NUM_THREADS'] = '2'\nos.environ['OPENBLAS_NUM_THREADS'] = '2'\nimport hashlib\nimport json\nimport threading\nimport time\nfrom datetime import UTC, datetime\nfrom typing import Any\nfrom pathlib import Path\nimport importlib.metadata\n",
+                "from __future__ import annotations\nimport os\nos.environ['OMP_NUM_THREADS'] = '2'\nos.environ['OPENBLAS_NUM_THREADS'] = '2'",
             ),
             (
                 "md",
-                "## Canonical validated schema and model\nThe following cells are generated directly from the repository's schema and model modules. CI checks that they match the package.",
+                "## Canonical schema, model, and resumable runtime\nThese cells are generated from the tested package modules. No downloads, external model calls, or Kaggle API calls are required.",
             ),
             ("code", data),
             ("code", model),
-            ("code", progress_code),
+            ("code", runtime),
+            ("code", submission),
+            (
+                "md",
+                "## Generate locally\n`GENERATE_SUBMISSION` controls this action. Running with `True` creates or resumes your own output; `False` performs no inference. Paths are detected from the project or Kaggle environment. The source/data/environment fingerprint prevents stale checkpoint reuse.",
+            ),
             (
                 "code",
-                """input_root = Path(os.environ.get("JIGSAW_KAGGLE_INPUT", "/kaggle/input/jigsaw-agile-community-rules"))
-output_root = Path(os.environ.get("JIGSAW_KAGGLE_OUTPUT", "/kaggle/working"))
-output_root.mkdir(parents=True, exist_ok=True)
-with Progress(output_root / "events.jsonl", "offline_submission") as log:
-    train, test, sample = load_data(input_root)
-    log.emit("data_validated", train_rows=len(train), test_rows=len(test))
-    model = LexicalClassifier(context=True).fit(train)
-    log.emit("model_fitted")
-    pieces = []
-    for offset in range(0, len(test), 5000):
-        pieces.append(model.predict(test.iloc[offset:offset + 5000]))
-        log.emit("prediction_batch", completed_rows=min(offset + 5000, len(test)), total_rows=len(test))
-    submission = pd.DataFrame({"row_id": test.row_id, "rule_violation": np.concatenate(pieces)})
-    validate_submission(submission, sample)
-    temporary = output_root / "submission.csv.partial"
-    submission.to_csv(temporary, index=False)
-    os.replace(temporary, output_root / "submission.csv")
-    manifest = {
-        "rows": len(submission),
-        "synthetic": (input_root / "SYNTHETIC.txt").exists(),
-        "input_hashes": {name: hashlib.sha256((input_root / name).read_bytes()).hexdigest() for name in FILES},
-        "packages": {name: importlib.metadata.version(name) for name in ["numpy", "pandas", "scipy", "scikit-learn"]},
-    }
-    (output_root / "submission_manifest.json").write_text(json.dumps(manifest, indent=2))
-    log.emit("SUBMISSION_VALIDATED", rows=len(submission))
-submission.head()""",
+                f'''GENERATE_SUBMISSION = True
+candidates = [Path.cwd(), *Path.cwd().parents]
+project = next((p for p in candidates if (p / "src/jigsaw_rules").is_dir()), None)
+on_kaggle = Path("/kaggle/input").is_dir()
+default_input = Path("/kaggle/input/jigsaw-agile-community-rules") if on_kaggle else (project or Path.cwd()) / "data/raw"
+default_output = Path("/kaggle/working") if on_kaggle else (project or Path.cwd()) / "kaggle_output"
+input_root = Path(os.environ.get("JIGSAW_KAGGLE_INPUT", str(default_input)))
+output_root = Path(os.environ.get("JIGSAW_KAGGLE_OUTPUT", str(default_output)))
+default_cache = project / "runs/submission_cache" if project and not on_kaggle else output_root / "checkpoints"
+cache_root = Path(os.environ.get("JIGSAW_SUBMISSION_CACHE", str(default_cache)))
+submission_path = None
+if GENERATE_SUBMISSION:
+    submission_path = generate_submission(input_root, output_root, cache_root, source_sha256="{source_sha}")
+else:
+    print("Generation disabled. No CSV created, no model fitted, no upload performed.")''',
+            ),
+            (
+                "md",
+                "## Download your validated file\nThe link below is created only after validation and checksum verification. Click it to download your file. For files over 10 MB, use the output file browser instead of embedding a large payload. You decide whether and when to submit.",
+            ),
+            (
+                "code",
+                'from IPython.display import HTML, display\nif submission_path is not None:\n    display(HTML(download_link(submission_path)))\n    print("Local output:", submission_path)\n    print("No Kaggle submission or upload was made.")',
             ),
         ]
     )

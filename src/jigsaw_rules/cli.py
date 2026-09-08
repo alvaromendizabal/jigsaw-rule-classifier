@@ -29,6 +29,7 @@ def main() -> None:
             "review",
             "semantic",
             "model-download",
+            "features",
         ],
     )
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -38,9 +39,15 @@ def main() -> None:
         "--allow-synthetic", action="store_true", help="Allow a labeled demo review"
     )
     parser.add_argument(
-        "--cloud", action="store_true", help="Back up after every completed baseline stage"
+        "--cloud", action="store_true", help="Back up after every completed experiment stage"
+    )
+    parser.add_argument("--baseline-run", default="c15c2c2318fc0ed619c6")
+    parser.add_argument(
+        "--export", action="store_true", help="Publish reviewed aggregate feature evidence"
     )
     args = parser.parse_args()
+    if args.export and args.command != "features":
+        parser.error("--export is only available for the feature experiment")
     root = args.root.resolve()
     config = None
     if args.cloud or args.command in {"backup", "restore"}:
@@ -81,6 +88,13 @@ def main() -> None:
                 run_semantic(root, spec, cloud=config)
             else:
                 prepare_model(root, spec)
+        elif args.command == "features":
+            from jigsaw_rules.features import export_features, run_features
+
+            directory = run_features(root, args.baseline_run, cloud=config)
+            if args.export:
+                export_features(root, directory)
+                print("FEATURE_AGGREGATES_EXPORTED")
         elif args.command == "backup":
             backup(root, config["bucket"], config["region"])
         elif args.command == "review":

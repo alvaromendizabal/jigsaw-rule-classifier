@@ -42,6 +42,8 @@ def workspace(tmp_path, monkeypatch):
     git(seed, "config", "user.email", "workspace@example.invalid")
     (seed / "notebooks").mkdir()
     (seed / NOTEBOOK).write_bytes(b'{"original": true}\n')
+    (seed / "kaggle").mkdir()
+    (seed / "kaggle/submission.ipynb").write_bytes(b'{"original": true}\n')
     (seed / "source.py").write_text("original = True\n")
     (seed / ".gitignore").write_text(".venv/\ndata/\nruns/\nconfigs/local.json\n")
     git(seed, "add", ".")
@@ -182,3 +184,19 @@ def test_failed_quality_gate_never_executes_notebooks(workspace, monkeypatch):
     result = continuation()
     assert result.returncode == 7
     assert calls(local) == ["scripts/verify.py"]
+
+
+@pytest.mark.parametrize("staged", [False, True])
+def test_user_executed_submission_notebook_is_preserved(workspace, staged):
+    local, seed, _ = workspace
+    name = "kaggle/submission.ipynb"
+    (local / name).write_bytes(LOCAL)
+    if staged:
+        git(local, "add", name)
+    (seed / name).write_bytes(REMOTE)
+    git(seed, "commit", "-am", "test: refresh canonical inference source")
+    git(seed, "push", "origin", "main")
+    result = continuation()
+    assert result.returncode == 0, result.stderr
+    assert (local / name).read_bytes() == REMOTE
+    assert git(local, "show", f"stash@{{0}}:{name}").stdout.encode() == LOCAL
