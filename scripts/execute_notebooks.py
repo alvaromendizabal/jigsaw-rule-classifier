@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import os
+import subprocess
 import sys
 from datetime import UTC, datetime
 from importlib.metadata import version
@@ -70,7 +71,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
     if mode == "public":
         paths += [
             p
-            for kind in ("baseline", "semantic")
+            for kind in ("baseline", "semantic", "features")
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")
         ]
@@ -184,6 +185,7 @@ def execute_one(root: Path, work: Path, path: Path, mode: str, engine: str, log:
                 "JIGSAW_CLOUD": "0",
                 "JIGSAW_KAGGLE_INPUT": str(work / "data/raw"),
                 "JIGSAW_KAGGLE_OUTPUT": str(target),
+                "JIGSAW_SUBMISSION_CACHE": str(root / "runs/submission_cache"),
             }
         )
         with Progress(
@@ -256,6 +258,110 @@ def execute_one(root: Path, work: Path, path: Path, mode: str, engine: str, log:
     return committed / path.name
 
 
+PUBLIC_ORIGINS = {
+    "https://github.com/alvaromendizabal/jigsaw-rule-classifier.git",
+    "https://github.com/alvaromendizabal/jigsaw-rule-classifier",
+    "git@github.com:alvaromendizabal/jigsaw-rule-classifier.git",
+}
+
+
+def push_publication(root: Path, branch: str) -> str:
+    """Explicitly commit/push an allowlist; preserve private files and unrelated edits."""
+    from jigsaw_rules.features import feature_evidence
+    from scripts.build_notebooks import notebooks, same_sources
+
+    def git(*arguments: str) -> str:
+        return subprocess.run(
+            ["git", *arguments], cwd=root, check=True, capture_output=True, text=True
+        ).stdout.strip()
+
+    with Progress(root / "logs/notebook_execution.jsonl", "github_publication") as log:
+        if not branch.startswith("results/"):
+            raise ValueError("Publication requires a dedicated results/... branch")
+        git("check-ref-format", "--branch", branch)
+        if git("remote", "get-url", "origin") not in PUBLIC_ORIGINS:
+            raise ValueError("Origin is not the expected Jigsaw repository")
+        if git("diff", "--cached", "--name-only"):
+            raise ValueError("Preserve existing staged changes before publication")
+        current = git("branch", "--show-current")
+        if current not in {"main", branch}:
+            raise ValueError("Start publication on main or the requested results branch")
+        paths = [str(p.relative_to(root)) for p in select_notebooks(root, None, "public")]
+        expected = notebooks()
+        payloads = {}
+        for name in paths:
+            payloads[name] = (root / name).read_bytes()
+            nb = nbformat.reads(payloads[name].decode(), as_version=4)
+            validate_execution(nb)
+            if not same_sources(nb, expected[name]):
+                raise ValueError("Rebuild canonical notebook sources before publication")
+            verification = nb.metadata.get("verification", {})
+            if verification.get("mode") != "public" or verification.get("engine") != "jupyter":
+                raise ValueError("Publication requires actual public Jupyter execution")
+            contract = execution_contract(root, root, nb, "public", "jupyter")
+            key = hashlib.sha256(json.dumps(contract, sort_keys=True).encode()).hexdigest()[:20]
+            if verification.get("contract_sha256") != key:
+                raise ValueError("Notebook evidence is stale; execute all five before pushing")
+        evidence = feature_evidence(root)
+        if evidence is not None:
+            source = {p.name: digest(p) for p in (root / "src/jigsaw_rules").glob("*.py")}
+            if source != evidence["metadata"]["source_sha256"]:
+                raise ValueError("Feature evidence was produced by different source code")
+            paths += ["reports/features/metadata.json"]
+            paths += ["reports/features/" + name for name in evidence["metadata"]["files"]]
+            for name in paths:
+                if name not in payloads:
+                    payloads[name] = (root / name).read_bytes()
+            for name, sha in evidence["metadata"]["files"].items():
+                if hashlib.sha256(payloads["reports/features/" + name]).hexdigest() != sha:
+                    raise ValueError("Feature files changed during publication")
+        outside = set(git("diff", "--name-only").splitlines()) - set(paths)
+        untracked_source = git("ls-files", "--others", "--exclude-standard", "--", "src", "scripts")
+        if outside or untracked_source:
+            raise ValueError("Unpublished source or unrelated edits exist; they were not changed")
+        if current != branch:
+            existing = git("branch", "--list", branch)
+            if existing:
+                if git("rev-parse", branch) != git("rev-parse", "HEAD"):
+                    raise ValueError("Results branch exists at another commit; choose a new name")
+                git("switch", branch)
+            else:
+                git("switch", "-c", branch)
+        git("add", "--", *paths)
+        git("diff", "--cached", "--check")
+        staged = set(git("diff", "--cached", "--name-only").splitlines())
+        if not staged.issubset(paths):
+            raise ValueError("Staged files exceed the public allowlist; push refused")
+        for name in staged:
+            indexed = subprocess.run(
+                ["git", "show", ":" + name], cwd=root, check=True, capture_output=True
+            ).stdout
+            if indexed != payloads[name]:
+                raise ValueError("Public file changed while staging; push refused")
+        if staged:
+            run_id = evidence["metadata"]["run_id"] if evidence else "recorded-reference-review"
+            git(
+                "commit",
+                "-m",
+                "results: publish verified notebook evidence",
+                "-m",
+                f"Evidence run: {run_id}. Canonical notebooks executed in Jupyter; "
+                "only checksummed aggregate reports are included. Private data, predictions, "
+                "credentials, submissions, and checkpoints remain excluded. "
+                "No automatic model promotion or Kaggle upload.",
+            )
+            log.emit("public_commit_created", files=len(staged))
+        commit = git("rev-parse", "HEAD")
+        if staged and not set(
+            git("diff-tree", "--no-commit-id", "--name-only", "-r", commit).splitlines()
+        ).issubset(paths):
+            raise ValueError("Concurrent staged changes entered the commit; push refused")
+        git("push", "--set-upstream", "origin", branch)
+        log.emit("GITHUB_PUSHED", branch=branch, commit=commit)
+        print("Open a results pull request on GitHub; merge only after Quality passes.")
+        return commit
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     modes = parser.add_mutually_exclusive_group()
@@ -270,7 +376,13 @@ def main() -> None:
         "--publish", action="store_true", help="Atomically update canonical notebooks"
     )
     parser.add_argument("--engine", choices=["jupyter", "inprocess"], default="jupyter")
+    parser.add_argument(
+        "--push-branch",
+        help="Explicitly commit/push verified public outputs to a results/... branch",
+    )
     args = parser.parse_args()
+    if args.push_branch and (not args.publish or args.kaggle or args.synthetic):
+        parser.error("--push-branch requires --publish in public mode")
     mode = "synthetic" if args.synthetic else "kaggle" if args.kaggle else "public"
     if args.publish and mode != "public":
         parser.error("--publish is only available for public aggregate notebooks")
@@ -296,6 +408,9 @@ def main() -> None:
                             work / "kaggle_output" / name, (executed.parent / name).read_bytes()
                         )
             log.emit("NOTEBOOKS_VERIFIED", notebooks=len(paths), mode=mode, published=args.publish)
+
+    if args.push_branch:
+        push_publication(root, args.push_branch)
 
 
 if __name__ == "__main__":

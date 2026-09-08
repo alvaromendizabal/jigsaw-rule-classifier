@@ -27,6 +27,12 @@ The frozen margin fits no fold labels, so its identical predictions in both prot
 
 The frozen **Qwen3-Embedding-0.6B** experiment took **1,004.7 seconds** on CPU after weights were downloaded, peaked at **3.854 GiB** process memory, and truncated **1 of 1,875** unique inputs at 256 tokens. Those are original experiment measurements, not notebook-rendering times. Original runs: lexical `c15c2c2318fc0ed619c6`; semantic `4e7e6c00d269c451c0a3`. [Lexical evidence](reports/baseline/README.md) · [Semantic evidence](reports/semantic/README.md).
 
+## Continue from the saved work
+
+The next controlled feature experiment and its analysis live in the existing [02 · Baseline and review](notebooks/02_baseline_and_review.ipynb). Four CPU candidates test word/character rule similarity, positive/negative support contrasts, writing structure, and their combination on the preserved, purged reference splits. The combined candidate adds 26 dense features to the sparse comment representation. New competition-data results are not claimed until that experiment is run and its checksummed aggregates are published.
+
+Submission generation belongs to you: run the canonical [Kaggle notebook](kaggle/submission.ipynb) to generate, validate, and click to download your own CSV. Fitted-model and prediction-batch checkpoints survive notebook restarts; no Kaggle upload is automatic. [START_HERE.md](START_HERE.md) contains the exact existing-SageMaker continuation and guarded AWS-to-GitHub results-push command. The five-notebook employer review path is unchanged.
+
 ## Notebook review path
 
 | Notebook | Purpose |
