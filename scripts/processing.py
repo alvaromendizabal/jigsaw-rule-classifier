@@ -42,7 +42,7 @@ def extract(archive, root):
 def main():
     bucket, prefix = os.environ["JIGSAW_BUCKET"], os.environ["JIGSAW_PREFIX"]
     command = os.environ.get("JIGSAW_COMMAND", "pairs")
-    if command not in {"pairs", "instructions"}:
+    if command not in {"pairs", "instructions", "notebooks"}:
         raise ValueError("Unknown frozen-feature experiment")
     root = Path("/opt/ml/processing/work/jigsaw")
     root.mkdir(parents=True, exist_ok=True)
@@ -87,6 +87,27 @@ def main():
     )
     python = str(root / ".venv/bin/python")
     emit("environment_ready")
+    if command == "notebooks":
+        for arguments in (["--publish"], ["--publish"], ["--synthetic"]):
+            subprocess.run(
+                [python, "scripts/execute_notebooks.py", *arguments], cwd=root, check=True
+            )
+        outputs = sorted((root / "notebooks").glob("*.ipynb"))
+        outputs.append(root / "logs/notebook_execution.jsonl")
+        archive = root.parent / "executed-notebooks.tar.gz"
+        with tarfile.open(archive, "w:gz") as stream:
+            for path in outputs:
+                stream.add(path, arcname=path.relative_to(root), recursive=False)
+        s3.upload_file(str(archive), bucket, prefix + "/public/executed-notebooks.tar.gz")
+        emit(
+            "completed",
+            archive_sha256=sha256(archive),
+            archive_bytes=archive.stat().st_size,
+            notebooks=len(outputs) - 1,
+            jupyter=True,
+            checkpoint_reuse=True,
+        )
+        return
     manifest_path = root / "snapshot.json"
     s3.download_file(
         bucket,
@@ -124,6 +145,7 @@ def main():
     subprocess.run([python, "-c", extraction, str(broad), str(root)], cwd=root, check=True)
     # The broad archive contains its older sources. Restore the reviewed new sources.
     subprocess.run([python, "-c", extraction, str(source), str(root)], cwd=root, check=True)
+    original_directories = {p.name for p in (root / "runs").iterdir() if p.is_dir()}
     resume_prefix = os.environ.get("JIGSAW_RESUME_PREFIX")
     if resume_prefix:
         checkpoint_prefix = resume_prefix.rstrip("/") + "/checkpoint/"
@@ -171,7 +193,6 @@ def main():
         cwd=root,
         check=True,
     )
-    original_directories = {p.name for p in (root / "runs").iterdir() if p.is_dir()}
     uploaded = set()
     stop = threading.Event()
     errors = []

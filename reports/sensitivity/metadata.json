@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "data_kind": "competition",
-  "run_id": "28fdc0063dd3085842da",
-  "source_sha256": "9c4c4a444242a392d8ceaa41f18a7330d17dea9c3778b4446525fd7865d968b0",
+  "run_id": "bce07fd60bc7543fca49",
+  "source_sha256": "ef8490b5f60dec36c7978ccef42c62dcddb820ac819ac51e3849c85b5e41dbf9",
   "broad_run": "9ec008d506b0bc64a717",
   "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
   "variants": [
@@ -18,6 +18,13 @@
     "latent_qwen_body",
     "latent_qwen_interaction"
   ],
+  "python": "3.12.13",
+  "software": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
   "files": {
     "results.json": "c7bdec98ef9ec93ba12d5bf3a81272be24adee7e54daa15ab07f1e93fe165fe7",
     "uncertainty.json": "a0f87a075e4976a0f78e5169517c2521549630f47536528d577b659eac93b757",

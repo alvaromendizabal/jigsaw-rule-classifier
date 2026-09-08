@@ -11,8 +11,8 @@ Built by Alvaro Mendizabal. The work combines rule-conditioned NLP, training-onl
 ## Research at a glance
 
 - **2,029 labeled comments, two rule types, 100 communities.** Both familiar-rule and held-out-rule validation use saved, duplicate-purged splits.
-- **89,023–104,764 candidate columns per fold** across the broad and NLI banks; **4,892–7,948 retained** before final family selection. Five additional 128-component low-rank alternatives test compression of already-counted matrices.
-- **105 broad-study fits**, **55 sensitivity/control fits**, **25 frozen-NLI feature fits**, and **10 near-copy stress fits**, with fixed classifier settings. Earlier references and the four-candidate study are preserved.
+- **89,059–104,800 candidate columns per fold** across the broad, NLI and instruction banks; **4,919–7,975 retained** before final family selection. Five additional 128-component low-rank alternatives test compression of already-counted matrices.
+- **105 broad-study fits**, **55 sensitivity/control fits**, **25 frozen-NLI feature fits**, **10 near-copy stress fits**, and **15 instruction-feature fits**, with fixed classifier settings. Earlier references and the four-candidate study are preserved.
 - Matched family additions, leave-one-family-out ablations, within-rule permutation, coefficient contributions, selection stability, and paired pointwise/simultaneous uncertainty.
 - Pinned model revisions, completed-stage hashes, private OOF verification, encrypted S3 checkpoints, canonical executed notebooks, and Plotly figures with static SVG fallbacks.
 
@@ -32,10 +32,11 @@ These are **local rule-macro ROC AUC** results, not Kaggle scores. Lower log los
 | Frozen normalized Qwen centroid margin | 0.6416 | 0.6693 | 0.2385 |
 | All transferable broad feature families | 0.5543 | 1.2933 | 0.3399 |
 | Screened words + frozen NLI features | 0.5964 | 0.6964 | 0.2475 |
+| Screened words + fixed instruction likelihoods | 0.5755 | 0.6958 | 0.2495 |
 
-Compact semantic geometry and character patterns are the most promising tested families. The centroid's observed improvement over the historical reference is **+0.0260 AUC**, with a pointwise paired 95% interval of **−0.0056 to +0.0578**. It remains an exploratory candidate. No positive feature-engineering uplift has independent confirmation.
+Compact semantic geometry and character patterns are the most promising tested families. The centroid's observed improvement over the historical reference is **+0.0260 AUC**, with a pointwise paired 95% interval of **−0.0056 to +0.0578**. Its gain comes from advertising; legal-advice AUC declines slightly. It remains an exploratory candidate, without independent confirmation or improvement across both held-out policies.
 
-Negative findings are retained: high-dimensional structural expansion, raw embedding-coordinate selection, community/target encodings, NB weighting, low-rank alternatives and the tested frozen NLI representations do not establish a better transfer model. A larger feature bank performs worse; model complexity is not used to conceal that result. [Complete study and feature catalog](docs/FEATURE_RESEARCH.md).
+Negative findings are retained: high-dimensional structural expansion, raw embedding-coordinate selection, community/target encodings, NB weighting, low-rank alternatives and the tested frozen NLI/instruction representations do not establish a better transfer model. A larger feature bank performs worse; model complexity is not used to conceal that result. [Complete study and feature catalog](docs/FEATURE_RESEARCH.md).
 
 ## Validation and leakage prevention
 

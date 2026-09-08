@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import sys
+from importlib.metadata import version
 from pathlib import Path
 
 import joblib
@@ -143,6 +145,8 @@ def run_diagnostics(root: Path) -> Path:
         "broad_run": broad.name,
         "training_sha256": digest(root / "data/raw/train.csv"),
         "variants": FIT_VARIANTS,
+        "python": sys.version.split()[0],
+        "software": {name: version(name) for name in ("numpy", "scipy", "scikit-learn", "joblib")},
     }
     directory = root / "runs" / content_key(identity)[:20]
     with (

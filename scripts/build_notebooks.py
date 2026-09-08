@@ -231,7 +231,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## 9 · Fixed instruction likelihoods\nA separate frozen Qwen3-0.6B probe scores Yes/No token likelihoods under three fixed templates: rule only, examples only, and both. Thinking and generation are disabled. There is no competition-label fine-tuning or prompt sweep. Thirty-six probability, margin, answer-mass and context-difference candidates feed the same fixed classifier, with lexical and semantic additions. Support examples are sorted within their label groups. Field budgets preserve the question when text is long. A general NLI failure does not settle this task-aligned representation hypothesis.",
+                "## 9 · Fixed instruction likelihoods\nA separate frozen Qwen3-0.6B probe scores Yes/No token likelihoods under three fixed templates: rule only, examples only, and both. Thinking and generation are disabled. There is no competition-label fine-tuning or prompt sweep. Thirty-six probability, margin, answer-mass and context-difference candidates feed the same fixed classifier, with lexical and semantic additions. Support examples are sorted within their label groups. Field budgets preserve the question when text is long. The completed probe does not improve held-out-rule performance. These negative results apply to this fixed small model and its documented field budgets; they do not establish failure of every instruction model.",
             ),
             (
                 "code",

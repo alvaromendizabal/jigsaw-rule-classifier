@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "data_kind": "competition",
+  "run_id": "96bf69f42f9063e01a12",
+  "source_sha256": "2d26a0ec65d6ab2c68700f8e75fcd4f948b492f6c8e9121e267f7cc0b213fb4d",
+  "support_geometry_sha256": "fefed08a621919953ad0f611f52dc956f8555da3e35a9be8c2ff1dffcac81d5a",
+  "config": {
+    "model_id": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "files": {
+      "LICENSE": {
+        "algorithm": "git-sha1",
+        "digest": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+      },
+      "README.md": {
+        "algorithm": "git-sha1",
+        "digest": "a50b19e76f5274f9ec99f5a5d99873dca5bff25e"
+      },
+      "config.json": {
+        "algorithm": "git-sha1",
+        "digest": "f5c3703b78ae2a478ae15b247e9f855e0ce2107b"
+      },
+      "generation_config.json": {
+        "algorithm": "git-sha1",
+        "digest": "20a8a9156fc8c3f25295ca067f61fdf120d517c5"
+      },
+      "merges.txt": {
+        "algorithm": "git-sha1",
+        "digest": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7"
+      },
+      "model.safetensors": {
+        "algorithm": "sha256",
+        "digest": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b"
+      },
+      "tokenizer.json": {
+        "algorithm": "sha256",
+        "digest": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      "tokenizer_config.json": {
+        "algorithm": "git-sha1",
+        "digest": "417d038a63fa3de29cfde265caedae14d1a58d92"
+      },
+      "vocab.json": {
+        "algorithm": "git-sha1",
+        "digest": "4783fe10ac3adce15ac8f358ef5462739852c569"
+      }
+    },
+    "threads": 4,
+    "workers": 4,
+    "batch_size": 4,
+    "body_tokens": 128,
+    "support_tokens": 64,
+    "rule_tokens": 80,
+    "seed": 2025,
+    "enable_thinking": false,
+    "description": "Frozen instruction likelihood features; fixed templates, no generative sampling or fine-tuning."
+  },
+  "broad_run": "9ec008d506b0bc64a717",
+  "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "software": {
+    "torch": "2.10.0+cpu",
+    "transformers": "4.57.6",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0"
+  },
+  "files": {
+    "results.json": "c7dafa073c7e4c72cee0016de6a9db90113881bd464e6e505996068e51414216",
+    "uncertainty.json": "60a634aea5e20ae65752ec832aabf2a7d3b1e817b38f002241c9d73e9ad66d07",
+    "screening.json": "aeaed661a26e383bca5d568a9c443ba566159920d0ec0f9d7b455ad36f20e298",
+    "inference.json": "05b9a6ac622940e5c42cf6f910f9a85415f598e0d2a1ba20a2a75a4c5f84af82"
+  }
+}

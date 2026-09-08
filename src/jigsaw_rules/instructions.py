@@ -37,9 +37,14 @@ VARIANTS = ("instruction_features", "word_instruction", "semantic_instruction")
 PUBLIC_FILES = ("results.json", "uncertainty.json", "screening.json", "inference.json")
 
 
-def prepare_instruction_model(root, config):
+def prepare_instruction_model(root, config, *, weights=True):
     path = root / "models/qwen3-instruction" / config["revision"]
-    if any(not (path / name).exists() for name in config["files"]):
+    files = {
+        name: record
+        for name, record in config["files"].items()
+        if weights or not name.endswith(".safetensors")
+    }
+    if any(not (path / name).exists() for name in files):
         subprocess.run(
             [
                 str(Path(sys.executable).with_name("hf")),
@@ -48,14 +53,14 @@ def prepare_instruction_model(root, config):
                 "--revision",
                 config["revision"],
                 "--include",
-                *config["files"],
+                *files,
                 "--local-dir",
                 str(path),
             ],
             check=True,
             timeout=1200,
         )
-    for name, record in config["files"].items():
+    for name, record in files.items():
         payload = (path / name).read_bytes()
         sha = (
             hashlib.sha256(payload).hexdigest()
@@ -169,7 +174,7 @@ def _shard(root, config, cache, keys, texts):
 def cached_instructions(root, frame, config, log):
     from transformers import AutoTokenizer
 
-    path = prepare_instruction_model(root, config)
+    path = prepare_instruction_model(root, config, weights=False)
     tokenizer = AutoTokenizer.from_pretrained(path, local_files_only=True)
     inputs, truncated = instruction_inputs(frame, tokenizer, config)
     contract = {
@@ -236,6 +241,7 @@ def run_instructions(root):
     broad = root / "runs" / evidence["metadata"]["run_id"]
     identity = {
         "source_sha256": digest(Path(__file__)),
+        "support_geometry_sha256": content_key(inspect.getsource(support_scores)),
         "config": config,
         "broad_run": broad.name,
         "training_sha256": digest(root / "data/raw/train.csv"),
@@ -399,7 +405,9 @@ def instruction_evidence(root):
     if (
         broad is None
         or metadata.get("source_sha256") != digest(Path(__file__))
+        or metadata.get("support_geometry_sha256") != content_key(inspect.getsource(support_scores))
         or metadata.get("broad_run") != broad["metadata"]["run_id"]
+        or metadata.get("training_sha256") != broad["metadata"]["training_sha256"]
         or metadata.get("config") != json.loads((root / "configs/instructions.json").read_text())
         or metadata.get("data_kind") != "competition"
         or set(metadata.get("files", {})) != set(PUBLIC_FILES)

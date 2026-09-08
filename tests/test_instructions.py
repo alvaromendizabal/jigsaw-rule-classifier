@@ -44,3 +44,49 @@ def test_instruction_candidates_have_finite_schema_and_exact_counts():
     assert len(set(names)) == 36
     with pytest.raises(ValueError, match="schema"):
         instruction_candidates(np.full((2, 3, 3), np.nan))
+
+
+def test_completed_instruction_shards_do_not_load_an_encoder(tmp_path, monkeypatch):
+    from jigsaw_rules import instructions
+
+    class Encoder:
+        def encode(self, texts):
+            return np.tile([0.4, -0.4, 0.8], (len(texts), 1))
+
+    monkeypatch.setattr(instructions, "_encoder", lambda *args: Encoder())
+    first = instructions._shard(tmp_path, {}, tmp_path / "cache", ["a"], ["authored prompt"])
+
+    def forbidden(*args):
+        raise AssertionError("A completed shard must not load model weights")
+
+    monkeypatch.setattr(instructions, "_encoder", forbidden)
+    assert (
+        instructions._shard(tmp_path, {}, tmp_path / "cache", ["a"], ["authored prompt"]) == first
+    )
+
+
+def test_cached_prompt_preparation_needs_only_verified_tokenizer_assets(tmp_path, monkeypatch):
+    import hashlib
+
+    from jigsaw_rules.instructions import prepare_instruction_model
+
+    path = tmp_path / "models/qwen3-instruction/authored"
+    path.mkdir(parents=True)
+    payload = b"authored tokenizer fixture"
+    (path / "tokenizer.json").write_bytes(payload)
+    config = {
+        "revision": "authored",
+        "files": {
+            "tokenizer.json": {
+                "algorithm": "sha256",
+                "digest": hashlib.sha256(payload).hexdigest(),
+            },
+            "model.safetensors": {"algorithm": "sha256", "digest": "0" * 64},
+        },
+    }
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("No model download is needed to restore complete features")
+
+    monkeypatch.setattr("jigsaw_rules.instructions.subprocess.run", forbidden)
+    assert prepare_instruction_model(tmp_path, config, weights=False) == path
