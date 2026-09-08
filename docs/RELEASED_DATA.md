@@ -18,13 +18,21 @@ Normalization is Unicode NFKC, whitespace collapse and case folding. The partiti
 
 The confirmation set is a **protocol reserve**, not an access-control guarantee: the source is public, and its solution file is retained for reproducibility. The research loader exports only permitted targets. It has no flag to return confirmation labels. A later evaluator must require a committed final feature/model/calibration manifest and must record the first opening of the reserve. That evaluator has not been implemented or run in this milestone.
 
+## Executed preparation
+
+The boundary was committed as `9b4d66448998da818b71e4e697aa8e937c9222f0` before research target materialization. Preparation run `a615ecc75c04e6a62ee1` verifies the pinned archive and produces 9,106 research rows, 43,576 reserved rows, 1,323 research-side overlap exclusions and 54 historical-exposure exclusions. The reserve retains six policies; financial advice and spoilers contribute no research labels. A complete replay reuses the checksummed assignment/export stage without reinterpreting targets.
+
+The 11,135 combined development rows contain 544 repeated normalized body/policy rows and 39 groups with conflicting labels: 25 within the same subreddit and 14 across subreddits. These are observed data-quality findings, not repaired labels. Promotion research rows include 2,087 positives and 124 negatives, so accuracy alone would be misleading. The next study must keep duplicates grouped and report conflict and class-imbalance sensitivity.
+
+`scripts/prepare_released_data.py` and `jigsaw_rules.released.load_research` verify source, protocol, implementation, assignment/export checksums and permitted row IDs. Automated tests change protected targets to nonnumeric sentinels and verify that they are neither interpreted nor returned; corrupt exports, changed protocols, ambiguous IDs and any support-field overlap fail closed. The new Plotly/static boundary figure and aggregate reports are rendered in canonical notebook `02`. No new model is fitted during preparation.
+
 Exact isolation does not establish paraphrase, author or shared-origin independence. The schema has no timestamps or conversation IDs. Before confirmation, the existing approximate-copy audit must be extended to this boundary, with any exclusions chosen without target values. The two reserved policy types supply a stronger unseen-policy test; they do not support an unrestricted claim about all moderation rules.
 
 ## Next research experiment
 
 1. Combine retained research rows with the original development data, auditing repeated normalized body/policy pairs and contradictory labels. Preserve the provenance of every row.
 2. Freeze grouped familiar-policy and four leave-one-policy-out folds. Fit vocabulary, IDF, scaling, screening, target encodings and calibration components inside their allowed training partitions.
-3. Recheck the historical lexical reference, full character features, compact semantic summaries and normalized support-centroid representation on the identical folds. Include the broad combined-family negative control and comment/rule/support ablations. Keep classifier settings fixed.
+3. Repeat the major-family screen and matched additions/removals on the expanded cohort; a family that failed in tiny two-policy folds is not automatically dismissed at the larger sample size. Recheck the historical lexical reference, full character features, compact semantic summaries and normalized support-centroid representation on the identical folds. Include the broad combined-family negative control and comment/rule/support ablations. Keep classifier settings fixed.
 4. Attribute improvements using paired rule-macro AUC, per-policy behavior, group ablations, simultaneous uncertainty and support/example sensitivity. Preserve failed families and measured inference cost.
 5. Investigate a remaining encoder or contextual hypothesis only when a documented development-set error pattern justifies it. Do not use reserved scores to choose the hypothesis.
 

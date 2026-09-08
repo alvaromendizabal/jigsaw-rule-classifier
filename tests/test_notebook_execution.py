@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @pytest.fixture
 def project(tmp_path):
-    for directory in ("src", "scripts", "reports", "notebooks"):
+    for directory in ("src", "scripts", "reports", "notebooks", "configs"):
         shutil.copytree(ROOT / directory, tmp_path / directory)
     for name in ("pyproject.toml", "uv.lock"):
         shutil.copyfile(ROOT / name, tmp_path / name)

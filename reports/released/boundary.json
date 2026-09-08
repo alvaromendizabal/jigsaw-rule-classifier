@@ -1,0 +1,195 @@
+{
+  "rows": 54059,
+  "rule_count": 6,
+  "counts": [
+    {
+      "rule_id": "advertising",
+      "Usage": "Private",
+      "role": "confirmation",
+      "rows": 6331
+    },
+    {
+      "rule_id": "advertising",
+      "Usage": "Private",
+      "role": "historical_overlap",
+      "rows": 48
+    },
+    {
+      "rule_id": "advertising",
+      "Usage": "Public",
+      "role": "boundary_overlap",
+      "rows": 469
+    },
+    {
+      "rule_id": "advertising",
+      "Usage": "Public",
+      "role": "research",
+      "rows": 2140
+    },
+    {
+      "rule_id": "financial",
+      "Usage": "Private",
+      "role": "confirmation",
+      "rows": 6422
+    },
+    {
+      "rule_id": "financial",
+      "Usage": "Private",
+      "role": "historical_overlap",
+      "rows": 5
+    },
+    {
+      "rule_id": "financial",
+      "Usage": "Public",
+      "role": "confirmation",
+      "rows": 2624
+    },
+    {
+      "rule_id": "legal",
+      "Usage": "Private",
+      "role": "confirmation",
+      "rows": 6379
+    },
+    {
+      "rule_id": "legal",
+      "Usage": "Public",
+      "role": "boundary_overlap",
+      "rows": 238
+    },
+    {
+      "rule_id": "legal",
+      "Usage": "Public",
+      "role": "research",
+      "rows": 2366
+    },
+    {
+      "rule_id": "medical",
+      "Usage": "Private",
+      "role": "confirmation",
+      "rows": 6426
+    },
+    {
+      "rule_id": "medical",
+      "Usage": "Public",
+      "role": "boundary_overlap",
+      "rows": 178
+    },
+    {
+      "rule_id": "medical",
+      "Usage": "Public",
+      "role": "research",
+      "rows": 2389
+    },
+    {
+      "rule_id": "promotion",
+      "Usage": "Private",
+      "role": "confirmation",
+      "rows": 6402
+    },
+    {
+      "rule_id": "promotion",
+      "Usage": "Private",
+      "role": "historical_overlap",
+      "rows": 1
+    },
+    {
+      "rule_id": "promotion",
+      "Usage": "Public",
+      "role": "boundary_overlap",
+      "rows": 438
+    },
+    {
+      "rule_id": "promotion",
+      "Usage": "Public",
+      "role": "research",
+      "rows": 2211
+    },
+    {
+      "rule_id": "spoilers",
+      "Usage": "Private",
+      "role": "confirmation",
+      "rows": 6423
+    },
+    {
+      "rule_id": "spoilers",
+      "Usage": "Public",
+      "role": "confirmation",
+      "rows": 2569
+    }
+  ],
+  "role_counts": {
+    "boundary_overlap": 1323,
+    "confirmation": 43576,
+    "historical_overlap": 54,
+    "research": 9106
+  },
+  "usage_counts": {
+    "Private": 38437,
+    "Public": 15622
+  },
+  "historically_exposed_unique_texts": 1867,
+  "research_context_confirmation_body_overlap": 0,
+  "reserved_policy_ids": [
+    "financial",
+    "spoilers"
+  ],
+  "research_policy_ids": [
+    "advertising",
+    "legal",
+    "medical",
+    "promotion"
+  ],
+  "confirmation_targets_accessed": false,
+  "confirmation_predictions_generated": false,
+  "assignment_uses_targets": false,
+  "approximate_copy_audit": "pending on the new boundary",
+  "protocol_commit": "9b4d66448998da818b71e4e697aa8e937c9222f0",
+  "original_training_rows": 2029,
+  "combined_research_rows_before_deduplication": 11135,
+  "combined_repeated_body_policy_rows": 544,
+  "combined_conflicting_body_policy_groups": 39,
+  "conflicting_groups_with_same_subreddit": 25,
+  "conflicting_groups_with_multiple_subreddits": 14,
+  "research_label_counts": [
+    {
+      "rule_id": "advertising",
+      "rule_violation": 0,
+      "rows": 1250
+    },
+    {
+      "rule_id": "advertising",
+      "rule_violation": 1,
+      "rows": 890
+    },
+    {
+      "rule_id": "legal",
+      "rule_violation": 0,
+      "rows": 938
+    },
+    {
+      "rule_id": "legal",
+      "rule_violation": 1,
+      "rows": 1428
+    },
+    {
+      "rule_id": "medical",
+      "rule_violation": 0,
+      "rows": 1653
+    },
+    {
+      "rule_id": "medical",
+      "rule_violation": 1,
+      "rows": 736
+    },
+    {
+      "rule_id": "promotion",
+      "rule_violation": 0,
+      "rows": 124
+    },
+    {
+      "rule_id": "promotion",
+      "rule_violation": 1,
+      "rows": 2087
+    }
+  ]
+}

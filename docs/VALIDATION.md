@@ -4,7 +4,7 @@ This record separates software correctness, executed research, notebook renderin
 
 ## Executed local checks
 
-The original main branch passed **139 tests** before changes. The expanded feature-research code passes **188 tests**, compilation, Ruff, formatting and canonical notebook-source checks in the locked Python 3.12 environment. Tests cover training-only screening, schema/finite-value contracts, exact duplicates, support-order invariance, nested target encoding, unseen-group fallbacks, cached embedding identity, OOF alignment, model-stage recovery, report checksums, publication boundaries and the open feature gate.
+The original main branch passed **139 tests** before changes. The broad feature-research milestone passed **188 tests**; the released-data boundary milestone passes **208 tests**, compilation, Ruff, formatting and canonical notebook-source checks in the locked Python 3.12 environment. Tests cover training-only screening, schema/finite-value contracts, exact duplicates, support-order invariance, nested target encoding, unseen-group fallbacks, cached embedding identity, OOF alignment, model-stage recovery, report checksums, publication boundaries and the open feature gate.
 
 `uv run python scripts/verify_research.py` separately recomputes private OOF metrics without fitting. It verifies the broad study and the sensitivity, NLI, instruction and near-copy study review markers, public/private byte identity, row coverage, targets, rule identities and metric values. Aggregate display verification is not substituted for this check.
 
@@ -37,6 +37,16 @@ The fixed instruction-likelihood feature probe uses a separate bounded `ml.m5.4x
 
 ## Reproduction and acceptance
 
+### Released-data boundary milestone
+
+Protocol commit `9b4d66448998da818b71e4e697aa8e937c9222f0` preceded released research-target materialization. The pinned version-1 archive has 19,271,777 bytes and SHA-256 `34e01e093b96698d50344966364d7e9ccb3a938a8f9c936794427a448de30c28`. All six members are verified against `configs/released.json`; original training/preview bytes match. Preparation run `a615ecc75c04e6a62ee1` materializes 9,106 research rows and records 43,576 reserved rows without interpreting their targets. A replay reuses the committed stage. The adversarial tests cover every support field, normalized historical exposure, shuffled metadata alignment, nonnumeric protected-target sentinels, ambiguous identities, modified exports and changed protocol rejection.
+
+The source archive and prepared boundary are checkpointed separately from historical experiments. The eight-file checkpoint is 24,133,624 bytes, SHA-256 `0b809ee83a0925d77be5f11e29dc60e5af46e6523366b24348bb5259d41ab967`, under `experiments/released-boundary-20260908T2230/checkpoints/released-boundary.tar.gz` in the existing project bucket. Account ownership, AES256 encryption and the S3 object checksum were verified. It includes the original public release archive, assignments, research-only CSV, stage contract/marker, protocol and preparation source; no model weights or credentials are included.
+
+The organizer's 2,443-row per-rule score attachment has SHA-256 `43b2af04973e2de8af75d984fd8c798020b442b15d955eb4cfa82141ee9e7c4f`. Among 2,437 complete rows, 2,428 agree with the unweighted mean of six policy AUCs within 1e-6. Nine discrepancies and six incomplete rows are retained in the public audit. This is strong primary-source corroboration of the aggregation, not an executable-scoring or project leaderboard claim.
+
+All five updated notebooks passed local in-process rendering, and the existing private OOF metrics were recomputed without fitting. The local environment blocks Jupyter network-interface discovery; it was not treated as a passing publication check. AWS job `jigsaw-notebooks-20260908-2230` executed all five in actual encrypted Jupyter kernels, verified a second publication pass, and passed synthetic offline inference. The worker invocation recorded 65.99 seconds. Its 61,716-byte notebook archive has SHA-256 `9be69dceae4e336c43a29942b66482dbf0c0a6b6058a7c74cbf9e281d3389f22`. Restored notebooks match every local source/input contract and contain no error or stderr output. CI independently verifies the same publication path.
+
 ```bash
 uv run python scripts/verify.py
 uv run python scripts/execute_notebooks.py --publish
@@ -46,6 +56,9 @@ uv run python scripts/verify_semantic.py
 # Restored private artifacts required; no fitting:
 uv run python scripts/verify_research.py
 uv run jigsaw gate
+# Pinned released-data preparation; no confirmation scoring:
+uv run python scripts/prepare_released_data.py
+uv run python scripts/build_release_report.py
 ```
 
 CI runs the software gate, encrypted Jupyter execution, completed-notebook reuse, synthetic offline inference and the real pinned encoder check. Source and logs are retained as workflow artifacts. The results-push helper additionally rejects incompatible sources, stale contracts, non-Jupyter publication, private/synthetic execution and unrelated edits. Failed execution retains the last valid canonical notebook.

@@ -1,0 +1,81 @@
+{
+  "source_url": "https://www.kaggle.com/api/v1/datasets/download/sorenj/jigsaw-agile-community-rules-classification?datasetVersionNumber=1",
+  "archive_sha256": "34e01e093b96698d50344966364d7e9ccb3a938a8f9c936794427a448de30c28",
+  "archive_bytes": 19271777,
+  "files": {
+    "public_sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "6524e86a03abe387f0867247629e08493770a6f9d37120cc8165322e7486a066",
+      "columns": [
+        "row_id",
+        "rule_violation"
+      ]
+    },
+    "public_test.csv": {
+      "bytes": 9167,
+      "sha256": "107b8b329200171f55d2523e6d32670641b53d5be41e0c1d5b9da0b8813cdd41",
+      "columns": [
+        "row_id",
+        "body",
+        "rule",
+        "subreddit",
+        "positive_example_1",
+        "positive_example_2",
+        "negative_example_1",
+        "negative_example_2"
+      ]
+    },
+    "sample_submission.csv": {
+      "bytes": 532641,
+      "sha256": "1a68ab3b94b1fde0d87b1acf72c47085e45370725c17365555150be54a7535e0",
+      "columns": [
+        "row_id",
+        "rule_violation"
+      ]
+    },
+    "solution.csv": {
+      "bytes": 1337040,
+      "sha256": "01579b769c56a6f3f87282c04c4ce788ad4d1fd2ffebabd1a36afbf92f6f3bca",
+      "columns": [
+        "row_id",
+        "Usage",
+        "rule_violation",
+        "rule"
+      ]
+    },
+    "test.csv": {
+      "bytes": 49327059,
+      "sha256": "80680723dc8a69170180b454749b201e415bc6d6255eca58673c246d29718f72",
+      "columns": [
+        "row_id",
+        "body",
+        "rule",
+        "subreddit",
+        "positive_example_1",
+        "positive_example_2",
+        "negative_example_1",
+        "negative_example_2"
+      ]
+    },
+    "train.csv": {
+      "bytes": 1971422,
+      "sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+      "columns": [
+        "row_id",
+        "body",
+        "rule",
+        "subreddit",
+        "positive_example_1",
+        "positive_example_2",
+        "negative_example_1",
+        "negative_example_2",
+        "rule_violation"
+      ]
+    }
+  },
+  "dataset": "sorenj/jigsaw-agile-community-rules-classification",
+  "version": 1,
+  "license": "CC0-1.0",
+  "host_announcement": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641107",
+  "dataset_page": "https://www.kaggle.com/datasets/sorenj/jigsaw-agile-community-rules-classification/data"
+}

@@ -7,6 +7,7 @@ from pathlib import Path
 from jigsaw_rules.diagnostics import diagnostic_evidence
 from jigsaw_rules.instructions import instruction_evidence
 from jigsaw_rules.pairs import pairs_evidence
+from jigsaw_rules.released import released_evidence
 from jigsaw_rules.research import research_evidence
 from jigsaw_rules.review import public_evidence
 from jigsaw_rules.robustness import robustness_evidence
@@ -14,6 +15,7 @@ from jigsaw_rules.robustness import robustness_evidence
 
 def feature_gate(root: Path) -> dict:
     baseline = public_evidence(root, "baseline")
+    released = released_evidence(root)
     evidence = {
         "research": research_evidence(root),
         "sensitivity": diagnostic_evidence(root),
@@ -29,6 +31,15 @@ def feature_gate(root: Path) -> dict:
         "final_training_authorized_by_evidence": False,
         "labeled_rules": rules,
         "training_rows": baseline["training_rows"],
+        "released_data": {
+            "state": "boundary verified; confirmation reserved" if released else "not prepared",
+            "rules_available": released["boundary"]["rule_count"] if released else 0,
+            "additional_research_rows": released["boundary"]["role_counts"]["research"]
+            if released
+            else 0,
+            "reserved_rows": released["boundary"]["role_counts"]["confirmation"] if released else 0,
+            "new_study_executed": False,
+        },
         "studies": {name: item["metadata"]["run_id"] for name, item in evidence.items() if item},
         "missing_studies": missing,
         "criteria": [
@@ -77,7 +88,9 @@ def feature_gate(root: Path) -> dict:
         ],
         "decision": "Retain the reproducible lexical reference. Candidate OOF comparisons "
         "are exploratory; repeated selection on two policies is not independent confirmation. "
-        "Feature count and successful execution do not close this gate.",
+        "The released-data boundary enables a new four-policy research round while reserving "
+        "financial advice, spoilers and the former private split. Data preparation is not "
+        "performance confirmation. Feature count and successful execution do not close this gate.",
     }
 
 
