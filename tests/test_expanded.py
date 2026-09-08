@@ -153,6 +153,47 @@ def test_complete_small_study_and_resume_without_refitting(tmp_path, monkeypatch
     malformed.loc[0, "fold"] = 999
     with pytest.raises(ValueError, match="saved validation"):
         expanded.validate_oof(data, malformed, plan, records)
+    # Rendering uses the actual software-study schema; never publish these scores.
+    import shutil
+
+    from scripts import build_expanded_report
+
+    public = tmp_path / "reports/expanded"
+    public.mkdir(parents=True)
+    (public / "metadata.json").write_text('{"software_test": true}')
+    (tmp_path / "scripts").mkdir()
+    shutil.copyfile(
+        root / "scripts/build_expanded_report.py", tmp_path / "scripts/build_expanded_report.py"
+    )
+    evidence = {
+        name.removesuffix(".json"): json.loads((directory / "review" / name).read_text())
+        for name in expanded.PUBLIC_FILES
+    }
+    monkeypatch.setattr(build_expanded_report, "expanded_evidence", lambda root: evidence)
+    build_expanded_report.build(tmp_path)
+    assert len(build_expanded_report.verify_figures(tmp_path)["files"]) == 8
+    (public / "ablation.svg").write_text("changed")
+    with pytest.raises(ValueError, match="figure contract"):
+        build_expanded_report.verify_figures(tmp_path)
+    from jigsaw_rules import retrieval
+
+    (tmp_path / "configs").mkdir()
+    shutil.copyfile(root / "configs/retrieval.json", tmp_path / "configs/retrieval.json")
+    evidence["metadata"] = {
+        "run_id": directory.name,
+        "private_checkpoint_sha256": digest(directory / "review/complete.json"),
+    }
+    monkeypatch.setattr(retrieval, "expanded_evidence", lambda root: evidence)
+    monkeypatch.setattr(retrieval, "load_development", lambda root: data)
+    monkeypatch.setattr(retrieval, "development_plan", lambda root: plan)
+    monkeypatch.setattr(
+        retrieval, "cached_vectors", lambda root, frame: (vectors(120), {"software_test": True})
+    )
+    retrieval_run = retrieval.run_retrieval(tmp_path)
+    retrieval_oof = pd.read_csv(retrieval_run / "review/oof.csv")
+    assert len(retrieval_oof) == 120 * 5 * 2
+    assert len(list(retrieval_run.glob("*_model_*/complete.json"))) == 30
+    assert retrieval.retrieval_evidence(tmp_path) is not None
     before = {p: digest(p) for p in directory.glob("*/complete.json")}
 
     def forbidden(*args, **kwargs):
@@ -161,6 +202,8 @@ def test_complete_small_study_and_resume_without_refitting(tmp_path, monkeypatch
     monkeypatch.setattr(expanded, "_model", forbidden)
     monkeypatch.setattr(expanded, "_reference", forbidden)
     monkeypatch.setattr(expanded, "fit_lexical", forbidden)
+    monkeypatch.setattr(retrieval, "_model", forbidden)
+    assert retrieval.run_retrieval(tmp_path) == retrieval_run
     expanded.execute_study(tmp_path, directory, data, vectors(120), plan, {"software_test": True})
     assert all(digest(p) == sha for p, sha in before.items())
 
