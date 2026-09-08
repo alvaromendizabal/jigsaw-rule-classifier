@@ -1,0 +1,305 @@
+[
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "instruction_features",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "high_training_correlation": 9,
+      "retained": 27
+    },
+    "training_rows": 237,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "9547bf4cbc7e4cf92da66c3f09433ec7b84e32838454a76dcacd11c5a3c827d4"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "word_instruction",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "high_training_correlation": 9,
+      "retained": 27
+    },
+    "training_rows": 237,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "9547bf4cbc7e4cf92da66c3f09433ec7b84e32838454a76dcacd11c5a3c827d4"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 0,
+    "model": "semantic_instruction",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "high_training_correlation": 9,
+      "retained": 27
+    },
+    "training_rows": 237,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "9547bf4cbc7e4cf92da66c3f09433ec7b84e32838454a76dcacd11c5a3c827d4"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "instruction_features",
+    "candidates": 36,
+    "retained": 28,
+    "rejected": 8,
+    "decisions": {
+      "retained": 28,
+      "high_training_correlation": 8
+    },
+    "training_rows": 287,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "5ae4cd28cff10b368a6deb03e49fd6f13ae81142f0bc82a8aa11d91e8cc68ce5"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "word_instruction",
+    "candidates": 36,
+    "retained": 28,
+    "rejected": 8,
+    "decisions": {
+      "retained": 28,
+      "high_training_correlation": 8
+    },
+    "training_rows": 287,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "5ae4cd28cff10b368a6deb03e49fd6f13ae81142f0bc82a8aa11d91e8cc68ce5"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 1,
+    "model": "semantic_instruction",
+    "candidates": 36,
+    "retained": 28,
+    "rejected": 8,
+    "decisions": {
+      "retained": 28,
+      "high_training_correlation": 8
+    },
+    "training_rows": 287,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "5ae4cd28cff10b368a6deb03e49fd6f13ae81142f0bc82a8aa11d91e8cc68ce5"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "instruction_features",
+    "candidates": 36,
+    "retained": 23,
+    "rejected": 13,
+    "decisions": {
+      "high_training_correlation": 12,
+      "retained": 23,
+      "constant_or_near_constant": 1
+    },
+    "training_rows": 279,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "121b8de7309565672a23a82e26e5f461387e5334e33bcba364c444774b2f57ad"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "word_instruction",
+    "candidates": 36,
+    "retained": 23,
+    "rejected": 13,
+    "decisions": {
+      "high_training_correlation": 12,
+      "retained": 23,
+      "constant_or_near_constant": 1
+    },
+    "training_rows": 279,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "121b8de7309565672a23a82e26e5f461387e5334e33bcba364c444774b2f57ad"
+  },
+  {
+    "protocol": "seen_rule",
+    "fold": 2,
+    "model": "semantic_instruction",
+    "candidates": 36,
+    "retained": 23,
+    "rejected": 13,
+    "decisions": {
+      "high_training_correlation": 12,
+      "retained": 23,
+      "constant_or_near_constant": 1
+    },
+    "training_rows": 279,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "121b8de7309565672a23a82e26e5f461387e5334e33bcba364c444774b2f57ad"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "instruction_features",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "retained": 27,
+      "high_training_correlation": 9
+    },
+    "training_rows": 961,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "3afd23592b17dbbf3aba911c02764de2d6c75243e1b4b4e65b6afe1eb6a6cf58"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "word_instruction",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "retained": 27,
+      "high_training_correlation": 9
+    },
+    "training_rows": 961,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "3afd23592b17dbbf3aba911c02764de2d6c75243e1b4b4e65b6afe1eb6a6cf58"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 0,
+    "model": "semantic_instruction",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "retained": 27,
+      "high_training_correlation": 9
+    },
+    "training_rows": 961,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "3afd23592b17dbbf3aba911c02764de2d6c75243e1b4b4e65b6afe1eb6a6cf58"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "instruction_features",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "retained": 27,
+      "high_training_correlation": 9
+    },
+    "training_rows": 975,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "3893780ab1ea89adc157e36e0288571bb8dc2c04faba3d522c0ad52d7291e3d7"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "word_instruction",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "retained": 27,
+      "high_training_correlation": 9
+    },
+    "training_rows": 975,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "3893780ab1ea89adc157e36e0288571bb8dc2c04faba3d522c0ad52d7291e3d7"
+  },
+  {
+    "protocol": "heldout_rule",
+    "fold": 1,
+    "model": "semantic_instruction",
+    "candidates": 36,
+    "retained": 27,
+    "rejected": 9,
+    "decisions": {
+      "retained": 27,
+      "high_training_correlation": 9
+    },
+    "training_rows": 975,
+    "dtype": "float64",
+    "missing_or_nonfinite": 0,
+    "rare_minimum_rows": 3,
+    "maximum": 32,
+    "correlation_threshold": 0.995,
+    "screening_scope": "training rows only; no validation labels or statistics",
+    "catalog_sha256": "3893780ab1ea89adc157e36e0288571bb8dc2c04faba3d522c0ad52d7291e3d7"
+  }
+]

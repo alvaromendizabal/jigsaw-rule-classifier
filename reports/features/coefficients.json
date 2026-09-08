@@ -1,0 +1,1822 @@
+[
+  {
+    "protocol": "seen_rule",
+    "model": "rule_text",
+    "fold": 0,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.2460126935230815
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "rule_text",
+    "fold": 0,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.40347351584497065
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "rule_text",
+    "fold": 1,
+    "feature": "word_rule_similarity",
+    "coefficient": 0.1612454272076082
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "rule_text",
+    "fold": 1,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.20552684509190344
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "rule_text",
+    "fold": 2,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.30634425231981605
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "rule_text",
+    "fold": 2,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.9826489636719333
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_positive_min",
+    "coefficient": 0.18253611339862819
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_positive_max",
+    "coefficient": 0.20841203641616082
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_negative_min",
+    "coefficient": -0.04824157072497817
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_negative_max",
+    "coefficient": 0.028522000216085718
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.08680939840053782
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_mean_margin",
+    "coefficient": 0.10199225098480985
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_positive_spread",
+    "coefficient": 0.18719637798311647
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_negative_spread",
+    "coefficient": 0.034913038809783636
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_positive_min",
+    "coefficient": 0.1884427873957596
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_positive_max",
+    "coefficient": 0.16128274179503568
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_negative_min",
+    "coefficient": 0.12925643228366515
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_negative_max",
+    "coefficient": -0.30124770150569796
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.33702735490222363
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_mean_margin",
+    "coefficient": 0.32098721476263375
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_positive_spread",
+    "coefficient": 0.11129973940801174
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_negative_spread",
+    "coefficient": -0.33661750128002915
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_positive_min",
+    "coefficient": -0.007312856371384509
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_positive_max",
+    "coefficient": -0.33418508622523097
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_negative_min",
+    "coefficient": -0.27109481238093514
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_negative_max",
+    "coefficient": -0.32397077516524586
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_maximum_margin",
+    "coefficient": -0.10970703734374489
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_mean_margin",
+    "coefficient": -0.09186422484755702
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_positive_spread",
+    "coefficient": -0.3345102112646413
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_negative_spread",
+    "coefficient": -0.2893052569035429
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_positive_min",
+    "coefficient": -0.14076216451877333
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_positive_max",
+    "coefficient": 0.5003763990329407
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_negative_min",
+    "coefficient": 0.4307640182223783
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_negative_max",
+    "coefficient": 0.12246063759145377
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.3181563640420431
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_mean_margin",
+    "coefficient": 0.21494060047796695
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_positive_spread",
+    "coefficient": 0.5420133729198322
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_negative_spread",
+    "coefficient": 0.009246444506124678
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_positive_min",
+    "coefficient": -0.13153307303179868
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_positive_max",
+    "coefficient": -0.08511643492527887
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_negative_min",
+    "coefficient": 0.15708731426360226
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_negative_max",
+    "coefficient": -0.5290850805090612
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.25259757449148673
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_mean_margin",
+    "coefficient": 0.22869874682999008
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_positive_spread",
+    "coefficient": -0.07532672603899061
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "word_negative_spread",
+    "coefficient": -0.5590725901136615
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_positive_min",
+    "coefficient": 0.22420130188175755
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_positive_max",
+    "coefficient": 0.13213047540419032
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_negative_min",
+    "coefficient": 0.18225276160059442
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_negative_max",
+    "coefficient": -0.05792358073188979
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.13815924685676745
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_mean_margin",
+    "coefficient": 0.14376927069962395
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_positive_spread",
+    "coefficient": 0.08329436028187301
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_contrast",
+    "fold": 2,
+    "feature": "character_negative_spread",
+    "coefficient": -0.10181236970044844
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "log_characters",
+    "coefficient": -1.083419063341253
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "log_words",
+    "coefficient": 1.5701498779733172
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.17805066825526222
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.07702910269467499
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "url",
+    "coefficient": 0.34351199368340224
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "question",
+    "coefficient": 0.052687520927681177
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "quotation",
+    "coefficient": -0.4081303385610083
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "negation",
+    "coefficient": -0.10365494669646176
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "log_characters",
+    "coefficient": 0.09901522297275647
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "log_words",
+    "coefficient": 0.5630790163658435
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.13900763487393006
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.295892301523167
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "url",
+    "coefficient": 0.16161579734632245
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "question",
+    "coefficient": -0.020212775670552966
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "quotation",
+    "coefficient": -0.47252683574973764
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "negation",
+    "coefficient": -0.11448457988548567
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "log_characters",
+    "coefficient": -0.45392237323861295
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "log_words",
+    "coefficient": 0.9032018983270172
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.17241010572795423
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.8170897809773711
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "url",
+    "coefficient": 0.5466715457264639
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "question",
+    "coefficient": -0.13719854389134953
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "quotation",
+    "coefficient": -0.005021723829604826
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "structure",
+    "fold": 2,
+    "feature": "negation",
+    "coefficient": -0.04426507321325138
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.27867753919953586
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_positive_min",
+    "coefficient": 0.30587340108885763
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_positive_max",
+    "coefficient": 0.2042741035761292
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_negative_min",
+    "coefficient": -0.15141999200175826
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_negative_max",
+    "coefficient": 0.006650773194869209
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.10291195825112817
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_mean_margin",
+    "coefficient": 0.1367379656631644
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_positive_spread",
+    "coefficient": 0.16726887726259315
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_negative_spread",
+    "coefficient": 0.026314924214010854
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.25069180582063283
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_positive_min",
+    "coefficient": 0.04380047568276196
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_positive_max",
+    "coefficient": 0.20548046724720487
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_negative_min",
+    "coefficient": 0.1733620069318345
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_negative_max",
+    "coefficient": -0.22819728888415744
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.3009509024417439
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_mean_margin",
+    "coefficient": 0.25639451556951687
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_positive_spread",
+    "coefficient": 0.20660695864789816
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_negative_spread",
+    "coefficient": -0.27322395148833306
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "log_characters",
+    "coefficient": -0.9846329588672657
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "log_words",
+    "coefficient": 1.35686079407711
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.042644057074596405
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "punctuation_fraction",
+    "coefficient": 0.03400096112290935
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "url",
+    "coefficient": 0.37545066552017126
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "question",
+    "coefficient": 0.0007476621876332302
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "quotation",
+    "coefficient": -0.4247303455243542
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "negation",
+    "coefficient": -0.1371714162982517
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_rule_similarity",
+    "coefficient": 0.11444060684060996
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_positive_min",
+    "coefficient": -0.03822654886703297
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_positive_max",
+    "coefficient": -0.2923472622833315
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_negative_min",
+    "coefficient": -0.36546918869410344
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_negative_max",
+    "coefficient": -0.2702329170113547
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_maximum_margin",
+    "coefficient": -0.10290336280046776
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_mean_margin",
+    "coefficient": -0.08125024430161172
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_positive_spread",
+    "coefficient": -0.2898125817991087
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_negative_spread",
+    "coefficient": -0.22404200987478592
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.15817939180249532
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_positive_min",
+    "coefficient": -0.3713346986622137
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_positive_max",
+    "coefficient": 0.49661269830262694
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_negative_min",
+    "coefficient": 0.3211168445229212
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_negative_max",
+    "coefficient": 0.08372311826774927
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.33836435824183236
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_mean_margin",
+    "coefficient": 0.2130416319131739
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_positive_spread",
+    "coefficient": 0.5896605821002749
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_negative_spread",
+    "coefficient": -0.0008596606375024027
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "log_characters",
+    "coefficient": 0.08726511507837459
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "log_words",
+    "coefficient": 0.711781951690164
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.22032306066979634
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.28582664414734826
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "url",
+    "coefficient": 0.21803201972787586
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "question",
+    "coefficient": -0.0699611299005994
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "quotation",
+    "coefficient": -0.42659897372532596
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "negation",
+    "coefficient": -0.17137377288368985
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.4440913477537931
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_positive_min",
+    "coefficient": -0.07962710518134407
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_positive_max",
+    "coefficient": 0.050355736471834
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_negative_min",
+    "coefficient": 0.25564996281714314
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_negative_max",
+    "coefficient": -0.414294664237604
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.2895820508544194
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_mean_margin",
+    "coefficient": 0.2613091914736971
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_positive_spread",
+    "coefficient": 0.05720240625009864
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "word_negative_spread",
+    "coefficient": -0.45361640669847775
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.8765465053216214
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_positive_min",
+    "coefficient": -0.04686402074267035
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_positive_max",
+    "coefficient": -0.06160780174301296
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_negative_min",
+    "coefficient": 0.06470220775084677
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_negative_max",
+    "coefficient": -0.16822252412390254
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.05820766723043891
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_mean_margin",
+    "coefficient": 0.038401477340766974
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_positive_spread",
+    "coefficient": -0.052709694457664547
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "character_negative_spread",
+    "coefficient": -0.1882159878474801
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "log_characters",
+    "coefficient": -0.4258371582208469
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "log_words",
+    "coefficient": 0.7837117954568052
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.17611640023498684
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.8870235741472167
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "url",
+    "coefficient": 0.6362560577910769
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "question",
+    "coefficient": -0.20725585441519173
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "quotation",
+    "coefficient": 0.006652322991093788
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "combined",
+    "fold": 2,
+    "feature": "negation",
+    "coefficient": -0.06591226976270413
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "rule_text",
+    "fold": 0,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.2274687664218637
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "rule_text",
+    "fold": 0,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.8846996641574917
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "rule_text",
+    "fold": 1,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.2326551169225767
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "rule_text",
+    "fold": 1,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.3825674726311611
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_positive_min",
+    "coefficient": 0.18352206045621602
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_positive_max",
+    "coefficient": -0.051779603012053
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_negative_min",
+    "coefficient": -0.02505226915334895
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_negative_max",
+    "coefficient": -0.11074261640791638
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.008504109031072593
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_mean_margin",
+    "coefficient": 0.02986230337357792
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_positive_spread",
+    "coefficient": -0.07615034111343909
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "word_negative_spread",
+    "coefficient": -0.10964252186540044
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_positive_min",
+    "coefficient": -0.06240993994543382
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_positive_max",
+    "coefficient": 0.14048409631525577
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_negative_min",
+    "coefficient": 0.17475873970366745
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_negative_max",
+    "coefficient": 0.12955758471891637
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.04937280479790426
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_mean_margin",
+    "coefficient": -0.007703795625944556
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_positive_spread",
+    "coefficient": 0.1706010649246857
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 0,
+    "feature": "character_negative_spread",
+    "coefficient": 0.06331155017198861
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_positive_min",
+    "coefficient": -0.029554805379556758
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_positive_max",
+    "coefficient": 0.18849500445430453
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_negative_min",
+    "coefficient": 0.27512961296882593
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_negative_max",
+    "coefficient": -0.04936226157056075
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.16477427782094398
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_mean_margin",
+    "coefficient": 0.09293267717995687
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_positive_spread",
+    "coefficient": 0.19405336988593228
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "word_negative_spread",
+    "coefficient": -0.1464810456999087
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_positive_min",
+    "coefficient": 0.14972332609774416
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_positive_max",
+    "coefficient": 0.05928718914737824
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_negative_min",
+    "coefficient": -0.08140599818072887
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_negative_max",
+    "coefficient": -0.1278884031079035
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.13207601621355933
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_mean_margin",
+    "coefficient": 0.14922469024247267
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_positive_spread",
+    "coefficient": 0.038772434724973666
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_contrast",
+    "fold": 1,
+    "feature": "character_negative_spread",
+    "coefficient": -0.10887861241471239
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "log_characters",
+    "coefficient": 0.6091017966433885
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "log_words",
+    "coefficient": -0.14588855023059283
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "uppercase_fraction",
+    "coefficient": 0.02335798223213965
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "punctuation_fraction",
+    "coefficient": 0.11572838886647412
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "url",
+    "coefficient": -0.1272761390584495
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "question",
+    "coefficient": -0.1757613981657853
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "quotation",
+    "coefficient": -0.23155155434144317
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 0,
+    "feature": "negation",
+    "coefficient": 0.05610518249658816
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "log_characters",
+    "coefficient": -0.5287713254897574
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "log_words",
+    "coefficient": 0.8529714445964003
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.0998969321932669
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.43678203696164924
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "url",
+    "coefficient": 0.2559200097989203
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "question",
+    "coefficient": 0.2543592620127087
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "quotation",
+    "coefficient": -0.17959149757300294
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "structure",
+    "fold": 1,
+    "feature": "negation",
+    "coefficient": -0.15484861021356305
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.261653744075958
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_positive_min",
+    "coefficient": 0.19703908365941317
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_positive_max",
+    "coefficient": -0.01038190088446346
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_negative_min",
+    "coefficient": -0.02094681602478399
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_negative_max",
+    "coefficient": -0.060023356054110834
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.020189526004211224
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_mean_margin",
+    "coefficient": 0.042251112898899934
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_positive_spread",
+    "coefficient": -0.03553271252274754
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "word_negative_spread",
+    "coefficient": -0.05799351410777902
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.8700531799290977
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_positive_min",
+    "coefficient": -0.22515306750647485
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_positive_max",
+    "coefficient": 0.0919681850429212
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_negative_min",
+    "coefficient": 0.0968766238957216
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_negative_max",
+    "coefficient": 0.061353291197846854
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.04556125384126173
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_mean_margin",
+    "coefficient": -0.03408754087224014
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_positive_spread",
+    "coefficient": 0.1729383257124565
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "character_negative_spread",
+    "coefficient": 0.023416758500251298
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "log_characters",
+    "coefficient": 0.6211101856883351
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "log_words",
+    "coefficient": -0.2011872531795043
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "uppercase_fraction",
+    "coefficient": 0.05833664987686845
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "punctuation_fraction",
+    "coefficient": 0.12580130275502863
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "url",
+    "coefficient": -0.10802577537205638
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "question",
+    "coefficient": -0.1768306929627423
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "quotation",
+    "coefficient": -0.22084300970481346
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 0,
+    "feature": "negation",
+    "coefficient": -0.0262760506927579
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_rule_similarity",
+    "coefficient": -0.250355297434568
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_positive_min",
+    "coefficient": 0.03208262489861013
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_positive_max",
+    "coefficient": 0.3153652356615074
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_negative_min",
+    "coefficient": 0.27863011406406857
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_negative_max",
+    "coefficient": 0.03847901734394026
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_maximum_margin",
+    "coefficient": 0.18938539263744214
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_mean_margin",
+    "coefficient": 0.11771670074963901
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_positive_spread",
+    "coefficient": 0.3182163151608184
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "word_negative_spread",
+    "coefficient": -0.05279418880774613
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_rule_similarity",
+    "coefficient": 0.17585469456579506
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_positive_min",
+    "coefficient": -0.07542293403505654
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_positive_max",
+    "coefficient": -0.08989073895914529
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_negative_min",
+    "coefficient": -0.18040629128822697
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_negative_max",
+    "coefficient": -0.21078309902447834
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_maximum_margin",
+    "coefficient": 0.09009112673946636
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_mean_margin",
+    "coefficient": 0.11324510663415
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_positive_spread",
+    "coefficient": -0.08112605206372393
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "character_negative_spread",
+    "coefficient": -0.1626214391247641
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "log_characters",
+    "coefficient": -0.5654356044257253
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "log_words",
+    "coefficient": 0.9262405116855108
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "uppercase_fraction",
+    "coefficient": -0.0909968596757051
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "punctuation_fraction",
+    "coefficient": -0.38351515630775446
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "url",
+    "coefficient": 0.28808803631777563
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "question",
+    "coefficient": 0.21983037888679643
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "quotation",
+    "coefficient": -0.19858473984802802
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "combined",
+    "fold": 1,
+    "feature": "negation",
+    "coefficient": -0.08054640063711443
+  }
+]

@@ -1,6 +1,6 @@
 # Start with the evidence
 
-**Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [04 · Semantic benchmark](notebooks/04_semantic_benchmark.ipynb). The other three notebooks explain the audit, validation, and lexical reference. No AWS account, private data, or model download is required to read the five executed public notebooks.
+**Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb). The remaining notebooks explain the audit, validation and semantic diagnostics. No AWS account, private data, or model download is required to read the five executed public notebooks.
 
 ## Update an existing SageMaker checkout
 
@@ -21,32 +21,22 @@ The stash is retained for inspection with `git stash list`; do not automatically
 
 A terminal prefix such as `^[[200~` is a paste-control sequence. Press **Ctrl+C**, manually type `bind 'set enable-bracketed-paste off'`, and press Enter before pasting again. This changes only the current Bash session; pasted newlines can execute immediately. Copy only code, without the prompt or a trailing `~`.
 
-## Next: run the controlled feature experiment, then publish from AWS
+## Review the completed feature research
 
-Your reference runs and saved split registry remain unchanged. The new CPU experiment tests four candidates: rule-text similarity, positive/negative support contrasts, writing structure, and their combination. It does not reload Qwen, rerun the reference cross-validation, choose a model automatically, or generate a submission.
-
-Run in the existing, updated SageMaker environment:
+The original four-candidate study, broad screened bank, full-vocabulary/NB/low-rank controls, frozen NLI probe and approximate-copy stress test have executed. Their current reports are rendered in `02_baseline_and_review.ipynb`. The notebook performs no fitting by default. Do not rerun historical baselines merely to read these results.
 
 ```bash
-.venv/bin/python -m jigsaw_rules.cli features --cloud --export &&
-.venv/bin/python scripts/build_notebooks.py &&
-.venv/bin/python scripts/execute_notebooks.py --publish &&
-.venv/bin/python -m jigsaw_rules.cli backup
+uv run jigsaw gate
+uv run python scripts/execute_notebooks.py --publish
+# Strict metric recomputation after restoring private runs:
+uv run python scripts/verify_research.py
 ```
 
-Alternatively, open `02_baseline_and_review.ipynb`, select **Python (Jigsaw Rules)**, set `RUN_FEATURE_EXPERIMENT = True` in its final experiment cell, and run it. Keep `CHECKPOINT_TO_S3 = True`. Before publication, run the last three commands above: the builder restores the default no-training notebook source, then execution renders the measured aggregate results. Do not reapply an older stashed notebook over this version.
+Reproduction commands are `jigsaw research --export`, `jigsaw diagnostics`, `jigsaw robustness`, `jigsaw pairs` and `jigsaw instructions`. The latter two are frozen-encoder feature experiments, not final training. They require suitable CPU memory and their pinned model assets. The bounded `scripts/processing.py` worker supports these jobs with immutable-source verification, isolated S3 checkpoints and optional `JIGSAW_RESUME_PREFIX` recovery. The ordinary `--cloud` snapshot option is supported by the original/broad experiment runners; use the processing worker for periodic NLI/instruction checkpoints.
 
-Expected events are `FEATURES_COMPLETED`, `FEATURE_AGGREGATES_EXPORTED`, `NOTEBOOKS_VERIFIED` with `published=true`, and `snapshot_committed`. The notebook shows candidate metrics, paired intervals, descriptive structure-by-label statistics, fold coefficient sensitivity, and recorded fit time. The intervals condition on the two observed rules and fixed predictions; four exploratory comparisons do not establish a universal winner.
+The publication helper remains `scripts/execute_notebooks.py --publish --push-branch results/feature-ablation`. It requires current public Jupyter execution, the expected origin, a clean index and no unrelated source edits. Its explicit allowlist includes the verified feature-study aggregates and research figures. Previously committed historical reports may be re-rendered byte-for-byte; new or altered historical evidence requires review. It never commits data, row-level predictions, credentials, model weights or submission files. Merge a results PR only after Quality passes.
 
-To commit and push the verified public results **from SageMaker**, use:
-
-```bash
-.venv/bin/python scripts/execute_notebooks.py --publish --push-branch results/feature-ablation
-```
-
-The helper requires the expected Jigsaw origin, a clean Git index, current Jupyter-executed canonical sources, and evidence matching current source/data hashes. It stages only the five canonical notebooks and the five fixed files under `reports/features/`; it never stages data, private predictions, local configuration, submission CSVs, or checkpoints. Unrelated edits cause a refusal, not deletion. It creates a documented commit, pushes the results branch without force, and prints `GITHUB_PUSHED`. Repeating it on that same branch reuses intact notebook checkpoints and does not make an empty commit. A failed push retains the local commit for retry.
-
-Git write authentication must be available inside SageMaker; linking GitHub to ChatGPT does not configure the terminal's credential helper. Never paste tokens into a notebook or chat. Configure a missing Git author locally with `git config user.name "Alvaro Mendizabal"` and `git config user.email "108156083+alvaromendizabal@users.noreply.github.com"`. Open the pushed branch's pull request on GitHub, inspect its allowlisted files and metrics, wait for Quality, then merge. This helper does not merge or claim independent human review. After an earlier results branch has been merged, start a new `results/...` branch name rather than resetting it.
+A changed implementation/data/configuration contract deliberately creates a different experiment. The original runs remain preserved. [FEATURE_RESEARCH.md](docs/FEATURE_RESEARCH.md) records counts, rationale, failures and the open completion gate.
 
 ## Generate and download your own submission in the notebook
 
@@ -80,8 +70,8 @@ For this code competition, submit the successful saved notebook version through 
 
 The explicitly synthetic software-only inference check is `scripts/execute_notebooks.py --synthetic`. It never establishes competition performance.
 
-## Next model experiment, not another setup cycle
+## Remain in feature research
 
-Run and analyze the new feature ablations before choosing the next model. The semantic benchmark is completed, not a proven top-performing model. Preserve the lexical reference while testing a joint rule/comment cross-encoder with support-context ablations and training-fold-only calibration; see [PHASE_2.md](docs/PHASE_2.md). Its implementation, measured comparison, and optimizer-state recovery remain outstanding.
+Final training is blocked by the feature-completion gate. The major unresolved issue is independent policy coverage and confirmation after feature selection, not another setup cycle. The broad feature banks and frozen probes are not automatically promoted into the offline reference.
 
-Do not rerun Qwen on the recorded 4 GB Studio app: the process alone peaked at 3.854 GiB. Saved review needs no resize. Approve hardware, maximum runtime, and spending before paid model experiments. Stop the JupyterLab app when finished; do not delete the space or S3 snapshots. Persistent storage remains billable.
+Saved public review needs no model loading or instance resize. Full frozen-encoder experiments require a bounded compute plan and verified checkpoints. The recorded small Studio app is suitable for review, not simultaneous encoder workers. Preserve the Studio space and project snapshots when stopping compute.

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "source_sha256": "a21bfff36f7dfc642236380d913bd31dcaa90d193aecec87a40b6f437bec7508",
+  "inputs": {
+    "research": "9ec008d506b0bc64a717",
+    "sensitivity": "bce07fd60bc7543fca49",
+    "pairs": "537cf2213c813b8ebd4b"
+  },
+  "files": {
+    "ablation.svg": "081a2a324da64bcd8904b4b2a016e97d8ab31b67c51879db4f67007a57709d02",
+    "ablation.plotly.json": "721c2422b1a0cc1afa5fbeb374eb212de8ecf596c29a5a8155a0c038e36b48b7",
+    "screening.svg": "f77ea89371ec8b4394c8dcdabd44be648c44631aa01f6e480759af0316932112",
+    "screening.plotly.json": "667aa2f11d8a60f91bf9acf2e17e0b992d9c8576807e429a1ed27473b2c267b6",
+    "stability.svg": "44acad092ee284eaa4e6022963721fb52e8635ff3e21df69d0264a1c0c47ee4f",
+    "stability.plotly.json": "e81e5e0d34eb33c23131025f95f35fad315af0c679d3dfb8d38f0c47c56fd1cf"
+  }
+}

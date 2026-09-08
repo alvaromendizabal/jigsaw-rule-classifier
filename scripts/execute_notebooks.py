@@ -67,11 +67,24 @@ def select_notebooks(root: Path, requested: list[str] | None, mode: str) -> list
 def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> dict:
     """Hash actual inputs so changed evidence cannot reuse stale display outputs."""
     paths = [*sorted((root / "src").rglob("*.py")), root / "scripts/execute_notebooks.py"]
+    figure_builder = root / "scripts/build_research_report.py"
+    if figure_builder.exists():
+        paths.append(figure_builder)
     paths += [root / "pyproject.toml", root / "uv.lock"]
+    paths += [p for p in sorted((root / "configs").glob("*.json")) if p.name != "local.json"]
     if mode == "public":
         paths += [
             p
-            for kind in ("baseline", "semantic", "features")
+            for kind in (
+                "baseline",
+                "semantic",
+                "features",
+                "research",
+                "pairs",
+                "sensitivity",
+                "robustness",
+                "instructions",
+            )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")
         ]
@@ -306,7 +319,15 @@ def push_publication(root: Path, branch: str) -> str:
         if evidence is not None:
             source = {p.name: digest(p) for p in (root / "src/jigsaw_rules").glob("*.py")}
             if source != evidence["metadata"]["source_sha256"]:
-                raise ValueError("Feature evidence was produced by different source code")
+                # Historical evidence can be re-rendered only if it is already committed
+                # byte-for-byte. It cannot be relabeled as an experiment on current code.
+                for name in ("metadata.json", *evidence["metadata"]["files"]):
+                    report = f"reports/features/{name}"
+                    previous = subprocess.run(
+                        ["git", "show", f"HEAD:{report}"], cwd=root, capture_output=True
+                    )
+                    if previous.returncode or previous.stdout != (root / report).read_bytes():
+                        raise ValueError("Uncommitted historical feature evidence needs review")
             paths += ["reports/features/metadata.json"]
             paths += ["reports/features/" + name for name in evidence["metadata"]["files"]]
             for name in paths:
@@ -315,6 +336,47 @@ def push_publication(root: Path, branch: str) -> str:
             for name, sha in evidence["metadata"]["files"].items():
                 if hashlib.sha256(payloads["reports/features/" + name]).hexdigest() != sha:
                     raise ValueError("Feature files changed during publication")
+        from jigsaw_rules.diagnostics import diagnostic_evidence
+        from jigsaw_rules.instructions import instruction_evidence
+        from jigsaw_rules.pairs import pairs_evidence
+        from jigsaw_rules.research import research_evidence
+        from jigsaw_rules.robustness import robustness_evidence
+
+        readers = {
+            "research": research_evidence,
+            "pairs": pairs_evidence,
+            "sensitivity": diagnostic_evidence,
+            "robustness": robustness_evidence,
+            "instructions": instruction_evidence,
+        }
+        for kind, reader in readers.items():
+            current_evidence = reader(root)
+            if current_evidence is None:
+                continue
+            for name in ("metadata.json", *current_evidence["metadata"]["files"]):
+                report = f"reports/{kind}/{name}"
+                paths.append(report)
+                payloads[report] = (root / report).read_bytes()
+        manifest_path = root / "reports/research/figures.json"
+        if manifest_path.exists():
+            manifest = json.loads(manifest_path.read_text())
+            if manifest["source_sha256"] != digest(root / "scripts/build_research_report.py"):
+                raise ValueError("Research figures use outdated rendering source")
+            allowed_figures = {
+                f"{name}.{suffix}"
+                for name in ("ablation", "screening", "stability")
+                for suffix in ("svg", "plotly.json")
+            }
+            if set(manifest["files"]) != allowed_figures:
+                raise ValueError("Research figure allowlist differs")
+            for name, sha in manifest["files"].items():
+                report = f"reports/research/{name}"
+                if digest(root / report) != sha:
+                    raise ValueError("Research figure checksum differs")
+                paths.append(report)
+                payloads[report] = (root / report).read_bytes()
+            paths.append("reports/research/figures.json")
+            payloads["reports/research/figures.json"] = manifest_path.read_bytes()
         outside = set(git("diff", "--name-only").splitlines()) - set(paths)
         untracked_source = git("ls-files", "--others", "--exclude-standard", "--", "src", "scripts")
         if outside or untracked_source:

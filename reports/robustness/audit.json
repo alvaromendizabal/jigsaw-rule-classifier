@@ -1,0 +1,55 @@
+{
+  "policy": {
+    "character_cosine": 0.95,
+    "token_jaccard": 0.9,
+    "minimum_characters": 40
+  },
+  "folds": [
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "before": 237,
+      "after": 237,
+      "removed": 0,
+      "validation_rows": 676,
+      "affected_validation_rows": 0
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "before": 287,
+      "after": 287,
+      "removed": 0,
+      "validation_rows": 677,
+      "affected_validation_rows": 0
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "before": 279,
+      "after": 279,
+      "removed": 0,
+      "validation_rows": 676,
+      "affected_validation_rows": 0
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "before": 961,
+      "after": 961,
+      "removed": 0,
+      "validation_rows": 1012,
+      "affected_validation_rows": 0
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "before": 975,
+      "after": 975,
+      "removed": 0,
+      "validation_rows": 1017,
+      "affected_validation_rows": 0
+    }
+  ],
+  "interpretation": "Additional training-row removal only; original validation rows retained. Fixed thresholds were not selected with outcomes. This is not paraphrase isolation."
+}

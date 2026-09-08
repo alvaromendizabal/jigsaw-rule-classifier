@@ -1,0 +1,62 @@
+[
+  {
+    "protocol": "seen_rule",
+    "contrast": "reference_near_purged",
+    "candidate": "reference_near_purged",
+    "reference": "original_reference",
+    "observed_delta": 0.0,
+    "ci_lower": 0.0,
+    "ci_upper": 0.0,
+    "simultaneous_lower": -0.017421767663431672,
+    "simultaneous_upper": 0.017421767663431672,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "protocol": "seen_rule",
+    "contrast": "character_near_purged",
+    "candidate": "character_near_purged",
+    "reference": "original_reference",
+    "observed_delta": 0.023457304973891535,
+    "ci_lower": 0.006782229694790742,
+    "ci_upper": 0.04104382124920441,
+    "simultaneous_lower": 0.006035537310459863,
+    "simultaneous_upper": 0.04087907263732321,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "protocol": "heldout_rule",
+    "contrast": "reference_near_purged",
+    "candidate": "reference_near_purged",
+    "reference": "original_reference",
+    "observed_delta": 0.0,
+    "ci_lower": 0.0,
+    "ci_upper": 0.0,
+    "simultaneous_lower": -0.022484773827029125,
+    "simultaneous_upper": 0.022484773827029125,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "protocol": "heldout_rule",
+    "contrast": "character_near_purged",
+    "candidate": "character_near_purged",
+    "reference": "original_reference",
+    "observed_delta": 0.007969484153558026,
+    "ci_lower": -0.012953411342304346,
+    "ci_upper": 0.031019813892332312,
+    "simultaneous_lower": -0.014515289673471099,
+    "simultaneous_upper": 0.03045425798058715,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  }
+]

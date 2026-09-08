@@ -1,0 +1,362 @@
+[
+  {
+    "protocol": "seen_rule",
+    "model": "rule_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5501710401347801,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5604963168026984,
+        "No legal advice: Do not offer or request legal advice.": 0.5398457634668617
+      },
+      "pooled_auc": 0.5784313534926302,
+      "average_precision": 0.5774234216652028,
+      "log_loss": 0.7495168489733819,
+      "brier": 0.24796338785412653,
+      "ece_10_equal_width_bins": 0.03515155388667182,
+      "precision_at_0_5": 0.6095238095238096,
+      "recall_at_0_5": 0.43452958292919497,
+      "f1_at_0_5": 0.507361268403171,
+      "confusion_matrix_at_0_5": [
+        [
+          711,
+          287
+        ],
+        [
+          583,
+          448
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "support_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5160498526752415,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5446557841312268,
+        "No legal advice: Do not offer or request legal advice.": 0.4874439212192561
+      },
+      "pooled_auc": 0.5364152164659095,
+      "average_precision": 0.5432345706598595,
+      "log_loss": 0.7052483432147271,
+      "brier": 0.2533707944994219,
+      "ece_10_equal_width_bins": 0.059727124072609196,
+      "precision_at_0_5": 0.5330578512396694,
+      "recall_at_0_5": 0.5004849660523764,
+      "f1_at_0_5": 0.5162581290645323,
+      "confusion_matrix_at_0_5": [
+        [
+          546,
+          452
+        ],
+        [
+          515,
+          516
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "all_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5380223009209772,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5523165163158481,
+        "No legal advice: Do not offer or request legal advice.": 0.5237280855261064
+      },
+      "pooled_auc": 0.5715553318081361,
+      "average_precision": 0.5727938261283223,
+      "log_loss": 0.6921030312010141,
+      "brier": 0.24910124582132168,
+      "ece_10_equal_width_bins": 0.04713091984173832,
+      "precision_at_0_5": 0.5619242579324463,
+      "recall_at_0_5": 0.5324927255092143,
+      "f1_at_0_5": 0.546812749003984,
+      "confusion_matrix_at_0_5": [
+        [
+          570,
+          428
+        ],
+        [
+          482,
+          549
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "word_nli",
+    "metrics": {
+      "rule_macro_auc": 0.6901488680139731,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7510182489300432,
+        "No legal advice: Do not offer or request legal advice.": 0.6292794870979032
+      },
+      "pooled_auc": 0.7050055494111404,
+      "average_precision": 0.688673377310897,
+      "log_loss": 0.6192424435598847,
+      "brier": 0.21601707409758503,
+      "ece_10_equal_width_bins": 0.024522839566258545,
+      "precision_at_0_5": 0.6302305721605466,
+      "recall_at_0_5": 0.7158098933074685,
+      "f1_at_0_5": 0.670299727520436,
+      "confusion_matrix_at_0_5": [
+        [
+          565,
+          433
+        ],
+        [
+          293,
+          738
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "transfer_nli",
+    "metrics": {
+      "rule_macro_auc": 0.6958104473969455,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7512409908834898,
+        "No legal advice: Do not offer or request legal advice.": 0.6403799039104012
+      },
+      "pooled_auc": 0.7077608174642204,
+      "average_precision": 0.7061167421666532,
+      "log_loss": 0.6664888333847679,
+      "brier": 0.22881634702391587,
+      "ece_10_equal_width_bins": 0.1166623344369659,
+      "precision_at_0_5": 0.6444232602478551,
+      "recall_at_0_5": 0.6556741028128031,
+      "f1_at_0_5": 0.65,
+      "confusion_matrix_at_0_5": [
+        [
+          625,
+          373
+        ],
+        [
+          355,
+          676
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "rule_margin",
+    "metrics": {
+      "rule_macro_auc": 0.5316507825160837,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5019549583949852,
+        "No legal advice: Do not offer or request legal advice.": 0.5613466066371822
+      },
+      "pooled_auc": 0.5636831373707648,
+      "average_precision": 0.5891043546812718,
+      "log_loss": 0.6960249800921071,
+      "brier": 0.2512243665375961,
+      "ece_10_equal_width_bins": 0.041852033829262315,
+      "precision_at_0_5": 0.6818181818181818,
+      "recall_at_0_5": 0.1309408341416101,
+      "f1_at_0_5": 0.21969080553295361,
+      "confusion_matrix_at_0_5": [
+        [
+          935,
+          63
+        ],
+        [
+          896,
+          135
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "rule_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5473815802661374,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.57454894754427,
+        "No legal advice: Do not offer or request legal advice.": 0.5202142129880047
+      },
+      "pooled_auc": 0.484885386680247,
+      "average_precision": 0.5326985102931123,
+      "log_loss": 0.7256900526121707,
+      "brier": 0.26325929202217074,
+      "ece_10_equal_width_bins": 0.09852344779089336,
+      "precision_at_0_5": 0.48384491114701134,
+      "recall_at_0_5": 0.5809893307468477,
+      "f1_at_0_5": 0.5279858968708683,
+      "confusion_matrix_at_0_5": [
+        [
+          359,
+          639
+        ],
+        [
+          432,
+          599
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "support_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5220243240443778,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5119843126024215,
+        "No legal advice: Do not offer or request legal advice.": 0.5320643354863343
+      },
+      "pooled_auc": 0.44331922817506986,
+      "average_precision": 0.4697714795102984,
+      "log_loss": 1.1269357545761232,
+      "brier": 0.3033283618817861,
+      "ece_10_equal_width_bins": 0.16831044374547405,
+      "precision_at_0_5": 0.4891008174386921,
+      "recall_at_0_5": 0.6964112512124151,
+      "f1_at_0_5": 0.5746298519407763,
+      "confusion_matrix_at_0_5": [
+        [
+          248,
+          750
+        ],
+        [
+          313,
+          718
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "all_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5602062533090618,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5778682004041176,
+        "No legal advice: Do not offer or request legal advice.": 0.5425443062140061
+      },
+      "pooled_auc": 0.5244193527695546,
+      "average_precision": 0.5474771585999811,
+      "log_loss": 0.7251982951272532,
+      "brier": 0.2630780422193453,
+      "ece_10_equal_width_bins": 0.0936114792303344,
+      "precision_at_0_5": 0.5077464788732394,
+      "recall_at_0_5": 0.6993210475266731,
+      "f1_at_0_5": 0.5883312933496532,
+      "confusion_matrix_at_0_5": [
+        [
+          299,
+          699
+        ],
+        [
+          310,
+          721
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "word_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5963791713603261,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6307813469524128,
+        "No legal advice: Do not offer or request legal advice.": 0.5619769957682396
+      },
+      "pooled_auc": 0.6207643220485588,
+      "average_precision": 0.6097448852459009,
+      "log_loss": 0.6964214525142784,
+      "brier": 0.24753245450478478,
+      "ece_10_equal_width_bins": 0.0798575106567566,
+      "precision_at_0_5": 0.6050420168067226,
+      "recall_at_0_5": 0.5586808923375364,
+      "f1_at_0_5": 0.5809379727685325,
+      "confusion_matrix_at_0_5": [
+        [
+          622,
+          376
+        ],
+        [
+          455,
+          576
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "transfer_nli",
+    "metrics": {
+      "rule_macro_auc": 0.5517214422817429,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5425675783176618,
+        "No legal advice: Do not offer or request legal advice.": 0.5608753062458239
+      },
+      "pooled_auc": 0.5400568353000862,
+      "average_precision": 0.5229037566691386,
+      "log_loss": 1.3258984749731624,
+      "brier": 0.3422375629814854,
+      "ece_10_equal_width_bins": 0.27175886061753624,
+      "precision_at_0_5": 0.5458333333333333,
+      "recall_at_0_5": 0.38118331716779824,
+      "f1_at_0_5": 0.4488863506567676,
+      "confusion_matrix_at_0_5": [
+        [
+          671,
+          327
+        ],
+        [
+          638,
+          393
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "rule_margin",
+    "metrics": {
+      "rule_macro_auc": 0.5316507825160837,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5019549583949852,
+        "No legal advice: Do not offer or request legal advice.": 0.5613466066371822
+      },
+      "pooled_auc": 0.5636831373707648,
+      "average_precision": 0.5891043546812718,
+      "log_loss": 0.6960249800921071,
+      "brier": 0.2512243665375961,
+      "ece_10_equal_width_bins": 0.041852033829262315,
+      "precision_at_0_5": 0.6818181818181818,
+      "recall_at_0_5": 0.1309408341416101,
+      "f1_at_0_5": 0.21969080553295361,
+      "confusion_matrix_at_0_5": [
+        [
+          935,
+          63
+        ],
+        [
+          896,
+          135
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  }
+]

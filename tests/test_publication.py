@@ -24,7 +24,7 @@ def git(root, *arguments):
 def repository(tmp_path, monkeypatch):
     root, remote = tmp_path / "workspace", tmp_path / "origin.git"
     root.mkdir()
-    for directory in ("src", "scripts", "reports", "notebooks"):
+    for directory in ("src", "scripts", "reports", "notebooks", "configs"):
         shutil.copytree(ROOT / directory, root / directory)
     for filename in ("pyproject.toml", "uv.lock", ".gitignore"):
         shutil.copyfile(ROOT / filename, root / filename)
