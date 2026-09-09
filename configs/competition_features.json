@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "files": {
+    "LICENSE": {
+      "algorithm": "git-sha1",
+      "digest": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+    },
+    "config.json": {
+      "algorithm": "git-sha1",
+      "digest": "6988f134db143052042f2bd6e0c897bc6a605189"
+    },
+    "generation_config.json": {
+      "algorithm": "git-sha1",
+      "digest": "432531a002c181a19de338313d2375e9d7494d7e"
+    },
+    "merges.txt": {
+      "algorithm": "git-sha1",
+      "digest": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+    },
+    "model-00001-of-00003.safetensors": {
+      "algorithm": "sha256",
+      "digest": "75311d91bb08cf0b882913da464a1e722a31fb44db35208663487efb7a3d8ed6"
+    },
+    "model-00002-of-00003.safetensors": {
+      "algorithm": "sha256",
+      "digest": "0b48adbb1f60e901153d91907ba11ce63bd4b8b584482e730f48808d055dfba1"
+    },
+    "model-00003-of-00003.safetensors": {
+      "algorithm": "sha256",
+      "digest": "7dd39ccca5e4de123c74c14af44c9bf2eb75df33b4614382af0134528e060d5d"
+    },
+    "model.safetensors.index.json": {
+      "algorithm": "git-sha1",
+      "digest": "4747b0297d3109f14db49886972e3369c9a00b2a"
+    },
+    "tokenizer.json": {
+      "algorithm": "sha256",
+      "digest": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    "tokenizer_config.json": {
+      "algorithm": "git-sha1",
+      "digest": "51c1be0d9192e7f6e6596de71d0f07d58fbc32ac"
+    },
+    "vocab.json": {
+      "algorithm": "git-sha1",
+      "digest": "4783fe10ac3adce15ac8f358ef5462739852c569"
+    }
+  },
+  "input_sha256": "4ab681481cf3539c3d743be5020572585cc3d959a56722cf9993b55149f8c155",
+  "field_tokens": {
+    "body": 384,
+    "rule": 96,
+    "support": 192
+  },
+  "max_tokens": 2048,
+  "batch_size": 4,
+  "shard_size": 64,
+  "seed": 2025,
+  "max_seconds": 3000,
+  "screen_maximum": 64,
+  "classifier_c": 1.0,
+  "bootstrap_replicates": 1000,
+  "scope": "Original 2029 development rows only. Frozen-model feature ablation; no hidden labels and no promotion on this study alone."
+}

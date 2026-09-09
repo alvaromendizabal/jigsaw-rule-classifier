@@ -2,9 +2,9 @@
 
 Predict whether a comment violates a supplied community rule, using the rule and examples of permitted and prohibited comments.
 
-**Start with [03 · Results and examples](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The fixed model passed its protected comparison on 43,509 rows. Research, confirmation and the verified local inference product are complete.
+**Start with [03 · Results and examples](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The historical research model passed its protected comparison on 43,509 rows. **Competition performance is being rebuilt:** the submitted lexical reference scored only **0.61956 private**, well below the approximately **0.92** objective. [Failure analysis and reopened feature gate](docs/COMPETITION_REBUILD.md).
 
-**Kaggle entry complete:** Version 2 succeeded as a late submission: **0.59191 public / 0.61956 private**. These are the original-training lexical reference scores. [Submission record](reports/checkpoints/kaggle_submission.json) · [Kaggle result, signed-in account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#). **Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
+**Original baseline submission:** Version 2 succeeded as a late submission: **0.59191 public / 0.61956 private**. These are the original-training lexical reference scores. [Submission record](reports/checkpoints/kaggle_submission.json) · [Kaggle result, signed-in account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#). **Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
@@ -67,7 +67,7 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 **Portfolio delivery: COMPLETE.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make the scoped project reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry.
 
-The declared research and local inference scope is closed. The requested late Kaggle entry is submitted and scored. Hosted deployment remains outside the completed scope. [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
+The historical research and local inference release remains preserved. The original baseline was submitted and scored, but the competition performance goal is open. [Current rebuild](docs/COMPETITION_REBUILD.md). [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
 
 ## Review or reproduce
 

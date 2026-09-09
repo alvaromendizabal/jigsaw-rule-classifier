@@ -1,0 +1,63 @@
+{
+  "status": "launched",
+  "job_name": "jigsaw-competition-features-20260909",
+  "source_sha256": "9fc7755d0d8fd7121b87db451fec50bfc04ee4e5f2b733d830874406449eb0b5",
+  "source_version_id": "q.UkxZfdLyS3mqLGl1s7sa7AuXpSZOkk",
+  "price_usd_per_instance_hour": 1.127,
+  "compute_runtime_limit_seconds": 3600,
+  "scope": "2029 original development inputs; frozen 4B representation ablation; no released labels",
+  "request": {
+    "AlgorithmSpecification": {
+      "ContainerArguments": [
+        "-c",
+        "jigsaw_source=/opt/ml/input/data/source/source.tar.gz; echo \"$JIGSAW_SOURCE_SHA256  $jigsaw_source\"|sha256sum -c - && mkdir -p /opt/ml/code && tar xzf \"$jigsaw_source\" -C /opt/ml/code && exec bash /opt/ml/code/scripts/run_competition_features.sh"
+      ],
+      "ContainerEntrypoint": [
+        "/bin/bash"
+      ],
+      "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training@sha256:26e979d1e21417c3a58d79478e6db1804d4fad512048a7a8cdf1816ab971e7c0",
+      "TrainingInputMode": "File"
+    },
+    "Environment": {
+      "JIGSAW_BUCKET": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+      "JIGSAW_PREFIX": "experiments/competition-features-20260909",
+      "JIGSAW_SOURCE_SHA256": "9fc7755d0d8fd7121b87db451fec50bfc04ee4e5f2b733d830874406449eb0b5"
+    },
+    "InputDataConfig": [
+      {
+        "ChannelName": "source",
+        "DataSource": {
+          "S3DataSource": {
+            "S3DataDistributionType": "FullyReplicated",
+            "S3DataType": "S3Prefix",
+            "S3Uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/competition-features-20260909/source/"
+          }
+        }
+      }
+    ],
+    "OutputDataConfig": {
+      "S3OutputPath": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/competition-features-20260909/output/"
+    },
+    "ResourceConfig": {
+      "InstanceCount": 1,
+      "InstanceType": "ml.g6.xlarge",
+      "VolumeSizeInGB": 40
+    },
+    "RoleArn": "arn:aws:iam::560403859723:role/service-role/AmazonSageMaker-ExecutionRole-20260902T115323",
+    "StoppingCondition": {
+      "MaxPendingTimeInSeconds": 7200,
+      "MaxRuntimeInSeconds": 3600
+    },
+    "Tags": [
+      {
+        "Key": "Project",
+        "Value": "jigsaw-rule-classifier"
+      },
+      {
+        "Key": "Purpose",
+        "Value": "bounded-competition-feature-ablation"
+      }
+    ],
+    "TrainingJobName": "jigsaw-competition-features-20260909"
+  }
+}

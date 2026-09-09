@@ -1,5 +1,7 @@
 # Model and local inference milestones completed
 
+**Current status — competition gate reopened:** the original lexical entry scored 0.61956 private. The approximately 0.92 performance objective is unmet. [Competition rebuild](COMPETITION_REBUILD.md) supersedes the earlier overall closeout language below; completed historical experiments and their frozen evidence remain preserved.
+
 Feature research is complete for the declared four-policy development scope. The generated [stopping decision](../reports/feature_decision/decision.json) and [coverage ledger](FEATURE_COVERAGE.md) support that boundary. The development implementation and nested calibration are now [executed and verified](MODEL_VALIDATION.md). The protected comparison is also complete: all 12 checks passed, with macro AUC 0.7770 versus 0.6801. [Frozen protocol and result](CONFIRMATION.md). This document retains the historical milestone rationale and the completed product requirements.
 
 ## Resolve familiar versus unseen policies
