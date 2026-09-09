@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "status": "ready_not_submitted",
+  "checked_on": "2026-09-09",
+  "competition": "jigsaw-agile-community-rules",
+  "notebook": "alvaromendizabal/jigsaw-original-training-reference",
+  "notebook_version": 2,
+  "script_version_id": 348605174,
+  "version_name": "Kaggle input path fix - GitHub 7e98f91",
+  "output_url": "https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174",
+  "output_file": "submission.csv",
+  "source_commit": "7e98f91426e8cd849d80ef997d0f992faf6a9377",
+  "canonical_notebook_sha256": "0df03710aecb29cc6a8498572783bde6de9e8454696a93ca8c4b598074fcf832",
+  "runtime_source_sha256": "2671bcad265c8034387c1e0b999b1f31e137d21bb41b9cbd8aba66a5ce1e693d",
+  "saved_run": {
+    "status": "successful",
+    "runtime_seconds_displayed": 36,
+    "preview_rows": 10,
+    "preview_output_bytes": 262,
+    "internet": false,
+    "accelerator": "none"
+  },
+  "training_scope": "Original 2,029 training rows; unchanged lexical reference. No post-competition development labels.",
+  "failed_version": {
+    "version": 1,
+    "script_version_id": 348604059,
+    "error": "FileNotFoundError: legacy competition input mount",
+    "resolution": "Recognize both /kaggle/input/competitions/jigsaw-agile-community-rules and the legacy mount."
+  },
+  "submission": {
+    "id": null,
+    "status": "not_submitted",
+    "score": null,
+    "reason": "Final submission action requires renewed confirmation; the prepared saved version remains available."
+  },
+  "validation": {
+    "workflow_run": 34391473434,
+    "workflow_job": 102600542417,
+    "status": "success",
+    "tests_passed": 346,
+    "original_preview_jupyter_and_replay": true,
+    "synthetic_jupyter": true,
+    "public_evidence_notebooks_and_replay": true,
+    "real_pinned_encoder": true
+  },
+  "scope": "A successful saved preview run is not a scored competition submission. The 0.7770 post-competition research AUC is a separate result."
+}

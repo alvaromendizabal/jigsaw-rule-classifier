@@ -1,6 +1,6 @@
 # Download and run the completed project
 
-The research model and the competition entry have different training-data boundaries. Both are preserved; neither is submitted automatically.
+The research model and the competition entry have different training-data boundaries. Research and offline delivery are complete. Kaggle Version 2 has run successfully and is ready for the final submission action; no Kaggle score exists yet.
 
 | Deliverable | Location | Purpose |
 | --- | --- | --- |
@@ -10,9 +10,19 @@ The research model and the competition entry have different training-data bounda
 
 ## Your Kaggle submission
 
-Download the canonical notebook from GitHub, or download its identical S3 copy at `releases/v1.0.0/kaggle/submission.ipynb` in `sagemaker-jigsaw-rules-560403859723-us-west-2`. The [delivery record](../reports/checkpoints/delivery.json) records its verified checksum and S3 version. No AWS training archive needs to be opened to find this notebook.
+The notebook is already uploaded and successfully executed in your account: **[Jigsaw - Original Training Reference · Version 2](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174)**. It ran in 36 seconds on CPU with Internet off and generated the 10-row preview `submission.csv`. The final submission action remains pending; this is not a hidden-test score. [Current submission record](../reports/checkpoints/kaggle_submission.json).
 
-For the competition workflow, import the notebook into Kaggle, attach the original competition data, keep Internet disabled, and save a successful run. The notebook writes `/kaggle/working/submission.csv`, with exactly `row_id` and `rule_violation`. The competition's Late Submission interface selects an eligible saved notebook. It does not accept a model ZIP as an entry. The authenticated account had **no submissions found** when inspected on September 9, 2026; no leaderboard score is claimed.
+To finish from the saved version:
+
+1. Open the Version 2 output link above while signed in as `alvaromendizabal`.
+2. Click **Submit to Competition** beside `submission.csv`.
+3. Check **Notebook Version: Kaggle input path fix - GitHub 7e98f91** and **Output File: submission.csv**. Leave the output at the root file, rather than a checkpoint batch.
+4. Optionally enter `Original-training-only lexical reference, Version 2` as the description, then click **Submit**.
+5. Open the competition's **Submissions** tab and wait for **Complete** and a score. Kaggle reruns the notebook on hidden test data; a saved preview run alone is not the submission.
+
+No AWS download or new notebook upload is needed for these steps. To obtain the current notebook separately, download the canonical file from GitHub using the table above. The original S3 snapshot at `releases/v1.0.0/kaggle/submission.ipynb` in `sagemaker-jigsaw-rules-560403859723-us-west-2` predates the current Kaggle mount fix. Its historical checksum and version remain in the [delivery record](../reports/checkpoints/delivery.json); use GitHub or saved Kaggle Version 2 for the corrected notebook.
+
+Version 1 failed because Kaggle mounted its official files under `/kaggle/input/competitions/jigsaw-agile-community-rules`, while the original code expected `/kaggle/input/jigsaw-agile-community-rules`. The current notebook recognizes both layouts, honors an explicit local input override, and tells you to attach the official competition when required files are absent. No model or prediction algorithm changed.
 
 For local or SageMaker use, open the same notebook and run all cells with `GENERATE_SUBMISSION = True`; its final cell provides the CSV download. The original downloadable preview contains **10 rows**, while original training contains **2,029 rows**. A 10-row local preview verifies software and is not the hidden competition test or a score. Kaggle supplies its evaluation input when running a submitted notebook. CI executes this notebook on both synthetic and hash-verified original preview data, then checks unchanged output on replay. [Execution proof](../reports/checkpoints/submission.json).
 
@@ -60,4 +70,4 @@ On an AMD EPYC 9V74 host with nine visible logical CPUs and four PyTorch threads
 
 The warm measurement is a mean over four authored examples, not a tail-latency or production-throughput estimate. A separate fresh-environment run produced the same four probabilities within `1.12e-16`, in 17.10 seconds with an empty encoder cache and zero network calls. The serving samples do not add accuracy evidence to the protected comparison. [Machine-readable measurements](../reports/delivery/verification.json).
 
-This closes the scoped research and local inference product. Hosted serving, arbitrary-policy generalization and a Kaggle leaderboard result are separate future work. [Model card](../MODEL_CARD.md) · [Data card](../DATA_CARD.md).
+This closes the scoped research and local inference product. Hosted serving and arbitrary-policy generalization remain outside this scope. The saved Kaggle entry is ready for its final submission action; a leaderboard result is still pending. [Model card](../MODEL_CARD.md) · [Data card](../DATA_CARD.md).
