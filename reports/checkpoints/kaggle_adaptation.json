@@ -1,6 +1,6 @@
 {
-  "status": "gpu_preview_verified_saved_run_pending",
-  "scope": "Real original-data GPU preview and recovery verification; no new Kaggle score",
+  "status": "submitted_hidden_evaluation_running",
+  "scope": "Saved offline GPU execution verified; Version 3 submitted for hidden evaluation; no new Kaggle score yet",
   "runtime": {
     "python": "3.12.13",
     "torch": "2.10.0+cu128",
@@ -86,9 +86,9 @@
     "canonical_replay_sha256": "6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804"
   },
   "ci": {
-    "commit": "a4936977c945110ea5b86398cdfb9d2a9f12556b",
-    "run_id": 34417108269,
-    "job_id": 102684310454,
+    "commit": "62464de380cfe55a97304ba015953121405ecacb",
+    "run_id": 34417662301,
+    "job_id": 102686019800,
     "conclusion": "success",
     "public_jupyter_notebooks": 5,
     "public_jupyter_replay": true,
@@ -96,7 +96,7 @@
     "real_pinned_encoder": true
   },
   "saved_run": {
-    "status": "running",
+    "status": "successful",
     "notebook": "alvaromendizabal/jigsaw-support-adapted-rule-classifier",
     "notebook_version": 3,
     "script_version_id": 348640051,
@@ -106,6 +106,67 @@
     "internet": false,
     "accelerator": "GPU T4 x2",
     "model_asset_hashes_verified": 11,
-    "requires_hidden_submission_for_score": true
+    "requires_hidden_submission_for_score": true,
+    "worker_completed_utc": "2026-09-09T23:45:38+00:00",
+    "verified_utc": "2026-09-09T23:46:30+00:00",
+    "run_id": "d33a5b1bfe0b448ba686",
+    "sha256": "6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804",
+    "rows": 10,
+    "training": {
+      "optimizer_steps": 117,
+      "resumed_step": 0,
+      "training_contract": "f4e4c0c0879f2468cab42aa4b8fcbc817b60c8baa5926d8cd9067d8d2ad10d7d",
+      "loss_scale": 128
+    },
+    "audit": {
+      "candidate_occurrences": 10185,
+      "forbidden_text_occurrences": 0,
+      "conflicting_pairs": 11,
+      "conflicting_occurrences": 213,
+      "duplicate_occurrences": 8110,
+      "retained_pairs": 1862,
+      "by_source": {
+        "train_body": 1824,
+        "available_support": 38
+      },
+      "scope": "train bodies and supplied support labels; no available body targets",
+      "epoch_occurrences": 1862,
+      "new_policies": 0,
+      "query_body_targets_used": false,
+      "supplied_support_matches_are_eligible": true
+    },
+    "elapsed_seconds": 603.455483881,
+    "peak_gpu_gib": 8.260199069976807,
+    "matches_draft_csv": true,
+    "source_config_and_model_hashes_match": true,
+    "output_schema_and_order_verified": true,
+    "finite_ranks_verified": true,
+    "output_bytes_displayed": 234,
+    "durable_outputs": [
+      "checkpoints/",
+      "jigsaw_runtime/",
+      "submission.csv",
+      "submission_manifest.json"
+    ],
+    "visibility": "Private"
+  },
+  "submission": {
+    "id": null,
+    "id_note": "The account UI exposes the notebook version and entry status, but no numeric submission ID.",
+    "status": "running",
+    "site_status": "Notebook Running (after deadline)",
+    "first_verified_running_utc": "2026-09-09T23:47:32+00:00",
+    "submitted_on": "2026-09-09",
+    "is_late": true,
+    "notebook_version": 3,
+    "script_version_id": 348640051,
+    "output_file": "submission.csv",
+    "public_score": null,
+    "private_score": null,
+    "result_url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#",
+    "description": "Support-adapted Qwen3-4B; original train plus supplied support labels only. Version 3 / 348640051; GitHub a4936977c945110ea5b86398cdfb9d2a9f12556b. Offline T4, one LoRA epoch, within-rule ranks. Saved 117-step preview verified; no released targets.",
+    "duplicate_check": "Only the original Version 2 entry existed immediately before submission; one Version 3 entry verified afterward.",
+    "evidence": "Authenticated Submissions row and Submission Details both showed Notebook Running (after deadline) for Version 3.",
+    "daily_late_limit_displayed": 100
   }
 }

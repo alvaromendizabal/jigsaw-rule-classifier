@@ -71,6 +71,8 @@ Only public aggregate evidence can be published. Private or synthetic execution 
 
 ## Run and submit on Kaggle
 
+**Version 3 is submitted; hidden evaluation is running.** Kaggle showed **Notebook Running (after deadline)** at 23:47 UTC on September 9, 2026. The fresh offline T4 run completed all 117 training steps and validated the ten-row preview; it used 603.5 worker seconds and 8.26 GiB peak allocated GPU memory. Its CSV matches the earlier preview and checksum-verified replay. [Version 3](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Runtime and submission receipt](reports/checkpoints/kaggle_adaptation.json). This entry learns from original training labels and supplied support labels. The new score is pending; do not submit a duplicate while it runs.
+
 **Version 2 is submitted and scored.** Kaggle reported **Succeeded (after deadline)** on September 9, 2026, with **0.59191 public / 0.61956 private**. Open the [competition's Submissions page](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#) while signed in as `alvaromendizabal` to inspect the entry. [Version 2 output](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174) · [Machine-readable receipt](reports/checkpoints/kaggle_submission.json). No AWS download, new upload or resubmission is needed to complete this milestone.
 
 This entry uses only the original 2,029 training rows and the lexical reference. The 0.7770 protected research AUC is a separate post-competition result.
