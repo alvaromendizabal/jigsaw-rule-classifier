@@ -25,6 +25,27 @@ ROOTS = (
 )
 
 
+def committed_markers(root: Path) -> list[Path]:
+    """Traverse published stage directories without entering active temporary stages."""
+    markers = []
+
+    def fail(error: OSError) -> None:
+        raise error
+
+    for relative in ROOTS:
+        base = root / relative
+        if not base.exists():
+            continue
+        for directory, subdirectories, files in os.walk(base, onerror=fail):
+            # runtime.stage writes a marker inside .<stage>-*/artifacts just before
+            # atomically moving artifacts to its published stage name. Traversing
+            # that temporary tree can race with the move and raise FileNotFoundError.
+            subdirectories[:] = [name for name in subdirectories if not name.startswith(".")]
+            if "complete.json" in files:
+                markers.append(Path(directory) / "complete.json")
+    return sorted(markers)
+
+
 def restorable_objects(entries: list[dict], prefix: str) -> list[dict]:
     """Ignore an interrupted upload until its stage completion marker exists."""
     keys = {item["Key"] for item in entries}
@@ -177,7 +198,7 @@ def main() -> None:
     stop = threading.Event()
 
     def checkpoint() -> None:
-        markers = [p for prefix_path in ROOTS for p in (root / prefix_path).rglob("complete.json")]
+        markers = committed_markers(root)
         for marker in markers:
             relative = marker.relative_to(root).as_posix()
             if relative in originals:
@@ -207,7 +228,12 @@ def main() -> None:
                 checkpoint()
             except Exception as error:
                 errors.append(type(error).__name__)
-                emit("checkpoint_failed", error_type=type(error).__name__)
+                emit(
+                    "checkpoint_failed",
+                    error_type=type(error).__name__,
+                    error_message=str(error),
+                    filename=getattr(error, "filename", None),
+                )
                 return
 
     thread = threading.Thread(target=periodic, daemon=True)

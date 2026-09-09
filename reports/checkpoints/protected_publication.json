@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "workflow_run": 34382476761,
+  "artifact_id": 10116524242,
+  "artifact_sha256": "3f388d2ee9ca0268fdfd8e8543a69c64d62afe52a7d08f5bddf245cf371bb0a6",
+  "artifact_bytes": 1203411,
+  "head_commit": "bb038cd4a22f275221dcd5dad141a44997694c3e",
+  "tests_passed": 328,
+  "actual_jupyter_execution": true,
+  "notebooks": [
+    {
+      "notebook": "notebooks/00_environment_and_data.ipynb",
+      "sha256": "80a0510e13867aa3abe7a29d378502c5d21922451ea4b3d6c5fba4429077b048",
+      "code_cells": 5,
+      "contract_sha256": "88e5cd7ba0c46e8dff4f",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T17:24:40.962910+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/01_data_and_validation.ipynb",
+      "sha256": "21f58322daf00165e660bad5cec83323ff2b82fb6aef2863a01aa9f37dfa75b7",
+      "code_cells": 6,
+      "contract_sha256": "781dddb8b3a5aebf4c84",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T17:24:43.894976+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/02_baseline_and_review.ipynb",
+      "sha256": "7fb1e8b7138b7e42f6ce069bb5af58eeaa71f901cc28e8b80d455ba0a55fe09d",
+      "code_cells": 15,
+      "contract_sha256": "b0670869e82b82874f6c",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T17:24:47.342938+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/03_saved_results.ipynb",
+      "sha256": "7fb6fb5662d4080cf816e7ba15d0006235d6562f3ae58bb00141671d37318e0a",
+      "code_cells": 7,
+      "contract_sha256": "c1717ae2a007fa365ad2",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T17:24:50.886834+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/04_semantic_benchmark.ipynb",
+      "sha256": "4d2abc6907850717feca3ba4194ae15cdce7966e3b1fb2f8ad466dedd19b9d55",
+      "code_cells": 9,
+      "contract_sha256": "b9ce75748cf9c61a526e",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T17:24:54.582517+00:00",
+      "all_current_input_hashes_verified": true
+    }
+  ],
+  "scope": "Verified CI execution of public aggregates; no target access",
+  "job_id": 102570471577,
+  "ci_conclusion": "success",
+  "five_notebook_reuse_passed": true,
+  "synthetic_offline_inference_passed": true,
+  "real_pinned_encoder_integration_passed": true,
+  "local_publication_tests_passed": 328,
+  "local_publication_gate_seconds": 60.024,
+  "ci_tests_seconds": 74.65,
+  "ci_gate_seconds": 79.654
+}

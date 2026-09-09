@@ -147,7 +147,7 @@ def notebooks():
             ),
             (
                 "code",
-                'display_boundary(root)\nprint("Protected rows:", released["boundary"]["role_counts"]["confirmation"])\nprint("Target access:", expanded["audit"]["confirmation_labels_accessed"])',
+                'display_boundary(root)\nprint("Protected rows:", released["boundary"]["role_counts"]["confirmation"])\nprint("Target access during feature research:", expanded["audit"]["confirmation_labels_accessed"])',
             ),
             (
                 "md",
@@ -193,7 +193,7 @@ def notebooks():
             ),
             (
                 "code",
-                'audit = expanded["audit"]\nprint("Protocol commit:", expanded["metadata"]["protocol_commit"])\nprint("Development rows / policies:", audit["development_rows"], audit["development_policies"])\nprint("Primary / total fitted models:", audit["primary_fitted_models"], audit["actual_fitted_models"])\nprint("Confirmation labels accessed:", audit["confirmation_labels_accessed"])\ndisplay(pd.DataFrame(audit["folds"])[["protocol", "fold", "training_rows", "validation_rows", "purged_training_rows"]])',
+                'audit = expanded["audit"]\nprint("Protocol commit:", expanded["metadata"]["protocol_commit"])\nprint("Development rows / policies:", audit["development_rows"], audit["development_policies"])\nprint("Primary / total fitted models:", audit["primary_fitted_models"], audit["actual_fitted_models"])\nprint("Confirmation labels accessed during feature research:", audit["confirmation_labels_accessed"])\ndisplay(pd.DataFrame(audit["folds"])[["protocol", "fold", "training_rows", "validation_rows", "purged_training_rows"]])',
             ),
             (
                 "md",
@@ -277,7 +277,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## 12 · Apply the stopping rule, including complementarity\nThe replacement criteria were committed before the new semantic scores: at least +0.005 macro AUC, a positive simultaneous lower bound, no policy loss above 0.02 AUC, and log-loss/Brier increases no larger than 0.01/0.005. None of seven alternatives passes. One separately preregistered 50/50 average checks whether centroid and semantic-intent scores complement each other; no weights or policy routing are tuned.\n\nThe average reaches 0.7086 AUC, but its +0.0044 gain is uncertain, advertising loses 0.0222, and both probability losses worsen. It fails all five conditions. Retain the simpler centroid. The [coverage ledger](../docs/FEATURE_COVERAGE.md) documents applicable families, exclusions and deferred model research; this is bounded evidence of diminishing returns, not universal feature exhaustion.\n\nFinal model training and calibration may now proceed. One protected confirmation and verified offline promotion are still required. The current standalone inference notebook remains the explicitly named lexical reference.",
+                "## 12 · Apply the stopping rule, including complementarity\nThe replacement criteria were committed before the new semantic scores: at least +0.005 macro AUC, a positive simultaneous lower bound, no policy loss above 0.02 AUC, and log-loss/Brier increases no larger than 0.01/0.005. None of seven alternatives passes. One separately preregistered 50/50 average checks whether centroid and semantic-intent scores complement each other; no weights or policy routing are tuned.\n\nThe average reaches 0.7086 AUC, but its +0.0044 gain is uncertain, advertising loses 0.0222, and both probability losses worsen. It fails all five conditions. Retain the simpler centroid. The [coverage ledger](../docs/FEATURE_COVERAGE.md) documents applicable families, exclusions and deferred model research; this is bounded evidence of diminishing returns, not universal feature exhaustion.\n\nFinal model fitting, nested calibration and the protected comparison are now complete; notebook `03` presents the accepted result. Verified offline integration remains required. The current standalone inference notebook remains the explicitly named lexical reference.",
             ),
             (
                 "code",
@@ -297,10 +297,18 @@ def notebooks():
         [
             (
                 "md",
-                "# 03 · Results and the next decision\n\n**Decision:** Feature research is complete for the declared four-policy scope. The fixed route has now passed development validation: calibrate the seven-family model for familiar policies; retain the raw centroid for unseen policies. The final artifacts are fitted on development only. Protected confirmation and product delivery remain unfinished.\n\nThis short notebook is the employer review path: the measured improvement, the failed alternatives, the remaining limitation and the concrete release gates.",
+                "# 03 · Results and the next decision\n\n**Decision:** Feature research is complete for the declared four-policy scope. The fixed route has now passed development validation: calibrate the seven-family model for familiar policies; retain the raw centroid for unseen policies. The final artifacts are fitted on development only. The frozen candidate has now passed all 12 protected acceptance checks on 43,509 rows. Offline product integration and release remain unfinished.\n\nThis short notebook is the employer review path: the measured improvement, the failed alternatives, the remaining limitation and the concrete release gates.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
+            (
+                "md",
+                "## Protected confirmation: all 12 fixed checks pass\nPredictions were frozen in published commit `530ad79929012e807cb42a5253f7b92b090682ec` before eligible target access on September 9, 2026. The primary six-policy macro AUC improves from **0.6801 to 0.7770**, a **+0.0969** gain with paired 95% interval **[0.0898, 0.1051]**. Familiar-policy AUC reaches **0.8276** and unseen-policy AUC **0.6757**; every policy improves.\n\nOverall log loss falls from 0.6685 to 0.5121, and Brier from 0.2360 to 0.1739. This is one fixed post-competition comparison on **43,509 rows**, including two policies wholly excluded from development. The interval conditions on six observed policies. No candidate was retuned on these targets; this is not a Kaggle score. [Frozen protocol and recovery](../docs/CONFIRMATION.md).",
+            ),
+            (
+                "code",
+                'from jigsaw_rules.confirmation_report import confirmation_evidence\nfrom build_protected_report import display_figure as display_protected\nprotected = confirmation_evidence(root)\nassert protected is not None\nprint("Protected decision:", protected["results"]["status"])\ndisplay(pd.Series(protected["results"]["checks"], name="Passed preregistered check"))\ndisplay_protected(root, "policy_gains")',
+            ),
             (
                 "md",
                 "## What the expanded research measured\nThirty-four fixed trained configurations share seven purged splits. The feature study adds/removes major families, checks full versus screened representations, and tests training-only NB/SVD controls. Frozen semantic scores are untrained comparison baselines. The 43,576-row reserve remains outside model selection.\n\nThe frozen semantic centroid reaches **0.7042 transfer AUC**, versus **0.4728** for the matched lexical reference. Its log loss improves from 0.8126 to 0.6237. Most of the gain comes from avoiding reversed lexical ranking on illegal-activity promotion; legal and medical advice remain difficult. The all-transfer model reaches 0.7989 on familiar policies but only 0.5515 on transfer.\n\nPolicy-macro AUC is the primary competition-oriented metric. These are post-competition development results, not a Kaggle score.",
@@ -319,7 +327,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Why the feature phase can close, and the product cannot\nThe campaign covers 188,595–188,598 candidate columns per fold and 323 fixed fits. Training screens retain 9,281–9,660 columns across separate banks. The strongest transfer representation is simpler than those banks: a frozen support-centroid comparison. The last semantic variants fail the declared acceptance rule. A fixed average has the highest point AUC (0.7086), but its gain is uncertain and probability/policy regressions fail all five checks. The stopping decision retains 0.7042, rather than selecting the largest reported number.\n\nThe fixed route now has executed development evidence. Nine nested inner fits isolate calibration from outer validation labels; all three reconstructed familiar models reproduce their saved predictions within 1.2e-16. Familiar calibration passes all six gates; unseen calibration fails four and is discarded. One candidate and one lexical reference are fitted on all 11,135 development rows. Commit the exact candidate/reference and acceptance protocol before opening the reserved targets.\n\nThe standalone inference notebook still uses the named lexical reference. Accepted artifacts must be connected to offline inference with parity, latency/memory and missing-support tests. A small example-driven demo, model/data cards and clean-environment release complete the product. [Next milestone specification](../docs/FINAL_MODEL_PLAN.md).",
+                "## Why the feature phase can close, and the product cannot\nThe campaign covers 188,595–188,598 candidate columns per fold and 323 fixed fits. Training screens retain 9,281–9,660 columns across separate banks. The strongest transfer representation is simpler than those banks: a frozen support-centroid comparison. The last semantic variants fail the declared acceptance rule. A fixed average has the highest point AUC (0.7086), but its gain is uncertain and probability/policy regressions fail all five checks. The stopping decision retains 0.7042, rather than selecting the largest reported number.\n\nThe fixed route now has executed development evidence. Nine nested inner fits isolate calibration from outer validation labels; all three reconstructed familiar models reproduce their saved predictions within 1.2e-16. Familiar calibration passes all six gates; unseen calibration fails four and is discarded. One candidate and one lexical reference are fitted on all 11,135 development rows. The exact candidate/reference and acceptance protocol were committed before protected scoring; prediction hashes were published before eligible labels were interpreted.\n\nThe standalone inference notebook still uses the named lexical reference. Accepted artifacts must be connected to offline inference with parity, latency/memory and missing-support tests. A small example-driven demo, model/data cards and clean-environment release complete the product. [Next milestone specification](../docs/FINAL_MODEL_PLAN.md).",
             ),
             (
                 "code",
@@ -331,7 +339,7 @@ def notebooks():
             ),
             (
                 "code",
-                'from jigsaw_rules.model_validation import validation_evidence\nfrom build_model_report import display_figure as display_model\nmodel_validation = validation_evidence(root)\nassert model_validation is not None\ndisplay(metric_table(model_validation["results"]))\ndisplay_model(root, "calibration")\nprint("Final selected columns:", model_validation["audit"]["final_artifact"]["selected_features"])\nprint("Reserved targets accessed:", model_validation["audit"]["confirmation_targets_accessed"])',
+                'from jigsaw_rules.model_validation import validation_evidence\nfrom build_model_report import display_figure as display_model\nmodel_validation = validation_evidence(root)\nassert model_validation is not None\ndisplay(metric_table(model_validation["results"]))\ndisplay_model(root, "calibration")\nprint("Final selected columns:", model_validation["audit"]["final_artifact"]["selected_features"])\nprint("Reserved targets accessed during development fitting:", model_validation["audit"]["confirmation_targets_accessed"])',
             ),
             (
                 "md",
@@ -343,10 +351,18 @@ def notebooks():
         [
             (
                 "md",
-                "# 04 · Policy and semantic diagnostics\n\n**Question:** Where does the representation succeed, where does it fail, and how much does it depend on its supplied examples?\n\nThis notebook examines the expanded development study. It keeps ranking, probability quality and support dependence separate. No result here consumes the confirmation reserve.",
+                "# 04 · Policy and semantic diagnostics\n\n**Question:** Where does the representation succeed, where does it fail, and how much does it depend on its supplied examples?\n\nThis notebook first presents the completed protected probability/coverage diagnostics, then the separate development study. All displays read verified public aggregates; they perform no target access, fitting or threshold selection.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
+            (
+                "md",
+                "## Protected probability quality and confidence coverage\nThe accepted candidate improves both proper probability scores overall and on familiar/unseen routes. Confidence cutoffs were fixed before target access; the figures describe the coverage/error tradeoff and do not select a deployment threshold. Development calibration remains frozen. An offline product still needs a tested support policy and serving budget.",
+            ),
+            (
+                "code",
+                'from build_protected_report import display_figure as display_protected\ndisplay_protected(root, "probability_quality")\ndisplay_protected(root, "coverage")',
+            ),
             (
                 "md",
                 "## Policy-level performance can contradict the average\nThe held-out-policy models train on the other three policies. Fixed semantic scores do not fit labels; their identical predictions across validation protocols are not independent replications. A policy-level failure remains meaningful even if the overall mean improves.",
@@ -357,7 +373,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Ranking is not probability calibration\nLog loss and Brier assess probability quality; lower is better. Calibration error uses ten equal-width bins. Precision/recall/F1 use the fixed diagnostic threshold 0.5. There is no fitted calibrator or selected moderation threshold. Frozen centroid temperatures define scoring scales, not validated probability estimates.",
+                "## Ranking is not probability calibration\nLog loss and Brier assess probability quality; lower is better. Calibration error uses ten equal-width bins. Precision/recall/F1 use the fixed diagnostic threshold 0.5. These development feature comparisons use no fitted calibrator or selected moderation threshold; the separate final-route calibration study appears below. Frozen centroid temperatures define scoring scales, not validated probability estimates.",
             ),
             (
                 "code",
@@ -397,7 +413,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Interpret the limits\nThe four observed policies are broader than the original pair, but remain a finite benchmark selected by the competition's data construction. Fixed-model bootstrap intervals do not estimate the full distribution of arbitrary future policies. The protected reserve is intended for one later frozen comparison. If it rejects the candidate, that result must be retained rather than used for another search.\n\n[02 · Feature evidence](02_baseline_and_review.ipynb) · [03 · Current decision](03_saved_results.ipynb) · [Full historical research record](../docs/FEATURE_RESEARCH.md).",
+                "## Interpret the limits\nThe four observed policies are broader than the original pair, but remain a finite benchmark selected by the competition's data construction. Fixed-model bootstrap intervals do not estimate the full distribution of arbitrary future policies. The completed protected comparison accepted the fixed candidate. Its six-policy interval conditions on those observed policies and cannot support another selection loop on the same reserve.\n\n[02 · Feature evidence](02_baseline_and_review.ipynb) · [03 · Current decision](03_saved_results.ipynb) · [Full historical research record](../docs/FEATURE_RESEARCH.md).",
             ),
         ]
     )

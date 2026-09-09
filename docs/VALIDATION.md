@@ -1,5 +1,7 @@
 # Verification record
 
+**Latest milestone:** the protected comparison is complete and accepted. See [protected evaluation](#protected-evaluation-completed--september-9-2026) for the 43,509-row result, published prediction freeze and current backup boundary. Earlier sections below retain the evidence as it stood at each historical milestone.
+
 This record separates software correctness, executed research, notebook rendering and independent performance evidence. The last category is not established by passing tests.
 
 ## Current milestone: feature research closure
@@ -133,3 +135,19 @@ The separate target-blind eligibility run `60ba8e0ede00928c0943` completed in 12
 [GitHub Quality run 34300777462](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34300777462) passed on implementation head `e55902cfa2df22c91fc0b743440fed5d97d8b8c1`, including **all five actual encrypted Jupyter executions**, a second completed-cache reuse pass, standalone synthetic offline inference, real pinned-encoder integration and public figure rendering. The downloaded 1,128,160-byte CI artifact has SHA-256 `5bb6a2ac5d92208fef5440494e4bdc0523bf260acfd83535b84294adcb9fcd5c`. Its preserved source ZIP matches the model/config/report/runner inputs; each restored notebook matches canonical source, carries Jupyter/encryption metadata, and has all code cells executed without errors or stderr. The five notebooks contain 5, 6, 15, 6 and 8 code cells respectively. Plotly output and SVG fallbacks include the new calibration and reliability figures. Documentation-only publication changes do not alter their execution inputs.
 
 Reproduction after restoring private artifacts: `python scripts/run_model_validation.py` resumes the frozen protocol; `python scripts/verify_model_validation.py` replays artifacts without classifier fitting; `python scripts/prepare_confirmation.py` audits only target-free reserve inputs. The canonical offline notebook is still the lexical reference. Protected scoring and candidate promotion remain the next milestone.
+
+
+## Protected evaluation completed — September 9, 2026
+
+The canonical stage recovery and checkpoint-walker changes passed the full local gate: **328 tests**, compile, Ruff lint/format and canonical notebook-source verification. Seven added regressions cover completed-stage integrity, replay/no-overwrite behavior and refusing to traverse unpublished staging directories. The test suite took 72.86 seconds; the full gate took 76.67 seconds. The old worker logged only `FileNotFoundError`, so the tested staging-rename race is not asserted as its proven historical failing path.
+
+Prediction freeze `530ad79929012e807cb42a5253f7b92b090682ec` was published and fetched before the first eligible target access at **2026-09-09T17:12:07.771236+00:00**. The fixed scorer completed in **6.88 seconds**: **all 12 checks passed**, policy-macro AUC **0.7770 versus 0.6801**, paired 95% gain interval **[0.0898, 0.1051]**. All six policies and both routing groups improve. An independent aggregate audit reconciles the report within **1.12e-16**. Reuse with target reading and scoring patched to raise returns the same completion marker; no model fitting or encoding was repeated.
+
+All three new Plotly figures were rendered to SVG and visually inspected as PNG previews. Local Jupyter transport failed before a cell ran because network-interface discovery/ZeroMQ returned `Operation not permitted` and the kernel exited; publication therefore requires actual GitHub CI notebook execution. This failure is preserved in the local publication log and is not presented as successful execution.
+
+The original predictions, source and input bundle remain in the existing S3 project prefix. The new 3,228,501-byte prediction/evaluation archive passed independent local manifest verification, but **its S3 upload is blocked by automatic approval review pending explicit authorization for that payload/destination**. No remote backup or full new embedding-cache recovery is claimed. [Exact archive and verification record](../reports/checkpoints/protected_evaluation.json). The public result and target-access lineage are published through Git; the row-level archive stays private.
+
+
+**Actual protected-results notebook publication passed.** [Quality run 34382476761](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34382476761) on `bb038cd4a22f275221dcd5dad141a44997694c3e` passed 328 tests (74.65 seconds), the full gate (79.65 seconds), all five encrypted Jupyter executions (17.11 seconds), all five completed-cache reuses, synthetic offline inference, real pinned-encoder integration and public rendering. The local publication gate also passed the same 328 tests in 56.33 seconds, 60.02 seconds overall.
+
+The CI ZIP is 1,203,411 bytes, SHA-256 `3f388d2ee9ca0268fdfd8e8543a69c64d62afe52a7d08f5bddf245cf371bb0a6`. All five restored canonical notebooks match the current narrative/code source, every input hash and their completed-stage payload hashes. They contain 5/6/15/7/9 executed code cells respectively, no error or stderr outputs, and the three new protected Plotly figures with SVG fallbacks. The recorded execution environment is Python 3.12.14; the local environment is 3.12.13, so cross-environment cache reuse is not claimed. [Publication proof](../reports/checkpoints/protected_publication.json).

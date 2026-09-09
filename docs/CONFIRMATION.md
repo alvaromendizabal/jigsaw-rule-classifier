@@ -1,5 +1,14 @@
 # Protected confirmation of the fitted policy route
 
+**Completed September 9, 2026: candidate accepted, all 12 fixed checks passed.** On 43,509 eligible rows, policy-macro AUC improves from **0.6801 to 0.7770**; the paired 95% interval for the **+0.0969** gain is **[0.0898, 0.1051]**. Familiar AUC improves from 0.7581 to 0.8276 and unseen AUC from 0.5241 to 0.6757. Every individual policy improves. Overall log loss falls from 0.6685 to 0.5121; Brier falls from 0.2360 to 0.1739. [Verified aggregates](../reports/confirmation/results.json) · [Arithmetic audit](../reports/confirmation/audit.json).
+
+Prediction freeze [530ad79929012e807cb42a5253f7b92b090682ec](https://github.com/alvaromendizabal/jigsaw-rule-classifier/commit/530ad79929012e807cb42a5253f7b92b090682ec) was published and fetched before eligible targets were first interpreted at **2026-09-09 17:12:07.771236 UTC**. The fixed comparison took 6.88 seconds locally and reused the completed cloud predictions. No classifier fitting or encoding was repeated. A checkpoint replay with target access and scoring patched to raise returned the same completion marker without reopening labels.
+
+The SageMaker wrapper ended `Failed` after the prediction subprocess completed all 43,509 rows. Individually checkpointed prediction objects passed independent SHA-256 and lineage verification and were restored canonically. The final full-cache archive was absent; full embedding-cache recovery is not claimed. The worker now prunes unpublished staging directories before walking completed markers, addressing a tested rename race. The old log omitted the failing path, so that race cannot be established as the historical failure's exact cause. [Recovery proof](../reports/checkpoints/protected_recovery.json).
+
+This is a post-competition confirmation conditional on six observed policies, including two withheld from development. It is not a leaderboard score. Offline packaging and an original-training-only competition workflow remain distinct product work. The protocol below is retained as the pre-access specification.
+
+
 The feature gate is closed and the development model is fitted. This milestone asks one question: does that fixed representation improve on the lexical reference on data withheld from development? The [machine-readable protocol](../configs/confirmation.json) is committed before generating reserved predictions or interpreting reserved targets.
 
 ## Freeze the experiment before access
@@ -52,7 +61,7 @@ Preregistration is public at commit `5ca6bd50d54ceacc172786e6df0640810aab96d8`. 
 
 The fixed scoring implementation separately checks prediction/assignment parity, requires an exact Git prediction-freeze commit descending from preregistration, and creates an exclusive access receipt before interpreting eligible labels. A completed comparison reuses its checkpoint without reopening targets; changing the experiment after access fails. Synthetic acceptance, deliberate rejection, probability-quality regression, insufficient class coverage and target identity/Usage failures are tested. Synthetic results are not published as project performance.
 
-**Real protected predictions and evaluation have not run.** No SageMaker job has been launched for this protocol, and no reserved target has been opened. The prepared input archive remains reproducible with `scripts/package_confirmation.py`; the earlier fitted-model/eligibility backup has already passed independent S3 recovery. Planned processing uses one `ml.m5.4xlarge` instance (16 vCPU, 64 GiB) and a 7,200-second job limit. AWS Price List SKU `S5RY38EFJ367KH6V`, queried on 2026-09-09, quotes $0.922/hour for Oregon processing: at most $1.844 of instance runtime under that limit, plus storage/transfer and provisioning charges where applicable. This is a cost bound for the planned job, not a bill or a completed-run measurement.
+**Historical launch record: protected inference started on 2026-09-09 at 03:17 UTC.** SageMaker job `jigsaw-confirmation-20260909-0250` uses the exact approved input bundle and committed source. All three uploaded objects passed S3 full-object checksum, expected-owner and AES-256 checks. No reserved target was present in the worker inputs; eligible targets were opened later under the published freeze as recorded above. [Launch and object-version evidence](../reports/checkpoints/protected_inference.json). Job creation is not completion evidence. The prepared input archive remains reproducible with `scripts/package_confirmation.py`; the earlier fitted-model/eligibility backup has already passed independent S3 recovery. Planned processing uses one `ml.m5.4xlarge` instance (16 vCPU, 64 GiB) and a 7,200-second job limit. AWS Price List SKU `S5RY38EFJ367KH6V`, queried on 2026-09-09, quotes $0.922/hour for Oregon processing: at most $1.844 of instance runtime under that limit, plus storage/transfer and provisioning charges where applicable. This is a cost bound for the planned job, not a bill or a completed-run measurement.
 
 Reproduction order after cloud inference and checkpoint recovery:
 
@@ -64,8 +73,41 @@ uv run python scripts/run_confirmation.py score --run-id 314494da886e11bcc1f6 --
 
 Only aggregate metrics and lineage belong in the public report. The fixed result, whether accepted or rejected, must be preserved before any product-promotion decision. The reserve cannot become another development split.
 
+## Recover and publish the result
+
+For a normally completed worker, require both SageMaker `Completed` and the worker's `state.json` event `completed`. The actual failed-wrapper recovery used the separately verified completed prediction stage described below. Download `checkpoints/protected-predictions.tar.gz` from the recorded prefix using the expected bucket owner. Take its byte count and SHA-256 from that completed state. The recovery command validates the full archive and every completed stage before restoring only the four prediction artifacts. It refuses to overwrite different existing predictions and leaves the original development embedding cache unchanged. The downloaded archive preserves the new cache for later product work.
+
+```bash
+uv run python scripts/recover_confirmation.py --archive <downloaded-archive> --run-id 314494da886e11bcc1f6 --sha256 <completed-state-sha256> --bytes <completed-state-bytes>
+uv run python scripts/run_confirmation.py freeze --run-id 314494da886e11bcc1f6
+# Commit and push the prediction freeze, then fetch its exact published Git commit.
+uv run python scripts/run_confirmation.py score --run-id 314494da886e11bcc1f6 --prediction-commit <published-40-character-commit>
+uv run python scripts/build_protected_report.py --run-id 314494da886e11bcc1f6
+```
+
+The report exporter verifies evaluation, prediction, target-access receipt and preregistration lineage. An independent aggregate audit reconciles all six per-policy AUCs with the policy macro, row-weighted log loss and Brier with each route, and all 12 fixed acceptance checks. It preserves a rejected candidate. Three Plotly figures with SVG fallbacks explain policy gains, probability quality and confidence/coverage. Their manifests bind the actual report and rendering source. Notebook execution fingerprints include the protected report and its figure builder, so adding real results invalidates prior display checkpoints.
+
+Recovery tests deliberately corrupt an archive, alter its digest, remove a prediction artifact, add a traversal or target-bearing path, and try to replace an existing prediction. Reuse tests verify that identical recovery preserves both predictions and seed vectors. Report tests reject inconsistent macro AUC, weighted loss, per-policy AUC, class counts, interval identity, nonfinite bounds and acceptance decisions. All use synthetic data; no synthetic metric is published as research evidence.
+
+If the job reaches its limit, use only completed S3 shard markers for continuation under the original model/input contract. A launch record or partial shard count never substitutes for a completed prediction freeze. Do not change source files named in inference provenance during recovery; later reporting modules are separate from those frozen inference files.
+
 ## Verified preparation publication
 
 The final local gate passed **305 tests** in 116.7 seconds, plus compile, Ruff lint/format and canonical notebook-source checks. [Quality run 34305118975](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34305118975) passed on scoring commit `a846906efd38785dca33331a21be9858afd34d9d`, including all five actual encrypted Jupyter executions, completed-cache reuse, synthetic offline inference, real pinned-encoder integration and public rendering.
 
-The downloaded 1,190,503-byte CI artifact has SHA-256 `87bfb022cfdf25c1d152a27bb02fcd9e6fc128dd4a2363134dc0cbbb580ae40a`. Each restored notebook matches canonical source and every current input hash, with verified stage members and no errors or stderr. Their recorded execution environment is Python 3.12.14. [Publication proof](../reports/checkpoints/confirmation_preflight.json). These checks validate software and existing evidence publication; they do not replace the pending protected experiment.
+The downloaded 1,190,503-byte CI artifact has SHA-256 `87bfb022cfdf25c1d152a27bb02fcd9e6fc128dd4a2363134dc0cbbb580ae40a`. Each restored notebook matches canonical source and every current input hash, with verified stage members and no errors or stderr. Their recorded execution environment is Python 3.12.14. [Publication proof](../reports/checkpoints/confirmation_preflight.json). These historical checks validated the preflight software and evidence publication. The completed protected experiment and later recovery tests are recorded above.
+
+
+## Completed-stage recovery used for this result
+
+The four individually downloaded prediction files are accepted only with the independently verified complete-marker digest. All payload hashes, model/protocol/input identities, 43,509 unique row IDs and finite probabilities passed. Different existing files are never overwritten; the marker is written last.
+
+```bash
+uv run python scripts/recover_confirmation.py --stage-directory <downloaded-prediction-stage> --run-id 314494da886e11bcc1f6 --marker-sha256 68af5b10cfda60bf587f96dddb9cdb89101380734762735b09ada60a172587d6
+uv run python scripts/run_confirmation.py freeze --run-id 314494da886e11bcc1f6
+# The published freeze commit must be present in local Git history.
+uv run python scripts/run_confirmation.py score --run-id 314494da886e11bcc1f6 --prediction-commit 530ad79929012e807cb42a5253f7b92b090682ec
+uv run python scripts/build_protected_report.py --run-id 314494da886e11bcc1f6
+```
+
+The score command reuses an intact comparison checkpoint; it does not select another candidate. Recovery tests cover marker/payload corruption, missing files, unexpected target files, no-overwrite behavior, idempotent replay and pruning active staging paths before traversal.
