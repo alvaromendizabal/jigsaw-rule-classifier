@@ -15,7 +15,7 @@
       "encryption": "AES256",
       "independent_download_verified": true,
       "payload_files_verified": 1,
-      "seconds": 0.0
+      "local_payload_verification_seconds": 0
     },
     {
       "key": "releases/v1.0.0/offline-model.tar",
@@ -25,7 +25,7 @@
       "encryption": "AES256",
       "independent_download_verified": true,
       "payload_files_verified": 57,
-      "seconds": 2.011
+      "local_payload_verification_seconds": 2.011
     }
   ],
   "fresh_environment_restore": "reports/checkpoints/offline_restore.json",

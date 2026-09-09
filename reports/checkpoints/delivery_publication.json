@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "workflow_run": 34387055130,
+  "artifact_id": 10118183694,
+  "artifact_sha256": "93d7d014a4c5990b511f3a6186dfe320809fdeb680414d9a5c17262f3ef0ef9f",
+  "artifact_bytes": 1324577,
+  "head_commit": "3b15e80a6d8e3969b18723a66939cd4421307217",
+  "tests_passed": 342,
+  "actual_jupyter_execution": true,
+  "notebooks": [
+    {
+      "notebook": "notebooks/00_environment_and_data.ipynb",
+      "sha256": "55c43d810f3de0b50defe4d05d18ede4accc9487b1e9ba47b8969df78cfbd536",
+      "code_cells": 5,
+      "contract_sha256": "db9ca9838a11414fd8e2",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T18:08:51.102806+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/01_data_and_validation.ipynb",
+      "sha256": "5d022919798745a880e2c350ac2969659ae536858bfcd1ef9e720b8dc55d98ca",
+      "code_cells": 6,
+      "contract_sha256": "58db41e1e5df93578e30",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T18:08:53.681938+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/02_baseline_and_review.ipynb",
+      "sha256": "29d1f0438099105f16303cfc0190b16153ed886afe5b864d5f9badbdda7e672c",
+      "code_cells": 15,
+      "contract_sha256": "8829eb46cce2ae0ac23b",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T18:08:56.616344+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/03_saved_results.ipynb",
+      "sha256": "4d44e50c55289a5b725c94d27162dfad7d546923fd253fbf038c0c961e38e305",
+      "code_cells": 9,
+      "contract_sha256": "ea52ec49f6532b963539",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T18:08:59.657835+00:00",
+      "all_current_input_hashes_verified": true
+    },
+    {
+      "notebook": "notebooks/04_semantic_benchmark.ipynb",
+      "sha256": "625ecc855b0db9e84147952b13ce1898598d7bc2026c26bcecdc1e6d625d2341",
+      "code_cells": 9,
+      "contract_sha256": "d1c7cd97072f057d6b4a",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T18:09:02.673624+00:00",
+      "all_current_input_hashes_verified": true
+    }
+  ],
+  "recovery_worker": "jigsaw-delivery-publication-20260909-1813",
+  "scope": "Verified CI execution of public aggregates; no protected target access"
+}

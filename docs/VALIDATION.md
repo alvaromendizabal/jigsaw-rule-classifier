@@ -1,6 +1,6 @@
 # Verification record
 
-**Latest milestone:** the protected comparison is complete and accepted. See [protected evaluation](#protected-evaluation-completed--september-9-2026) for the 43,509-row result, published prediction freeze and current backup boundary. Earlier sections below retain the evidence as it stood at each historical milestone.
+**Latest milestone:** the research and local inference product are complete. See [offline delivery and closeout](#offline-delivery-and-project-closeout--september-9-2026) for the current tests, serving checks, original-data notebook execution and verified recovery.
 
 This record separates software correctness, executed research, notebook rendering and independent performance evidence. The last category is not established by passing tests.
 
@@ -164,3 +164,10 @@ A distinct virtual environment was created from the archive with `uv sync --offl
 The notebook and 1.23-GB private model archive are stored under `releases/v1.0.0/` in the owned project bucket. Expected-owner S3 HEAD checks verify encryption, byte counts, object versions and full SHA-256 checksums. Independent GET downloads verify the exact notebook bytes and all 57 archive payload hashes. [Cloud recovery proof](../reports/checkpoints/delivery.json). The notebook remains the original-training-only lexical reference; the accepted package remains the post-competition benchmark.
 
 Current CI executes all five public notebooks in actual Jupyter kernels, verifies reuse, tests synthetic inference and executes the standalone notebook twice on hash-verified original training (2,029 rows) and preview (10 rows). [Original-data notebook proof](../reports/checkpoints/submission.json) · [Executed public notebook publication](../reports/checkpoints/delivery_publication.json). Neither preview execution nor the accepted benchmark is a Kaggle leaderboard score.
+
+
+**Actual closeout publication passed.** [Quality run 34387055130](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34387055130) on `3b15e80a6d8e3969b18723a66939cd4421307217` passed 342 tests in 74.48 seconds (79.69-second full gate), all five encrypted Jupyter executions in 14.42 seconds, five completed-stage reuses, synthetic inference, original-data preview inference/replay, real pinned-encoder integration and rendering. The 1,324,577-byte CI ZIP has SHA-256 `93d7d014a4c5990b511f3a6186dfe320809fdeb680414d9a5c17262f3ef0ef9f`. Its five public notebook sources, current input hashes, execution counts and completion-marker hashes were independently verified before restoring canonical outputs. They contain 5/6/15/9/9 executed code cells and no error or stderr outputs. The original-data preview CSV hash is `d289784c950864c2cdceff35c13613f8c54214685c4375f7e07c14b384e9ed41`; only its proof record is published to Git, not the CSV or its embedded download output.
+
+The workspace disconnected after local verification, before the publication commit. Bounded worker `jigsaw-delivery-publication-20260909-1813` recovered the already verified CI artifact, checked all notebook/input/completion hashes again, and preserved the public notebook bytes in the owned S3 release prefix. No research, model fitting, encoder inference or protected scoring was repeated.
+
+Closeout is recorded by the merged delivery PR and versioned S3 artifacts. A separate GitHub Release page/tag is not created by the connected GitHub toolset.
