@@ -1,0 +1,193 @@
+{
+  "status": "interactive_preview_and_replay_passed",
+  "scope": "Real offline Kaggle GPU preview; saved hidden-test submission pending; no new score",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0",
+    "peft": "0.19.1",
+    "accelerate": "1.13.0",
+    "huggingface_hub": "1.11.0",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.6.1"
+  },
+  "gpu": "Tesla T4",
+  "precision": "float16",
+  "mirror": "wowfattie/qwen3-4b-instruct-2507/transformers/default/1",
+  "model_files_verified": 11,
+  "asset_corrections": [
+    "Restore exact pinned tokenizer_config.json",
+    "Include upstream Apache 2.0 LICENSE"
+  ],
+  "environment_correction": "Remove unused torchao 0.10.0, incompatible with PEFT 0.19.1; restart kernel before verification",
+  "gpu_probe": {
+    "completed_utc": "2026-09-09T23:17:26+00:00",
+    "elapsed_seconds": 22.626,
+    "optimizer_steps": 2,
+    "resumed_step": 1,
+    "loss_scale": 128.0,
+    "peak_gpu_gib": 7.835118293762207,
+    "training_contract": "0e8e61445e593f51d1217d37622ac739c6e7925869106cb4e22bd0da69cd452c",
+    "source_sha256": "5070edbf86aa645ef2186f72d7cadf45f65b3601a0d9403b664a8d2d629cf3e4"
+  },
+  "local_quality": {
+    "tests": 369,
+    "seconds": 74.54,
+    "public_notebooks": 5,
+    "public_execution_engine": "inprocess",
+    "public_replay": true,
+    "historical_reference_synthetic_and_original_preview": true,
+    "historical_reference_replay": true
+  },
+  "candidate_notebook_sha256": "34a9e1d573e262d034555c52294f972369e0744d1fbe95ffe0455261583a111a",
+  "preview": {
+    "completed_utc": "2026-09-09T23:30:23+00:00",
+    "replayed_without_fitting": true,
+    "unchanged_csv_sha256": "6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804",
+    "manifest": {
+      "audit": {
+        "by_source": {
+          "available_support": 38,
+          "train_body": 1824
+        },
+        "candidate_occurrences": 10185,
+        "conflicting_occurrences": 213,
+        "conflicting_pairs": 11,
+        "duplicate_occurrences": 8110,
+        "epoch_occurrences": 1862,
+        "forbidden_text_occurrences": 0,
+        "new_policies": 0,
+        "query_body_targets_used": false,
+        "retained_pairs": 1862,
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "supplied_support_matches_are_eligible": true
+      },
+      "elapsed_seconds": 612.2729677100001,
+      "peak_gpu_gib": 8.258612155914307,
+      "precision": "float16",
+      "provenance": {
+        "data": {
+          "sample_submission.csv": "6524e86a03abe387f0867247629e08493770a6f9d37120cc8165322e7486a066",
+          "test.csv": "107b8b329200171f55d2523e6d32670641b53d5be41e0c1d5b9da0b8813cdd41",
+          "train.csv": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a"
+        },
+        "device": "Tesla T4",
+        "model": {
+          "field_tokens": {
+            "body": 384,
+            "rule": 96,
+            "support": 192
+          },
+          "files": {
+            "LICENSE": {
+              "algorithm": "git-sha1",
+              "digest": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+            },
+            "config.json": {
+              "algorithm": "git-sha1",
+              "digest": "6988f134db143052042f2bd6e0c897bc6a605189"
+            },
+            "generation_config.json": {
+              "algorithm": "git-sha1",
+              "digest": "432531a002c181a19de338313d2375e9d7494d7e"
+            },
+            "merges.txt": {
+              "algorithm": "git-sha1",
+              "digest": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+            },
+            "model-00001-of-00003.safetensors": {
+              "algorithm": "sha256",
+              "digest": "75311d91bb08cf0b882913da464a1e722a31fb44db35208663487efb7a3d8ed6"
+            },
+            "model-00002-of-00003.safetensors": {
+              "algorithm": "sha256",
+              "digest": "0b48adbb1f60e901153d91907ba11ce63bd4b8b584482e730f48808d055dfba1"
+            },
+            "model-00003-of-00003.safetensors": {
+              "algorithm": "sha256",
+              "digest": "7dd39ccca5e4de123c74c14af44c9bf2eb75df33b4614382af0134528e060d5d"
+            },
+            "model.safetensors.index.json": {
+              "algorithm": "git-sha1",
+              "digest": "4747b0297d3109f14db49886972e3369c9a00b2a"
+            },
+            "tokenizer.json": {
+              "algorithm": "sha256",
+              "digest": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+            },
+            "tokenizer_config.json": {
+              "algorithm": "git-sha1",
+              "digest": "51c1be0d9192e7f6e6596de71d0f07d58fbc32ac"
+            },
+            "vocab.json": {
+              "algorithm": "git-sha1",
+              "digest": "4783fe10ac3adce15ac8f358ef5462739852c569"
+            }
+          },
+          "max_tokens": 2048,
+          "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+          "revision": "cdbee75f17c01a7cc42f958dc650907174af0554"
+        },
+        "packages": {
+          "numpy": "2.0.2",
+          "pandas": "2.3.3",
+          "peft": "0.19.1",
+          "scipy": "1.16.3",
+          "torch": "2.10.0+cu128",
+          "transformers": "5.0.0"
+        },
+        "python": "3.12.13",
+        "settings": {
+          "inference_batch": 4,
+          "max_seconds": 36000,
+          "schema": 1,
+          "scope": "Original competition bodies and legitimate supplied supports only. New-policy supports repeated twice; one epoch; direct answer ranks. No released targets.",
+          "training": {
+            "alpha": 16,
+            "checkpoint_steps": 32,
+            "dropout": 0,
+            "effective_batch": 16,
+            "gradient_checkpointing": true,
+            "gradient_clip": 1,
+            "keep_checkpoints": 2,
+            "learning_rate": 0.0001,
+            "micro_batch": 4,
+            "rank": 8,
+            "seed": 2025,
+            "target_modules": [
+              "q_proj",
+              "k_proj",
+              "v_proj",
+              "o_proj",
+              "gate_proj",
+              "up_proj",
+              "down_proj"
+            ],
+            "warmup_fraction": 0.05,
+            "weight_decay": 0.01
+          },
+          "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a"
+        },
+        "source": {
+          "competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+          "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+          "decision_training.py": "2eb2d01b5e62a1d6e5ba1a15029002c34e89e30d1037efe83f83ca2e016f627f",
+          "kaggle_adaptation.py": "0d10176afc258ff9dfcd48a83bd206de4bc795a143db53105c93957178b08b05",
+          "runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866",
+          "support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d"
+        }
+      },
+      "rows": 10,
+      "run_id": "d33a5b1bfe0b448ba686",
+      "score_kind": "Within-policy ranks preserve AUC; not calibrated probabilities",
+      "sha256": "6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804",
+      "training": {
+        "loss_scale": 128,
+        "optimizer_steps": 117,
+        "resumed_step": 0,
+        "training_contract": "f4e4c0c0879f2468cab42aa4b8fcbc817b60c8baa5926d8cd9067d8d2ad10d7d"
+      }
+    }
+  }
+}

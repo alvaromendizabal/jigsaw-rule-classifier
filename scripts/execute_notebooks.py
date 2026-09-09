@@ -46,7 +46,7 @@ def select_notebooks(root: Path, requested: list[str] | None, mode: str) -> list
     )
     paths = [root / "notebooks" / name for name in names]
     if mode != "public":
-        paths = [root / "kaggle/submission.ipynb"]
+        paths = [root / "kaggle/reference.ipynb"]
     selected = []
     for item in requested or [str(p.relative_to(root)) for p in paths]:
         matches = [p for p in paths if item in (str(p.relative_to(root)), p.name, p.name[:2])]
@@ -489,10 +489,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument(
-        "--synthetic", action="store_true", help="Test only offline Kaggle inference"
+        "--synthetic", action="store_true", help="Test the historical reference on synthetic inputs"
     )
     modes.add_argument(
-        "--kaggle", action="store_true", help="Explicitly fit offline inference on real data"
+        "--reference",
+        action="store_true",
+        help="Verify the historical lexical reference on real data",
     )
     parser.add_argument("--notebook", action="append", help="Exact path, filename, or 00–04")
     parser.add_argument(
@@ -504,16 +506,16 @@ def main() -> None:
         help="Explicitly commit/push verified public outputs to a results/... branch",
     )
     args = parser.parse_args()
-    if args.push_branch and (not args.publish or args.kaggle or args.synthetic):
+    if args.push_branch and (not args.publish or args.reference or args.synthetic):
         parser.error("--push-branch requires --publish in public mode")
-    mode = "synthetic" if args.synthetic else "kaggle" if args.kaggle else "public"
+    mode = "synthetic" if args.synthetic else "reference" if args.reference else "public"
     if args.publish and mode != "public":
         parser.error("--publish is only available for public aggregate notebooks")
     root = Path(__file__).resolve().parents[1]
     work = root / "runs/notebook_verification" if args.synthetic else root
     paths = select_notebooks(root, args.notebook, mode)
-    if mode == "kaggle" and (work / "data/raw/SYNTHETIC.txt").exists():
-        parser.error("--kaggle requires real competition data, not synthetic fixtures")
+    if mode == "reference" and (work / "data/raw/SYNTHETIC.txt").exists():
+        parser.error("--reference requires real competition data, not synthetic fixtures")
     (root / "runs").mkdir(exist_ok=True)
     with FileLock(str(root / "runs/notebook_execution.lock"), timeout=1):
         if args.synthetic and not (work / "data/raw/SYNTHETIC.txt").exists():

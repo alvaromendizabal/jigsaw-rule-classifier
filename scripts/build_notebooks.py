@@ -8,6 +8,11 @@ from pathlib import Path
 
 import nbformat as nbf
 
+if __package__:
+    from .build_adapted_notebook import build as build_adapted_notebook
+else:
+    from build_adapted_notebook import build as build_adapted_notebook
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -460,11 +465,11 @@ def notebooks():
     )
     paths = (ROOT / "scripts/kaggle_paths.py").read_text()
     source_sha = hashlib.sha256((data + model + runtime + submission + paths).encode()).hexdigest()
-    outputs["kaggle/submission.ipynb"] = notebook(
+    outputs["kaggle/reference.ipynb"] = notebook(
         [
             (
                 "md",
-                "# Jigsaw · Generate and download your submission\n\nRun this notebook yourself to fit the unchanged lexical reference, generate predictions, validate the CSV, and display a **Download submission.csv** link. Nothing is uploaded or submitted to Kaggle automatically.\n\nWorks in SageMaker/Jupyter and Kaggle. On Kaggle, attach the official competition data and disable internet. A preview CSV is not a leaderboard score. The signed-in account had a late-submission option on September 9, 2026. Save and run a Kaggle notebook version, then submit that successful version; a ZIP of CSV files is not the entry for this code competition.\n\n**Model scope:** this notebook fits the original-training-only lexical reference. The accepted 0.7770 AUC research artifact uses additional post-competition development data and is delivered separately; that number is not this notebook's Kaggle score.\n\n**Where to get this notebook:** the canonical GitHub path is `kaggle/submission.ipynb`; GitHub contains the current Kaggle runtime fixes, while S3 releases preserve versioned snapshots.\n\n**Recovery:** completed model fitting and prediction batches are checksummed and reusable. An interrupted active fit or batch restarts; correct earlier work is kept. Private output and download payloads must never be committed to the public repository.",
+                "# Jigsaw · Historical lexical reference\n\nThis preserves the original TF-IDF/logistic model that scored **0.59191 public / 0.61956 private** in Kaggle Version 2. It is retained for reproducibility and CPU software checks.\n\nUse [submission.ipynb](submission.ipynb) for the support-adapted GPU method. The two notebooks have different model purposes.\n\nThis reference works in SageMaker/Jupyter or Kaggle. With `GENERATE_SUBMISSION = True`, it fits the original training rows, generates the preview CSV, validates the output and provides a download. Completed model fits and prediction batches are checksummed and reusable. No upload happens inside the notebook.\n\nThe separate 0.7770 post-competition research result is not this notebook's Kaggle score. A local ten-row preview is not an independent performance evaluation.",
             ),
             (
                 "code",
@@ -510,7 +515,7 @@ else:
             ),
         ]
     )
-    outputs["kaggle/submission.ipynb"].metadata["kernelspec"] = {
+    outputs["kaggle/reference.ipynb"].metadata["kernelspec"] = {
         "display_name": "Python 3",
         "language": "python",
         "name": "python3",
@@ -586,6 +591,7 @@ else:
     outputs["notebooks/03_saved_results.ipynb"].cells[3:3] = (
         new_cells[:2] + adaptation_cells[:2] + historical
     )
+    outputs["kaggle/submission.ipynb"] = build_adapted_notebook(ROOT)
     return outputs
 
 

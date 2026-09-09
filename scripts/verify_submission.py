@@ -1,4 +1,4 @@
-"""Execute the standalone notebook on pinned original training and preview inputs."""
+"""Verify the historical lexical reference on pinned original preview inputs."""
 
 from __future__ import annotations
 
@@ -49,7 +49,7 @@ def main() -> None:
     if args.prepare_only:
         print(json.dumps(record))
         return
-    command = [sys.executable, "scripts/execute_notebooks.py", "--kaggle"]
+    command = [sys.executable, "scripts/execute_notebooks.py", "--reference"]
     subprocess.run(command, cwd=root, check=True, timeout=180)
     first = digest(root / "kaggle_output/submission.csv")
     subprocess.run(command, cwd=root, check=True, timeout=180)
@@ -65,12 +65,12 @@ def main() -> None:
             "status": "passed",
             **record,
             "model": manifest["model"],
-            "notebook_sha256": digest(root / "kaggle/submission.ipynb"),
+            "notebook_sha256": digest(root / "kaggle/reference.ipynb"),
             "source_sha256": manifest["source_sha256"],
             "submission_sha256": first,
             "jupyter_executed": True,
             "replay_passed": True,
-            "scope": "Original-data preview inference; no hidden-test score or Kaggle submission",
+            "scope": "Historical lexical-reference preview; not the support-adapted submission",
         },
     )
     print("ORIGINAL_SUBMISSION_NOTEBOOK_VERIFIED")

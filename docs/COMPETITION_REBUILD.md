@@ -187,6 +187,14 @@ score. The next gate is a verified offline GPU notebook using legitimate support
 inputs in the hidden run, followed by one recorded late submission.
 [Verified aggregates](../reports/support_adaptation/metadata.json).
 
+The resulting offline GPU notebook now passes a real ten-row Kaggle preview:
+117 optimizer steps, 612.27 seconds, 8.26 GiB peak memory, followed by unchanged
+completed-output replay without fitting. A separate T4 probe verifies fresh-model
+optimizer/scaler recovery. The current canonical candidate is
+[`kaggle/submission.ipynb`](../kaggle/submission.ipynb), and the lexical baseline
+is preserved as `kaggle/reference.ipynb`. No new hidden-test score is claimed yet.
+[Execution receipt](../reports/checkpoints/kaggle_adaptation.json).
+
 ## Subsequent acceptance gates
 
 1. **Representation evidence.** Publish retained/rejected counts, matched-family

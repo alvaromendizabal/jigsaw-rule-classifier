@@ -39,9 +39,9 @@ jobs:
         run: uv run --extra semantic python scripts/execute_notebooks.py --publish
       - name: Verify checkpoint reuse
         run: uv run --extra semantic python scripts/execute_notebooks.py --publish
-      - name: Test standalone offline Kaggle inference on synthetic data
+      - name: Test historical lexical reference on synthetic data
         run: uv run --extra semantic python scripts/execute_notebooks.py --synthetic
-      - name: Verify standalone notebook on original competition preview data
+      - name: Verify historical reference on original competition preview data
         run: uv run --extra semantic python scripts/verify_submission.py
       - name: Verify the real pinned encoder
         run: uv run --extra semantic python scripts/verify_semantic.py
@@ -60,6 +60,7 @@ jobs:
             logs/
             notebooks/
             kaggle/submission.ipynb
+            kaggle/reference.ipynb
             runs/notebook_execution/
             runs/notebook_verification/kaggle_output/
             reports/baseline/comparison.svg
