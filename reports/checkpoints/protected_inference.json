@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "job": {
+    "CreationTime": "2026-09-09T03:17:07.487000+00:00",
+    "ProcessingJobArn": "arn:aws:sagemaker:us-west-2:560403859723:processing-job/jigsaw-confirmation-20260909-0250",
+    "ProcessingJobStatus": "InProgress",
+    "ProcessingResources": {
+      "ClusterConfig": {
+        "InstanceCount": 1,
+        "InstanceType": "ml.m5.4xlarge",
+        "VolumeSizeInGB": 60
+      }
+    },
+    "StoppingCondition": {
+      "MaxRuntimeInSeconds": 7200
+    }
+  },
+  "source_commit": "d515fbe5279cdc6d0b31e79e08c40b709a30623e",
+  "protocol_commit": "5ca6bd50d54ceacc172786e6df0640810aab96d8",
+  "run_id": "314494da886e11bcc1f6",
+  "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+  "prefix": "experiments/protected-confirmation-20260909T0250",
+  "artifacts": [
+    {
+      "key": "experiments/protected-confirmation-20260909T0250/inputs/confirmation-inputs.tar.gz",
+      "bytes": 104749097,
+      "checksum_sha256_base64": "0uX1OoqepwKOuKMaW/PvFBvlCqn4htW50Q7EmsBTBYE=",
+      "encryption": "AES256",
+      "version_id": "99dgxMobp63J2a4z89PyenWbO1_hKb9h"
+    },
+    {
+      "key": "experiments/protected-confirmation-20260909T0250/code/confirmation_processing.py",
+      "bytes": 11038,
+      "checksum_sha256_base64": "2fyklogEb4qtXzJdHm2r1OusLMhXu/UTETwr8L3mXyU=",
+      "encryption": "AES256",
+      "version_id": "G8ieYfjuu604vYpSVHnOyXT9xCpbbE_X"
+    },
+    {
+      "key": "experiments/protected-confirmation-20260909T0250/code/source.tar.gz",
+      "bytes": 800758,
+      "checksum_sha256_base64": "ajO0Th7zqYqx/tUR+PL23UEm7sCJZIfMB5oovJNsqEU=",
+      "encryption": "AES256",
+      "version_id": "O.X_W41UVHEviMA4LsG4vh7W5bFMse3i"
+    }
+  ],
+  "reserved_targets_in_worker": false,
+  "reserved_targets_accessed": false,
+  "completion_verified": false
+}
