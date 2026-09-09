@@ -2,7 +2,7 @@
 
 **Historical two-policy experiments.** The current four-policy results and decisions are in [EXPANDED_STUDY.md](EXPANDED_STUDY.md), [RETRIEVAL_STUDY.md](RETRIEVAL_STUDY.md) and [RESOLUTION_STUDY.md](RESOLUTION_STUDY.md). Counts and scores below retain their original cohort.
 
-**Status: open.** The implementation is substantially more mature than the original four-candidate study. The evidence does not justify final model optimization, final retraining, or a claim that arbitrary community rules are solved. Notebook `02` is the canonical research narrative.
+**Status: complete for the declared scope.** The feature stopping gate, final model, protected confirmation and local inference delivery have passed. Historical experiment descriptions below retain their original boundaries. Notebook `02` is the canonical research narrative; [delivery and downloads](DELIVERY.md) describe the completed product.
 
 ## What was actually inspected
 
@@ -95,7 +95,7 @@ The centroid's observed improvement over the original rule/example reference is 
 
 The four-policy feature campaign is complete: **323 fixed fits** (238 primary, 22 changed-training sensitivities, 35 retrieval and 28 semantic-formatting/intent fits), six frozen resolution scores, three new formatting scores and one fixed complementarity control. It uses 11,135 development rows. The subsequent frozen comparison accepted the candidate on **43,509 eligible protected rows**; those labels were excluded from this feature campaign. [Expanded results](EXPANDED_STUDY.md) · [Last semantic study](SEMANTIC_FORMATTING.md) · [Coverage and exclusions](FEATURE_COVERAGE.md).
 
-**About 91% overall completion** is an effort-weighted planning estimate. The explicit rubric credits data/validation 17/20, feature research 35/35, model/evaluation/inference 16/20, engineering 14/15 and presentation 9/10. Feature credit means the declared phase has passed its evidence gate, not that every possible NLP feature has been exhausted. The fitted seven-family route, nested calibration decision, prediction replay and reserved-input audit earn additional model credit. The single protected comparison is complete and accepted on 43,509 eligible rows after 67 target-blind near-copy exclusions. Offline integration, serving measurements and the final product release remain incomplete. Notebook `02` completes this research phase with current verified aggregates and executed narrative. This percentage is not a measured employer rating.
+**The scoped research and local inference product are complete.** The earlier 91% estimate identified offline integration, serving measurements and portfolio release as the remaining work. Those gates now have measured parity/budget results, a separately restored environment, an authored-example walkthrough, model/data cards and verified S3 copies. Completion means the declared deliverables have acceptance evidence, not that arbitrary community rules are solved. A Kaggle submission/score and hosted deployment are not claimed. [Delivery evidence](DELIVERY.md).
 
 The complete bank offers **188,595–188,598 candidate columns per fold**. Training-only screens retain **9,281–9,660** across separate banks. These are not the selected model's width: the retained unseen-policy representation uses the contrast of positive and negative support centroids from the original frozen 1,024-dimensional embeddings. Compact semantic geometry gives the strongest matched addition (+0.1385 AUC); lexical support comparisons add +0.0677. Raw coordinates, community/target context, retrieval, shorter prefixes, asymmetric supports and tested NLI/intent variants do not replace the centroid.
 
@@ -103,7 +103,7 @@ The centroid's matched development gain over the lexical reference is **+0.2314 
 
 **Diminishing returns are now defensible within this scope.** Remaining legal/medical weaknesses concern fine distinctions in intent and missing context. The 48-row source-checked review is qualitative, not independent label adjudication. Further encoders, supervised representation training, new policies and thread context remain legitimate future model/data research; no temporal or entity history can be reconstructed safely from row IDs. The feature gate no longer blocks final model development. It does not authorize claiming independent performance or a production-ready model.
 
-The fixed route, nested development calibration and preregistered protected comparison are now complete. Next, package accepted benchmark artifacts for offline inference and an example-driven demonstration, measure serving budgets, add model/data cards and tag a reproducible release. Keep the original-training-only Kaggle workflow separately identified. The current standalone inference still uses the lexical reference. [Concrete next milestone](FINAL_MODEL_PLAN.md) · [Release roadmap](ROADMAP.md).
+The fixed route, nested development calibration, preregistered protected comparison and offline artifact delivery are complete. The original-training-only Kaggle workflow is separately identified and verified on original preview data. [Completed milestones](FINAL_MODEL_PLAN.md) · [Release acceptance](ROADMAP.md).
 
 ## Research sources and external-data feasibility
 

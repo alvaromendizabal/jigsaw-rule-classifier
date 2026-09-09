@@ -1,0 +1,42 @@
+[
+  {
+    "row_id": "advertising_offer",
+    "body": "Buy our new headphones today. Use my referral code SAVE20 for a discount.",
+    "rule": "No advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "subreddit": "authored_demo",
+    "positive_example_1": "Visit my store and buy our discounted products.",
+    "positive_example_2": "Use my referral link to sign up and get a bonus.",
+    "negative_example_1": "My old headphones stopped working after three years.",
+    "negative_example_2": "What do you think about the sound quality?"
+  },
+  {
+    "row_id": "advertising_discussion",
+    "body": "My old headphones stopped working. I am trying to understand what failed.",
+    "rule": "No advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "subreddit": "authored_demo",
+    "positive_example_1": "Visit my store and buy our discounted products.",
+    "positive_example_2": "Use my referral link to sign up and get a bonus.",
+    "negative_example_1": "My old headphones stopped working after three years.",
+    "negative_example_2": "What do you think about the sound quality?"
+  },
+  {
+    "row_id": "novel_rule_insult",
+    "body": "You are an idiot and nobody wants to hear your stupid opinions.",
+    "rule": "No personal insults: discuss ideas without insulting another participant.",
+    "subreddit": "authored_demo",
+    "positive_example_1": "You are a stupid fool.",
+    "positive_example_2": "You are an idiot and should shut up.",
+    "negative_example_1": "I disagree with your argument because the evidence is incomplete.",
+    "negative_example_2": "Thank you for explaining your perspective."
+  },
+  {
+    "row_id": "novel_rule_disagreement",
+    "body": "I disagree with that argument. Could you explain the evidence behind it?",
+    "rule": "No personal insults: discuss ideas without insulting another participant.",
+    "subreddit": "authored_demo",
+    "positive_example_1": "You are a stupid fool.",
+    "positive_example_2": "You are an idiot and should shut up.",
+    "negative_example_1": "I disagree with your argument because the evidence is incomplete.",
+    "negative_example_2": "Thank you for explaining your perspective."
+  }
+]

@@ -2,7 +2,9 @@
 
 Predict whether a comment violates a supplied community rule, using the rule and examples of permitted and prohibited comments.
 
-**Start with [03 · Results and decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The fixed model passed its protected comparison on 43,509 rows. Research and confirmation are complete; offline product integration and release remain.
+**Start with [03 · Results and examples](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The fixed model passed its protected comparison on 43,509 rows. Research, confirmation and the verified local inference product are complete.
+
+**Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
@@ -55,20 +57,17 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 [Expanded study and results](docs/EXPANDED_STUDY.md) · [Retrieval experiment](docs/RETRIEVAL_STUDY.md) · [Embedding resolution](docs/RESOLUTION_STUDY.md) · [Historical methods and feature provenance](docs/FEATURE_RESEARCH.md).
 
-## Current decision and remaining product work
+## Completed scope and deliverables
 
 **Feature research: COMPLETE for the declared four-policy scope.** Retain the original frozen centroid for unseen policies. Seven new semantic candidates and one fixed average fail the predeclared replacement criteria. The average's higher AUC is uncertain, advertising regresses and probability losses worsen. [Stopping evidence](reports/feature_decision/decision.json) · [Coverage and exclusions](docs/FEATURE_COVERAGE.md) · [Semantic results](docs/SEMANTIC_FORMATTING.md).
 
 **Model fitting and development calibration: COMPLETE.** Nine inner fits validate calibration without sharing outer validation labels. Familiar-policy log loss improves from **0.4761 to 0.4689**; transfer calibration worsens log loss to 0.6976 and is rejected. The fitted route uses calibrated familiar-policy features and the raw unseen-policy centroid. Its familiar pipeline retains **9,263 of 181,958 candidate columns**. [Protocol, results and lineage](docs/MODEL_VALIDATION.md).
 
-**Protected confirmation: COMPLETE; product integration: PENDING.** The candidate passed every fixed guard. The standalone inference notebook still uses the original lexical reference. The accepted research artifact uses additional post-competition development labels; a competition workflow must keep its permitted training-data boundary explicit.
+**Protected confirmation and offline delivery: COMPLETE.** The exact accepted artifact is packaged with its pinned encoder and locked runtime. Real offline predictions match saved cloud probabilities within **0.00000122**; batch/order parity, missing-support rejection and restart reuse pass. A separate environment restored the package and ran with zero network calls. On the tested CPU, peak memory was **3.88 GiB** and warm mean latency **1.11 seconds per authored comment**. These are small-run measurements, not production-load estimates. [Download and measured budgets](docs/DELIVERY.md).
 
-The remaining milestones are finite:
+**Portfolio delivery: COMPLETE.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make the scoped project reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. The account has no recorded Kaggle submission; no leaderboard result is claimed.
 
-1. **Deliver inference:** package accepted benchmark artifacts with offline parity, missing-support behavior and measured latency/memory budgets. Keep the original-training-only Kaggle workflow separately identified.
-2. **Release the portfolio product:** an example-driven demonstration, model/data cards, clean-environment restore and a tagged release with a short reviewer path.
-
-[Acceptance criteria and roadmap](docs/ROADMAP.md#next-three-deliverables). The [completion assessment](docs/FEATURE_RESEARCH.md#completion-assessment) is approximately **91% overall**. This is an effort-weighted planning judgment, not an employer rating or a guarantee of generalization.
+The declared research and local inference scope is closed. A user-selected late Kaggle entry or hosted deployment is optional follow-on work. [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
 
 ## Review or reproduce
 

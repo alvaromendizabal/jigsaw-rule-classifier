@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": {
+    "frozen_prediction_parity": true,
+    "identical_vector_parity": true,
+    "cold_start_budget": true,
+    "warm_budget": true,
+    "memory_budget": true,
+    "total_budget": true,
+    "network_calls_zero": true
+  },
+  "bundle": "runs/delivery/4ce868936ca14fdad7df",
+  "bundle_manifest_sha256": "dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a",
+  "bundle_bytes": 1227454953,
+  "source_sha256": "7925290f422ea2e3359ada64d5d57e84f088dac5d54b1592c58e537efa44bcab",
+  "config_sha256": "fd2a0645e956a61e84b2992d2718df78b8a4a6d5e6b391c8901570bd1ef2c48b",
+  "demo_sha256": "87542abed236eae4a93a2f7f605d937e55e7dfa1731e86bf5775d4e3224dd779",
+  "rows": 6,
+  "policies": [
+    "spoilers",
+    "financial",
+    "promotion",
+    "legal",
+    "medical",
+    "advertising"
+  ],
+  "row_ids_sha256": "bd6c748137a0917c13c4ddb4690e61bd7721124f7ca6df5e23eb12b9c0ca80c3",
+  "maximum_frozen_prediction_difference": 1.221895217951019e-06,
+  "maximum_identical_vector_difference": 0.0,
+  "cold_seconds_including_verification": 28.32170338800006,
+  "bundle_verification_seconds": 0.8089472600004228,
+  "warm_authored_batch_seconds": 4.435161649999827,
+  "warm_authored_seconds_per_comment": 1.1087904124999568,
+  "peak_rss_gib": 3.879077911376953,
+  "total_seconds": 37.94926065100026,
+  "host": {
+    "processor": "x86_64",
+    "machine": "x86_64",
+    "logical_cpus": 9,
+    "threads_used": 4,
+    "python": "3.12.13"
+  },
+  "network_calls": 0,
+  "targets_opened": false,
+  "models_refitted": 0,
+  "order_parity_passed": true,
+  "batch_parity_passed": true,
+  "embedding_reuse_passed": true,
+  "prediction_reuse_passed": true,
+  "examples": [
+    {
+      "name": "advertising_offer",
+      "comment": "Buy our new headphones today. Use my referral code SAVE20 for a discount.",
+      "rule": "No advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "probability": 0.9650514831474917,
+      "route": "familiar",
+      "nearest_example": "Visit my store and buy our discounted products.",
+      "example_label": "violation"
+    },
+    {
+      "name": "advertising_discussion",
+      "comment": "My old headphones stopped working. I am trying to understand what failed.",
+      "rule": "No advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "probability": 0.10252581390866627,
+      "route": "familiar",
+      "nearest_example": "My old headphones stopped working after three years.",
+      "example_label": "permitted"
+    },
+    {
+      "name": "novel_rule_insult",
+      "comment": "You are an idiot and nobody wants to hear your stupid opinions.",
+      "rule": "No personal insults: discuss ideas without insulting another participant.",
+      "probability": 0.8665909171104431,
+      "route": "unseen",
+      "nearest_example": "You are an idiot and should shut up.",
+      "example_label": "violation"
+    },
+    {
+      "name": "novel_rule_disagreement",
+      "comment": "I disagree with that argument. Could you explain the evidence behind it?",
+      "rule": "No personal insults: discuss ideas without insulting another participant.",
+      "probability": 0.12108645588159561,
+      "route": "unseen",
+      "nearest_example": "I disagree with your argument because the evidence is incomplete.",
+      "example_label": "permitted"
+    }
+  ],
+  "scope": "Six target-free parity rows plus four authored examples; serving measurements on this host, not new performance estimates or a moderation threshold"
+}

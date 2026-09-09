@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "name": "accepted-route-offline-v1",
+  "batch_rows": 32,
+  "prediction_tolerance": 0.00001,
+  "vector_parity_tolerance": 0.000000000001,
+  "maximum_validation_seconds": 180,
+  "maximum_peak_rss_gib": 8,
+  "maximum_cold_start_seconds": 60,
+  "maximum_warm_seconds_per_comment": 10,
+  "missing_support": "Reject before loading the model; all four supplied examples are required",
+  "scope": "Offline post-competition benchmark inference; not an original competition entry or automatic moderation service"
+}

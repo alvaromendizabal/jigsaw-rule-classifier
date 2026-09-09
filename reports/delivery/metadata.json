@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "reader_sha256": "6840e5e888e3ed524441a174d569db54f41987c62d67d9b61fc3686dcccf4a7e",
+  "files": {
+    "verification.json": "52db54eff1eceb08b442b2afd00da988f22437e3d86e64b043473fd9d1164ec3",
+    "bundle.json": "dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a"
+  }
+}
