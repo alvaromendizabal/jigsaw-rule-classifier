@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "run_id": "314494da886e11bcc1f6",
+  "protocol_commit": "5ca6bd50d54ceacc172786e6df0640810aab96d8",
+  "protocol_sha256": "edc2b883bbd5bf08365a8c5c2251acb888a61bb7e002a783d45ad285d9e7b6ff",
+  "prediction_sha256": "ea52de1c0d2a7018d3f8ddeb03d3f5b60ed9d399c621dd87b30435be45a49f23",
+  "prediction_stage_sha256": "68af5b10cfda60bf587f96dddb9cdb89101380734762735b09ada60a172587d6",
+  "prediction_provenance_sha256": "e06189f2a151eedf30cc18f6331e58adfe3f39416a5485741b4debb09fccaf62",
+  "input_stage_sha256": "dd2cc209b449250394cbafe41f8e4bfc85948bf62150c6797d4b11cb57fa5050",
+  "eligible_ids_sha256": "dc37bb6480b75844de3dd2961a55f14a573494913517ae5a6d10a7d6bf8518b0",
+  "rows": 43509,
+  "candidate_sha256": "a38b20e1f34ff6d508bc70ba360ceb5f1a646a4f37cac4ebdcb56feebb20d698",
+  "reference_sha256": "daca334877cc5958581d7d79a3f4cebcc6dadef4bc26acedbec26430e348eaa0",
+  "encoder": {
+    "model_id": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "max_length": 256,
+    "micro_batch": 4,
+    "threads": 4,
+    "dtype": "float32",
+    "device": "cpu",
+    "include_rule": true,
+    "instruction": "Represent the meaning of the comment in relation to the community rule.",
+    "pooling": "last_non_padding_token_l2_normalized",
+    "software": {
+      "torch": "2.10.0+cpu",
+      "transformers": "4.57.6",
+      "numpy": "2.3.5"
+    },
+    "implementation": "16d9310a15f8fecf642bb3cf3f82c7d7b82bae2ad30d76016b75ae63f56c08ef"
+  },
+  "familiar_rows": 25485,
+  "unseen_rows": 18024,
+  "targets_accessed": false
+}

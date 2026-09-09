@@ -8,7 +8,8 @@ import tarfile
 import pytest
 
 from jigsaw_rules.runtime import digest
-from scripts.recover_confirmation import recover
+from scripts.confirmation_processing import committed_markers
+from scripts.recover_confirmation import recover, recover_stage
 
 RUN = "a" * 20
 PREFIX = f"runs/confirmation/{RUN}/predictions/"
@@ -80,3 +81,70 @@ def test_existing_different_predictions_are_never_overwritten(tmp_path):
         recover(root, archive, RUN, digest(archive), archive.stat().st_size)
     assert path.read_bytes() == b"previously frozen predictions"
     assert not (path.parent / "complete.json").exists()
+
+
+def downloaded_stage(tmp_path):
+    source = tmp_path / "downloaded"
+    source.mkdir()
+    files = {}
+    for name in ["predictions.csv", "provenance.json", "audit.json"]:
+        path = source / name
+        path.write_bytes(b"synthetic stage member")
+        files[name] = digest(path)
+    (source / "complete.json").write_text(json.dumps({"files": files}))
+    return source
+
+
+def test_committed_stage_recovers_after_wrapper_failure_without_overwriting(tmp_path):
+    source = downloaded_stage(tmp_path)
+    root = tmp_path / "project"
+    arguments = (root, source, RUN, digest(source / "complete.json"))
+    record = recover_stage(*arguments)
+    marker = root / PREFIX / "complete.json"
+    first_mtime = marker.stat().st_mtime_ns
+    assert recover_stage(*arguments) == record
+    assert marker.stat().st_mtime_ns == first_mtime
+    assert record["source_kind"] == "individually_downloaded_committed_stage"
+    (root / PREFIX / "predictions.csv").write_bytes(b"different preserved prediction")
+    with pytest.raises(ValueError, match="different existing"):
+        recover_stage(*arguments)
+
+
+@pytest.mark.parametrize("failure", ["corrupt", "missing", "target", "symlink", "marker"])
+def test_untrusted_downloaded_stage_is_rejected_before_writes(tmp_path, failure):
+    source = downloaded_stage(tmp_path)
+    marker = digest(source / "complete.json")
+    if failure == "corrupt":
+        (source / "predictions.csv").write_bytes(b"corrupt")
+    elif failure == "missing":
+        (source / "audit.json").unlink()
+    elif failure == "target":
+        (source / "solution.csv").write_bytes(b"must not be restored")
+    elif failure == "symlink":
+        (source / "audit.json").unlink()
+        (source / "audit.json").symlink_to(source / "provenance.json")
+    else:
+        marker = "0" * 64
+    root = tmp_path / "project"
+    with pytest.raises(ValueError):
+        recover_stage(root, source, RUN, marker)
+    assert not root.exists()
+
+
+def test_checkpoint_scan_never_enters_unpublished_stage_trees(tmp_path, monkeypatch):
+    import os
+
+    published = tmp_path / "runs/embeddings/cache/batch_one/complete.json"
+    unpublished = tmp_path / "runs/embeddings/cache/.batch_two-active/artifacts/complete.json"
+    for path in [published, unpublished]:
+        path.parent.mkdir(parents=True)
+        path.write_text("{}")
+    real_scandir = os.scandir
+
+    def reject_active_tree(path):
+        if ".batch_two-active" in str(path):
+            raise FileNotFoundError("Active stage moved before traversal")
+        return real_scandir(path)
+
+    monkeypatch.setattr(os, "scandir", reject_active_tree)
+    assert committed_markers(tmp_path) == [published]

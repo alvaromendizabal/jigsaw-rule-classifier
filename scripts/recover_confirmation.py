@@ -1,4 +1,4 @@
-"""Verify a downloaded protected archive and restore predictions without changing seed caches."""
+"""Restore verified protected predictions from a complete archive or committed stage objects."""
 
 from __future__ import annotations
 
@@ -21,6 +21,62 @@ PREFIXES = (
     "reports/confirmation/",
     "logs/",
 )
+
+
+def restore_predictions(root: Path, run_id: str, predictions: dict[str, bytes]) -> Path:
+    """Validate the complete stage and every destination before writing its marker last."""
+    if not re.fullmatch(r"[0-9a-f]{20}", run_id):
+        raise ValueError("Invalid protected run identifier")
+    if set(predictions) != PREDICTION_FILES:
+        raise ValueError("Protected prediction stage is incomplete")
+    marker = json.loads(predictions["complete.json"])
+    if set(marker.get("files", {})) != PREDICTION_FILES - {"complete.json"}:
+        raise ValueError("Protected prediction stage schema differs")
+    for name, expected in marker["files"].items():
+        if hashlib.sha256(predictions[name]).hexdigest() != expected:
+            raise ValueError("Protected prediction stage checksum differs")
+    destination = root / f"runs/confirmation/{run_id}/predictions"
+    for name, payload in predictions.items():
+        path = destination / name
+        if (
+            path.is_symlink()
+            or not path.resolve().is_relative_to(root.resolve())
+            or (path.exists() and path.read_bytes() != payload)
+        ):
+            raise ValueError("Recovery would replace different existing protected predictions")
+    for name in [*sorted(PREDICTION_FILES - {"complete.json"}), "complete.json"]:
+        path = destination / name
+        if not path.exists():
+            atomic_bytes(path, predictions[name])
+    verify_stage(destination)
+    return destination
+
+
+def recover_stage(root: Path, source: Path, run_id: str, marker_sha256: str) -> dict:
+    """Recover an independently pinned committed stage even when its job wrapper failed."""
+    if not re.fullmatch(r"[0-9a-f]{64}", marker_sha256):
+        raise ValueError("An exact independently recorded completion-marker hash is required")
+    paths = list(source.iterdir())
+    if {p.name for p in paths} != PREDICTION_FILES or any(
+        p.is_symlink() or not p.is_file() for p in paths
+    ):
+        raise ValueError("Downloaded stage must contain exactly four regular prediction files")
+    payloads = {p.name: p.read_bytes() for p in paths}
+    if hashlib.sha256(payloads["complete.json"]).hexdigest() != marker_sha256:
+        raise ValueError("Downloaded stage marker differs from the independently recorded hash")
+    destination = restore_predictions(root, run_id, payloads)
+    return {
+        "schema": 1,
+        "run_id": run_id,
+        "source_kind": "individually_downloaded_committed_stage",
+        "prediction_stage_sha256": digest(destination / "complete.json"),
+        "files": {name: hashlib.sha256(value).hexdigest() for name, value in payloads.items()},
+        "verified_completed_stages": 1,
+        "restored_files": sorted(str((destination / name).relative_to(root)) for name in payloads),
+        "embedding_caches_modified": False,
+        "reserved_targets_accessed": False,
+        "scope": "Committed prediction-stage recovery; run freeze to verify model/row lineage",
+    }
 
 
 def recover(root: Path, archive: Path, run_id: str, expected_sha: str, expected_bytes: int) -> dict:
@@ -80,21 +136,7 @@ def recover(root: Path, archive: Path, run_id: str, expected_sha: str, expected_
     record = markers[prediction_prefix + "complete.json"]
     if set(record["files"]) != PREDICTION_FILES - {"complete.json"}:
         raise ValueError("Protected prediction stage schema differs")
-    destination = root / prediction_prefix
-    for name, payload in predictions.items():
-        path = destination / name
-        if (
-            path.is_symlink()
-            or not path.resolve().is_relative_to(root.resolve())
-            or (path.exists() and path.read_bytes() != payload)
-        ):
-            raise ValueError("Recovery would replace different existing protected predictions")
-    # Commit the completion marker last, after all members were validated and written.
-    for name in [*sorted(PREDICTION_FILES - {"complete.json"}), "complete.json"]:
-        path = destination / name
-        if not path.exists():
-            atomic_bytes(path, predictions[name])
-    verify_stage(destination)
+    destination = restore_predictions(root, run_id, predictions)
     return {
         "schema": 1,
         "run_id": run_id,
@@ -112,12 +154,23 @@ def recover(root: Path, archive: Path, run_id: str, expected_sha: str, expected_
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--archive", type=Path, required=True)
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--archive", type=Path)
+    source.add_argument("--stage-directory", type=Path)
     parser.add_argument("--run-id", required=True)
-    parser.add_argument("--sha256", required=True)
-    parser.add_argument("--bytes", type=int, required=True)
+    parser.add_argument("--sha256")
+    parser.add_argument("--bytes", type=int)
+    parser.add_argument("--marker-sha256")
     args = parser.parse_args()
+    if args.archive and (not args.sha256 or args.bytes is None or args.marker_sha256):
+        parser.error("Archive recovery requires --sha256 and --bytes only")
+    if args.stage_directory and (not args.marker_sha256 or args.sha256 or args.bytes is not None):
+        parser.error("Stage recovery requires --marker-sha256 only")
     with Progress(ROOT / "logs/confirmation-recovery.jsonl", "confirmation_recovery") as log:
-        record = recover(ROOT, args.archive, args.run_id, args.sha256, args.bytes)
+        record = (
+            recover_stage(ROOT, args.stage_directory, args.run_id, args.marker_sha256)
+            if args.stage_directory
+            else recover(ROOT, args.archive, args.run_id, args.sha256, args.bytes)
+        )
         atomic_json(ROOT / "reports/checkpoints/protected_recovery.json", record)
         log.emit("verified", **record)

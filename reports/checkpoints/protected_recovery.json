@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "run_id": "314494da886e11bcc1f6",
+  "source_kind": "individually_downloaded_committed_stage",
+  "prediction_stage_sha256": "68af5b10cfda60bf587f96dddb9cdb89101380734762735b09ada60a172587d6",
+  "files": {
+    "complete.json": "68af5b10cfda60bf587f96dddb9cdb89101380734762735b09ada60a172587d6",
+    "audit.json": "89d73c5243b68a381d03e044ae112e957b7d5518e5272a4dbe28d781e627ed47",
+    "provenance.json": "e06189f2a151eedf30cc18f6331e58adfe3f39416a5485741b4debb09fccaf62",
+    "predictions.csv": "ea52de1c0d2a7018d3f8ddeb03d3f5b60ed9d399c621dd87b30435be45a49f23"
+  },
+  "verified_completed_stages": 1,
+  "restored_files": [
+    "runs/confirmation/314494da886e11bcc1f6/predictions/audit.json",
+    "runs/confirmation/314494da886e11bcc1f6/predictions/complete.json",
+    "runs/confirmation/314494da886e11bcc1f6/predictions/predictions.csv",
+    "runs/confirmation/314494da886e11bcc1f6/predictions/provenance.json"
+  ],
+  "embedding_caches_modified": false,
+  "reserved_targets_accessed": false,
+  "scope": "Committed prediction-stage recovery; run freeze to verify model/row lineage"
+}
