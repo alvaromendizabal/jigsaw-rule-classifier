@@ -1,0 +1,572 @@
+{
+  "decisions": {
+    "seen_rule": {
+      "retain_calibration": true,
+      "checks": {
+        "practical_log_loss_gain": true,
+        "paired_loss_interval": true,
+        "brier_tolerance": true,
+        "macro_auc_tolerance": true,
+        "policy_auc_tolerance": true,
+        "policy_log_loss_tolerance": true
+      },
+      "raw": {
+        "rule_macro_auc": 0.7989155206306244,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8336999313041642,
+          "No legal advice: Do not offer or request legal advice.": 0.7420081072381697,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7055337462847524,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.914420297695411
+        },
+        "pooled_auc": 0.8543312867781532,
+        "average_precision": 0.8853042679955057,
+        "log_loss": 0.47613196876484376,
+        "brier": 0.1569312729180637,
+        "ece_10_equal_width_bins": 0.044604648123723736,
+        "precision_at_0_5": 0.7859660365267542,
+        "recall_at_0_5": 0.7948801036941024,
+        "f1_at_0_5": 0.7903979378121476,
+        "confusion_matrix_at_0_5": [
+          [
+            3627,
+            1336
+          ],
+          [
+            1266,
+            4906
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated": {
+        "rule_macro_auc": 0.7990928720995862,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8334551198213909,
+          "No legal advice: Do not offer or request legal advice.": 0.7413763413671863,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7050833136063548,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9164567136034127
+        },
+        "pooled_auc": 0.8539629421033863,
+        "average_precision": 0.8845913915631919,
+        "log_loss": 0.4688529573429607,
+        "brier": 0.1549568054130491,
+        "ece_10_equal_width_bins": 0.0166358403668665,
+        "precision_at_0_5": 0.7949350435783589,
+        "recall_at_0_5": 0.7832145171743357,
+        "f1_at_0_5": 0.7890312576511874,
+        "confusion_matrix_at_0_5": [
+          [
+            3716,
+            1247
+          ],
+          [
+            1338,
+            4834
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "loss_interval": {
+        "log_loss_improvement": 0.007279011421883247,
+        "lower": 0.003693036023718639,
+        "upper": 0.01093670233676069,
+        "draws": 1000,
+        "seed": 2025,
+        "quantiles": [
+          0.0125,
+          0.9875
+        ],
+        "scope": "Fixed development predictions, normalized bodies, two route decisions"
+      },
+      "policy_log_loss_changes": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": -0.015347226969598393,
+        "No legal advice: Do not offer or request legal advice.": -0.012275139281038183,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": -0.020634506294821886,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.02629819038968137
+      }
+    },
+    "heldout_rule": {
+      "retain_calibration": false,
+      "checks": {
+        "practical_log_loss_gain": false,
+        "paired_loss_interval": false,
+        "brier_tolerance": false,
+        "macro_auc_tolerance": true,
+        "policy_auc_tolerance": true,
+        "policy_log_loss_tolerance": false
+      },
+      "raw": {
+        "rule_macro_auc": 0.7042023248889943,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7255159618738111,
+          "No legal advice: Do not offer or request legal advice.": 0.5702353627585826,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+        },
+        "pooled_auc": 0.7000848730377967,
+        "average_precision": 0.7559370188230088,
+        "log_loss": 0.6237480402064961,
+        "brier": 0.21772501394541866,
+        "ece_10_equal_width_bins": 0.03215199576370453,
+        "precision_at_0_5": 0.6758989310009719,
+        "recall_at_0_5": 0.6761179520414776,
+        "f1_at_0_5": 0.6760084237809817,
+        "confusion_matrix_at_0_5": [
+          [
+            2962,
+            2001
+          ],
+          [
+            1999,
+            4173
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated": {
+        "rule_macro_auc": 0.7042023248889943,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7255159618738111,
+          "No legal advice: Do not offer or request legal advice.": 0.5702353627585826,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+        },
+        "pooled_auc": 0.6101877483788329,
+        "average_precision": 0.6404231837172256,
+        "log_loss": 0.6975797588730784,
+        "brier": 0.2479456193022715,
+        "ece_10_equal_width_bins": 0.06804404810289391,
+        "precision_at_0_5": 0.634890065800032,
+        "recall_at_0_5": 0.6409591704471809,
+        "f1_at_0_5": 0.637910183020237,
+        "confusion_matrix_at_0_5": [
+          [
+            2688,
+            2275
+          ],
+          [
+            2216,
+            3956
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "loss_interval": {
+        "log_loss_improvement": -0.07383171866658235,
+        "lower": -0.07756675177434913,
+        "upper": -0.06961903394407758,
+        "draws": 1000,
+        "seed": 2025,
+        "quantiles": [
+          0.0125,
+          0.9875
+        ],
+        "scope": "Fixed development predictions, normalized bodies, two route decisions"
+      },
+      "policy_log_loss_changes": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.024469245194715827,
+        "No legal advice: Do not offer or request legal advice.": 0.08415959027417808,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.09615928781614658,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.10427530258178697
+      }
+    }
+  },
+  "reliability": [
+    {
+      "protocol": "seen_rule",
+      "model": "reference",
+      "bins": [
+        {
+          "bin": 0,
+          "mean_probability": 0.055006649736641704,
+          "observed_rate": 0.03588516746411483,
+          "count": 418
+        },
+        {
+          "bin": 1,
+          "mean_probability": 0.14860884617685827,
+          "observed_rate": 0.11500974658869395,
+          "count": 513
+        },
+        {
+          "bin": 2,
+          "mean_probability": 0.25288519989322245,
+          "observed_rate": 0.22569444444444445,
+          "count": 576
+        },
+        {
+          "bin": 3,
+          "mean_probability": 0.3556968791141792,
+          "observed_rate": 0.3884297520661157,
+          "count": 1210
+        },
+        {
+          "bin": 4,
+          "mean_probability": 0.45311715590250273,
+          "observed_rate": 0.5023584905660378,
+          "count": 2120
+        },
+        {
+          "bin": 5,
+          "mean_probability": 0.5502381506057361,
+          "observed_rate": 0.6010445962233829,
+          "count": 2489
+        },
+        {
+          "bin": 6,
+          "mean_probability": 0.6472739306181339,
+          "observed_rate": 0.7149321266968326,
+          "count": 2210
+        },
+        {
+          "bin": 7,
+          "mean_probability": 0.7417425836751865,
+          "observed_rate": 0.8287112561174551,
+          "count": 1226
+        },
+        {
+          "bin": 8,
+          "mean_probability": 0.8331843805126519,
+          "observed_rate": 0.911504424778761,
+          "count": 339
+        },
+        {
+          "bin": 9,
+          "mean_probability": 0.9551726138267104,
+          "observed_rate": 0.9411764705882353,
+          "count": 34
+        }
+      ]
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "raw",
+      "bins": [
+        {
+          "bin": 0,
+          "mean_probability": 0.04537955620090998,
+          "observed_rate": 0.09174964438122332,
+          "count": 1406
+        },
+        {
+          "bin": 1,
+          "mean_probability": 0.1484127260681607,
+          "observed_rate": 0.21170731707317073,
+          "count": 1025
+        },
+        {
+          "bin": 2,
+          "mean_probability": 0.24959858821784156,
+          "observed_rate": 0.3310657596371882,
+          "count": 882
+        },
+        {
+          "bin": 3,
+          "mean_probability": 0.3500285044230958,
+          "observed_rate": 0.37125,
+          "count": 800
+        },
+        {
+          "bin": 4,
+          "mean_probability": 0.4508836683062898,
+          "observed_rate": 0.42435897435897435,
+          "count": 780
+        },
+        {
+          "bin": 5,
+          "mean_probability": 0.5498930244535406,
+          "observed_rate": 0.5071335927367056,
+          "count": 771
+        },
+        {
+          "bin": 6,
+          "mean_probability": 0.6513964243765435,
+          "observed_rate": 0.5691747572815534,
+          "count": 824
+        },
+        {
+          "bin": 7,
+          "mean_probability": 0.7528356967172225,
+          "observed_rate": 0.699642431466031,
+          "count": 839
+        },
+        {
+          "bin": 8,
+          "mean_probability": 0.8536087674161472,
+          "observed_rate": 0.7971457696228338,
+          "count": 981
+        },
+        {
+          "bin": 9,
+          "mean_probability": 0.9668699781545005,
+          "observed_rate": 0.9469402193137602,
+          "count": 2827
+        }
+      ]
+    },
+    {
+      "protocol": "seen_rule",
+      "model": "calibrated",
+      "bins": [
+        {
+          "bin": 0,
+          "mean_probability": 0.054957933610038485,
+          "observed_rate": 0.060859188544152745,
+          "count": 838
+        },
+        {
+          "bin": 1,
+          "mean_probability": 0.15122969080434442,
+          "observed_rate": 0.16730401529636713,
+          "count": 1046
+        },
+        {
+          "bin": 2,
+          "mean_probability": 0.250134864122789,
+          "observed_rate": 0.2589118198874296,
+          "count": 1066
+        },
+        {
+          "bin": 3,
+          "mean_probability": 0.3498697923703426,
+          "observed_rate": 0.3733459357277883,
+          "count": 1058
+        },
+        {
+          "bin": 4,
+          "mean_probability": 0.45031062418466616,
+          "observed_rate": 0.4216061185468451,
+          "count": 1046
+        },
+        {
+          "bin": 5,
+          "mean_probability": 0.5494672316578004,
+          "observed_rate": 0.5492277992277992,
+          "count": 1036
+        },
+        {
+          "bin": 6,
+          "mean_probability": 0.6481608531603577,
+          "observed_rate": 0.6325301204819277,
+          "count": 996
+        },
+        {
+          "bin": 7,
+          "mean_probability": 0.7502662177470378,
+          "observed_rate": 0.766597510373444,
+          "count": 964
+        },
+        {
+          "bin": 8,
+          "mean_probability": 0.8529271099529313,
+          "observed_rate": 0.8753387533875339,
+          "count": 1107
+        },
+        {
+          "bin": 9,
+          "mean_probability": 0.9525314141061619,
+          "observed_rate": 0.9742163801820021,
+          "count": 1978
+        }
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "reference",
+      "bins": [
+        {
+          "bin": 0,
+          "mean_probability": 0.07843060843995764,
+          "observed_rate": 0.3064516129032258,
+          "count": 62
+        },
+        {
+          "bin": 1,
+          "mean_probability": 0.1648201336921896,
+          "observed_rate": 0.44596443228454175,
+          "count": 731
+        },
+        {
+          "bin": 2,
+          "mean_probability": 0.25104733504080584,
+          "observed_rate": 0.5566218809980806,
+          "count": 1563
+        },
+        {
+          "bin": 3,
+          "mean_probability": 0.34956573969339233,
+          "observed_rate": 0.6335245379222435,
+          "count": 1569
+        },
+        {
+          "bin": 4,
+          "mean_probability": 0.44970157867522514,
+          "observed_rate": 0.6306695464362851,
+          "count": 1389
+        },
+        {
+          "bin": 5,
+          "mean_probability": 0.5519355190533074,
+          "observed_rate": 0.5791826309067688,
+          "count": 1566
+        },
+        {
+          "bin": 6,
+          "mean_probability": 0.6500176790383423,
+          "observed_rate": 0.5234375,
+          "count": 1792
+        },
+        {
+          "bin": 7,
+          "mean_probability": 0.748272224871768,
+          "observed_rate": 0.5258939580764488,
+          "count": 1622
+        },
+        {
+          "bin": 8,
+          "mean_probability": 0.8405415374836936,
+          "observed_rate": 0.46524064171123,
+          "count": 748
+        },
+        {
+          "bin": 9,
+          "mean_probability": 0.9280736726809681,
+          "observed_rate": 0.44086021505376344,
+          "count": 93
+        }
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "raw",
+      "bins": [
+        {
+          "bin": 0,
+          "mean_probability": 0.07223718734605918,
+          "observed_rate": 0.09523809523809523,
+          "count": 63
+        },
+        {
+          "bin": 1,
+          "mean_probability": 0.15782403185277802,
+          "observed_rate": 0.20920502092050208,
+          "count": 239
+        },
+        {
+          "bin": 2,
+          "mean_probability": 0.25822188862934087,
+          "observed_rate": 0.3161559888579387,
+          "count": 718
+        },
+        {
+          "bin": 3,
+          "mean_probability": 0.355495865088916,
+          "observed_rate": 0.389530931339225,
+          "count": 1471
+        },
+        {
+          "bin": 4,
+          "mean_probability": 0.452125148867306,
+          "observed_rate": 0.46275303643724697,
+          "count": 2470
+        },
+        {
+          "bin": 5,
+          "mean_probability": 0.5481634995934614,
+          "observed_rate": 0.5529231944975163,
+          "count": 2617
+        },
+        {
+          "bin": 6,
+          "mean_probability": 0.6463403849059312,
+          "observed_rate": 0.682010582010582,
+          "count": 1890
+        },
+        {
+          "bin": 7,
+          "mean_probability": 0.7458203694836459,
+          "observed_rate": 0.8274410774410774,
+          "count": 1188
+        },
+        {
+          "bin": 8,
+          "mean_probability": 0.8382770748160004,
+          "observed_rate": 0.9434389140271493,
+          "count": 442
+        },
+        {
+          "bin": 9,
+          "mean_probability": 0.9175545283266016,
+          "observed_rate": 1.0,
+          "count": 37
+        }
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "model": "calibrated",
+      "bins": [
+        {
+          "bin": 0,
+          "mean_probability": 0.0678388943771797,
+          "observed_rate": 0.41025641025641024,
+          "count": 156
+        },
+        {
+          "bin": 1,
+          "mean_probability": 0.15234997104485287,
+          "observed_rate": 0.45248868778280543,
+          "count": 442
+        },
+        {
+          "bin": 2,
+          "mean_probability": 0.2539414668862527,
+          "observed_rate": 0.48739495798319327,
+          "count": 595
+        },
+        {
+          "bin": 3,
+          "mean_probability": 0.3558477373401079,
+          "observed_rate": 0.4315975286849073,
+          "count": 1133
+        },
+        {
+          "bin": 4,
+          "mean_probability": 0.4572490303045417,
+          "observed_rate": 0.45500387897595035,
+          "count": 2578
+        },
+        {
+          "bin": 5,
+          "mean_probability": 0.5467320975131458,
+          "observed_rate": 0.5888341543513957,
+          "count": 3045
+        },
+        {
+          "bin": 6,
+          "mean_probability": 0.6455827071191778,
+          "observed_rate": 0.6906906906906907,
+          "count": 1998
+        },
+        {
+          "bin": 7,
+          "mean_probability": 0.7399933547708417,
+          "observed_rate": 0.6603375527426161,
+          "count": 948
+        },
+        {
+          "bin": 8,
+          "mean_probability": 0.837835028578949,
+          "observed_rate": 0.6221198156682027,
+          "count": 217
+        },
+        {
+          "bin": 9,
+          "mean_probability": 0.9380750584261294,
+          "observed_rate": 0.9565217391304348,
+          "count": 23
+        }
+      ]
+    }
+  ]
+}

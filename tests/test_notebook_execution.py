@@ -81,6 +81,20 @@ def test_public_evidence_detects_changed_artifact(project):
         public_evidence(project, "baseline")
 
 
+def test_new_model_report_invalidates_notebook_cache(project):
+    from scripts.execute_notebooks import execution_contract
+
+    path = tiny_notebook(project)
+    nb = nbformat.read(path, as_version=4)
+    before = execution_contract(project, project, nb, "public", "inprocess")
+    folder = project / "reports/model_validation"
+    folder.mkdir(exist_ok=True)
+    (folder / "results.json").write_text("[]")
+    after = execution_contract(project, project, nb, "public", "inprocess")
+    assert before != after
+    assert "reports/model_validation/results.json" in after["inputs"]
+
+
 def test_public_evidence_rejects_unsafe_manifest_path(project):
     path = project / "reports/baseline/metadata.json"
     metadata = json.loads(path.read_text())

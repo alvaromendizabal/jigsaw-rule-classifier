@@ -297,7 +297,7 @@ def notebooks():
         [
             (
                 "md",
-                "# 03 · Results and the next decision\n\n**Decision:** Feature research is complete for the declared four-policy scope. Retain the original frozen semantic centroid for unseen policies; final model validation and product delivery come next. Independent confirmation and deployment of the selected representation are unfinished.\n\nThis short notebook is the employer review path: the measured improvement, the failed alternatives, the remaining limitation and the concrete release gates.",
+                "# 03 · Results and the next decision\n\n**Decision:** Feature research is complete for the declared four-policy scope. The fixed route has now passed development validation: calibrate the seven-family model for familiar policies; retain the raw centroid for unseen policies. The final artifacts are fitted on development only. Protected confirmation and product delivery remain unfinished.\n\nThis short notebook is the employer review path: the measured improvement, the failed alternatives, the remaining limitation and the concrete release gates.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
@@ -319,11 +319,19 @@ def notebooks():
             ),
             (
                 "md",
-                "## Why the feature phase can close, and the product cannot\nThe campaign covers 188,595–188,598 candidate columns per fold and 323 fixed fits. Training screens retain 9,281–9,660 columns across separate banks. The strongest transfer representation is simpler than those banks: a frozen support-centroid comparison. The last semantic variants fail the declared acceptance rule. A fixed average has the highest point AUC (0.7086), but its gain is uncertain and probability/policy regressions fail all five checks. The stopping decision retains 0.7042, rather than selecting the largest reported number.\n\nNext, test a fixed training-policy-membership route using the validated familiar-policy model and unseen-policy centroid, then develop calibration without the reserve. Commit the final candidate/reference and acceptance protocol before one protected comparison. This proposed route has not yet been executed as a final model.\n\nThe standalone inference notebook still uses the named lexical reference. Accepted artifacts must be connected to offline inference with parity, latency/memory and missing-support tests. A small example-driven demo, model/data cards and clean-environment release complete the product. [Next milestone specification](../docs/FINAL_MODEL_PLAN.md).",
+                "## Why the feature phase can close, and the product cannot\nThe campaign covers 188,595–188,598 candidate columns per fold and 323 fixed fits. Training screens retain 9,281–9,660 columns across separate banks. The strongest transfer representation is simpler than those banks: a frozen support-centroid comparison. The last semantic variants fail the declared acceptance rule. A fixed average has the highest point AUC (0.7086), but its gain is uncertain and probability/policy regressions fail all five checks. The stopping decision retains 0.7042, rather than selecting the largest reported number.\n\nThe fixed route now has executed development evidence. Nine nested inner fits isolate calibration from outer validation labels; all three reconstructed familiar models reproduce their saved predictions within 1.2e-16. Familiar calibration passes all six gates; unseen calibration fails four and is discarded. One candidate and one lexical reference are fitted on all 11,135 development rows. Commit the exact candidate/reference and acceptance protocol before opening the reserved targets.\n\nThe standalone inference notebook still uses the named lexical reference. Accepted artifacts must be connected to offline inference with parity, latency/memory and missing-support tests. A small example-driven demo, model/data cards and clean-environment release complete the product. [Next milestone specification](../docs/FINAL_MODEL_PLAN.md).",
             ),
             (
                 "code",
                 'print("Expanded study:", gate["expanded_development"])\nprint("Feature gate:", gate["status"])\nprint("Final training justified:", gate["final_training_authorized_by_evidence"])',
+            ),
+            (
+                "md",
+                "## From features to the fitted candidate\nThe final familiar pipeline retains **9,263 of 181,958 columns** across seven selected families. It contains no target encodings, community metadata or raw embedding coordinates. Unknown policies bypass this learned pipeline.\n\nNested calibration improves familiar-policy log loss from **0.4761 to 0.4689**; the paired 97.5% interval for improvement is **[0.0037, 0.0109]**. AUC stays near 0.799. Calibrating the centroid damages transfer log loss from **0.6237 to 0.6976**, so unseen-policy probabilities retain their original mapping. This is a calibration result, separate from feature-engineering gains. [Protocol and full results](../docs/MODEL_VALIDATION.md).",
+            ),
+            (
+                "code",
+                'from jigsaw_rules.model_validation import validation_evidence\nfrom build_model_report import display_figure as display_model\nmodel_validation = validation_evidence(root)\nassert model_validation is not None\ndisplay(metric_table(model_validation["results"]))\ndisplay_model(root, "calibration")\nprint("Final selected columns:", model_validation["audit"]["final_artifact"]["selected_features"])\nprint("Reserved targets accessed:", model_validation["audit"]["confirmation_targets_accessed"])',
             ),
             (
                 "md",
@@ -362,6 +370,14 @@ def notebooks():
             (
                 "code",
                 'stress = expanded["audit"]["support_stress"]\ncentroid = next(r["metrics"] for r in records if r["model"] == "qwen_centroid")\ncomparison = {"Original supplied context": centroid, **{name: value for name, value in stress.items() if isinstance(value, dict)}}\ndisplay(pd.DataFrame([{ "Condition": name, "Policy-macro AUC": value["rule_macro_auc"], "Log loss": value["log_loss"], "Brier": value["brier"]} for name, value in comparison.items()]).round(4))\nprint("Self-support rows excluded:", stress["self_match_rows"])',
+            ),
+            (
+                "md",
+                "## Calibration is a separate generalization question\nThree inner pipelines per familiar outer split produce calibration-only OOF scores. Outer validation labels fit neither the feature pipeline nor its calibrator. For the label-free centroid, the calibrator uses only each purged outer training partition. Each protocol still evaluates all 11,135 development rows exactly once.\n\nThe curves below are descriptive diagnostics. The decision requires practical log-loss improvement, a positive paired interval, Brier tolerance, macro/per-policy AUC tolerance and per-policy log-loss tolerance. Familiar calibration passes; transfer calibration fails. Different policies can have different probability errors even when a monotone transform preserves their ranking.",
+            ),
+            (
+                "code",
+                'from jigsaw_rules.model_validation import validation_evidence\nfrom build_model_report import display_figure as display_model\nvalidated = validation_evidence(root)\nassert validated is not None\ndisplay_model(root, "reliability")\ndisplay(pd.DataFrame({name: decision["checks"] for name, decision in validated["calibration"]["decisions"].items()}))',
             ),
             (
                 "md",

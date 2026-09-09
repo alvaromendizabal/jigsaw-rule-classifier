@@ -1,0 +1,678 @@
+{
+  "development_rows": 11135,
+  "policies": 4,
+  "nested_classifier_fits": 9,
+  "reused_outer_classifiers": 3,
+  "unseen_routing_parents_verified": 4,
+  "full_development_fits": 2,
+  "outer_audits": [
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "training_rows": 3000,
+      "validation_rows": 3712,
+      "training_ids_sha256": "5c4352ef713e88f336ec9af7d4aa084cd6bcca580a98ab321f42719a8cc03ec2",
+      "calibration_rows": 3000,
+      "parent_prediction_max_error": 1.1102230246251565e-16,
+      "calibrator": {
+        "slope": 0.7715458703962695,
+        "intercept": -0.07160663545536818,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [
+        1634,
+        1556,
+        1837
+      ],
+      "raw_metrics": {
+        "rule_macro_auc": 0.800709477081439,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.837494790426292,
+          "No legal advice: Do not offer or request legal advice.": 0.7490947594086198,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7112862054210378,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9049621530698065
+        },
+        "pooled_auc": 0.8604178931894058,
+        "average_precision": 0.8918529627176078,
+        "log_loss": 0.4649155618303316,
+        "brier": 0.15304954270305976,
+        "ece_10_equal_width_bins": 0.0440454202276501,
+        "precision_at_0_5": 0.7883877159309021,
+        "recall_at_0_5": 0.7983479105928085,
+        "f1_at_0_5": 0.7933365523901497,
+        "confusion_matrix_at_0_5": [
+          [
+            1213,
+            441
+          ],
+          [
+            415,
+            1643
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.800709477081439,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.837494790426292,
+          "No legal advice: Do not offer or request legal advice.": 0.7490947594086198,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7112862054210378,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9049621530698065
+        },
+        "pooled_auc": 0.8604178931894058,
+        "average_precision": 0.8918529627176078,
+        "log_loss": 0.45934244391431733,
+        "brier": 0.15138391348862185,
+        "ece_10_equal_width_bins": 0.029551159664100744,
+        "precision_at_0_5": 0.7991071428571429,
+        "recall_at_0_5": 0.782798833819242,
+        "f1_at_0_5": 0.7908689248895434,
+        "confusion_matrix_at_0_5": [
+          [
+            1249,
+            405
+          ],
+          [
+            447,
+            1611
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "training_rows": 2643,
+      "validation_rows": 3712,
+      "training_ids_sha256": "4114fa7b34e5f2ee0b382ee64e249231f861ab00515575c2d013040b832ff7f9",
+      "calibration_rows": 2643,
+      "parent_prediction_max_error": 1.1102230246251565e-16,
+      "calibrator": {
+        "slope": 0.7702505866005034,
+        "intercept": -0.016365523882567876,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [
+        1440,
+        1565,
+        1555
+      ],
+      "raw_metrics": {
+        "rule_macro_auc": 0.7981623378765402,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8079073601045503,
+          "No legal advice: Do not offer or request legal advice.": 0.7334899802611798,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7011889329234415,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.950063078216989
+        },
+        "pooled_auc": 0.8423590718028444,
+        "average_precision": 0.8727801317618988,
+        "log_loss": 0.49809427744109175,
+        "brier": 0.16427628870183655,
+        "ece_10_equal_width_bins": 0.05265109169825382,
+        "precision_at_0_5": 0.7784779447406689,
+        "recall_at_0_5": 0.7803692905733722,
+        "f1_at_0_5": 0.7794224702742053,
+        "confusion_matrix_at_0_5": [
+          [
+            1197,
+            457
+          ],
+          [
+            452,
+            1606
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.7981623378765402,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8079073601045503,
+          "No legal advice: Do not offer or request legal advice.": 0.7334899802611798,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7011889329234415,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.950063078216989
+        },
+        "pooled_auc": 0.8423590718028444,
+        "average_precision": 0.8727801317618988,
+        "log_loss": 0.4843610569774644,
+        "brier": 0.16115304927873525,
+        "ece_10_equal_width_bins": 0.019610938092776174,
+        "precision_at_0_5": 0.7793974732750243,
+        "recall_at_0_5": 0.7793974732750243,
+        "f1_at_0_5": 0.7793974732750243,
+        "confusion_matrix_at_0_5": [
+          [
+            1200,
+            454
+          ],
+          [
+            454,
+            1604
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "training_rows": 2936,
+      "validation_rows": 3711,
+      "training_ids_sha256": "413a96a2964d09da73fcc1f38adf120ce9e8c14157befeee20d5e4205391f0b8",
+      "calibration_rows": 2936,
+      "parent_prediction_max_error": 1.1102230246251565e-16,
+      "calibrator": {
+        "slope": 0.6838019798842692,
+        "intercept": -0.10372490351190974,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [
+        1732,
+        1504,
+        1552
+      ],
+      "raw_metrics": {
+        "rule_macro_auc": 0.7991953633389601,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8572234762979684,
+          "No legal advice: Do not offer or request legal advice.": 0.7446177612243162,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7040186673580503,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.8909215484755053
+        },
+        "pooled_auc": 0.8601293686153267,
+        "average_precision": 0.8914086242250899,
+        "log_loss": 0.4653831713341452,
+        "brier": 0.15346705410069086,
+        "ece_10_equal_width_bins": 0.038760476770759646,
+        "precision_at_0_5": 0.7909307875894988,
+        "recall_at_0_5": 0.8059338521400778,
+        "f1_at_0_5": 0.7983618405203565,
+        "confusion_matrix_at_0_5": [
+          [
+            1217,
+            438
+          ],
+          [
+            399,
+            1657
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.7991953633389601,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8572234762979684,
+          "No legal advice: Do not offer or request legal advice.": 0.7446177612243162,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7040186673580503,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.8909215484755053
+        },
+        "pooled_auc": 0.8601293686153267,
+        "average_precision": 0.8914086242250899,
+        "log_loss": 0.46285375497266834,
+        "brier": 0.15233274655938353,
+        "ece_10_equal_width_bins": 0.02932721267725511,
+        "precision_at_0_5": 0.8066766317887394,
+        "recall_at_0_5": 0.7874513618677043,
+        "f1_at_0_5": 0.7969480679301009,
+        "confusion_matrix_at_0_5": [
+          [
+            1267,
+            388
+          ],
+          [
+            437,
+            1619
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "training_rows": 5277,
+      "validation_rows": 3152,
+      "training_ids_sha256": "a14c6ec53cb23ffea28093b5d59271bab2617d81bbf895b7949e43cfe2d8bb12",
+      "calibration_rows": 5277,
+      "parent_prediction_max_error": 0.0,
+      "calibrator": {
+        "slope": 0.4321768266689407,
+        "intercept": -0.04608424470716126,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [],
+      "raw_metrics": {
+        "rule_macro_auc": 0.7255159618738111,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7255159618738111
+        },
+        "pooled_auc": 0.7255159618738111,
+        "average_precision": 0.6478599391618749,
+        "log_loss": 0.6174363216778509,
+        "brier": 0.21519861253784378,
+        "ece_10_equal_width_bins": 0.0908487984487494,
+        "precision_at_0_5": 0.5637740244612697,
+        "recall_at_0_5": 0.7289156626506024,
+        "f1_at_0_5": 0.6357963875205255,
+        "confusion_matrix_at_0_5": [
+          [
+            1075,
+            749
+          ],
+          [
+            360,
+            968
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.7255159618738111,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7255159618738111
+        },
+        "pooled_auc": 0.7255159618738111,
+        "average_precision": 0.6478599391618749,
+        "log_loss": 0.6419055668725667,
+        "brier": 0.22502724877180225,
+        "ece_10_equal_width_bins": 0.10681954026886231,
+        "precision_at_0_5": 0.5911492734478203,
+        "recall_at_0_5": 0.6739457831325302,
+        "f1_at_0_5": 0.629838142153413,
+        "confusion_matrix_at_0_5": [
+          [
+            1205,
+            619
+          ],
+          [
+            433,
+            895
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "training_rows": 5925,
+      "validation_rows": 3383,
+      "training_ids_sha256": "5e416fd33c521cb0d1c2825923c41d483255043e3f0d696e8c671900103819e7",
+      "calibration_rows": 5925,
+      "parent_prediction_max_error": 0.0,
+      "calibrator": {
+        "slope": 1.5886760700617888,
+        "intercept": -0.2058795258243398,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [],
+      "raw_metrics": {
+        "rule_macro_auc": 0.5702353627585826,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5702353627585826
+        },
+        "pooled_auc": 0.5702353627585826,
+        "average_precision": 0.6495942967298942,
+        "log_loss": 0.7144511728129394,
+        "brier": 0.25861384733172027,
+        "ece_10_equal_width_bins": 0.13386764111751073,
+        "precision_at_0_5": 0.6446601941747573,
+        "recall_at_0_5": 0.4928253339930727,
+        "f1_at_0_5": 0.5586090858104319,
+        "confusion_matrix_at_0_5": [
+          [
+            813,
+            549
+          ],
+          [
+            1025,
+            996
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.5702353627585826,
+        "per_rule_auc": {
+          "No legal advice: Do not offer or request legal advice.": 0.5702353627585826
+        },
+        "pooled_auc": 0.5702353627585826,
+        "average_precision": 0.6495942967298942,
+        "log_loss": 0.7986107630871174,
+        "brier": 0.28808437925660474,
+        "ece_10_equal_width_bins": 0.19884551900955505,
+        "precision_at_0_5": 0.6467304625199362,
+        "recall_at_0_5": 0.4012864918357249,
+        "f1_at_0_5": 0.4952671755725191,
+        "confusion_matrix_at_0_5": [
+          [
+            919,
+            443
+          ],
+          [
+            1210,
+            811
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 2,
+      "training_rows": 8418,
+      "validation_rows": 2389,
+      "training_ids_sha256": "7a5b139377af8b3487681320593b2de43f6b31326c386e46cda675404e8f8552",
+      "calibration_rows": 8418,
+      "parent_prediction_max_error": 0.0,
+      "calibrator": {
+        "slope": 1.077479232228149,
+        "intercept": 0.4214073417798509,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [],
+      "raw_metrics": {
+        "rule_macro_auc": 0.5969424827060154,
+        "per_rule_auc": {
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154
+        },
+        "pooled_auc": 0.5969424827060154,
+        "average_precision": 0.3877111190838321,
+        "log_loss": 0.6740838774719565,
+        "brier": 0.24081426086709046,
+        "ece_10_equal_width_bins": 0.17793078014495334,
+        "precision_at_0_5": 0.3729281767955801,
+        "recall_at_0_5": 0.5502717391304348,
+        "f1_at_0_5": 0.4445664105378705,
+        "confusion_matrix_at_0_5": [
+          [
+            972,
+            681
+          ],
+          [
+            331,
+            405
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.5969424827060154,
+        "per_rule_auc": {
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154
+        },
+        "pooled_auc": 0.5969424827060154,
+        "average_precision": 0.3877111190838321,
+        "log_loss": 0.7702431652881031,
+        "brier": 0.2853349798224227,
+        "ece_10_equal_width_bins": 0.2751570902563863,
+        "precision_at_0_5": 0.34084661902144037,
+        "recall_at_0_5": 0.842391304347826,
+        "f1_at_0_5": 0.48532289628180036,
+        "confusion_matrix_at_0_5": [
+          [
+            454,
+            1199
+          ],
+          [
+            116,
+            620
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 3,
+      "training_rows": 8289,
+      "validation_rows": 2211,
+      "training_ids_sha256": "f0b651e49570a25daf10b4bef786afe9934fb37ca1c01f3bc798c7e58ce4d0b9",
+      "calibration_rows": 8289,
+      "parent_prediction_max_error": 0.0,
+      "calibrator": {
+        "slope": 0.701571032419217,
+        "intercept": -0.14655970914672,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "inner_training_rows": [],
+      "raw_metrics": {
+        "rule_macro_auc": 0.9241154922175681,
+        "per_rule_auc": {
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+        },
+        "pooled_auc": 0.9241154922175681,
+        "average_precision": 0.9939237749742094,
+        "log_loss": 0.43957505240346895,
+        "brier": 0.13381550828958128,
+        "ece_10_equal_width_bins": 0.30438313316023086,
+        "precision_at_0_5": 0.9879518072289156,
+        "recall_at_0_5": 0.8643986583612842,
+        "f1_at_0_5": 0.92205468949655,
+        "confusion_matrix_at_0_5": [
+          [
+            102,
+            22
+          ],
+          [
+            283,
+            1804
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      },
+      "calibrated_metrics": {
+        "rule_macro_auc": 0.9241154922175681,
+        "per_rule_auc": {
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+        },
+        "pooled_auc": 0.9241154922175681,
+        "average_precision": 0.9939237749742094,
+        "log_loss": 0.5438503549852559,
+        "brier": 0.17880319356906865,
+        "ece_10_equal_width_bins": 0.3745317627490563,
+        "precision_at_0_5": 0.9914841849148418,
+        "recall_at_0_5": 0.7810253953042645,
+        "f1_at_0_5": 0.8737603859555079,
+        "confusion_matrix_at_0_5": [
+          [
+            110,
+            14
+          ],
+          [
+            457,
+            1630
+          ]
+        ],
+        "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+      }
+    }
+  ],
+  "final_artifact": {
+    "training_rows": 11135,
+    "training_ids_sha256": "106be68df05cc3e116fce60d234200811a4999cb75a4088a6b368fea843a6c69",
+    "families": [
+      "word",
+      "character",
+      "structure",
+      "lexical",
+      "support_tokens",
+      "semantic_scalar",
+      "ranks"
+    ],
+    "selected_features": 9263,
+    "normalized_training_policies": [
+      "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "no legal advice: do not offer or request legal advice.",
+      "no medical advice: do not offer or request specific medical advice, diagnoses, or treatment recommendations.",
+      "no promotion of illegal activity: do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior."
+    ],
+    "embedding_dimension": 1024,
+    "calibrators": {
+      "seen_rule": {
+        "slope": 0.7741282541700075,
+        "intercept": -0.016585944595913324,
+        "clip": 1e-07,
+        "fitted": true
+      },
+      "heldout_rule": {
+        "slope": 1.0,
+        "intercept": 0.0,
+        "clip": 1e-07,
+        "fitted": false
+      }
+    },
+    "candidate_sha256": "a38b20e1f34ff6d508bc70ba360ceb5f1a646a4f37cac4ebdcb56feebb20d698",
+    "reference_sha256": "daca334877cc5958581d7d79a3f4cebcc6dadef4bc26acedbec26430e348eaa0",
+    "serialized_prediction_parity": true,
+    "confirmation_targets_accessed": false
+  },
+  "screening": {
+    "word": {
+      "candidates": 60000,
+      "retained": 4096,
+      "rejected": 55904,
+      "decisions": {
+        "screen_budget": 18824,
+        "rare": 22347,
+        "retained": 4096,
+        "constant_or_near_constant": 12103,
+        "exact_duplicate": 2630
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "d04bb022f4620ff7f3010e6aab2a68c7e82f6b49899a0df22430d19b5c649d90"
+    },
+    "character": {
+      "candidates": 60000,
+      "retained": 4096,
+      "rejected": 55904,
+      "decisions": {
+        "screen_budget": 28563,
+        "rare": 14594,
+        "exact_duplicate": 11642,
+        "constant_or_near_constant": 1105,
+        "retained": 4096
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 4096,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "116df3cbb56e0493acb20d35781f4e5082274715a21403a408529b3f7c237c5e"
+    },
+    "structure": {
+      "candidates": 1512,
+      "retained": 128,
+      "rejected": 1384,
+      "decisions": {
+        "screen_budget": 984,
+        "high_training_correlation": 28,
+        "retained": 128,
+        "constant_or_near_constant": 342,
+        "exact_duplicate": 30
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 128,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "0249cba494e7795a39d40097800417963f0595f2c79c2e289bdd1d759a84428d"
+    },
+    "lexical": {
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "retained": 64,
+        "screen_budget": 143
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "45fa8aa033b4310a1960b2b1449161f46dd350ece812ec96d77c757b9fb11d7e"
+    },
+    "support_tokens": {
+      "candidates": 60000,
+      "retained": 784,
+      "rejected": 59216,
+      "decisions": {
+        "constant_or_near_constant": 57420,
+        "retained": 784,
+        "rare": 1780,
+        "exact_duplicate": 16
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 1024,
+      "correlation_threshold": null,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "91d428647c2db7378b38f5ad7aba824b5d95759fb373d048eec7c70611c99e6c"
+    },
+    "semantic_scalar": {
+      "candidates": 32,
+      "retained": 31,
+      "rejected": 1,
+      "decisions": {
+        "retained": 31,
+        "high_training_correlation": 1
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 48,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "f36c2b70a090997ec11652ab6f44694bcdedc0599b46b97076d020f1757de330"
+    },
+    "ranks": {
+      "candidates": 207,
+      "retained": 64,
+      "rejected": 143,
+      "decisions": {
+        "screen_budget": 109,
+        "retained": 64,
+        "high_training_correlation": 3,
+        "exact_duplicate": 31
+      },
+      "training_rows": 11135,
+      "dtype": "float64",
+      "missing_or_nonfinite": 0,
+      "rare_minimum_rows": 3,
+      "maximum": 64,
+      "correlation_threshold": 0.995,
+      "screening_scope": "training rows only; no validation labels or statistics",
+      "catalog_sha256": "c895417cfe77b84fc9a2cfb56813bf2130cd4f682c629fd9df792976a82b4cde"
+    }
+  },
+  "confirmation_targets_accessed": false,
+  "production_promotion_authorized": false,
+  "scope": "Nested development calibration, conditional on earlier adaptive feature selection; confirmation remains unopened"
+}
