@@ -51,7 +51,7 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 The remaining milestones are finite:
 
-1. **Confirm the fitted model:** freeze the completed candidate/reference artifacts and acceptance criteria, then perform one protected comparison on the 43,509 eligible rows. [Next milestone](docs/FINAL_MODEL_PLAN.md).
+1. **Confirm the fitted model:** the candidate/reference, cohort and acceptance criteria are now preregistered. Run checkpointed target-free inference, commit the prediction hashes, then perform the fixed protected comparison. The runner and scoring guards are tested; the real comparison remains pending. [Frozen protocol](docs/CONFIRMATION.md).
 2. **Deliver inference:** connect accepted artifacts to offline inference, probability/triage diagnostics and measured latency/memory budgets; add a small example-driven interface.
 3. **Release the portfolio product:** an example-driven demonstration, model/data cards, clean-environment restore and a tagged release with a short reviewer path.
 

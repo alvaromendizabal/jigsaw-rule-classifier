@@ -117,7 +117,7 @@ uv run python scripts/build_release_report.py
 
 CI runs the software gate, encrypted Jupyter execution, completed-notebook reuse, synthetic offline inference and the real pinned encoder check. Source and logs are retained as workflow artifacts. The results-push helper additionally rejects incompatible sources, stale contracts, non-Jupyter publication, private/synthetic execution and unrelated edits. Failed execution retains the last valid canonical notebook.
 
-Research encoders remain frozen. No neural fine-tuning, optimizer-state recovery, final calibration, final representation selection or independent official score is claimed. The rule-macro AUC implementation is tested separately from pooled AUC; parity with executable Kaggle scoring remains unverified. Within-study simultaneous intervals do not resolve adaptive selection across the historical two-policy and current four-policy studies.
+Research encoders remain frozen. The model milestone below adds final representation selection and development calibration. Neural fine-tuning, interrupted-optimizer recovery and an independent protected score are not claimed. The rule-macro AUC implementation is tested separately from pooled AUC; parity with executable Kaggle scoring remains unverified. Within-study simultaneous intervals do not resolve adaptive selection across the historical two-policy and current four-policy studies.
 
 
 ## Fitted policy route and nested calibration
