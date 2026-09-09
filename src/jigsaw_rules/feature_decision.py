@@ -214,6 +214,8 @@ def run_decision(root: Path, verification: dict) -> Path:
                 {
                     "feature_research_status": "complete_for_declared_scope" if closed else "open",
                     "notebook_02_scientific_gate": "passed" if closed else "follow-up required",
+                    "final_training_authorized_by_evidence": closed,
+                    "production_promotion_authorized_by_evidence": False,
                     "fusion_eligible": bool(fusion_decision["eligible_candidates"]),
                     "stopping_rationale": (
                         "The major applicable families, targeted semantic hypotheses and one fixed "

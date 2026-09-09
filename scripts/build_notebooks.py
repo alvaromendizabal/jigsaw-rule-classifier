@@ -67,12 +67,18 @@ from jigsaw_rules.released import released_evidence
 from jigsaw_rules.expanded import expanded_evidence
 from jigsaw_rules.retrieval import retrieval_evidence
 from jigsaw_rules.resolution import resolution_evidence
+from jigsaw_rules.formatting import formatting_evidence
+from jigsaw_rules.feature_decision import decision_evidence
 from build_expanded_report import display_figure as display_expanded
+from build_formatting_report import display_figure as display_formatting
 
 expanded = expanded_evidence(root)
 retrieval = retrieval_evidence(root)
 resolution = resolution_evidence(root)
+formatting = formatting_evidence(root)
+decision = decision_evidence(root)
 assert expanded is not None and retrieval is not None and resolution is not None
+assert formatting is not None and decision is not None
 controls = feature_evidence(root)
 research = research_evidence(root)
 sensitivity = diagnostic_evidence(root)
@@ -177,7 +183,7 @@ def notebooks():
         [
             (
                 "md",
-                "# 02 · Feature engineering as a research gate\n\n**Question:** Which representations improve transfer to an unseen policy, and can we explain why?\n\nThis notebook follows the expanded four-policy study from its committed protocol to screening, matched ablations and robustness. It uses fixed classifiers to isolate representation choices. The leading frozen centroid reaches 0.7042 transfer AUC versus 0.4728 for the matched lexical reference; compact semantic comparisons give the strongest family addition. Retrieval and shorter embedding prefixes do not improve the leading representation. Development evidence still needs a stopping decision and independent confirmation.",
+                "# 02 · Feature engineering as a research gate\n\n**Decision:** The declared feature-research phase is complete. Retain the original frozen centroid for unseen policies. The 323-fit four-policy campaign, targeted semantic comparisons and fixed complementarity control support diminishing returns within this scope. Independent confirmation and product delivery remain separate gates.\n\nThis notebook explains candidate generation, training-only screening, matched ablations, negative findings and the stopping decision. The retained centroid reaches 0.7042 transfer AUC versus 0.4728 for the matched lexical reference. Compact semantic comparisons give the strongest family addition. A higher feature count is not the selection criterion.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
@@ -195,7 +201,7 @@ def notebooks():
             ),
             (
                 "code",
-                'screens = pd.DataFrame(expanded["screening"]["families"])\nassert (screens.candidates == screens.retained + screens.rejected).all()\ntotals = screens.groupby(["protocol", "fold"])[["candidates", "retained", "rejected"]].sum()\nextra = pd.DataFrame(retrieval["screening"]).set_index(["protocol", "fold"])[["candidates", "retained", "rejected"]]\ndisplay((totals + extra).rename(columns={"candidates": "All candidates", "retained": "All retained", "rejected": "All rejected"}))\ndisplay_expanded(root, "screening")',
+                'screens = pd.DataFrame(expanded["screening"]["families"] + retrieval["screening"] + formatting["screening"])\nassert (screens.candidates == screens.retained + screens.rejected).all()\ntotals = screens.groupby(["protocol", "fold"])[["candidates", "retained", "rejected"]].sum()\ndisplay(totals.rename(columns={"candidates": "All candidates", "retained": "All retained", "rejected": "All rejected"}))\nprint("Retained widths describe separate banks, not the selected centroid.")\ndisplay_expanded(root, "screening")',
             ),
             (
                 "md",
@@ -255,7 +261,27 @@ def notebooks():
             ),
             (
                 "md",
-                "## 10 · Decide what the evidence permits\nA large feature bank, a good average and successful execution cannot close this gate. Examine per-policy performance, probability quality, robustness and computational cost before freezing a candidate/reference for one reserved confirmation evaluation. The 1,024-dimensional centroid leads on transfer and improves on the lexical reference in all four observed policies, but legal/medical advice remain weak. Retrieval damages the compact semantic control, and shorter prefixes lose accuracy. Finish a bounded query-versus-document formatting check and a policy-intent/error audit before freezing the candidate. Longer context is lower priority: only two cached inputs were truncated at 256 tokens.\n\nThe offline inference path still names the lexical reference. It will change only after a representation earns acceptance and its feature contract is connected end to end. [03 · Results and decision](03_saved_results.ipynb) is the concise review; [04 · Diagnostics](04_semantic_benchmark.ipynb) exposes policy-level behavior and probability quality.",
+                "## 10 · Test the remaining semantic hypotheses\nThe preregistered extension compares instructed comment queries with plain support documents, and generic rule entailment with affirmative policy behavior. It adds 32 asymmetric and 45 intent candidates, four fixed models across seven folds, and three frozen scores. The original banks and controls are reused unchanged.\n\nPlain supports lower centroid transfer AUC to 0.6865. Affirmative wording improves a weak generic NLI score from 0.4341 to 0.5174, still far below the centroid. Adding intent to semantic scalars gives only +0.0033 AUC with an interval spanning zero, while probability losses worsen. [Protocol and results](../docs/SEMANTIC_FORMATTING.md).",
+            ),
+            (
+                "code",
+                'display_formatting(root, "contrasts")\ndisplay(pd.DataFrame(formatting["screening"])[["protocol", "fold", "family", "candidates", "retained"]])\nstability = pd.DataFrame(formatting["audit"]["stability"])\ndisplay(stability.groupby("family").jaccard.agg(["min", "mean", "max"]).round(3))',
+            ),
+            (
+                "md",
+                "## 11 · Explain the errors without relabeling them\nBefore seeing the new scores, a seeded 48-row legal/medical review examined speech act, policy behavior, context dependence and ambiguity. Every sampled body, policy and target matched its pinned source. Requests, personal experience, discussion and implicit advice can share vocabulary while differing in prohibited behavior.\n\nThis is a stratified qualitative review by one assistant, not independent human adjudication or a population label-error estimate. Twenty-three rows were flagged as ambiguous; none was relabeled. Raw text and row annotations remain private. The review motivated a falsifiable representation check, whose negative outcome remains visible.",
+            ),
+            (
+                "code",
+                'review = formatting["error_audit"]\ndisplay(pd.Series(review["taxonomy_counts"]["speech_act"], name="Reviewed speech acts"))\ndisplay(pd.Series(decision["verification"], name="Private artifact replay"))',
+            ),
+            (
+                "md",
+                "## 12 · Apply the stopping rule, including complementarity\nThe replacement criteria were committed before the new semantic scores: at least +0.005 macro AUC, a positive simultaneous lower bound, no policy loss above 0.02 AUC, and log-loss/Brier increases no larger than 0.01/0.005. None of seven alternatives passes. One separately preregistered 50/50 average checks whether centroid and semantic-intent scores complement each other; no weights or policy routing are tuned.\n\nThe average reaches 0.7086 AUC, but its +0.0044 gain is uncertain, advertising loses 0.0222, and both probability losses worsen. It fails all five conditions. Retain the simpler centroid. The [coverage ledger](../docs/FEATURE_COVERAGE.md) documents applicable families, exclusions and deferred model research; this is bounded evidence of diminishing returns, not universal feature exhaustion.\n\nFinal model training and calibration may now proceed. One protected confirmation and verified offline promotion are still required. The current standalone inference notebook remains the explicitly named lexical reference.",
+            ),
+            (
+                "code",
+                'eligibility = decision["decision"]["candidate_eligibility"] + decision["fusion"]["decision"]["candidate_eligibility"]\ndisplay(pd.DataFrame([{ "Candidate": r["candidate"], "AUC": r["macro_auc"], "Gain": r["auc_gain"], "Eligible": r["eligible"], "Failed checks": ", ".join(r["failed_conditions"])} for r in eligibility]).round(4))',
             ),
             (
                 "code",
@@ -271,7 +297,7 @@ def notebooks():
         [
             (
                 "md",
-                "# 03 · Results and the next decision\n\n**Decision:** Keep feature engineering open until the four-policy evidence supports a frozen candidate and a documented stopping rationale. This is a research prototype with strong experimental infrastructure; independent confirmation and a deployed final representation remain unfinished.\n\nThis short notebook is the employer review path. It separates measured development results from the claims the project can responsibly make.",
+                "# 03 · Results and the next decision\n\n**Decision:** Feature research is complete for the declared four-policy scope. Retain the original frozen semantic centroid for unseen policies; final model validation and product delivery come next. Independent confirmation and deployment of the selected representation are unfinished.\n\nThis short notebook is the employer review path: the measured improvement, the failed alternatives, the remaining limitation and the concrete release gates.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
@@ -281,7 +307,7 @@ def notebooks():
             ),
             (
                 "code",
-                'display_expanded(root, "comparison")\nsummary = metric_table(expanded["results"] + retrieval["results"], heldout=True).sort_values("Rule macro AUC", ascending=False)\ndisplay(summary.head(10))',
+                'display_expanded(root, "comparison")\nselected = {"rule_examples", "word_semantic_scalar", "semantic_scalar_only", "qwen_centroid", "all_transfer"}\nrows = [r for r in expanded["results"] if r["model"] in selected]\nrows += [r for r in formatting["results"] if r["model"] in {"asymmetric_centroid", "semantic_intent"}]\nrows += [{"model": "centroid_intent_mean (rejected)", "protocol": "heldout_rule", "metrics": decision["fusion"]["metrics"]}]\ndisplay(metric_table(rows, heldout=True).sort_values("Rule macro AUC", ascending=False))',
             ),
             (
                 "md",
@@ -293,7 +319,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Why this remains an open product decision\nThe research loader never exposes reserved targets. The public reports are checksummed summaries of verified private OOF predictions. The standalone inference notebook still uses the named lexical reference; no research candidate is silently presented as the production model.\n\nThe next acceptance milestone is a defensible feature stopping decision, followed by one locked confirmation comparison. Then the accepted representation needs calibrated/triage diagnostics, offline feature parity, latency and memory measurements, and an example-driven demonstration with a model card. Passing software tests does not substitute for those deliverables.",
+                "## Why the feature phase can close, and the product cannot\nThe campaign covers 188,595–188,598 candidate columns per fold and 323 fixed fits. Training screens retain 9,281–9,660 columns across separate banks. The strongest transfer representation is simpler than those banks: a frozen support-centroid comparison. The last semantic variants fail the declared acceptance rule. A fixed average has the highest point AUC (0.7086), but its gain is uncertain and probability/policy regressions fail all five checks. The stopping decision retains 0.7042, rather than selecting the largest reported number.\n\nNext, test a fixed training-policy-membership route using the validated familiar-policy model and unseen-policy centroid, then develop calibration without the reserve. Commit the final candidate/reference and acceptance protocol before one protected comparison. This proposed route has not yet been executed as a final model.\n\nThe standalone inference notebook still uses the named lexical reference. Accepted artifacts must be connected to offline inference with parity, latency/memory and missing-support tests. A small example-driven demo, model/data cards and clean-environment release complete the product. [Next milestone specification](../docs/FINAL_MODEL_PLAN.md).",
             ),
             (
                 "code",
@@ -344,6 +370,14 @@ def notebooks():
             (
                 "code",
                 'display(pd.Series(expanded["audit"]["embedding_cache"], name="Verified expanded cache"))\nprint("Research run:", expanded["metadata"]["run_id"])\nprint("Final training justified:", gate["final_training_authorized_by_evidence"])',
+            ),
+            (
+                "md",
+                "## Do intent features resolve the weak policies?\nSemantic-plus-intent slightly improves legal and medical ranking, but damages advertising and probability quality. The fixed average retains part of that tradeoff; it fails the predeclared acceptance rule. The qualitative audit contains 48 deliberately balanced examples, not a prevalence sample. Context and speech-act ambiguity are useful error mechanisms, not proof that the source labels are wrong.\n\nThe new job encoded 2,217 unique plain supports and 21,214 unique NLI pairs, with zero and four truncated inputs respectively. Original comment embeddings were reused. Compatible historical NLI predictions were not present in this job's restored inputs; the new 332-shard NLI cache is now checkpointed and reusable. Worker computation took 644.5 seconds on one bounded CPU instance; summed encoder time across parallel workers is not wall time.",
+            ),
+            (
+                "code",
+                'display_formatting(root, "policies")\ndisplay(pd.DataFrame(formatting["error_audit"]["taxonomy_counts"]).fillna(0).astype(int))',
             ),
             (
                 "md",

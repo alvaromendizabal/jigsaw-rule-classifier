@@ -67,13 +67,21 @@ def select_notebooks(root: Path, requested: list[str] | None, mode: str) -> list
 def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> dict:
     """Hash actual inputs so changed evidence cannot reuse stale display outputs."""
     paths = [*sorted((root / "src").rglob("*.py")), root / "scripts/execute_notebooks.py"]
-    for name in ("build_research_report.py", "build_release_report.py", "build_expanded_report.py"):
+    for name in (
+        "build_research_report.py",
+        "build_release_report.py",
+        "build_expanded_report.py",
+        "build_formatting_report.py",
+    ):
         figure_builder = root / "scripts" / name
         if figure_builder.exists():
             paths.append(figure_builder)
     paths += [root / "pyproject.toml", root / "uv.lock"]
     paths += [p for p in sorted((root / "configs").glob("*.json")) if p.name != "local.json"]
     if mode == "public":
+        coverage = root / "docs/FEATURE_COVERAGE.md"
+        if coverage.exists():
+            paths.append(coverage)
         paths += [
             p
             for kind in (
@@ -89,6 +97,8 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "expanded",
                 "retrieval",
                 "resolution",
+                "formatting",
+                "feature_decision",
             )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")
@@ -343,6 +353,8 @@ def push_publication(root: Path, branch: str) -> str:
                     raise ValueError("Feature files changed during publication")
         from jigsaw_rules.diagnostics import diagnostic_evidence
         from jigsaw_rules.expanded import expanded_evidence
+        from jigsaw_rules.feature_decision import decision_evidence
+        from jigsaw_rules.formatting import formatting_evidence
         from jigsaw_rules.instructions import instruction_evidence
         from jigsaw_rules.pairs import pairs_evidence
         from jigsaw_rules.released import released_evidence
@@ -361,6 +373,8 @@ def push_publication(root: Path, branch: str) -> str:
             "expanded": expanded_evidence,
             "retrieval": retrieval_evidence,
             "resolution": resolution_evidence,
+            "formatting": formatting_evidence,
+            "feature_decision": decision_evidence,
         }
         for kind, reader in readers.items():
             current_evidence = reader(root)
@@ -368,6 +382,14 @@ def push_publication(root: Path, branch: str) -> str:
                 continue
             for name in ("metadata.json", *current_evidence["metadata"]["files"]):
                 report = f"reports/{kind}/{name}"
+                paths.append(report)
+                payloads[report] = (root / report).read_bytes()
+        if (root / "reports/formatting/figures.json").exists():
+            from scripts.build_formatting_report import verify_figures as verify_formatting_figures
+
+            manifest = verify_formatting_figures(root)
+            for name in ("figures.json", *manifest["files"]):
+                report = f"reports/formatting/{name}"
                 paths.append(report)
                 payloads[report] = (root / report).read_bytes()
         if (root / "reports/expanded/figures.json").exists():

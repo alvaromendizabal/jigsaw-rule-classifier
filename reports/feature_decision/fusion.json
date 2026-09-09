@@ -1,0 +1,89 @@
+{
+  "metrics": {
+    "rule_macro_auc": 0.7086424985571089,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.703288482878884,
+      "No legal advice: Do not offer or request legal advice.": 0.5868883332933712,
+      "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.6117533338593861,
+      "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9326398441967942
+    },
+    "pooled_auc": 0.664519714193522,
+    "average_precision": 0.7038971403383192,
+    "log_loss": 0.6548751992041033,
+    "brier": 0.2320007670821574,
+    "ece_10_equal_width_bins": 0.07528565957750014,
+    "precision_at_0_5": 0.6742026645135244,
+    "recall_at_0_5": 0.541153596889177,
+    "f1_at_0_5": 0.6003954700701061,
+    "confusion_matrix_at_0_5": [
+      [
+        3349,
+        1614
+      ],
+      [
+        2832,
+        3340
+      ]
+    ],
+    "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+  },
+  "uncertainty": [
+    {
+      "contrast": "centroid_intent_mean",
+      "candidate": "centroid_intent_mean",
+      "reference": "qwen_centroid",
+      "observed_delta": 0.004440173668114555,
+      "ci_lower": -0.0009379304183838113,
+      "ci_upper": 0.00990370347683171,
+      "simultaneous_lower": -0.0010246602224885581,
+      "simultaneous_upper": 0.00990500755871767,
+      "draws": 1000,
+      "seed": 2025,
+      "comparisons": 1,
+      "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+    }
+  ],
+  "decision": {
+    "selected_candidate": "qwen_centroid",
+    "reference": "qwen_centroid",
+    "candidate_eligibility": [
+      {
+        "candidate": "centroid_intent_mean",
+        "macro_auc": 0.7086424985571089,
+        "auc_gain": 0.004440173668114666,
+        "simultaneous_lower": -0.0010246602224885581,
+        "policy_auc_drops": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.022227478994927052,
+          "No legal advice: Do not offer or request legal advice.": -0.016652970534788647,
+          "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": -0.014810851153370774,
+          "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": -0.008524351979226186
+        },
+        "log_loss_change": 0.031127158997607207,
+        "brier_change": 0.014275753136738734,
+        "eligible": false,
+        "conditions": {
+          "practical_auc_gain": false,
+          "positive_simultaneous_interval": false,
+          "per_policy_stability": false,
+          "log_loss_tolerance": false,
+          "brier_tolerance": false
+        },
+        "failed_conditions": [
+          "practical_auc_gain",
+          "positive_simultaneous_interval",
+          "per_policy_stability",
+          "log_loss_tolerance",
+          "brier_tolerance"
+        ]
+      }
+    ],
+    "eligible_candidates": 0,
+    "selection_uses_development_only": true,
+    "confirmation_targets_accessed": false,
+    "final_training_authorized_by_evidence": false,
+    "next_gate": "Review marginal feature value, then freeze the confirmation protocol"
+  },
+  "new_encoder_calls": 0,
+  "new_model_fits": 0,
+  "adaptive_development_control": true
+}

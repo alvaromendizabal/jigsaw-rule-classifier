@@ -1,0 +1,217 @@
+{
+  "selected_candidate": "qwen_centroid",
+  "reference": "qwen_centroid",
+  "candidate_eligibility": [
+    {
+      "candidate": "asymmetric_centroid",
+      "macro_auc": 0.68647467178569,
+      "auc_gain": -0.017727653103304264,
+      "simultaneous_lower": -0.054502756321089474,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.034939098499260246,
+        "No legal advice: Do not offer or request legal advice.": 0.013846353377640508,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.02656895236592216,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": -0.004443791829605637
+      },
+      "log_loss_change": -0.0023136433399668643,
+      "brier_change": -0.0007223561954878555,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": true,
+        "brier_tolerance": true
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability"
+      ]
+    },
+    {
+      "candidate": "generic_entailment",
+      "macro_auc": 0.43414771652458795,
+      "auc_gain": -0.2700546083644063,
+      "simultaneous_lower": -0.3068297115821915,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.2128297317559713,
+        "No legal advice: Do not offer or request legal advice.": 0.06395421495733844,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.2501360339567058,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.5532984527876099
+      },
+      "log_loss_change": 2.551827906934343,
+      "brier_change": 0.32864283753395507,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": false,
+        "brier_tolerance": false
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability",
+        "log_loss_tolerance",
+        "brier_tolerance"
+      ]
+    },
+    {
+      "candidate": "behavior_entailment",
+      "macro_auc": 0.5173549842374506,
+      "auc_gain": -0.18684734065154363,
+      "simultaneous_lower": -0.22362244386932872,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.16104508494504344,
+        "No legal advice: Do not offer or request legal advice.": -0.004173687296601614,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.11686385425708196,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.4736541107006508
+      },
+      "log_loss_change": 1.8879299636249247,
+      "brier_change": 0.2649927155013462,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": false,
+        "brier_tolerance": false
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability",
+        "log_loss_tolerance",
+        "brier_tolerance"
+      ]
+    },
+    {
+      "candidate": "asymmetric_scalar",
+      "macro_auc": 0.6785230585682539,
+      "auc_gain": -0.025679266320740357,
+      "simultaneous_lower": -0.06245436953852557,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.0757705988427394,
+        "No legal advice: Do not offer or request legal advice.": 0.01110912511143991,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.031158762723901168,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": -0.015321421395118828
+      },
+      "log_loss_change": 0.06846055994865952,
+      "brier_change": 0.029654710862044464,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": false,
+        "brier_tolerance": false
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability",
+        "log_loss_tolerance",
+        "brier_tolerance"
+      ]
+    },
+    {
+      "candidate": "word_asymmetric_scalar",
+      "macro_auc": 0.49981018330001487,
+      "auc_gain": -0.2043921415889794,
+      "simultaneous_lower": -0.2411672448067646,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.05476759009723109,
+        "No legal advice: Do not offer or request legal advice.": 0.008916290840448315,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.055003748125937,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.698880937292301
+      },
+      "log_loss_change": 0.1684798247324616,
+      "brier_change": 0.07005173810817666,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": false,
+        "brier_tolerance": false
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability",
+        "log_loss_tolerance",
+        "brier_tolerance"
+      ]
+    },
+    {
+      "candidate": "intent_scalar",
+      "macro_auc": 0.5614553380039421,
+      "auc_gain": -0.14274698688505216,
+      "simultaneous_lower": -0.17952209010283737,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.16810581140350878,
+        "No legal advice: Do not offer or request legal advice.": 0.04367304099902558,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.04659800034193429,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.3126110947957401
+      },
+      "log_loss_change": 0.1527568572264668,
+      "brier_change": 0.06658506904500383,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": false,
+        "brier_tolerance": false
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability",
+        "log_loss_tolerance",
+        "brier_tolerance"
+      ]
+    },
+    {
+      "candidate": "semantic_intent",
+      "macro_auc": 0.6909410862934309,
+      "auc_gain": -0.013261238595563385,
+      "simultaneous_lower": -0.050036341813348595,
+      "policy_auc_drops": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.08590282181357012,
+        "No legal advice: Do not offer or request legal advice.": -0.01366924822404414,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": -0.008585345485152218,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": -0.010603273722119999
+      },
+      "log_loss_change": 0.12574546217680838,
+      "brier_change": 0.05046426662878006,
+      "eligible": false,
+      "conditions": {
+        "practical_auc_gain": false,
+        "positive_simultaneous_interval": false,
+        "per_policy_stability": false,
+        "log_loss_tolerance": false,
+        "brier_tolerance": false
+      },
+      "failed_conditions": [
+        "practical_auc_gain",
+        "positive_simultaneous_interval",
+        "per_policy_stability",
+        "log_loss_tolerance",
+        "brier_tolerance"
+      ]
+    }
+  ],
+  "eligible_candidates": 0,
+  "selection_uses_development_only": true,
+  "confirmation_targets_accessed": false,
+  "final_training_authorized_by_evidence": true,
+  "next_gate": "Review marginal feature value, then freeze the confirmation protocol",
+  "feature_research_status": "complete_for_declared_scope",
+  "notebook_02_scientific_gate": "passed",
+  "production_promotion_authorized_by_evidence": false,
+  "fusion_eligible": false,
+  "stopping_rationale": "The major applicable families, targeted semantic hypotheses and one fixed complementarity control are complete. None of the latest alternatives meets the predeclared requirements to replace the simpler centroid. The source-bound coverage ledger explains exclusions and remaining model research. Further undirected feature expansion has lower priority than locked confirmation. This does not prove universal feature exhaustion."
+}

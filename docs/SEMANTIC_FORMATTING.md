@@ -33,3 +33,35 @@ After both hypotheses and the structured error audit are complete, write a featu
 Compare all seven candidates directly with the existing centroid. A candidate must improve policy-macro AUC by at least 0.005, have a positive simultaneous lower confidence bound, lose at most 0.02 AUC on every observed policy, and increase log loss/Brier by no more than 0.01/0.005. These are declared practical tolerances, not universal statistical thresholds. Among qualifying candidates within 0.002 AUC of the best, prefer the declared simpler representation. Retain the existing centroid if none qualifies. The seven new centroid contrasts have their own conditional simultaneous correction; they do not retrospectively correct the whole adaptive search.
 
 This rule separates choosing a development candidate from independent confirmation and production acceptance. A rejected feature remains a documented negative result. Closing the research phase requires the independent artifact replay and a coverage/stopping rationale as well as these numerical checks.
+
+## Executed outcome and stopping decision
+
+The experiment completed on one bounded `ml.m5.4xlarge` CPU instance. Worker computation took **644.5 seconds**; SageMaker's processing interval was 00:31:21–00:44:16 UTC on 2026-09-09. New inference and all 28 fits are checkpointed. Original comment vectors and word/semantic feature banks were reused; no reserved target was read.
+
+| Representation | Transfer policy-macro AUC | Log loss | Brier |
+| --- | ---: | ---: | ---: |
+| Original centroid, retained | 0.7042 | 0.6237 | 0.2177 |
+| Plain-document centroid | 0.6865 | 0.6214 | 0.2170 |
+| Plain-document scalars | 0.6785 | 0.6922 | 0.2474 |
+| Generic rule entailment | 0.4341 | 3.1756 | 0.5464 |
+| Affirmative behavior entailment | 0.5174 | 2.5117 | 0.4827 |
+| Intent scalars | 0.5615 | 0.7765 | 0.2843 |
+| Semantic scalars + intent | 0.6909 | 0.7495 | 0.2682 |
+| Words + plain-document scalars | 0.4998 | 0.7922 | 0.2878 |
+| Fixed original-centroid/semantic-intent average | 0.7086 | 0.6549 | 0.2320 |
+
+Affirmative wording adds 0.0832 AUC over generic entailment, with conditional simultaneous interval [0.0487, 0.1177], but the improved NLI score remains weak. Intent adds only 0.0033 to the original scalar model; its interval spans zero and probability losses worsen. Asymmetric scalar screens retain 30–31 of 32 columns, with minimum/mean selection Jaccard 0.875/0.964. Intent screens retain 16 of 45, with minimum/mean Jaccard 0.185/0.497. Selection stability alone does not establish predictive usefulness.
+
+The 48-row pre-score review contains 47 unique normalized bodies. It flags 23 rows as ambiguous, with clear prohibited behavior in 11, ambiguous behavior in 19 and no apparent behavior in 18. These are different annotation dimensions, not inferred label-error counts. All 48 source checks pass; no labels changed. One assistant reviewed a balanced policy/label/score sample; no independent human or inter-rater claim is made.
+
+After inspecting the semantic comparison, one new protocol committed a fixed 50/50 score average. Its +0.0044 macro-AUC gain has interval [−0.00094, 0.00990]; advertising falls 0.0222 AUC, log loss increases 0.0311 and Brier increases 0.0143. It **fails all five predeclared checks**. This adaptive development control is not confirmation, and its single-comparison interval does not correct the whole search history.
+
+None of seven new candidates or the fixed average qualifies to replace the original centroid. Together with the earlier ablations, robustness, replay and source-bound [coverage ledger](FEATURE_COVERAGE.md), this closes the declared feature-research phase. Final model development may proceed; protected confirmation and product promotion remain incomplete. [Next model milestone](FINAL_MODEL_PLAN.md).
+
+## Cache and replay evidence
+
+The plain-document cache has 35 verified shards and 2,217 unique inputs, with no truncation. The new NLI cache has 332 shards and 21,214 unique pairs, with four truncations. Compatible historical NLI predictions were not available in the restored job input, so `historical_inputs_reused` is zero; the new complete cache is now reused. Summed encoder times across workers are 739.8 and 1,271.3 seconds respectively and must not be presented as wall time.
+
+Private verification checks 203 model/feature-stage files, recomputes 20 metric records, replays all 28 saved models and 28 feature transformations, and reproduces eight frozen-score/protocol combinations. Cache readers additionally verify original, document and NLI shard contracts. A separate resume invocation with fitting and encoder preparation patched to fail still succeeds: completed work is reused without new fitting or inference.
+
+Formatting run: `634ffc0b387c85f11041`. Stopping-decision run: `f64dbed83f793a3f5cc8`. The generated [verification](../reports/feature_decision/verification.json), [decision](../reports/feature_decision/decision.json), [fusion](../reports/feature_decision/fusion.json) and [figures](../reports/formatting/figures.json) bind the actual source and input identities.
