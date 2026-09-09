@@ -37,7 +37,7 @@ Reproduction commands are `jigsaw research --export`, `jigsaw diagnostics`, `jig
 
 The publication helper remains `scripts/execute_notebooks.py --publish --push-branch results/feature-ablation`. It requires current public Jupyter execution, the expected origin, a clean index and no unrelated source edits. Its explicit allowlist includes the verified feature-study aggregates and research figures. Previously committed historical reports may be re-rendered byte-for-byte; new or altered historical evidence requires review. It never commits data, row-level predictions, credentials, model weights or submission files. Merge a results PR only after Quality passes.
 
-A changed implementation/data/configuration contract deliberately creates a different experiment. The original runs remain preserved. [FEATURE_RESEARCH.md](docs/FEATURE_RESEARCH.md) records counts, rationale, failures and the completed feature gate. [FINAL_MODEL_PLAN.md](docs/FINAL_MODEL_PLAN.md) defines the next model-validation milestone; the 43,576 reserved targets remain unopened.
+A changed implementation/data/configuration contract deliberately creates a different experiment. The original runs remain preserved. [FEATURE_RESEARCH.md](docs/FEATURE_RESEARCH.md) records counts, rationale, failures and the completed feature gate. [MODEL_VALIDATION.md](docs/MODEL_VALIDATION.md) records the executed routing, nested calibration and fitted artifacts. A target-blind copy audit leaves 43,509 eligible confirmation rows; all reserved targets remain unopened.
 
 ## Generate and download your own submission in the notebook
 
@@ -71,9 +71,9 @@ For this code competition, submit the successful saved notebook version through 
 
 The explicitly synthetic software-only inference check is `scripts/execute_notebooks.py --synthetic`. It never establishes competition performance.
 
-## Remain in feature research
+## Current boundary: fitted model, protected confirmation next
 
-Final training is blocked by the feature-completion gate. The host's six-policy data release is now pinned and partitioned. The four-policy study, retrieval extension and embedding-resolution controls are complete. The next deliverable is a bounded semantic-formatting and policy-intent decision, then one locked confirmation comparison. The broad feature banks and frozen probes are not automatically promoted into the offline reference. [Three release milestones](docs/ROADMAP.md#next-three-deliverables).
+The feature-completion gate has passed for the declared four-policy scope. The semantic-formatting/intent and fixed-fusion comparisons are complete and retain the original centroid. The final route is now fitted on development: 9,263 screened features with accepted calibration for familiar policies, and the raw frozen centroid for unseen policies. Nested calibration rejects a harmful unseen-policy correction. The next deliverable is one locked confirmation comparison, followed by accepted-model offline integration. The current Kaggle notebook remains the named lexical reference until that promotion gate passes. [Three release milestones](docs/ROADMAP.md#next-three-deliverables).
 
 The tested preparation command is `uv run python scripts/prepare_released_data.py`; it verifies or downloads the pinned public archive and materializes **only** the 9,106 retained research targets. Together with the original data, this provides 11,135 development rows before duplicate handling. Downstream research should use `jigsaw_rules.released.load_research(root)` and the original training file. Do not replace `data/raw/test.csv` or point the submission notebook at the released solution.
 
