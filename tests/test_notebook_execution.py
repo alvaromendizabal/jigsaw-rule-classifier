@@ -61,6 +61,13 @@ def test_selector_accepts_numbers_and_deduplicates(project):
     assert len(select_notebooks(ROOT, None, "synthetic")) == 1
 
 
+def test_cpu_verification_selects_historical_control_not_gpu_candidate():
+    for mode in ("synthetic", "kaggle"):
+        assert select_notebooks(ROOT, None, mode) == [ROOT / "kaggle/reference.ipynb"]
+        with pytest.raises(ValueError, match="Select an existing"):
+            select_notebooks(ROOT, ["kaggle/submission.ipynb"], mode)
+
+
 def test_publication_rejects_synthetic_before_accessing_files(tmp_path):
     with pytest.raises(ValueError, match="Only public"):
         publish_notebook(tmp_path / "source", tmp_path / "executed", "", "synthetic")

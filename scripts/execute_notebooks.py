@@ -46,7 +46,7 @@ def select_notebooks(root: Path, requested: list[str] | None, mode: str) -> list
     )
     paths = [root / "notebooks" / name for name in names]
     if mode != "public":
-        paths = [root / "kaggle/submission.ipynb"]
+        paths = [root / "kaggle/reference.ipynb"]
     selected = []
     for item in requested or [str(p.relative_to(root)) for p in paths]:
         matches = [p for p in paths if item in (str(p.relative_to(root)), p.name, p.name[:2])]
@@ -489,10 +489,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument(
-        "--synthetic", action="store_true", help="Test only offline Kaggle inference"
+        "--synthetic", action="store_true", help="Test the historical lexical notebook on fixtures"
     )
     modes.add_argument(
-        "--kaggle", action="store_true", help="Explicitly fit offline inference on real data"
+        "--kaggle", action="store_true", help="Verify historical lexical inference on original data"
     )
     parser.add_argument("--notebook", action="append", help="Exact path, filename, or 00–04")
     parser.add_argument(

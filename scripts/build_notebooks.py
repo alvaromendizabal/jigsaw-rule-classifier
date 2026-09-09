@@ -586,6 +586,29 @@ else:
     outputs["notebooks/03_saved_results.ipynb"].cells[3:3] = (
         new_cells[:2] + adaptation_cells[:2] + historical
     )
+    # Keep the original lexical notebook as a reproducible historical control.
+    if __package__:
+        from .build_adapted_notebook import build as adapted_notebook
+    else:
+        from build_adapted_notebook import build as adapted_notebook
+
+    outputs["kaggle/reference.ipynb"] = outputs["kaggle/submission.ipynb"]
+    historical_reference = outputs["kaggle/reference.ipynb"]
+    historical_reference.cells[0] = notebook(
+        [
+            (
+                "md",
+                "# Jigsaw · Historical lexical reference\n\n"
+                "This original-training TF-IDF/logistic-regression control scored "
+                "0.59191 public / 0.61956 private. It is preserved for reproducibility. "
+                "The current neural candidate is `kaggle/submission.ipynb`.\n\n"
+                "Run this historical notebook to reproduce and download its validated "
+                "CSV on CPU. It never submits automatically. The separate 0.7770 "
+                "post-competition research result does not belong to this model.",
+            )
+        ]
+    ).cells[0]
+    outputs["kaggle/submission.ipynb"] = adapted_notebook(ROOT)
     return outputs
 
 

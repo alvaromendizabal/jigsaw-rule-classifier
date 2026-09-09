@@ -65,12 +65,13 @@ def main() -> None:
             "status": "passed",
             **record,
             "model": manifest["model"],
-            "notebook_sha256": digest(root / "kaggle/submission.ipynb"),
+            "notebook": "kaggle/reference.ipynb",
+            "notebook_sha256": digest(root / "kaggle/reference.ipynb"),
             "source_sha256": manifest["source_sha256"],
             "submission_sha256": first,
             "jupyter_executed": True,
             "replay_passed": True,
-            "scope": "Original-data preview inference; no hidden-test score or Kaggle submission",
+            "scope": "Historical lexical preview; not verification of the neural submission",
         },
     )
     print("ORIGINAL_SUBMISSION_NOTEBOOK_VERIFIED")

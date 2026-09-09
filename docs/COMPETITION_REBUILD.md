@@ -23,7 +23,9 @@ will not be used for another tuning cycle.
 There is no evidence that a submission-format violation caused the low score:
 Kaggle accepted and scored the notebook. The official requirements permit public
 external models, require internet-disabled notebook inference, cap CPU/GPU runs at
-12 hours, and require `submission.csv`. The site permits five submissions per day.
+12 hours, and require `submission.csv`. The original rules specify five submissions
+per day; the authenticated late-submission form displayed a limit of 100 on
+September 9, 2026. Only one entry is submitted for this candidate.
 The competition closed October 23, 2025; new entries are late evaluations.
 [Overview](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/overview)
 · [Rules](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/rules).
@@ -212,3 +214,19 @@ requires a documented license, availability date and contamination check.
 Research closure requires diminishing returns across plausible semantic feature
 families and defensible end-to-end performance; a numerical portfolio rating is
 not an acceptance test.
+
+## Offline competition candidate
+
+The canonical `kaggle/submission.ipynb` now contains the support-adapted 4B candidate. `kaggle/reference.ipynb` preserves the original lexical control and its score history. The CPU synthetic/original-preview checks explicitly select that historical control, so a passing CPU check cannot be mistaken for neural verification.
+
+The T4 runtime uses FP16 loss scaling, retries a skipped overflow step without advancing the scheduler or data order, and saves the scaler together with adapter, optimizer, scheduler and RNG state. Two completed optimizer checkpoints are retained. Training and completed prediction caches bind input files, model hashes, runtime versions, configuration and source. The pinned upstream tokenizer configuration and Apache license are embedded because the Kaggle mirror differs in those files; all 11 upstream file hashes must pass before model loading. An incompatible optional `torchao` installation is removed only for the exact observed PEFT/torchao version pair.
+
+An authored-data T4 probe completed two optimizer steps, deliberately reloaded after step one and produced finite predictions. It is a software check, not an AUC measurement. The original-data 117-step preview and saved offline execution are recorded separately in [the runtime receipt](../reports/checkpoints/kaggle_adaptation.json). A ten-row preview cannot establish a new competition score.
+
+The expanded local suite passes 371 tests, including exact interrupted-training recovery, overflow retry, cache corruption, novel-policy support eligibility, extreme-score ranking and generated notebook/source parity. Five public notebooks were executed with the in-process runner; GitHub CI additionally requires real Jupyter execution and replay. The feature gate remains open until the original-competition candidate is evaluated on the hidden run.
+
+The original-data T4 preview completed all **117 optimizer steps** in **612.3 worker seconds**, used **8.26 GiB** peak allocated GPU memory, and validated all **10 preview rows**. Canonical notebook replay reused the completed result with identical CSV hash and no model fitting. The fresh offline saved Version 3 (**348640051**) independently completed its 117-step epoch at **23:45:38 UTC on September 9, 2026**, taking **603.5 worker seconds / 8.26 GiB** and producing the same CSV hash. The saved manifest's six runtime source hashes, model assets and configuration match the canonical repository. Saved outputs contain the checkpoints, runtime, validated CSV and manifest; row order, schema and finite ranks passed inspection. The notebook remains private.
+
+GitHub Quality run **34417662301** passed at evidence commit `62464de`, including all 371 tests, five actual Jupyter notebooks and replay, the historical CPU control and the pinned semantic encoder. The submitted implementation remains `a493697`.
+
+**Hidden evaluation is now running.** The account's submission list contained only Version 2 before the action. After submitting Version 3 once, both its new row and Submission Details showed **Notebook Running (after deadline)** at **23:47 UTC**. Kaggle privately reruns the saved notebook with hidden inputs and their legitimate supplied supports. Neither the ten-row preview nor the 0.7199 development result is a new competition score. The target of **0.92–0.93** remains open; record the actual outcome before selecting another experiment.
