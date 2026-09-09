@@ -212,3 +212,13 @@ requires a documented license, availability date and contamination check.
 Research closure requires diminishing returns across plausible semantic feature
 families and defensible end-to-end performance; a numerical portfolio rating is
 not an acceptance test.
+
+## Offline competition candidate
+
+The canonical `kaggle/submission.ipynb` now contains the support-adapted 4B candidate. `kaggle/reference.ipynb` preserves the original lexical control and its score history. The CPU synthetic/original-preview checks explicitly select that historical control, so a passing CPU check cannot be mistaken for neural verification.
+
+The T4 runtime uses FP16 loss scaling, retries a skipped overflow step without advancing the scheduler or data order, and saves the scaler together with adapter, optimizer, scheduler and RNG state. Two completed optimizer checkpoints are retained. Training and completed prediction caches bind input files, model hashes, runtime versions, configuration and source. The pinned upstream tokenizer configuration and Apache license are embedded because the Kaggle mirror differs in those files; all 11 upstream file hashes must pass before model loading. An incompatible optional `torchao` installation is removed only for the exact observed PEFT/torchao version pair.
+
+An authored-data T4 probe completed two optimizer steps, deliberately reloaded after step one and produced finite predictions. It is a software check, not an AUC measurement. The original-data 117-step preview and saved offline execution are recorded separately in [the runtime receipt](../reports/checkpoints/kaggle_adaptation.json). A ten-row preview cannot establish a new competition score.
+
+The expanded local suite passes 371 tests, including exact interrupted-training recovery, overflow retry, cache corruption, novel-policy support eligibility, extreme-score ranking and generated notebook/source parity. Five public notebooks were executed with the in-process runner; GitHub CI additionally requires real Jupyter execution and replay. The feature gate remains open until the original-competition candidate is evaluated on the hidden run.

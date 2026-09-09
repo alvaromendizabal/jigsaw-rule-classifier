@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "max_seconds": 36000,
+  "inference_batch": 4,
+  "training": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "seed": 2025,
+    "effective_batch": 16,
+    "micro_batch": 4,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.05,
+    "gradient_clip": 1.0,
+    "gradient_checkpointing": true,
+    "checkpoint_steps": 32,
+    "keep_checkpoints": 2
+  },
+  "scope": "Original competition bodies and legitimate supplied supports only. New-policy supports repeated twice; one epoch; direct answer ranks. No released targets."
+}

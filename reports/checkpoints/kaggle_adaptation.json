@@ -1,0 +1,52 @@
+{
+  "status": "gpu_verified_preview_pending",
+  "scope": "Authored software probe; no new Kaggle score",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0",
+    "peft": "0.19.1",
+    "accelerate": "1.13.0",
+    "huggingface_hub": "1.11.0",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.6.1"
+  },
+  "gpu": "Tesla T4",
+  "precision": "float16",
+  "mirror": "wowfattie/qwen3-4b-instruct-2507/transformers/default/1",
+  "model_files_verified": 11,
+  "asset_corrections": [
+    "Restore exact pinned tokenizer_config.json",
+    "Include upstream Apache 2.0 LICENSE"
+  ],
+  "environment_correction": "Remove unused torchao 0.10.0, incompatible with PEFT 0.19.1; restart kernel before verification",
+  "gpu_probe": {
+    "completed_utc": "2026-09-09T23:17:26+00:00",
+    "elapsed_seconds": 22.626,
+    "optimizer_steps": 2,
+    "resumed_step": 1,
+    "loss_scale": 128.0,
+    "peak_gpu_gib": 7.835118293762207,
+    "training_contract": "0e8e61445e593f51d1217d37622ac739c6e7925869106cb4e22bd0da69cd452c",
+    "source_sha256": "5070edbf86aa645ef2186f72d7cadf45f65b3601a0d9403b664a8d2d629cf3e4"
+  },
+  "local_verification": {
+    "tests_passed": 371,
+    "focused_neural_and_notebook_tests_passed": 35,
+    "ruff": "passed",
+    "source_generation": "passed",
+    "public_notebooks_executed": 5,
+    "local_notebook_engine": "inprocess",
+    "jupyter_gate": "Required in GitHub CI; local kernel sockets unavailable",
+    "checked_utc": "2026-09-09T23:27:07+00:00"
+  },
+  "canonical_notebook": "kaggle/submission.ipynb",
+  "historical_control": "kaggle/reference.ipynb",
+  "source_files": {
+    "scripts/decision_training.py": "2eb2d01b5e62a1d6e5ba1a15029002c34e89e30d1037efe83f83ca2e016f627f",
+    "scripts/kaggle_adaptation.py": "0d10176afc258ff9dfcd48a83bd206de4bc795a143db53105c93957178b08b05",
+    "scripts/build_adapted_notebook.py": "7334dc4088a94b0864d289c04d61cff606f04d8d0091ee418517f00b2b6dfd9b",
+    "configs/kaggle_adaptation.json": "fba0f150b03c29ff3f042f41fa919a95f5edae47e66bf00dd5c16e1a13eaa8bd"
+  }
+}
