@@ -2,7 +2,7 @@
 
 Predict whether a comment violates a supplied community rule, using the rule and examples of permitted and prohibited comments.
 
-**Start with [03 · Results and decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The first is a short evidence tour; the second explains the completed feature-research phase and its stopping decision. Final model validation and product delivery come next.
+**Start with [03 · Results and decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The first is a short evidence tour; the second explains the completed feature-research phase and its stopping decision. The fitted model now has nested development validation; protected confirmation and product delivery come next.
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
@@ -45,15 +45,17 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 **Feature research: COMPLETE for the declared four-policy scope.** Retain the original frozen centroid for unseen policies. Seven new semantic candidates and one fixed average fail the predeclared replacement criteria. The average's higher AUC is uncertain, advertising regresses and probability losses worsen. [Stopping evidence](reports/feature_decision/decision.json) · [Coverage and exclusions](docs/FEATURE_COVERAGE.md) · [Semantic results](docs/SEMANTIC_FORMATTING.md).
 
-**Product promotion: PENDING.** The standalone inference notebook still names the original lexical reference. Final model fitting, calibration, protected confirmation and connecting the accepted representation to offline inference are unfinished.
+**Model fitting and development calibration: COMPLETE.** Nine inner fits validate calibration without sharing outer validation labels. Familiar-policy log loss improves from **0.4761 to 0.4689**; transfer calibration worsens log loss to 0.6976 and is rejected. The fitted route uses calibrated familiar-policy features and the raw unseen-policy centroid. Its familiar pipeline retains **9,263 of 181,958 candidate columns**. [Protocol, results and lineage](docs/MODEL_VALIDATION.md).
+
+**Product promotion: PENDING.** A target-blind copy audit leaves **43,509 eligible confirmation rows** after excluding 67 approximate development copies. Their targets remain unopened. The standalone inference notebook still names the original lexical reference; the fitted candidate needs the protected comparison and verified offline integration.
 
 The remaining milestones are finite:
 
-1. **Validate the final model:** test the fixed familiar/unseen-policy route, develop calibration without the reserve, then freeze the candidate/reference before one protected comparison. [Next milestone](docs/FINAL_MODEL_PLAN.md).
+1. **Confirm the fitted model:** freeze the completed candidate/reference artifacts and acceptance criteria, then perform one protected comparison on the 43,509 eligible rows. [Next milestone](docs/FINAL_MODEL_PLAN.md).
 2. **Deliver inference:** connect accepted artifacts to offline inference, probability/triage diagnostics and measured latency/memory budgets; add a small example-driven interface.
 3. **Release the portfolio product:** an example-driven demonstration, model/data cards, clean-environment restore and a tagged release with a short reviewer path.
 
-[Acceptance criteria and roadmap](docs/ROADMAP.md#next-three-deliverables). The [completion assessment](docs/FEATURE_RESEARCH.md#completion-assessment) is approximately **84% overall**; notebook `02` closes the declared feature phase. This is an effort-weighted planning judgment, not an employer rating or a guarantee of generalization.
+[Acceptance criteria and roadmap](docs/ROADMAP.md#next-three-deliverables). The [completion assessment](docs/FEATURE_RESEARCH.md#completion-assessment) is approximately **88% overall**; notebook `02` closes the declared feature phase. This is an effort-weighted planning judgment, not an employer rating or a guarantee of generalization.
 
 ## Review or reproduce
 

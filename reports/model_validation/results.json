@@ -1,0 +1,194 @@
+[
+  {
+    "protocol": "seen_rule",
+    "model": "reference",
+    "metrics": {
+      "rule_macro_auc": 0.7311398079103898,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8186456764558233,
+        "No legal advice: Do not offer or request legal advice.": 0.6687523296139435,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5970024855993057,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.8401587399724871
+      },
+      "pooled_auc": 0.745248294932729,
+      "average_precision": 0.7692203047236479,
+      "log_loss": 0.5894928757745815,
+      "brier": 0.20285603463103602,
+      "ece_10_equal_width_bins": 0.05339211597148322,
+      "precision_at_0_5": 0.7038742457923151,
+      "recall_at_0_5": 0.7182436811406351,
+      "f1_at_0_5": 0.7109863672814756,
+      "confusion_matrix_at_0_5": [
+        [
+          3098,
+          1865
+        ],
+        [
+          1739,
+          4433
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "raw",
+    "metrics": {
+      "rule_macro_auc": 0.7989155206306244,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8336999313041642,
+        "No legal advice: Do not offer or request legal advice.": 0.7420081072381697,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7055337462847524,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.914420297695411
+      },
+      "pooled_auc": 0.8543312867781532,
+      "average_precision": 0.8853042679955057,
+      "log_loss": 0.47613196876484376,
+      "brier": 0.1569312729180637,
+      "ece_10_equal_width_bins": 0.044604648123723736,
+      "precision_at_0_5": 0.7859660365267542,
+      "recall_at_0_5": 0.7948801036941024,
+      "f1_at_0_5": 0.7903979378121476,
+      "confusion_matrix_at_0_5": [
+        [
+          3627,
+          1336
+        ],
+        [
+          1266,
+          4906
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "seen_rule",
+    "model": "calibrated",
+    "metrics": {
+      "rule_macro_auc": 0.7990928720995862,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.8334551198213909,
+        "No legal advice: Do not offer or request legal advice.": 0.7413763413671863,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.7050833136063548,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9164567136034127
+      },
+      "pooled_auc": 0.8539629421033863,
+      "average_precision": 0.8845913915631919,
+      "log_loss": 0.4688529573429607,
+      "brier": 0.1549568054130491,
+      "ece_10_equal_width_bins": 0.0166358403668665,
+      "precision_at_0_5": 0.7949350435783589,
+      "recall_at_0_5": 0.7832145171743357,
+      "f1_at_0_5": 0.7890312576511874,
+      "confusion_matrix_at_0_5": [
+        [
+          3716,
+          1247
+        ],
+        [
+          1338,
+          4834
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "reference",
+    "metrics": {
+      "rule_macro_auc": 0.472763654019982,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6399696235600296,
+        "No legal advice: Do not offer or request legal advice.": 0.554504428900364,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5172561745443067,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.1793243890752276
+      },
+      "pooled_auc": 0.48097504488496795,
+      "average_precision": 0.5293879965606129,
+      "log_loss": 0.8125914212383103,
+      "brier": 0.2992025247649717,
+      "ece_10_equal_width_bins": 0.21108188503444122,
+      "precision_at_0_5": 0.5303212506442192,
+      "recall_at_0_5": 0.5001620220349967,
+      "f1_at_0_5": 0.5148003001751021,
+      "confusion_matrix_at_0_5": [
+        [
+          2229,
+          2734
+        ],
+        [
+          3085,
+          3087
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "raw",
+    "metrics": {
+      "rule_macro_auc": 0.7042023248889943,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7255159618738111,
+        "No legal advice: Do not offer or request legal advice.": 0.5702353627585826,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+      },
+      "pooled_auc": 0.7000848730377967,
+      "average_precision": 0.7559370188230088,
+      "log_loss": 0.6237480402064961,
+      "brier": 0.21772501394541866,
+      "ece_10_equal_width_bins": 0.03215199576370453,
+      "precision_at_0_5": 0.6758989310009719,
+      "recall_at_0_5": 0.6761179520414776,
+      "f1_at_0_5": 0.6760084237809817,
+      "confusion_matrix_at_0_5": [
+        [
+          2962,
+          2001
+        ],
+        [
+          1999,
+          4173
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  },
+  {
+    "protocol": "heldout_rule",
+    "model": "calibrated",
+    "metrics": {
+      "rule_macro_auc": 0.7042023248889943,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7255159618738111,
+        "No legal advice: Do not offer or request legal advice.": 0.5702353627585826,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+      },
+      "pooled_auc": 0.6101877483788329,
+      "average_precision": 0.6404231837172256,
+      "log_loss": 0.6975797588730784,
+      "brier": 0.2479456193022715,
+      "ece_10_equal_width_bins": 0.06804404810289391,
+      "precision_at_0_5": 0.634890065800032,
+      "recall_at_0_5": 0.6409591704471809,
+      "f1_at_0_5": 0.637910183020237,
+      "confusion_matrix_at_0_5": [
+        [
+          2688,
+          2275
+        ],
+        [
+          2216,
+          3956
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    }
+  }
+]

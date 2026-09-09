@@ -1,0 +1,53 @@
+{
+  "reserved_rows": 43576,
+  "eligible_rows": 43509,
+  "excluded_near_copy_rows": 67,
+  "eligible_self_support_rows": 0,
+  "eligible_ids_sha256": "dc37bb6480b75844de3dd2961a55f14a573494913517ae5a6d10a7d6bf8518b0",
+  "by_policy": [
+    {
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "rows": 6331,
+      "eligible": 6285,
+      "self_support": 0
+    },
+    {
+      "rule": "No financial advice: We do not permit comments that make personal recommendations for investments, taxes, or careers.",
+      "rows": 9046,
+      "eligible": 9032,
+      "self_support": 0
+    },
+    {
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "rows": 6379,
+      "eligible": 6376,
+      "self_support": 0
+    },
+    {
+      "rule": "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.",
+      "rows": 6426,
+      "eligible": 6425,
+      "self_support": 0
+    },
+    {
+      "rule": "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.",
+      "rows": 6402,
+      "eligible": 6399,
+      "self_support": 0
+    },
+    {
+      "rule": "No spoilers: Do not reveal important details that would limit people's ability to enjoy a show or movie.",
+      "rows": 8992,
+      "eligible": 8992,
+      "self_support": 0
+    }
+  ],
+  "confirmation_targets_accessed": false,
+  "predictions_generated": false,
+  "policy": {
+    "character_cosine": 0.95,
+    "token_jaccard": 0.9,
+    "minimum_characters": 40
+  },
+  "limitation": "A conservative copy detector, not complete paraphrase or conversation-origin isolation"
+}

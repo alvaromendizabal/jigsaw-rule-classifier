@@ -1,0 +1,24 @@
+{
+  "run_id": "60ba8e0ede00928c0943",
+  "provenance": {
+    "test_sha256": "80680723dc8a69170180b454749b201e415bc6d6255eca58673c246d29718f72",
+    "assignment_sha256": "9e666e7d29827e70a3b34e66956bd4cbf578dfae4244d3243e94370983ed98ef",
+    "boundary_run": "a615ecc75c04e6a62ee1",
+    "development_inputs_sha256": "55141d1709dfbdb8c02c569fd4dddd504fa9714fd0929796ce56d74b170f7eca",
+    "implementation": {
+      "confirmation_inputs.py": "6216426e30b5afa4de90f12096340089c63aac023a2b1601a6694afc4a7ade83",
+      "robustness.py": "570c01ec4ac684470615b7838939648be81a63db2c7d17912059c42b08be1970",
+      "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c"
+    },
+    "near_copy_policy": {
+      "character_cosine": 0.95,
+      "token_jaccard": 0.9,
+      "minimum_characters": 40
+    },
+    "primary_eligibility": "Exclude reserved bodies approximately exposed in development; keep supplied self-support matches and report their removal as a fixed sensitivity",
+    "targets_accessed": false
+  },
+  "audit_sha256": "8a73257f0aa2344e4e7fa495098d71afffdc77f0b622d743c9f9c22b597eb500",
+  "private_checkpoint_sha256": "7df8085dfe4edf9bc836e07a50f308b5e88109cc5cbb4cde56dcf82c67f7e4ab",
+  "exporter_sha256": "1de306b90ab60d1e51dff699c0c46d6426a93e01430aa1fbad3169f4002669b6"
+}

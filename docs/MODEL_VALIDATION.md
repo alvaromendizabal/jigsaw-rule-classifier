@@ -25,3 +25,31 @@ The use of held-out predictions for calibration and a final estimator fitted on 
 After the development decision, fit one familiar pipeline and one lexical reference on all 11,135 development rows. Fit any retained familiar calibrator on the original familiar-policy OOF scores; fit any retained centroid calibrator on its label-free development scores. Bind feature family order, selected columns, model coefficients, normalized policy set, encoder revision/input format, calibration and training IDs into the inference manifest. Full-development fitting can change selected columns; save the actual final catalog and widths rather than copying fold counts.
 
 The 43,576 reserved targets stay unopened throughout this stage. A separate confirmation protocol must bind the completed artifacts, target-blind eligibility audit, candidate/reference, metrics, uncertainty and acceptance thresholds before target access. A rejected confirmation must be preserved. Product promotion, an offline package and a demo remain subsequent gates.
+
+
+## Executed development result
+
+Run `a971cf3bc6add1c2d818` completed in 294.5 seconds on 2026-09-09. It reused the frozen 11,973-input embedding cache without new encoding, rebuilt and checked all three familiar outer models, and ran nine purged inner fits plus two full-development fits. Inner training partitions contain 1,440–1,837 rows; this reduction is a consequence of the strict body/support purge. The restored outer probabilities agree with research predictions within 1.12e-16. All four unseen-route checks exactly reproduce the centroid.
+
+| Route | Mapping | Policy-macro AUC | Log loss | Brier | Decision |
+| --- | --- | ---: | ---: | ---: | --- |
+| Familiar | Raw seven-family model | 0.798916 | 0.476132 | 0.156931 | Parent control |
+| Familiar | Nested sigmoid | 0.799093 | 0.468853 | 0.154957 | Retain; 6/6 checks pass |
+| Unseen | Raw frozen centroid | 0.704202 | 0.623748 | 0.217725 | Retain |
+| Unseen | Held-out-policy sigmoid | 0.704202 | 0.697580 | 0.247946 | Reject; 4/6 checks fail |
+
+The familiar route's paired log-loss improvement is 0.007279, with a 97.5% interval [0.003693, 0.010937]. For unseen policies it is −0.073832 [−0.077567, −0.069619]. Cross-policy calibration can fail while within-policy ranking stays unchanged. Different outer calibrators also slightly change pooled familiar-policy AUC; that is not new feature-engineering gain.
+
+![Nested calibration acceptance](../reports/model_validation/calibration.svg)
+
+The final familiar classifier fits all **11,135 development rows**, screening **181,958 columns down to 9,263**: 4,096 words, 4,096 character features, 128 structure features, 64 lexical comparisons, 784 support-token products, 31 semantic scalars and 64 training-reference percentiles. These are the actual final columns, separate from the larger research-campaign counts. Candidate SHA-256: `a38b20e1f34ff6d508bc70ba360ceb5f1a646a4f37cac4ebdcb56feebb20d698`. Lexical reference SHA-256: `daca334877cc5958581d7d79a3f4cebcc6dadef4bc26acedbec26430e348eaa0`.
+
+The final familiar sigmoid is fitted to original development OOF scores: slope 0.774128, intercept −0.016586. The unseen mapping is identity. No full-development training score is reported as evaluation. [Aggregate results](../reports/model_validation/results.json), [acceptance checks](../reports/model_validation/calibration.json) and [source/configuration/cache lineage](../reports/model_validation/metadata.json) are public; row-level predictions, selected catalogs and serialized artifacts remain private checkpoints.
+
+## Target-blind confirmation preparation
+
+A separate audit applies the existing fixed near-copy detector before predictions or target access: character cosine ≥0.95, token Jaccard ≥0.90, minimum length 40. It compares reserved bodies against every development body and supplied example. It removes **67 rows representing 42 distinct approximate-copy bodies**, leaving **43,509 eligible rows**. There are no exact development-body/support overlaps and no eligible self-support matches. The detector cannot establish complete paraphrase or conversation-origin independence.
+
+Eligibility run: `60ba8e0ede00928c0943`; ordered eligible-ID hash: `dc37bb6480b75844de3dd2961a55f14a573494913517ae5a6d10a7d6bf8518b0`. The retained rows cover 6,285 advertising, 9,032 financial advice, 6,376 legal advice, 6,425 medical advice, 6,399 illegal promotion and 8,992 spoiler examples. [Audit](../reports/confirmation_inputs/audit.json).
+
+The candidate/reference and eligibility artifacts are ready to bind into the final acceptance protocol. **No reserved target or reserved prediction was used in this milestone.** This model is fitted and validated on development; it has not earned promotion to the canonical offline submission notebook.
