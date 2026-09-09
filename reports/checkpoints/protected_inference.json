@@ -124,7 +124,11 @@
   "protected_score_available": true,
   "interpretation": "Prediction subprocess completed all 43,509 rows and returned zero. A background checkpoint FileNotFoundError made the wrapper fail and prevented final archive creation. All completed prediction objects were independently verified and canonically recovered. Prediction freeze was published before the successful fixed evaluation. No training or encoding was repeated. Full cloud embedding-cache restoration remains unverified; the old failing path was not logged.",
   "next_bounded_step": "Package accepted benchmark artifacts for verified offline inference; preserve a separately identified original-training-only competition workflow. No further model selection on the protected reserve.",
-  "ci_verified": {
+  "first_target_access_at": "2026-09-09T17:12:07.771236+00:00",
+  "prediction_commit": "530ad79929012e807cb42a5253f7b92b090682ec",
+  "protected_decision": "accepted",
+  "protected_acceptance_checks_passed": 12,
+  "historical_preflight_ci": {
     "head_sha": "9ea2cd7374f7145322083e18f920df6bd60629ba",
     "run_id": 34307841242,
     "conclusion": "success",
@@ -134,8 +138,14 @@
     "synthetic_offline_inference_passed": true,
     "real_encoder_integration_passed": true
   },
-  "first_target_access_at": "2026-09-09T17:12:07.771236+00:00",
-  "prediction_commit": "530ad79929012e807cb42a5253f7b92b090682ec",
-  "protected_decision": "accepted",
-  "protected_acceptance_checks_passed": 12
+  "ci_verified": {
+    "head_sha": "bb038cd4a22f275221dcd5dad141a44997694c3e",
+    "run_id": 34382476761,
+    "conclusion": "success",
+    "tests_passed": 328,
+    "five_public_notebooks_executed": true,
+    "reuse_passed": true,
+    "synthetic_offline_inference_passed": true,
+    "real_encoder_integration_passed": true
+  }
 }
