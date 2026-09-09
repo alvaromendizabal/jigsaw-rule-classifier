@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "protocol_commit": "915ce70792adff3b85c0eac5bb7e461a646284aa",
+  "sample_sha256": "aa3a2df5d93c79570b2e1267760683b20cad2bf552fb5662e044bc5dd2fa6837",
+  "rows": 48,
+  "unique_bodies": 47,
+  "strata": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "new_model_scores_accessed": false,
+  "reviewer": "single assistant qualitative review; not an independent human adjudication",
+  "annotation_sha256": "1233da26039a4d8cdef48876bd580bbd9e813cab633daf4d30ba7d00a555005e",
+  "source_audit_sha256": "b285a51e021fcbbe0d29ee7a0f0cd5b228f2ba30da4630e1599c534f74be6d6b",
+  "original_labels_changed": false,
+  "source_alignment": {
+    "sample_sha256": "aa3a2df5d93c79570b2e1267760683b20cad2bf552fb5662e044bc5dd2fa6837",
+    "original_rows_verified": 7,
+    "released_rows_verified": 41,
+    "fields_checked": [
+      "body",
+      "rule",
+      "rule_violation"
+    ],
+    "join_key": "row_id",
+    "source_solution_sha256": "01579b769c56a6f3f87282c04c4ce788ad4d1fd2ffebabd1a36afbf92f6f3bca",
+    "reserved_target_fields_interpreted": false,
+    "matches": true
+  },
+  "taxonomy_counts": {
+    "speech_act": {
+      "discussion": 4,
+      "stating_information": 9,
+      "advocating_harm": 4,
+      "joke_or_insult": 7,
+      "offering_advice": 13,
+      "personal_experience": 6,
+      "requesting_advice": 5
+    },
+    "policy_behavior": {
+      "not_apparent": 18,
+      "ambiguous": 19,
+      "clear": 11
+    },
+    "context_dependence": {
+      "some": 23,
+      "high": 9,
+      "none": 16
+    },
+    "annotation_ambiguity": {
+      "false": 25,
+      "true": 23
+    }
+  },
+  "findings": [
+    "Topical similarity alone does not reliably distinguish requests, advice, explanation and rhetorical discussion.",
+    "Short directives can express advice while longer domain-related explanations need not.",
+    "Community context, sarcasm and label ambiguity constrain interpretation. No label was changed.",
+    "One body occurs under two sampled policies; 48 rows represent 47 distinct normalized bodies."
+  ],
+  "limitations": [
+    "One assistant reviewer; no independent adjudication or inter-rater agreement.",
+    "Balanced score/label strata are not a prevalence sample. Counts cannot estimate dataset-wide label error.",
+    "Review concerns moderation intent, not the factual correctness of medical or legal statements.",
+    "All labels and bodies in the sample match the pinned source by row_id."
+  ]
+}

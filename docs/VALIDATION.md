@@ -2,7 +2,40 @@
 
 This record separates software correctness, executed research, notebook rendering and independent performance evidence. The last category is not established by passing tests.
 
-## Executed local checks
+## Current milestone: feature research closure
+
+The 2026-09-09 closeout passes **263 tests in 115.66 seconds**, compilation, Ruff, formatting and canonical notebook-source checks. The full quality invocation takes 120.06 seconds. Tests additionally cover policy-intent compilation, support/batch invariance, forbidden target access, independent cache identity, all five replacement tolerances, fixed fusion and stale stopping-rationale publication. The feature gate now permits final model development and explicitly denies production promotion.
+
+Formatting protocol `915ce70792adff3b85c0eac5bb7e461a646284aa` preceded inference and scores. Replacement tolerances were committed at `ceaea9f512507606d12532be40b5a6378f04242a` before new scores were inspected. The later, adaptive fixed-average control was committed at `af33a31837ea7d3e98b58783fa07ba77b46ac521` before computing that average. These are separate development decisions, not a claim that all research was preregistered before earlier findings.
+
+| Evidence | Verified record |
+| --- | --- |
+| Semantic formatting/intent | Run `634ffc0b387c85f11041`; 28 fits, three frozen scores, 77 candidates; same 11,135 development rows and seven purged splits |
+| Source-checked qualitative audit | 48 rows, 47 unique normalized bodies; all original source checks pass; no relabeling or reserved-target access |
+| Feature stopping decision | Run `f64dbed83f793a3f5cc8`; seven alternatives and one fixed average fail replacement; retain original centroid for unseen policies |
+| Private replay | 203 model/feature-stage files, 20 metric records, 28 saved model predictions, 28 feature transforms and eight frozen-score/protocol combinations |
+| Resume experiment | Completed formatting run reused with model fitting and encoder preparation patched to raise; zero new fits or inference |
+| Candidate banks | 188,595–188,598 offered and 9,281–9,660 retained per fold across banks; 323 fits in the full four-policy campaign |
+
+SageMaker job `jigsaw-formatting-20260909-0030` completed on one `ml.m5.4xlarge`, with a 90-minute hard ceiling. Actual worker computation was 644.51 seconds; the processing interval was 00:31:21–00:44:16 UTC. The original 190-shard comment/support cache is unchanged. A new 35-shard plain-document cache contains 2,217 unique supports; a new 332-shard NLI cache contains 21,214 unique pairs. Their zero/four truncations and 739.8/1,271.3 summed parallel encoder seconds are separate from wall time. Compatible historical NLI inputs were not present in this worker's restore, so historical NLI reuse is correctly recorded as zero.
+
+Under `experiments/semantic-formatting-20260909T002556/`, the development-only input bundle is 377,979,765 bytes (SHA-256 `4386488611a50cb6f21ee4bf85e203ecd22b831d78a7409e8bbe73b78fe4018d`). The additive checkpoint `checkpoints/semantic-formatting.tar.gz` has 2,069 members and 36,270,983 bytes, SHA-256 `943c15df408efaa748bd4e80a71a622392469b327d500be9eb4bb1d50195804d`. It was restored and verified against the existing immutable inputs. The bundle excludes the released solution and reserved targets; raw comments and row predictions remain private.
+
+The notebook publication worker `jigsaw-feature-closeout-20260909-0106` uses one `ml.m5.2xlarge`, a 20-GB volume and a 900-second ceiling. It completed all five canonical notebooks in actual encrypted Jupyter kernels, reused all five on its second pass, and passed synthetic offline inference. Worker invocation took **69.65 seconds**. Restored notebooks have current source/input contracts, complete execution counts, no error or stderr outputs, and seven Plotly figures with SVG fallbacks. The new contrast and per-policy figures were visually inspected. Notebook `02` has 29 cells and `03` remains a 10-cell evidence tour.
+
+The durable publication prefix is `experiments/feature-closeout-publication-20260909T0106/` in the existing owned project bucket:
+
+| Object | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `code/source.tar.gz` | 652,589 | `3365d6186d22ee919c6648743aaccb0c39869a21e69d2fcab2c48a7f0ed323b5` |
+| `public/executed-notebooks.tar.gz` | 77,251 | `2251a2970afe023e2cddc0e873857a371b6302811ec54158ce5a33645075b703` |
+| `checkpoints/feature-closeout.tar.gz` | 352,685 | `a21ae3d8eb8dbaf6e8918f1cf5c08ca026cc0d42e8a780447fd5e8d5faa35d07` |
+
+The last archive preserves the private audit, current/earlier stopping decisions, fusion predictions and logs: 26 payload files plus a manifest (manifest SHA-256 `7d9ee4800e51a79368f3cdfdef89219c962a57f34542993b2f61204fc60e02fd`). A fresh S3 download verifies its full archive and every member. Fresh STS, expected-owner ACL and public-access-block checks confirm the user-owned destination; uploads use AES256. The earlier unused public source package under the `0104` publication prefix remains preserved; no experiment consumed it.
+
+These checks close the declared feature phase. They do not claim independent confirmation, fitted calibration, a routed-model result, offline promotion or a leaderboard score. The 43,576 reserved targets remain unopened. [Next model milestone](FINAL_MODEL_PLAN.md).
+
+## Executed local checks — historical milestones
 
 The original main branch passed **139 tests** before changes. The broad feature-research milestone passed **188 tests**; the released-data boundary milestone passes **208 tests**, compilation, Ruff, formatting and canonical notebook-source checks in the locked Python 3.12 environment. Tests cover training-only screening, schema/finite-value contracts, exact duplicates, support-order invariance, nested target encoding, unseen-group fallbacks, cached embedding identity, OOF alignment, model-stage recovery, report checksums, publication boundaries and the open feature gate.
 

@@ -6,6 +6,8 @@ from pathlib import Path
 
 from jigsaw_rules.diagnostics import diagnostic_evidence
 from jigsaw_rules.expanded import expanded_evidence
+from jigsaw_rules.feature_decision import decision_evidence
+from jigsaw_rules.formatting import formatting_evidence
 from jigsaw_rules.instructions import instruction_evidence
 from jigsaw_rules.pairs import pairs_evidence
 from jigsaw_rules.released import released_evidence
@@ -28,13 +30,25 @@ def feature_gate(root: Path) -> dict:
         "expanded": expanded_evidence(root),
         "retrieval": retrieval_evidence(root),
         "resolution": resolution_evidence(root),
+        "formatting": formatting_evidence(root),
+        "feature_decision": decision_evidence(root),
     }
     missing = [name for name, item in evidence.items() if item is None]
+    decision = evidence["feature_decision"]
+    research_complete = not missing and decision["decision"]["feature_research_status"] == (
+        "complete_for_declared_scope"
+    )
     rules = len(baseline["audit"]["by_rule"])
     return {
-        "schema": 2,
-        "status": "open",
-        "final_training_authorized_by_evidence": False,
+        "schema": 3,
+        "status": "ready_for_final_model_validation" if research_complete else "open",
+        "feature_research_complete": research_complete,
+        "final_training_authorized_by_evidence": research_complete,
+        "production_promotion_authorized_by_evidence": False,
+        "selected_transfer_representation": decision["decision"]["selected_candidate"]
+        if research_complete
+        else None,
+        "feature_research_scope": "Four-policy development benchmark; not universal exhaustion",
         "labeled_rules": evidence["expanded"]["audit"]["development_policies"]
         if evidence["expanded"]
         else rules,
@@ -107,6 +121,14 @@ def feature_gate(root: Path) -> dict:
                 "state": "verified" if evidence["resolution"] else "in progress",
             },
             {
+                "requirement": "Semantic formatting, policy intent and source-checked error audit",
+                "state": "verified" if evidence["formatting"] else "in progress",
+            },
+            {
+                "requirement": "Fixed complementarity control and justified feature stopping rule",
+                "state": "passed" if research_complete else "not established",
+            },
+            {
                 "requirement": "Independent confirmation after feature-family selection",
                 "state": "not established",
             },
@@ -116,18 +138,28 @@ def feature_gate(root: Path) -> dict:
             },
             {
                 "requirement": "Selected final representation and probability-quality acceptance",
-                "state": "not established",
+                "state": "transfer representation selected; final model/calibration pending"
+                if research_complete
+                else "not established",
             },
             {
                 "requirement": "Research candidate promoted into offline inference",
                 "state": "blocked until prior requirements pass",
             },
         ],
-        "decision": "Retain the reproducible lexical reference. Candidate OOF comparisons "
-        "are exploratory; development comparisons are not independent confirmation. "
-        "The four-policy study preserves financial advice, spoilers and the former private split. "
-        "Stable feature selection, a stopping rationale and locked confirmation are still needed. "
-        "Feature count and successful execution do not close this gate.",
+        "decision": (
+            "Feature research passed for the declared development scope. Retain the original "
+            "Qwen centroid as the unseen-policy representation: the latest semantic alternatives "
+            "and fixed average fail the predeclared replacement criteria. Final model training "
+            "and calibration can now proceed under a frozen protocol. Reserved confirmation, "
+            "offline promotion and a measured inference product remain incomplete."
+            if research_complete
+            else "Retain the reproducible lexical reference. Candidate OOF comparisons "
+            "are exploratory; development comparisons are not independent confirmation. "
+            "The study reserves financial advice, spoilers and the former private split. "
+            "Feature selection, a stopping rationale and locked confirmation are still needed. "
+            "Feature count and successful execution do not close this gate."
+        ),
     }
 
 

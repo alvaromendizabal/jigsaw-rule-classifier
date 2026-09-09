@@ -1,0 +1,11 @@
+{
+  "synthetic_fixture": false,
+  "source_sha256": "f8b73621f50afc34930e2951d6ce033755990d424da5db98af2d1792f7034222",
+  "metadata_sha256": "32597376ba45ce9496c8987234e02dd409bec1a65e21189c5765b4ad703fcc90",
+  "files": {
+    "contrasts.plotly.json": "d66d7066a94a273e7f3a161a747d4756f11f866e10f5d7f814579f8418a4c2e4",
+    "contrasts.svg": "2fa39dab9df73e044b48f56df873e0a0d78a9c622e5c46e5e6fe192b58af374e",
+    "policies.plotly.json": "e30291461bf5a155f899c6d1cd8e63a9cd058ab169d0341347af2a66f77a150a",
+    "policies.svg": "50ea4853d2390567db65c10759e6214e4058b9f220e1dc079e1d036a50449a26"
+  }
+}

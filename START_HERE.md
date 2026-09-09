@@ -23,20 +23,21 @@ A terminal prefix such as `^[[200~` is a paste-control sequence. Press **Ctrl+C*
 
 ## Review the completed feature research
 
-The original four-candidate study, broad screened bank, full-vocabulary/NB/low-rank controls, frozen NLI and instruction probes, and approximate-copy stress test have executed. Their current reports are rendered in `02_baseline_and_review.ipynb`. The notebook performs no fitting by default. Do not rerun historical baselines merely to read these results.
+The four-policy feature campaign is complete: 323 fixed fits, broad screened banks, matched ablations, retrieval, embedding resolution, semantic formatting/intent, a source-checked error audit and a predeclared stopping rule. Notebook `02` records why the original centroid survives the final alternatives. The scientific closure is scoped to these data and hypotheses; final confirmation and production promotion are separate. The notebook performs no fitting by default. Do not rerun historical baselines merely to read these results.
 
 ```bash
 uv run jigsaw gate
 uv run python scripts/execute_notebooks.py --publish
 # Strict metric recomputation after restoring private runs:
 uv run python scripts/verify_research.py
+uv run python scripts/verify_formatting.py
 ```
 
 Reproduction commands are `jigsaw research --export`, `jigsaw diagnostics`, `jigsaw robustness`, `jigsaw pairs` and `jigsaw instructions`. The latter two are frozen-encoder feature experiments, not final training. They require suitable CPU memory and their pinned model assets. The bounded `scripts/processing.py` worker supports these jobs with immutable-source verification, isolated S3 checkpoints and optional `JIGSAW_RESUME_PREFIX` recovery. The ordinary `--cloud` snapshot option is supported by the original/broad experiment runners; use the processing worker for periodic NLI/instruction checkpoints.
 
 The publication helper remains `scripts/execute_notebooks.py --publish --push-branch results/feature-ablation`. It requires current public Jupyter execution, the expected origin, a clean index and no unrelated source edits. Its explicit allowlist includes the verified feature-study aggregates and research figures. Previously committed historical reports may be re-rendered byte-for-byte; new or altered historical evidence requires review. It never commits data, row-level predictions, credentials, model weights or submission files. Merge a results PR only after Quality passes.
 
-A changed implementation/data/configuration contract deliberately creates a different experiment. The original runs remain preserved. [FEATURE_RESEARCH.md](docs/FEATURE_RESEARCH.md) records counts, rationale, failures and the open completion gate.
+A changed implementation/data/configuration contract deliberately creates a different experiment. The original runs remain preserved. [FEATURE_RESEARCH.md](docs/FEATURE_RESEARCH.md) records counts, rationale, failures and the completed feature gate. [FINAL_MODEL_PLAN.md](docs/FINAL_MODEL_PLAN.md) defines the next model-validation milestone; the 43,576 reserved targets remain unopened.
 
 ## Generate and download your own submission in the notebook
 

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "name": "development-feature-stopping-decision-v1",
+  "reference": "qwen_centroid",
+  "formatting_protocol_commit": "915ce70792adff3b85c0eac5bb7e461a646284aa",
+  "candidates": ["asymmetric_centroid", "generic_entailment", "behavior_entailment", "asymmetric_scalar", "word_asymmetric_scalar", "intent_scalar", "semantic_intent"],
+  "primary_protocol": "heldout_rule",
+  "minimum_macro_auc_gain": 0.005,
+  "maximum_per_policy_auc_drop": 0.02,
+  "maximum_log_loss_increase": 0.01,
+  "maximum_brier_increase": 0.005,
+  "require_positive_simultaneous_lower_bound": true,
+  "bootstrap_draws": 1000,
+  "seed": 2025,
+  "tie_tolerance": 0.002,
+  "simplicity_order": ["asymmetric_centroid", "generic_entailment", "behavior_entailment", "asymmetric_scalar", "intent_scalar", "word_asymmetric_scalar", "semantic_intent"],
+  "selection": "Require every eligibility condition. Among eligible candidates within 0.002 AUC of the best, prefer the earlier simplicity order. If none qualifies, retain the existing centroid. No validation-label-derived feature fitting or new model fit occurs in this decision.",
+  "uncertainty": "Seven additional predeclared candidate-versus-centroid contrasts use identical normalized-body bootstrap weights. Simultaneous intervals condition on these fixed OOF predictions and four development policies; they do not correct the complete adaptive research history or replace reserved confirmation.",
+  "closure_requires": ["verified expanded, retrieval, resolution and formatting studies", "private formatting metrics and saved-feature/model replay", "completed blinded qualitative audit with original-source alignment", "documented applicable-family coverage and remaining-avenue rationale"],
+  "scope": "A feature research stopping decision authorizes preparation of a frozen confirmation protocol. It does not authorize final-model promotion, claim arbitrary-policy generalization, or consume reserved targets."
+}

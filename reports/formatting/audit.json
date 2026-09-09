@@ -1,0 +1,612 @@
+{
+  "development_rows": 11135,
+  "development_policies": 4,
+  "fitted_models": 28,
+  "frozen_scores": 3,
+  "candidate_counts": {
+    "asymmetric_scalar": 32,
+    "intent_scalar": 45
+  },
+  "stability": [
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "seen_rule",
+        1
+      ],
+      "jaccard": 0.967741935483871
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "seen_rule",
+        2
+      ],
+      "jaccard": 0.967741935483871
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        0
+      ],
+      "jaccard": 0.875
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 0.967741935483871
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.967741935483871
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.967741935483871
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "seen_rule",
+        2
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        0
+      ],
+      "jaccard": 0.90625
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        0
+      ],
+      "jaccard": 0.90625
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "heldout_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 0.90625
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "heldout_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.90625
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "heldout_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.90625
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "heldout_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "heldout_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "asymmetric_scalar",
+      "fold_a": [
+        "heldout_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "seen_rule",
+        1
+      ],
+      "jaccard": 0.45454545454545453
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "seen_rule",
+        2
+      ],
+      "jaccard": 0.5238095238095238
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        0
+      ],
+      "jaccard": 0.18518518518518517
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 0.45454545454545453
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.23076923076923078
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.28
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "seen_rule",
+        2
+      ],
+      "jaccard": 0.8823529411764706
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        0
+      ],
+      "jaccard": 0.3333333333333333
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 0.7777777777777778
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.5238095238095238
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.45454545454545453
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        0
+      ],
+      "jaccard": 0.3333333333333333
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 0.7777777777777778
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.45454545454545453
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "seen_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.45454545454545453
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "heldout_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        1
+      ],
+      "jaccard": 0.391304347826087
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "heldout_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.6842105263157895
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "heldout_rule",
+        0
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.6
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "heldout_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        2
+      ],
+      "jaccard": 0.6
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "heldout_rule",
+        1
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.5238095238095238
+    },
+    {
+      "family": "intent_scalar",
+      "fold_a": [
+        "heldout_rule",
+        2
+      ],
+      "fold_b": [
+        "heldout_rule",
+        3
+      ],
+      "jaccard": 0.5238095238095238
+    }
+  ],
+  "asymmetric_support_stress": {
+    "one_example_per_class": {
+      "rule_macro_auc": 0.6823177967584444,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6805214278165292,
+        "No legal advice: Do not offer or request legal advice.": 0.552493967525999,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5646979142007943,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9315578774904554
+      },
+      "pooled_auc": 0.6760478774297266,
+      "average_precision": 0.7140559498963053,
+      "log_loss": 0.6383451681769965,
+      "brier": 0.2240146187411931,
+      "ece_10_equal_width_bins": 0.016573017711161927,
+      "precision_at_0_5": 0.6377481642643459,
+      "recall_at_0_5": 0.7598833441348023,
+      "f1_at_0_5": 0.693479225195919,
+      "confusion_matrix_at_0_5": [
+        [
+          2299,
+          2664
+        ],
+        [
+          1482,
+          4690
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "within_policy_context_shuffle": {
+      "rule_macro_auc": 0.6845871627263691,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6770106742760515,
+        "No legal advice: Do not offer or request legal advice.": 0.5669170479422743,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.590816433888319,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9036044947988315
+      },
+      "pooled_auc": 0.708220922317045,
+      "average_precision": 0.7563880408062573,
+      "log_loss": 0.6204789776307721,
+      "brier": 0.21666935836693488,
+      "ece_10_equal_width_bins": 0.044736363749313786,
+      "precision_at_0_5": 0.6495909883331098,
+      "recall_at_0_5": 0.7848347375243033,
+      "f1_at_0_5": 0.7108371854134566,
+      "confusion_matrix_at_0_5": [
+        [
+          2350,
+          2613
+        ],
+        [
+          1328,
+          4844
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "exclude_self_matches": {
+      "rule_macro_auc": 0.6855402028420884,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6878248981985644,
+        "No legal advice: Do not offer or request legal advice.": 0.5554030987825223,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5703735303400932,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9285592840471737
+      },
+      "pooled_auc": 0.7069046586702482,
+      "average_precision": 0.7544740889119497,
+      "log_loss": 0.6223070616070557,
+      "brier": 0.21733993279601427,
+      "ece_10_equal_width_bins": 0.04557965817331217,
+      "precision_at_0_5": 0.6474521867058981,
+      "recall_at_0_5": 0.7854940775596301,
+      "f1_at_0_5": 0.7098240469208211,
+      "confusion_matrix_at_0_5": [
+        [
+          2318,
+          2636
+        ],
+        [
+          1322,
+          4841
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "self_match_rows": 18,
+    "seed": 2025,
+    "interpretation": "Fixed support-score diagnostics; no parameter or threshold selected."
+  },
+  "hypotheses": {
+    "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": "This comment contains spam, referral links, unsolicited advertising, and promotional content.",
+    "No legal advice: Do not offer or request legal advice.": "The author uses this comment to offer or request legal advice.",
+    "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": "The author uses this comment to offer or request specific medical advice, diagnoses, or treatment recommendations.",
+    "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": "The author uses this comment to encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior."
+  },
+  "confirmation_targets_accessed": false
+}

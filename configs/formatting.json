@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "name": "semantic-formatting-and-policy-intent-v1",
+  "expanded_run": "a57bb74350fcbcd66592",
+  "development_rows": 11135,
+  "seed": 2025,
+  "bootstrap_draws": 1000,
+  "workers": 4,
+  "shard_size": 64,
+  "asymmetric": "Reuse the original rule-conditioned comment vectors; encode the four supplied support comments as plain documents with the identical pinned Qwen encoder. Keep 1024 dimensions and the original centroid scoring function.",
+  "intent": "Compare the existing generic violation hypothesis with one deterministic affirmative behavioral hypothesis derived from rule text. Remove only the prohibitory wrapper; retain the policy's complete scope and its offer/request distinction. Do not choose paraphrases using scores.",
+  "fixed_scores": ["asymmetric_centroid", "generic_entailment", "behavior_entailment"],
+  "fitted_variants": {
+    "asymmetric_scalar": ["asymmetric_scalar"],
+    "word_asymmetric_scalar": ["word", "asymmetric_scalar"],
+    "intent_scalar": ["intent_scalar"],
+    "semantic_intent": ["semantic_scalar", "intent_scalar"]
+  },
+  "budgets": {"asymmetric_scalar": 32, "intent_scalar": 16},
+  "classifier": {"C": 2.0, "solver": "liblinear", "max_iter": 2000, "seed": 2025},
+  "contrasts": [
+    ["asymmetric_geometry", "asymmetric_centroid", "qwen_centroid"],
+    ["asymmetric_scalar", "asymmetric_scalar", "semantic_scalar_only"],
+    ["asymmetric_with_words", "word_asymmetric_scalar", "word_semantic_scalar"],
+    ["affirmative_behavior", "behavior_entailment", "generic_entailment"],
+    ["behavior_vs_centroid", "behavior_entailment", "qwen_centroid"],
+    ["intent_only", "intent_scalar", "semantic_scalar_only"],
+    ["intent_addition", "semantic_intent", "semantic_scalar_only"]
+  ],
+  "error_audit": {
+    "policies": ["No legal advice: Do not offer or request legal advice.", "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations."],
+    "reference": "qwen_centroid",
+    "sampling": "Four distinct normalized bodies per policy, true-label and reference-score tertile; select by SHA256(seed, normalized body). Forty-eight rows, no new-model score shown during annotation.",
+    "taxonomy": ["speech_act", "policy_behavior", "context_dependence", "annotation_ambiguity"],
+    "purpose": "Qualitative failure analysis, not a prevalence estimate or authoritative relabeling. Keep original labels and raw text private."
+  },
+  "resource_bound": {"instance": "ml.m5.4xlarge", "count": 1, "max_seconds": 5400, "volume_gb": 60},
+  "decision": "Report every comparison, per-policy behavior, probability losses, conditional paired intervals, screening stability, support sensitivity and inference cost. Prefer the simpler existing centroid unless a new representation improves macro AUC without a material per-policy or probability-quality regression. No automatic promotion or reserve-target access.",
+  "sources": ["https://huggingface.co/Qwen/Qwen3-Embedding-0.6B", "https://huggingface.co/cross-encoder/nli-deberta-v3-small"]
+}

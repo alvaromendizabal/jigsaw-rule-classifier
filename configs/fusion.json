@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "name": "single-fixed-complementarity-control-v1",
+  "parent_formatting_run": "634ffc0b387c85f11041",
+  "reference": "qwen_centroid",
+  "candidate": "centroid_intent_mean",
+  "components": ["qwen_centroid", "semantic_intent"],
+  "weights": [0.5, 0.5],
+  "combination": "Arithmetic mean of aligned out-of-fold probabilities, independently for each row. No fitted combiner, rank normalization, rule-specific weights, threshold tuning or new encoder call.",
+  "rationale": "All seven latest candidates fall below the original centroid in transfer AUC. Semantic-plus-intent has small legal/medical/illegal-promotion gains and an advertising decline. One fixed average tests whether this complementarity is useful without selecting mixture weights.",
+  "bootstrap_draws": 1000,
+  "seed": 2025,
+  "acceptance": "Apply the unchanged practical AUC, per-policy, log-loss and Brier tolerances from feature_decision.json; require a positive paired lower bound. Report rejection. The earlier seven comparisons retain their own simultaneous correction.",
+  "timing": "Preregistered after inspecting the formatting study and before computing any blend score. This is explicitly adaptive development work, not confirmation.",
+  "new_model_fits": 0,
+  "confirmation_targets_accessed": false
+}

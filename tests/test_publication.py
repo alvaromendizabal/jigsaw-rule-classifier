@@ -24,7 +24,7 @@ def git(root, *arguments):
 def repository(tmp_path, monkeypatch):
     root, remote = tmp_path / "workspace", tmp_path / "origin.git"
     root.mkdir()
-    for directory in ("src", "scripts", "reports", "notebooks", "configs"):
+    for directory in ("src", "scripts", "reports", "notebooks", "configs", "docs"):
         shutil.copytree(ROOT / directory, root / directory)
     for filename in ("pyproject.toml", "uv.lock", ".gitignore"):
         shutil.copyfile(ROOT / filename, root / filename)
@@ -99,6 +99,14 @@ def test_changed_aggregate_evidence_requires_new_execution(repository):
     root, _ = repository
     path = root / "reports/baseline/results.json"
     path.write_text(path.read_text() + "\n")
+    with pytest.raises(ValueError, match="stale"):
+        push_publication(root, "results/test")
+
+
+def test_changed_stopping_rationale_requires_new_execution(repository):
+    root, _ = repository
+    path = root / "docs/FEATURE_COVERAGE.md"
+    path.write_text(path.read_text() + "\nChanged stopping rationale.\n")
     with pytest.raises(ValueError, match="stale"):
         push_publication(root, "results/test")
 
