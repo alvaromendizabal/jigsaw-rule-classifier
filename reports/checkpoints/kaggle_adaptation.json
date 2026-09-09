@@ -1,6 +1,6 @@
 {
-  "status": "gpu_verified_preview_pending",
-  "scope": "Authored software probe; no new Kaggle score",
+  "status": "gpu_preview_verified_saved_run_pending",
+  "scope": "Real original-data GPU preview and recovery verification; no new Kaggle score",
   "runtime": {
     "python": "3.12.13",
     "torch": "2.10.0+cu128",
@@ -48,5 +48,64 @@
     "scripts/kaggle_adaptation.py": "0d10176afc258ff9dfcd48a83bd206de4bc795a143db53105c93957178b08b05",
     "scripts/build_adapted_notebook.py": "7334dc4088a94b0864d289c04d61cff606f04d8d0091ee418517f00b2b6dfd9b",
     "configs/kaggle_adaptation.json": "fba0f150b03c29ff3f042f41fa919a95f5edae47e66bf00dd5c16e1a13eaa8bd"
+  },
+  "preview": {
+    "run_id": "d33a5b1bfe0b448ba686",
+    "sha256": "6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804",
+    "rows": 10,
+    "training": {
+      "loss_scale": 128,
+      "optimizer_steps": 117,
+      "resumed_step": 0,
+      "training_contract": "f4e4c0c0879f2468cab42aa4b8fcbc817b60c8baa5926d8cd9067d8d2ad10d7d"
+    },
+    "audit": {
+      "by_source": {
+        "available_support": 38,
+        "train_body": 1824
+      },
+      "candidate_occurrences": 10185,
+      "conflicting_occurrences": 213,
+      "conflicting_pairs": 11,
+      "duplicate_occurrences": 8110,
+      "epoch_occurrences": 1862,
+      "forbidden_text_occurrences": 0,
+      "new_policies": 0,
+      "query_body_targets_used": false,
+      "retained_pairs": 1862,
+      "scope": "train bodies and supplied support labels; no available body targets",
+      "supplied_support_matches_are_eligible": true
+    },
+    "precision": "float16",
+    "elapsed_seconds": 612.2729677100001,
+    "peak_gpu_gib": 8.258612155914307,
+    "completed_utc": "2026-09-09T23:30:23+00:00",
+    "source_matches_canonical": true,
+    "canonical_replay_passed": true,
+    "canonical_replay_retrained": false,
+    "canonical_replay_sha256": "6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804"
+  },
+  "ci": {
+    "commit": "a4936977c945110ea5b86398cdfb9d2a9f12556b",
+    "run_id": 34417108269,
+    "job_id": 102684310454,
+    "conclusion": "success",
+    "public_jupyter_notebooks": 5,
+    "public_jupyter_replay": true,
+    "original_and_synthetic_lexical_preview": true,
+    "real_pinned_encoder": true
+  },
+  "saved_run": {
+    "status": "running",
+    "notebook": "alvaromendizabal/jigsaw-support-adapted-rule-classifier",
+    "notebook_version": 3,
+    "script_version_id": 348640051,
+    "version_name": "Support-adapted Qwen3-4B - GitHub a493697",
+    "source_commit": "a4936977c945110ea5b86398cdfb9d2a9f12556b",
+    "url": "https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051",
+    "internet": false,
+    "accelerator": "GPU T4 x2",
+    "model_asset_hashes_verified": 11,
+    "requires_hidden_submission_for_score": true
   }
 }
