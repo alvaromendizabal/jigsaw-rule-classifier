@@ -1,6 +1,6 @@
 # Download and run the completed project
 
-The research model and the competition entry have different training-data boundaries. Research and offline delivery are complete. Kaggle Version 2 has run successfully and is ready for the final submission action; no Kaggle score exists yet.
+The research model and the competition entry have different training-data boundaries. Research and offline delivery are complete. Kaggle Version 2 also completed its submitted hidden-test run: **0.59191 public / 0.61956 private**, as a late entry.
 
 | Deliverable | Location | Purpose |
 | --- | --- | --- |
@@ -10,17 +10,24 @@ The research model and the competition entry have different training-data bounda
 
 ## Your Kaggle submission
 
-The notebook is already uploaded and successfully executed in your account: **[Jigsaw - Original Training Reference · Version 2](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174)**. It ran in 36 seconds on CPU with Internet off and generated the 10-row preview `submission.csv`. The final submission action remains pending; this is not a hidden-test score. [Current submission record](../reports/checkpoints/kaggle_submission.json).
+**Submitted and scored on September 9, 2026.** Kaggle reported **Succeeded (after deadline)** for [Jigsaw - Original Training Reference · Version 2](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174), using the root `submission.csv` output. The authenticated submission row and detail dialog agreed on both scores:
 
-To finish from the saved version:
+| Kaggle partition | Displayed score |
+| --- | ---: |
+| Public | **0.59191** |
+| Private | **0.61956** |
 
-1. Open the Version 2 output link above while signed in as `alvaromendizabal`.
-2. Click **Submit to Competition** beside `submission.csv`.
-3. Check **Notebook Version: Kaggle input path fix - GitHub 7e98f91** and **Output File: submission.csv**. Leave the output at the root file, rather than a checkpoint batch.
-4. Optionally enter `Original-training-only lexical reference, Version 2` as the description, then click **Submit**.
-5. Open the competition's **Submissions** tab and wait for **Complete** and a score. Kaggle reruns the notebook on hidden test data; a saved preview run alone is not the submission.
+[View the entry in your signed-in Kaggle account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#) · [Submission record with version and source checksums](../reports/checkpoints/kaggle_submission.json). This is a late entry; no rank or medal is claimed. No further submission action is needed.
 
-No AWS download or new notebook upload is needed for these steps. To obtain the current notebook separately, download the canonical file from GitHub using the table above. The original S3 snapshot at `releases/v1.0.0/kaggle/submission.ipynb` in `sagemaker-jigsaw-rules-560403859723-us-west-2` predates the current Kaggle mount fix. Its historical checksum and version remain in the [delivery record](../reports/checkpoints/delivery.json); use GitHub or saved Kaggle Version 2 for the corrected notebook.
+The saved preview ran in 36 seconds on CPU with Internet off and generated 10 rows. Kaggle then reran the submitted version on its hidden test data and returned the scores above. The notebook's final message about no automatic upload describes notebook execution itself; the separate successful competition submission is recorded here.
+
+To inspect or reproduce the entry:
+
+1. Open the competition's **Submissions** tab while signed in as `alvaromendizabal`; the entry shows success and both scores.
+2. Follow the notebook link to Version 2, named **Kaggle input path fix - GitHub 7e98f91**.
+3. Its **Output** tab preserves the preview `submission.csv`. The preview download is distinct from Kaggle's privately rerun hidden-test predictions.
+
+To obtain the current notebook separately, download the canonical file from GitHub using the table above. The original S3 snapshot at `releases/v1.0.0/kaggle/submission.ipynb` in `sagemaker-jigsaw-rules-560403859723-us-west-2` predates the current Kaggle mount fix. Its historical checksum and version remain in the [delivery record](../reports/checkpoints/delivery.json); use GitHub or saved Kaggle Version 2 for the corrected notebook.
 
 Version 1 failed because Kaggle mounted its official files under `/kaggle/input/competitions/jigsaw-agile-community-rules`, while the original code expected `/kaggle/input/jigsaw-agile-community-rules`. The current notebook recognizes both layouts, honors an explicit local input override, and tells you to attach the official competition when required files are absent. No model or prediction algorithm changed.
 
@@ -70,4 +77,4 @@ On an AMD EPYC 9V74 host with nine visible logical CPUs and four PyTorch threads
 
 The warm measurement is a mean over four authored examples, not a tail-latency or production-throughput estimate. A separate fresh-environment run produced the same four probabilities within `1.12e-16`, in 17.10 seconds with an empty encoder cache and zero network calls. The serving samples do not add accuracy evidence to the protected comparison. [Machine-readable measurements](../reports/delivery/verification.json).
 
-This closes the scoped research and local inference product. Hosted serving and arbitrary-policy generalization remain outside this scope. The saved Kaggle entry is ready for its final submission action; a leaderboard result is still pending. [Model card](../MODEL_CARD.md) · [Data card](../DATA_CARD.md).
+This closes the scoped research and local inference product. Hosted serving and arbitrary-policy generalization remain outside this scope. The requested late Kaggle entry is also submitted and scored. [Model card](../MODEL_CARD.md) · [Data card](../DATA_CARD.md).

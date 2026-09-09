@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "ready_not_submitted",
+  "status": "submitted_and_scored",
   "checked_on": "2026-09-09",
   "competition": "jigsaw-agile-community-rules",
   "notebook": "alvaromendizabal/jigsaw-original-training-reference",
@@ -29,9 +29,17 @@
   },
   "submission": {
     "id": null,
-    "status": "not_submitted",
-    "score": null,
-    "reason": "Final submission action requires renewed confirmation; the prepared saved version remains available."
+    "id_note": "The account UI exposed the notebook version and scores, but no numeric submission ID.",
+    "status": "succeeded",
+    "site_status": "Succeeded (after deadline)",
+    "submitted_on": "2026-09-09",
+    "is_late": true,
+    "public_score": 0.59191,
+    "private_score": 0.61956,
+    "score_precision": "Five decimal places as displayed by Kaggle",
+    "result_url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#",
+    "description": "Original-training-only lexical reference. GitHub 7e98f91426e8cd849d80ef997d0f992faf6a9377; Version 2; offline CPU. Separate from the post-competition research model.",
+    "evidence": "Authenticated competition Submissions row and Submission Details both showed success and matching public/private scores."
   },
   "validation": {
     "workflow_run": 34391473434,
@@ -43,5 +51,6 @@
     "public_evidence_notebooks_and_replay": true,
     "real_pinned_encoder": true
   },
-  "scope": "A successful saved preview run is not a scored competition submission. The 0.7770 post-competition research AUC is a separate result."
+  "scope": "Completed late Kaggle entry for the original-training-only lexical reference. The 0.7770 post-competition research AUC belongs to a different model/data boundary and is not this Kaggle score. No rank or medal claim.",
+  "verified_at": "2026-09-09T20:41:33+00:00"
 }

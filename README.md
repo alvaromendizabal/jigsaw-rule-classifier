@@ -4,11 +4,11 @@ Predict whether a comment violates a supplied community rule, using the rule and
 
 **Start with [03 · Results and examples](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The fixed model passed its protected comparison on 43,509 rows. Research, confirmation and the verified local inference product are complete.
 
-**Kaggle entry ready:** [Version 2 ran successfully](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174); the final submission action and score are pending. **Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
+**Kaggle entry complete:** Version 2 succeeded as a late submission: **0.59191 public / 0.61956 private**. These are the original-training lexical reference scores. [Submission record](reports/checkpoints/kaggle_submission.json) · [Kaggle result, signed-in account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#). **Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
-Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. No leaderboard score, medal or state-of-the-art claim is made.
+Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. The late Kaggle lexical-reference scores are reported separately from the post-competition research. No medal or state-of-the-art claim is made.
 
 ## Protected result: the fixed candidate is accepted
 
@@ -65,9 +65,9 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 **Protected confirmation and offline delivery: COMPLETE.** The exact accepted artifact is packaged with its pinned encoder and locked runtime. Real offline predictions match saved cloud probabilities within **0.00000122**; batch/order parity, missing-support rejection and restart reuse pass. A separate environment restored the package and ran with zero network calls. On the tested CPU, peak memory was **3.88 GiB** and warm mean latency **1.11 seconds per authored comment**. These are small-run measurements, not production-load estimates. [Download and measured budgets](docs/DELIVERY.md).
 
-**Portfolio delivery: COMPLETE.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make the scoped project reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 also passed its actual offline run after the competition mount fix. The final submission action is pending; no leaderboard result is claimed.
+**Portfolio delivery: COMPLETE.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make the scoped project reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry.
 
-The declared research and local inference scope is closed. The requested late Kaggle entry is prepared and awaits its final submission action. Hosted deployment remains outside the completed scope. [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
+The declared research and local inference scope is closed. The requested late Kaggle entry is submitted and scored. Hosted deployment remains outside the completed scope. [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
 
 ## Review or reproduce
 
@@ -96,8 +96,8 @@ Automated tests, locked dependencies and CI cover software contracts. Private ve
 
 ## Metric, provenance and limits
 
-The primary metric is equal-weight **policy-macro ROC AUC**; pooled AUC is separate. The official column-averaged AUC description and [host per-rule release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641121) strongly corroborate this aggregation. Executable scorer parity and a project Kaggle score are not claimed. [Arithmetic audit](reports/released/metric.json) · [Released-data boundary](docs/RELEASED_DATA.md).
+The primary metric is equal-weight **policy-macro ROC AUC**; pooled AUC is separate. The official column-averaged AUC description and [host per-rule release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641121) strongly corroborate this aggregation. Executable scorer parity is not claimed. The separately recorded late Kaggle result belongs to the original-training lexical reference. [Arithmetic audit](reports/released/metric.json) · [Released-data boundary](docs/RELEASED_DATA.md).
 
 [Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/overview) · [Host data release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641107) · [Research and model sources](docs/FEATURE_RESEARCH.md#research-sources-and-external-data-feasibility).
 
-Code: MIT. Data and third-party models retain their own terms. The canonical [Kaggle notebook](kaggle/submission.ipynb) supports the user's own offline CSV generation; this work does not upload or submit predictions automatically.
+Code: MIT. Data and third-party models retain their own terms. The canonical [Kaggle notebook](kaggle/submission.ipynb) supports the user's own offline CSV generation; notebook execution generates files locally, and the separate completed Kaggle entry is recorded above.
