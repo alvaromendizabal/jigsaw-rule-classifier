@@ -1,14 +1,21 @@
-# Download and run the completed project
+# Download notebooks and model archives
 
-The research model and the competition entry have different training-data boundaries. Research and offline delivery are complete. Kaggle Version 2 also completed its submitted hidden-test run: **0.59191 public / 0.61956 private**, as a late entry.
+The current competition notebook uses support-adapted Qwen 4B. The historical lexical entry and the accepted post-competition research model remain reproducible, with separate data boundaries and scores. The 0.92 competition objective remains open. [Current execution status](../reports/checkpoints/kaggle_adaptation.json).
 
 | Deliverable | Location | Purpose |
 | --- | --- | --- |
-| Submission notebook | [`kaggle/submission.ipynb`](../kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb) | Original-training-only lexical reference; generates `submission.csv` |
+| Submission notebook | [`kaggle/submission.ipynb`](../kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb) | Support-adapted Qwen 4B; offline Kaggle GPU; generates `submission.csv` |
+| Historical CPU reference | [`kaggle/reference.ipynb`](../kaggle/reference.ipynb) | Reproduces the original lexical method |
 | Results and example walkthrough | [`03_saved_results.ipynb`](../notebooks/03_saved_results.ipynb) | Executed research results and four authored inference examples |
 | Accepted offline model | Private S3 bundle described below | Exact accepted post-competition model; generates `predictions.csv` |
 
-## Your Kaggle submission
+## Current neural notebook
+
+Attach the official competition data and `wowfattie/qwen3-4b-instruct-2507/transformers/default/1`, select GPU T4 x2, and keep Internet off. The notebook verifies all model assets, restores the pinned tokenizer configuration, trains one fixed epoch from legitimate labels and supplied supports, and validates the output. It keeps two complete optimizer checkpoints and checksummed prediction batches. A ten-row preview verifies execution; a submitted version is rerun on hidden inputs before Kaggle returns a score.
+
+The successful T4 recovery probe and current preview/submission state are recorded in the [neural runtime receipt](../reports/checkpoints/kaggle_adaptation.json). Read that receipt before treating the method as a scored result. The notebook has no dependency on AWS credentials or post-competition released labels.
+
+## Historical lexical submission
 
 **Submitted and scored on September 9, 2026.** Kaggle reported **Succeeded (after deadline)** for [Jigsaw - Original Training Reference · Version 2](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174), using the root `submission.csv` output. The authenticated submission row and detail dialog agreed on both scores:
 
@@ -17,7 +24,7 @@ The research model and the competition entry have different training-data bounda
 | Public | **0.59191** |
 | Private | **0.61956** |
 
-[View the entry in your signed-in Kaggle account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#) · [Submission record with version and source checksums](../reports/checkpoints/kaggle_submission.json). This is a late entry; no rank or medal is claimed. No further submission action is needed.
+[View the entry in your signed-in Kaggle account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#) · [Submission record with version and source checksums](../reports/checkpoints/kaggle_submission.json). This is a late entry; no rank or medal is claimed. That historical entry is complete; a stronger entry is tracked separately.
 
 The saved preview ran in 36 seconds on CPU with Internet off and generated 10 rows. Kaggle then reran the submitted version on its hidden test data and returned the scores above. The notebook's final message about no automatic upload describes notebook execution itself; the separate successful competition submission is recorded here.
 
@@ -27,11 +34,11 @@ To inspect or reproduce the entry:
 2. Follow the notebook link to Version 2, named **Kaggle input path fix - GitHub 7e98f91**.
 3. Its **Output** tab preserves the preview `submission.csv`. The preview download is distinct from Kaggle's privately rerun hidden-test predictions.
 
-To obtain the current notebook separately, download the canonical file from GitHub using the table above. The original S3 snapshot at `releases/v1.0.0/kaggle/submission.ipynb` in `sagemaker-jigsaw-rules-560403859723-us-west-2` predates the current Kaggle mount fix. Its historical checksum and version remain in the [delivery record](../reports/checkpoints/delivery.json); use GitHub or saved Kaggle Version 2 for the corrected notebook.
+To obtain the current notebook separately, download the canonical file from GitHub using the table above. The original S3 snapshot at `releases/v1.0.0/kaggle/submission.ipynb` in `sagemaker-jigsaw-rules-560403859723-us-west-2` predates the current Kaggle mount fix. Its historical checksum and version remain in the [delivery record](../reports/checkpoints/delivery.json); use `kaggle/reference.ipynb` or saved Kaggle Version 2 to reproduce that historical reference. The current neural notebook is `kaggle/submission.ipynb`.
 
-Version 1 failed because Kaggle mounted its official files under `/kaggle/input/competitions/jigsaw-agile-community-rules`, while the original code expected `/kaggle/input/jigsaw-agile-community-rules`. The current notebook recognizes both layouts, honors an explicit local input override, and tells you to attach the official competition when required files are absent. No model or prediction algorithm changed.
+Version 1 failed because Kaggle mounted its official files under `/kaggle/input/competitions/jigsaw-agile-community-rules`, while the original code expected `/kaggle/input/jigsaw-agile-community-rules`. Version 2 corrected that path without changing its lexical algorithm. Both current notebooks recognize both layouts, honor an explicit local input override, and require the official competition files.
 
-For local or SageMaker use, open the same notebook and run all cells with `GENERATE_SUBMISSION = True`; its final cell provides the CSV download. The original downloadable preview contains **10 rows**, while original training contains **2,029 rows**. A 10-row local preview verifies software and is not the hidden competition test or a score. Kaggle supplies its evaluation input when running a submitted notebook. CI executes this notebook on both synthetic and hash-verified original preview data, then checks unchanged output on replay. [Execution proof](../reports/checkpoints/submission.json).
+For historical local or SageMaker inference, open `kaggle/reference.ipynb` and run all cells with `GENERATE_SUBMISSION = True`; its final cell provides the CSV download. The original downloadable preview contains **10 rows**, while original training contains **2,029 rows**. A 10-row local preview verifies software and is not the hidden competition test or a score. Kaggle supplies its evaluation input when running a submitted notebook. CI executes the historical reference on both synthetic and hash-verified original preview data, then checks unchanged output on replay. [Execution proof](../reports/checkpoints/submission.json).
 
 The accepted model below uses additional organizer-released post-competition labels. Its 0.7770 benchmark AUC must not be presented as this reference notebook's score.
 
@@ -77,4 +84,4 @@ On an AMD EPYC 9V74 host with nine visible logical CPUs and four PyTorch threads
 
 The warm measurement is a mean over four authored examples, not a tail-latency or production-throughput estimate. A separate fresh-environment run produced the same four probabilities within `1.12e-16`, in 17.10 seconds with an empty encoder cache and zero network calls. The serving samples do not add accuracy evidence to the protected comparison. [Machine-readable measurements](../reports/delivery/verification.json).
 
-This closes the scoped research and local inference product. Hosted serving and arbitrary-policy generalization remain outside this scope. The requested late Kaggle entry is also submitted and scored. [Model card](../MODEL_CARD.md) · [Data card](../DATA_CARD.md).
+These checks close the historical research and local inference product. Hosted serving and arbitrary-policy generalization remain outside that scope. The lexical late entry is scored; the stronger competition rebuild has its separate status above. [Historical model card](../MODEL_CARD.md) · [Data card](../DATA_CARD.md).

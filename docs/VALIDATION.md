@@ -1,7 +1,8 @@
 # Verification record
 
-**Latest milestone:** the competition rebuild has completed its frozen-feature and
-support-adaptation comparisons. The 0.92 competition objective remains open.
+**Latest milestone:** the support-adapted competition notebook passes a real,
+offline Kaggle GPU preview and unchanged-output replay. Its hidden-test submission
+is the next gate. The 0.92 competition objective remains open.
 The earlier research release and its protected cohort are historical evidence.
 [Current results and next gate](COMPETITION_REBUILD.md).
 
@@ -9,14 +10,33 @@ This record separates software correctness, executed research, notebook renderin
 
 ## Competition rebuild verification — September 9, 2026
 
-The current local gate passes **360 tests in 56.32 seconds**, compilation, Ruff,
-formatting and canonical notebook-source parity. All five public notebooks
-execute and replay with the in-process engine; the two current comparison figures
-have Plotly and verified SVG representations. No error output remains. The prior
-code commit `ca793600b17cedc7ff78a45c5ab51ac970d042ef` also passed all 360 tests and
-all five actual Jupyter executions/replays in
-[CI run 34413323057](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34413323057).
-That CI run preceded the final adaptation result publication.
+The runtime branch passes **371 tests**, compilation, Ruff, formatting and
+canonical notebook-source parity. All five public research notebooks execute and
+replay in actual Jupyter kernels in
+[CI run 34417108269](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34417108269),
+for commit `a4936977c945110ea5b86398cdfb9d2a9f12556b`. The same run passes synthetic
+and original-preview historical reference checks, unchanged-output replay, the
+real pinned encoder check and report rendering. Local notebook execution/replay
+uses the in-process engine and is not substituted for that actual Jupyter gate.
+
+The current neural notebook executes on Kaggle's pinned 2026-06-30 environment,
+with Internet off and Tesla T4 GPUs. All 11 model assets match the pinned upstream
+revision; the notebook restores its exact tokenizer configuration and license.
+It removes the installed, incompatible optional torchao package before importing
+PEFT. A separate authored GPU probe deliberately resumes a fresh model after
+optimizer step 1, including optimizer, scheduler, scaler and RNG state.
+
+Real preview run `d33a5b1bfe0b448ba686` finishes on September 9 at 23:30:23 UTC:
+1,862 distinct fitting pairs, 117 optimizer steps, 612.27 worker seconds, 8.26 GiB
+maximum allocated GPU memory, and ten validated output rows. FP16 loss scaling
+remains 128 with no overflow. The completed replay verifies the same output SHA-256
+`6a84756f5789465e1069bf9ada4ac3564429fd01a024c74239a5ba14b4fa7804`
+without loading or fitting the model. The preview has no new policies and cannot
+measure competition accuracy or hidden-run duration. Its source and input hashes,
+runtime measurements are preserved in
+[the runtime receipt](../reports/checkpoints/kaggle_adaptation.json). The runnable
+source is [the canonical notebook](../kaggle/submission.ipynb). The old lexical notebook is
+now explicitly named `kaggle/reference.ipynb`.
 
 AWS support study `d13858b7407993fcc6e8` completed both folds and deliberately
 reloaded a fresh model at optimizer step 8 in each. Adapter, optimizer, scheduler,
@@ -34,7 +54,7 @@ not a Kaggle submission result. [Cloud receipt](../reports/checkpoints/support_a
 and [aggregate checksums](../reports/support_adaptation/metadata.json) preserve the
 runtime, exact configuration, source identity, measurements and limitations.
 
-## Current milestone: feature research closure
+## Historical milestone: feature research closure
 
 The 2026-09-09 closeout passes **263 tests in 115.66 seconds**, compilation, Ruff, formatting and canonical notebook-source checks. The full quality invocation takes 120.06 seconds. Tests additionally cover policy-intent compilation, support/batch invariance, forbidden target access, independent cache identity, all five replacement tolerances, fixed fusion and stale stopping-rationale publication. The feature gate now permits final model development and explicitly denies production promotion.
 
