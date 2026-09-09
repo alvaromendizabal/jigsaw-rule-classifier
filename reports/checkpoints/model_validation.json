@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "verified_at": "2026-09-09T02:40:44.324642+00:00",
+  "s3_uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/model-validation-20260909T0148/checkpoints/model-validation.tar.gz",
+  "version_id": "WtASv0BboNNGl4q0iM08NVhJ8hwtB_1B",
+  "bytes": 115145689,
+  "sha256": "e70ef2a70e032e6d832b8979e47e74c2bdd05215721205d92f7b52a044bc0ca3",
+  "server_checksum_matches": true,
+  "encryption": "AES256",
+  "expected_bucket_owner": "560403859723",
+  "payload_files_verified": 186,
+  "completion_markers_verified": 20,
+  "restore_method": "Independent S3 GET; validate archive digest, every payload digest and every completion-marker member digest",
+  "models_refitted": 0,
+  "reserved_targets_accessed": false
+}
