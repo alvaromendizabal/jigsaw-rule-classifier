@@ -1,5 +1,5 @@
 {
-  "status": "launched",
+  "status": "completed",
   "job_name": "jigsaw-competition-features-20260909",
   "source_sha256": "9fc7755d0d8fd7121b87db451fec50bfc04ee4e5f2b733d830874406449eb0b5",
   "source_version_id": "q.UkxZfdLyS3mqLGl1s7sa7AuXpSZOkk",
@@ -59,5 +59,17 @@
       }
     ],
     "TrainingJobName": "jigsaw-competition-features-20260909"
+  },
+  "run_id": "fe1da83fc62341bf608d",
+  "billable_seconds": 861,
+  "estimated_compute_usd": 0.26954083333333334,
+  "inference_seconds": 565.57783855,
+  "representations_sha256": "47884bbb86d4cc49dd0499f6b73e1dac38d4a629e50c1d846253c095a158c9b3",
+  "evaluation_run": "fdec81b38e31d39e4c19",
+  "replay_attempt": {
+    "job_name": "jigsaw-competition-features-replay-20260909",
+    "status": "failed_before_worker",
+    "billable_seconds": 188,
+    "reason": "Pre-existing base-image aiobotocore/botocore and pyiceberg/cachetools dependency conflicts. Compatible versions now pinned; replay precedes support adaptation."
   }
 }

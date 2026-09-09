@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "study": "frozen_4b_competition_features",
+  "evaluation_run": "fdec81b38e31d39e4c19",
+  "code_preregistration_commit": "e5aeec1977f2221594e8dc75e5c058efa54057ff",
+  "numerical_correction": "Reconstruct float64 probabilities from stored log odds; float32 sigmoid saturated 867 rule-only scores and lost ranking. No new GPU inference.",
+  "decision": "Reject learned coordinate bank; task-aligned support adaptation remains open.",
+  "files": {
+    "results.json": "a120dbe00b5db0059a4fcedab8fa34750ff47429a2629c74ffaa26f87181eb16",
+    "screening.json": "d1c0256e32bfd5d2f93ae223d44b3a1f3f121166fa57f5a40334f0812135c68c",
+    "uncertainty.json": "8d38662ae0217a24ccd66e69f5407a77a78939f213515ca3ed12a70a1fcfb825",
+    "protocol.json": "f3db90e3893b6b3eca1180cbdc0412b9935f2ad357111e47d7c6b1d867f14ece",
+    "augmentation.json": "b27462531b534b866d6fee3cc572214687551bf8e052cc52b605af66a28b51d4",
+    "provenance.json": "7939cb60d48e4a73a385e8b17cf0e241b8487d9d910cdd71308d2ed816256726",
+    "inference.json": "5ed88fa27c19a9f7701db4412a774e32af8375257cc746e9c839f3a6c2ca6b3d"
+  }
+}

@@ -108,5 +108,27 @@ def build(root):
     return plot
 
 
+def display_comparison(root):
+    from IPython.display import display
+
+    evidence(root)
+    folder = root / "reports/competition_features"
+    manifest = json.loads((folder / "figures.json").read_text())
+    if manifest["source_metadata_sha256"] != digest(folder / "metadata.json"):
+        raise ValueError("Competition figure has stale evidence")
+    for name, sha in manifest["files"].items():
+        if Path(name).name != name or digest(folder / name) != sha:
+            raise ValueError("Competition figure checksum differs")
+    display(
+        {
+            "application/vnd.plotly.v1+json": json.loads(
+                (folder / "comparison.plotly.json").read_text()
+            ),
+            "image/svg+xml": (folder / "comparison.svg").read_text(),
+        },
+        raw=True,
+    )
+
+
 if __name__ == "__main__":
     build(Path(__file__).resolve().parents[1])

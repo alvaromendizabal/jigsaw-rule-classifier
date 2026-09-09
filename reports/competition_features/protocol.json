@@ -1,0 +1,57 @@
+{
+  "scope": "Original-data development; not a new holdout or Kaggle score",
+  "primary_metric": "equal-weight policy-macro ROC AUC",
+  "secondary_metric": "pooled ROC AUC and probability diagnostics",
+  "unique_candidates": 15369,
+  "fixed_classifier_fits": 45,
+  "splits": [
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "training_rows": 237,
+      "validation_rows": 676,
+      "purged_rows": 1116,
+      "split_sha256": "93fbeb5477c5cf31697f4dde3a26d724e4c42f3f56ebb741d4d4308bdd694ada"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "training_rows": 287,
+      "validation_rows": 677,
+      "purged_rows": 1065,
+      "split_sha256": "33e5f45bbe04047887f1b9cacc14a4929643e2e72c56f2864fecc5b5dbce4498"
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "training_rows": 279,
+      "validation_rows": 676,
+      "purged_rows": 1074,
+      "split_sha256": "d3698ed023b2afbba3a6c89a5cf3867ef7a382393a97cf2d423d1f94c3b50fb6"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "training_rows": 961,
+      "validation_rows": 1012,
+      "purged_rows": 56,
+      "split_sha256": "dc48e4a28c3e0ea5a35a7394a91737bd3b4c7dab3f7471590177b9da9ca1d9b7"
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "training_rows": 975,
+      "validation_rows": 1017,
+      "purged_rows": 37,
+      "split_sha256": "9a33f8bef96c717a81a55036e4571cf280e3052f652fcd109788cf86b5597466"
+    }
+  ],
+  "self_support_overlap_rows": 18,
+  "limitations": [
+    "Two development policies only; four hidden new policies untested here.",
+    "Purging reduces training size; absolute CV is not an LB forecast.",
+    "Old 0.6B comparisons change the model, prompt, and field budgets.",
+    "Feature contrasts hold the 4B model and classifier settings fixed.",
+    "No tuning on the already-consumed post-competition protected evaluation."
+  ]
+}

@@ -92,6 +92,65 @@ replay does not invoke the encoder. The launch receipt records the exact AWS
 image, source version, rate and job. Runtime, completed artifacts and measured
 results must be checked before calling the experiment complete.
 
+### Measured result: reject the frozen coordinate bank
+
+The GPU extraction completed 6,087 prompts with zero truncations. The CPU study
+completed all 45 fixed feature-bank fits and five lexical-reference fits.
+
+| Original-data held-out policy comparison | Policy-macro AUC |
+|---|---:|
+| Lexical reference | 0.6156 |
+| Frozen 4B rule answer | 0.7081 |
+| Frozen 4B joint rule/example answer | 0.7056 |
+| Screened rule representation | 0.5508 |
+| Screened joint representation | 0.4881 |
+| Screened combined feature bank | 0.4516 |
+
+The full bank retains 64 of 15,369 columns in each fold: 15,300 exceed the fixed
+screen budget and five are constant or nearly constant. The rule-answer gain over
+the lexical reference is +0.0926, with a within-study simultaneous 95% interval
+of [0.0476, 0.1376]. Adding supplied examples to the prompt changes AUC by -0.0026
+[-0.0476, 0.0424]. This provides no evidence of a useful prompt-context gain.
+The learned coordinate bank fails transfer and is rejected.
+[Verified aggregates](../reports/competition_features/metadata.json).
+
+A numerical audit found that float32 sigmoid rounded 867 rule-only probabilities
+to one, losing ranking information. Reconstructing float64 probabilities from the
+saved log odds corrects AUC from 0.6883 to 0.7081 without any new inference. The
+recomputed study includes that correction and leaves the full-bank result at
+0.4516. Raw probability losses remain poor. These are original-data development
+scores, not new Kaggle scores or evidence that the 0.92 objective has been reached.
+
+### Next controlled comparison: learning from supplied supports
+
+`configs/support_adaptation.json` fixes one epoch of rank-8 LoRA on the same 4B
+backbone and the identical rule-only prompt. Only the final Yes/No token contributes
+to the loss. The new rule's supplied support pairs occur twice; other legitimate
+training pairs occur once. No subreddit is used for deduplication or prompting.
+
+The target-blind novel-comment cohort contains **881 rows**: 234 for one policy
+and 647 for the other. All 1,148 rows whose body occurs in any supplied support
+pool are excluded from evaluation. Per fold, 1,640/1,215 unambiguous unique training
+pairs remain after purging, including 629/366 pairs from the new rule's supplied
+supports. Query targets are absent from the cloud input; every query body is
+excluded from every fitted source. This tests **support adaptation to a new rule**,
+which is a different task from zero-shot held-out-rule validation.
+
+The comparisons hold the model and training inputs fixed: direct log-odds ranking,
+screened 2,560-dimensional decision representations, positive/negative centroid
+and nearest-example margins, and a fixed 50/25/25 rank blend. Top-five-neighbor
+margins are secondary geometry diagnostics. Readout screens use supplied training
+labels only. The paired group bootstrap covers five declared contrasts. Neither
+the original two-policy cohort nor the consumed post-competition holdout is a new
+untouched validation set.
+
+Training checkpoints include adapter weights, optimizer, learning-rate scheduler,
+Python/NumPy/Torch/CUDA random state, exact data order, step and source/configuration
+identity. A CPU interruption test with nonzero dropout reproduces uninterrupted
+adapter weights bit for bit. The bounded GPU job also deliberately reloads a
+fresh model after its first durable optimizer checkpoint in each fold. Completion
+and successful GPU recovery must be observed before claiming that gate passed.
+
 ## Subsequent acceptance gates
 
 1. **Representation evidence.** Publish retained/rejected counts, matched-family

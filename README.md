@@ -10,6 +10,8 @@ Predict whether a comment violates a supplied community rule, using the rule and
 
 Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. The late Kaggle lexical-reference scores are reported separately from the post-competition research. No medal or state-of-the-art claim is made.
 
+**Current rebuild evidence:** the frozen 4B rule score reaches **0.7081** on the original held-out-policy development test, versus **0.6156** for the lexical reference. Screening 15,369 frozen feature candidates leaves a combined bank at **0.4516**, so it is rejected. The next controlled experiment learns from legitimate supplied support examples and evaluates 881 novel comments. These are development results, not new Kaggle scores. [Measured failures and adaptation protocol](docs/COMPETITION_REBUILD.md).
+
 ## Protected result: the fixed candidate is accepted
 
 Predictions were frozen in [commit 530ad799](https://github.com/alvaromendizabal/jigsaw-rule-classifier/commit/530ad79929012e807cb42a5253f7b92b090682ec) before eligible targets were first interpreted on September 9, 2026. All **12 preregistered acceptance checks passed**, with no new model fitting or candidate selection.
@@ -57,7 +59,7 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 [Expanded study and results](docs/EXPANDED_STUDY.md) · [Retrieval experiment](docs/RETRIEVAL_STUDY.md) · [Embedding resolution](docs/RESOLUTION_STUDY.md) · [Historical methods and feature provenance](docs/FEATURE_RESEARCH.md).
 
-## Completed scope and deliverables
+## Historical research scope and deliverables
 
 **Feature research: COMPLETE for the declared four-policy scope.** Retain the original frozen centroid for unseen policies. Seven new semantic candidates and one fixed average fail the predeclared replacement criteria. The average's higher AUC is uncertain, advertising regresses and probability losses worsen. [Stopping evidence](reports/feature_decision/decision.json) · [Coverage and exclusions](docs/FEATURE_COVERAGE.md) · [Semantic results](docs/SEMANTIC_FORMATTING.md).
 
@@ -65,7 +67,7 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 **Protected confirmation and offline delivery: COMPLETE.** The exact accepted artifact is packaged with its pinned encoder and locked runtime. Real offline predictions match saved cloud probabilities within **0.00000122**; batch/order parity, missing-support rejection and restart reuse pass. A separate environment restored the package and ran with zero network calls. On the tested CPU, peak memory was **3.88 GiB** and warm mean latency **1.11 seconds per authored comment**. These are small-run measurements, not production-load estimates. [Download and measured budgets](docs/DELIVERY.md).
 
-**Portfolio delivery: COMPLETE.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make the scoped project reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry.
+**Historical portfolio artifacts: delivered.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make that scoped study reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry. The competition performance objective remains open.
 
 The historical research and local inference release remains preserved. The original baseline was submitted and scored, but the competition performance goal is open. [Current rebuild](docs/COMPETITION_REBUILD.md). [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
 
@@ -90,7 +92,7 @@ uv run jigsaw gate
 uv run python scripts/verify_expanded.py
 ```
 
-Automated tests, locked dependencies and CI cover software contracts. Private verification checks all 100 expanded/retrieval metric records and 20 new semantic metric records, replays 14 earlier and all 28 new fitted models, and rebuilds all 28 new feature transforms. Source/configuration/data identities, completed-stage hashes and encrypted S3 archives preserve expensive work. Interrupted active stages restart; intact completed work is reused. Neural optimizer-state recovery is not claimed. [Actual quality and execution record](docs/VALIDATION.md).
+Automated tests, locked dependencies and CI cover software contracts. Private verification checks all 100 expanded/retrieval metric records and 20 new semantic metric records, replays 14 earlier and all 28 new fitted models, and rebuilds all 28 new feature transforms. Source/configuration/data identities, completed-stage hashes and encrypted S3 archives preserve expensive work. Interrupted active stages restart; intact completed work is reused. The historical frozen-model runners do not have neural optimizer state. The new support-adaptation runner saves adapter, optimizer, scheduler and RNG state; its cloud verification status is recorded in the rebuild receipt. [Actual quality and execution record](docs/VALIDATION.md).
 
 [START_HERE.md](START_HERE.md) covers restoration and the user's offline submission workflow. [VALIDATION.md](docs/VALIDATION.md) records actual executions, checksums and limits. Public aggregates do not substitute for private OOF verification.
 

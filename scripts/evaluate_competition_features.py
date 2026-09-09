@@ -9,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.special import expit
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -65,6 +66,10 @@ def run(root: Path, representations: Path, output: Path):
         if not np.array_equal(stored["row_ids"], frame.row_id.to_numpy()):
             raise ValueError("Representation row order differs from development data")
         scores, vectors = stored["scores"], stored["vectors"]
+    # The float32 extraction probability saturates at 1 around log odds 17.
+    # Reconstruct in float64 from the saved margins; never discard their ranking.
+    scores = scores.astype(float)
+    scores[:, :, 0] = expit(scores[:, :, 1])
     contract = {
         "training_sha256": digest(root / "data/raw/train.csv"),
         "representations_sha256": digest(representations),
