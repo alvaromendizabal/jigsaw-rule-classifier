@@ -1,0 +1,168 @@
+[
+  {
+    "model": "frozen_raw",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.6146000841324775,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5704850746268657,
+        "No legal advice: Do not offer or request legal advice.": 0.6587150936380892
+      },
+      "pooled_auc": 0.6352429621660391
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability",
+    "raw_probability_diagnostics": {
+      "log_loss": 4.8858406377493315,
+      "brier": 0.375608995150897,
+      "ece_10_equal_width_bins": 0.3726178266882576
+    }
+  },
+  {
+    "model": "frozen_screened_embedding",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.6714777871128497,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5854850746268656,
+        "No legal advice: Do not offer or request legal advice.": 0.7574704995988337
+      },
+      "pooled_auc": 0.7117019481272876
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "frozen_centroid",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.6434078520092051,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5954104477611941,
+        "No legal advice: Do not offer or request legal advice.": 0.6914052562572162
+      },
+      "pooled_auc": 0.6658465968420719
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "frozen_nearest",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.6621651878617908,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6027985074626865,
+        "No legal advice: Do not offer or request legal advice.": 0.7215318682608951
+      },
+      "pooled_auc": 0.6899476842915757
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "frozen_top5",
+    "primary_readout": false,
+    "metrics": {
+      "rule_macro_auc": 0.7012980537957167,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6644402985074626,
+        "No legal advice: Do not offer or request legal advice.": 0.7381558090839709
+      },
+      "pooled_auc": 0.718552563575188
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "frozen_geometry_blend",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.6498674066459545,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5994402985074626,
+        "No legal advice: Do not offer or request legal advice.": 0.7002945147844465
+      },
+      "pooled_auc": 0.6740815745340631
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "adapted_raw",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.7198933966592936,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6792537313432836,
+        "No legal advice: Do not offer or request legal advice.": 0.7605330619753037
+      },
+      "pooled_auc": 0.7389593814933182
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability",
+    "raw_probability_diagnostics": {
+      "log_loss": 0.7231925503075073,
+      "brier": 0.22915344091520098,
+      "ece_10_equal_width_bins": 0.1545489369153027
+    }
+  },
+  {
+    "model": "adapted_screened_embedding",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.7173690930194725,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6754477611940298,
+        "No legal advice: Do not offer or request legal advice.": 0.759290424844915
+      },
+      "pooled_auc": 0.7370028161883365
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "adapted_centroid",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.7184704661561374,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.670820895522388,
+        "No legal advice: Do not offer or request legal advice.": 0.7661200367898867
+      },
+      "pooled_auc": 0.7407682814922635
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "adapted_nearest",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.6790779030816056,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.638507462686567,
+        "No legal advice: Do not offer or request legal advice.": 0.7196483434766443
+      },
+      "pooled_auc": 0.698058728601715
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "adapted_top5",
+    "primary_readout": false,
+    "metrics": {
+      "rule_macro_auc": 0.714525421122407,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6658955223880597,
+        "No legal advice: Do not offer or request legal advice.": 0.7631553198567542
+      },
+      "pooled_auc": 0.7372717779957599
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  },
+  {
+    "model": "adapted_geometry_blend",
+    "primary_readout": true,
+    "metrics": {
+      "rule_macro_auc": 0.717958517986183,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6770522388059701,
+        "No legal advice: Do not offer or request legal advice.": 0.758864797166396
+      },
+      "pooled_auc": 0.7373983482580767
+    },
+    "score_kind": "within-policy rank score; not a calibrated probability"
+  }
+]

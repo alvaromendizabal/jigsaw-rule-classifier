@@ -2,13 +2,15 @@
 
 Predict whether a comment violates a supplied community rule, using the rule and examples of permitted and prohibited comments.
 
-**Start with [03 · Results and examples](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The fixed model passed its protected comparison on 43,509 rows. Research, confirmation and the verified local inference product are complete.
+**Start with [03 · Results and examples](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The historical research model passed its protected comparison on 43,509 rows. **Competition performance is being rebuilt:** the submitted lexical reference scored only **0.61956 private**, well below the approximately **0.92** objective. [Failure analysis and reopened feature gate](docs/COMPETITION_REBUILD.md).
 
-**Kaggle entry complete:** Version 2 succeeded as a late submission: **0.59191 public / 0.61956 private**. These are the original-training lexical reference scores. [Submission record](reports/checkpoints/kaggle_submission.json) · [Kaggle result, signed-in account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#). **Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
+**Original baseline submission:** Version 2 succeeded as a late submission: **0.59191 public / 0.61956 private**. These are the original-training lexical reference scores. [Submission record](reports/checkpoints/kaggle_submission.json) · [Kaggle result, signed-in account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#). **Get the submission notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
 Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. The late Kaggle lexical-reference scores are reported separately from the post-competition research. No medal or state-of-the-art claim is made.
+
+**Current rebuild evidence:** support adaptation improves the same 4B model from **0.6146 to 0.7199 AUC on 881 novel comments**, with a paired simultaneous 95% gain interval of **[0.0612, 0.1493]**. Adapted coordinates and a fixed prototype blend do not improve its direct score. The earlier full 2,029-row study rejected a 15,369-column frozen feature bank. Both experiments, optimizer recovery and evaluation replay are complete. These are development results, not new Kaggle scores; the **0.92 objective remains open**. [Measured comparisons and next execution gate](docs/COMPETITION_REBUILD.md).
 
 ## Protected result: the fixed candidate is accepted
 
@@ -57,7 +59,7 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 [Expanded study and results](docs/EXPANDED_STUDY.md) · [Retrieval experiment](docs/RETRIEVAL_STUDY.md) · [Embedding resolution](docs/RESOLUTION_STUDY.md) · [Historical methods and feature provenance](docs/FEATURE_RESEARCH.md).
 
-## Completed scope and deliverables
+## Historical research scope and deliverables
 
 **Feature research: COMPLETE for the declared four-policy scope.** Retain the original frozen centroid for unseen policies. Seven new semantic candidates and one fixed average fail the predeclared replacement criteria. The average's higher AUC is uncertain, advertising regresses and probability losses worsen. [Stopping evidence](reports/feature_decision/decision.json) · [Coverage and exclusions](docs/FEATURE_COVERAGE.md) · [Semantic results](docs/SEMANTIC_FORMATTING.md).
 
@@ -65,9 +67,9 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 **Protected confirmation and offline delivery: COMPLETE.** The exact accepted artifact is packaged with its pinned encoder and locked runtime. Real offline predictions match saved cloud probabilities within **0.00000122**; batch/order parity, missing-support rejection and restart reuse pass. A separate environment restored the package and ran with zero network calls. On the tested CPU, peak memory was **3.88 GiB** and warm mean latency **1.11 seconds per authored comment**. These are small-run measurements, not production-load estimates. [Download and measured budgets](docs/DELIVERY.md).
 
-**Portfolio delivery: COMPLETE.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make the scoped project reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry.
+**Historical portfolio artifacts: delivered.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make that scoped study reviewable and runnable. The original-training-only Kaggle notebook is preserved separately from the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry. The competition performance objective remains open.
 
-The declared research and local inference scope is closed. The requested late Kaggle entry is submitted and scored. Hosted deployment remains outside the completed scope. [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
+The historical research and local inference release remains preserved. The original baseline was submitted and scored, but the competition performance goal is open. [Current rebuild](docs/COMPETITION_REBUILD.md). [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
 
 ## Review or reproduce
 
@@ -90,7 +92,7 @@ uv run jigsaw gate
 uv run python scripts/verify_expanded.py
 ```
 
-Automated tests, locked dependencies and CI cover software contracts. Private verification checks all 100 expanded/retrieval metric records and 20 new semantic metric records, replays 14 earlier and all 28 new fitted models, and rebuilds all 28 new feature transforms. Source/configuration/data identities, completed-stage hashes and encrypted S3 archives preserve expensive work. Interrupted active stages restart; intact completed work is reused. Neural optimizer-state recovery is not claimed. [Actual quality and execution record](docs/VALIDATION.md).
+Automated tests, locked dependencies and CI cover software contracts. Private verification checks all 100 expanded/retrieval metric records and 20 new semantic metric records, replays 14 earlier and all 28 new fitted models, and rebuilds all 28 new feature transforms. Source/configuration/data identities, completed-stage hashes and encrypted S3 archives preserve expensive work. Interrupted active stages restart; intact completed work is reused. The historical frozen-model runners do not have neural optimizer state. The new support-adaptation runner saves adapter, optimizer, scheduler and RNG state; its cloud verification status is recorded in the rebuild receipt. [Actual quality and execution record](docs/VALIDATION.md).
 
 [START_HERE.md](START_HERE.md) covers restoration and the user's offline submission workflow. [VALIDATION.md](docs/VALIDATION.md) records actual executions, checksums and limits. Public aggregates do not substitute for private OOF verification.
 

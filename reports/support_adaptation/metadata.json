@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "study": "original_policy_support_adaptation",
+  "evaluation_run": "3836f7a69996714f76b0",
+  "code_preregistration_commit": "ca793600b17cedc7ff78a45c5ab51ac970d042ef",
+  "decision": "Retain support adaptation for the next competition candidate. No evidence that the tested coordinate readout or fixed prototype blend improves its direct answer score. The 0.92 Kaggle objective remains open.",
+  "files": {
+    "results.json": "9a82581f63ddca049b87bbbe32174379a19ded7367f83d6d6738c3f267b1b10e",
+    "screening.json": "1ddd7ebd11bb7a8d625f99d10af28e95755fcb01c463fa8143c17565f8f024a9",
+    "uncertainty.json": "d8c10c267627f4f254a6d5844470c34811cc3a1abd0224e9d64fbbaf0f7c9b3b",
+    "protocol.json": "c9bfaba6021a7a58c6b7a0db99880bbb579718bb756a871ebc30aa4680d2dffa",
+    "provenance.json": "27f43d8ddfe32f219e2091a99d2482152ac234751a106c6507ff9f569cdddc47",
+    "inference.json": "c78450d4bfcc38a0dac49348382ccd2f0ddc4534b4fb970ca474cffe81436442"
+  }
+}

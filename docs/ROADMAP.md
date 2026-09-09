@@ -1,5 +1,7 @@
 # Research plan and acceptance gates
 
+**Current status — competition gate reopened:** the original lexical entry scored 0.61956 private. The approximately 0.92 performance objective is unmet. [Competition rebuild](COMPETITION_REBUILD.md) supersedes the earlier overall closeout language below; completed historical experiments and their frozen evidence remain preserved.
+
 The goal is a defensible, high-performing rule-conditioned classifier and an understandable engineering portfolio. Medal-level performance is an ambition, not a guarantee or a current result.
 
 | Phase | Work | Evidence required before moving on |

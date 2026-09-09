@@ -1,0 +1,72 @@
+[
+  {
+    "contrast": "support adaptation at fixed backbone",
+    "candidate": "adapted_raw",
+    "reference": "frozen_raw",
+    "observed_delta": 0.10529331252681629,
+    "ci_lower": 0.06743071816374313,
+    "ci_upper": 0.14296536228564027,
+    "simultaneous_lower": 0.06123697740459532,
+    "simultaneous_upper": 0.14934964764903724,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "adapted coordinates at fixed readout",
+    "candidate": "adapted_screened_embedding",
+    "reference": "frozen_screened_embedding",
+    "observed_delta": 0.045891305906622715,
+    "ci_lower": 0.00880038603317898,
+    "ci_upper": 0.08845252812055976,
+    "simultaneous_lower": 0.0018349707844017502,
+    "simultaneous_upper": 0.08994764102884367,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "prototype blend contribution",
+    "candidate": "adapted_geometry_blend",
+    "reference": "adapted_raw",
+    "observed_delta": -0.001934878673110707,
+    "ci_lower": -0.009726911769801214,
+    "ci_upper": 0.005228787221995097,
+    "simultaneous_lower": -0.04599121379533167,
+    "simultaneous_upper": 0.04212145644911026,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "adapted class geometry",
+    "candidate": "adapted_centroid",
+    "reference": "frozen_centroid",
+    "observed_delta": 0.07506261414693238,
+    "ci_lower": 0.041826249553928455,
+    "ci_upper": 0.10770726518679304,
+    "simultaneous_lower": 0.031006279024711418,
+    "simultaneous_upper": 0.11911894926915334,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "screened representation versus answer",
+    "candidate": "adapted_screened_embedding",
+    "reference": "adapted_raw",
+    "observed_delta": -0.002524303639821368,
+    "ci_lower": -0.021734628483075842,
+    "ci_upper": 0.01653107167493831,
+    "simultaneous_lower": -0.04658063876204233,
+    "simultaneous_upper": 0.041532031482399596,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  }
+]

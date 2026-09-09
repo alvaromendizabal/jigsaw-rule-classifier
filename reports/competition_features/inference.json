@@ -1,0 +1,22 @@
+{
+  "run_id": "fe1da83fc62341bf608d",
+  "status": "completed",
+  "rows": 2029,
+  "prompts": 6087,
+  "dimension": 2560,
+  "reused_shards": 0,
+  "input_sha256": "4ab681481cf3539c3d743be5020572585cc3d959a56722cf9993b55149f8c155",
+  "representations_sha256": "47884bbb86d4cc49dd0499f6b73e1dac38d4a629e50c1d846253c095a158c9b3",
+  "total_seconds": 565.57783855,
+  "peak_gpu_gib": 7.695798873901367,
+  "field_truncations": {
+    "body": 0,
+    "rule": 0,
+    "subreddit": 0,
+    "positive_example_1": 0,
+    "positive_example_2": 0,
+    "negative_example_1": 0,
+    "negative_example_2": 0
+  },
+  "max_tokens": 657
+}

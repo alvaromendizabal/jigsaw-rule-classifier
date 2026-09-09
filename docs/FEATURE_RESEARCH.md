@@ -1,5 +1,7 @@
 # Feature research record and completion gate
 
+**Current status — competition gate reopened:** the original lexical entry scored 0.61956 private. The approximately 0.92 performance objective is unmet. [Competition rebuild](COMPETITION_REBUILD.md) supersedes the earlier overall closeout language below; completed historical experiments and their frozen evidence remain preserved.
+
 **Historical two-policy experiments.** The current four-policy results and decisions are in [EXPANDED_STUDY.md](EXPANDED_STUDY.md), [RETRIEVAL_STUDY.md](RETRIEVAL_STUDY.md) and [RESOLUTION_STUDY.md](RESOLUTION_STUDY.md). Counts and scores below retain their original cohort.
 
 **Status: complete for the declared scope.** The feature stopping gate, final model, protected confirmation and local inference delivery have passed. Historical experiment descriptions below retain their original boundaries. Notebook `02` is the canonical research narrative; [delivery and downloads](DELIVERY.md) describe the completed product.

@@ -31,8 +31,12 @@ SETUP = """import os
 from pathlib import Path
 import pandas as pd
 from IPython.display import display
+import plotly.io as pio
 from jigsaw_rules.review import public_evidence
 from jigsaw_rules.runtime import environment
+
+# Every figure also supplies an SVG fallback. Keep JavaScript bundles out of the notebook.
+pio.renderers.default = "plotly_mimetype"
 
 root = Path(os.environ.get("JIGSAW_ROOT", Path.cwd())).resolve()
 if root.name == "notebooks":
@@ -511,6 +515,77 @@ else:
         "language": "python",
         "name": "python3",
     }
+    # Preserve the five canonical notebooks while clearly reopening the competition gate.
+    for name in ("02_baseline_and_review", "03_saved_results"):
+        nb = outputs[f"notebooks/{name}.ipynb"]
+        title = nb.cells[0].source.split("\n", 1)[0]
+        nb.cells[0] = notebook(
+            [
+                (
+                    "md",
+                    title
+                    + "\n\n**Current decision: competition performance remains open.** The original lexical submission scored **0.59191 public / 0.61956 private**, below the approximately **0.92** objective. A successful submission did not complete the performance goal. The historical research below used post-competition development labels and remains a separate, preserved result. The new original-data representation study reopens the feature gate; [the rebuild record](../docs/COMPETITION_REBUILD.md) explains the failure and next acceptance steps.",
+                )
+            ]
+        ).cells[0]
+    new_cells = notebook(
+        [
+            (
+                "md",
+                "## Competition rebuild: richer rule and example representations\n\n**Question:** At a fixed 4B backbone and classifier, do joint context and representation interactions improve policy transfer? The extractor never receives development targets. All learned screens and classifiers fit inside purged training folds. These are repeated development measurements on two policies, not a new holdout or a Kaggle score. The original lexical submission remains the recorded baseline.",
+            ),
+            (
+                "code",
+                "import sys\nsys.path.insert(0, str(root / 'scripts'))\nfrom build_competition_report import evidence as competition_evidence, display_comparison\ncompetition = competition_evidence(root)\nprint('Inference run:', competition['provenance']['inference_run_id'])\nprint('Unique candidate columns:', competition['protocol']['unique_candidates'])\nprint('Fixed classifier fits:', competition['protocol']['fixed_classifier_fits'])\ndisplay(metric_table(competition['results'], heldout=True))\ndisplay_comparison(root)",
+            ),
+            (
+                "md",
+                "### Feature attribution and screening\nThe rule-score comparison against TF-IDF changes the model. The context and representation contrasts below hold the 4B backbone fixed. Simultaneous intervals cover the declared contrasts within this study; they do not remove selection across earlier experiments. Candidate counts are per bank, with overlap across combined banks; only the unique total above may be used for overall feature-count claims.",
+            ),
+            (
+                "code",
+                "counts = pd.DataFrame(competition['screening'])\ndisplay(counts.groupby(['protocol', 'bank'])[['candidates', 'retained', 'rejected']].agg(['min', 'max']))\ncontrasts = pd.DataFrame(competition['uncertainty'])\ndisplay(contrasts[['protocol', 'contrast', 'observed_delta', 'simultaneous_lower', 'simultaneous_upper']].round(4))\nprint('Self-support overlap rows:', competition['protocol']['self_support_overlap_rows'])\nprint('Every result also records metrics excluding these rows.')\nfor limitation in competition['protocol']['limitations']:\n    print('-', limitation)",
+            ),
+            (
+                "md",
+                "### What this does and does not close\nA wide bank is useful only if its gains survive the matched ablations. The next section tests support-pair adaptation and adapted prototype/nearest-example features. The earlier protected cohort has already been evaluated and cannot become a tuning set. Read the measured decision in [Competition rebuild](../docs/COMPETITION_REBUILD.md) before promoting a new submission.",
+            ),
+        ]
+    ).cells
+    adaptation_cells = notebook(
+        [
+            (
+                "md",
+                "## Learn the new rule from its supplied examples\n\n**Question:** Does task-specific representation learning improve genuinely novel comments when labeled supports for a new rule are available? This is a support-adaptation test, distinct from zero-shot transfer. The same 4B model and rule-only prompt are compared before and after one fixed epoch of LoRA. Query labels never enter the GPU input, and every query body is purged from all fitting sources. The classical readouts and prototype features use only that policy's known support labels.\n\nThe cohort contains 881 original-data comments across two previously examined policies; 1,148 comments present in a supplied support pool are excluded. This is development evidence, not a new untouched test or a Kaggle score. Frozen/adapted comparisons isolate representation learning, while prototype additions compare features at the same adapted backbone.",
+            ),
+            (
+                "code",
+                "from build_adaptation_report import evidence as adaptation_evidence, display_comparison as display_adaptation\nadaptation = adaptation_evidence(root)\nprint('Cloud run:', adaptation['inference']['run_id'])\nprint('Novel evaluation comments:', adaptation['protocol']['rows'])\nprint('Candidate coordinates and geometry columns:', adaptation['protocol']['unique_candidate_columns'])\npolicies = sorted(adaptation['results'][0]['metrics']['per_rule_auc'])\nfor i, policy in enumerate(policies, 1):\n    print(f'Policy {i}:', policy)\ncomparison_rows = []\nfor record in adaptation['results']:\n    comparison_rows.append({'Representation': record['model'], 'Policy-macro AUC': record['metrics']['rule_macro_auc'], **{f'Policy {i} AUC': record['metrics']['per_rule_auc'][policy] for i, policy in enumerate(policies, 1)}})\ndisplay(pd.DataFrame(comparison_rows).round(4))\ndisplay_adaptation(root)",
+            ),
+            (
+                "md",
+                "### Attribute the gains and verify recovery\nEach embedding screen starts with 2,560 candidate coordinates and retains at most 64 using fitting labels only. Prototype margins compare a query against known positive and negative centroids or neighbors; query labels are absent. The fixed rank blend gives half its weight to the decision score and one quarter each to centroid and nearest-example margins. Top-five margins are secondary diagnostics. Rank scores are not calibrated probabilities.\n\nThe paired intervals below cover five declared contrasts and condition on these two policies. Adapter/optimizer/scheduler/RNG/data-order recovery was tested by deliberately reloading a fresh GPU model after step 8 in each fold. The baseline feature replay also reused all 96 verified shards without model computation.",
+            ),
+            (
+                "code",
+                "display(pd.DataFrame(adaptation['screening'])[['fold', 'model', 'candidates', 'retained', 'rejected']])\ndisplay(pd.DataFrame(adaptation['uncertainty'])[['contrast', 'observed_delta', 'simultaneous_lower', 'simultaneous_upper']].round(4))\nprobability_rows = [{'Model': r['model'], **r['raw_probability_diagnostics']} for r in adaptation['results'] if 'raw_probability_diagnostics' in r]\ndisplay(pd.DataFrame(probability_rows).round(4))\nfor fold in adaptation['inference']['folds']:\n    print('Fold', fold['fold'], 'optimizer steps', fold['training']['optimizer_steps'], 'resumed at', fold['training']['resumed_step'], 'peak GPU GiB', round(fold['peak_gpu_gib'], 2))\nfor limitation in adaptation['protocol']['limitations']:\n    print('-', limitation)",
+            ),
+        ]
+    ).cells
+    historical = notebook(
+        [
+            (
+                "md",
+                "## Historical post-competition research\n\nThe preserved study below uses organizer-released labels and has its own consumed protected cohort. Its scores and stopping decision do not close the original-competition performance objective.",
+            )
+        ]
+    ).cells
+    outputs["notebooks/02_baseline_and_review.ipynb"].cells[3:3] = (
+        new_cells + adaptation_cells + historical
+    )
+    outputs["notebooks/03_saved_results.ipynb"].cells[3:3] = (
+        new_cells[:2] + adaptation_cells[:2] + historical
+    )
     return outputs
 
 
