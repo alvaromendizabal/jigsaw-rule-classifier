@@ -28,4 +28,4 @@ Expose an example-driven interface with a comment, supplied rule and positive/ne
 
 Keep `03` as the short evidence tour and `02` as the research detail. Add a model card, data card, measured serving results and a clean-environment restoration record. The README should answer the problem, result, why it works, where it fails and how to reproduce it within a few minutes. Tag a release only after current tests, actual notebooks, offline inference and artifact restoration pass.
 
-A public demo, a successful notebook, and a Kaggle score are different deliverables. Any Kaggle submission remains the user's action. A numerical employer rating cannot be guaranteed; a finished release can have explicit, reviewable acceptance evidence.
+A public demo, a successful notebook, and a Kaggle score are different deliverables. Any Kaggle submission is a separate user-authorized action; the requested original-training-only reference entry is now [submitted and scored](DELIVERY.md#your-kaggle-submission). A numerical employer rating cannot be guaranteed; a finished release can have explicit, reviewable acceptance evidence.

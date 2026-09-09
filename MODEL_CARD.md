@@ -16,7 +16,7 @@ Development contains 11,135 rows across four policies. One protected comparison 
 | Four familiar | 25,485 | 0.7581 | 0.8276 |
 | Two unseen | 18,024 | 0.5241 | 0.6757 |
 
-The primary metric averages ROC AUC equally across policies. The gain is 0.0969, with paired 2,000-draw 95% interval [0.0898, 0.1051], conditional on the six observed policies and frozen predictions. Overall log loss is 0.5121 and Brier score 0.1739. Every policy improves over the reference. This is an organizer-released post-competition benchmark; no Kaggle score, medal, executable-scorer parity or state-of-the-art claim is made. [Protocol and full results](docs/CONFIRMATION.md).
+The primary metric averages ROC AUC equally across policies. The gain is 0.0969, with paired 2,000-draw 95% interval [0.0898, 0.1051], conditional on the six observed policies and frozen predictions. Overall log loss is 0.5121 and Brier score 0.1739. Every policy improves over the reference. This is an organizer-released post-competition benchmark. No Kaggle score is claimed for this accepted research artifact, and no medal, executable-scorer parity or state-of-the-art claim is made. A separate original-training-only lexical reference completed a late Kaggle entry with 0.59191 public / 0.61956 private; [its receipt](reports/checkpoints/kaggle_submission.json) does not evaluate this artifact. [Protocol and full results](docs/CONFIRMATION.md).
 
 ## Appropriate use and limitations
 
