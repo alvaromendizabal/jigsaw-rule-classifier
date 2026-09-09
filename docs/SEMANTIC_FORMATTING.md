@@ -25,3 +25,11 @@ The research loader never opens the 43,576 reserved targets. No new external lab
 Preserve new inference shards and completed fits every 45 seconds in the owned project bucket. Reuse existing compatible inference; pin all model files and software. One CPU worker instance has a hard 90-minute ceiling. Record actual encoder inputs, truncation, elapsed time, memory and checkpoint hashes. A failed or negative comparison remains visible.
 
 After both hypotheses and the structured error audit are complete, write a feature stopping decision. Prefer the existing centroid unless a candidate improves transfer ranking without a material per-policy or probability-quality regression; do not pick a candidate from seen-policy accuracy alone. Any justified confirmation must have a separately committed candidate, reference, calibration policy and acceptance specification before reserve targets are read. Product delivery and a quick employer-facing evidence tour follow that decision.
+
+### Decision thresholds frozen before new score inspection
+
+`configs/feature_decision.json` operationalizes the earlier qualitative decision rule. It was added after encoder inference started but before any new fitted or frozen-score result was inspected. The pre-score 48-row audit is complete; all sampled rules, bodies and labels match their original sources. No new-model scores were shown during annotation.
+
+Compare all seven candidates directly with the existing centroid. A candidate must improve policy-macro AUC by at least 0.005, have a positive simultaneous lower confidence bound, lose at most 0.02 AUC on every observed policy, and increase log loss/Brier by no more than 0.01/0.005. These are declared practical tolerances, not universal statistical thresholds. Among qualifying candidates within 0.002 AUC of the best, prefer the declared simpler representation. Retain the existing centroid if none qualifies. The seven new centroid contrasts have their own conditional simultaneous correction; they do not retrospectively correct the whole adaptive search.
+
+This rule separates choosing a development candidate from independent confirmation and production acceptance. A rejected feature remains a documented negative result. Closing the research phase requires the independent artifact replay and a coverage/stopping rationale as well as these numerical checks.
