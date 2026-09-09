@@ -3,7 +3,7 @@
   "job": {
     "CreationTime": "2026-09-09T03:17:07.487000+00:00",
     "ProcessingJobArn": "arn:aws:sagemaker:us-west-2:560403859723:processing-job/jigsaw-confirmation-20260909-0250",
-    "ProcessingJobStatus": "InProgress",
+    "ProcessingJobStatus": "Failed",
     "ProcessingResources": {
       "ClusterConfig": {
         "InstanceCount": 1,
@@ -13,7 +13,11 @@
     },
     "StoppingCondition": {
       "MaxRuntimeInSeconds": 7200
-    }
+    },
+    "ProcessingStartTime": "2026-09-09T03:17:49.364000+00:00",
+    "ProcessingEndTime": "2026-09-09T04:59:06.213000+00:00",
+    "LastModifiedTime": "2026-09-09T04:59:47.649000+00:00",
+    "FailureReason": "AlgorithmError: , exit code: 1"
   },
   "source_commit": "d515fbe5279cdc6d0b31e79e08c40b709a30623e",
   "protocol_commit": "5ca6bd50d54ceacc172786e6df0640810aab96d8",
@@ -45,5 +49,90 @@
   ],
   "reserved_targets_in_worker": false,
   "reserved_targets_accessed": false,
-  "completion_verified": false
+  "completion_verified": false,
+  "status_audited_at": "2026-09-09T16:49:04.505572+00:00",
+  "worker_final_state": {
+    "timestamp": "2026-09-09T04:58:50Z",
+    "event": "failed",
+    "total_elapsed_seconds": 5980.351848481,
+    "exit_code": 0,
+    "checkpoint_errors": [
+      "FileNotFoundError"
+    ],
+    "completed_stages_reported_in_final_checkpoint": 676
+  },
+  "prediction_stage_verification": {
+    "files": [
+      {
+        "name": "audit.json",
+        "bytes": 810,
+        "sha256": "89d73c5243b68a381d03e044ae112e957b7d5518e5272a4dbe28d781e627ed47",
+        "version_id": "HtG6B00va5wjQz5_YWhZoHWqy0W8DsE9",
+        "encryption": "AES256"
+      },
+      {
+        "name": "complete.json",
+        "bytes": 341,
+        "sha256": "68af5b10cfda60bf587f96dddb9cdb89101380734762735b09ada60a172587d6",
+        "version_id": "XakL7ec2eBrtSSG8rdnvC4YLAvUmhzS4",
+        "encryption": "AES256"
+      },
+      {
+        "name": "predictions.csv",
+        "bytes": 7792431,
+        "sha256": "ea52de1c0d2a7018d3f8ddeb03d3f5b60ed9d399c621dd87b30435be45a49f23",
+        "version_id": "MMsln011Xl81.mXcOGh_Qx.R_s7k7R.X",
+        "encryption": "AES256"
+      },
+      {
+        "name": "provenance.json",
+        "bytes": 5541,
+        "sha256": "e06189f2a151eedf30cc18f6331e58adfe3f39416a5485741b4debb09fccaf62",
+        "version_id": "J9WSgopwhR7caSnPrvJWlVrR.bQT9OZo",
+        "encryption": "AES256"
+      }
+    ],
+    "stage_hashes_match": true,
+    "rows": 43509,
+    "columns": [
+      "row_id",
+      "rule_id",
+      "Usage",
+      "body_sha256",
+      "self_support_match",
+      "familiar",
+      "candidate",
+      "reference",
+      "uncalibrated_route",
+      "centroid_everywhere"
+    ],
+    "unique_row_ids": 43509,
+    "finite_probability_checks": true,
+    "targets_accessed": false,
+    "models_refitted": 0,
+    "finished_at": "2026-09-09T04:58:32.569839+00:00",
+    "method": "Independent S3 download to an isolated audit directory; verify all three payload SHA-256 values against the downloaded completion marker, then row count, unique row IDs, probability ranges and absence of target columns. Compare recorded candidate/reference hashes, protocol commit and eligibility digest with the committed protocol.",
+    "s3_prefix": "experiments/protected-confirmation-20260909T0250/checkpoint/runs/confirmation/314494da886e11bcc1f6/predictions/",
+    "model_and_protocol_identifiers_match": true,
+    "eligibility_digest_matches_recorded_protocol": true,
+    "canonical_stage_restored": false,
+    "full_embedding_cache_independently_restored": false
+  },
+  "prediction_stage_verified": true,
+  "completed_archive_present": false,
+  "prediction_freeze_published": false,
+  "protected_score_available": false,
+  "interpretation": "Prediction subprocess completed all 43,509 rows and returned zero. A background checkpoint FileNotFoundError made the wrapper fail and prevented final archive creation. The exact failing path was not logged; its root cause is not yet established. Do not rerun model fitting or encoding solely because the job status is Failed.",
+  "next_bounded_step": "Complete canonical recovery from verified stage objects under the unchanged inference contract, publish the required prediction-freeze commit, and perform the single preregistered protected comparison. Preserve the acceptance criteria and any rejection; packaging and release remain later milestones.",
+  "ci_verified": {
+    "head_sha": "9ea2cd7374f7145322083e18f920df6bd60629ba",
+    "run_id": 34307841242,
+    "conclusion": "success",
+    "tests_passed": 321,
+    "five_public_notebooks_executed": true,
+    "reuse_passed": true,
+    "synthetic_offline_inference_passed": true,
+    "real_encoder_integration_passed": true
+  }
 }
+
