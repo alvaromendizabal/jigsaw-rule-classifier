@@ -454,12 +454,13 @@ def notebooks():
         if not line.startswith("from jigsaw_rules.")
         and line != "from __future__ import annotations"
     )
-    source_sha = hashlib.sha256((data + model + runtime + submission).encode()).hexdigest()
+    paths = (ROOT / "scripts/kaggle_paths.py").read_text()
+    source_sha = hashlib.sha256((data + model + runtime + submission + paths).encode()).hexdigest()
     outputs["kaggle/submission.ipynb"] = notebook(
         [
             (
                 "md",
-                "# Jigsaw · Generate and download your submission\n\nRun this notebook yourself to fit the unchanged lexical reference, generate predictions, validate the CSV, and display a **Download submission.csv** link. Nothing is uploaded or submitted to Kaggle automatically.\n\nWorks in SageMaker/Jupyter and Kaggle. On Kaggle, attach the official competition data and disable internet. A preview CSV is not a leaderboard score. The signed-in account had a late-submission option on September 9, 2026. Save and run a Kaggle notebook version, then submit that successful version; a ZIP of CSV files is not the entry for this code competition.\n\n**Model scope:** this notebook fits the original-training-only lexical reference. The accepted 0.7770 AUC research artifact uses additional post-competition development data and is delivered separately; that number is not this notebook's Kaggle score.\n\n**Where to get this notebook:** the canonical GitHub path is `kaggle/submission.ipynb`; an identical downloadable copy is mirrored in the project S3 release.\n\n**Recovery:** completed model fitting and prediction batches are checksummed and reusable. An interrupted active fit or batch restarts; correct earlier work is kept. Private output and download payloads must never be committed to the public repository.",
+                "# Jigsaw · Generate and download your submission\n\nRun this notebook yourself to fit the unchanged lexical reference, generate predictions, validate the CSV, and display a **Download submission.csv** link. Nothing is uploaded or submitted to Kaggle automatically.\n\nWorks in SageMaker/Jupyter and Kaggle. On Kaggle, attach the official competition data and disable internet. A preview CSV is not a leaderboard score. The signed-in account had a late-submission option on September 9, 2026. Save and run a Kaggle notebook version, then submit that successful version; a ZIP of CSV files is not the entry for this code competition.\n\n**Model scope:** this notebook fits the original-training-only lexical reference. The accepted 0.7770 AUC research artifact uses additional post-competition development data and is delivered separately; that number is not this notebook's Kaggle score.\n\n**Where to get this notebook:** the canonical GitHub path is `kaggle/submission.ipynb`; GitHub contains the current Kaggle runtime fixes, while S3 releases preserve versioned snapshots.\n\n**Recovery:** completed model fitting and prediction batches are checksummed and reusable. An interrupted active fit or batch restarts; correct earlier work is kept. Private output and download payloads must never be committed to the public repository.",
             ),
             (
                 "code",
@@ -479,13 +480,13 @@ def notebooks():
             ),
             (
                 "code",
-                f'''GENERATE_SUBMISSION = True
+                paths
+                + f'''\n\nGENERATE_SUBMISSION = True
 candidates = [Path.cwd(), *Path.cwd().parents]
 project = next((p for p in candidates if (p / "src/jigsaw_rules").is_dir()), None)
 on_kaggle = Path("/kaggle/input").is_dir()
-default_input = Path("/kaggle/input/jigsaw-agile-community-rules") if on_kaggle else (project or Path.cwd()) / "data/raw"
 default_output = Path("/kaggle/working") if on_kaggle else (project or Path.cwd()) / "kaggle_output"
-input_root = Path(os.environ.get("JIGSAW_KAGGLE_INPUT", str(default_input)))
+input_root = submission_input_root(project or Path.cwd())
 output_root = Path(os.environ.get("JIGSAW_KAGGLE_OUTPUT", str(default_output)))
 default_cache = project / "runs/submission_cache" if project and not on_kaggle else output_root / "checkpoints"
 cache_root = Path(os.environ.get("JIGSAW_SUBMISSION_CACHE", str(default_cache)))

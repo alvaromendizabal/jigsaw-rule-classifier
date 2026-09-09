@@ -9,10 +9,12 @@
     "sample_submission.csv": "6524e86a03abe387f0867247629e08493770a6f9d37120cc8165322e7486a066"
   },
   "model": "rule_examples",
-  "notebook_sha256": "3932b8cb1de1b9e06f34f70fb9c69bd45bf036b2dd3db9874a7a243f4c71e26a",
-  "source_sha256": "7f75817e58e7373a32ad2cbe38286bcb2c0fd13dee1d4ad8cbfa078eb154efe1",
+  "notebook_sha256": "0df03710aecb29cc6a8498572783bde6de9e8454696a93ca8c4b598074fcf832",
+  "source_sha256": "2671bcad265c8034387c1e0b999b1f31e137d21bb41b9cbd8aba66a5ce1e693d",
   "submission_sha256": "d289784c950864c2cdceff35c13613f8c54214685c4375f7e07c14b384e9ed41",
   "jupyter_executed": true,
   "replay_passed": true,
-  "scope": "Original-data preview inference; no hidden-test score or Kaggle submission"
+  "scope": "Original-data preview inference; no hidden-test score or Kaggle submission",
+  "ci_workflow_run": 34391473434,
+  "ci_source_commit": "7e98f91426e8cd849d80ef997d0f992faf6a9377"
 }
