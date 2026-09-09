@@ -1,0 +1,56 @@
+{
+  "artifact_sha256": "87bfb022cfdf25c1d152a27bb02fcd9e6fc128dd4a2363134dc0cbbb580ae40a",
+  "notebooks": [
+    {
+      "notebook": "notebooks/00_environment_and_data.ipynb",
+      "sha256": "2437e8608470fea5b4da25997c78a59ae3ecb308c4e971f025b87b246a0bf016",
+      "code_cells": 5,
+      "contract_sha256": "c1e63be515f035e93680",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T02:57:19.149662+00:00"
+    },
+    {
+      "notebook": "notebooks/01_data_and_validation.ipynb",
+      "sha256": "cce02ef8915c68303a54fa85810fc6d9e8ea773d02947d1b8ad0274246c8e050",
+      "code_cells": 6,
+      "contract_sha256": "d802675bc297dd42c93b",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T02:57:22.148156+00:00"
+    },
+    {
+      "notebook": "notebooks/02_baseline_and_review.ipynb",
+      "sha256": "d806937215e82a26edc64ac9204f81351446f3fdeb7f700a6ed2b58c51cf31aa",
+      "code_cells": 15,
+      "contract_sha256": "8f83d435a60d94a46993",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T02:57:25.548650+00:00"
+    },
+    {
+      "notebook": "notebooks/03_saved_results.ipynb",
+      "sha256": "19041415080f072e5e1b060d04e2856d0d2cd288218124cbd9e02baad02273cb",
+      "code_cells": 6,
+      "contract_sha256": "c49aac0d5e5e82bd14a2",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T02:57:28.998640+00:00"
+    },
+    {
+      "notebook": "notebooks/04_semantic_benchmark.ipynb",
+      "sha256": "fa23015703a9118e5cf593269345f44f645bf0ecee2755b5e0d2b67022c663c1",
+      "code_cells": 8,
+      "contract_sha256": "f79c48a05302cea63424",
+      "engine": "jupyter",
+      "python": "3.12.14",
+      "completed_at": "2026-09-09T02:57:32.570200+00:00"
+    }
+  ],
+  "workflow_run": 34305118975,
+  "artifact_id": 10086410697,
+  "head_commit": "a846906efd38785dca33331a21be9858afd34d9d",
+  "local_tests_passed": 305,
+  "protected_targets_accessed": false,
+  "protected_predictions_generated": false
+}

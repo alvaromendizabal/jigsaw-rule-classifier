@@ -63,3 +63,9 @@ uv run python scripts/run_confirmation.py score --run-id 314494da886e11bcc1f6 --
 ```
 
 Only aggregate metrics and lineage belong in the public report. The fixed result, whether accepted or rejected, must be preserved before any product-promotion decision. The reserve cannot become another development split.
+
+## Verified preparation publication
+
+The final local gate passed **305 tests** in 116.7 seconds, plus compile, Ruff lint/format and canonical notebook-source checks. [Quality run 34305118975](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34305118975) passed on scoring commit `a846906efd38785dca33331a21be9858afd34d9d`, including all five actual encrypted Jupyter executions, completed-cache reuse, synthetic offline inference, real pinned-encoder integration and public rendering.
+
+The downloaded 1,190,503-byte CI artifact has SHA-256 `87bfb022cfdf25c1d152a27bb02fcd9e6fc128dd4a2363134dc0cbbb580ae40a`. Each restored notebook matches canonical source and every current input hash, with verified stage members and no errors or stderr. Their recorded execution environment is Python 3.12.14. [Publication proof](../reports/checkpoints/confirmation_preflight.json). These checks validate software and existing evidence publication; they do not replace the pending protected experiment.
