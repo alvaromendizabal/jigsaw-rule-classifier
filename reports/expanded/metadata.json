@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "data_kind": "post_competition_research",
+  "protocol_commit": "5c16f91c04880d52280bf5a0a71ff688b327bb70",
+  "plan_sha256": "8781727105c67dd18a19262203650e22de9b9009ba8518a325cb39ed49825356",
+  "sources": {
+    "expanded.py": "5eea949ed47088ac8fadbceec351df1ed667b611f2e6c7f1cdfc84fcfaf6bd7c",
+    "expanded_embeddings.py": "fd0d0a8c2c7886b80c67a0316ab3edc9ddfab0de0a4b510f550b38e33225605e",
+    "research.py": "67eb9980a2d7ff56299af29611c7ce656ee0d859c3098fbf55f4979ebca5cf99",
+    "representations.py": "b1da1f2b8e5de748f73814542f568b603dfacad1b83226de8042f2ba8f939f44",
+    "context.py": "66305667ae678d015c2087ee47a7683038c9c49a7d78a7f7369b4caae7ce2003",
+    "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "diagnostics.py": "ef8490b5f60dec36c7978ccef42c62dcddb820ac819ac51e3849c85b5e41dbf9",
+    "embeddings.py": "8dbebfc74ee917bef55b3ac884ccf5df7bec1c4706ee15be5e68592c5f08f8a7",
+    "semantic.py": "29e2783b17068f1af462f330ae41d3202f2a65b366b68e73ef1ac94a6ecff18b",
+    "metrics.py": "ab379c5a5014e6f7f50bb267e34d53ff9fe90419b16f288aa34a00a62855f85b",
+    "model.py": "99820c4626b157661fd5e4202576cd0205d6e475070c6421ba78f18eb75265bb",
+    "released.py": "fe0f50d8024d90b9b05da5d2d64b367cb1264b662837ee6dbd86f5fb3c5872f8",
+    "robustness.py": "570c01ec4ac684470615b7838939648be81a63db2c7d17912059c42b08be1970",
+    "runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866",
+    "splits.py": "781d52813bb4fcb85713144f6c39279efa6f431e414aa737f31d030687c07b0f",
+    "uncertainty.py": "01be335afdf24ce0e718bfdb37640198c544185b8111ae7dde4e3288ebc9a576"
+  },
+  "boundary_run": "a615ecc75c04e6a62ee1",
+  "boundary_checkpoint_sha256": "5b2e57e6b8e3865848e6a620b87d5f47cb2e2ca81ea3745c020920620eb7ad6e",
+  "original_training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "development_sha256": "32b061d9c41bde2e60db30ab995657b56d0629fcbdf5702a94c28f573f4a2539",
+  "embedding_cache": {
+    "cache": "bc433d2324dd22713bba",
+    "contract_sha256": "bc433d2324dd22713bba38c4f3e60e3a4093e1253d1e57182950d45b9fae29f5",
+    "shards_sha256": "068aafab1ec970cc04558b9b22d1c65b30b0414ef6440fc63ed79712e8827239",
+    "shards_verified": 190,
+    "requested_inputs": 55675,
+    "unique_requested_inputs": 11973,
+    "newly_encoded_inputs": 0
+  },
+  "environment": {
+    "python": "3.12.13",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "plotly": "7.0.0"
+    }
+  },
+  "run_id": "a57bb74350fcbcd66592",
+  "files": {
+    "results.json": "7484147d3b7e98ede2d17e0e911ba76f3dc4bed089f98ac8f3f75d055153d9f9",
+    "uncertainty.json": "ee43f953670acd7935b5537a492be947a8cb3b3507b6abcf47429f5455a23db3",
+    "screening.json": "fa01049bf56afdb8925bc5e4415c1b4b162bde8b211a4fca3c6b2a09f9b32b54",
+    "importance.json": "c0193aa4eeb80a541bfcb6f8911b0ffb0a3bc32ced6d572c9cdcca1abe431880",
+    "audit.json": "bf90451cb69b051982af6ab2b728037f96b0caba82bb10ed9fb886690394a4f9"
+  },
+  "private_checkpoint_sha256": "0b1885cab2cae2907324794a4449f0205586deec98804365aaf8ec4fc1d1b560"
+}

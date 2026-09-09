@@ -65,9 +65,16 @@ def _save(root: Path, name: str, plot: go.Figure, fig, title: str, subtitle: str
         margin={"l": 235, "r": 35, "t": 90, "b": 65},
     )
     fig.suptitle(
-        title, x=0.015, y=1.035, ha="left", fontsize=16, fontweight="bold", color="#18324d"
+        title,
+        x=0.015,
+        y=1.04,
+        ha="left",
+        va="bottom",
+        fontsize=16,
+        fontweight="bold",
+        color="#18324d",
     )
-    fig.text(0.015, 0.985, subtitle, color="#52677d", fontsize=10)
+    fig.text(0.015, 1.02, subtitle, va="top", color="#52677d", fontsize=10)
     fig.tight_layout(rect=(0, 0, 1, 0.96))
     folder = root / "reports/expanded"
     folder.mkdir(parents=True, exist_ok=True)
@@ -149,12 +156,14 @@ def build(root: Path = ROOT) -> None:
             textposition="outside",
         )
     )
-    plot.update_xaxes(range=[0.35, min(1, max(scores) + 0.06)], title="Policy-macro ROC AUC")
+    plot.update_xaxes(range=[0, 1], title="Policy-macro ROC AUC")
+    plot.add_vline(x=0.5, line_dash="dot", line_color="#52677d")
     fig, ax = plt.subplots(figsize=(11.6, 7.0))
     ax.barh(labels, scores, color=colors, height=0.62)
     for i, score in enumerate(scores):
         ax.text(score + 0.004, i, f"{score:.4f}", va="center", fontsize=9)
-    ax.set_xlim(0.35, min(1, max(scores) + 0.07))
+    ax.set_xlim(0, 1)
+    ax.axvline(0.5, color="#52677d", ls=":", lw=1)
     ax.set_xlabel("Policy-macro ROC AUC")
     ax.spines[["top", "right", "left"]].set_visible(False)
     ax.grid(axis="x", alpha=0.15)
@@ -186,9 +195,10 @@ def build(root: Path = ROOT) -> None:
             z=z,
             x=names,
             y=labels,
-            zmin=0.4,
-            zmax=max(0.8, float(z.max())),
-            colorscale="Blues",
+            zmin=0,
+            zmax=1,
+            zmid=0.5,
+            colorscale="RdBu",
             text=z,
             texttemplate="%{text:.3f}",
             colorbar_title="ROC AUC",
@@ -196,7 +206,7 @@ def build(root: Path = ROOT) -> None:
     )
     plot.update_yaxes(autorange="reversed")
     fig, ax = plt.subplots(figsize=(11.6, 4.8))
-    heat = ax.imshow(z, vmin=0.4, vmax=max(0.8, float(z.max())), cmap="Blues", aspect="auto")
+    heat = ax.imshow(z, vmin=0, vmax=1, cmap="RdBu", aspect="auto")
     ax.set_xticks(range(4), names)
     ax.set_yticks(range(len(labels)), labels)
     for i, j in np.ndindex(z.shape):
@@ -206,7 +216,7 @@ def build(root: Path = ROOT) -> None:
             f"{z[i, j]:.3f}",
             ha="center",
             va="center",
-            color="white" if z[i, j] > (0.4 + max(0.8, z.max())) / 2 else "#18324d",
+            color="white" if z[i, j] < 0.25 or z[i, j] > 0.75 else "#18324d",
         )
     fig.colorbar(heat, ax=ax, shrink=0.75, label="ROC AUC")
     _save(

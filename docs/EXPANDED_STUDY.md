@@ -1,6 +1,6 @@
 # Four-policy feature study
 
-This protocol is committed before inspecting any new model score. It extends the
+The protocol below was committed before inspecting any new model score. It extends the
 completed two-policy study; it does not turn that repeatedly inspected study into
 independent confirmation. The host's released labels support post-competition
 research, not a retrospective leaderboard submission.
@@ -100,3 +100,83 @@ the historical two-policy study; they are not evidence of failure on every
 policy. Only after a documented stopping decision should a candidate/reference
 be frozen for one confirmation evaluation. Production inference remains a later
 milestone and must explicitly consume the accepted feature contract.
+
+## Measured expanded-study results
+
+Run `a57bb74350fcbcd66592` completed all 238 primary fits and 22 sensitivity
+refits; six unchanged sensitivity comparisons reused their primary fit. The
+same seven partitions generated **188,209–188,212 candidate columns per fold**
+and retained **9,170–9,549** across ten banks before final family selection.
+These are fold-specific counts, not unique hypotheses, and a fitted model uses
+only its declared banks. The retrieval extension and resolution controls are
+reported separately below; historical NLI/instruction counts are not added here.
+
+| Representation | Held-out policy-macro AUC | Log loss | Brier |
+| --- | ---: | ---: | ---: |
+| Rule/example lexical reference | 0.4728 | 0.8126 | 0.2992 |
+| Screened words | 0.4376 | 0.8823 | 0.3220 |
+| Words + compact semantic comparisons | 0.5761 | 0.8156 | 0.2969 |
+| Compact semantic comparisons alone | 0.6876 | 0.6891 | 0.2456 |
+| Semantic-interaction SVD | 0.6637 | 0.7939 | 0.2883 |
+| Frozen normalized semantic centroid | **0.7042** | **0.6237** | **0.2177** |
+| All transferable feature families | 0.5515 | 1.4700 | 0.4503 |
+| Full character vocabulary | 0.4464 | 0.9169 | 0.3345 |
+
+All rows use the same development data and validation boundary. Comparing these
+scores with historical two-policy scores would confound changed data with
+changed features. No new classifier hyperparameter search produced this gain.
+
+The clearest matched addition is compact semantic geometry: **+0.1385 AUC**
+over screened words, with within-study simultaneous interval **[0.0959, 0.1810]**.
+Lexical support comparisons add +0.0677 [0.0251, 0.1102]; embedding-coordinate
+features add +0.0476 [0.0050, 0.0901] to that weak word control. The latter result
+does not make coordinates a leading representation: words plus coordinates
+reach only 0.4852, and adding coordinates to all-transfer features lowers AUC.
+Community metadata and character additions have negative point estimates.
+Structure, support-token, percentile and target-context additions do not survive
+the simultaneous interval test. They should not be called established gains.
+
+The frozen centroid improves over the matched lexical reference by **+0.2314**
+with pointwise interval [0.1985, 0.2600] and simultaneous interval
+**[0.1889, 0.2740]**. This is a measured representation gain on the exposed
+development benchmark, conditional on fixed predictions and four policies.
+It is not independent confirmation or a claim about arbitrary future policies.
+
+The centroid improves on the lexical reference for each observed policy, but
+the improvements are highly unequal: advertising **0.7255 vs 0.6400**, legal
+advice **0.5702 vs 0.5545**, medical advice **0.5969 vs 0.5173**, and illegal-activity
+promotion **0.9241 vs 0.1793**. Most of the average uplift comes from avoiding the
+lexical model's reversed ranking on promotion. Legal and medical advice remain
+weak; the result does not justify a broad moderation-performance claim.
+
+## Robustness findings
+
+The 39 contradictory body/policy groups cover 187 rows. Training-only exclusion
+barely changes transfer AUC for the two refit lexical controls. Approximate-copy
+purging removes 61 / 5 / 3 additional training rows in familiar folds and one in
+the promotion transfer fold; other transfer folds reuse their primary fits.
+These results extend the earlier exact isolation without claiming independence
+of paraphrases or conversation origin.
+
+Excluding all 18 exact self-support matches leaves centroid AUC **0.7034**.
+Using one positive and one negative example, averaged over all four choices,
+gives **0.6918**. Shuffling complete supplied contexts within the same policy
+gives **0.7062**. Thus copied examples do not explain the gain, and the particular
+row's support pair is not uniquely necessary. The shuffled comparison is an
+exploratory diagnostic; it does not justify using validation supports as a
+deployment retrieval bank. Missing rule text and absent support sets remain
+separate product conditions.
+
+The familiar/transfer split is itself a major finding: all-transfer AUC is
+**0.7989 on familiar policies** but **0.5515 on held-out policies**. The lexical
+reference changes from 0.7311 to 0.4728. A familiar-policy-only report would hide
+the core generalization failure. The frozen centroid uses no fitted training
+labels, so its identical 0.7042 under both protocols is one scoring result,
+not independent replication.
+
+All 31 screened semantic scalar columns survive every fold. Their selected-name
+Jaccard is 1.000; raw-coordinate overlap averages 0.192, structural overlap
+0.286 and word overlap 0.288 across held-out folds. Stability alone is not
+utility: target-context overlap is also 1.000 despite its weak incremental gain.
+Group permutation and direct family removals remain available alongside these
+selection diagnostics in notebook `02`.

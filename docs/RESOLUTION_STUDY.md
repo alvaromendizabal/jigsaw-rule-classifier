@@ -24,3 +24,26 @@ This study tests the scoring geometry, not a claim that a shorter output makes
 the transformer encoder itself faster. Shorter stored vectors can reduce
 downstream reference-bank memory and similarity-computation cost. Actual product
 latency remains a later measurement.
+
+## Outcome
+
+Run `143fb05be41909328ef4` reproduced the expanded centroid control exactly from
+the saved vectors and verified every published metric against saved scores.
+There were no fitted models, new encoder calls or confirmation-target accesses.
+
+| Dimensions | Policy-macro AUC | Log loss | Brier |
+| --- | ---: | ---: | ---: |
+| 32 | 0.6848 | 0.6538 | 0.2290 |
+| 64 | 0.6925 | 0.6498 | 0.2285 |
+| 128 | 0.6899 | 0.6360 | 0.2233 |
+| 256 | 0.6972 | 0.6295 | 0.2203 |
+| 512 | 0.7001 | 0.6272 | 0.2192 |
+| 1,024 | **0.7042** | **0.6237** | **0.2177** |
+
+No shorter prefix improves the primary score or either probability loss.
+The 32/64/128-dimensional losses exclude zero under simultaneous intervals;
+the 256/512-dimensional intervals include zero. That does not establish
+equivalence. Retain 1,024 dimensions as the research reference; any deployment
+compression needs an explicit accuracy/memory acceptance tolerance. This
+plausible feature-resolution avenue is now measured rather than left as a
+generic future suggestion.

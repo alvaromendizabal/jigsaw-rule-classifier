@@ -1,0 +1,72 @@
+[
+  {
+    "contrast": "centroid_32",
+    "candidate": "centroid_32",
+    "reference": "centroid_1024",
+    "observed_delta": -0.01939185114417008,
+    "ci_lower": -0.02805810657393823,
+    "ci_upper": -0.011075438717700656,
+    "simultaneous_lower": -0.028708036426838685,
+    "simultaneous_upper": -0.010075665861501475,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "centroid_64",
+    "candidate": "centroid_64",
+    "reference": "centroid_1024",
+    "observed_delta": -0.011666202795253766,
+    "ci_lower": -0.019150007024001433,
+    "ci_upper": -0.003696060348093873,
+    "simultaneous_lower": -0.02098238807792237,
+    "simultaneous_upper": -0.002350017512585161,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "centroid_128",
+    "candidate": "centroid_128",
+    "reference": "centroid_1024",
+    "observed_delta": -0.01427092931607199,
+    "ci_lower": -0.02032438069469097,
+    "ci_upper": -0.00749548425395625,
+    "simultaneous_lower": -0.023587114598740595,
+    "simultaneous_upper": -0.004954744033403385,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "centroid_256",
+    "candidate": "centroid_256",
+    "reference": "centroid_1024",
+    "observed_delta": -0.006987094505929381,
+    "ci_lower": -0.011497849663126617,
+    "ci_upper": -0.0021555787556013953,
+    "simultaneous_lower": -0.016303279788597986,
+    "simultaneous_upper": 0.002329090776739224,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "centroid_512",
+    "candidate": "centroid_512",
+    "reference": "centroid_1024",
+    "observed_delta": -0.004095307981594187,
+    "ci_lower": -0.0070083580116419965,
+    "ci_upper": -0.0013363134703528886,
+    "simultaneous_lower": -0.013411493264262792,
+    "simultaneous_upper": 0.005220877301074418,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 5,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  }
+]

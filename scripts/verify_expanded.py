@@ -25,7 +25,11 @@ from jigsaw_rules.research import VARIANTS
 from jigsaw_rules.retrieval import load_plan as retrieval_plan
 from jigsaw_rules.retrieval import retrieval_evidence
 from jigsaw_rules.runtime import Progress, digest
-from scripts.verify_research import compare_metrics
+
+if __package__:
+    from .verify_research import compare_metrics
+else:
+    from verify_research import compare_metrics
 
 
 def verify_stages(directory: Path) -> int:

@@ -40,7 +40,7 @@ if root.name == "notebooks":
 baseline = public_evidence(root, "baseline")
 semantic = public_evidence(root, "semantic")
 assert baseline["training_sha256"] == semantic["training_sha256"]
-print("Completed feature experiments | 2,029 rows | two labeled rules")
+print("Historical references: 2,029 rows, two policies; expanded research is a separate cohort.")
 print("Aggregate checksums verified. This notebook performs no model fitting.")
 protocols = {"seen_rule": "Familiar rules", "heldout_rule": "Held-out rule"}
 
@@ -64,7 +64,15 @@ from jigsaw_rules.robustness import robustness_evidence
 from jigsaw_rules.gate import feature_gate
 from jigsaw_rules.instructions import instruction_evidence
 from jigsaw_rules.released import released_evidence
+from jigsaw_rules.expanded import expanded_evidence
+from jigsaw_rules.retrieval import retrieval_evidence
+from jigsaw_rules.resolution import resolution_evidence
+from build_expanded_report import display_figure as display_expanded
 
+expanded = expanded_evidence(root)
+retrieval = retrieval_evidence(root)
+resolution = resolution_evidence(root)
+assert expanded is not None and retrieval is not None and resolution is not None
 controls = feature_evidence(root)
 research = research_evidence(root)
 sensitivity = diagnostic_evidence(root)
@@ -75,7 +83,7 @@ gate = feature_gate(root)
 instructions = instruction_evidence(root)
 released = released_evidence(root)
 assert released is not None
-print("Verified research runs:", gate["studies"])
+print("Verified expanded study:", expanded["metadata"]["run_id"])
 """
 
 
@@ -123,41 +131,45 @@ def notebooks():
         [
             (
                 "md",
-                "# 01 · Data and validation\n\n**Question:** What can these splits establish about unseen community rules?\n\nThe completed feature studies use two labeled rule types. The host has now released six-policy evaluation data, and a separate target-blind partition reserves confirmation before expanded research. New data availability does not retroactively broaden the old results.",
+                "# 01 · Data and validation\n\n**Question:** What can these splits establish about unseen community rules?\n\nThe expanded study develops on four policies and keeps two entire policy types reserved. The original two-policy experiments remain historical evidence. A protected boundary improves the design; it does not itself establish generalization.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Rule and duplicate audit\nCount and violation prevalence are reported together. Repeated comments are grouped before splitting. Preview-test overlap makes that file useful for schema checks only.",
+                "## A public source, with a prospective research reserve\nThe host released six-policy evaluation data after the competition. Source version, archive/member hashes and original train/preview parity are verified. The partition uses policy, Public/Private metadata and normalized text before research targets are materialized. Historical exposure removes 54 reserved rows; research body/support overlap removes 1,323 research rows. No model-selection function opens the released solution file.",
             ),
             (
                 "code",
-                'audit = baseline["audit"]\nby_rule = pd.DataFrame(audit["by_rule"])\nby_rule["rule"] = by_rule["rule"].str.split(":").str[0]\ndisplay(by_rule.round(4))\ndisplay(pd.DataFrame({"Finding": ["Duplicate training bodies", "Train / preview-test overlap", "Comment equals its own support example"], "Rows": [audit["duplicate_training_bodies"], audit["train_test_body_overlap"], sensitivity["audit"]["self_support_rows"]]}))',
+                'display_boundary(root)\nprint("Protected rows:", released["boundary"]["role_counts"]["confirmation"])\nprint("Target access:", expanded["audit"]["confirmation_labels_accessed"])',
             ),
             (
                 "md",
-                "## Two validation questions\n**Familiar-rule CV** stratifies by rule and target, grouping normalized duplicate comments. **Held-out-rule CV** excludes the evaluated rule from training. Both purge any training row whose comment or supplied examples contain a validation comment. The research reuses the preserved row assignments.\n\nThis is stringent: the familiar-rule folds retain only 237–287 training rows. Sparse fold estimates are a real limitation, not grounds for weakening the boundary.",
+                "## Policy prevalence and repeated annotations\nClass balance differs sharply by policy, so pooled accuracy or pooled AUC can mislead. Equal-weight policy AUC keeps the policy-transfer question visible. Repeated bodies can have different supplied examples; they remain grouped and receive sensitivity analysis rather than silent reconciliation.",
             ),
             (
                 "code",
-                'split_audit = pd.DataFrame(robustness["audit"]["folds"])\ndisplay(split_audit.rename(columns={"before": "Exact-purged train rows", "after": "Near-copy-purged train rows"}))',
+                'audit = expanded["audit"]\ncounts = pd.DataFrame(audit["class_counts"])\ncounts["positive_rate"] = counts["sum"] / counts["size"]\ncounts["rule"] = counts.rule.str.split(":").str[0]\ndisplay(counts.rename(columns={"size": "Rows", "sum": "Violations"}).round(4))\ndisplay(pd.Series({name: audit[name] for name in ["development_rows", "repeated_body_policy_rows", "conflicting_groups", "conflicting_rows"]}, name="Development audit"))',
             ),
             (
                 "md",
-                "## Learned features obey the same boundary\nVocabulary, IDF, scalers, empirical ranks, feature screening and NB token weights use outer training rows only. Target/context encodings additionally use three inner comment-group folds, purging inner validation comments from training comments and examples; the prior is fitted inside each inner fold. Unseen groups fall back to training priors.\n\nProvided positive/negative examples are legitimate per-row inputs. Their semantics are not the current row's unknown target. Frozen encoders use no competition-label fitting. The 18 self-support rows are excluded in a separate scoring sensitivity analysis.",
-            ),
-            (
-                "md",
-                "## Approximate-copy stress test\nA second pass requires character-ngram cosine ≥0.95, token-set Jaccard ≥0.90 and at least 40 characters, with a fixed hashing representation. It uses text only, removes training rows, and keeps validation rows fixed. Thresholds were not optimized on outcomes. No additional copies met both thresholds after exact purging; this does **not** prove paraphrase or shared-origin isolation.",
+                "## Two validation questions, one strict text boundary\n**Familiar-policy CV** groups normalized comment bodies and stratifies by policy/target. **Held-out-policy CV** excludes each evaluated policy from training. Both remove training rows whose comment or any supplied example matches a validation comment. The assignments are frozen before model comparisons.\n\nThis purge substantially reduces available training data; the table makes that cost explicit. It cannot establish independence of paraphrases or common conversation origin, because conversation IDs, authors and timestamps are unavailable.",
             ),
             (
                 "code",
-                'print(robustness["audit"]["interpretation"])\ndisplay(metric_table(robustness["results"], heldout=True))',
+                'display(pd.DataFrame(audit["folds"])[["protocol", "fold", "training_rows", "validation_rows", "purged_training_rows"]])',
             ),
             (
                 "md",
-                "## Inference scope\nTemporal, rolling, lag, season, team, opponent and coaching variables are unavailable or inapplicable. Row order is not time. There is no legitimate external ranking system for these comments. External model weights are pinned and license documented; the official overview permits public external data. The host-released competition corpus has separately verified CC0 provenance and a pinned version.\n\nThe project reports **rule macro ROC AUC** and pooled AUC separately. The host's per-rule score attachment strongly corroborates equal-weight rule averaging: 2,428 of 2,437 complete rows agree within 1e-6. Nine discrepancies and six incomplete rows remain explicit; executable scorer parity and a project leaderboard result are not claimed.\n\nContinue to [02 · Feature research](02_baseline_and_review.ipynb).",
+                "## Learned and target-derived features stay inside training\nVocabulary, IDF, scaling, reference percentiles, screening, NB weights and SVD use only each purged training partition. Target/context encodings use three inner grouped folds, inner support purging and inner-only priors. Unknown groups fall back to those training priors. Provided positive/negative examples are legitimate inference inputs, not the current row's target. Frozen encoders fit no competition labels.\n\nThe conflict sensitivity identifies conflicting groups from training labels only. The approximate-copy sensitivity uses character cosine ≥0.95, token Jaccard ≥0.90 and at least 40 characters, without target access. Both keep validation rows fixed; unchanged training sets reuse their primary fit.",
+            ),
+            (
+                "code",
+                'filters = pd.DataFrame(audit["training_sensitivities"])\nfilters["removed"] = filters.before - filters.after\ndisplay(filters.groupby(["protocol", "sensitivity", "model"])[["removed", "reused_primary"]].sum())',
+            ),
+            (
+                "md",
+                "## What the metric and schema permit\nThe project reports **policy-macro ROC AUC** and pooled AUC separately. The official column-averaged AUC description and host per-policy attachment strongly corroborate equal rule weighting: 2,428 of 2,437 complete published rows agree within 1e-6. Nine discrepancies and six incomplete rows remain explicit; executable scorer parity and a project leaderboard score are not claimed.\n\nTemporal, rolling, lag, season, team, opponent, coaching and external-rating variables are unavailable or inapplicable. Row order is not time. Current subreddit pages are not historical snapshots of supplied policies. External model revisions and licensing are documented; pretraining-overlap clearance is not claimed.\n\n[02 · Feature research](02_baseline_and_review.ipynb) applies these boundaries to every compared representation.",
             ),
         ]
     )
@@ -165,97 +177,85 @@ def notebooks():
         [
             (
                 "md",
-                "# 02 · Feature engineering as a research gate\n\n**Question:** Which representations improve rule-conditioned transfer, and is the evidence strong enough to finish feature engineering?\n\n**Gate: OPEN.** Broad generation, screening and controlled experiments have executed. Independent confirmation of the selected feature representation has not. The research keeps the original lexical reference and does not trigger final retraining.",
+                "# 02 · Feature engineering as a research gate\n\n**Question:** Which representations improve transfer to an unseen policy, and can we explain why?\n\nThis notebook follows the expanded four-policy study from its committed protocol to screening, matched ablations and robustness. It uses fixed classifiers to isolate representation choices. The leading frozen centroid reaches 0.7042 transfer AUC versus 0.4728 for the matched lexical reference; compact semantic comparisons give the strongest family addition. Retrieval and shorter embedding prefixes do not improve the leading representation. Development evidence still needs a stopping decision and independent confirmation.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## 1 · Establish the reference\nComment-only TF-IDF measures lexical transfer. The rule/example reference adds similarities to the rule and supplied examples. The early four-candidate study isolated rule text, support contrasts, structure and their combination. These are historical, preserved experiments.",
+                "## 1 · The research question and protected boundary\nThe historical search covered two policies. The host's released corpus now permits 11,135 development rows across advertising, legal advice, medical advice and illegal-activity promotion. The 43,576 reserved rows include financial advice and spoilers, whose labels remain outside research. [Pre-score protocol](../docs/EXPANDED_STUDY.md) · [Data provenance](../docs/RELEASED_DATA.md).\n\nUse three familiar-policy grouped folds and four held-out-policy folds. Every training body and supplied example is checked against validation bodies. Retain repeated annotations in the primary experiment; handle their influence through grouped validation and declared sensitivity analyses.",
             ),
             (
                 "code",
-                'display(metric_table(baseline["results"], heldout=True))\ndisplay(metric_table(controls["results"], heldout=True))',
+                'audit = expanded["audit"]\nprint("Protocol commit:", expanded["metadata"]["protocol_commit"])\nprint("Development rows / policies:", audit["development_rows"], audit["development_policies"])\nprint("Primary / total fitted models:", audit["primary_fitted_models"], audit["actual_fitted_models"])\nprint("Confirmation labels accessed:", audit["confirmation_labels_accessed"])\ndisplay(pd.DataFrame(audit["folds"])[["protocol", "fold", "training_rows", "validation_rows", "purged_training_rows"]])',
             ),
             (
                 "md",
-                "## 2 · Search broadly, with a rationale\nThe broad bank contains word and character ngrams; 1,512 structural/context interactions; 207 lexical similarity transformations; support-conditioned token products; 6,144 frozen embedding coordinates/interactions; 32 semantic geometry summaries; 207 training-relative ranks; community indicators; and nine nested target/frequency/novelty candidates.\n\nThe separate joint-text probe adds 99 entailment/contradiction/neutral transformations from frozen DeBERTa. Support summaries are invariant to swapping the two positive or two negative examples. Every family has provenance, availability and leakage notes in the [feature catalog](../docs/FEATURE_RESEARCH.md). Counts below are **per-fold candidate columns**, not a sum over repeated CV fits.",
+                "## 2 · Search broadly, with a reason for each family\nWords and character patterns capture phrasing and morphology. Style measures test requests, links and emphasis. Rule/support similarities, token products and semantic geometry test whether the comment resembles prohibited examples more than permitted ones. Training-reference ranks test relative position; community frequencies and cross-fitted target context test group effects and shortcut risk.\n\nThe encoder is already rule-conditioned. Its raw coordinates, support products and compact scalar comparisons are separate representations. Full-vocabulary, NB-weighted and five fixed SVD controls test whether screening or representation scale explains an apparent gain. [Detailed family rationale, availability and leakage analysis](../docs/FEATURE_RESEARCH.md#candidate-space-and-availability).\n\nNo timestamps, author histories, threads, opponents, coaches or ratings exist in the schema. Temporal and historical sports/customer-style features would invent unavailable information.",
             ),
             (
                 "code",
-                'screen = pd.DataFrame(research["screening"]["folds"])\ncounts = screen.groupby(["protocol", "fold"])[["candidates", "retained", "rejected"]].sum()\njoint_counts = pd.DataFrame(pairs["screening"])\ncombined_counts = counts + joint_counts[joint_counts.model == "all_nli"].set_index(["protocol", "fold"])[["candidates", "retained", "rejected"]]\nif instructions is not None:\n    instruction_counts = pd.DataFrame(instructions["screening"])\n    combined_counts += instruction_counts[instruction_counts.model == "instruction_features"].set_index(["protocol", "fold"])[["candidates", "retained", "rejected"]]\nprint("Per-fold screened bank totals, including each joint-text family once:")\ndisplay(combined_counts)\ndisplay(screen.groupby("family")[["candidates", "retained"]].agg(["min", "max"]))\ndisplay_figure(root, "screening")',
+                'screens = pd.DataFrame(expanded["screening"]["families"])\nassert (screens.candidates == screens.retained + screens.rejected).all()\ntotals = screens.groupby(["protocol", "fold"])[["candidates", "retained", "rejected"]].sum()\nextra = pd.DataFrame(retrieval["screening"]).set_index(["protocol", "fold"])[["candidates", "retained", "rejected"]]\ndisplay((totals + extra).rename(columns={"candidates": "All candidates", "retained": "All retained", "rejected": "All rejected"}))\ndisplay_expanded(root, "screening")',
             ),
             (
                 "md",
-                "## 3 · Screen inside training boundaries\nThe screen rejects nonfinite/schema errors, constant or nearly constant columns, features seen in fewer than three training rows, exact duplicates and suspicious perfect separators. Training-label effect scores impose fixed budgets. Dense redundancy screening checks |correlation| ≥0.995 within the strongest budgeted pool; sparse duplicates use column hashes to avoid a quadratic comparison of vocabulary columns.\n\nNo outer validation statistic participates. Detailed per-feature decisions and selected column hashes are private reproducibility artifacts. Unscreened controls below test whether the screen itself discarded useful lexical signal.",
+                "## 3 · Fit every learned transform inside training\nVocabulary/IDF, rarity and redundancy decisions, effect-score screening, scaling, ranks, NB weights and SVD use the purged outer-training rows. Target/context features use inner grouped cross-fitting and inner text purging. Unknown groups fall back to inner-training priors. No validation target selects a column.\n\nA retained bank is not a final feature set: each model consumes only its declared families. The full candidate catalogs, selected names and training IDs remain checksummed private artifacts. Logistic regression stays at C=2; no hyperparameter search compensates for weak representations.",
             ),
             (
                 "code",
-                'decisions = pd.DataFrame([{"Family": r["family"], "Reason": reason, "Columns": count} for r in research["screening"]["folds"] for reason, count in r["decisions"].items()])\ndisplay(decisions.groupby("Reason").Columns.sum().to_frame("Column decisions across five folds"))\nassert (screen.candidates == screen.retained + screen.rejected).all()\nassert screen.missing_or_nonfinite.sum() == 0',
+                'decisions = pd.DataFrame([{"protocol": row["protocol"], "fold": row["fold"], "family": row["family"], **row["decisions"]} for row in expanded["screening"]["families"]]).fillna(0)\ndisplay(decisions.drop(columns=["protocol", "fold"]).groupby("family").sum().astype(int))',
             ),
             (
                 "md",
-                "## 4 · Separate feature effects from model tuning\nTwenty-one broad configurations run on the same five saved folds: 105 fits. A fixed logistic classifier (C=2, liblinear, seed 2025) measures additions to the same screened-word control, family-only controls and leave-one-family-out ablations. No hyperparameter sweep is used. Scaling and fixed per-family budgets are part of the tested representation.\n\nIntervals use 1,000 paired normalized-comment-group bootstrap draws. The wide intervals adjust simultaneously for the study's planned contrasts. They condition on fixed OOF predictions and two rules; they do not correct for repeated research across studies or establish performance on arbitrary unseen policies.",
+                "## 4 · Attribute improvement through matched additions and removals\nEach addition starts from the same screened-word model. Each removal starts from the same all-transfer representation. These contrasts test incremental utility, while comparisons with the historical-style reference also change representation/scaling conventions. Paired normalized-body bootstrap draws share weights across models; simultaneous intervals cover the declared contrasts. They condition on fixed OOF predictions and four observed policies, not arbitrary future rules or all adaptive research decisions.",
             ),
             (
                 "code",
-                'display_figure(root, "ablation")\neffects = pd.DataFrame(research["uncertainty"])\nheld_effects = effects[effects.protocol == "heldout_rule"]\ndisplay(held_effects.loc[held_effects.contrast.str.startswith("add_"), ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))',
+                'display_expanded(root, "ablation")\ncontrasts = pd.DataFrame(expanded["uncertainty"])\nremovals = contrasts[(contrasts.protocol == "heldout_rule") & contrasts.contrast.str.startswith("remove_")]\ndisplay(removals[["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))',
             ),
             (
                 "md",
-                "## 5 · Keep the negative findings visible\nCharacter ngrams and compact semantic geometry improve the matched screened-word control at pointwise confidence, but their simultaneous intervals include zero. Raw embedding coordinates and the structural expansion hurt transfer. Community and nested target encodings do not establish robust gains. The all-family representation is substantially worse than the historical reference. More features are not automatically better.",
+                "## 5 · Check whether the selected signals are stable\nSelection overlap measures whether folds retain the same columns; it does not establish usefulness. Group permutation shuffles each group's linear contribution within policy, preserving policy prevalence. Correlated families can substitute for one another, so the direct ablations remain the primary contribution evidence. Transparent linear contributions make a second SHAP plot unnecessary here.",
             ),
             (
                 "code",
-                'display(metric_table(research["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\ndisplay(held_effects.loc[held_effects.contrast.str.startswith("remove_"), ["contrast", "observed_delta", "simultaneous_lower", "simultaneous_upper"]].round(4))',
+                'stability = pd.DataFrame(expanded["screening"]["stability"])\ndisplay(stability[stability.protocol == "heldout_rule"].groupby("family").retained_jaccard.agg(["min", "mean", "max"]).round(3))\nimportance = pd.DataFrame([{**r, "mean_permutation_auc_drop": sum(r["within_rule_permutation_auc_drops"]) / len(r["within_rule_permutation_auc_drops"])} for r in expanded["importance"] if r["protocol"] == "heldout_rule" and r["model"] == "all_transfer"])\ndisplay(importance.groupby("family")[["mean_absolute_logit_contribution", "mean_permutation_auc_drop"]].mean().round(4))',
             ),
             (
                 "md",
-                "## 6 · Attribute performance and inspect stability\nWhole-family permutation within each validation rule measures dependence while avoiding impossible cross-rule shuffles. Repeated permutations and coefficient summaries are descriptive; correlated families can substitute for one another. Retained-name Jaccard measures selection stability separately from predictive usefulness. Raw token identities are excluded from public output.\n\nSHAP is not added merely as decoration: these fixed linear probes already expose coefficients, matched ablations and group permutation. Those diagnostics directly answer the current feature questions without another correlated attribution summary.",
+                "## 6 · Challenge duplicate, label and support dependence\nTraining-conflict exclusions use training labels only. Near-copy removal uses text only and fixed character-cosine/Jaccard thresholds. The validation rows stay fixed for both refits. Separately, descriptive metrics give equal total weight to each body/policy group or exclude conflicting groups from scoring. None of these diagnostic outcomes changes the primary folds.\n\nThe centroid stress tests average all four one-positive/one-negative example choices, shuffle supplied contexts within policy, and exclude exact self-support matches. They test dependence on the supplied examples; they do not establish paraphrase independence or resilience to absent rule text.",
             ),
             (
                 "code",
-                'display_figure(root, "stability")\npermutation = pd.DataFrame(research["importance"])\npermutation["mean_permutation_drop"] = permutation.within_rule_permutation_auc_drops.map(lambda values: sum(values) / len(values))\nselected_importance = permutation[(permutation.protocol == "heldout_rule") & (permutation.model == "all_transfer")]\ndisplay(selected_importance.groupby("family").agg(mean_auc_drop=("mean_permutation_drop", "mean"), minimum_fold_drop=("mean_permutation_drop", "min"), maximum_fold_drop=("mean_permutation_drop", "max"), mean_absolute_logit=("mean_absolute_logit_contribution", "mean")).round(4))',
+                'filters = pd.DataFrame(audit["training_sensitivities"])\nfilters["removed"] = filters.before - filters.after\ndisplay(filters.groupby(["protocol", "sensitivity", "model"])[["removed", "reused_primary"]].sum())\nrobust_records = [r for r in expanded["results"] if r["model"] in ["rule_examples", "character_full", "qwen_centroid"] or "exclude_conflicts" in r["model"] or "purge_near_copies" in r["model"]]\ndisplay(metric_table(robust_records, heldout=True))\ndisplay(pd.DataFrame([{ "Model": r["model"], "Primary AUC": r["metrics"]["rule_macro_auc"], "Equal group weight": r["equal_body_policy_weight"]["rule_macro_auc"], "Exclude conflicting groups": r["excluding_conflicts"]["rule_macro_auc"]} for r in robust_records if r["protocol"] == "heldout_rule"]).round(4))',
             ),
             (
                 "md",
-                "## 7 · Challenge the selection and representation choices\nFifty-five additional fits compare full word/character vocabularies, training-only NB log-count weighting, and five 128-component SVD representations fitted only on outer training rows. None of the low-rank alternatives improves the original reference. Label-free lexical support scores and seven frozen Qwen geometry scores isolate aggregation effects. The normalized positive/negative centroid margin is the strongest observed geometry alternative; its uncertainty still matters. Self-support exclusion preserves the main ranking advantage, but does not create new policies.",
+                "## 7 · Keep negative findings and scope limits visible\nThe original two-policy study also tested a frozen DeBERTa NLI cross-encoder and three fixed Qwen instruction-likelihood templates. Neither improved its lexical reference. These are useful negative findings for those models, inputs and policies; they do not establish failure on every policy. The expanded study tests the existing broad families and representation controls, rather than quietly attributing new-policy results to unexecuted NLI/instruction experiments.",
             ),
             (
                 "code",
-                'display(metric_table(sensitivity["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\nintervals = pd.DataFrame(sensitivity["uncertainty"])\ndisplay(intervals.loc[(intervals.protocol == "heldout_rule") & intervals.contrast.isin(["qwen_centroid", "character_full", "reweight_word", "reweight_character"]), ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\nselected = ["original_reference", "qwen_centroid", "qwen_maximum", "word_semantic_scalar"]\nrows = [r for r in sensitivity["sensitivity"] if r["protocol"] == "heldout_rule" and r["model"] in selected]\ndisplay(metric_table(rows, heldout=True))',
+                'historical = [r for r in pairs["results"] if r["model"] in ["rule_nli", "word_nli", "all_nli"]]\nif instructions is not None:\n    historical += instructions["results"]\nprint("Historical two-policy evidence only:")\ndisplay(metric_table(historical, heldout=True))',
             ),
             (
                 "md",
-                "## 8 · Joint text encoding without model fine-tuning\nThe pinned `cross-encoder/nli-deberta-v3-small` model jointly reads the comment with (a) a fixed violation hypothesis, (b) a compliance hypothesis, or (c) each supplied example. The encoder stays frozen. Rule-only, support-only, combined, word-plus-NLI and broad-plus-NLI probes use the same fixed classifier and folds: 25 fits. A fixed zero-shot rule margin is reported separately.\n\nWeights are trained on general NLI, not moderation judgments. Entailment is a feature hypothesis, not an assertion that NLI understands every policy. Inference batches have immutable hashes, truncation diagnostics, verified completion markers and S3 checkpoints.",
+                "## 8 · Test a target-derived geometry hypothesis\nThe raw-coordinate and linear projection controls leave one plausible avenue: local neighborhoods and prototypes of labeled training examples. The preregistered retrieval extension uses three frozen geometric spaces and 309 neighborhood, prototype, nonlinear and supplied-margin interaction candidates. Training-only screening retains at most 64. It adds the family to four exact saved controls and also tests retrieval alone: 35 additional fixed fits.\n\nEvery labeled bank excludes the query policy, including familiar policies. Training features leave out each entire policy and purge reference body/support matches; validation transformation rejects a target column. Tests flip all labels of a query policy and prove its own feature rows are unchanged. This tests transferable geometry without assigning labels from one policy to another. [Protocol and rationale](../docs/RETRIEVAL_STUDY.md).",
             ),
             (
                 "code",
-                'display(metric_table(pairs["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\nni = pd.DataFrame(pairs["uncertainty"])\ndisplay(ni.loc[ni.protocol == "heldout_rule", ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\ndisplay(pd.Series({k: v for k, v in pairs["inference"].items() if k != "contract"}, name="NLI inference"))\nns = pd.DataFrame(pairs["screening"])\ndisplay(ns.groupby("model")[["candidates", "retained"]].agg(["min", "max"]))',
+                'display(metric_table(retrieval["results"], heldout=True))\nrc = pd.DataFrame(retrieval["uncertainty"])\ndisplay(rc[(rc.protocol == "heldout_rule") & rc.contrast.str.startswith("add_retrieval")][["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\ndisplay(pd.DataFrame(retrieval["screening"])[["protocol", "fold", "candidates", "retained", "rejected"]])',
             ),
             (
                 "md",
-                "## 9 · Fixed instruction likelihoods\nA separate frozen Qwen3-0.6B probe scores Yes/No token likelihoods under three fixed templates: rule only, examples only, and both. Thinking and generation are disabled. There is no competition-label fine-tuning or prompt sweep. Thirty-six probability, margin, answer-mass and context-difference candidates feed the same fixed classifier, with lexical and semantic additions. Support examples are sorted within their label groups. Field budgets preserve the question when text is long. The completed probe does not improve held-out-rule performance. These negative results apply to this fixed small model and its documented field budgets; they do not establish failure of every instruction model.",
+                "## 9 · Check the model's trained embedding resolutions\nMatryoshka prefixes are different from learned SVD projections or arbitrary coordinate selection. Six preregistered resolutions (32–1,024 dimensions) reuse the same frozen vectors; smaller prefixes are normalized again. The 1,024-dimensional score must reproduce the existing centroid reference exactly. These are five additional scalar scoring controls, with zero new encoder calls or classifier fits—not thousands of new candidate columns. [Protocol and model-card rationale](../docs/RESOLUTION_STUDY.md).",
             ),
             (
                 "code",
-                'if instructions is None:\n    print("The bounded instruction-feature experiment has no published results yet.")\nelse:\n    display(metric_table(instructions["results"], heldout=True).sort_values("Rule macro AUC", ascending=False))\n    ii = pd.DataFrame(instructions["uncertainty"])\n    display(ii.loc[ii.protocol == "heldout_rule", ["contrast", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))\n    display(pd.Series({k: v for k, v in instructions["inference"].items() if k != "contract"}, name="Instruction inference"))',
+                'display(pd.DataFrame([{ "Dimensions": r["dimension"], "Policy-macro AUC": r["metrics"]["rule_macro_auc"], "Log loss": r["metrics"]["log_loss"], "Brier": r["metrics"]["brier"]} for r in resolution["results"]]).round(4))\ndisplay(pd.DataFrame(resolution["uncertainty"])[["candidate", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))',
             ),
             (
                 "md",
-                "## 10 · Completion is an evidence decision\nBroad exploration is implemented and executed, but the best observed score is selected from many experiments on the same two rule types. The host release now supplies the next research boundary: 9,106 additional research rows across four policies, with 43,576 rows reserved. Medical advice and illegal-activity promotion broaden development; financial advice and spoilers stay outside research labels. The new study has not run. Additional random interactions or a larger classifier would not replace that study.\n\nThe original offline classifier deliberately remains the reference; it does not silently consume an unpromoted feature bank. Final feature dimensionality and model promotion are unresolved. The gate cannot be closed by a successful pipeline run or a high candidate count.",
-            ),
-            (
-                "md",
-                "## 11 · A protected route beyond two policies\nThe [host-released dataset](https://www.kaggle.com/datasets/sorenj/jigsaw-agile-community-rules-classification/data) was verified against the original training and preview files. The committed protocol uses policy, Public/Private metadata and normalized text to assign roles **before interpreting research labels**. Research rows are removed when their comment or any supplied example exposes a reserved body. Reserved rows already exposed by historical training/preview inputs are reported as exclusions.\n\nThe reserve is a research protocol, not a security boundary around public data. Its targets have not been scored or used for selection. Exact-copy isolation does not establish paraphrase independence. The original 2,029 rows plus 9,106 additions provide 11,135 development rows before duplicate handling. The audit finds 544 repeated body/policy rows and 39 conflicting-label groups; the next study must address them with grouped validation and a documented sensitivity analysis. It must also respect the strong class imbalance in promotion comments.",
-            ),
-            (
-                "code",
-                'display_boundary(root)\ndisplay(pd.Series(released["boundary"]["role_counts"], name="Released rows"))\ndisplay(pd.DataFrame(released["boundary"]["research_label_counts"]))\nprint("Confirmation targets exposed:", released["boundary"]["confirmation_targets_accessed"])\nprint("Protocol commit:", released["boundary"]["protocol_commit"])',
-            ),
-            (
-                "md",
-                "## 12 · The next deliverable\nRun the strongest existing feature families and their controls on frozen four-policy development folds, then freeze one representation for confirmation. Preserve the two reserved policy types and former Private partition until that decision is committed. After successful confirmation, connect the accepted representation to offline inference, complete probability-quality and deployment-budget checks, and publish a concise demonstration and model card. [Exact boundary and next-study requirements](../docs/RELEASED_DATA.md) · [Milestones and acceptance gates](../docs/ROADMAP.md).",
+                "## 10 · Decide what the evidence permits\nA large feature bank, a good average and successful execution cannot close this gate. Examine per-policy performance, probability quality, robustness and computational cost before freezing a candidate/reference for one reserved confirmation evaluation. The 1,024-dimensional centroid leads on transfer and improves on the lexical reference in all four observed policies, but legal/medical advice remain weak. Retrieval damages the compact semantic control, and shorter prefixes lose accuracy. Finish a bounded query-versus-document formatting check and a policy-intent/error audit before freezing the candidate. Longer context is lower priority: only two cached inputs were truncated at 256 tokens.\n\nThe offline inference path still names the lexical reference. It will change only after a representation earns acceptance and its feature contract is connected end to end. [03 · Results and decision](03_saved_results.ipynb) is the concise review; [04 · Diagnostics](04_semantic_benchmark.ipynb) exposes policy-level behavior and probability quality.",
             ),
             (
                 "code",
@@ -263,7 +263,7 @@ def notebooks():
             ),
             (
                 "md",
-                "## Reproduce or inspect\nThe default notebook reads evidence only. The tested commands `jigsaw research --export`, `jigsaw diagnostics`, `jigsaw robustness`, `jigsaw pairs` and `jigsaw instructions` reproduce the separate studies after restoring private artifacts. Completed folds and encoding batches resume; changed dependencies or source create distinct identities. [VALIDATION.md](../docs/VALIDATION.md) records executed checks, cloud lineage and limits.\n\nContinue to [03 · Results and decision](03_saved_results.ipynb).",
+                "## Reproduce the evidence\n`python scripts/run_expanded.py --encode` extends only missing pinned embeddings, then resumes the preregistered study after the private research artifacts are restored. Omit `--encode` to require a complete verified cache. The default public notebook performs no fitting, downloads or target access. Sources, input identities, stage markers, full catalogs and OOF predictions are preserved. [Execution and restoration record](../docs/VALIDATION.md).",
             ),
         ]
     )
@@ -271,34 +271,37 @@ def notebooks():
         [
             (
                 "md",
-                "# 03 · Results and model decision\n\n**Decision:** Keep feature engineering open and retain the lexical reference. A large executed search has exposed useful semantic signals and many negative findings. It has not established a final representation with independent confirmation.",
+                "# 03 · Results and the next decision\n\n**Decision:** Keep feature engineering open until the four-policy evidence supports a frozen candidate and a documented stopping rationale. This is a research prototype with strong experimental infrastructure; independent confirmation and a deployed final representation remain unfinished.\n\nThis short notebook is the employer review path. It separates measured development results from the claims the project can responsibly make.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Compare representations on identical held-out rows\nThese are local rule-macro AUC results, not leaderboard scores. The same fixed classifier is used for learned feature probes. Frozen scores require no competition-label fitting. Probability losses remain visible alongside ranking.",
+                "## What the expanded research measured\nThirty-four fixed trained configurations share seven purged splits. The feature study adds/removes major families, checks full versus screened representations, and tests training-only NB/SVD controls. Frozen semantic scores are untrained comparison baselines. The 43,576-row reserve remains outside model selection.\n\nThe frozen semantic centroid reaches **0.7042 transfer AUC**, versus **0.4728** for the matched lexical reference. Its log loss improves from 0.8126 to 0.6237. Most of the gain comes from avoiding reversed lexical ranking on illegal-activity promotion; legal and medical advice remain difficult. The all-transfer model reaches 0.7989 on familiar policies but only 0.5515 on transfer.\n\nPolicy-macro AUC is the primary competition-oriented metric. These are post-competition development results, not a Kaggle score.",
             ),
             (
                 "code",
-                'records = [r for r in baseline["results"] if r["model"] == "rule_examples"]\nrecords += [r for r in research["results"] if r["model"] in ["word_screened", "word_semantic_scalar", "all_transfer", "all_with_metadata"]]\nrecords += [r for r in sensitivity["results"] if r["model"] in ["qwen_centroid", "character_full", "word_character_nb"]]\nrecords += pairs["results"]\nif instructions is not None:\n    records += instructions["results"]\ndisplay(metric_table(records, heldout=True).sort_values("Rule macro AUC", ascending=False))',
+                'display_expanded(root, "comparison")\nsummary = metric_table(expanded["results"] + retrieval["results"], heldout=True).sort_values("Rule macro AUC", ascending=False)\ndisplay(summary.head(10))',
             ),
             (
                 "md",
-                "## What the feature work established\nCompact semantic relationships and character patterns deserve more attention than high-dimensional structural expansion or raw coordinate selection. Target/context and community features have not justified their availability and transfer risks. Unscreened controls are essential: screening reduces size but can also remove useful signal.\n\nSee [02 · Feature research](02_baseline_and_review.ipynb) for candidate counts, matched additions/removals, simultaneous intervals, stability, negative findings and the feature catalog.",
-            ),
-            ("code", 'display_figure(root, "ablation")'),
-            (
-                "md",
-                "## Promotion and artifact lineage\nThe notebooks consume the latest verified research aggregates. The offline submission path still fits the explicitly named original lexical reference. No final candidate has been selected, no novel feature artifact has been promoted, and no CSV has been submitted to Kaggle. This is a deliberate open gate, not stale-model reuse disguised as a new result.",
+                "## What would count as a feature improvement?\nThe family-ablation figure in notebook `02` measures additions to the same screened-word control. The table below compares each representation with the same-fold rule/example reference. A higher point estimate with an interval crossing zero remains an uncertain development observation. Probability losses and policy-level failures are part of the decision. Simultaneous intervals apply within each preregistered study; combining rows below does not create one joint correction over all research.",
             ),
             (
                 "code",
-                'display(pd.DataFrame(gate["criteria"]))\nprint("Gate:", gate["status"])\nprint(gate["decision"])',
+                'contrasts = pd.DataFrame(expanded["uncertainty"] + retrieval["uncertainty"])\ncompared = contrasts[(contrasts.protocol == "heldout_rule") & (contrasts.reference == "rule_examples")]\ndisplay(compared.sort_values("observed_delta", ascending=False).head(10)[["candidate", "observed_delta", "ci_lower", "ci_upper", "simultaneous_lower", "simultaneous_upper"]].round(4))',
             ),
             (
                 "md",
-                "## Remaining uncertainty\nThe completed two-policy studies cannot establish broad unseen-rule generalization. The new release prepares a four-policy research round and two completely reserved policy types. Its confirmation labels remain outside the research loader. Repeatedly inspecting old held-out scores creates selection bias; within-study simultaneous intervals only address part of that problem. Calibration, final representation selection and final retraining remain downstream of the feature gate.\n\n[04 · Semantic diagnostics](04_semantic_benchmark.ipynb) examines policy-level behavior and probability quality. The [research record](../docs/FEATURE_RESEARCH.md) describes which high-value avenues were explored, ruled inapplicable, or remain unresolved.",
+                "## Why this remains an open product decision\nThe research loader never exposes reserved targets. The public reports are checksummed summaries of verified private OOF predictions. The standalone inference notebook still uses the named lexical reference; no research candidate is silently presented as the production model.\n\nThe next acceptance milestone is a defensible feature stopping decision, followed by one locked confirmation comparison. Then the accepted representation needs calibrated/triage diagnostics, offline feature parity, latency and memory measurements, and an example-driven demonstration with a model card. Passing software tests does not substitute for those deliverables.",
+            ),
+            (
+                "code",
+                'print("Expanded study:", gate["expanded_development"])\nprint("Feature gate:", gate["status"])\nprint("Final training justified:", gate["final_training_authorized_by_evidence"])',
+            ),
+            (
+                "md",
+                "## Explore the reasoning\n[02 · Research methods, screening and ablations](02_baseline_and_review.ipynb) · [04 · Per-policy and probability diagnostics](04_semantic_benchmark.ipynb) · [01 · Leakage boundaries](01_data_and_validation.ipynb) · [Remaining release milestones](../docs/ROADMAP.md).\n\nThe historical two-policy search is preserved in the [research record](../docs/FEATURE_RESEARCH.md); its scores are not compared numerically with this larger cohort as if only the features had changed.",
             ),
         ]
     )
@@ -306,37 +309,45 @@ def notebooks():
         [
             (
                 "md",
-                "# 04 · Semantic diagnostics\n\n**Question:** Why do compact semantic relationships transfer more plausibly than raw embedding coordinates?\n\nFrozen Qwen embeddings summarize each comment and its supplied examples. The joint DeBERTa probe adds rule/support entailment relationships. Neither encoder is fine-tuned on competition labels.",
+                "# 04 · Policy and semantic diagnostics\n\n**Question:** Where does the representation succeed, where does it fail, and how much does it depend on its supplied examples?\n\nThis notebook examines the expanded development study. It keeps ranking, probability quality and support dependence separate. No result here consumes the confirmation reserve.",
             ),
             ("code", SETUP),
             ("code", RESEARCH_SETUP),
             (
                 "md",
-                "## Examine each observed policy\nA mean over two policies can conceal deterioration on one. These tables preserve per-policy AUC and do not treat identical label-free predictions across validation protocols as independent replications.",
+                "## Policy-level performance can contradict the average\nThe held-out-policy models train on the other three policies. Fixed semantic scores do not fit labels; their identical predictions across validation protocols are not independent replications. A policy-level failure remains meaningful even if the overall mean improves.",
             ),
             (
                 "code",
-                'records = baseline["results"] + semantic["results"]\nrecords += [r for r in sensitivity["results"] if r["model"] in ["qwen_centroid", "qwen_mean", "qwen_maximum"]]\nrecords += pairs["results"]\nif instructions is not None:\n    records += instructions["results"]\nper_rule = pd.DataFrame([{"Representation": r["model"], "Rule": rule.split(":")[0], "ROC AUC": auc} for r in records if r["protocol"] == "heldout_rule" for rule, auc in r["metrics"]["per_rule_auc"].items()])\ndisplay(per_rule.pivot(index="Representation", columns="Rule", values="ROC AUC").round(4))',
+                'display_expanded(root, "policies")\nselected = ["rule_examples", "character_full", "word_semantic_scalar", "all_transfer", "qwen_centroid"]\nrecords = [r for r in expanded["results"] if r["protocol"] == "heldout_rule" and r["model"] in selected]\nper_rule = pd.DataFrame([{"Representation": r["model"], "Policy": rule.split(":")[0], "ROC AUC": auc} for r in records for rule, auc in r["metrics"]["per_rule_auc"].items()])\ndisplay(per_rule.pivot(index="Representation", columns="Policy", values="ROC AUC").round(4))',
             ),
             (
                 "md",
-                "## Probability quality and operating points\nCalibration error uses ten equal-width bins. Precision, recall and F1 use a fixed diagnostic threshold of 0.5; threshold selection and calibration fitting are not claimed as completed. The temperatures of label-free scores are fixed transformations, not fitted calibrators.",
+                "## Ranking is not probability calibration\nLog loss and Brier assess probability quality; lower is better. Calibration error uses ten equal-width bins. Precision/recall/F1 use the fixed diagnostic threshold 0.5. There is no fitted calibrator or selected moderation threshold. Frozen centroid temperatures define scoring scales, not validated probability estimates.",
             ),
             (
                 "code",
-                'diagnostics = pd.DataFrame([{"Representation": r["model"], "Pooled AUC": r["metrics"]["pooled_auc"], "Calibration error": r["metrics"]["ece_10_equal_width_bins"], "Precision@0.5": r["metrics"]["precision_at_0_5"], "Recall@0.5": r["metrics"]["recall_at_0_5"], "F1@0.5": r["metrics"]["f1_at_0_5"]} for r in records if r["protocol"] == "heldout_rule"])\ndisplay(diagnostics.round(4))',
+                'display(metric_table(records))\ndiagnostics = pd.DataFrame([{"Representation": r["model"], "Pooled AUC": r["metrics"]["pooled_auc"], "Calibration error": r["metrics"]["ece_10_equal_width_bins"], "Precision@0.5": r["metrics"]["precision_at_0_5"], "Recall@0.5": r["metrics"]["recall_at_0_5"], "F1@0.5": r["metrics"]["f1_at_0_5"]} for r in records])\ndisplay(diagnostics.round(4))',
             ),
             (
                 "md",
-                "## Compute and resumability\nThe original Qwen run encoded 1,875 unique texts; the broad study reused all verified embeddings. The NLI probe deduplicates comment–hypothesis pairs and records truncated pairs. Batches are hashed and published only after all files complete. The bounded AWS processing job checkpoints completed work to its own experiment prefix.",
+                "## How much does the supplied support set matter?\nA centroid comparison asks whether a comment is closer to positive than negative examples under a rule-conditioned frozen embedding. One-example-per-class scoring averages every positive/negative choice. Shuffling complete support contexts within the same policy tests dependence on the particular supplied context. Exact self-support exclusion tests whether copied examples explain performance. These are fixed diagnostics, not new tuned models.",
             ),
             (
                 "code",
-                'timing = semantic["timing"]\nprint("Original Qwen encoder:", timing["encoder"])\ndisplay(pd.Series({k: v for k, v in pairs["inference"].items() if k != "contract"}, name="NLI inference"))',
+                'stress = expanded["audit"]["support_stress"]\ncentroid = next(r["metrics"] for r in records if r["model"] == "qwen_centroid")\ncomparison = {"Original supplied context": centroid, **{name: value for name, value in stress.items() if isinstance(value, dict)}}\ndisplay(pd.DataFrame([{ "Condition": name, "Policy-macro AUC": value["rule_macro_auc"], "Log loss": value["log_loss"], "Brier": value["brier"]} for name, value in comparison.items()]).round(4))\nprint("Self-support rows excluded:", stress["self_match_rows"])',
             ),
             (
                 "md",
-                "## Interpretation and next research boundary\nA positive-versus-negative centroid comparison uses the supplied task context directly and does not need hundreds of learned coefficients from a tiny fold. This is a plausible explanation for its transfer behavior, not a causal proof. Raw coordinates and many structural interactions are unstable across policies. General NLI features must earn their place through rule/support ablations, rather than being assumed superior because they use a transformer.\n\nFurther prompt or encoder searches would reuse already-inspected policies. The host release now provides legitimate broader rule coverage. Its protected partition is prepared; expanded feature comparisons and independent confirmation remain unexecuted. [02 · Feature gate](02_baseline_and_review.ipynb) remains open. The [Kaggle notebook](../kaggle/submission.ipynb) remains the user's offline lexical-reference workflow; no automatic upload is performed.",
+                "## Compute is part of the representation decision\nThe expanded study reuses 1,875 verified original inputs and encodes 10,098 missing inputs, for 11,973 unique rule/comment or rule/example queries. Four CPU workers use the pinned model and immutable input contract. Completed shards and folds are checksummed and checkpointed to S3; interrupted active stages restart while completed work is preserved.\n\nAll 190 cache shards are verified. Their statistics record 11,977 encoded occurrences (11,973 unique inputs), two truncations, a maximum original length of 337 tokens and peak per-worker RSS of 3.85 GiB. The six-resolution comparison keeps 1,024 dimensions as the strongest reference; shorter outputs do not accelerate the transformer itself.\n\nEmbedding coordinates and compact comparisons share the same encoder cost, but their fitted feature dimensions differ. The final product still needs measured end-to-end latency, memory, offline parity and a support-availability policy after a candidate earns promotion.",
+            ),
+            (
+                "code",
+                'display(pd.Series(expanded["audit"]["embedding_cache"], name="Verified expanded cache"))\nprint("Research run:", expanded["metadata"]["run_id"])\nprint("Final training justified:", gate["final_training_authorized_by_evidence"])',
+            ),
+            (
+                "md",
+                "## Interpret the limits\nThe four observed policies are broader than the original pair, but remain a finite benchmark selected by the competition's data construction. Fixed-model bootstrap intervals do not estimate the full distribution of arbitrary future policies. The protected reserve is intended for one later frozen comparison. If it rejects the candidate, that result must be retained rather than used for another search.\n\n[02 · Feature evidence](02_baseline_and_review.ipynb) · [03 · Current decision](03_saved_results.ipynb) · [Full historical research record](../docs/FEATURE_RESEARCH.md).",
             ),
         ]
     )

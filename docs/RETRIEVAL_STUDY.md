@@ -1,4 +1,4 @@
-# Semantic retrieval as a final feature hypothesis
+# Policy-excluded semantic retrieval
 
 This extension is specified while the four-policy embedding run is in progress,
 before inspecting expanded-study scores. It fills a concrete gap: raw coordinates,
@@ -65,3 +65,31 @@ credible and its reference-data/inference cost is justified. Failure narrows the
 remaining target-derived feature avenue; success still needs stability checks
 and a frozen confirmation comparison. Neither outcome consumes reserved labels
 or automatically changes the production representation.
+
+## Outcome on the expanded development cohort
+
+Run `f69e5061eef584e520e3` completed all 35 fixed fits. Every fold generated
+309 candidates and retained 64. Together with the expanded banks, the search
+contains **188,518–188,521 columns per fold**, with **9,234–9,613** retained
+before choosing families. These counts do not imply that one model uses them all.
+
+| Transfer representation | Policy-macro AUC | Log loss | Brier |
+| --- | ---: | ---: | ---: |
+| Retrieval alone | 0.5085 | 1.3773 | 0.3727 |
+| Words + retrieval | 0.4869 | 1.1316 | 0.3613 |
+| Semantic comparisons + retrieval | 0.5590 | 1.4763 | 0.3613 |
+| Words + semantic comparisons + retrieval | 0.5802 | 1.1566 | 0.3565 |
+| All-transfer + retrieval | 0.5669 | 1.5584 | 0.4297 |
+
+Adding retrieval to screened words gives +0.0493 AUC (simultaneous interval
+[0.0040, 0.0945]), but the resulting model remains weak and its probability
+losses worsen. Adding it to compact semantic comparisons **loses 0.1287 AUC**
+[-0.1739, -0.0835] and sharply worsens probability losses. Its +0.0041 gain on
+words plus semantics is uncertain [-0.0412, 0.0493]. All-transfer gains +0.0155
+[-0.0297, 0.0607], also uncertain. Intervals are conditional on the four observed
+policies and fixed predictions, with multiplicity handled within this study.
+
+This family is **rejected as a promotion candidate**. Leakage-safe engineering
+does not guarantee useful transfer. The 0.8013 familiar-policy AUC of
+all-transfer plus retrieval must not hide its 0.5669 transfer AUC. The leading
+frozen centroid remains stronger without this target-derived bank.
