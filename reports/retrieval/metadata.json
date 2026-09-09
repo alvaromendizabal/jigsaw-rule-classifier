@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "data_kind": "post_competition_research",
+  "protocol_commit": "087cec0aa08d77f40abc2f498a99731fd3d6a3db",
+  "plan_sha256": "78633ce94cfc51c24310faa9425c98ea9fee27e582e5bbf4495c5bf259e1735d",
+  "source_sha256": "60ad692c0c8c0d901f19a83d139f19ee6c019189ad1f69ddb68920fc8088969e",
+  "expanded_metadata_sha256": "4b57e9726f2d90f15257d63241f233335d1f27370503a27544c1aa94e0be0857",
+  "embedding_cache": {
+    "cache": "bc433d2324dd22713bba",
+    "contract_sha256": "bc433d2324dd22713bba38c4f3e60e3a4093e1253d1e57182950d45b9fae29f5",
+    "shards_sha256": "068aafab1ec970cc04558b9b22d1c65b30b0414ef6440fc63ed79712e8827239",
+    "shards_verified": 190,
+    "requested_inputs": 55675,
+    "unique_requested_inputs": 11973,
+    "newly_encoded_inputs": 0
+  },
+  "environment": {
+    "python": "3.12.13",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "plotly": "7.0.0"
+    }
+  },
+  "run_id": "f69e5061eef584e520e3",
+  "private_checkpoint_sha256": "a080521f667e749d5bd54320c3023145a89d1c945703f893cd1c6316da33ddf4",
+  "files": {
+    "results.json": "8e1e1601b06a5845cc425dcd1dad2f0e15ba6b279c78a4f21439b20728be0f24",
+    "uncertainty.json": "14a3584a14102198c3302acbfe3e727634b17391a76698217acc5a0e4259759c",
+    "screening.json": "9d58510e1d224e7030e5f46159fdd486587d1ce958f02a658d72dc710e671c17",
+    "importance.json": "61e04f16a1a12c79c6e9ce401e7c0c198b96364ff151cdea0ac6577d6a5a4556"
+  }
+}

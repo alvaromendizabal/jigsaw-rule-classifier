@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "name": "matryoshka-centroid-sensitivity-v1",
+  "dimensions": [32, 64, 128, 256, 512, 1024],
+  "reference_dimension": 1024,
+  "score": "qwen_centroid",
+  "seed": 2025,
+  "bootstrap_draws": 1000,
+  "model_fits": 0,
+  "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+  "hypothesis": "The pinned model supports Matryoshka prefixes. Lower-dimensional normalized prefixes can change support geometry without fitting a projection or selecting arbitrary coordinates. Compare six fixed resolutions, preserve the exact 1024-dimensional reference, and report paired policy-macro AUC, per-policy AUC and probability losses. No new encoder inference, target-derived transformation, confirmation access or automatic dimension selection."
+}

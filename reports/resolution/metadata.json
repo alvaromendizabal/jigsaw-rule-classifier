@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "protocol_commit": "ccd81fb0a589dd55cc763503fc7434b0c3e873ea",
+  "plan_sha256": "edc25f949581742389b08717bac4513bd5f7406c2c0c98fd2886fdb4cd3ab07b",
+  "source_sha256": "53d1ce6f302d765570d5d39f9a8531b6f8b218fe27063b9e1d4dac2e030acf5e",
+  "expanded_metadata_sha256": "4b57e9726f2d90f15257d63241f233335d1f27370503a27544c1aa94e0be0857",
+  "embedding_cache": {
+    "cache": "bc433d2324dd22713bba",
+    "contract_sha256": "bc433d2324dd22713bba38c4f3e60e3a4093e1253d1e57182950d45b9fae29f5",
+    "shards_sha256": "068aafab1ec970cc04558b9b22d1c65b30b0414ef6440fc63ed79712e8827239",
+    "shards_verified": 190,
+    "requested_inputs": 55675,
+    "unique_requested_inputs": 11973,
+    "newly_encoded_inputs": 0
+  },
+  "environment": {
+    "python": "3.12.13",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "plotly": "7.0.0"
+    }
+  },
+  "model_fits": 0,
+  "new_encoder_calls": 0,
+  "confirmation_targets_accessed": false,
+  "run_id": "143fb05be41909328ef4",
+  "private_checkpoint_sha256": "b3060b7a3e982694b7a662d74e8dc8bd124d981949caea7c235640c3b1720a77",
+  "files": {
+    "results.json": "20641cbbc788b76ef90cfc0c5fe4f64a82f8c85b44e72d724711944b6063b2de",
+    "uncertainty.json": "421a05e64964f93200e2591340fb3b36be198a5a7caacd0a1757944e3bcee3d4"
+  }
+}

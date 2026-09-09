@@ -67,7 +67,7 @@ def select_notebooks(root: Path, requested: list[str] | None, mode: str) -> list
 def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> dict:
     """Hash actual inputs so changed evidence cannot reuse stale display outputs."""
     paths = [*sorted((root / "src").rglob("*.py")), root / "scripts/execute_notebooks.py"]
-    for name in ("build_research_report.py", "build_release_report.py"):
+    for name in ("build_research_report.py", "build_release_report.py", "build_expanded_report.py"):
         figure_builder = root / "scripts" / name
         if figure_builder.exists():
             paths.append(figure_builder)
@@ -86,6 +86,9 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "robustness",
                 "instructions",
                 "released",
+                "expanded",
+                "retrieval",
+                "resolution",
             )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")
@@ -339,10 +342,13 @@ def push_publication(root: Path, branch: str) -> str:
                 if hashlib.sha256(payloads["reports/features/" + name]).hexdigest() != sha:
                     raise ValueError("Feature files changed during publication")
         from jigsaw_rules.diagnostics import diagnostic_evidence
+        from jigsaw_rules.expanded import expanded_evidence
         from jigsaw_rules.instructions import instruction_evidence
         from jigsaw_rules.pairs import pairs_evidence
         from jigsaw_rules.released import released_evidence
         from jigsaw_rules.research import research_evidence
+        from jigsaw_rules.resolution import resolution_evidence
+        from jigsaw_rules.retrieval import retrieval_evidence
         from jigsaw_rules.robustness import robustness_evidence
 
         readers = {
@@ -352,6 +358,9 @@ def push_publication(root: Path, branch: str) -> str:
             "robustness": robustness_evidence,
             "instructions": instruction_evidence,
             "released": released_evidence,
+            "expanded": expanded_evidence,
+            "retrieval": retrieval_evidence,
+            "resolution": resolution_evidence,
         }
         for kind, reader in readers.items():
             current_evidence = reader(root)
@@ -359,6 +368,14 @@ def push_publication(root: Path, branch: str) -> str:
                 continue
             for name in ("metadata.json", *current_evidence["metadata"]["files"]):
                 report = f"reports/{kind}/{name}"
+                paths.append(report)
+                payloads[report] = (root / report).read_bytes()
+        if (root / "reports/expanded/figures.json").exists():
+            from scripts.build_expanded_report import verify_figures as verify_expanded_figures
+
+            manifest = verify_expanded_figures(root)
+            for name in ("figures.json", *manifest["files"]):
+                report = f"reports/expanded/{name}"
                 paths.append(report)
                 payloads[report] = (root / report).read_bytes()
         if (root / "reports/released/figures.json").exists():

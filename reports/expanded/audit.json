@@ -1,0 +1,467 @@
+{
+  "development_rows": 11135,
+  "development_policies": 4,
+  "class_counts": [
+    {
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "size": 3152,
+      "sum": 1328
+    },
+    {
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "size": 3383,
+      "sum": 2021
+    },
+    {
+      "rule": "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.",
+      "size": 2389,
+      "sum": 736
+    },
+    {
+      "rule": "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.",
+      "size": 2211,
+      "sum": 2087
+    }
+  ],
+  "repeated_body_policy_rows": 544,
+  "conflicting_rows": 187,
+  "conflicting_groups": 39,
+  "folds": [
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "training_rows": 3000,
+      "validation_rows": 3712,
+      "purged_training_rows": 4423,
+      "validation_policies": [
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+        "No legal advice: Do not offer or request legal advice.",
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.",
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior."
+      ]
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "training_rows": 2643,
+      "validation_rows": 3712,
+      "purged_training_rows": 4780,
+      "validation_policies": [
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+        "No legal advice: Do not offer or request legal advice.",
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.",
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior."
+      ]
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "training_rows": 2936,
+      "validation_rows": 3711,
+      "purged_training_rows": 4488,
+      "validation_policies": [
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+        "No legal advice: Do not offer or request legal advice.",
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.",
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior."
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "training_rows": 5277,
+      "validation_rows": 3152,
+      "purged_training_rows": 2706,
+      "validation_policies": [
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed."
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "training_rows": 5925,
+      "validation_rows": 3383,
+      "purged_training_rows": 1827,
+      "validation_policies": [
+        "No legal advice: Do not offer or request legal advice."
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 2,
+      "training_rows": 8418,
+      "validation_rows": 2389,
+      "purged_training_rows": 328,
+      "validation_policies": [
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations."
+      ]
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 3,
+      "training_rows": 8289,
+      "validation_rows": 2211,
+      "purged_training_rows": 635,
+      "validation_policies": [
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior."
+      ]
+    }
+  ],
+  "training_sensitivities": [
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 3000,
+      "after": 2985,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 3000,
+      "after": 2985,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 3000,
+      "after": 2939,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 0,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 3000,
+      "after": 2939,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 2643,
+      "after": 2634,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 2643,
+      "after": 2634,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 2643,
+      "after": 2638,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 1,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 2643,
+      "after": 2638,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 2936,
+      "after": 2934,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 2936,
+      "after": 2934,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 2936,
+      "after": 2933,
+      "reused_primary": false
+    },
+    {
+      "protocol": "seen_rule",
+      "fold": 2,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 2936,
+      "after": 2933,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 5277,
+      "after": 5275,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 5277,
+      "after": 5275,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 5277,
+      "after": 5277,
+      "reused_primary": true
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 0,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 5277,
+      "after": 5277,
+      "reused_primary": true
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 5925,
+      "after": 5750,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 5925,
+      "after": 5750,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 5925,
+      "after": 5925,
+      "reused_primary": true
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 1,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 5925,
+      "after": 5925,
+      "reused_primary": true
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 2,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 8418,
+      "after": 8233,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 2,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 8418,
+      "after": 8233,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 2,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 8418,
+      "after": 8418,
+      "reused_primary": true
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 2,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 8418,
+      "after": 8418,
+      "reused_primary": true
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 3,
+      "model": "rule_examples",
+      "sensitivity": "exclude_conflicts",
+      "before": 8289,
+      "after": 8102,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 3,
+      "model": "character_full",
+      "sensitivity": "exclude_conflicts",
+      "before": 8289,
+      "after": 8102,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 3,
+      "model": "rule_examples",
+      "sensitivity": "purge_near_copies",
+      "before": 8289,
+      "after": 8288,
+      "reused_primary": false
+    },
+    {
+      "protocol": "heldout_rule",
+      "fold": 3,
+      "model": "character_full",
+      "sensitivity": "purge_near_copies",
+      "before": 8289,
+      "after": 8288,
+      "reused_primary": false
+    }
+  ],
+  "actual_fitted_models": 260,
+  "primary_fitted_models": 238,
+  "embedding_cache": {
+    "cache": "bc433d2324dd22713bba",
+    "contract_sha256": "bc433d2324dd22713bba38c4f3e60e3a4093e1253d1e57182950d45b9fae29f5",
+    "shards_sha256": "068aafab1ec970cc04558b9b22d1c65b30b0414ef6440fc63ed79712e8827239",
+    "shards_verified": 190,
+    "requested_inputs": 55675,
+    "unique_requested_inputs": 11973,
+    "newly_encoded_inputs": 0
+  },
+  "support_stress": {
+    "one_example_per_class": {
+      "rule_macro_auc": 0.6917878305917299,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7039159929190447,
+        "No legal advice: Do not offer or request legal advice.": 0.5642831764272496,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5788438017833188,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9201083512373062
+      },
+      "pooled_auc": 0.6385171200127868,
+      "average_precision": 0.684525056454806,
+      "log_loss": 0.6619611498569572,
+      "brier": 0.23490235823925143,
+      "ece_10_equal_width_bins": 0.049693634400171806,
+      "precision_at_0_5": 0.6401925391095066,
+      "recall_at_0_5": 0.6033700583279326,
+      "f1_at_0_5": 0.6212361331220285,
+      "confusion_matrix_at_0_5": [
+        [
+          2870,
+          2093
+        ],
+        [
+          2448,
+          3724
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "within_policy_context_shuffle": {
+      "rule_macro_auc": 0.7061621780776832,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7141805296845275,
+        "No legal advice: Do not offer or request legal advice.": 0.5805100047155382,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.6148500585233698,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9151081193872975
+      },
+      "pooled_auc": 0.7035429318891097,
+      "average_precision": 0.7561076078120762,
+      "log_loss": 0.6228187272673469,
+      "brier": 0.21719138589351847,
+      "ece_10_equal_width_bins": 0.03424251048278262,
+      "precision_at_0_5": 0.6788571428571428,
+      "recall_at_0_5": 0.6736876215165263,
+      "f1_at_0_5": 0.6762625030495243,
+      "confusion_matrix_at_0_5": [
+        [
+          2996,
+          1967
+        ],
+        [
+          2014,
+          4158
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "exclude_self_matches": {
+      "rule_macro_auc": 0.7033515555402661,
+      "per_rule_auc": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.7230680220197672,
+        "No legal advice: Do not offer or request legal advice.": 0.5692802252177136,
+        "No medical advice: Do not offer or request specific medical advice, diagnoses, or treatment recommendations.": 0.5969424827060154,
+        "No promotion of illegal activity: Do not encourage or promote illegal activities, such as drug-related activity, violence, exploitation, theft, or other criminal behavior.": 0.9241154922175681
+      },
+      "pooled_auc": 0.6991162766902198,
+      "average_precision": 0.7550142551238552,
+      "log_loss": 0.6245720665773059,
+      "brier": 0.2180520879968694,
+      "ece_10_equal_width_bins": 0.03224413699663225,
+      "precision_at_0_5": 0.6754257907542579,
+      "recall_at_0_5": 0.6756449780950836,
+      "f1_at_0_5": 0.6755353666450357,
+      "confusion_matrix_at_0_5": [
+        [
+          2953,
+          2001
+        ],
+        [
+          1999,
+          4164
+        ]
+      ],
+      "threshold_note": "0.5 is a fixed diagnostic threshold, not tuned on validation labels."
+    },
+    "self_match_rows": 18,
+    "seed": 2025,
+    "interpretation": "Fixed support-score diagnostics; no parameter or threshold selected."
+  },
+  "confirmation_labels_accessed": false,
+  "candidate_promoted": false,
+  "metric_note": "Policy-macro AUC is the competition-oriented primary metric; no Kaggle submission score is claimed."
+}

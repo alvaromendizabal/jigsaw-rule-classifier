@@ -22,13 +22,17 @@ The confirmation set is a **protocol reserve**, not an access-control guarantee:
 
 The boundary was committed as `9b4d66448998da818b71e4e697aa8e937c9222f0` before research target materialization. Preparation run `a615ecc75c04e6a62ee1` verifies the pinned archive and produces 9,106 research rows, 43,576 reserved rows, 1,323 research-side overlap exclusions and 54 historical-exposure exclusions. The reserve retains six policies; financial advice and spoilers contribute no research labels. A complete replay reuses the checksummed assignment/export stage without reinterpreting targets.
 
-The 11,135 combined development rows contain 544 repeated normalized body/policy rows and 39 groups with conflicting labels: 25 within the same subreddit and 14 across subreddits. These are observed data-quality findings, not repaired labels. Promotion research rows include 2,087 positives and 124 negatives, so accuracy alone would be misleading. The next study must keep duplicates grouped and report conflict and class-imbalance sensitivity.
+The 11,135 combined development rows contain 544 repeated normalized body/policy rows and 39 groups with conflicting labels: 25 within the same subreddit and 14 across subreddits. These are observed data-quality findings, not repaired labels. Promotion research rows include 2,087 positives and 124 negatives, so accuracy alone would be misleading. The [expanded study](EXPANDED_STUDY.md) now keeps these bodies grouped and reports conflict and class-imbalance sensitivities.
 
 `scripts/prepare_released_data.py` and `jigsaw_rules.released.load_research` verify source, protocol, implementation, assignment/export checksums and permitted row IDs. Automated tests change protected targets to nonnumeric sentinels and verify that they are neither interpreted nor returned; corrupt exports, changed protocols, ambiguous IDs and any support-field overlap fail closed. The new Plotly/static boundary figure and aggregate reports are rendered in canonical notebook `02`. No new model is fitted during preparation.
 
-Exact isolation does not establish paraphrase, author or shared-origin independence. The schema has no timestamps or conversation IDs. Before confirmation, the existing approximate-copy audit must be extended to this boundary, with any exclusions chosen without target values. The two reserved policy types supply a stronger unseen-policy test; they do not support an unrestricted claim about all moderation rules.
+Exact isolation does not establish paraphrase, author or shared-origin independence. The schema has no timestamps or conversation IDs. The expanded study extends the fixed approximate-copy audit to this boundary, using text-only exclusions; it finds additional near copies in familiar folds and one transfer fold. The two reserved policy types supply a stronger unseen-policy test; they do not support an unrestricted claim about all moderation rules.
 
-## Next research experiment
+## Expanded research contract
+
+The following requirements preceded the expanded study. The fixed model and
+feature comparisons are now executed; the final semantic stopping decision and
+reserved confirmation remain open.
 
 1. Combine retained research rows with the original development data, auditing repeated normalized body/policy pairs and contradictory labels. Preserve the provenance of every row.
 2. Freeze grouped familiar-policy and four leave-one-policy-out folds. Fit vocabulary, IDF, scaling, screening, target encodings and calibration components inside their allowed training partitions.
@@ -36,7 +40,10 @@ Exact isolation does not establish paraphrase, author or shared-origin independe
 4. Attribute improvements using paired rule-macro AUC, per-policy behavior, group ablations, simultaneous uncertainty and support/example sensitivity. Preserve failed families and measured inference cost.
 5. Investigate a remaining encoder or contextual hypothesis only when a documented development-set error pattern justifies it. Do not use reserved scores to choose the hypothesis.
 
-The executable study specification and stopping rule must be committed before running these new comparisons. This document locks the **data boundary**, not a claim that the new feature study has executed. The present milestone creates no new performance result and does not close notebook `02`.
+The executable specifications were committed before scoring; measured outcomes
+are in [EXPANDED_STUDY.md](EXPANDED_STUDY.md), with retrieval and resolution
+extensions linked there. This document records the unchanged **data boundary**.
+Successful execution does not by itself close notebook `02`.
 
 ## Finishing contract
 
