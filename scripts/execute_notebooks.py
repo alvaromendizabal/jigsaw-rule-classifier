@@ -73,6 +73,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
         "build_expanded_report.py",
         "build_formatting_report.py",
         "build_model_report.py",
+        "build_protected_report.py",
     ):
         figure_builder = root / "scripts" / name
         if figure_builder.exists():
@@ -101,6 +102,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "formatting",
                 "feature_decision",
                 "model_validation",
+                "confirmation",
             )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")

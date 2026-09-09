@@ -64,6 +64,24 @@ uv run python scripts/run_confirmation.py score --run-id 314494da886e11bcc1f6 --
 
 Only aggregate metrics and lineage belong in the public report. The fixed result, whether accepted or rejected, must be preserved before any product-promotion decision. The reserve cannot become another development split.
 
+## Recover and publish the result
+
+Wait for both SageMaker `Completed` and the worker's `state.json` event `completed`. Download `checkpoints/protected-predictions.tar.gz` from the recorded prefix using the expected bucket owner. Take its byte count and SHA-256 from that completed state. The recovery command validates the full archive and every completed stage before restoring only the four prediction artifacts. It refuses to overwrite different existing predictions and leaves the original development embedding cache unchanged. The downloaded archive preserves the new cache for later product work.
+
+```bash
+uv run python scripts/recover_confirmation.py --archive <downloaded-archive> --run-id 314494da886e11bcc1f6 --sha256 <completed-state-sha256> --bytes <completed-state-bytes>
+uv run python scripts/run_confirmation.py freeze --run-id 314494da886e11bcc1f6
+# Commit and push the prediction freeze, then fetch its exact published Git commit.
+uv run python scripts/run_confirmation.py score --run-id 314494da886e11bcc1f6 --prediction-commit <published-40-character-commit>
+uv run python scripts/build_protected_report.py --run-id 314494da886e11bcc1f6
+```
+
+The report exporter verifies evaluation, prediction, target-access receipt and preregistration lineage. An independent aggregate audit reconciles all six per-policy AUCs with the policy macro, row-weighted log loss and Brier with each route, and all 12 fixed acceptance checks. It preserves a rejected candidate. Three Plotly figures with SVG fallbacks explain policy gains, probability quality and confidence/coverage. Their manifests bind the actual report and rendering source. Notebook execution fingerprints include the protected report and its figure builder, so adding real results invalidates prior display checkpoints.
+
+Recovery tests deliberately corrupt an archive, alter its digest, remove a prediction artifact, add a traversal or target-bearing path, and try to replace an existing prediction. Reuse tests verify that identical recovery preserves both predictions and seed vectors. Report tests reject inconsistent macro AUC, weighted loss, per-policy AUC, class counts, interval identity, nonfinite bounds and acceptance decisions. All use synthetic data; no synthetic metric is published as research evidence.
+
+If the job reaches its limit, use only completed S3 shard markers for continuation under the original model/input contract. A launch record or partial shard count never substitutes for a completed prediction freeze. Do not change source files named in inference provenance during recovery; later reporting modules are separate from those frozen inference files.
+
 ## Verified preparation publication
 
 The final local gate passed **305 tests** in 116.7 seconds, plus compile, Ruff lint/format and canonical notebook-source checks. [Quality run 34305118975](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34305118975) passed on scoring commit `a846906efd38785dca33331a21be9858afd34d9d`, including all five actual encrypted Jupyter executions, completed-cache reuse, synthetic offline inference, real pinned-encoder integration and public rendering.

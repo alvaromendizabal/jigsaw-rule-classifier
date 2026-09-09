@@ -51,7 +51,7 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 The remaining milestones are finite:
 
-1. **Confirm the fitted model:** the candidate/reference, cohort and acceptance criteria are now preregistered. Run checkpointed target-free inference, commit the prediction hashes, then perform the fixed protected comparison. The runner and scoring guards are tested; the real comparison remains pending. [Frozen protocol](docs/CONFIRMATION.md).
+1. **Confirm the fitted model:** the candidate/reference, cohort and acceptance criteria are now preregistered. Target-free inference launched on AWS on 2026-09-09 at 03:17 UTC with a two-hour cap and completed-shard checkpoints. Verified recovery and report audits are implemented; prediction freezing and the real comparison remain pending. [Frozen protocol and recovery](docs/CONFIRMATION.md) · [Verified launch](reports/checkpoints/protected_inference.json).
 2. **Deliver inference:** connect accepted artifacts to offline inference, probability/triage diagnostics and measured latency/memory budgets; add a small example-driven interface.
 3. **Release the portfolio product:** an example-driven demonstration, model/data cards, clean-environment restore and a tagged release with a short reviewer path.
 
