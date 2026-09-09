@@ -48,9 +48,9 @@
     }
   ],
   "reserved_targets_in_worker": false,
-  "reserved_targets_accessed": false,
+  "reserved_targets_accessed": true,
   "completion_verified": false,
-  "status_audited_at": "2026-09-09T16:49:04.505572+00:00",
+  "status_audited_at": "2026-09-09T17:20:30.910195+00:00",
   "worker_final_state": {
     "timestamp": "2026-09-09T04:58:50Z",
     "event": "failed",
@@ -115,15 +115,15 @@
     "s3_prefix": "experiments/protected-confirmation-20260909T0250/checkpoint/runs/confirmation/314494da886e11bcc1f6/predictions/",
     "model_and_protocol_identifiers_match": true,
     "eligibility_digest_matches_recorded_protocol": true,
-    "canonical_stage_restored": false,
+    "canonical_stage_restored": true,
     "full_embedding_cache_independently_restored": false
   },
   "prediction_stage_verified": true,
   "completed_archive_present": false,
-  "prediction_freeze_published": false,
-  "protected_score_available": false,
-  "interpretation": "Prediction subprocess completed all 43,509 rows and returned zero. A background checkpoint FileNotFoundError made the wrapper fail and prevented final archive creation. The exact failing path was not logged; its root cause is not yet established. Do not rerun model fitting or encoding solely because the job status is Failed.",
-  "next_bounded_step": "Complete canonical recovery from verified stage objects under the unchanged inference contract, publish the required prediction-freeze commit, and perform the single preregistered protected comparison. Preserve the acceptance criteria and any rejection; packaging and release remain later milestones.",
+  "prediction_freeze_published": true,
+  "protected_score_available": true,
+  "interpretation": "Prediction subprocess completed all 43,509 rows and returned zero. A background checkpoint FileNotFoundError made the wrapper fail and prevented final archive creation. All completed prediction objects were independently verified and canonically recovered. Prediction freeze was published before the successful fixed evaluation. No training or encoding was repeated. Full cloud embedding-cache restoration remains unverified; the old failing path was not logged.",
+  "next_bounded_step": "Package accepted benchmark artifacts for verified offline inference; preserve a separately identified original-training-only competition workflow. No further model selection on the protected reserve.",
   "ci_verified": {
     "head_sha": "9ea2cd7374f7145322083e18f920df6bd60629ba",
     "run_id": 34307841242,
@@ -133,6 +133,9 @@
     "reuse_passed": true,
     "synthetic_offline_inference_passed": true,
     "real_encoder_integration_passed": true
-  }
+  },
+  "first_target_access_at": "2026-09-09T17:12:07.771236+00:00",
+  "prediction_commit": "530ad79929012e807cb42a5253f7b92b090682ec",
+  "protected_decision": "accepted",
+  "protected_acceptance_checks_passed": 12
 }
-

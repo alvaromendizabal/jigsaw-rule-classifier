@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "run_id": "314494da886e11bcc1f6",
+  "protocol_commit": "5ca6bd50d54ceacc172786e6df0640810aab96d8",
+  "protocol_sha256": "edc2b883bbd5bf08365a8c5c2251acb888a61bb7e002a783d45ad285d9e7b6ff",
+  "prediction_commit": "530ad79929012e807cb42a5253f7b92b090682ec",
+  "prediction_freeze_sha256": "084ccea3ec6331708f9972f6dae4b47602eaf47630e3e8ebf3714f543d205821",
+  "candidate_sha256": "a38b20e1f34ff6d508bc70ba360ceb5f1a646a4f37cac4ebdcb56feebb20d698",
+  "reference_sha256": "daca334877cc5958581d7d79a3f4cebcc6dadef4bc26acedbec26430e348eaa0",
+  "solution_sha256": "01579b769c56a6f3f87282c04c4ce788ad4d1fd2ffebabd1a36afbf92f6f3bca",
+  "private_checkpoint_sha256": "3398706be9eae33b244e52bb7b19cfffc6873202de45cd467c69d4985f5ef4bd",
+  "first_target_access_at": "2026-09-09T17:12:07.771236+00:00",
+  "evaluation_source_sha256": "d6b176870845e048e5d23e7c8bb1d842e6768ed9c3a2310b26beea33e29c5903",
+  "report_source_sha256": "8def15c9e17b1121fcc668b3e349501cd2f8f38c8de1e5ac6c7387964550389c",
+  "files": {
+    "audit.json": "6c6053233d0ec809023e68ae216f90bc0c7aa047ad8e69cc320b1a9547634de7",
+    "results.json": "bf246705cbcbf3b84bbd15b2f83e27427a193438a9645ec248bdce6a34fcda5d"
+  },
+  "scope": "One post-competition confirmation conditional on six observed policies, including two excluded from development; not a leaderboard score or evidence over arbitrary future policies"
+}

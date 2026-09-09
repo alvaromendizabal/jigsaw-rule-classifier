@@ -2,15 +2,29 @@
 
 Predict whether a comment violates a supplied community rule, using the rule and examples of permitted and prohibited comments.
 
-**Start with [03 · Results and decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The first is a short evidence tour; the second explains the completed feature-research phase and its stopping decision. The fitted model now has nested development validation; protected confirmation and product delivery come next.
+**Start with [03 · Results and decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The fixed model passed its protected comparison on 43,509 rows. Research and confirmation are complete; offline product integration and release remain.
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
 Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. No leaderboard score, medal or state-of-the-art claim is made.
 
-## What the research found
+## Protected result: the fixed candidate is accepted
 
-The expanded study uses **11,135 development rows across four policies** and seven strict comment/support-purged splits. **43,576 rows remain reserved**, including financial-advice and spoiler policies excluded from research. This is a post-competition benchmark built from the host's released data.
+Predictions were frozen in [commit 530ad799](https://github.com/alvaromendizabal/jigsaw-rule-classifier/commit/530ad79929012e807cb42a5253f7b92b090682ec) before eligible targets were first interpreted on September 9, 2026. All **12 preregistered acceptance checks passed**, with no new model fitting or candidate selection.
+
+| Protected cohort | Lexical reference AUC | Accepted route AUC |
+| --- | ---: | ---: |
+| All six policies, 43,509 rows | 0.6801 | **0.7770** |
+| Four familiar policies, 25,485 rows | 0.7581 | **0.8276** |
+| Two unseen policies, 18,024 rows | 0.5241 | **0.6757** |
+
+Primary policy-macro AUC improves by **0.0969**, with a paired 95% bootstrap interval of **[0.0898, 0.1051]**. Every policy improves. Overall log loss falls from **0.6685 to 0.5121**, and Brier from **0.2360 to 0.1739**. The interval conditions on six observed policies and fixed predictions. This post-competition benchmark is not a Kaggle leaderboard score or proof of performance on arbitrary future policies. [Protocol, recovery and full results](docs/CONFIRMATION.md).
+
+![Protected policy-level comparison](reports/confirmation/policy_gains.svg)
+
+## What the development research found
+
+The expanded study uses **11,135 development rows across four policies** and seven strict comment/support-purged splits. Financial-advice and spoiler policies were wholly excluded from development. The original 43,576-row reserve yielded **43,509 eligible confirmation rows** after 67 target-blind near-copy exclusions. This is a post-competition benchmark built from the host's released data.
 
 | Representation | Held-out policy AUC ↑ | Log loss ↓ | Brier ↓ |
 | --- | ---: | ---: | ---: |
@@ -47,15 +61,14 @@ Most of the centroid's average gain comes from avoiding reversed lexical ranking
 
 **Model fitting and development calibration: COMPLETE.** Nine inner fits validate calibration without sharing outer validation labels. Familiar-policy log loss improves from **0.4761 to 0.4689**; transfer calibration worsens log loss to 0.6976 and is rejected. The fitted route uses calibrated familiar-policy features and the raw unseen-policy centroid. Its familiar pipeline retains **9,263 of 181,958 candidate columns**. [Protocol, results and lineage](docs/MODEL_VALIDATION.md).
 
-**Product promotion: PENDING.** A target-blind copy audit leaves **43,509 eligible confirmation rows** after excluding 67 approximate development copies. Their targets remain unopened. The standalone inference notebook still names the original lexical reference; the fitted candidate needs the protected comparison and verified offline integration.
+**Protected confirmation: COMPLETE; product integration: PENDING.** The candidate passed every fixed guard. The standalone inference notebook still uses the original lexical reference. The accepted research artifact uses additional post-competition development labels; a competition workflow must keep its permitted training-data boundary explicit.
 
 The remaining milestones are finite:
 
-1. **Confirm the fitted model:** the candidate/reference, cohort and acceptance criteria are now preregistered. Target-free inference launched on AWS on 2026-09-09 at 03:17 UTC with a two-hour cap and completed-shard checkpoints. Verified recovery and report audits are implemented; prediction freezing and the real comparison remain pending. [Frozen protocol and recovery](docs/CONFIRMATION.md) · [Verified launch](reports/checkpoints/protected_inference.json).
-2. **Deliver inference:** connect accepted artifacts to offline inference, probability/triage diagnostics and measured latency/memory budgets; add a small example-driven interface.
-3. **Release the portfolio product:** an example-driven demonstration, model/data cards, clean-environment restore and a tagged release with a short reviewer path.
+1. **Deliver inference:** package accepted benchmark artifacts with offline parity, missing-support behavior and measured latency/memory budgets. Keep the original-training-only Kaggle workflow separately identified.
+2. **Release the portfolio product:** an example-driven demonstration, model/data cards, clean-environment restore and a tagged release with a short reviewer path.
 
-[Acceptance criteria and roadmap](docs/ROADMAP.md#next-three-deliverables). The [completion assessment](docs/FEATURE_RESEARCH.md#completion-assessment) is approximately **88% overall**; notebook `02` closes the declared feature phase. This is an effort-weighted planning judgment, not an employer rating or a guarantee of generalization.
+[Acceptance criteria and roadmap](docs/ROADMAP.md#next-three-deliverables). The [completion assessment](docs/FEATURE_RESEARCH.md#completion-assessment) is approximately **91% overall**. This is an effort-weighted planning judgment, not an employer rating or a guarantee of generalization.
 
 ## Review or reproduce
 

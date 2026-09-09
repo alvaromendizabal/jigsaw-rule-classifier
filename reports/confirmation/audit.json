@@ -1,0 +1,9 @@
+{
+  "decision_reconciled": true,
+  "metrics_available": true,
+  "maximum_aggregate_difference": 1.1102230246251565e-16,
+  "acceptance_checks": 12,
+  "passed_checks": 12,
+  "primary_macro_auc_gain": 0.09688716471579151,
+  "scope": "Aggregate arithmetic and fixed guard audit; no new target access or model selection"
+}
