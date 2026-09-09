@@ -1,8 +1,38 @@
 # Verification record
 
-**Latest milestone:** the research and local inference product are complete. See [offline delivery and closeout](#offline-delivery-and-project-closeout--september-9-2026) for the current tests, serving checks, original-data notebook execution and verified recovery.
+**Latest milestone:** the competition rebuild has completed its frozen-feature and
+support-adaptation comparisons. The 0.92 competition objective remains open.
+The earlier research release and its protected cohort are historical evidence.
+[Current results and next gate](COMPETITION_REBUILD.md).
 
 This record separates software correctness, executed research, notebook rendering and independent performance evidence. The last category is not established by passing tests.
+
+## Competition rebuild verification — September 9, 2026
+
+The current local gate passes **360 tests in 56.32 seconds**, compilation, Ruff,
+formatting and canonical notebook-source parity. All five public notebooks
+execute and replay with the in-process engine; the two current comparison figures
+have Plotly and verified SVG representations. No error output remains. The prior
+code commit `ca793600b17cedc7ff78a45c5ab51ac970d042ef` also passed all 360 tests and
+all five actual Jupyter executions/replays in
+[CI run 34413323057](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34413323057).
+That CI run preceded the final adaptation result publication.
+
+AWS support study `d13858b7407993fcc6e8` completed both folds and deliberately
+reloaded a fresh model at optimizer step 8 in each. Adapter, optimizer, scheduler,
+random state and data-order recovery are recorded. The existing 96 frozen shards
+replay without loading the encoder, with identical output hashes. The completed
+study uses 899.7 worker seconds and 1,253 billable L4 seconds; maximum allocated GPU
+memory is 8.31 GiB. Both fold artifacts are downloaded and SHA-256 verified before
+evaluation `3836f7a69996714f76b0`; its second invocation reuses all seven completed
+files. Query labels are absent from the GPU plan and excluded from all readout fits.
+
+On the same 881 novel comments, adaptation improves direct policy-macro AUC from
+0.6146 to 0.7199. The fixed geometry blend and screened representation do not beat
+that direct score. These previously examined two-policy development results are
+not a Kaggle submission result. [Cloud receipt](../reports/checkpoints/support_adaptation.json)
+and [aggregate checksums](../reports/support_adaptation/metadata.json) preserve the
+runtime, exact configuration, source identity, measurements and limitations.
 
 ## Current milestone: feature research closure
 

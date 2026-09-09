@@ -1,5 +1,5 @@
 {
-  "status": "launched",
+  "status": "completed",
   "job_name": "jigsaw-support-adaptation-20260909-b",
   "source_sha256": "64e3d78c75935dbecd959b9c695ea2938571139f274f20331e33a5acb005b3d4",
   "source_version_id": "Xx7yCeKCFSyejnAfMlai379g6kMLXpLK",
@@ -68,5 +68,31 @@
       "billable_seconds": 185,
       "reason": "Inherited awscli requires the image botocore version. Bootstrap now isolates Python dependencies while reusing only native Torch/CUDA packages."
     }
+  ],
+  "initial_ci": {
+    "commit": "ca793600b17cedc7ff78a45c5ab51ac970d042ef",
+    "run_id": 34413323057,
+    "job_id": 102672497768,
+    "conclusion": "success",
+    "tests": 360,
+    "public_notebooks": 5,
+    "actual_jupyter_execution": true,
+    "replay": true
+  },
+  "run_id": "d13858b7407993fcc6e8",
+  "verified_gpu_resume": {
+    "fold_0_step": 8,
+    "fold_1_step": 8,
+    "method": "fresh model reload plus adapter/optimizer/scheduler/RNG/data-order restoration"
+  },
+  "billable_seconds": 1253,
+  "estimated_compute_usd": 0.3922586111111111,
+  "evaluation_run": "3836f7a69996714f76b0",
+  "worker_seconds": 899.716170099,
+  "completed_utc": "2026-09-09T22:58:31+00:00",
+  "peak_gpu_gib": 8.308347702026367,
+  "fold_optimizer_steps": [
+    142,
+    99
   ]
 }

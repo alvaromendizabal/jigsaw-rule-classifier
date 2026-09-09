@@ -121,7 +121,7 @@ recomputed study includes that correction and leaves the full-bank result at
 0.4516. Raw probability losses remain poor. These are original-data development
 scores, not new Kaggle scores or evidence that the 0.92 objective has been reached.
 
-### Next controlled comparison: learning from supplied supports
+### Completed controlled comparison: learning from supplied supports
 
 `configs/support_adaptation.json` fixes one epoch of rank-8 LoRA on the same 4B
 backbone and the identical rule-only prompt. Only the final Yes/No token contributes
@@ -148,8 +148,44 @@ Training checkpoints include adapter weights, optimizer, learning-rate scheduler
 Python/NumPy/Torch/CUDA random state, exact data order, step and source/configuration
 identity. A CPU interruption test with nonzero dropout reproduces uninterrupted
 adapter weights bit for bit. The bounded GPU job also deliberately reloads a
-fresh model after its first durable optimizer checkpoint in each fold. Completion
-and successful GPU recovery must be observed before claiming that gate passed.
+fresh model after its first durable optimizer checkpoint in each fold. Both GPU
+folds resumed from optimizer step 8 and completed their 142/99-step epochs.
+All 96 frozen inference
+shards were recovered with identical representation hashes and zero model GPU
+allocation. The complete 360-test CI run and all five real Jupyter notebook
+executions/replays passed.
+
+The completed AWS study took 899.7 worker seconds, with 1,253 billable instance
+seconds and 8.31 GiB peak allocated GPU memory. Evaluation and its checksum-verified
+replay both passed. This cohort is smaller and harder than the earlier full
+2,029-row study; its frozen score must not be compared as if the cohorts matched.
+
+| Same 881 novel comments | Frozen 4B AUC | Support-adapted 4B AUC |
+|---|---:|---:|
+| Direct decision score | 0.6146 | **0.7199** |
+| Screened decision representation | 0.6715 | 0.7174 |
+| Class-centroid margin | 0.6434 | 0.7185 |
+| Nearest-example margin | 0.6622 | 0.6791 |
+| Top-five-example margin (secondary) | 0.7013 | 0.7145 |
+| Fixed decision/geometry blend | 0.6499 | 0.7180 |
+
+The direct adaptation gain is **+0.1053 AUC**, simultaneous 95% interval
+**[0.0612, 0.1493]**, across the five declared paired contrasts. Advertising
+improves from 0.5705 to 0.6793; legal advice improves from 0.6587 to 0.7605.
+Adapted coordinates improve their matched frozen readout by +0.0459
+[0.0018, 0.0899], but do not beat the adapted direct score. The fixed prototype
+blend adds -0.0019 [-0.0460, 0.0421], so its extra complexity is not supported.
+Each coordinate screen retains 64 of 2,560 columns and rejects 2,496; four readout
+fits cover 5,138 distinct frozen/adapted coordinate and geometry candidates.
+Raw decision log loss improves from 4.8858 to 0.7232 and Brier score from 0.3756
+to 0.2292, although the probabilities remain imperfectly calibrated.
+
+**Decision:** retain support adaptation for the next competition candidate. Do
+not add the screened readout or fixed geometry blend. The two previously examined
+development policies do not establish unseen-policy performance or a 0.92 Kaggle
+score. The next gate is a verified offline GPU notebook using legitimate support
+inputs in the hidden run, followed by one recorded late submission.
+[Verified aggregates](../reports/support_adaptation/metadata.json).
 
 ## Subsequent acceptance gates
 

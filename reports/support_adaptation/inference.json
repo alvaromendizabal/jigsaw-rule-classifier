@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "run_id": "d13858b7407993fcc6e8",
+  "folds": [
+    {
+      "fold": 0,
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "audit": {
+        "candidate_occurrences": 13201,
+        "forbidden_text_occurrences": 1,
+        "conflicting_pairs": 2,
+        "conflicting_occurrences": 79,
+        "duplicate_occurrences": 11481,
+        "retained_pairs": 1640,
+        "by_source": {
+          "available_support": 994,
+          "train_body": 646
+        },
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "candidate_query_rows": 1012,
+        "novel_query_rows": 234,
+        "known_support_overlap_excluded": 778,
+        "new_rule_training_pairs": 629,
+        "epoch_occurrences": 2269
+      },
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "training": {
+        "optimizer_steps": 142,
+        "resumed_step": 8,
+        "training_contract": "1676ca7ef8f46ed1b93e98b554bfbc52943c8c513b4f883764a16b6dcb81c252"
+      },
+      "peak_gpu_gib": 8.26554536819458
+    },
+    {
+      "fold": 1,
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "audit": {
+        "candidate_occurrences": 13176,
+        "forbidden_text_occurrences": 1,
+        "conflicting_pairs": 10,
+        "conflicting_occurrences": 339,
+        "duplicate_occurrences": 11621,
+        "retained_pairs": 1215,
+        "by_source": {
+          "available_support": 987,
+          "train_body": 228
+        },
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "candidate_query_rows": 1017,
+        "novel_query_rows": 647,
+        "known_support_overlap_excluded": 370,
+        "new_rule_training_pairs": 366,
+        "epoch_occurrences": 1581
+      },
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+      "training": {
+        "optimizer_steps": 99,
+        "resumed_step": 8,
+        "training_contract": "be8ca9b99c4d2179cce3252056504e1451bd4f628f8475621adb4c4ecdecbaad"
+      },
+      "peak_gpu_gib": 8.308347702026367
+    }
+  ],
+  "elapsed_seconds": 899.716170099,
+  "checkpoint_prefix": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/"
+}

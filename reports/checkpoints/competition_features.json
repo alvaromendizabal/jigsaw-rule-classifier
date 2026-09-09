@@ -71,5 +71,14 @@
     "status": "failed_before_worker",
     "billable_seconds": 188,
     "reason": "Pre-existing base-image aiobotocore/botocore and pyiceberg/cachetools dependency conflicts. Compatible versions now pinned; replay precedes support adaptation."
+  },
+  "verified_replay": {
+    "job_name": "jigsaw-support-adaptation-20260909-b",
+    "reused_shards": 96,
+    "model_loaded": false,
+    "peak_gpu_gib": 0,
+    "elapsed_seconds": 84.333948993,
+    "representations_sha256": "47884bbb86d4cc49dd0499f6b73e1dac38d4a629e50c1d846253c095a158c9b3",
+    "timestamp": "2026-09-09T22:43:18+00:00"
   }
 }

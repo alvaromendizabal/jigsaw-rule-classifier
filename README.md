@@ -10,7 +10,7 @@ Predict whether a comment violates a supplied community rule, using the rule and
 
 Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. The late Kaggle lexical-reference scores are reported separately from the post-competition research. No medal or state-of-the-art claim is made.
 
-**Current rebuild evidence:** the frozen 4B rule score reaches **0.7081** on the original held-out-policy development test, versus **0.6156** for the lexical reference. Screening 15,369 frozen feature candidates leaves a combined bank at **0.4516**, so it is rejected. The next controlled experiment learns from legitimate supplied support examples and evaluates 881 novel comments. These are development results, not new Kaggle scores. [Measured failures and adaptation protocol](docs/COMPETITION_REBUILD.md).
+**Current rebuild evidence:** support adaptation improves the same 4B model from **0.6146 to 0.7199 AUC on 881 novel comments**, with a paired simultaneous 95% gain interval of **[0.0612, 0.1493]**. Adapted coordinates and a fixed prototype blend do not improve its direct score. The earlier full 2,029-row study rejected a 15,369-column frozen feature bank. Both experiments, optimizer recovery and evaluation replay are complete. These are development results, not new Kaggle scores; the **0.92 objective remains open**. [Measured comparisons and next execution gate](docs/COMPETITION_REBUILD.md).
 
 ## Protected result: the fixed candidate is accepted
 
