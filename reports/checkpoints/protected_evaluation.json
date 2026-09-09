@@ -37,11 +37,15 @@
   "models_refitted": 0,
   "new_encoder_inference": false,
   "local_archive_verified": true,
-  "remote_backup_verified": false,
-  "remote_backup_status": "blocked_by_automatic_approval_review",
-  "remote_backup_blocker": "Review requires explicit user authorization for this protected prediction/evaluation archive and the named S3 destination. STS identity, expected bucket owner and project tag were checked; no upload succeeded.",
+  "remote_backup_verified": true,
+  "remote_backup_status": "uploaded_and_independently_restored",
   "first_target_access_at": "2026-09-09T17:12:07.771236+00:00",
   "checkpoint_reuse_verified": true,
   "reuse_verification": "Target reader and scorer patched to raise; completed evaluation returned unchanged without reopening targets.",
-  "scope": "Completed prediction/evaluation archive with access receipt and public reports. The earlier source/input objects and embedding checkpoints remain on S3; full new embedding cache is not included."
+  "scope": "Completed prediction/evaluation archive with access receipt and public reports. The earlier source/input objects and embedding checkpoints remain on S3; full new embedding cache is not included.",
+  "version_id": "9UYSEPlAVt1EdIzkZOU4kQfvYHq3OBNW",
+  "encryption": "AES256",
+  "expected_bucket_owner": "560403859723",
+  "verified_at": "2026-09-09T17:46:52.208356+00:00",
+  "independent_recovery_payloads": 23
 }

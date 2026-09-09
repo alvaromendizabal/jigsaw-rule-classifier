@@ -1,6 +1,6 @@
-# Model milestone completed; usable product next
+# Model and local inference milestones completed
 
-Feature research is complete for the declared four-policy development scope. The generated [stopping decision](../reports/feature_decision/decision.json) and [coverage ledger](FEATURE_COVERAGE.md) support that boundary. The development implementation and nested calibration are now [executed and verified](MODEL_VALIDATION.md). The protected comparison is also complete: all 12 checks passed, with macro AUC 0.7770 versus 0.6801. [Frozen protocol and result](CONFIRMATION.md). This document retains the historical milestone rationale and the remaining product requirements.
+Feature research is complete for the declared four-policy development scope. The generated [stopping decision](../reports/feature_decision/decision.json) and [coverage ledger](FEATURE_COVERAGE.md) support that boundary. The development implementation and nested calibration are now [executed and verified](MODEL_VALIDATION.md). The protected comparison is also complete: all 12 checks passed, with macro AUC 0.7770 versus 0.6801. [Frozen protocol and result](CONFIRMATION.md). This document retains the historical milestone rationale and the completed product requirements.
 
 ## Resolve familiar versus unseen policies
 
@@ -16,7 +16,7 @@ The completed model milestone required:
 4. Commit a machine-readable candidate/reference, protected row identities, metric/uncertainty plan, per-policy tolerances and acceptance rules before reading any of the **43,576 reserved targets**. Evaluate familiar and unseen policies separately and report both frozen parents. Financial-advice and spoiler policies remain wholly outside development.
 5. Run that comparison once. Preserve a rejection and its limitations; do not use the reserve to select new features, routes, thresholds or models. Check normalized body/support overlap against fitted inputs before scoring. If reserve eligibility changes because of leakage, record exclusions before target access.
 
-The route, nested calibration and protected comparison are now verified. Product integration remains open until offline parity, serving measurements and restore gates pass.
+The route, nested calibration and protected comparison are now verified. Offline parity, serving measurements and a fresh-environment restore also pass; [the delivery guide](DELIVERY.md) records the package, budgets and download locations.
 
 ## Deliver the accepted representation
 

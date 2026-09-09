@@ -41,6 +41,8 @@ jobs:
         run: uv run --extra semantic python scripts/execute_notebooks.py --publish
       - name: Test standalone offline Kaggle inference on synthetic data
         run: uv run --extra semantic python scripts/execute_notebooks.py --synthetic
+      - name: Verify standalone notebook on original competition preview data
+        run: uv run --extra semantic python scripts/verify_submission.py
       - name: Verify the real pinned encoder
         run: uv run --extra semantic python scripts/verify_semantic.py
       - name: Render the public evidence
@@ -63,4 +65,5 @@ jobs:
             reports/baseline/comparison.svg
             reports/semantic/integration.json
             reports/semantic/comparison.svg
+            reports/checkpoints/submission.json
             runs/model_download.jsonl

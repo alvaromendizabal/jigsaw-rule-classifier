@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "verified",
+  "verified_at": "2026-09-09T18:06:07.178600+00:00",
+  "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+  "expected_owner": "560403859723",
+  "region": "us-west-2",
+  "bundle_manifest_sha256": "dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a",
+  "objects": [
+    {
+      "key": "releases/v1.0.0/kaggle/submission.ipynb",
+      "version_id": "bBoDYwZVc25XId3c.mr.IRsmCHLOW57X",
+      "sha256": "3932b8cb1de1b9e06f34f70fb9c69bd45bf036b2dd3db9874a7a243f4c71e26a",
+      "bytes": 30458,
+      "encryption": "AES256",
+      "independent_download_verified": true,
+      "payload_files_verified": 1,
+      "seconds": 0.0
+    },
+    {
+      "key": "releases/v1.0.0/offline-model.tar",
+      "version_id": "pmuxg1MDYuvw.3w.cOfn4l8tfRsI4MWS",
+      "sha256": "f67d6cddefc6a9869889451816f0b8a056b45a6e78a582c185affb35ca55bda1",
+      "bytes": 1227560960,
+      "encryption": "AES256",
+      "independent_download_verified": true,
+      "payload_files_verified": 57,
+      "seconds": 2.011
+    }
+  ],
+  "fresh_environment_restore": "reports/checkpoints/offline_restore.json",
+  "scope": "Private model bundle and exact canonical notebook mirror; no Kaggle submission"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "fresh_environment": true,
+  "dependencies_installed_with_network_disabled": true,
+  "new_encoder_cache": true,
+  "network_calls": 0,
+  "authored_rows": 4,
+  "maximum_prediction_difference": 1.1102230246251565e-16,
+  "seconds": 17.09589719199994,
+  "python_executable": "runs/delivery_restore/4ce868936ca14fdad7df/.venv/bin/python",
+  "bundle_manifest_sha256": "dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a"
+}
