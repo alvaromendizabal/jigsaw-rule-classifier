@@ -1,0 +1,38 @@
+# Feature coverage and the stopping argument
+
+This ledger describes the declared development scope. The generated [decision](../reports/feature_decision/decision.json) applies thresholds committed before the new semantic scores. A separate, explicitly adaptive [fixed-average control](../configs/fusion.json) checks complementary policy behavior. The ledger is hashed into that decision; changing its rationale invalidates the published decision until it is reviewed again.
+
+| Family | Provenance, availability and leakage boundary | Evidence and disposition |
+| --- | --- | --- |
+| Word/character representations | Comment text exists at inference; vocabulary, IDF and screens fit each purged training fold | Full and screened banks, character additions, NB weighting and lexical SVD tested; strong familiar-policy scores do not transfer reliably |
+| Structure, domain and style | 1,512 fixed text-statistic interactions from supplied fields; no row order or external context | Train-only constant/duplicate/correlation rejection; adding the family gives no clear transfer improvement |
+| Lexical support comparisons | 207 similarities/contrasts; examples are supplied inference inputs | Matched addition improves screened words by 0.0677 AUC; still weaker than frozen semantic geometry |
+| Support-token cross-features | Comment terms multiplied by positive-minus-negative example directions; train-only vocabulary | Thousands of candidates screened; small uncertain incremental transfer gain |
+| Counts, categories and community | Training frequencies and known community categories; unknown values use explicit fallbacks | Community addition hurts transfer. Stable schema is not evidence of predictive value |
+| Relative/rank features | 207 percentiles relative to training distributions, never the validation cohort | Tested independently and in combined banks; no stable replacement for the semantic representation |
+| Target-derived context | Inner grouped cross-fitting with support purging; priors estimated only from inner training labels | Nine candidates, eight retained; negligible/uncertain benefit and no promotion |
+| Semantic geometry | Pinned Qwen encoder; 6,144 coordinate/interactions and 32 invariant scalar candidates | Compact geometry is the strongest family; raw-coordinate selections are unstable. Original centroid remains the reference for new work |
+| Labeled semantic neighborhoods | 309 neighborhood/prototype/nonlinear candidates, 64 retained; query policy and matching body/support texts excluded from every reference bank | 35 matched fits; adding retrieval reduces scalar-model transfer AUC by 0.1287 |
+| Learned and trained lower-dimensional maps | Training-only lexical/semantic SVD and six normalized Matryoshka prefixes | Lower-dimensional controls do not improve the leading centroid; a shorter output does not reduce transformer inference cost |
+| Joint NLI representations | Pinned entailment model; generic rule, example and affirmative-behavior templates use supplied inputs only | Historical rule/support probe completed; new behavior wording improves a weak NLI baseline, but remains far below the centroid |
+| Instruction likelihoods | Pinned frozen instruction model with predeclared context ablations; no generated target labels | Historical 36-candidate probe failed to beat its matched reference. That result does not rule out future task-specific encoder training |
+| Query/document formatting | Original comment vectors reused; 2,217 plain supports in a separate verified cache | 32 new candidates, 30–31 retained. Centroid AUC falls from 0.7042 to 0.6865; word/scalar formatting control also declines |
+| Policy-intent interactions | 45 fixed NLI probabilities, margins and nonlinear terms; 16 selected within each training fold | Adding intent gives only +0.0033 AUC to the scalar model, with an interval spanning zero; log loss/Brier deteriorate |
+| Fixed score complementarity | One row-local 50/50 average of two aligned OOF probabilities; no learned weights or test-cohort ranks | Evaluated after the semantic study under a new committed protocol. Its outcome and eligibility are in the generated decision; it cannot be described as independent confirmation |
+| Missingness and support availability | Required raw text fields are validated; constant missingness indicators are rejected. Exact self-support, one-example-per-class and shuffled-context diagnostics are separate | Original centroid stays at 0.7034 after removing self-matches and 0.6918 in the one-example diagnostic. Zero-support inference is not validated |
+| Temporal, historical, entity and external rankings | No timestamps, authors, threads, sessions, teams, opponents, seasons or event history in the schema | Inapplicable. Row ID/order is not time. Contemporary subreddit pages cannot supply historical metadata safely |
+| External data and pretrained knowledge | Model revisions/assets and licenses are recorded; competition inputs and post-competition release are source-pinned | NormVio reconstruction is not an available ready text benchmark. No leaderboard reconstruction, external target join or pretraining-overlap clearance is claimed |
+
+All aggregate evidence points back to saved OOF predictions and fold assignments. The latest verification replays selected feature transformations and all 28 new fitted models. Candidate counts describe columns offered to screens, not independent scientific hypotheses; retained bank widths do not describe one promoted model.
+
+## Why further feature expansion has lower priority
+
+The broad search, additions/removals, lower-dimensional controls, target-derived retrieval and targeted semantic comparisons cover the major high-value families supported by this schema. The remaining legal/medical weaknesses are small distinctions in intent and context rather than evidence that more frequency, count or generic nonlinear columns will fix transfer. The 48-row qualitative audit identified those distinctions without changing any labels; its balanced strata and single assistant reviewer cannot estimate a population label-error rate.
+
+The two remaining targeted hypotheses did not improve the leading representation. Semantic-plus-intent has small policy-specific gains, so a single fixed average explicitly tests residual complementarity before closure. If it or another declared candidate clears the frozen eligibility conditions, the research gate remains open for follow-up. If none clears them, retain the simpler centroid and move to one separately frozen confirmation. Do not use the reserve to pick a feature family.
+
+## What is deferred, and why
+
+Other pretrained encoders, task-specific contrastive training, supervised fine-tuning and distillation remain possible **model research**, not evidence that the current feature work was never done. They require a specific development hypothesis and a fresh bounded comparison; no larger encoder is being used to conceal weak features. New language domains, more policy types, thread context and independently adjudicated labels require genuinely new data. They are external-validity limits, not features we can safely manufacture from this table.
+
+The stopping claim is deliberately bounded: major applicable avenues have been searched with diminishing observed returns, not every conceivable NLP representation. Notebook `02` can finish this research phase only after the generated decision, private replay, coverage review and actual notebook execution agree. Independent confirmation, calibration, offline promotion, latency/memory evidence and a usable demonstration remain separate product gates.

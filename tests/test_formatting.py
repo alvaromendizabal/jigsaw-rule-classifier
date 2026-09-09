@@ -197,11 +197,14 @@ def test_complete_study_reuses_banks_and_never_refits_completed_stages(tmp_path,
                 )
         for model in ("qwen_centroid", "semantic_scalar_only", "word_semantic_scalar"):
             part = data[["row_id", "rule", "rule_violation"]].copy()
+            assignment = {
+                data.iloc[i].row_id: fold for fold, rows in enumerate(folds) for i in rows["valid"]
+            }
             controls.append(
                 part.assign(
                     protocol=protocol,
                     model=model,
-                    fold=0,
+                    fold=part.row_id.map(assignment),
                     probability=support_scores(original)["qwen_centroid"],
                 )
             )
@@ -218,6 +221,24 @@ def test_complete_study_reuses_banks_and_never_refits_completed_stages(tmp_path,
     assert evidence["audit"]["candidate_counts"] == {"asymmetric_scalar": 32, "intent_scalar": 45}
     oof = pd.read_csv(result / "review/oof.csv")
     assert oof.groupby(["protocol", "model"]).size().eq(120).all()
+    from scripts import verify_formatting
+
+    checked = verify_formatting.verify(tmp_path)
+    assert checked["metric_records"] == 20
+    assert checked["model_prediction_replays"] == 24
+    assert checked["feature_matrix_replays"] == 24
+    assert checked["frozen_score_replays"] == 8
+    assert checked["new_encoder_calls"] == checked["new_model_fits"] == 0
+    from scripts import build_formatting_report
+
+    (tmp_path / "scripts").mkdir(exist_ok=True)
+    shutil.copyfile(
+        ROOT / "scripts/build_formatting_report.py", tmp_path / "scripts/build_formatting_report.py"
+    )
+    build_formatting_report.build(tmp_path, synthetic_fixture=True)
+    assert len(build_formatting_report.verify_figures(tmp_path)["files"]) == 4
+    with pytest.raises(ValueError, match="Synthetic"):
+        build_formatting_report.display_figure(tmp_path, "contrasts")
     markers = {p: digest(p) for p in result.glob("*/complete.json")}
 
     def forbidden(*args, **kwargs):
