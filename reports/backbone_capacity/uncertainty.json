@@ -1,0 +1,30 @@
+[
+  {
+    "contrast": "larger backbone contribution",
+    "candidate": "qwen8b",
+    "reference": "qwen4b",
+    "observed_delta": -0.001953077195381625,
+    "ci_lower": -0.02093423445120666,
+    "ci_upper": 0.01647627461986843,
+    "simultaneous_lower": -0.02069994440362076,
+    "simultaneous_upper": 0.01679379001285751,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "fixed 4B/8B blend contribution",
+    "candidate": "blend",
+    "reference": "qwen4b",
+    "observed_delta": 0.005501842707170246,
+    "ci_lower": -0.00432630244009064,
+    "ci_upper": 0.015378578780617838,
+    "simultaneous_lower": -0.013245024501068889,
+    "simultaneous_upper": 0.02424870991540938,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  }
+]

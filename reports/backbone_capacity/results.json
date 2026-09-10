@@ -1,0 +1,34 @@
+{
+  "qwen4b": {
+    "rule_macro_auc": 0.7198933966592936,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6792537313432836,
+      "No legal advice: Do not offer or request legal advice.": 0.7605330619753037
+    },
+    "pooled_auc": 0.7389593814933182
+  },
+  "qwen8b_frozen": {
+    "rule_macro_auc": 0.6351568977240566,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5851119402985075,
+      "No legal advice: Do not offer or request legal advice.": 0.6852018551496056
+    },
+    "pooled_auc": 0.6585424379542028
+  },
+  "qwen8b": {
+    "rule_macro_auc": 0.7179403194639121,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6827985074626866,
+      "No legal advice: Do not offer or request legal advice.": 0.7530821314651377
+    },
+    "pooled_auc": 0.7343870307671213
+  },
+  "blend": {
+    "rule_macro_auc": 0.725395239366464,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6875373134328359,
+      "No legal advice: Do not offer or request legal advice.": 0.763253165300092
+    },
+    "pooled_auc": 0.7428092269721229
+  }
+}

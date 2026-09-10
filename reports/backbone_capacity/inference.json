@@ -1,0 +1,68 @@
+{
+  "status": "completed",
+  "run_id": "bfc34303222393401675",
+  "folds": [
+    {
+      "fold": 0,
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "audit": {
+        "candidate_occurrences": 13201,
+        "forbidden_text_occurrences": 1,
+        "conflicting_pairs": 2,
+        "conflicting_occurrences": 79,
+        "duplicate_occurrences": 11481,
+        "retained_pairs": 1640,
+        "by_source": {
+          "available_support": 994,
+          "train_body": 646
+        },
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "candidate_query_rows": 1012,
+        "novel_query_rows": 234,
+        "known_support_overlap_excluded": 778,
+        "new_rule_training_pairs": 629,
+        "epoch_occurrences": 2269
+      },
+      "sha256": "b1b06498da8347c7be161f261f94a0aa2f9148e8a68494be74b451ff0f016680",
+      "training": {
+        "optimizer_steps": 142,
+        "resumed_step": 8,
+        "training_contract": "cad39921588b5f51abe5eaa90e725ec7cc84f47c8003e4de3989e80eae24ef7b",
+        "loss_scale": 1.0
+      },
+      "peak_gpu_gib": 15.96830701828003
+    },
+    {
+      "fold": 1,
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "audit": {
+        "candidate_occurrences": 13176,
+        "forbidden_text_occurrences": 1,
+        "conflicting_pairs": 10,
+        "conflicting_occurrences": 339,
+        "duplicate_occurrences": 11621,
+        "retained_pairs": 1215,
+        "by_source": {
+          "available_support": 987,
+          "train_body": 228
+        },
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "candidate_query_rows": 1017,
+        "novel_query_rows": 647,
+        "known_support_overlap_excluded": 370,
+        "new_rule_training_pairs": 366,
+        "epoch_occurrences": 1581
+      },
+      "sha256": "1e2830eafb32af1a52c044383679b1fccf75d89576dacd5d5fcdca9cc85e61b8",
+      "training": {
+        "optimizer_steps": 99,
+        "resumed_step": 8,
+        "training_contract": "00fe4710ef06c143fe4c70693385d4eb340145ff8f9488101123726ef1ee1147",
+        "loss_scale": 1.0
+      },
+      "peak_gpu_gib": 15.99977731704712
+    }
+  ],
+  "elapsed_seconds": 1851.2779450570001,
+  "checkpoint_prefix": "experiments/backbone-capacity-20260910/checkpoints/bfc34303222393401675/"
+}

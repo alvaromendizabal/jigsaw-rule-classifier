@@ -1,0 +1,44 @@
+{
+  "eligible_for_kaggle_candidate": false,
+  "selected": null,
+  "candidates": {
+    "qwen8b": {
+      "eligible": false,
+      "checks": {
+        "positive_macro_gain": false,
+        "simultaneous_interval_positive": false,
+        "per_policy_regression_within_limit": false
+      },
+      "macro_delta": -0.001953077195381514,
+      "per_rule_delta": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.0035447761194029592,
+        "No legal advice: Do not offer or request legal advice.": -0.007450930510165987
+      }
+    },
+    "blend": {
+      "eligible": false,
+      "checks": {
+        "positive_macro_gain": true,
+        "simultaneous_interval_positive": false,
+        "per_policy_regression_within_limit": true
+      },
+      "macro_delta": 0.005501842707170357,
+      "per_rule_delta": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.008283582089552266,
+        "No legal advice: Do not offer or request legal advice.": 0.0027201033247883366
+      }
+    }
+  },
+  "selection": {
+    "candidates": [
+      "qwen8b",
+      "blend"
+    ],
+    "priority": [
+      "qwen8b",
+      "blend"
+    ],
+    "method": "highest policy-macro AUC among candidates passing all gates; priority breaks exact ties"
+  },
+  "meaning": "Development eligibility only; offline and hidden-score gates remain"
+}

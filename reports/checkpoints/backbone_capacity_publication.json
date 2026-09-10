@@ -1,0 +1,127 @@
+{
+  "source_commit": "901dc0a680b61a3472643e2d1511da9d9c8cfcaa",
+  "archive_bytes": 2118692,
+  "archive_sha256": "d12c4512ada39b3075d606d623da74b012f12f36ef07f11aa3aa780601ca5d65",
+  "notebooks": [
+    {
+      "notebook": "notebooks/00_environment_and_data.ipynb",
+      "sha256": "61fd60db6b0d8d5123652a557cfb55533d49741a94d9572ed4b476064dddc923",
+      "contract_sha256": "dae0fbf7a52c635774e0",
+      "complete_sha256": "03942b3327a29a228e5c1bacc849fb9663ec23d3ca92d06b337c998cd4720e61",
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0",
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "ipykernel": "7.3.0"
+      },
+      "completed_at": "2026-09-10T05:20:19.557167+00:00",
+      "executed_code_cells": 5,
+      "plotly_outputs": 0
+    },
+    {
+      "notebook": "notebooks/01_data_and_validation.ipynb",
+      "sha256": "57a051f9452606f9e4e77783430acd12fabea1e982bb25a52df3bfcecfa3156e",
+      "contract_sha256": "d5f8e12bb8dfeb99c97d",
+      "complete_sha256": "c76d99fdbae1bc6cfed1223c03188cdafbdbf6d018d06b45f29365be3ab225ad",
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0",
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "ipykernel": "7.3.0"
+      },
+      "completed_at": "2026-09-10T05:20:22.648253+00:00",
+      "executed_code_cells": 6,
+      "plotly_outputs": 1
+    },
+    {
+      "notebook": "notebooks/02_baseline_and_review.ipynb",
+      "sha256": "c062fd8aaa60347970e9207d5b4b15b28c5fa448a5865d94895937e0af5248a9",
+      "contract_sha256": "f5fb274b7cefe42ec10d",
+      "complete_sha256": "c20398a81c764111c9a975ab9dc49690d373a705124a3657748952284824f1e0",
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0",
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "ipykernel": "7.3.0"
+      },
+      "completed_at": "2026-09-10T05:20:26.484411+00:00",
+      "executed_code_cells": 22,
+      "plotly_outputs": 8
+    },
+    {
+      "notebook": "notebooks/03_saved_results.ipynb",
+      "sha256": "20a59c403642955e8ab65579f62d8bc2c827b258f117e9b1796f3315008de35e",
+      "contract_sha256": "6f482afa6abbc5a11f79",
+      "complete_sha256": "2397ecca422ca8be05feaa7c67acd8e381f77c701b326cc98541a9b47474fa3c",
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0",
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "ipykernel": "7.3.0"
+      },
+      "completed_at": "2026-09-10T05:20:30.459691+00:00",
+      "executed_code_cells": 14,
+      "plotly_outputs": 8
+    },
+    {
+      "notebook": "notebooks/04_semantic_benchmark.ipynb",
+      "sha256": "03fbe22dfb54ff407609160c5b93ba5d8b812df343a985507af2a8b697e3eb51",
+      "contract_sha256": "d2b1db5de3eaec16108d",
+      "complete_sha256": "e7ac93b86a4b35acc43ed87edc2143d337a164c4a4a4df25ab4bc02c19985707",
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0",
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "ipykernel": "7.3.0"
+      },
+      "completed_at": "2026-09-10T05:20:34.251805+00:00",
+      "executed_code_cells": 9,
+      "plotly_outputs": 5
+    }
+  ],
+  "scope": "Actual CI Jupyter execution and replay; current source and all input hashes match. Environment versions remain those recorded by CI.",
+  "workflow_run_id": 34440534627,
+  "workflow_job_id": 102754457337,
+  "artifact_id": 10137814087,
+  "conclusion": "success",
+  "durable_archive": {
+    "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+    "key": "experiments/backbone-capacity-20260910/publication/quality-evidence-34440534627.zip",
+    "bytes": 2118692,
+    "version_id": "cJq6VjjBOQ0GfkYZ08ANG3K5nYaC5xNz",
+    "encryption": "AES256",
+    "sha256": "d12c4512ada39b3075d606d623da74b012f12f36ef07f11aa3aa780601ca5d65",
+    "verified_independent_download": true
+  },
+  "verified_utc": "2026-09-10T05:23:59.021547+00:00"
+}

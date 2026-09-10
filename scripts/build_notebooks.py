@@ -614,6 +614,42 @@ else:
     ).cells
     for name in ("02_baseline_and_review", "03_saved_results"):
         outputs[f"notebooks/{name}.ipynb"].cells[5:5] = complementarity_cells
+    capacity_cells = notebook(
+        [
+            (
+                "md",
+                "## Does a larger backbone improve the decision representation?\n\n"
+                "The next registered study adapts Qwen3-8B on the same eligible training "
+                "pairs and reuses the exact 4B predictions for all 881 novel comments. "
+                "Its pinned pre-deadline revision uses native non-thinking chat, one LoRA "
+                "epoch and micro-batches of two. Size, vintage and native formatting "
+                "change together; parameter count is not isolated causally.\n\n"
+                "Two frozen candidates—the direct adapted 8B score and a fixed 50/50 "
+                "within-policy 4B/8B rank blend—are tested together with simultaneous "
+                "paired group intervals. Promotion requires a positive macro gain, "
+                "positive simultaneous lower bound and no policy regression. The "
+                "highest-AUC eligible candidate wins; exact ties prefer the single "
+                "model. Frozen 8B is descriptive only. No weights or hyperparameters "
+                "are searched. These two previously examined development policies "
+                "are not a fresh holdout or a new Kaggle score.",
+            ),
+            (
+                "code",
+                "capacity = complementarity_evidence(root, 'backbone_capacity')\n"
+                "display(pd.DataFrame([{'Representation': name, 'Policy-macro AUC': metrics['rule_macro_auc'], **metrics['per_rule_auc']} for name, metrics in capacity['results'].items()]).round(4))\n"
+                "display_complementarity(root, 'backbone_capacity')\n"
+                "display(pd.DataFrame(capacity['uncertainty'])[['contrast', 'observed_delta', 'simultaneous_lower', 'simultaneous_upper']].round(4))\n"
+                "display(pd.DataFrame(capacity['correlations']).round(4))\n"
+                "print('Development promotion decision:', capacity['decision'])\n"
+                "print('Worker seconds:', round(capacity['inference']['elapsed_seconds'], 1))\n"
+                "for fold in capacity['inference']['folds']:\n"
+                "    print('Fold', fold['fold'], 'optimizer steps', fold['training']['optimizer_steps'], 'resumed at', fold['training']['resumed_step'], 'peak GPU GiB', round(fold['peak_gpu_gib'], 2))\n"
+                "print('The verified Kaggle reference remains Version 3: 0.91425 private AUC; winning reference 0.92930.')\n",
+            ),
+        ]
+    ).cells
+    for name in ("02_baseline_and_review", "03_saved_results"):
+        outputs[f"notebooks/{name}.ipynb"].cells[7:7] = capacity_cells
     # Keep the original lexical notebook as a reproducible historical control.
     if __package__:
         from .build_adapted_notebook import build as adapted_notebook

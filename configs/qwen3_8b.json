@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "field_tokens": {
+    "body": 384,
+    "rule": 96,
+    "support": 192
+  },
+  "max_tokens": 2048,
+  "batch_size": 4,
+  "shard_size": 64,
+  "seed": 2025,
+  "model_id": "Qwen/Qwen3-8B",
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "revision_date": "2025-07-26T03:49:13Z",
+  "license": "apache-2.0",
+  "files": {
+    "LICENSE": {
+      "algorithm": "git-sha1",
+      "digest": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+    },
+    "config.json": {
+      "algorithm": "git-sha1",
+      "digest": "d46195ac87f837ad233d02b2f80f148bf7c005e0"
+    },
+    "generation_config.json": {
+      "algorithm": "git-sha1",
+      "digest": "20a8a9156fc8c3f25295ca067f61fdf120d517c5"
+    },
+    "merges.txt": {
+      "algorithm": "git-sha1",
+      "digest": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7"
+    },
+    "model-00001-of-00005.safetensors": {
+      "algorithm": "sha256",
+      "digest": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f"
+    },
+    "model-00002-of-00005.safetensors": {
+      "algorithm": "sha256",
+      "digest": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282"
+    },
+    "model-00003-of-00005.safetensors": {
+      "algorithm": "sha256",
+      "digest": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836"
+    },
+    "model-00004-of-00005.safetensors": {
+      "algorithm": "sha256",
+      "digest": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a"
+    },
+    "model-00005-of-00005.safetensors": {
+      "algorithm": "sha256",
+      "digest": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff"
+    },
+    "model.safetensors.index.json": {
+      "algorithm": "git-sha1",
+      "digest": "2b85c00f1b118961cd7a477e2bba0fe197a4ce1a"
+    },
+    "tokenizer.json": {
+      "algorithm": "sha256",
+      "digest": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    "tokenizer_config.json": {
+      "algorithm": "git-sha1",
+      "digest": "417d038a63fa3de29cfde265caedae14d1a58d92"
+    },
+    "vocab.json": {
+      "algorithm": "git-sha1",
+      "digest": "4783fe10ac3adce15ac8f358ef5462739852c569"
+    }
+  },
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

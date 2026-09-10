@@ -249,9 +249,24 @@ The saved source fits only original training labels and supplied positive/negati
 
 ## Highest-value remaining representation experiment
 
-Test **complementary support-adapted instruction-model representations**, using one second eligible, pinned backbone and a preregistered equal-weight within-policy rank blend with Qwen. This is a hypothesis motivated by the winner's diverse ensemble, not a promised gain. Our existing adapted-coordinate readout and geometry blend did not beat the direct score, so repeating those searches is lower priority.
+The proposed complementary-model comparison has now been executed with Phi-4-mini,
+followed by Qwen3-8B. Both fixed blends fail their registered uncertainty gates;
+the measured outcomes are below. The current canonical 4B candidate remains the
+scored reference. More model parameters or more ensemble members are not accepted
+without measured added value.
 
-Keep the legitimate support construction fixed and evaluate the second model and fixed blend on the existing original-data novel-comment development protocol. Purge query bodies from fitted sources, compare per-policy AUC and paired group uncertainty, and inspect prediction correlation and runtime. Freeze the revision, one-epoch budget and blend before running; reject unsupported gains. The two previously examined development policies are not a fresh holdout. Do not tune to the newly observed private Kaggle score, access released targets, or reuse the consumed protected cohort.
+The next highest-value representation hypothesis is **explicit support-context
+conditioning with the retained 4B adapters**: compare the existing rule/body-only
+decision with a fixed, query-purged positive/negative support pair in the native
+decision prompt. This changes the model's joint attention to examples and the
+query, unlike the already rejected downstream centroid and geometry readouts.
+Reuse the saved adapters; freeze the support retrieval rule, order and comparison
+before inference, and keep every query body out of the support and fitted pools.
+This hypothesis has not been run or shown to improve AUC. Continued comparisons
+on two repeatedly examined rules remain exploratory; stronger confirmation needs
+independent eligible policy coverage. Do not search blend weights against the
+private Kaggle score, access released targets, or reuse the consumed protected
+cohort.
 
 The evaluated-candidate milestone is complete. The **0.92–0.93 performance objective and broader representation research remain open**.
 
@@ -334,3 +349,105 @@ prefix; only the seven aggregate JSON records and verified figures are published
 [Decision](../reports/complementarity/decision.json) · [Receipt](../reports/checkpoints/complementarity.json).
 
 Private CPU evaluation recovery: `experiments/complementary-support-20260910/evaluation/812dcc2d3672596eda55/evaluation.tar.gz` in the existing project bucket; SHA256 `e9b4048e399f6538c88318effcbd31454b652decd3cf8916269fd01cfbd35ec2`.
+
+### Registered comparison: larger Qwen backbone
+
+The Phi blend's uncertain gain motivates a **Qwen3-8B** comparison, revision
+`b968826d9c46dd6066d109eabc6255188de91218` (July 26, 2025), with thirteen verified
+upstream asset hashes and Apache 2.0 licensing. The model has 8,190,735,360 parameters;
+BF16 weights alone occupy 15.26 GiB. A single L4 will run the development study.
+The native template is called with `enable_thinking=False` for a direct decision.
+[Exact upstream revision](https://huggingface.co/Qwen/Qwen3-8B/tree/b968826d9c46dd6066d109eabc6255188de91218).
+
+The original 881-row novel-comment plan and saved Qwen3-4B predictions remain fixed.
+Train one LoRA epoch with the original rank, learning rate, seed, supplied-support
+weighting and effective batch of 16. Micro-batch size is two to fit the larger
+model. This comparison changes model size, vintage and native formatting; it
+cannot isolate parameter count as a causal effect. Original/support labels remain
+the only training sources, with query bodies purged and query labels excluded
+from the cloud plan. No released targets or consumed protected cohort is opened.
+
+Two candidates are declared before execution: the adapted 8B direct score and a
+fixed 50/50 within-policy rank blend with the 4B reference. Both candidate/reference
+contrasts enter a single 1,000-draw group bootstrap with simultaneous intervals.
+Frozen 8B scores provide a descriptive control and cannot be selected. Each
+candidate must improve macro AUC, have a positive simultaneous lower bound and
+avoid a per-policy regression. Choose the highest macro AUC among eligible
+candidates; exact ties prefer the single 8B model. There is no weight or training
+hyperparameter search. These gates establish development eligibility only.
+
+The additional job uses the existing L4 image and S3 project area, a 3,600-second
+job cap and 3,000-second worker cap, at the verified $1.127/hour training rate.
+All optimizer/shard states remain hash-checked and resumable. A candidate that
+passes must separately demonstrate offline inference on Kaggle's available GPUs
+before a new hidden evaluation. A larger model is not presumed to fit one T4.
+[Protocol](../configs/backbone_capacity.json) · [Recovery state](../reports/checkpoints/backbone_capacity.json).
+
+### Measured result: the larger model does not establish a useful improvement
+
+The registered 8B job completed at **2026-09-10 04:48:19 UTC**. It performed all
+**142/99 optimizer steps**, recovered both real step-8 checkpoints and produced
+all **881 finite, ordered query predictions**. The worker took **1,851.3 seconds**;
+SageMaker billed **2,211 seconds**, approximately **$0.69217 compute**, plus storage.
+Peak L4 allocation was **16.00 GiB**. All thirteen pinned model assets and ten
+worker source files passed checksum verification. The private evaluation replay
+reused all eight completed outputs without training or inference.
+
+| Representation | Policy-macro AUC | Advertising AUC | Legal-advice AUC |
+|---|---:|---:|---:|
+| Adapted Qwen3-4B, reused reference | 0.71989 | 0.67925 | 0.76053 |
+| Frozen Qwen3-8B, descriptive control | 0.63516 | 0.58511 | 0.68520 |
+| Adapted Qwen3-8B | 0.71794 | 0.68280 | 0.75308 |
+| Fixed 50/50 4B/8B rank blend | 0.72540 | 0.68754 | 0.76325 |
+
+The direct 8B model loses **0.00195 macro AUC** and **0.00745 legal-advice AUC**.
+Its simultaneous gain interval is **[-0.02070, 0.01679]**. The blend adds
+**0.00550 macro AUC** and improves both observed policies, but its paired interval
+**[-0.00433, 0.01538]** and simultaneous interval **[-0.01325, 0.02425]** both include
+zero. Prediction Spearman correlations with 4B are **0.90366 / 0.89311**.
+Neither registered candidate passes every gate, so **neither is promoted or
+submitted to Kaggle**. The fixed weights and thresholds remain unchanged.
+
+These negative findings limit this specific one-epoch adaptation and fixed blend
+on two development rules. They do not prove that larger models cannot help other
+policies. The actual scored reference stays **0.91808 public / 0.91425 private**,
+with **0.01505** still needed to match the winning private **0.92930**. No new
+competition score or leaderboard improvement is claimed.
+
+![Verified larger-backbone comparison](../reports/backbone_capacity/comparison.svg)
+
+Export the seven aggregate records with `scripts/publish_complementarity.py
+--study backbone_capacity`; render their Plotly/SVG comparison with
+`scripts/build_complementarity_report.py --study backbone_capacity`.
+Private prediction arrays and optimizer states stay in the approved S3 project
+prefix. [Decision](../reports/backbone_capacity/decision.json) ·
+[Exact evaluation provenance](../reports/backbone_capacity/metadata.json).
+
+### Independent two-T4 runtime proof
+
+The separate private **Jigsaw - 8B Two-GPU Recovery Probe**, Version 1 /
+**348683165**, succeeded in **206.1 Kaggle run seconds**. It used **eight authored
+comments only**, no competition data, and Internet was disabled. All thirteen
+upstream asset hashes passed. Layers 0–17 and the input embedding ran on GPU 0;
+layers 18–35, final norm and output head ran on GPU 1. Two FP16 optimizer steps
+completed with a deliberate model reload and optimizer/RNG/scaler recovery at
+step 1. Inference returned finite scores. Peak allocations were **7.89102 / 7.88962
+GiB** on the two T4s. This establishes small-run sharded execution, not full
+hidden-run time, generalization or calibrated probabilities.
+
+The executed source is **c9606e5c5387813d0105667e4111af9428904163**; its exact-head
+Quality run **34437570935** passed. The saved runtime manifest binds the model,
+configuration, eleven embedded source/asset hashes, device map and installed
+package versions. The rendered receipt's canonical JSON hash matches its saved
+completion hash. The model used Torch 2.10.0+cu128, Transformers 5.0.0, PEFT 0.19.1
+and Accelerate 1.13.0. The previously diagnosed incompatible optional torchao
+package was removed using the exact version guard. The completed saved outputs
+remain private and no duplicate probe or competition submission is launched.
+
+Probe setup encountered a transient browser timeout and a zero-byte file import;
+the import was recovered using the immutable GitHub notebook URL after verifying
+remote/local byte equality. A later optional notebook-download event timed out;
+the verified rendered logs and durable Kaggle outputs preserve the runtime proof.
+Neither issue affected the independent AWS study or its fixed predictions.
+[Saved probe](https://www.kaggle.com/code/alvaromendizabal/jigsaw-8b-two-gpu-recovery-probe?scriptVersionId=348683165)
+· [Probe source](../kaggle/capacity_probe.ipynb).

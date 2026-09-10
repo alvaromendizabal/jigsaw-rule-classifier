@@ -1,0 +1,10 @@
+[
+  {
+    "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+    "spearman": 0.9036613121583196
+  },
+  {
+    "rule": "No legal advice: Do not offer or request legal advice.",
+    "spearman": 0.8931103452558966
+  }
+]
