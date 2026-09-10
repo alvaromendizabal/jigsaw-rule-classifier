@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import gc
 import json
+from functools import partial
 from pathlib import Path
 
 from jigsaw_rules.runtime import Progress, atomic_json
@@ -12,7 +13,7 @@ from scripts.decision_training import train_adapter
 from scripts.support_adaptation import add_adapter, decision_prompts
 
 
-def run(model_path: Path, output: Path, model_spec: dict, training: dict):
+def run(model_path: Path, output: Path, model_spec: dict, training: dict, device_map="cuda:0"):
     import numpy as np
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -22,6 +23,10 @@ def run(model_path: Path, output: Path, model_spec: dict, training: dict):
         model_path, padding_side="left", local_files_only=True, trust_remote_code=False
     )
     tokenizer.pad_token = tokenizer.eos_token
+    if model_spec.get("chat_template_kwargs"):
+        tokenizer.apply_chat_template = partial(
+            tokenizer.apply_chat_template, **model_spec["chat_template_kwargs"]
+        )
     rows = [
         {
             "rule": "No Advertising: unsolicited promotional content is not allowed.",
@@ -54,7 +59,7 @@ def run(model_path: Path, output: Path, model_spec: dict, training: dict):
         base = AutoModelForCausalLM.from_pretrained(
             model_path,
             dtype=torch.float16,
-            device_map="cuda:0",
+            device_map=device_map,
             attn_implementation="sdpa",
             local_files_only=True,
             trust_remote_code=False,
@@ -96,10 +101,15 @@ def run(model_path: Path, output: Path, model_spec: dict, training: dict):
             "status": "passed",
             "scope": "Authored software probe, not model evaluation",
             "device": torch.cuda.get_device_name(),
+            "device_map": device_map,
+            "devices": [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())],
             "precision": "float16",
             "intentional_interruption": interrupted,
             "training": training_record,
             "peak_gpu_gib": torch.cuda.max_memory_allocated() / 2**30,
+            "peak_gpu_gib_by_device": [
+                torch.cuda.max_memory_allocated(i) / 2**30 for i in range(torch.cuda.device_count())
+            ],
         }
         atomic_json(output / "complete.json", receipt)
         print(json.dumps(receipt), flush=True)
