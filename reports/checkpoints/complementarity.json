@@ -1,5 +1,5 @@
 {
-  "status": "registered_not_launched",
+  "status": "gpu_job_in_progress",
   "scope": "Authorized second-model development comparison; original labels and supplied supports only",
   "baseline_kaggle_private_auc": 0.91425,
   "leaderboard_private_auc": 0.9293,
@@ -34,9 +34,78 @@
     "local_model_assets_verified": 9,
     "weights_verified_on_worker": false,
     "quality_tests_passed": 380,
-    "quality_gate": "passed; compile, Ruff, tests, notebook source consistency"
+    "quality_gate": "passed; compile, Ruff, tests, notebook source consistency",
+    "focused_checks_passed": 8,
+    "evaluator_fixture": "end-to-end rank comparison and checksum replay passed"
   },
-  "gpu_job": null,
+  "gpu_job": {
+    "archive_sha256": "0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd",
+    "archive_bytes": 537460,
+    "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+    "prefix": "experiments/complementary-support-20260910",
+    "key": "experiments/complementary-support-20260910/source/0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd/source.tar.gz",
+    "job_name": "jigsaw-complementary-support-20260910",
+    "request": {
+      "AlgorithmSpecification": {
+        "ContainerArguments": [
+          "-c",
+          "jigsaw_source=/opt/ml/input/data/source/source.tar.gz; echo \"$JIGSAW_SOURCE_SHA256  $jigsaw_source\"|sha256sum -c - && mkdir -p /opt/ml/code && tar xzf \"$jigsaw_source\" -C /opt/ml/code && exec bash /opt/ml/code/scripts/run_complementarity.sh"
+        ],
+        "ContainerEntrypoint": [
+          "/bin/bash"
+        ],
+        "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training@sha256:26e979d1e21417c3a58d79478e6db1804d4fad512048a7a8cdf1816ab971e7c0",
+        "TrainingInputMode": "File"
+      },
+      "Environment": {
+        "JIGSAW_BUCKET": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "JIGSAW_COMPLEMENTARY_PREFIX": "experiments/complementary-support-20260910",
+        "JIGSAW_SOURCE_SHA256": "0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "source",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataDistributionType": "FullyReplicated",
+              "S3DataType": "S3Prefix",
+              "S3Uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/complementary-support-20260910/source/0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd/"
+            }
+          }
+        }
+      ],
+      "OutputDataConfig": {
+        "S3OutputPath": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/complementary-support-20260910/output/"
+      },
+      "ResourceConfig": {
+        "InstanceCount": 1,
+        "InstanceType": "ml.g6.xlarge",
+        "VolumeSizeInGB": 60
+      },
+      "RoleArn": "arn:aws:iam::560403859723:role/service-role/AmazonSageMaker-ExecutionRole-20260902T115323",
+      "StoppingCondition": {
+        "MaxPendingTimeInSeconds": 7200,
+        "MaxRuntimeInSeconds": 3600
+      },
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "jigsaw-rule-classifier"
+        },
+        {
+          "Key": "Purpose",
+          "Value": "bounded-complementary-support"
+        }
+      ],
+      "TrainingJobName": "jigsaw-complementary-support-20260910"
+    },
+    "source_commit": "230fd2a471b34814269e4920274af1377e31cd88",
+    "source_version_id": "I6cHjr54IXBHYY_vrwtgVEj6GiVJRgt6",
+    "created_utc": "2026-09-10T03:35:12.063000+00:00",
+    "last_verified_utc": "2026-09-10T03:38:00.530459+00:00",
+    "status": "InProgress",
+    "phase": "Downloading"
+  },
   "development_result": null,
   "kaggle_candidate": null,
   "registered_utc": "2026-09-10T03:32:27.091617+00:00",
@@ -66,5 +135,13 @@
     "storage_extra": true,
     "price_verified_utc": "2026-09-10T03:32:27+00:00",
     "training_quota_available": 1
+  },
+  "initial_ci": {
+    "commit": "230fd2a471b34814269e4920274af1377e31cd88",
+    "run_id": 34433808850,
+    "job_id": 102734630353,
+    "conclusion": "success",
+    "actual_jupyter_notebooks": 5,
+    "replay": true
   }
 }

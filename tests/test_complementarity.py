@@ -165,3 +165,81 @@ def test_experiment_uses_predeadline_pin_and_fixed_baseline():
     assert spec["blend_weights"] == {"qwen": 0.5, "phi": 0.5}
     assert len(spec["baseline"]["fold_sha256"]) == 2
     assert len(model["files"]) == 11
+
+
+def test_evaluator_executes_and_reuses_a_complete_paired_study(tmp_path):
+    import pandas as pd
+
+    from scripts.competition_features import content_hash
+    from scripts.evaluate_complementarity import run
+
+    root, cloud, baseline = tmp_path / "root", tmp_path / "phi", tmp_path / "qwen"
+    (root / "configs").mkdir(parents=True)
+    (root / "src/jigsaw_rules").mkdir(parents=True)
+    plan = {"schema": 1, "folds": []}
+    rows, records, qwen_hashes = [], [], []
+    for i, rule in enumerate(("a", "b")):
+        ids = list(range(i * 4, i * 4 + 4))
+        queries = [{"row_id": j, "body": f"query {j}", "rule": rule} for j in ids]
+        rows.extend({**row, "rule_violation": j % 2} for j, row in enumerate(queries))
+        fold = {
+            "rule": rule,
+            "queries": queries,
+            "audit": {},
+            "training": [{"body": f"support {i}", "rule": rule, "rule_violation": 1, "repeat": 2}],
+        }
+        plan["folds"].append(fold)
+        for directory, margins in ((baseline, [0, 1, 2, 3]), (cloud, [0, 2, 1, 3])):
+            part = directory / f"fold_{i}"
+            part.mkdir(parents=True)
+            scores = np.zeros((4, 3))
+            scores[:, 1] = margins
+            np.savez_compressed(
+                part / "representations.npz",
+                query_row_ids=ids,
+                query_frozen_scores=scores,
+                query_adapted_scores=scores,
+            )
+        qwen_hashes.append(digest(baseline / f"fold_{i}/representations.npz"))
+        record = {
+            "fold": i,
+            "rule": rule,
+            "sha256": digest(cloud / f"fold_{i}/representations.npz"),
+        }
+        records.append(record)
+        atomic_json(cloud / f"fold_{i}/complete.json", record)
+    plan_path, training = tmp_path / "plan.json", tmp_path / "train.csv"
+    atomic_json(plan_path, plan)
+    pd.DataFrame(rows).to_csv(training, index=False)
+    atomic_json(baseline / "contract.json", {"fixture": True})
+    atomic_json(baseline / "complete.json", {"fixture": True})
+    config = {
+        "plan_sha256": digest(plan_path),
+        "original_training_sha256": digest(training),
+        "baseline": {
+            "contract_sha256": digest(baseline / "contract.json"),
+            "receipt_sha256": digest(baseline / "complete.json"),
+            "fold_sha256": qwen_hashes,
+        },
+        "blend_weights": {"qwen": 0.5, "phi": 0.5},
+        "bootstrap_replicates": 100,
+        "training": {"seed": 2025},
+        "promotion": {"simultaneous_ci_lower_minimum": 0, "maximum_per_policy_regression": 0},
+    }
+    atomic_json(root / "configs/complementarity.json", config)
+    atomic_json(root / "configs/complementary_model.json", {"fixture": True})
+    contract = {"config": config, "model_spec": {"fixture": True}, "source": {}}
+    atomic_json(cloud / "contract.json", contract)
+    atomic_json(cloud / "complete.json", {"run_id": content_hash(contract)[:20], "folds": records})
+    result = run(root, cloud, baseline, plan_path, training, tmp_path / "evaluation")
+    results = json.loads((result / "results.json").read_text())
+    assert results["qwen"]["rule_macro_auc"] == 0.75
+    assert results["phi"]["rule_macro_auc"] == 1.0
+    assert results["blend"]["rule_macro_auc"] == 0.875
+    before = digest(result / "results.json")
+    assert run(root, cloud, baseline, plan_path, training, tmp_path / "evaluation") == result
+    assert digest(result / "results.json") == before
+    with (baseline / "fold_0/representations.npz").open("ab") as stream:
+        stream.write(b"corrupt")
+    with pytest.raises(ValueError, match="checksum"):
+        run(root, cloud, baseline, plan_path, training, tmp_path / "evaluation")
