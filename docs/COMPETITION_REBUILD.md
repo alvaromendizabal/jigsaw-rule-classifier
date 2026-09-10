@@ -451,3 +451,48 @@ the verified rendered logs and durable Kaggle outputs preserve the runtime proof
 Neither issue affected the independent AWS study or its fixed predictions.
 [Saved probe](https://www.kaggle.com/code/alvaromendizabal/jigsaw-8b-two-gpu-recovery-probe?scriptVersionId=348683165)
 · [Probe source](../kaggle/capacity_probe.ipynb).
+
+### Bounded next step: retained 4B with retrieved support context
+
+The user requested shorter, manageable work and explicitly selected direct
+positive/negative support prompting. This step freezes **one candidate**, reuses
+the completed 4B adapters and the existing 881-query original-data plan, and
+performs **zero optimizer steps**. There are no external LLM labeling/inference
+calls, prompt sweeps, blend searches, automatic retries or follow-on jobs.
+
+Fit character 3–5-gram TF-IDF retrieval on each fold's eligible same-rule support
+pool only. Select the highest-cosine violating and permitted example separately;
+normalized-text ordering breaks ties. All query bodies remain excluded from all
+fitted/support sources. Keep the original native system message, Yes/No scoring,
+384/96/192-token body/rule/support budgets and head/tail truncation. Add one
+violating and one permitted example to the decision JSON. This tests joint
+attention to actual examples while holding the trained representation fixed.
+
+Before candidate inference, restore each hash-pinned final adapter and reproduce
+the first eight saved rule-only margins within `1e-5`. A failed parity check stops
+the job. Prediction batches are checksummed, uploaded before their completion
+markers and replayed with model inference disabled. The worker cap is **900
+seconds**, with a **1,200-second SageMaker runtime cap** on one `ml.g6.xlarge`.
+At the last verified $1.127/hour rate, the runtime cap corresponds to about
+**$0.376 compute**, plus storage; this does not estimate ChatGPT Work credits.
+
+Compare the single candidate against the frozen 4B predictions using policy-macro
+AUC, per-policy AUC and 1,000 paired group bootstrap draws. Eligibility requires
+a positive macro gain, a positive 95% simultaneous lower bound and no policy
+regression. The development cohort has already been examined; this is exploratory
+evidence, not an independent holdout or a Kaggle score. No released target member
+or consumed protected cohort is opened. Only the byte-identical original
+`train.csv` member is restored for CPU evaluation.
+
+This bounded step ends after the comparison and a durable draft PR. Notebook
+publication, offline candidate validation and any new hidden submission are
+separate milestones. The current 4B Kaggle result remains 0.91425 private AUC;
+the 0.01505 gap to 0.92930 is unclosed until measured otherwise.
+
+We are not restricted to 4B. The completed 8B study failed its promotion gate;
+it does not rule out other models. At 16-bit precision, 9B and 27B weights alone
+need roughly 18 GB and 54 GB, before activations and runtime overhead. A 27B
+candidate therefore needs more GPU memory or separately verified quantization.
+Model family, revision, training and rule understanding matter alongside size.
+Direct support context is the next selected hypothesis, not a guaranteed way to
+close the entire gap. [Frozen protocol](../configs/support_context.json).
