@@ -1,0 +1,10 @@
+{
+  "rows": 881,
+  "policies": 2,
+  "primary_metric": "Equal-weight policy-macro ROC AUC",
+  "candidate": "Fixed 50/50 within-policy rank blend; no fitted weights",
+  "scope": "Previously examined original-data policies; not a new holdout",
+  "target_source": "Original train.csv only, loaded after predictions were fixed",
+  "architecture_changes": "Native Phi template, tokenizer and fused LoRA projections",
+  "limits": "Two policies; conditional uncertainty does not establish transfer"
+}

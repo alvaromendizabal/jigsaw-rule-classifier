@@ -1,0 +1,105 @@
+{
+  "spec": {
+    "schema": 1,
+    "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "original_training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+    "max_seconds": 3000,
+    "training": {
+      "rank": 8,
+      "alpha": 16,
+      "dropout": 0.0,
+      "target_modules": [
+        "qkv_proj",
+        "o_proj",
+        "gate_up_proj",
+        "down_proj"
+      ],
+      "seed": 2025,
+      "effective_batch": 16,
+      "micro_batch": 4,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.01,
+      "warmup_fraction": 0.05,
+      "gradient_clip": 1.0,
+      "gradient_checkpointing": true,
+      "checkpoint_steps": 8,
+      "precision": "bfloat16",
+      "keep_checkpoints": 2
+    },
+    "bootstrap_replicates": 1000,
+    "blend_weights": {
+      "qwen": 0.5,
+      "phi": 0.5
+    },
+    "promotion": {
+      "positive_macro_delta": true,
+      "simultaneous_ci_lower_minimum": 0.0,
+      "maximum_per_policy_regression": 0.0
+    },
+    "baseline": {
+      "run_id": "d13858b7407993fcc6e8",
+      "contract_sha256": "ae27bdd2b71c95dc22e10c14e85cfd640f88c65e34e047ae7b9ae8792129d4b8",
+      "receipt_sha256": "c78450d4bfcc38a0dac49348382ccd2f0ddc4534b4fb970ca474cffe81436442",
+      "fold_sha256": [
+        "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+        "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+      ]
+    },
+    "protocol": "Same original-data 881 novel comments and original/support labels as the completed Qwen study; one fixed epoch, no target labels in GPU queries; no released targets or private-score tuning. Native Phi template and fused LoRA projections are architectural changes. Primary fixed blend contrast plus Phi adaptation control; no blend-weight search."
+  },
+  "cloud_run": "843fd8070b600a12730a",
+  "fold_hashes": [
+    {
+      "qwen": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "phi": "157e5bacf7d59c34d64ce6288d48ac7b46464227aff263f0ef45e8054c3de62e"
+    },
+    {
+      "qwen": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+      "phi": "dbb83892ea923188e673976ab516b1c21fb3707c7b5ca72f7ffa1dc3b6792f3c"
+    }
+  ],
+  "source": "99c757b352f782da7d0f33613b3275353847cedc47f10ae8957d31c5b12d8a33",
+  "core_source": {
+    "__init__.py": "18de2b5e416ec22954f81d5e04f148407913381f6bd898780c3246259a657694",
+    "calibration.py": "8e2b03828f0769c5ac92be794a9e389bdf5eebd3fcbc5975661123c5506bdae4",
+    "cli.py": "503155a1793fa634ba9be0ac45e2e3b9a25fa398700b4c88586fb2fc19cffd8e",
+    "cloud.py": "c8be9643cc38c74ead3f413bb2dec9b5468fd8f1805bb3cc252b437eacc6365d",
+    "confirmation.py": "90b930381336bfdeb295c7eb750865d175b17c585baf4fd8fc3257e38db725b5",
+    "confirmation_evaluation.py": "d6b176870845e048e5d23e7c8bb1d842e6768ed9c3a2310b26beea33e29c5903",
+    "confirmation_inputs.py": "6216426e30b5afa4de90f12096340089c63aac023a2b1601a6694afc4a7ade83",
+    "confirmation_report.py": "8def15c9e17b1121fcc668b3e349501cd2f8f38c8de1e5ac6c7387964550389c",
+    "context.py": "66305667ae678d015c2087ee47a7683038c9c49a7d78a7f7369b4caae7ce2003",
+    "data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "diagnostics.py": "ef8490b5f60dec36c7978ccef42c62dcddb820ac819ac51e3849c85b5e41dbf9",
+    "download.py": "2afaebc821d93e1ffa94644463822155e3dcbeb0f4289e87bb655d0e38d56cfc",
+    "embeddings.py": "8dbebfc74ee917bef55b3ac884ccf5df7bec1c4706ee15be5e68592c5f08f8a7",
+    "expanded.py": "5eea949ed47088ac8fadbceec351df1ed667b611f2e6c7f1cdfc84fcfaf6bd7c",
+    "expanded_embeddings.py": "fd0d0a8c2c7886b80c67a0316ab3edc9ddfab0de0a4b510f550b38e33225605e",
+    "feature_decision.py": "222896cb23774b4b2a082fb8e60feb94db531b057b975b0f7df7570c74ee8bf0",
+    "features.py": "06d1b613479eb10157b6493bd2bacd7164d3badaa65270b84ecc172a007f31bd",
+    "final_model.py": "d5064d984c093fc72a080dafa640f3478d562de6251235b54c4773f7df0b42c7",
+    "formatting.py": "017b2e94be58ab72368a3479b27fa7bd4c5084ce2a1d5d24b3c80a141722066a",
+    "gate.py": "2db03d776ccbf7e5c3d7c57282a8fb232cc647dde80cf21d9e0778ff5bc6d0c7",
+    "instructions.py": "2d26a0ec65d6ab2c68700f8e75fcd4f948b492f6c8e9121e267f7cc0b213fb4d",
+    "metrics.py": "ab379c5a5014e6f7f50bb267e34d53ff9fe90419b16f288aa34a00a62855f85b",
+    "model.py": "99820c4626b157661fd5e4202576cd0205d6e475070c6421ba78f18eb75265bb",
+    "model_validation.py": "c5c9cefbf8b35d0a7208990c12c08d115ca2bdf58b1efc6a0f57404f1f46e61d",
+    "offline.py": "93896fb5c852d7e7769a44fcaa7fa7b0137584e20f4cf808a0a78ab12b6b4138",
+    "pairs.py": "df000a0d55c6ac526ec8909afc46abca7a7eea532b6ae6df828ef018d527df3f",
+    "pipeline.py": "d0b7ebaec235f78cb07ea6406def576666b452f8cfb03d82ca9b0ac098ba24f6",
+    "released.py": "fe0f50d8024d90b9b05da5d2d64b367cb1264b662837ee6dbd86f5fb3c5872f8",
+    "report.py": "6a2f49fdd396255e9389ef787e389303628435f6ec5200bb58c03eecbbd26a80",
+    "representations.py": "b1da1f2b8e5de748f73814542f568b603dfacad1b83226de8042f2ba8f939f44",
+    "research.py": "67eb9980a2d7ff56299af29611c7ce656ee0d859c3098fbf55f4979ebca5cf99",
+    "resolution.py": "53d1ce6f302d765570d5d39f9a8531b6f8b218fe27063b9e1d4dac2e030acf5e",
+    "retrieval.py": "60ad692c0c8c0d901f19a83d139f19ee6c019189ad1f69ddb68920fc8088969e",
+    "review.py": "b13717574af41cb5d0149a68a2a388043bfa77f4747fe2173467953157e15508",
+    "robustness.py": "570c01ec4ac684470615b7838939648be81a63db2c7d17912059c42b08be1970",
+    "runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866",
+    "semantic.py": "29e2783b17068f1af462f330ae41d3202f2a65b366b68e73ef1ac94a6ecff18b",
+    "semantic_pipeline.py": "ec1cb2ba812621ffc0562064ec3638b98b8e7a976215508260b45c7575c87077",
+    "splits.py": "781d52813bb4fcb85713144f6c39279efa6f431e414aa737f31d030687c07b0f",
+    "submission.py": "ab7ae21934e29c671ff5a6c7fcaf6b76dec89535e483574f0a57d1ce41da760b",
+    "uncertainty.py": "01be335afdf24ce0e718bfdb37640198c544185b8111ae7dde4e3288ebc9a576"
+  }
+}

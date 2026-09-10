@@ -1,0 +1,14 @@
+{
+  "eligible_for_kaggle_candidate": false,
+  "checks": {
+    "positive_macro_gain": true,
+    "simultaneous_interval_positive": false,
+    "per_policy_regression_within_limit": true
+  },
+  "macro_delta": 0.00365076902137329,
+  "per_rule_delta": {
+    "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.003955223880596881,
+    "No legal advice: Do not offer or request legal advice.": 0.0033463141621495884
+  },
+  "meaning": "Development gate only; never evidence that the leaderboard target was met."
+}

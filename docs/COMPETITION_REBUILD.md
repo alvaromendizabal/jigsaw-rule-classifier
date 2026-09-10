@@ -291,3 +291,46 @@ us-west-2 (up to $1.127 compute at the cap, plus storage). Native CUDA/PyTorch s
 pinned to the proven image. Per-shard feature hashes, transactional optimizer
 checkpoints, UTC heartbeats and a real stop/reload recovery probe preserve progress.
 See [durable experiment state](../reports/checkpoints/complementarity.json).
+
+
+### Measured result: Phi adds an uncertain, small blend gain
+
+The registered GPU study completed on September 10, 2026. Both folds performed
+all 142/99 optimizer steps, resumed from their real step-8 checkpoints and produced
+all 881 finite, ordered query predictions. The worker took **730.0 seconds** and
+peaked at **7.84 GiB** allocated GPU memory. SageMaker billed **972 seconds**,
+approximately **$0.30429 compute**, plus storage. The completed CPU evaluation
+replayed its eight checksummed outputs without model execution or refitting.
+
+| Representation | Policy-macro AUC | Advertising AUC | Legal-advice AUC |
+|---|---:|---:|---:|
+| Adapted Qwen3-4B, reused reference | 0.71989 | 0.67925 | 0.76053 |
+| Frozen Phi-4-mini | 0.60373 | 0.55757 | 0.64988 |
+| Adapted Phi-4-mini | 0.70797 | 0.66832 | 0.74761 |
+| Fixed 50/50 Qwen/Phi rank blend | 0.72354 | 0.68321 | 0.76388 |
+
+The blend improves macro AUC by only **0.00365**. Its paired 95% interval is
+**[-0.00856, 0.01701]** and the preregistered simultaneous interval is
+**[-0.03691, 0.04422]**. Both include zero. Both policies improve slightly, but the
+confidence gate fails, so **do not promote this blend or submit it to Kaggle**.
+Support learning itself improves Phi by 0.10424, with simultaneous interval
+[0.06367, 0.14481]; the adapted Phi model still underperforms adapted Qwen.
+
+Prediction Spearman correlations are 0.80556 and 0.84401 across the two policies.
+This is evidence of some diversity, with insufficient measured added value for
+promotion. No blend weights are tuned after seeing these results. These remain
+exploratory development findings on two previously examined rules, not hidden
+competition scores or a newly untouched holdout.
+
+The existing **0.91425 private Kaggle AUC** remains the scored reference, **0.01505**
+below the winning 0.92930. The next representation test is a fixed **Qwen3-8B
+capacity comparison**, reusing the same 4B predictions and eligible plan. It must
+be registered separately and pass its own development and offline runtime gates.
+
+Reproduce the aggregate export from the private completed evaluation with
+`scripts/publish_complementarity.py`, then render `scripts/build_complementarity_report.py`.
+Private prediction arrays and optimizer states remain in the approved S3 project
+prefix; only the seven aggregate JSON records and verified figures are published.
+[Decision](../reports/complementarity/decision.json) · [Receipt](../reports/checkpoints/complementarity.json).
+
+Private CPU evaluation recovery: `experiments/complementary-support-20260910/evaluation/812dcc2d3672596eda55/evaluation.tar.gz` in the existing project bucket; SHA256 `e9b4048e399f6538c88318effcbd31454b652decd3cf8916269fd01cfbd35ec2`.

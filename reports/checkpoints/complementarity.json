@@ -1,5 +1,5 @@
 {
-  "status": "gpu_job_in_progress",
+  "status": "completed_not_promoted",
   "scope": "Authorized second-model development comparison; original labels and supplied supports only",
   "baseline_kaggle_private_auc": 0.91425,
   "leaderboard_private_auc": 0.9293,
@@ -32,8 +32,8 @@
       "Yes": 13022
     },
     "local_model_assets_verified": 9,
-    "weights_verified_on_worker": false,
-    "quality_tests_passed": 380,
+    "weights_verified_on_worker": true,
+    "quality_tests_passed": 382,
     "quality_gate": "passed; compile, Ruff, tests, notebook source consistency",
     "focused_checks_passed": 8,
     "evaluator_fixture": "end-to-end rank comparison and checksum replay passed"
@@ -102,12 +102,75 @@
     "source_commit": "230fd2a471b34814269e4920274af1377e31cd88",
     "source_version_id": "I6cHjr54IXBHYY_vrwtgVEj6GiVJRgt6",
     "created_utc": "2026-09-10T03:35:12.063000+00:00",
-    "last_verified_utc": "2026-09-10T03:38:00.530459+00:00",
-    "status": "InProgress",
-    "phase": "Downloading"
+    "last_verified_utc": "2026-09-10T03:52:51.440410+00:00",
+    "status": "Completed",
+    "phase": "Completed",
+    "run_id": "843fd8070b600a12730a",
+    "worker_started_utc": "2026-09-10T03:39:49+00:00",
+    "model_assets_verified": 11,
+    "model_assets_verified_utc": "2026-09-10T03:42:16+00:00",
+    "source_configuration_contract_verified": true,
+    "fold_0_resumed_step": 8,
+    "training_started_utc": "2026-09-10T03:36:05.323000+00:00",
+    "completed_utc": "2026-09-10T03:52:17.403000+00:00",
+    "billable_seconds": 972,
+    "estimated_compute_usd": 0.30429,
+    "worker_seconds": 730.005423143,
+    "peak_gpu_gib": 7.844655513763428,
+    "optimizer_steps": [
+      142,
+      99
+    ],
+    "resumed_steps": [
+      8,
+      8
+    ]
   },
-  "development_result": null,
-  "kaggle_candidate": null,
+  "development_result": {
+    "run_id": "812dcc2d3672596eda55",
+    "evaluated_utc": "2026-09-10T03:52:59.117227+00:00",
+    "policy_macro_auc": {
+      "qwen": 0.7198933966592936,
+      "phi_frozen": 0.603727138485183,
+      "phi": 0.707966733352474,
+      "blend": 0.7235441656806669
+    },
+    "blend_contrast": {
+      "contrast": "fixed blend contribution",
+      "candidate": "blend",
+      "reference": "qwen",
+      "observed_delta": 0.003650769021373179,
+      "ci_lower": -0.008560988164492666,
+      "ci_upper": 0.017013471103015786,
+      "simultaneous_lower": -0.03691469015640034,
+      "simultaneous_upper": 0.044216228199146695,
+      "draws": 1000,
+      "seed": 2025,
+      "comparisons": 2,
+      "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+    },
+    "decision": {
+      "eligible_for_kaggle_candidate": false,
+      "checks": {
+        "positive_macro_gain": true,
+        "simultaneous_interval_positive": false,
+        "per_policy_regression_within_limit": true
+      },
+      "macro_delta": 0.00365076902137329,
+      "per_rule_delta": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.003955223880596881,
+        "No legal advice: Do not offer or request legal advice.": 0.0033463141621495884
+      },
+      "meaning": "Development gate only; never evidence that the leaderboard target was met."
+    },
+    "replay_verified": true,
+    "replay_retrained": false,
+    "scope": "Previously examined original data; 881 novel comments, two rules. Not a Kaggle score."
+  },
+  "kaggle_candidate": {
+    "status": "not_promoted",
+    "reason": "Fixed blend fails the preregistered positive simultaneous lower-bound gate; no new submission made."
+  },
   "registered_utc": "2026-09-10T03:32:27.091617+00:00",
   "source_files": {
     "scripts/complementary_worker.py": "b4181df4ad79a900d9ef2e2f49388cf2363bdf124793f7b96e6ecd4b6f8bbec5",
@@ -143,5 +206,11 @@
     "conclusion": "success",
     "actual_jupyter_notebooks": 5,
     "replay": true
+  },
+  "next_experiment": {
+    "status": "preparing",
+    "model_id": "Qwen/Qwen3-8B",
+    "hypothesis": "Higher backbone capacity may improve the underlying representation more than blending in a weaker model.",
+    "boundary": "Freeze a new bounded comparison before executing it; reuse Qwen3-4B predictions; original/support labels only."
   }
 }

@@ -590,7 +590,7 @@ else:
         [
             (
                 "md",
-                "## Actual Kaggle scores\nVersion 3 is scored; these are competition results, separate from the development and historical studies below. The immutable private version is 348640051. The next proposed experiment is a second support-adapted backbone with a fixed rank blend; no new experiment is launched here.",
+                "## Actual Kaggle scores\nVersion 3 is scored; these are competition results, separate from the development and historical studies below. The immutable private version is 348640051. The registered Phi/Qwen comparison below tests a second support-adapted backbone and fixed rank blend; development evidence never replaces a Kaggle receipt.",
             ),
             (
                 "code",
@@ -600,6 +600,20 @@ else:
     ).cells
     for name in ("02_baseline_and_review", "03_saved_results"):
         outputs[f"notebooks/{name}.ipynb"].cells[3:3] = scored_cells
+    complementarity_cells = notebook(
+        [
+            (
+                "md",
+                "## Does a second model add useful information?\n\nThe registered comparison adapts Phi-4-mini to the exact eligible supports used in the Qwen study and reuses Qwen's checked predictions. The 881 novel comments and two previously examined policies are unchanged. A fixed 50/50 within-policy rank blend tests complementary decision representations; a frozen-versus-adapted Phi control measures its support-learning gain. No blend weights are searched. Native tokenizers, chat templates and fused LoRA projections differ across architectures.\n\nPromotion requires positive macro gain, a positive simultaneous paired-bootstrap lower bound and no observed per-policy regression. Query targets are excluded from the cloud plan. Original development labels are read only after predictions are fixed; released targets and the consumed protected cohort are not used.",
+            ),
+            (
+                "code",
+                "from build_complementarity_report import evidence as complementarity_evidence, display_comparison as display_complementarity\ncomplementarity = complementarity_evidence(root)\ncomparison = pd.DataFrame([{'Representation': name, 'Policy-macro AUC': metrics['rule_macro_auc'], **metrics['per_rule_auc']} for name, metrics in complementarity['results'].items()])\ndisplay(comparison.round(4))\ndisplay_complementarity(root)\ndisplay(pd.DataFrame(complementarity['uncertainty'])[['contrast', 'observed_delta', 'simultaneous_lower', 'simultaneous_upper']].round(4))\ndisplay(pd.DataFrame(complementarity['correlations']).round(4))\nprint('Development promotion decision:', complementarity['decision'])\nprint('Worker seconds:', round(complementarity['inference']['elapsed_seconds'], 1))\nfor fold in complementarity['inference']['folds']:\n    print('Fold', fold['fold'], 'optimizer steps', fold['training']['optimizer_steps'], 'resumed at', fold['training']['resumed_step'], 'peak GPU GiB', round(fold['peak_gpu_gib'], 2))\nprint('These are development results, not another Kaggle score.')\n",
+            ),
+        ]
+    ).cells
+    for name in ("02_baseline_and_review", "03_saved_results"):
+        outputs[f"notebooks/{name}.ipynb"].cells[5:5] = complementarity_cells
     # Keep the original lexical notebook as a reproducible historical control.
     if __package__:
         from .build_adapted_notebook import build as adapted_notebook
