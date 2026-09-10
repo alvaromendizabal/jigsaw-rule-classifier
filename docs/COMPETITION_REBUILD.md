@@ -334,3 +334,36 @@ prefix; only the seven aggregate JSON records and verified figures are published
 [Decision](../reports/complementarity/decision.json) · [Receipt](../reports/checkpoints/complementarity.json).
 
 Private CPU evaluation recovery: `experiments/complementary-support-20260910/evaluation/812dcc2d3672596eda55/evaluation.tar.gz` in the existing project bucket; SHA256 `e9b4048e399f6538c88318effcbd31454b652decd3cf8916269fd01cfbd35ec2`.
+
+### Registered comparison: larger Qwen backbone
+
+The Phi blend's uncertain gain motivates a **Qwen3-8B** comparison, revision
+`b968826d9c46dd6066d109eabc6255188de91218` (July 26, 2025), with thirteen verified
+upstream asset hashes and Apache 2.0 licensing. The model has 8,190,735,360 parameters;
+BF16 weights alone occupy 15.26 GiB. A single L4 will run the development study.
+The native template is called with `enable_thinking=False` for a direct decision.
+[Exact upstream revision](https://huggingface.co/Qwen/Qwen3-8B/tree/b968826d9c46dd6066d109eabc6255188de91218).
+
+The original 881-row novel-comment plan and saved Qwen3-4B predictions remain fixed.
+Train one LoRA epoch with the original rank, learning rate, seed, supplied-support
+weighting and effective batch of 16. Micro-batch size is two to fit the larger
+model. This comparison changes model size, vintage and native formatting; it
+cannot isolate parameter count as a causal effect. Original/support labels remain
+the only training sources, with query bodies purged and query labels excluded
+from the cloud plan. No released targets or consumed protected cohort is opened.
+
+Two candidates are declared before execution: the adapted 8B direct score and a
+fixed 50/50 within-policy rank blend with the 4B reference. Both candidate/reference
+contrasts enter a single 1,000-draw group bootstrap with simultaneous intervals.
+Frozen 8B scores provide a descriptive control and cannot be selected. Each
+candidate must improve macro AUC, have a positive simultaneous lower bound and
+avoid a per-policy regression. Choose the highest macro AUC among eligible
+candidates; exact ties prefer the single 8B model. There is no weight or training
+hyperparameter search. These gates establish development eligibility only.
+
+The additional job uses the existing L4 image and S3 project area, a 3,600-second
+job cap and 3,000-second worker cap, at the verified $1.127/hour training rate.
+All optimizer/shard states remain hash-checked and resumable. A candidate that
+passes must separately demonstrate offline inference on Kaggle's available GPUs
+before a new hidden evaluation. A larger model is not presumed to fit one T4.
+[Protocol](../configs/backbone_capacity.json) · [Recovery state](../reports/checkpoints/backbone_capacity.json).

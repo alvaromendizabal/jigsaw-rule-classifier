@@ -167,11 +167,19 @@ def test_experiment_uses_predeadline_pin_and_fixed_baseline():
     assert len(model["files"]) == 11
 
 
-def test_evaluator_executes_and_reuses_a_complete_paired_study(tmp_path):
+@pytest.mark.parametrize("study", ["complementarity", "backbone_capacity"])
+def test_evaluator_executes_and_reuses_a_complete_paired_study(tmp_path, study):
     import pandas as pd
 
     from scripts.competition_features import content_hash
-    from scripts.evaluate_complementarity import run
+
+    if study == "backbone_capacity":
+        from scripts.evaluate_backbone_capacity import run
+    else:
+        from scripts.evaluate_complementarity import run
+
+    reference = "qwen4b" if study == "backbone_capacity" else "qwen"
+    candidate = "qwen8b" if study == "backbone_capacity" else "phi"
 
     root, cloud, baseline = tmp_path / "root", tmp_path / "phi", tmp_path / "qwen"
     (root / "configs").mkdir(parents=True)
@@ -221,20 +229,23 @@ def test_evaluator_executes_and_reuses_a_complete_paired_study(tmp_path):
             "receipt_sha256": digest(baseline / "complete.json"),
             "fold_sha256": qwen_hashes,
         },
-        "blend_weights": {"qwen": 0.5, "phi": 0.5},
+        "blend_weights": {reference: 0.5, candidate: 0.5},
         "bootstrap_replicates": 100,
         "training": {"seed": 2025},
         "promotion": {"simultaneous_ci_lower_minimum": 0, "maximum_per_policy_regression": 0},
     }
-    atomic_json(root / "configs/complementarity.json", config)
-    atomic_json(root / "configs/complementary_model.json", {"fixture": True})
+    if study == "backbone_capacity":
+        config["selection"] = {"candidates": [candidate, "blend"], "priority": [candidate, "blend"]}
+    atomic_json(root / "configs" / (study + ".json"), config)
+    model_name = "qwen3_8b.json" if study == "backbone_capacity" else "complementary_model.json"
+    atomic_json(root / "configs" / model_name, {"fixture": True})
     contract = {"config": config, "model_spec": {"fixture": True}, "source": {}}
     atomic_json(cloud / "contract.json", contract)
     atomic_json(cloud / "complete.json", {"run_id": content_hash(contract)[:20], "folds": records})
     result = run(root, cloud, baseline, plan_path, training, tmp_path / "evaluation")
     results = json.loads((result / "results.json").read_text())
-    assert results["qwen"]["rule_macro_auc"] == 0.75
-    assert results["phi"]["rule_macro_auc"] == 1.0
+    assert results[reference]["rule_macro_auc"] == 0.75
+    assert results[candidate]["rule_macro_auc"] == 1.0
     assert results["blend"]["rule_macro_auc"] == 0.875
     before = digest(result / "results.json")
     assert run(root, cloud, baseline, plan_path, training, tmp_path / "evaluation") == result

@@ -1,0 +1,72 @@
+{
+  "status": "registered_not_launched",
+  "model_id": "Qwen/Qwen3-8B",
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "original_plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+  "baseline_kaggle_private_auc": 0.91425,
+  "winning_private_auc": 0.9293,
+  "gap": 0.01505,
+  "development_folds": [
+    {
+      "fold": 0,
+      "training_pairs": 1640,
+      "queries": 234,
+      "optimizer_steps": 142,
+      "max_prompt_tokens": 304
+    },
+    {
+      "fold": 1,
+      "training_pairs": 1215,
+      "queries": 647,
+      "optimizer_steps": 99,
+      "max_prompt_tokens": 304
+    }
+  ],
+  "cpu_verification": {
+    "native_chat_mode": "enable_thinking=False, exact pinned native template",
+    "model_parameters": 8190735360,
+    "bf16_weights_gib": 15.256433486938477,
+    "small_assets_verified": 8,
+    "source_selection_tests": "passed",
+    "upstream_readme_verified": true,
+    "decision_token_ids": {
+      "No": 2753,
+      "Yes": 9454
+    },
+    "quality_tests_passed": 387,
+    "quality_gate": "passed"
+  },
+  "gpu_job": null,
+  "development_result": null,
+  "kaggle_candidate": null,
+  "budget": {
+    "instance": "ml.g6.xlarge",
+    "region": "us-west-2",
+    "count": 1,
+    "runtime_limit_seconds": 3600,
+    "worker_limit_seconds": 3000,
+    "training_usd_per_hour": 1.127
+  },
+  "source_files": {
+    "scripts/model_study.py": "02a238c88c61e4efe69601d9f7f90c32156bcb437777991993988298b80043b4",
+    "scripts/complementary_worker.py": "b4181df4ad79a900d9ef2e2f49388cf2363bdf124793f7b96e6ecd4b6f8bbec5",
+    "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+    "scripts/competition_worker.py": "90d6ef575f3d012b7e6c5e61b070527f80a96b473f8489984b7b74f1f7c76379",
+    "scripts/decision_training.py": "2eb2d01b5e62a1d6e5ba1a15029002c34e89e30d1037efe83f83ca2e016f627f",
+    "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+    "scripts/bootstrap_gpu.py": "38c97062807ed4ac1d0be27d042ad12f493880486d7cbf9a42fc17f37800b859",
+    "scripts/run_model_study.sh": "40c3b8aedd48904f5f066521ea05616f826c1e477dc600bff24dfe6feb79ce7e",
+    "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+  },
+  "configuration_files": {
+    "configs/backbone_capacity.json": "435186f009c5b8235edc2a29a5875360cd38bc0bc3912ff7fdec20083d9e75a5",
+    "configs/qwen3_8b.json": "69b5aee034650f32e170ad6a2a071fabcbd756d71d3f4f91a93dfa1a5dcc3bdb"
+  },
+  "previous_study": {
+    "pr": 23,
+    "merge_commit": "52e96eb1c64e7ba08a972dd9567718587d8cd267",
+    "decision": "Phi blend not promoted; uncertain 0.00365 development gain"
+  },
+  "registered_utc": "2026-09-10T04:07:14.808741+00:00"
+}

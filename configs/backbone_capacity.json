@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+  "original_training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "max_seconds": 3000,
+  "training": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "seed": 2025,
+    "effective_batch": 16,
+    "micro_batch": 2,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.05,
+    "gradient_clip": 1.0,
+    "gradient_checkpointing": true,
+    "checkpoint_steps": 8,
+    "precision": "bfloat16",
+    "keep_checkpoints": 2
+  },
+  "bootstrap_replicates": 1000,
+  "blend_weights": {
+    "qwen4b": 0.5,
+    "qwen8b": 0.5
+  },
+  "promotion": {
+    "positive_macro_delta": true,
+    "simultaneous_ci_lower_minimum": 0.0,
+    "maximum_per_policy_regression": 0.0
+  },
+  "baseline": {
+    "run_id": "d13858b7407993fcc6e8",
+    "contract_sha256": "ae27bdd2b71c95dc22e10c14e85cfd640f88c65e34e047ae7b9ae8792129d4b8",
+    "receipt_sha256": "c78450d4bfcc38a0dac49348382ccd2f0ddc4534b4fb970ca474cffe81436442",
+    "fold_sha256": [
+      "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    ]
+  },
+  "protocol": "Larger-backbone comparison on the same 881 original-data novel comments. Original/support labels only; frozen Qwen3-4B reference predictions reused. Fixed one-epoch Qwen3-8B adaptation with native non-thinking chat template. Two registered candidate-vs-reference contrasts enter a simultaneous comment-group bootstrap. Frozen 8B scores are descriptive only. No hyperparameter or blend-weight search; no released targets or private-score tuning. Size, model vintage and native prompt differ; this does not isolate parameter count alone.",
+  "selection": {
+    "candidates": [
+      "qwen8b",
+      "blend"
+    ],
+    "priority": [
+      "qwen8b",
+      "blend"
+    ],
+    "method": "highest policy-macro AUC among candidates passing all gates; priority breaks exact ties"
+  }
+}
