@@ -777,3 +777,76 @@ reported pip 25.3 from inside the isolated environment. Native Torch/CUDA copies
 and constraints remain preserved. Retry this same comparison once using the
 corrected bootstrap and fresh scoped URLs; do not rerun the passed hardware
 probe or alter model, prompt, data or parity thresholds.
+
+### Completed support-context comparison: small, unstable gain
+
+The corrected HF job **6aa30aed5527934177ec2618 completed successfully**. The
+model worker finished at **19:58:37 UTC on September 10** after **185.771 seconds**.
+All 11 pinned model assets were verified. Both folds reproduced all eight
+retained baseline margins with maximum absolute difference **0.0**. All 881
+queries completed with zero optimizer steps and **29 shard replays**. Peak GPU
+allocation was **7.830 GiB**. The recovered 65-file S3 snapshot passed every
+member checksum and has SHA256
+2f5528f1bbeda44226ccea4f4006d8d34be31e0fc16bed311394fb039f381f3a.
+The completed job also verified its final snapshot by reading it back.
+
+The fixed CPU evaluation then loaded original training labels at **20:00:05 UTC**.
+Source/configuration, query order, finite margins, adapter identities and both
+fold receipts passed before scoring. These repeatedly inspected 881 comments
+remain exploratory development; they are not another Kaggle evaluation.
+
+| Measure | Retained 4B | Retrieved positive/negative context | Difference |
+| --- | ---: | ---: | ---: |
+| Policy-macro AUC | 0.719893 | 0.722856 | +0.002962 |
+| Advertising AUC | 0.679254 | 0.693955 | +0.014701 |
+| Legal-advice AUC | 0.760533 | 0.751756 | -0.008777 |
+| Pooled AUC | 0.738959 | 0.736291 | -0.002669 |
+
+The registered 1,000-draw paired group bootstrap gives simultaneous 95% gain
+interval **[-0.011587, 0.017511]**. Positive macro gain passes; positive interval
+and no-policy-regression both fail. **Do not promote this prompt candidate.**
+No blending, prompt search, further GPU run or Kaggle submission was triggered.
+Private Kaggle AUC remains **0.91425**, **0.01505** below the historical winner.
+
+Public aggregates and source-checked Plotly/SVG comparison are in
+[the canonical report](../reports/support_context/metadata.json). Private
+evaluation outputs were uploaded to the existing S3 experiment area and read
+back byte-for-byte: archive SHA256
+60183f6b4859ca0c75f31d56a766332878c3643ca9a03f4ededd84614ee315b0.
+The aggregate publication excludes comments, row-level labels, predictions,
+adapter state and signed credentials. Infrastructure failures and the
+unnecessary precautionary cancellation remain documented above.
+
+### Representation coverage and next bounded decision
+
+This result rejects the specific character-retrieved prompt under its registered
+gate. Feature research remains open. The candidate and reference have rank
+correlation **0.94957**; it changes some rankings, helping one policy and hurting
+another. This does not identify the cause of the legal-advice regression.
+
+The highest-value next step is a **CPU audit of semantic and contrastive support
+selection using retained original-data representations**. Examine whether chosen
+examples match adjudicative intent, including requests versus answers,
+quotations, negation and exceptions. Fit/retrieve within the eligible support
+pool and retain the query-body purge. Cache and hash the selected pairs before
+any new inference; do not inspect released targets or the consumed research
+cohort. Then register one matched inference comparison if the selection audit
+justifies it. This step has not run.
+
+[Research on in-context example selection](https://arxiv.org/abs/2101.06804)
+finds that semantic similarity and task-relevant encoders can improve example
+selection on other NLP benchmarks. That motivates this hypothesis; it does not
+establish a Jigsaw gain. Existing model representations could make the selection
+screen inexpensive, with no new backbone training. We have not exhausted
+semantic selection, hard contrastive examples or task-specific intent alignment.
+Do not pay for a larger model sweep before diagnosing this measured weakness.
+
+
+Publication verification: all five public notebooks executed successfully in
+IPython in-process mode at 20:05 UTC and then reused their checked execution
+outputs. Generated notebook sources, Python formatting and focused tests passed.
+This local workspace lacks optional Torch for full test collection and blocks
+Jupyter kernel network initialization; neither failure changes the completed GPU
+result. Full tests, independent Jupyter executions/replays, historical original
+CPU inference and the pinned encoder remain required in current-head GitHub CI
+before merge. No local full-suite or local Jupyter success is claimed.

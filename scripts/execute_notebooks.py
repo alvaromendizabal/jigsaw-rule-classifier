@@ -92,6 +92,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "kaggle_submission.json",
                 "complementarity.json",
                 "backbone_capacity.json",
+                "support_context.json",
             )
         ]
         coverage = root / "docs/FEATURE_COVERAGE.md"
@@ -121,6 +122,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "support_adaptation",
                 "complementarity",
                 "backbone_capacity",
+                "support_context",
             )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")

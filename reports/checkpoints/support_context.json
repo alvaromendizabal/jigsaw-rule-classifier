@@ -264,7 +264,7 @@
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
-  "status": "hf_setup_corrected_retry_ready",
+  "status": "evaluated_not_promoted",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
@@ -517,18 +517,140 @@
     "evidence": "reports/checkpoints/support_context_hardware.json"
   },
   "hf_inference": {
-    "job_id": "6aa309e421047bf1b03735ae",
-    "url": "https://huggingface.co/jobs/alvaromendizabal/6aa309e421047bf1b03735ae",
-    "created_utc": "2026-09-10T19:49:56.533Z",
-    "source_commit": "3b5d44585bff4b3de9fc2bf049dddbb2412406eb",
+    "job_id": "6aa30aed5527934177ec2618",
+    "url": "https://huggingface.co/jobs/alvaromendizabal/6aa30aed5527934177ec2618",
+    "created_utc": "2026-09-10T19:54:21.928Z",
+    "source_commit": "83e5c0ca1056b1e8229a9fb4771b07f8616771c5",
     "job_max_seconds": 1200,
-    "url_expires_utc": "2026-09-10T20:04:42Z",
+    "url_expires_utc": "2026-09-10T20:09:06Z",
     "checkpoint_key": "experiments/support-context-20260910/hf/checkpoints.tar.gz",
     "training_performed": false,
-    "result": null,
-    "status": "ERROR",
-    "failure": "The public PyTorch image lacks ensurepip; venv creation stopped before model inference.",
-    "correction": "Create venv without ensurepip, then seed pip 25.3 from a SHA256-pinned wheel. Real isolated local smoke passed.",
-    "model_inference_started": false
-  }
+    "result": {
+      "checkpoint_prefix": "experiments/support-context-20260910/checkpoints/94a9a22d222deeacd62b/",
+      "elapsed_seconds": 185.77116697399993,
+      "folds": [
+        {
+          "batch_replay_verified": true,
+          "fold": 0,
+          "optimizer_steps": 0,
+          "parity_max_abs_margin": 0,
+          "peak_gpu_gib": 7.830019474029541,
+          "prompt_audit": {
+            "max_tokens": 486,
+            "mean_tokens": 238.0982905982906,
+            "support_selection_sha256": "1a43e81ad52e7b2b08114ea59d307c10f016976395df146b9bdb38a6d8193b95"
+          },
+          "rows": 234,
+          "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+          "sha256": "66caba0c8ba49d2334449ffde4049f221e665d580e9376f242a428a0c0b6ce67"
+        },
+        {
+          "batch_replay_verified": true,
+          "fold": 1,
+          "optimizer_steps": 0,
+          "parity_max_abs_margin": 0,
+          "peak_gpu_gib": 7.830019474029541,
+          "prompt_audit": {
+            "max_tokens": 391,
+            "mean_tokens": 232.3400309119011,
+            "support_selection_sha256": "647ac2e07bf48bf6b743c739b64d922fec35041177f13e56f240db2dc3f6c099"
+          },
+          "rows": 647,
+          "rule": "No legal advice: Do not offer or request legal advice.",
+          "sha256": "1ad51435d2b92e5affb727212f039aa6694909203a4e4973874b116c9df923a4"
+        }
+      ],
+      "run_id": "94a9a22d222deeacd62b",
+      "status": "completed",
+      "training_performed": false
+    },
+    "status": "COMPLETED",
+    "model_inference_started": true,
+    "completed_worker_utc": "2026-09-10T19:58:37Z",
+    "run_id": "94a9a22d222deeacd62b",
+    "snapshot_sha256": "2f5528f1bbeda44226ccea4f4006d8d34be31e0fc16bed311394fb039f381f3a",
+    "snapshot_version_id": "EQ7P6Xu4DqIwjPey2DZwaGy_tuip5g02",
+    "snapshot_bytes": 5059740,
+    "recovered_files": 65,
+    "inference_shards": 29,
+    "private_evaluation": {
+      "bytes": 12109,
+      "round_trip_verified": true,
+      "sha256": "60183f6b4859ca0c75f31d56a766332878c3643ca9a03f4ededd84614ee315b0",
+      "key": "experiments/support-context-20260910/hf/evaluation.tar.gz"
+    }
+  },
+  "hf_inference_attempts": [
+    {
+      "job_id": "6aa309e421047bf1b03735ae",
+      "url": "https://huggingface.co/jobs/alvaromendizabal/6aa309e421047bf1b03735ae",
+      "created_utc": "2026-09-10T19:49:56.533Z",
+      "source_commit": "3b5d44585bff4b3de9fc2bf049dddbb2412406eb",
+      "job_max_seconds": 1200,
+      "url_expires_utc": "2026-09-10T20:04:42Z",
+      "checkpoint_key": "experiments/support-context-20260910/hf/checkpoints.tar.gz",
+      "training_performed": false,
+      "result": null,
+      "status": "ERROR",
+      "failure": "The public PyTorch image lacks ensurepip; venv creation stopped before model inference.",
+      "correction": "Create venv without ensurepip, then seed pip 25.3 from a SHA256-pinned wheel. Real isolated local smoke passed.",
+      "model_inference_started": false
+    }
+  ],
+  "development_result": {
+    "results": {
+      "qwen4b": {
+        "rule_macro_auc": 0.7198933966592936,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6792537313432836,
+          "No legal advice: Do not offer or request legal advice.": 0.7605330619753037
+        },
+        "pooled_auc": 0.7389593814933182
+      },
+      "support_context": {
+        "rule_macro_auc": 0.7228557747942543,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6939552238805969,
+          "No legal advice: Do not offer or request legal advice.": 0.7517563257079117
+        },
+        "pooled_auc": 0.7362908584628041
+      }
+    },
+    "uncertainty": [
+      {
+        "contrast": "support-context contribution",
+        "candidate": "support_context",
+        "reference": "qwen4b",
+        "observed_delta": 0.002962378134960586,
+        "ci_lower": -0.01199268106733998,
+        "ci_upper": 0.01717276564738084,
+        "simultaneous_lower": -0.011586547860255907,
+        "simultaneous_upper": 0.01751130413017708,
+        "draws": 1000,
+        "seed": 2025,
+        "comparisons": 1,
+        "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+      }
+    ],
+    "decision": {
+      "eligible_for_offline_candidate": false,
+      "checks": {
+        "positive_macro_gain": true,
+        "positive_interval": false,
+        "no_policy_regression": false
+      },
+      "macro_delta": 0.002962378134960697,
+      "per_rule_delta": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.014701492537313343,
+        "No legal advice: Do not offer or request legal advice.": -0.008776736267391949
+      },
+      "meaning": "Development evidence only; no automatic submission or follow-on run"
+    }
+  },
+  "public_report": "reports/support_context",
+  "next_step": "CPU audit and semantic/contrastive support selection using retained original-data representations; one separately frozen comparison only after selection and recovery checks. Not launched.",
+  "kaggle_entry_changed": false,
+  "baseline_kaggle_private_auc": 0.91425,
+  "winning_private_auc": 0.9293,
+  "gap": 0.01505
 }

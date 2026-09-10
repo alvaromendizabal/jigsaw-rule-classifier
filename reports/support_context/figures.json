@@ -1,0 +1,8 @@
+{
+  "source_sha256": "0b82e9da92f22fe6de11ab3d85a0ca6d9363dbdf0ea28ac30eae65dcad2e5a50",
+  "metadata_sha256": "84854e26b27fc07df34182ecfa966f03356ebe47844332108c24f94dd3a697a2",
+  "files": {
+    "comparison.svg": "ba66452625feecd755d378775614ac267b1e0711126bce98ab6367f7998eeed1",
+    "comparison.plotly.json": "d7461afd204cd38c1b185186b1a03796aeb6d411f4b93dd51faa172f898340b2"
+  }
+}

@@ -16,19 +16,24 @@ Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training
 
 **Latest executed comparisons:** neither added model clears the registered development gate. The Qwen/Phi blend scores **0.72354**, and the fixed 4B/8B blend scores **0.72540**, versus the same **0.71989** 4B reference on 881 novel comments. The 4B/8B gain is **+0.00550**, with simultaneous 95% interval **[-0.01325, 0.02425]**; adapted 8B alone scores **0.71794**. No new competition entry is submitted. An independent authored-only 8B probe passed offline training and optimizer recovery across two Kaggle T4s, using **7.89 GiB per GPU**. That is runtime evidence, not an AUC result. The private Kaggle gap to the winning **0.92930** remains **0.01505**. [8B results and recovery](reports/checkpoints/backbone_capacity.json) · [Phi comparison](reports/checkpoints/complementarity.json).
 
-**Next representation ablation:** direct retrieved positive/negative context for
-the retained 4B model is implemented and tested. Three bounded AWS allocation
-attempts across L4 and A10G remained queued and were cancelled before inference;
-there is **no candidate AUC yet**. The workspace has reconnected and its checkout
-matches the saved publication. The owner authorized the six-artifact private Hugging Face transfer and added
-compute credits. The **L4 GPU/private-S3 preflight passed at 19:44 UTC on September
-10**: pinned Torch/CUDA, finite BF16 replay and byte-identical S3 recovery.
-A tested snapshot transport preserves complete shards through temporary URLs
-without general AWS credentials. The retained-model parity and support-context
-comparison are the next execution gate; no new AUC is claimed.
-The label-free selection audit covers all 881 queries
-without collapsing to one default support pair. [Protocol and attempt evidence](docs/COMPETITION_REBUILD.md#bounded-next-step-retained-4b-with-retrieved-support-context)
-· [Standing execution rules](AGENTS.md) · [Draft PR #25](https://github.com/alvaromendizabal/jigsaw-rule-classifier/pull/25).
+**Latest representation ablation — support examples in the prompt:** the retained
+4B model improves from **0.71989 to 0.72286 development AUC** (+0.00296).
+The simultaneous 95% gain interval is **[-0.01159, 0.01751]**: advertising improves
+by 0.01470, but legal advice declines by 0.00878. **Do not promote this candidate.**
+No new Kaggle submission was made; the private score and 0.01505 gap are unchanged.
+The worker completed all **881 comments in 185.8 seconds**, with **7.83 GiB**
+peak GPU allocation, zero training, exact baseline parity and replay of all
+29 inference shards. Private S3 recovery and the HF job both completed.
+[Measured result](reports/support_context/results.json) ·
+[Decision and uncertainty](reports/support_context/decision.json) ·
+[Protocol, failures and next hypothesis](docs/COMPETITION_REBUILD.md) ·
+[Standing execution rules](AGENTS.md).
+
+![Retained 4B support-context comparison](reports/support_context/comparison.svg)
+
+Feature research remains open. The next hypothesis is semantic, contrastive
+selection of support examples using retained representations, beginning with a
+CPU audit of the legal-advice weakness. It has not been launched.
 
 ## Historical protected result: post-competition data
 

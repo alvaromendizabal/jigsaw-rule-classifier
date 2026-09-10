@@ -26,10 +26,14 @@ CAPACITY_LABELS = {
     "qwen8b": "Support-adapted Qwen 8B",
     "blend": "Fixed 50/50 4B/8B rank blend",
 }
+CONTEXT_LABELS = {
+    "qwen4b": "Adapted Qwen 4B · retained control",
+    "support_context": "Same model · retrieved support examples",
+}
 
 
 def report_folder(root: Path, study: str) -> Path:
-    if study not in {"complementarity", "backbone_capacity"}:
+    if study not in {"complementarity", "backbone_capacity", "support_context"}:
         raise ValueError("Unknown registered model study")
     return root / "reports" / study
 
@@ -59,12 +63,17 @@ def build(root: Path, study: str = "complementarity") -> None:
     records = evidence(root, study)
     folder = report_folder(root, study)
     names = CAPACITY_LABELS if study == "backbone_capacity" else LABELS
+    if study == "support_context":
+        names = CONTEXT_LABELS
     values = [records["results"][key]["rule_macro_auc"] for key in names]
     labels = [f"{value:.4f}" for value in values]
     colors = ["#7b8fa1", "#b5bdc7", "#4278a4", "#087f8c"]
     title = "Does a second model improve novel-comment ranking?"
     if study == "backbone_capacity":
         title = "Does the larger backbone improve novel-comment ranking?"
+    if study == "support_context":
+        title = "Do retrieved examples improve rule adjudication?"
+        colors = ["#7b8fa1", "#087f8c"]
     subtitle = (
         f"{records['protocol']['rows']} comments · 2 development policies · not a Kaggle score"
     )
@@ -142,6 +151,8 @@ def display_comparison(root: Path, study: str = "complementarity") -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--study", choices=("complementarity", "backbone_capacity"), default="complementarity"
+        "--study",
+        choices=("complementarity", "backbone_capacity", "support_context"),
+        default="complementarity",
     )
     build(Path(__file__).resolve().parents[1], parser.parse_args().study)

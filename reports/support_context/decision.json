@@ -1,0 +1,14 @@
+{
+  "eligible_for_offline_candidate": false,
+  "checks": {
+    "positive_macro_gain": true,
+    "positive_interval": false,
+    "no_policy_regression": false
+  },
+  "macro_delta": 0.002962378134960697,
+  "per_rule_delta": {
+    "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.014701492537313343,
+    "No legal advice: Do not offer or request legal advice.": -0.008776736267391949
+  },
+  "meaning": "Development evidence only; no automatic submission or follow-on run"
+}

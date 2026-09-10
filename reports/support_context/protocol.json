@@ -1,0 +1,12 @@
+{
+  "rows": 881,
+  "policies": 2,
+  "primary_metric": "Equal-weight policy-macro ROC AUC",
+  "candidate": "Retained 4B with one same-rule positive and negative example; fixed character TF-IDF retrieval",
+  "scope": "Repeatedly examined original-data development; not an independent holdout",
+  "target_source": "Original train.csv only, loaded after predictions froze",
+  "training_performed": false,
+  "parity": "Eight baseline margins per fold; observed max absolute difference 0.0",
+  "limits": "Two policies; macro uncertainty spans zero and legal-advice ranking regresses",
+  "next_hypothesis": "Semantic contrastive support selection using existing retained representations; audit before more GPU compute"
+}

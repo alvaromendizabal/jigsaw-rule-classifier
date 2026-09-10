@@ -1,0 +1,18 @@
+{
+  "qwen4b": {
+    "rule_macro_auc": 0.7198933966592936,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6792537313432836,
+      "No legal advice: Do not offer or request legal advice.": 0.7605330619753037
+    },
+    "pooled_auc": 0.7389593814933182
+  },
+  "support_context": {
+    "rule_macro_auc": 0.7228557747942543,
+    "per_rule_auc": {
+      "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6939552238805969,
+      "No legal advice: Do not offer or request legal advice.": 0.7517563257079117
+    },
+    "pooled_auc": 0.7362908584628041
+  }
+}

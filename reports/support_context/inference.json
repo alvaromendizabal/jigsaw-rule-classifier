@@ -1,0 +1,39 @@
+{
+  "status": "completed",
+  "run_id": "94a9a22d222deeacd62b",
+  "folds": [
+    {
+      "fold": 0,
+      "rows": 234,
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "sha256": "66caba0c8ba49d2334449ffde4049f221e665d580e9376f242a428a0c0b6ce67",
+      "parity_max_abs_margin": 0.0,
+      "prompt_audit": {
+        "max_tokens": 486,
+        "mean_tokens": 238.0982905982906,
+        "support_selection_sha256": "1a43e81ad52e7b2b08114ea59d307c10f016976395df146b9bdb38a6d8193b95"
+      },
+      "peak_gpu_gib": 7.830019474029541,
+      "optimizer_steps": 0,
+      "batch_replay_verified": true
+    },
+    {
+      "fold": 1,
+      "rows": 647,
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "sha256": "1ad51435d2b92e5affb727212f039aa6694909203a4e4973874b116c9df923a4",
+      "parity_max_abs_margin": 0.0,
+      "prompt_audit": {
+        "max_tokens": 391,
+        "mean_tokens": 232.3400309119011,
+        "support_selection_sha256": "647ac2e07bf48bf6b743c739b64d922fec35041177f13e56f240db2dc3f6c099"
+      },
+      "peak_gpu_gib": 7.830019474029541,
+      "optimizer_steps": 0,
+      "batch_replay_verified": true
+    }
+  ],
+  "elapsed_seconds": 185.77116697399993,
+  "checkpoint_prefix": "experiments/support-context-20260910/checkpoints/94a9a22d222deeacd62b/",
+  "training_performed": false
+}
