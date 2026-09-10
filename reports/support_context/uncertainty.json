@@ -1,0 +1,16 @@
+[
+  {
+    "contrast": "support-context contribution",
+    "candidate": "support_context",
+    "reference": "qwen4b",
+    "observed_delta": 0.002962378134960586,
+    "ci_lower": -0.01199268106733998,
+    "ci_upper": 0.01717276564738084,
+    "simultaneous_lower": -0.011586547860255907,
+    "simultaneous_upper": 0.01751130413017708,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 1,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  }
+]

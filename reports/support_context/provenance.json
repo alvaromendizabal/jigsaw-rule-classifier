@@ -1,0 +1,75 @@
+{
+  "run_id": "94a9a22d222deeacd62b",
+  "receipt_sha256": "813010ee164b14fbede48ee046c23cbe8a50c0054322f3752552085f707772ba",
+  "spec": {
+    "schema": 1,
+    "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "original_training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+    "baseline": {
+      "run_id": "d13858b7407993fcc6e8",
+      "contract_sha256": "ae27bdd2b71c95dc22e10c14e85cfd640f88c65e34e047ae7b9ae8792129d4b8",
+      "receipt_sha256": "c78450d4bfcc38a0dac49348382ccd2f0ddc4534b4fb970ca474cffe81436442",
+      "fold_sha256": [
+        "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+        "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+      ]
+    },
+    "baseline_prefix": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8",
+    "adapters": [
+      {
+        "step": 142,
+        "contract": "1676ca7ef8f46ed1b93e98b554bfbc52943c8c513b4f883764a16b6dcb81c252",
+        "sha256": "22a09a5b9df6991ed9761f0b80a684ce76f6e04b815941f22377517d6833006f",
+        "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/training/step_000142/state.pt"
+      },
+      {
+        "step": 99,
+        "contract": "be8ca9b99c4d2179cce3252056504e1451bd4f628f8475621adb4c4ecdecbaad",
+        "sha256": "cf7f85258cf29ac90d522d1e566557f11201bc047e9e7e2acd418cd13cc17674",
+        "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/training/step_000099/state.pt"
+      }
+    ],
+    "adapter_configuration": {
+      "rank": 8,
+      "alpha": 16,
+      "dropout": 0.0,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "seed": 2025,
+      "effective_batch": 16,
+      "micro_batch": 4,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.01,
+      "warmup_fraction": 0.05,
+      "gradient_clip": 1.0,
+      "gradient_checkpointing": true,
+      "checkpoint_steps": 8
+    },
+    "worker_max_seconds": 900,
+    "job_max_seconds": 1200,
+    "shard_size": 32,
+    "parity_max_abs_margin": 1e-05,
+    "bootstrap_replicates": 1000,
+    "seed": 2025,
+    "promotion": {
+      "positive_macro_delta": true,
+      "simultaneous_ci_lower_minimum": 0.0,
+      "maximum_per_policy_regression": 0.0
+    },
+    "retrieval": "same-rule supplied supports only; char_wb TF-IDF 3-5 grams, sublinear TF; highest cosine separately per class; normalized-text stable ties",
+    "prompt": "unchanged native system/decision and field budgets; one retrieved violating example then one permitted example in JSON",
+    "candidate": "context only; no blend or prompt sweep",
+    "cpu_baseline_archive_sha256": "e70c4a88498d9f68bdffb843a423ae310989507f5fb60a6954ceb3a6b130850a",
+    "protocol": "Reuse frozen original-data 881 queries and retained adapters. No optimizer or query labels on GPU. Original/supplied-support labels only. No released targets or consumed protected cohort. One comparison then stop; no automatic retry, promotion, Kaggle submission or further experiment."
+  },
+  "evaluation_source": "cc769b9b24d30e843f9f71259b1fd292fcc00b5dfc0a70c27e483554fb4eb7f2",
+  "metric_source": "ab379c5a5014e6f7f50bb267e34d53ff9fe90419b16f288aa34a00a62855f85b",
+  "uncertainty_source": "01be335afdf24ce0e718bfdb37640198c544185b8111ae7dde4e3288ebc9a576"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "study": "retained_4b_support_context",
+  "evaluation_run": "ab877ade1cba23d7d2d2",
+  "code_preregistration_commit": "455743f38b86414bfc2e4f654ec8769d9d92d273",
+  "executed_source_commit": "83e5c0ca1056b1e8229a9fb4771b07f8616771c5",
+  "evaluated_utc": "2026-09-10T20:00:05Z",
+  "files": {
+    "results.json": "7aee9e664207097137b0bf046b5c3f630443b92580d75705581efc60f0379ae3",
+    "uncertainty.json": "ac9b74adeca5eb4280f7ca27252b20bcdaded8a20e986d44c4b7319cbc04fade",
+    "decision.json": "9ded94075efe48cefe750402b0eed2af267a930d93303fc16bc8022d9a0d957d",
+    "correlations.json": "b9f35e0f5114fc74480d3716ae7c5039c8485816cb5313b522f051f572f12e5c",
+    "protocol.json": "db51b6aa6f89f26d22aec90eb3344135a91a5f3f540cb7305e64fa59fb1c8e4d",
+    "provenance.json": "92e6a0c19295709ff5d40360147ebda06af5e7e3ef1145f68f1336bf4292e4eb",
+    "inference.json": "813010ee164b14fbede48ee046c23cbe8a50c0054322f3752552085f707772ba"
+  }
+}

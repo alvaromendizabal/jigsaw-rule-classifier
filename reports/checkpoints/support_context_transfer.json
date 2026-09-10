@@ -1,0 +1,68 @@
+{
+  "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+  "credential_scope": "Temporary presigned GET URLs for only the listed input objects; temporary PUT URLs for specific checkpoint/output objects in the existing project prefix. No general AWS credentials. URLs are bearer credentials and must be passed as encrypted job secrets, never logs or Git.",
+  "excluded": [
+    "Original query target CSV",
+    "Organizer-released targets",
+    "Consumed protected cohort",
+    "General AWS credentials"
+  ],
+  "inputs": [
+    {
+      "bytes": 442458,
+      "contents": "Tested source and target-free 881-query original-data plan; includes private comment/support text, no query targets.",
+      "key": "experiments/support-context-20260910/source/f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a/source.tar.gz",
+      "sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a"
+    },
+    {
+      "bytes": 4190,
+      "contents": "Pinned runtime/configuration metadata.",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/contract.json",
+      "sha256": "ae27bdd2b71c95dc22e10c14e85cfd640f88c65e34e047ae7b9ae8792129d4b8"
+    },
+    {
+      "bytes": 198792693,
+      "contents": "Retained adapter/optimizer state; no new training is planned.",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/training/step_000142/state.pt",
+      "sha256": "22a09a5b9df6991ed9761f0b80a684ce76f6e04b815941f22377517d6833006f"
+    },
+    {
+      "bytes": 198792693,
+      "contents": "Retained adapter/optimizer state; no new training is planned.",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/training/step_000099/state.pt",
+      "sha256": "cf7f85258cf29ac90d522d1e566557f11201bc047e9e7e2acd418cd13cc17674"
+    },
+    {
+      "bytes": 21493371,
+      "contents": "GPU-generated baseline representations and margins; no query targets.",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz",
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b"
+    },
+    {
+      "bytes": 21359643,
+      "contents": "GPU-generated baseline representations and margins; no query targets.",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz",
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    }
+  ],
+  "output_location": "Existing private S3 project area; no Hub repository publication",
+  "output_prefix": "experiments/support-context-20260910/",
+  "provider_account": "alvaromendizabal",
+  "purpose": "One private HF L4 retained-checkpoint parity and fixed support-context comparison",
+  "reason_for_confirmation": "Automatic approval review rejected the private payload and scoped-credential transfer despite standing general compute authorization.",
+  "status": "authorized_by_user",
+  "total_input_bytes": 440885048,
+  "unchanged_scientific_gates": {
+    "candidate": "context only; no blend or prompt sweep",
+    "job_max_seconds": 1200,
+    "parity_max_abs_margin": 1e-05,
+    "worker_max_seconds": 900
+  },
+  "url_lifetime_seconds": 900,
+  "authorization": {
+    "recorded_utc": "2026-09-10T19:22:36.381712+00:00",
+    "source": "Explicit user message in the project conversation",
+    "statement": "i explicitly authorize a private Hugging Face job to access the six listed Jigsaw artifacts—about 441 MB—using temporary S3 URLs, with checkpoints saved back to your existing private S3 area",
+    "scope": "The six existing hash-pinned inputs and object-scoped checkpoint/output writes in this manifest only; no general AWS credentials or Hub publication."
+  }
+}

@@ -650,6 +650,48 @@ else:
     ).cells
     for name in ("02_baseline_and_review", "03_saved_results"):
         outputs[f"notebooks/{name}.ipynb"].cells[7:7] = capacity_cells
+    context_cells = notebook(
+        [
+            (
+                "md",
+                "## Do relevant positive and negative examples help the retained model?\n\n"
+                "One fixed contrast adds the nearest same-rule positive and negative "
+                "support examples directly to the existing 4B model's prompt. "
+                "Character TF-IDF retrieval is fitted only on eligible supports; all "
+                "query bodies are purged. The saved adapters, native decision prompt "
+                "and tokenizer are reused with zero optimizer steps. Both policy "
+                "folds reproduce their eight retained baseline margins exactly.\n\n"
+                "Policy-macro AUC rises from **0.71989 to 0.72286** (+0.00296), "
+                "but the simultaneous 95% gain interval **[-0.01159, 0.01751]** "
+                "includes zero. Advertising gains 0.01470; legal advice loses "
+                "0.00878. This candidate fails two of three promotion criteria. "
+                "Keep the verified Kaggle model and do not submit this prompt. "
+                "These 881 repeatedly examined development comments are not a new "
+                "holdout or Kaggle score.\n\n"
+                "The model worker completed in 185.8 seconds with 7.83 GiB peak "
+                "GPU allocation. All 29 inference shards passed replay; private "
+                "snapshots survived recovery with matching hashes. An earlier "
+                "environment-bootstrap failure is recorded in the protocol log. "
+                "Feature research remains open. The next hypothesis is semantic "
+                "support selection using retained representations, with a focused "
+                "legal-intent audit before another GPU comparison.",
+            ),
+            (
+                "code",
+                "context = complementarity_evidence(root, 'support_context')\n"
+                "display(pd.DataFrame([{'Representation': name, 'Policy-macro AUC': metrics['rule_macro_auc'], **metrics['per_rule_auc']} for name, metrics in context['results'].items()]).round(5))\n"
+                "display_complementarity(root, 'support_context')\n"
+                "display(pd.DataFrame(context['uncertainty'])[['contrast', 'observed_delta', 'simultaneous_lower', 'simultaneous_upper']].round(5))\n"
+                "print('Promotion decision:', context['decision'])\n"
+                "print('Worker seconds:', round(context['inference']['elapsed_seconds'], 1))\n"
+                "for fold in context['inference']['folds']:\n"
+                "    print('Fold', fold['fold'], 'rows', fold['rows'], 'baseline margin difference', fold['parity_max_abs_margin'], 'replay verified', fold['batch_replay_verified'])\n"
+                "print('No new Kaggle submission. Verified private AUC remains 0.91425; gap to 0.92930 remains 0.01505.')\n",
+            ),
+        ]
+    ).cells
+    for name in ("02_baseline_and_review", "03_saved_results"):
+        outputs[f"notebooks/{name}.ipynb"].cells[9:9] = context_cells
     # Keep the original lexical notebook as a reproducible historical control.
     if __package__:
         from .build_adapted_notebook import build as adapted_notebook

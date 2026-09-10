@@ -6,6 +6,11 @@ execution did not meet the performance objective. The target is approximately
 The feature and model gates are reopened. The earlier post-competition research
 release remains a reproducible historical artifact, not the competition solution.
 
+The owner's [standing execution and research rules](../AGENTS.md) require short,
+measurable milestones, explicit resource caps, artifact reuse, leakage-safe
+ablations and concrete progress reports. Historical feature-closure documents
+describe an earlier, different data scope; they do not close this rebuild.
+
 ## What failed
 
 The submitted version used TF-IDF and logistic regression fitted on 2,029 original
@@ -451,3 +456,397 @@ the verified rendered logs and durable Kaggle outputs preserve the runtime proof
 Neither issue affected the independent AWS study or its fixed predictions.
 [Saved probe](https://www.kaggle.com/code/alvaromendizabal/jigsaw-8b-two-gpu-recovery-probe?scriptVersionId=348683165)
 · [Probe source](../kaggle/capacity_probe.ipynb).
+
+### Bounded next step: retained 4B with retrieved support context
+
+The user requested shorter, manageable work and explicitly selected direct
+positive/negative support prompting. This step freezes **one candidate**, reuses
+the completed 4B adapters and the existing 881-query original-data plan, and
+performs **zero optimizer steps**. There are no external LLM labeling/inference
+calls, prompt sweeps, blend searches, automatic retries or follow-on jobs.
+
+Fit character 3–5-gram TF-IDF retrieval on each fold's eligible same-rule support
+pool only. Select the highest-cosine violating and permitted example separately;
+normalized-text ordering breaks ties. All query bodies remain excluded from all
+fitted/support sources. Keep the original native system message, Yes/No scoring,
+384/96/192-token body/rule/support budgets and head/tail truncation. Add one
+violating and one permitted example to the decision JSON. This tests joint
+attention to actual examples while holding the trained representation fixed.
+
+Before candidate inference, restore each hash-pinned final adapter and reproduce
+the first eight saved rule-only margins within `1e-5`. A failed parity check stops
+the job. Prediction batches are checksummed, uploaded before their completion
+markers and replayed with model inference disabled. The worker cap is **900
+seconds**, with a **1,200-second SageMaker runtime cap** on one `ml.g6.xlarge`.
+At the last verified $1.127/hour rate, the runtime cap corresponds to about
+**$0.376 compute**, plus storage; this does not estimate ChatGPT Work credits.
+
+Compare the single candidate against the frozen 4B predictions using policy-macro
+AUC, per-policy AUC and 1,000 paired group bootstrap draws. Eligibility requires
+a positive macro gain, a positive 95% simultaneous lower bound and no policy
+regression. The development cohort has already been examined; this is exploratory
+evidence, not an independent holdout or a Kaggle score. No released target member
+or consumed protected cohort is opened. Only the byte-identical original
+`train.csv` member is restored for CPU evaluation.
+
+This bounded step ends after the comparison and a durable draft PR. Notebook
+publication, offline candidate validation and any new hidden submission are
+separate milestones. The current 4B Kaggle result remains 0.91425 private AUC;
+the 0.01505 gap to 0.92930 is unclosed until measured otherwise.
+
+We are not restricted to 4B. The completed 8B study failed its promotion gate;
+it does not rule out other models. At 16-bit precision, 9B and 27B weights alone
+need roughly 18 GB and 54 GB, before activations and runtime overhead. A 27B
+candidate therefore needs more GPU memory or separately verified quantization.
+Model family, revision, training and rule understanding matter alongside size.
+Direct support context is the next selected hypothesis, not a guaranteed way to
+close the entire gap. [Frozen protocol](../configs/support_context.json).
+
+**Execution attempt, September 10:** implementation commit
+`455743f38b86414bfc2e4f654ec8769d9d92d273` passed Quality run **34510983016**,
+including all five actual Jupyter notebook executions and replay. The recovered
+plan exactly matches reconstruction from the original 2,029 training rows; all
+881 balanced support selections are valid. Saved baseline predictions reproduce
+0.7198933967 policy-macro AUC without inference or fitting.
+
+One job, `jigsaw-support-context-20260910`, was requested at **17:56:33 UTC**.
+AWS reported `Training job waiting for capacity` and no training start. After
+the five-minute queue allowance elapsed, a stop was requested at **18:02:08 UTC**
+(about 335 seconds including checks and API latency). No automatic replacement
+job was launched. The stopping/terminal state is recorded in the
+[durable attempt receipt](../reports/checkpoints/support_context.json).
+The hash-pinned source and retained adapters remain recoverable. **There is no
+new GPU prediction or AUC result from this attempt.** The candidate has not been
+scientifically accepted or rejected, and the Kaggle gap is unchanged. This draft
+stops at the resource blocker instead of escalating into an open-ended run.
+
+### Capacity diagnosis and changed recovery attempt
+
+On September 10 at 18:21–18:23 UTC, AWS verified the first job was stopped and
+there were no active training jobs in `us-west-2`. Both `ml.g6.xlarge` and
+`ml.g6.2xlarge` have a training quota of one. The observed blocker was the
+requested instance's capacity queue; no evidence indicates a model failure or
+an exhausted active-training quota. Capacity availability itself cannot be
+guaranteed by a quota check.
+
+The single changed attempt uses **one `ml.g6.2xlarge`**, retaining the same L4 GPU,
+pinned image, source archive, adapters, prompts, data, precision, parity threshold
+and scientific decision rule. Only host CPU/RAM allocation changes. The AWS
+Pricing API reports **$1.222/hour** for Oregon training, effective September 1,
+2026: the 1,200-second runtime cap is approximately **$0.4073 compute**, plus
+storage. Keep the 900-second worker cap and five-minute queue allowance. If this
+instance also queues beyond the allowance or the smoke gate fails, stop and
+preserve the diagnosis; do not launch a third job in this milestone.
+
+**Recovery outcome:** `jigsaw-support-context-l4-2xl-20260910` was requested at
+**18:24:31 UTC** and also remained `Pending / Training job waiting for capacity`.
+A stop was requested at **18:29:45 UTC**, about 313.5 seconds after the request
+including API/check latency. No training start or billable training time was
+reported; this is not a verified dollar charge of zero. No inference or candidate
+AUC was produced, and no third job was launched. The exact request, price,
+quota diagnosis, stop and terminal state are retained in the existing checkpoint.
+The frozen candidate remains scientifically untested. A future milestone needs
+a bounded GPU-availability and retained-checkpoint parity check before spending
+on candidate inference; repeating these capacity queues is not useful evidence.
+
+### Current representation coverage and next evidence
+
+[Dr.ICL (Luo et al., 2023)](https://arxiv.org/abs/2305.14128) reports benefits from
+retrieved demonstrations even for instruction-tuned models, including simple
+lexical retrieval. This motivates the context-only ablation; it does not establish
+that our character retrieval or Jigsaw model will improve. The domain mechanism
+is policy-specific adjudication: examples can clarify intent and exceptions that
+the rule alone leaves ambiguous. Retrieval must compare both classes under the
+same policy, with query texts excluded. Missing thread context cannot be invented.
+
+| High-value family | Current evidence / remaining question |
+| --- | --- |
+| Supplied-support adaptation | Matched 4B development gain and actual 0.91425 private Kaggle score; retained |
+| Retrieved positive/negative prompt context | Implemented and tested; this single inference ablation supplies the missing result |
+| Adapted coordinates and prototype contrasts | Completed original-data ablations did not improve direct answer scores; preserve rejections |
+| Rule-conditioned intent, negation, quotation and exceptions | Plausible semantic gaps; historical small-model/lexical tests do not exhaust the adapted representation |
+| Semantic or task-trained support selection | Distinct from lexical selection; consider a fixed comparison only after diagnosing the present result |
+| Model diversity and fixed rank ensembles | Phi and 8B comparisons failed promotion gates; size alone is not a demonstrated gain |
+| Public external policy examples / context | Requires license, pre-deadline availability, relevance and contamination review before use |
+
+The **0.01505** private-score gap remains unallocated: current evidence cannot
+separate its causes into feature, model and ensemble contributions. These are
+open hypotheses, not a promise that any one family closes the gap. Broader
+research proceeds through bounded experiments, not an immediate model sweep.
+
+The label-free selection audit covers all **881** queries. Advertising selects
+112 distinct positive and 116 distinct negative examples; legal advice selects
+184 and 135. The most frequently reused example serves at most **5.13%** of its
+policy's queries. Thus retrieval has not collapsed to one default pair. This is
+a diversity diagnostic, not proof of relevance or an AUC improvement. Both
+selection hashes are saved in the [audit](../reports/checkpoints/support_context_selection.json).
+Reproduce using the approved private plan; no query targets or model calls are
+needed:
+
+```bash
+python -m scripts.audit_support_context \
+  --plan runs/support_context/recovery/plan.json \
+  --output reports/checkpoints/support_context_selection.json
+```
+
+### A10G recovery milestone, September 10
+
+Current-head Quality run **34514830318** passed for `7c7e79b`. The selected
+support-context hypothesis, worker archive, adapters, BF16 precision and `1e-5`
+parity gate remain unchanged. The prior successful Phi and 8B jobs obtained
+instances in **53.260** and **57.603 seconds** respectively; their subsequent
+image-download time is separate. The five-minute capacity allowance is therefore
+not based on mistaking image download for a capacity queue.
+
+The one changed route uses `ml.g5.4xlarge` with an A10G GPU. AWS verified a
+training quota of one and an Oregon training rate of **$2.030/hour**, effective
+September 1, 2026. The same 1,200-second runtime cap implies approximately
+**$0.6767 compute**, plus storage. Quota confirms permission to request an
+instance, not availability. No optimizer steps or alternate model are planned.
+
+An added inline hardware diagnostic initially exceeded SageMaker's 256-character
+container-argument limit. AWS rejected that request before creating a job. The
+correction restored the exact previously accepted entrypoint; the existing
+checkpoint-parity smoke gate remains intact. The request was then accepted as
+`jigsaw-support-context-a10-20260910` at **18:39:28 UTC**, but it remained waiting
+for capacity. A stop was requested at **18:44:32 UTC**, after 302.4 seconds.
+AWS verified terminal **Stopped at 18:45:23 UTC**. No training start, billable
+training time or candidate predictions were reported.
+This does not establish a zero-dollar invoice or a negative scientific result.
+
+Separately, the local execution connection failed and both connection paths
+reported `409 environment_offline`. The existing immutable S3 bundle and
+adapters allowed a controlled remote attempt without rebuilding or exposing
+private data. The attempt receipt is durable under the approved experiment
+prefix. CPU evaluation and local Git synchronization are blocked by this
+workspace outage; no new AUC, notebook execution, model promotion or merge is
+claimed. This metadata-only draft update is verified by reading its bytes back
+from GitHub. Local tree reconciliation remains required before merge.
+
+The experiment is still untested. Repeated capacity requests across the three
+attempts have produced no model evidence. Restore a working execution workspace
+and establish an allocatable GPU route before another inference attempt. Keep
+all trained checkpoints, the frozen candidate and its decision thresholds; do
+not interpret this infrastructure stop as exhausting support-context features.
+
+### Workspace recovery and alternative-provider preflight
+
+At **18:53:09 UTC on September 10**, local execution responded again. The retained
+checkout was fast-forwarded to `7c3abba42b248a955e093458a55047700484e996`; its tree
+`a39207ee190dcedc4a533c8200d1e065b43b2b0d` exactly matches GitHub. Current-head
+Quality run **34516388531** passed. The earlier workspace outage is resolved;
+the historical failure records remain intact.
+
+The next bounded infrastructure hypothesis is that HF Jobs with a **single L4**
+can provide Torch 2.10.0 / CUDA 13.0 / BF16 execution and private S3 recovery
+before model transfer or inference. The public PyTorch runtime image is pinned
+to digest `sha256:1f57418aedd9a4d0d3a59646619e1d4f82cacc33817247cead4f749e1f452d4b`.
+The smoke timeout is **three minutes**. Current [HF pricing](https://huggingface.co/docs/hub/jobs-pricing)
+is **$0.80/hour** for `l4x1`, corresponding to approximately **$0.04** for that
+runtime, plus storage. This does not estimate ChatGPT Work credits.
+
+Local S3 verification passed: the pinned 4,190-byte metadata contract matched
+its SHA256, a probe report was written with AES256 encryption, and its read-back
+matched exactly. The stored report SHA256 is
+`1a967542ed7d120679147e6c01d40429d3a15e4a6b2ebbd632037ecaeb49414f`.
+No model or query data was loaded. This proves local storage access, not access
+from HF or retained-model inference. [Preflight evidence](../reports/checkpoints/support_context_hardware.json).
+
+Automatic approval review rejected the combined HF probe because it would send
+private S3 metadata and bearer presigned URLs to external compute without
+specific authorization. It was not executed. A materially narrower public-only
+CUDA probe contained **no private data, S3 access or S3 credentials**; it
+reached HF but was rejected with **HTTP 402 Payment Required**. A subsequent jobs
+listing returned zero jobs. No GPU work or new model result occurred.
+
+The [current HF Jobs documentation](https://huggingface.co/docs/huggingface_hub/guides/jobs)
+allows accounts with positive compute credits; it does not require a Pro
+subscription. The authenticated account was verified, but its billing/credit
+requirement must be resolved before an accepted run. Do not infer an exact
+account balance from the HTTP status.
+
+The private-transfer proposal covers **six hash-pinned objects totaling
+440,885,048 bytes**: tested source, the target-free original-data plan, runtime
+metadata, two saved adapter states and two baseline representation files.
+Query targets, released targets and the protected cohort are excluded. Read
+access would use 15-minute URLs for those individual objects; writes would be
+restricted to specific checkpoint/output objects under the existing private S3
+experiment prefix. URLs are bearer credentials and would be encrypted job
+secrets. No general AWS credentials or Hub publication are proposed.
+[Exact inventory and boundaries](../reports/checkpoints/support_context_transfer.json).
+
+The public-only payload is generated reproducibly with
+`python -m scripts.support_context_hardware --print-public-cuda-script`.
+A regression test restricts its imports and excludes private metadata hashes,
+storage URLs and credential access. **Six focused tests passed**. The retained
+candidate and promotion rules remain unchanged. At that milestone, HF
+billing/credits and explicit private-transfer approval were both unresolved.
+The subsequent authorization and one billing recheck are recorded below.
+
+### Explicit transfer authorization and billing recheck
+
+The owner explicitly authorized the exact six-artifact, 440,885,048-byte private
+HF transfer, using temporary object-scoped S3 URLs and checkpoints saved back to
+the existing private S3 area. This consent is recorded in the
+[transfer manifest](../reports/checkpoints/support_context_transfer.json).
+The earlier automatic approval rejection is retained as historical evidence;
+specific transfer consent is now satisfied and must not be requested again for
+this unchanged scope.
+
+The retained workspace was verified clean and connected at the previously
+published head 20389810ee815d30f4238cff2348b94cacf32b8d. Its **Quality run
+34518258271 passed**. After recording consent, one public-only GPU probe was
+requested at **19:22:40 UTC on September 10, 2026**, with the existing pinned
+image and three-minute timeout. HF returned **HTTP 402 Payment Required at
+19:22:47 UTC**. The subsequent jobs list contained **zero jobs**. No job was
+created, no GPU ran, no temporary S3 URLs were generated, and no private inputs
+were transferred. The response is an HTTP status, **not a $402 charge**.
+
+The remaining provider prerequisite is positive compute credits/billing access
+in the authenticated HF account. The HTTP status does not reveal an exact credit
+balance. Current [HF pricing](https://huggingface.co/docs/hub/jobs-pricing) lists
+L4 at $0.80/hour, billed per minute while Starting or Running; a three-minute
+hardware allowance corresponds to approximately $0.04 in GPU time. No compute
+purchase or subscription was made.
+
+This metadata-only milestone records consent and the concrete billing failure.
+It does not constitute model progress: no support-context predictions,
+development AUC, Kaggle submission or model promotion occurred. The best verified
+private AUC remains **0.91425**, **0.01505** below the historical winning score.
+The frozen candidate, retained adapters, input hashes, query exclusions and
+1e-5 parity gate remain unchanged. Reuse the successful local S3 check and
+completed tests; do not restart AWS capacity queues or repeatedly retry HF.
+
+Next: resolve account billing, then verify GPU and private S3 recovery in one
+bounded preflight before the retained-checkpoint support-context comparison.
+That comparison tests whether relevant positive/negative examples improve rule
+adjudication without retraining. Its performance benefit is still unmeasured.
+[Exact attempt receipt](../reports/checkpoints/support_context_hardware.json).
+
+### Funded HF GPU and storage milestone
+
+The owner reported adding $10 in compute credit. HF subsequently accepted an
+L4 job, resolving the earlier billing rejection; the remaining account balance
+was not queried. The first accepted job was cancelled during scheduling because
+the normalized receipt displayed secret names as numeric indexes. Inspection of
+the public connector source showed the formatter uses Object.keys on the
+returned secrets field. A changed probe explicitly checked required variables
+inside the container, without printing their values. All three were present.
+This confirms a reporting anomaly; the earlier cancellation was an operator
+precaution, not a demonstrated runtime failure. No model work was repeated.
+
+Job **6aa3087521047bf1b0373572 completed**. Its worker ran from **19:44:05 to
+19:44:07 UTC on September 10, 2026**, with NVIDIA L4, 22.03 GiB device memory,
+Python 3.12.3, Torch 2.10.0+cu130 and CUDA 13.0. BF16 finite-value/replay checks
+passed. The pinned metadata contract matched its hash; a private encrypted S3
+write and exact read-back passed. Report SHA256:
+73bcba40f8c8b033c78cf74b6aceb666819551d689cca1ea65ddba0678440966.
+No model or query data was loaded. This is GPU/storage evidence, not model parity
+or AUC. [Receipt](../reports/checkpoints/support_context_hardware.json).
+
+The original SageMaker worker used its execution role for S3 operations. The
+new HF transport uses only the six authorized input URLs and one scoped
+checkpoint archive PUT/GET pair. A completed shard's features and marker are
+committed atomically in a versioned S3 snapshot. Fresh-process restoration
+verifies member hashes and rejects corruption, other object scopes and an
+approaching URL expiry. Existing model checkpoints and the source bundle remain
+hash-pinned; only public transport code is overlaid from an immutable Git commit.
+No general AWS credentials, query targets, released targets or protected cohort
+are transferred. The HF Python version differs from the original AWS runtime;
+the unchanged 1e-5 model-margin parity gate must still pass.
+
+Six existing focused tests passed; the new snapshot test passed after correcting
+a test-only placeholder URL. It proves fresh-process recovery, completion-marker
+ordering, corruption rejection, scope rejection and expiry stopping. No GPU
+model run is authorized to bypass that storage test. The worker's 900-second
+limit, job's 1,200-second cap and scientific promotion gates remain unchanged.
+Temporary URLs last 900 seconds; the transport stops normal work with 60 seconds
+remaining for a final save. Successful shards can be resumed with fresh URLs.
+One fixed support-context comparison is next, with zero optimizer steps.
+
+
+The first model job, 6aa309e421047bf1b03735ae, reached the source checksum check
+then stopped with exit code 1: the public PyTorch image lacks Python ensurepip.
+No model was loaded and no training, parity check or candidate inference ran.
+This was an environment-bootstrap failure, not a scientific result. The
+correction creates the isolated venv without ensurepip, then installs pip 25.3
+from its verified 1,778,622-byte public wheel (SHA256
+9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd).
+A real local venv created without pip successfully installed that wheel and
+reported pip 25.3 from inside the isolated environment. Native Torch/CUDA copies
+and constraints remain preserved. Retry this same comparison once using the
+corrected bootstrap and fresh scoped URLs; do not rerun the passed hardware
+probe or alter model, prompt, data or parity thresholds.
+
+### Completed support-context comparison: small, unstable gain
+
+The corrected HF job **6aa30aed5527934177ec2618 completed successfully**. The
+model worker finished at **19:58:37 UTC on September 10** after **185.771 seconds**.
+All 11 pinned model assets were verified. Both folds reproduced all eight
+retained baseline margins with maximum absolute difference **0.0**. All 881
+queries completed with zero optimizer steps and **29 shard replays**. Peak GPU
+allocation was **7.830 GiB**. The recovered 65-file S3 snapshot passed every
+member checksum and has SHA256
+2f5528f1bbeda44226ccea4f4006d8d34be31e0fc16bed311394fb039f381f3a.
+The completed job also verified its final snapshot by reading it back.
+
+The fixed CPU evaluation then loaded original training labels at **20:00:05 UTC**.
+Source/configuration, query order, finite margins, adapter identities and both
+fold receipts passed before scoring. These repeatedly inspected 881 comments
+remain exploratory development; they are not another Kaggle evaluation.
+
+| Measure | Retained 4B | Retrieved positive/negative context | Difference |
+| --- | ---: | ---: | ---: |
+| Policy-macro AUC | 0.719893 | 0.722856 | +0.002962 |
+| Advertising AUC | 0.679254 | 0.693955 | +0.014701 |
+| Legal-advice AUC | 0.760533 | 0.751756 | -0.008777 |
+| Pooled AUC | 0.738959 | 0.736291 | -0.002669 |
+
+The registered 1,000-draw paired group bootstrap gives simultaneous 95% gain
+interval **[-0.011587, 0.017511]**. Positive macro gain passes; positive interval
+and no-policy-regression both fail. **Do not promote this prompt candidate.**
+No blending, prompt search, further GPU run or Kaggle submission was triggered.
+Private Kaggle AUC remains **0.91425**, **0.01505** below the historical winner.
+
+Public aggregates and source-checked Plotly/SVG comparison are in
+[the canonical report](../reports/support_context/metadata.json). Private
+evaluation outputs were uploaded to the existing S3 experiment area and read
+back byte-for-byte: archive SHA256
+60183f6b4859ca0c75f31d56a766332878c3643ca9a03f4ededd84614ee315b0.
+The aggregate publication excludes comments, row-level labels, predictions,
+adapter state and signed credentials. Infrastructure failures and the
+unnecessary precautionary cancellation remain documented above.
+
+### Representation coverage and next bounded decision
+
+This result rejects the specific character-retrieved prompt under its registered
+gate. Feature research remains open. The candidate and reference have rank
+correlation **0.94957**; it changes some rankings, helping one policy and hurting
+another. This does not identify the cause of the legal-advice regression.
+
+The highest-value next step is a **CPU audit of semantic and contrastive support
+selection using retained original-data representations**. Examine whether chosen
+examples match adjudicative intent, including requests versus answers,
+quotations, negation and exceptions. Fit/retrieve within the eligible support
+pool and retain the query-body purge. Cache and hash the selected pairs before
+any new inference; do not inspect released targets or the consumed research
+cohort. Then register one matched inference comparison if the selection audit
+justifies it. This step has not run.
+
+[Research on in-context example selection](https://arxiv.org/abs/2101.06804)
+finds that semantic similarity and task-relevant encoders can improve example
+selection on other NLP benchmarks. That motivates this hypothesis; it does not
+establish a Jigsaw gain. Existing model representations could make the selection
+screen inexpensive, with no new backbone training. We have not exhausted
+semantic selection, hard contrastive examples or task-specific intent alignment.
+Do not pay for a larger model sweep before diagnosing this measured weakness.
+
+
+Publication verification: all five public notebooks executed successfully in
+IPython in-process mode at 20:05 UTC and then reused their checked execution
+outputs. Generated notebook sources, Python formatting and focused tests passed.
+This local workspace lacks optional Torch for full test collection and blocks
+Jupyter kernel network initialization; neither failure changes the completed GPU
+result. Full tests, independent Jupyter executions/replays, historical original
+CPU inference and the pinned encoder remain required in current-head GitHub CI
+before merge. No local full-suite or local Jupyter success is claimed.
