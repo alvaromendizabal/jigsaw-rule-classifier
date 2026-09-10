@@ -264,7 +264,7 @@
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
-  "status": "private_transfer_authorized_hf_billing_required",
+  "status": "hf_gpu_storage_verified_support_context_ready",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
@@ -508,10 +508,11 @@
     "manifest": "reports/checkpoints/support_context_transfer.json"
   },
   "latest_provider_check": {
-    "checked_utc": "2026-09-10T19:22:47.868Z",
-    "http_status": 402,
-    "job_created": false,
-    "gpu_executed": false,
+    "checked_utc": "2026-09-10T19:44:07.434099+00:00",
+    "job_id": "6aa3087521047bf1b0373572",
+    "status": "COMPLETED",
+    "gpu_executed": true,
+    "storage_round_trip_verified": true,
     "result_auc": null,
     "evidence": "reports/checkpoints/support_context_hardware.json"
   }

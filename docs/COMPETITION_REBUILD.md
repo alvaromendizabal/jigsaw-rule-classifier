@@ -722,3 +722,44 @@ bounded preflight before the retained-checkpoint support-context comparison.
 That comparison tests whether relevant positive/negative examples improve rule
 adjudication without retraining. Its performance benefit is still unmeasured.
 [Exact attempt receipt](../reports/checkpoints/support_context_hardware.json).
+
+### Funded HF GPU and storage milestone
+
+The owner reported adding $10 in compute credit. HF subsequently accepted an
+L4 job, resolving the earlier billing rejection; the remaining account balance
+was not queried. The first accepted job was cancelled during scheduling because
+the normalized receipt displayed secret names as numeric indexes. Inspection of
+the public connector source showed the formatter uses Object.keys on the
+returned secrets field. A changed probe explicitly checked required variables
+inside the container, without printing their values. All three were present.
+This confirms a reporting anomaly; the earlier cancellation was an operator
+precaution, not a demonstrated runtime failure. No model work was repeated.
+
+Job **6aa3087521047bf1b0373572 completed**. Its worker ran from **19:44:05 to
+19:44:07 UTC on September 10, 2026**, with NVIDIA L4, 22.03 GiB device memory,
+Python 3.12.3, Torch 2.10.0+cu130 and CUDA 13.0. BF16 finite-value/replay checks
+passed. The pinned metadata contract matched its hash; a private encrypted S3
+write and exact read-back passed. Report SHA256:
+73bcba40f8c8b033c78cf74b6aceb666819551d689cca1ea65ddba0678440966.
+No model or query data was loaded. This is GPU/storage evidence, not model parity
+or AUC. [Receipt](../reports/checkpoints/support_context_hardware.json).
+
+The original SageMaker worker used its execution role for S3 operations. The
+new HF transport uses only the six authorized input URLs and one scoped
+checkpoint archive PUT/GET pair. A completed shard's features and marker are
+committed atomically in a versioned S3 snapshot. Fresh-process restoration
+verifies member hashes and rejects corruption, other object scopes and an
+approaching URL expiry. Existing model checkpoints and the source bundle remain
+hash-pinned; only public transport code is overlaid from an immutable Git commit.
+No general AWS credentials, query targets, released targets or protected cohort
+are transferred. The HF Python version differs from the original AWS runtime;
+the unchanged 1e-5 model-margin parity gate must still pass.
+
+Six existing focused tests passed; the new snapshot test passed after correcting
+a test-only placeholder URL. It proves fresh-process recovery, completion-marker
+ordering, corruption rejection, scope rejection and expiry stopping. No GPU
+model run is authorized to bypass that storage test. The worker's 900-second
+limit, job's 1,200-second cap and scientific promotion gates remain unchanged.
+Temporary URLs last 900 seconds; the transport stops normal work with 60 seconds
+remaining for a final save. Successful shards can be resumed with fresh URLs.
+One fixed support-context comparison is next, with zero optimizer steps.

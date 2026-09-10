@@ -62,6 +62,11 @@ def read_url(name):
 
 def run(storage_only=False):
     started = time.monotonic()
+    required = ("JIGSAW_PROBE_INPUT", "JIGSAW_PROBE_PUT", "JIGSAW_PROBE_GET")
+    present = {name: bool(os.environ.get(name)) for name in required}
+    print(json.dumps({"phase": "secret_presence", "present": present}), flush=True)
+    if not all(present.values()):
+        raise RuntimeError("Required scoped storage secrets are missing")
     report = {
         "started_utc": datetime.now(UTC).isoformat(),
         "python": platform.python_version(),

@@ -1,15 +1,15 @@
 {
   "account": "alvaromendizabal",
-  "checked_utc": "2026-09-10T19:22:47.868Z",
+  "checked_utc": "2026-09-10T19:44:07.434099+00:00",
   "combined_request": {
     "job_created": false,
     "private_data_transferred": false,
     "reason": "Private S3 contract and temporary bearer access URLs would be disclosed to external Hugging Face compute without specific authorization.",
     "status": "rejected_by_automatic_approval_review"
   },
-  "current_source_sha256": "f0bab2634a29130da8b3efdfe8267ad0c829ae2600e2cd306097652762bd67f4",
+  "current_source_sha256": "f7b76914835b7d064caf637a4f4c321b8d0748648bdb59b0546e5d32478a34f4",
   "flavor": "l4x1",
-  "gpu_executed": false,
+  "gpu_executed": true,
   "hourly_usd": 0.8,
   "image": "pytorch/pytorch@sha256:1f57418aedd9a4d0d3a59646619e1d4f82cacc33817247cead4f749e1f452d4b",
   "jobs_after_attempt": 0,
@@ -30,7 +30,7 @@
   "maximum_runtime_estimate_usd": 0.04,
   "model_loaded": false,
   "next_requirements": [
-    "Resolve Hugging Face HTTP 402 billing/positive compute credit requirement before another attempt. Explicit six-artifact transfer authorization is already recorded."
+    "Run the fixed retained-checkpoint parity and support-context comparison with tested object-scoped checkpoint transport."
   ],
   "pricing_source": "https://huggingface.co/docs/hub/jobs-pricing",
   "public_cuda_script_sha256": "e1341dd316ed97576b65594eaad611fd6cf20e0710a7732aab95905d9ca529e2",
@@ -95,5 +95,39 @@
     "commit": "20389810ee815d30f4238cff2348b94cacf32b8d",
     "run_id": 34518258271,
     "conclusion": "success"
+  },
+  "funding_update": "Owner reported adding USD 10; subsequent HF job creation succeeded. Remaining balance not queried.",
+  "hf_runtime_preflight": {
+    "job_id": "6aa3087521047bf1b0373572",
+    "url": "https://huggingface.co/jobs/alvaromendizabal/6aa3087521047bf1b0373572",
+    "status": "COMPLETED",
+    "created_utc": "2026-09-10T19:43:49.519Z",
+    "receipt": {
+      "payload": {
+        "bf16_replay_verified": true,
+        "completed_utc": "2026-09-10T19:44:07.434099+00:00",
+        "cuda": "13.0",
+        "elapsed_seconds": 2.2391597759999513,
+        "gpu": "NVIDIA L4",
+        "gpu_memory_gib": 22.0343017578125,
+        "gpu_tested": true,
+        "input_sha256": "ae27bdd2b71c95dc22e10c14e85cfd640f88c65e34e047ae7b9ae8792129d4b8",
+        "model_loaded": false,
+        "python": "3.12.3",
+        "query_data_loaded": false,
+        "started_utc": "2026-09-10T19:44:05.194982+00:00",
+        "status": "passed",
+        "torch": "2.10.0+cu130"
+      },
+      "sha256": "73bcba40f8c8b033c78cf74b6aceb666819551d689cca1ea65ddba0678440966"
+    },
+    "storage_round_trip_verified": true,
+    "output_key": "experiments/support-context-20260910/hardware/hf-l4.json",
+    "previous_attempt": {
+      "job_id": "6aa307b221047bf1b0373561",
+      "status": "CANCELED",
+      "reason": "Operator stopped during scheduling after normalized receipt displayed secret_names as 0/1/2. No execution logs were available. The changed probe explicitly checked secret presence and proved all required credentials existed; the anomaly was connector reporting, not a missing-secret runtime failure.",
+      "correction": "Keep documented encrypted key/value secret arguments. Verify presence inside the job without exposing values."
+    }
   }
 }

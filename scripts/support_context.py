@@ -30,6 +30,8 @@ SOURCES = (
     "scripts/competition_worker.py",
     "scripts/bootstrap_gpu.py",
     "scripts/run_support_context.sh",
+    "scripts/support_context_storage.py",
+    "scripts/support_context_hf.py",
     "src/jigsaw_rules/data.py",
     "src/jigsaw_rules/runtime.py",
 )
@@ -98,8 +100,7 @@ def context_prompts(fold, tokenizer, spec):
     }
 
 
-def run_worker(root, output, bucket, prefix):
-    import boto3
+def run_worker(root, output, bucket, prefix, storage=None):
     import torch
     from peft import get_peft_model_state_dict, set_peft_model_state_dict
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -126,7 +127,11 @@ def run_worker(root, output, bucket, prefix):
     run_id = content_hash(contract)[:20]
     cache = output / run_id
     remote = prefix.rstrip("/") + "/checkpoints/" + run_id + "/"
-    s3 = boto3.client("s3", region_name="us-west-2")
+    if storage is None:
+        import boto3
+
+        storage = boto3.client("s3", region_name="us-west-2")
+    s3 = storage
 
     def sync(path):
         s3.upload_file(
