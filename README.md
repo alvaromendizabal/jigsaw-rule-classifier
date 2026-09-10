@@ -19,8 +19,11 @@ Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training
 **Next representation ablation:** direct retrieved positive/negative context for
 the retained 4B model is implemented and tested. Three bounded AWS allocation
 attempts across L4 and A10G remained queued and were cancelled before inference;
-there is **no candidate AUC yet**. The execution workspace is also disconnected,
-so local evaluation and checkout synchronization need recovery. The label-free selection audit covers all 881 queries
+there is **no candidate AUC yet**. The workspace has reconnected and its checkout
+matches the saved publication. An alternative Hugging Face route is blocked by
+HTTP 402 billing/compute credits and explicit approval for private artifact
+transfer. Local S3 verification passed; no HF GPU job was created.
+The label-free selection audit covers all 881 queries
 without collapsing to one default support pair. [Protocol and attempt evidence](docs/COMPETITION_REBUILD.md#bounded-next-step-retained-4b-with-retrieved-support-context)
 · [Standing execution rules](AGENTS.md) · [Draft PR #25](https://github.com/alvaromendizabal/jigsaw-rule-classifier/pull/25).
 

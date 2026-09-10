@@ -628,3 +628,57 @@ attempts have produced no model evidence. Restore a working execution workspace
 and establish an allocatable GPU route before another inference attempt. Keep
 all trained checkpoints, the frozen candidate and its decision thresholds; do
 not interpret this infrastructure stop as exhausting support-context features.
+
+### Workspace recovery and alternative-provider preflight
+
+At **18:53:09 UTC on September 10**, local execution responded again. The retained
+checkout was fast-forwarded to `7c3abba42b248a955e093458a55047700484e996`; its tree
+`a39207ee190dcedc4a533c8200d1e065b43b2b0d` exactly matches GitHub. Current-head
+Quality run **34516388531** passed. The earlier workspace outage is resolved;
+the historical failure records remain intact.
+
+The next bounded infrastructure hypothesis is that HF Jobs with a **single L4**
+can provide Torch 2.10.0 / CUDA 13.0 / BF16 execution and private S3 recovery
+before model transfer or inference. The public PyTorch runtime image is pinned
+to digest `sha256:1f57418aedd9a4d0d3a59646619e1d4f82cacc33817247cead4f749e1f452d4b`.
+The smoke timeout is **three minutes**. Current [HF pricing](https://huggingface.co/docs/hub/jobs-pricing)
+is **$0.80/hour** for `l4x1`, corresponding to approximately **$0.04** for that
+runtime, plus storage. This does not estimate ChatGPT Work credits.
+
+Local S3 verification passed: the pinned 4,190-byte metadata contract matched
+its SHA256, a probe report was written with AES256 encryption, and its read-back
+matched exactly. The stored report SHA256 is
+`1a967542ed7d120679147e6c01d40429d3a15e4a6b2ebbd632037ecaeb49414f`.
+No model or query data was loaded. This proves local storage access, not access
+from HF or retained-model inference. [Preflight evidence](../reports/checkpoints/support_context_hardware.json).
+
+Automatic approval review rejected the combined HF probe because it would send
+private S3 metadata and bearer presigned URLs to external compute without
+specific authorization. It was not executed. A materially narrower public-only
+CUDA probe contained **no private data, S3 access or S3 credentials**; it
+reached HF but was rejected with **HTTP 402 Payment Required**. A subsequent jobs
+listing returned zero jobs. No GPU work or new model result occurred.
+
+The [current HF Jobs documentation](https://huggingface.co/docs/huggingface_hub/guides/jobs)
+allows accounts with positive compute credits; it does not require a Pro
+subscription. The authenticated account was verified, but its billing/credit
+requirement must be resolved before an accepted run. Do not infer an exact
+account balance from the HTTP status.
+
+The private-transfer proposal covers **six hash-pinned objects totaling
+440,885,048 bytes**: tested source, the target-free original-data plan, runtime
+metadata, two saved adapter states and two baseline representation files.
+Query targets, released targets and the protected cohort are excluded. Read
+access would use 15-minute URLs for those individual objects; writes would be
+restricted to specific checkpoint/output objects under the existing private S3
+experiment prefix. URLs are bearer credentials and would be encrypted job
+secrets. No general AWS credentials or Hub publication are proposed.
+[Exact inventory and boundaries](../reports/checkpoints/support_context_transfer.json).
+
+The public-only payload is generated reproducibly with
+`python -m scripts.support_context_hardware --print-public-cuda-script`.
+A regression test restricts its imports and excludes private metadata hashes,
+storage URLs and credential access. **Six focused tests passed**. The retained
+candidate and promotion rules remain unchanged. The next useful step needs HF
+billing/credits and explicit private-transfer approval; do not retry the blocked
+request or substitute a new experiment while those remain unresolved.

@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-09-10T18:45:40.113535+00:00",
+  "checked_utc": "2026-09-10T19:01:44.490909+00:00",
   "ci": {
     "actual_jupyter_notebooks": 5,
     "conclusion": "success",
@@ -264,7 +264,7 @@
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
-  "status": "stopped_capacity_and_workspace_offline",
+  "status": "workspace_restored_hf_billing_and_transfer_approval_required",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
@@ -330,7 +330,7 @@
       "requested_utc": "2026-09-10T18:39:28.651374+00:00"
     },
     "one_job_this_milestone": true,
-    "parity_max_abs_margin": 0.00001,
+    "parity_max_abs_margin": 1e-05,
     "prior_successful_allocation_seconds": [
       {
         "job": "jigsaw-backbone-capacity-20260910",
@@ -492,5 +492,15 @@
       "status": "environment_offline"
     },
     "workspace_status": "exec-server disconnected; use already-tested immutable S3 bundle and durable AWS output. No rebuild or CPU score claim."
+  },
+  "private_transfer_proposal": "reports/checkpoints/support_context_transfer.json",
+  "hardware_preflight": "reports/checkpoints/support_context_hardware.json",
+  "workspace_recovery": {
+    "current_head_ci_conclusion": "success",
+    "current_head_ci_run": 34516388531,
+    "local_and_remote_tree": "a39207ee190dcedc4a533c8200d1e065b43b2b0d",
+    "reconciled_commit": "7c3abba42b248a955e093458a55047700484e996",
+    "status": "connected",
+    "verified_utc": "2026-09-10T18:53:09Z"
   }
 }
