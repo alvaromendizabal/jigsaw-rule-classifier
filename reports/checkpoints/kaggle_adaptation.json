@@ -1,6 +1,6 @@
 {
-  "status": "submitted_hidden_evaluation_running",
-  "scope": "Saved offline GPU execution verified; Version 3 submitted for hidden evaluation; no new Kaggle score yet",
+  "status": "submitted_and_scored",
+  "scope": "Version 3 hidden Kaggle evaluation succeeded: 0.91808 public / 0.91425 private AUC; target remains open",
   "runtime": {
     "python": "3.12.13",
     "torch": "2.10.0+cu128",
@@ -153,20 +153,55 @@
   "submission": {
     "id": null,
     "id_note": "The account UI exposes the notebook version and entry status, but no numeric submission ID.",
-    "status": "running",
-    "site_status": "Notebook Running (after deadline)",
+    "status": "succeeded",
+    "site_status": "Succeeded (after deadline)",
     "first_verified_running_utc": "2026-09-09T23:47:32+00:00",
     "submitted_on": "2026-09-09",
     "is_late": true,
     "notebook_version": 3,
     "script_version_id": 348640051,
     "output_file": "submission.csv",
-    "public_score": null,
-    "private_score": null,
+    "public_score": 0.91808,
+    "private_score": 0.91425,
     "result_url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#",
     "description": "Support-adapted Qwen3-4B; original train plus supplied support labels only. Version 3 / 348640051; GitHub a4936977c945110ea5b86398cdfb9d2a9f12556b. Offline T4, one LoRA epoch, within-rule ranks. Saved 117-step preview verified; no released targets.",
     "duplicate_check": "Only the original Version 2 entry existed immediately before submission; one Version 3 entry verified afterward.",
-    "evidence": "Authenticated Submissions row and Submission Details both showed Notebook Running (after deadline) for Version 3.",
-    "daily_late_limit_displayed": 100
-  }
+    "evidence": "Authenticated Submissions row and Submission Details both show Succeeded (after deadline), public 0.91808 and private 0.91425 for Version 3 / 348640051.",
+    "daily_late_limit_displayed": 100,
+    "score_precision": "Five decimal places as displayed by Kaggle",
+    "first_verified_scored_utc": "2026-09-10T02:20:43+00:00",
+    "last_verified_running_utc": "2026-09-10T02:13:01+00:00",
+    "hidden_worker_elapsed_seconds": null,
+    "hidden_output_sha256": null,
+    "hidden_output_rows": null,
+    "hidden_execution_note": "Kaggle accepted and scored the hidden output. Hidden worker logs, row count, CSV hash, optimizer steps and GPU measurements are not exposed by the submission UI. Saved-run measurements refer only to the 10-row preview; completion occurred between the last running and first scored checks.",
+    "visibility_verified": "Private"
+  },
+  "comparison": {
+    "baseline_version": 2,
+    "baseline_public_auc": 0.59191,
+    "baseline_private_auc": 0.61956,
+    "public_auc_gain": 0.32617,
+    "private_auc_gain": 0.29469,
+    "private_gap_to_0_92": 0.00575,
+    "private_gap_to_0_93": 0.01575,
+    "public_gap_to_0_92": 0.00192,
+    "public_gap_to_0_93": 0.01192,
+    "target_met": false,
+    "interpretation": "End-to-end model comparison changes backbone and training method; the matched 881-row development study isolates support adaptation."
+  },
+  "next_experiment": {
+    "status": "proposed_not_launched",
+    "hypothesis": "A second instruction-model representation adapted to the same eligible supports may make complementary errors and improve within-policy rank blending.",
+    "design": "Compare a fixed equal-weight rank blend against this Qwen baseline on the existing original-data novel-comment development protocol. Freeze the model revision, support construction, one-epoch budget and blend before running. Assess paired policy/group uncertainty, per-policy regressions, prediction correlation and inference cost; reject if gains are unsupported.",
+    "boundaries": "Original training and supplied support labels only; purge development query bodies; no released targets, no reuse of the consumed protected cohort, no tuning to this private Kaggle score. New paid experiments have not been launched."
+  },
+  "merged_implementation": {
+    "pr": 19,
+    "main_commit": "35bce7b5d51c860019bf7b73d2560725cfacc599",
+    "tree": "0b0a1bdb46bab2abc3ac956d189c2f7daf3fd36c",
+    "quality_run": 34418699358,
+    "conclusion": "success"
+  },
+  "source_files_note": "Historical source fingerprints from the verified preview; later report-only notebook edits do not change the scored Version 3 or its runtime."
 }

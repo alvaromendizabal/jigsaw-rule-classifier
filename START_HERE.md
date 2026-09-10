@@ -1,6 +1,6 @@
 # Start with the evidence
 
-**Project status:** competition performance remains open after the **0.59191 public / 0.61956 private** lexical baseline. The current candidate learns from legitimate supplied examples with Qwen3-4B; its matched development AUC is **0.7199**, not a Kaggle score. [Measured research and execution gates](docs/COMPETITION_REBUILD.md).
+**Verified Kaggle result — September 10, 2026, 02:20 UTC:** support-adapted Qwen3-4B **Version 3 scored 0.91808 public / 0.91425 private AUC**, up **0.32617 / 0.29469** from the lexical baseline. Kaggle reports **Succeeded (after deadline)**. The private score remains **0.00575 below 0.92** and **0.01575 below 0.93**; the performance goal remains open. [Exact saved version](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Verified receipt](reports/checkpoints/kaggle_adaptation.json).
 
 **Current neural notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb). **Historical CPU control:** [`kaggle/reference.ipynb`](kaggle/reference.ipynb), which reproduces the original Version 2 approach. The separate 0.7770 research model uses post-competition development labels. Keep these three model/data boundaries distinct.
 
@@ -71,7 +71,7 @@ Only public aggregate evidence can be published. Private or synthetic execution 
 
 ## Run and submit on Kaggle
 
-**Version 3 is submitted; hidden evaluation is running.** Kaggle showed **Notebook Running (after deadline)** at 23:47 UTC on September 9, 2026. The fresh offline T4 run completed all 117 training steps and validated the ten-row preview; it used 603.5 worker seconds and 8.26 GiB peak allocated GPU memory. Its CSV matches the earlier preview and checksum-verified replay. [Version 3](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Runtime and submission receipt](reports/checkpoints/kaggle_adaptation.json). This entry learns from original training labels and supplied support labels. The new score is pending; do not submit a duplicate while it runs.
+**Version 3 is submitted and scored: 0.91808 public / 0.91425 private AUC.** The account row and Submission Details verified success at 02:20 UTC on September 10, 2026. No upload or duplicate submission is needed. The saved offline preview completed 117 steps in 603.5 worker seconds / 8.26 GiB; these are preview measurements, not hidden-run runtime. [Receipt](reports/checkpoints/kaggle_adaptation.json).
 
 **Version 2 is submitted and scored.** Kaggle reported **Succeeded (after deadline)** on September 9, 2026, with **0.59191 public / 0.61956 private**. Open the [competition's Submissions page](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#) while signed in as `alvaromendizabal` to inspect the entry. [Version 2 output](https://www.kaggle.com/code/alvaromendizabal/jigsaw-original-training-reference/output?scriptVersionId=348605174) · [Machine-readable receipt](reports/checkpoints/kaggle_submission.json). No AWS download, new upload or resubmission is needed to complete this milestone.
 
