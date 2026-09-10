@@ -588,3 +588,43 @@ python -m scripts.audit_support_context \
   --plan runs/support_context/recovery/plan.json \
   --output reports/checkpoints/support_context_selection.json
 ```
+
+### A10G recovery milestone, September 10
+
+Current-head Quality run **34514830318** passed for `7c7e79b`. The selected
+support-context hypothesis, worker archive, adapters, BF16 precision and `1e-5`
+parity gate remain unchanged. The prior successful Phi and 8B jobs obtained
+instances in **53.260** and **57.603 seconds** respectively; their subsequent
+image-download time is separate. The five-minute capacity allowance is therefore
+not based on mistaking image download for a capacity queue.
+
+The one changed route uses `ml.g5.4xlarge` with an A10G GPU. AWS verified a
+training quota of one and an Oregon training rate of **$2.030/hour**, effective
+September 1, 2026. The same 1,200-second runtime cap implies approximately
+**$0.6767 compute**, plus storage. Quota confirms permission to request an
+instance, not availability. No optimizer steps or alternate model are planned.
+
+An added inline hardware diagnostic initially exceeded SageMaker's 256-character
+container-argument limit. AWS rejected that request before creating a job. The
+correction restored the exact previously accepted entrypoint; the existing
+checkpoint-parity smoke gate remains intact. The request was then accepted as
+`jigsaw-support-context-a10-20260910` at **18:39:28 UTC**, but it remained waiting
+for capacity. A stop was requested at **18:44:32 UTC**, after 302.4 seconds.
+AWS verified terminal **Stopped at 18:45:23 UTC**. No training start, billable
+training time or candidate predictions were reported.
+This does not establish a zero-dollar invoice or a negative scientific result.
+
+Separately, the local execution connection failed and both connection paths
+reported `409 environment_offline`. The existing immutable S3 bundle and
+adapters allowed a controlled remote attempt without rebuilding or exposing
+private data. The attempt receipt is durable under the approved experiment
+prefix. CPU evaluation and local Git synchronization are blocked by this
+workspace outage; no new AUC, notebook execution, model promotion or merge is
+claimed. This metadata-only draft update is verified by reading its bytes back
+from GitHub. Local tree reconciliation remains required before merge.
+
+The experiment is still untested. Repeated capacity requests across the three
+attempts have produced no model evidence. Restore a working execution workspace
+and establish an allocatable GPU route before another inference attempt. Keep
+all trained checkpoints, the frozen candidate and its decision thresholds; do
+not interpret this infrastructure stop as exhausting support-context features.

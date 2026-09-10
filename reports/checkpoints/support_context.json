@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-09-10T18:30:27.155531+00:00",
+  "checked_utc": "2026-09-10T18:45:40.113535+00:00",
   "ci": {
     "actual_jupyter_notebooks": 5,
     "conclusion": "success",
@@ -264,11 +264,233 @@
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
-  "status": "stopped_capacity_queue_after_changed_attempt",
+  "status": "stopped_capacity_and_workspace_offline",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
     "requested_utc": "2026-09-10T18:02:07.834338+00:00",
     "stop_requested": true
+  },
+  "a10_recovery": {
+    "assets": [
+      {
+        "ContentLength": 442458,
+        "ServerSideEncryption": "AES256",
+        "VersionId": "erV7lctUeDlGljicg1vG.NJ7Q1qCBcsV",
+        "key": "experiments/support-context-20260910/source/f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a/source.tar.gz"
+      },
+      {
+        "ContentLength": 198792693,
+        "ServerSideEncryption": "AES256",
+        "VersionId": "phcrSwvyPBfmZiDi_zWAi5CxpPiu5m1L",
+        "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/training/step_000142/state.pt"
+      },
+      {
+        "ContentLength": 198792693,
+        "ServerSideEncryption": "AES256",
+        "VersionId": "qMibI1zGFEIinH4zx3gdxsuCnh4GQGmZ",
+        "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/training/step_000099/state.pt"
+      }
+    ],
+    "ci_run": 34514830318,
+    "estimated_runtime_cap_compute_usd": 0.6766666666666666,
+    "further_job_launched": false,
+    "gpu_inference_started": false,
+    "job_max_seconds": 1200,
+    "latest": {
+      "checked_utc": "2026-09-10T18:45:40.113535+00:00",
+      "state": {
+        "SecondaryStatus": "Stopped",
+        "SecondaryStatusTransitions": [
+          {
+            "EndTime": "2026-09-10T18:39:29.986000+00:00",
+            "StartTime": "2026-09-10T18:39:29.580000+00:00",
+            "Status": "Starting",
+            "StatusMessage": "Starting the training job"
+          },
+          {
+            "EndTime": "2026-09-10T18:45:23.274000+00:00",
+            "StartTime": "2026-09-10T18:39:29.986000+00:00",
+            "Status": "Pending",
+            "StatusMessage": "Training job stopped"
+          },
+          {
+            "EndTime": "2026-09-10T18:45:23.274000+00:00",
+            "StartTime": "2026-09-10T18:45:23.274000+00:00",
+            "Status": "Stopped",
+            "StatusMessage": "Training job stopped"
+          }
+        ],
+        "TrainingEndTime": "2026-09-10T18:45:23.274000+00:00",
+        "TrainingJobStatus": "Stopped"
+      }
+    },
+    "launch": {
+      "arn": "arn:aws:sagemaker:us-west-2:560403859723:training-job/jigsaw-support-context-a10-20260910",
+      "requested_utc": "2026-09-10T18:39:28.651374+00:00"
+    },
+    "one_job_this_milestone": true,
+    "parity_max_abs_margin": 0.00001,
+    "prior_successful_allocation_seconds": [
+      {
+        "job": "jigsaw-backbone-capacity-20260910",
+        "seconds_to_allocation": 57.603
+      },
+      {
+        "job": "jigsaw-complementary-support-20260910",
+        "seconds_to_allocation": 53.26
+      }
+    ],
+    "publication": {
+      "base_ci": "success",
+      "base_ci_run": 34514830318,
+      "base_head": "7c7e79bf706e399e3008d50f8745cec9b3721162",
+      "merge_allowed": false,
+      "source_changed": false
+    },
+    "queue_allowance_seconds": 300,
+    "reason": "L4 training allocations queued twice; switch to A10G family while preserving the fixed candidate, source, image, BF16 and mandatory baseline-parity gate.",
+    "request": {
+      "AlgorithmSpecification": {
+        "ContainerArguments": [
+          "-c",
+          "jigsaw_source=/opt/ml/input/data/source/source.tar.gz; echo \"$JIGSAW_SOURCE_SHA256  $jigsaw_source\"|sha256sum -c - && mkdir -p /opt/ml/code && tar xzf \"$jigsaw_source\" -C /opt/ml/code && exec bash /opt/ml/code/scripts/run_support_context.sh"
+        ],
+        "ContainerEntrypoint": [
+          "/bin/bash"
+        ],
+        "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training@sha256:26e979d1e21417c3a58d79478e6db1804d4fad512048a7a8cdf1816ab971e7c0",
+        "TrainingInputMode": "File"
+      },
+      "Environment": {
+        "JIGSAW_BUCKET": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "JIGSAW_CONTEXT_PREFIX": "experiments/support-context-20260910",
+        "JIGSAW_SOURCE_SHA256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "source",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataDistributionType": "FullyReplicated",
+              "S3DataType": "S3Prefix",
+              "S3Uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/support-context-20260910/source/f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a/"
+            }
+          }
+        }
+      ],
+      "OutputDataConfig": {
+        "S3OutputPath": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/support-context-20260910/output/"
+      },
+      "ResourceConfig": {
+        "InstanceCount": 1,
+        "InstanceType": "ml.g5.4xlarge",
+        "VolumeSizeInGB": 60
+      },
+      "RoleArn": "arn:aws:iam::560403859723:role/service-role/AmazonSageMaker-ExecutionRole-20260902T115323",
+      "StoppingCondition": {
+        "MaxPendingTimeInSeconds": 7200,
+        "MaxRuntimeInSeconds": 1200
+      },
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "jigsaw-rule-classifier"
+        },
+        {
+          "Key": "Purpose",
+          "Value": "one-retained-adapter-context-test"
+        }
+      ],
+      "TrainingJobName": "jigsaw-support-context-a10-20260910"
+    },
+    "resource": {
+      "price": [
+        {
+          "product": {
+            "attributes": {
+              "component": "Training",
+              "computeType": "Accelerated Computing Instances",
+              "currentGeneration": "Yes",
+              "gpu": "1",
+              "gpuMemory": "NA",
+              "instanceName": "ml.g5.4xlarge",
+              "instanceType": "ml.g5.4xlarge-Training",
+              "location": "US West (Oregon)",
+              "locationType": "AWS Region",
+              "memory": "64 GiB",
+              "networkPerformance": "N/A",
+              "operation": "RunInstance",
+              "physicalCpu": "N/A",
+              "physicalGpu": "N/A",
+              "platoinstancename": "g5",
+              "platoinstancetype": "Training",
+              "regionCode": "us-west-2",
+              "servicecode": "AmazonSageMaker",
+              "servicename": "Amazon SageMaker",
+              "usagetype": "USW2-Train:ml.g5.4xlarge",
+              "vCpu": "16"
+            },
+            "productFamily": "ML Instance",
+            "sku": "7YFF4BG8JJTACVR9"
+          },
+          "publicationDate": "2026-09-09T17:55:44Z",
+          "serviceCode": "AmazonSageMaker",
+          "terms": {
+            "OnDemand": {
+              "7YFF4BG8JJTACVR9.JRTCKXETXF": {
+                "effectiveDate": "2026-09-01T00:00:00Z",
+                "offerTermCode": "JRTCKXETXF",
+                "priceDimensions": {
+                  "7YFF4BG8JJTACVR9.JRTCKXETXF.6YS6EN2CT7": {
+                    "appliesTo": [],
+                    "beginRange": "0",
+                    "description": "$2.030 per Training ml.g5.4xlarge hour in US West (Oregon)",
+                    "endRange": "Inf",
+                    "pricePerUnit": {
+                      "USD": "2.0300000000"
+                    },
+                    "rateCode": "7YFF4BG8JJTACVR9.JRTCKXETXF.6YS6EN2CT7",
+                    "unit": "Hrs"
+                  }
+                },
+                "sku": "7YFF4BG8JJTACVR9",
+                "termAttributes": {}
+              }
+            }
+          },
+          "version": "20260909175544"
+        }
+      ],
+      "quota": {
+        "QuotaCode": "L-FE869B40",
+        "QuotaName": "ml.g5.4xlarge for training job usage",
+        "Value": 1
+      }
+    },
+    "result": null,
+    "source_commit": "455743f38b86414bfc2e4f654ec8769d9d92d273",
+    "source_sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a",
+    "status": "stopped_capacity_queue",
+    "stop": {
+      "queue_seconds": 302.397932,
+      "reason": "A10G family also exceeded the fixed five-minute capacity allowance; end this milestone without another GPU attempt.",
+      "requested_utc": "2026-09-10T18:44:31.552132+00:00"
+    },
+    "tested_head": "7c7e79bf706e399e3008d50f8745cec9b3721162",
+    "validation_failure": {
+      "correction": "Restore the exact previously accepted entrypoint. Keep the worker's saved-checkpoint parity gate unchanged.",
+      "reason": "Added inline GPU diagnostic exceeded SageMaker's 256-character per-container-argument limit. CreateTrainingJob was rejected; no job or GPU allocation was created."
+    },
+    "worker_max_seconds": 900,
+    "workspace_failure": {
+      "http_status": 409,
+      "local_checkout_sync_pending": true,
+      "local_evaluation_available": false,
+      "primary_exec": "Transport disconnected; recovery timed out, then environment registry reported offline.",
+      "sidecar_exec": "Independent connection attempt also reported environment_offline.",
+      "status": "environment_offline"
+    },
+    "workspace_status": "exec-server disconnected; use already-tested immutable S3 bundle and durable AWS output. No rebuild or CPU score claim."
   }
 }
