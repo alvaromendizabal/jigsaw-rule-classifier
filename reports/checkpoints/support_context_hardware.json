@@ -1,6 +1,6 @@
 {
   "account": "alvaromendizabal",
-  "checked_utc": "2026-09-10T19:01:44.490909+00:00",
+  "checked_utc": "2026-09-10T19:22:47.868Z",
   "combined_request": {
     "job_created": false,
     "private_data_transferred": false,
@@ -30,8 +30,7 @@
   "maximum_runtime_estimate_usd": 0.04,
   "model_loaded": false,
   "next_requirements": [
-    "Resolve Hugging Face 402 Payment Required billing/compute credit requirement.",
-    "Obtain explicit authorization for scoped private S3 artifact access from a private HF Job before the retained-model experiment."
+    "Resolve Hugging Face HTTP 402 billing/positive compute credit requirement before another attempt. Explicit six-artifact transfer authorization is already recorded."
   ],
   "pricing_source": "https://huggingface.co/docs/hub/jobs-pricing",
   "public_cuda_script_sha256": "e1341dd316ed97576b65594eaad611fd6cf20e0710a7732aab95905d9ca529e2",
@@ -55,5 +54,46 @@
     "reconciled_commit": "7c3abba42b248a955e093458a55047700484e996",
     "status": "connected",
     "verified_utc": "2026-09-10T18:53:09Z"
+  },
+  "private_transfer_authorization": {
+    "status": "authorized_by_user",
+    "manifest": "reports/checkpoints/support_context_transfer.json"
+  },
+  "post_authorization_public_probe": {
+    "started_utc": "2026-09-10T19:22:40.695Z",
+    "completed_utc": "2026-09-10T19:22:47.868Z",
+    "source_commit": "20389810ee815d30f4238cff2348b94cacf32b8d",
+    "public_cuda_script_sha256": "e1341dd316ed97576b65594eaad611fd6cf20e0710a7732aab95905d9ca529e2",
+    "job_created": false,
+    "gpu_executed": false,
+    "private_data_transferred": false,
+    "temporary_s3_urls_created": false,
+    "request": {
+      "error_code": "INVALID_ARGUMENT",
+      "operation": "run",
+      "outcome": {
+        "code": "execution",
+        "kind": "error",
+        "message": "Error executing run: API request failed: 402 Payment Required"
+      },
+      "results_shared": 0,
+      "total_results": 0
+    },
+    "jobs_after_attempt": {
+      "operation": "ps",
+      "outcome": {
+        "jobs": [],
+        "kind": "jobs",
+        "total_jobs": 0
+      },
+      "results_shared": 0,
+      "total_results": 0
+    },
+    "decision": "Stop after one post-authorization check. Resolve HF billing/positive compute credits before another attempt. Transfer consent is satisfied; the experiment remains unexecuted."
+  },
+  "pre_update_quality": {
+    "commit": "20389810ee815d30f4238cff2348b94cacf32b8d",
+    "run_id": 34518258271,
+    "conclusion": "success"
   }
 }

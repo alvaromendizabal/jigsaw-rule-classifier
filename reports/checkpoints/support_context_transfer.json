@@ -50,7 +50,7 @@
   "provider_account": "alvaromendizabal",
   "purpose": "One private HF L4 retained-checkpoint parity and fixed support-context comparison",
   "reason_for_confirmation": "Automatic approval review rejected the private payload and scoped-credential transfer despite standing general compute authorization.",
-  "status": "proposed_not_authorized",
+  "status": "authorized_by_user",
   "total_input_bytes": 440885048,
   "unchanged_scientific_gates": {
     "candidate": "context only; no blend or prompt sweep",
@@ -58,5 +58,11 @@
     "parity_max_abs_margin": 1e-05,
     "worker_max_seconds": 900
   },
-  "url_lifetime_seconds": 900
+  "url_lifetime_seconds": 900,
+  "authorization": {
+    "recorded_utc": "2026-09-10T19:22:36.381712+00:00",
+    "source": "Explicit user message in the project conversation",
+    "statement": "i explicitly authorize a private Hugging Face job to access the six listed Jigsaw artifacts—about 441 MB—using temporary S3 URLs, with checkpoints saved back to your existing private S3 area",
+    "scope": "The six existing hash-pinned inputs and object-scoped checkpoint/output writes in this manifest only; no general AWS credentials or Hub publication."
+  }
 }

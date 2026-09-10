@@ -679,6 +679,46 @@ The public-only payload is generated reproducibly with
 `python -m scripts.support_context_hardware --print-public-cuda-script`.
 A regression test restricts its imports and excludes private metadata hashes,
 storage URLs and credential access. **Six focused tests passed**. The retained
-candidate and promotion rules remain unchanged. The next useful step needs HF
-billing/credits and explicit private-transfer approval; do not retry the blocked
-request or substitute a new experiment while those remain unresolved.
+candidate and promotion rules remain unchanged. At that milestone, HF
+billing/credits and explicit private-transfer approval were both unresolved.
+The subsequent authorization and one billing recheck are recorded below.
+
+### Explicit transfer authorization and billing recheck
+
+The owner explicitly authorized the exact six-artifact, 440,885,048-byte private
+HF transfer, using temporary object-scoped S3 URLs and checkpoints saved back to
+the existing private S3 area. This consent is recorded in the
+[transfer manifest](../reports/checkpoints/support_context_transfer.json).
+The earlier automatic approval rejection is retained as historical evidence;
+specific transfer consent is now satisfied and must not be requested again for
+this unchanged scope.
+
+The retained workspace was verified clean and connected at the previously
+published head 20389810ee815d30f4238cff2348b94cacf32b8d. Its **Quality run
+34518258271 passed**. After recording consent, one public-only GPU probe was
+requested at **19:22:40 UTC on September 10, 2026**, with the existing pinned
+image and three-minute timeout. HF returned **HTTP 402 Payment Required at
+19:22:47 UTC**. The subsequent jobs list contained **zero jobs**. No job was
+created, no GPU ran, no temporary S3 URLs were generated, and no private inputs
+were transferred. The response is an HTTP status, **not a $402 charge**.
+
+The remaining provider prerequisite is positive compute credits/billing access
+in the authenticated HF account. The HTTP status does not reveal an exact credit
+balance. Current [HF pricing](https://huggingface.co/docs/hub/jobs-pricing) lists
+L4 at $0.80/hour, billed per minute while Starting or Running; a three-minute
+hardware allowance corresponds to approximately $0.04 in GPU time. No compute
+purchase or subscription was made.
+
+This metadata-only milestone records consent and the concrete billing failure.
+It does not constitute model progress: no support-context predictions,
+development AUC, Kaggle submission or model promotion occurred. The best verified
+private AUC remains **0.91425**, **0.01505** below the historical winning score.
+The frozen candidate, retained adapters, input hashes, query exclusions and
+1e-5 parity gate remain unchanged. Reuse the successful local S3 check and
+completed tests; do not restart AWS capacity queues or repeatedly retry HF.
+
+Next: resolve account billing, then verify GPU and private S3 recovery in one
+bounded preflight before the retained-checkpoint support-context comparison.
+That comparison tests whether relevant positive/negative examples improve rule
+adjudication without retraining. Its performance benefit is still unmeasured.
+[Exact attempt receipt](../reports/checkpoints/support_context_hardware.json).

@@ -264,7 +264,7 @@
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
-  "status": "workspace_restored_hf_billing_and_transfer_approval_required",
+  "status": "private_transfer_authorized_hf_billing_required",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
@@ -502,5 +502,17 @@
     "reconciled_commit": "7c3abba42b248a955e093458a55047700484e996",
     "status": "connected",
     "verified_utc": "2026-09-10T18:53:09Z"
+  },
+  "private_transfer_authorization": {
+    "status": "authorized_by_user",
+    "manifest": "reports/checkpoints/support_context_transfer.json"
+  },
+  "latest_provider_check": {
+    "checked_utc": "2026-09-10T19:22:47.868Z",
+    "http_status": 402,
+    "job_created": false,
+    "gpu_executed": false,
+    "result_auc": null,
+    "evidence": "reports/checkpoints/support_context_hardware.json"
   }
 }
