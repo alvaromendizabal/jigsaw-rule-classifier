@@ -3,14 +3,36 @@
 from __future__ import annotations
 
 import argparse
+import os
 import shutil
+import subprocess
 import sys
 import venv
 from importlib.metadata import distributions
 from pathlib import Path
 
 
-def bootstrap(destination: Path) -> None:
+def install_pip(destination: Path, wheel: Path) -> None:
+    """Seed an isolated venv from a verified wheel when ensurepip is unavailable."""
+    environment = dict(os.environ, PYTHONPATH=str(wheel.resolve()))
+    subprocess.run(
+        [
+            str(destination / "bin/python"),
+            "-m",
+            "pip",
+            "install",
+            "--ignore-installed",
+            "--no-deps",
+            "--no-index",
+            str(wheel.resolve()),
+        ],
+        env=environment,
+        check=True,
+        timeout=60,
+    )
+
+
+def bootstrap(destination: Path, pip_wheel: Path | None = None) -> None:
     if destination.exists():
         raise FileExistsError("Refusing to overwrite an existing GPU environment")
     native = []
@@ -20,7 +42,7 @@ def bootstrap(destination: Path) -> None:
             native.append(distribution)
     if not any(d.metadata["Name"].lower() == "torch" for d in native):
         raise RuntimeError("The pinned training image must supply PyTorch")
-    venv.EnvBuilder(with_pip=True, system_site_packages=False).create(destination)
+    venv.EnvBuilder(with_pip=pip_wheel is None, system_site_packages=False).create(destination)
     target = (
         destination / f"lib/python{sys.version_info.major}.{sys.version_info.minor}/site-packages"
     )
@@ -47,6 +69,8 @@ def bootstrap(destination: Path) -> None:
     (destination / "native-constraints.txt").write_text(
         "\n".join(sorted(f"{d.metadata['Name']}=={d.version}" for d in native)) + "\n"
     )
+    if pip_wheel is not None:
+        install_pip(destination, pip_wheel)
     print(
         "Isolated GPU environment; reused native packages:",
         sorted(d.metadata["Name"] for d in native),
@@ -57,4 +81,6 @@ def bootstrap(destination: Path) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("destination", type=Path)
-    bootstrap(parser.parse_args().destination)
+    parser.add_argument("--pip-wheel", type=Path)
+    args = parser.parse_args()
+    bootstrap(args.destination, args.pip_wheel)

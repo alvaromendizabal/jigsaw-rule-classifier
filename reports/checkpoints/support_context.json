@@ -264,7 +264,7 @@
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
-  "status": "hf_gpu_storage_verified_support_context_ready",
+  "status": "hf_setup_corrected_retry_ready",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
@@ -515,5 +515,20 @@
     "storage_round_trip_verified": true,
     "result_auc": null,
     "evidence": "reports/checkpoints/support_context_hardware.json"
+  },
+  "hf_inference": {
+    "job_id": "6aa309e421047bf1b03735ae",
+    "url": "https://huggingface.co/jobs/alvaromendizabal/6aa309e421047bf1b03735ae",
+    "created_utc": "2026-09-10T19:49:56.533Z",
+    "source_commit": "3b5d44585bff4b3de9fc2bf049dddbb2412406eb",
+    "job_max_seconds": 1200,
+    "url_expires_utc": "2026-09-10T20:04:42Z",
+    "checkpoint_key": "experiments/support-context-20260910/hf/checkpoints.tar.gz",
+    "training_performed": false,
+    "result": null,
+    "status": "ERROR",
+    "failure": "The public PyTorch image lacks ensurepip; venv creation stopped before model inference.",
+    "correction": "Create venv without ensurepip, then seed pip 25.3 from a SHA256-pinned wheel. Real isolated local smoke passed.",
+    "model_inference_started": false
   }
 }

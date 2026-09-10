@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path("/tmp/jigsaw/code")
 PUBLIC_FILES = (
+    "scripts/bootstrap_gpu.py",
     "scripts/support_context.py",
     "scripts/support_context_storage.py",
     "scripts/support_context_hf.py",
@@ -69,8 +70,22 @@ def main():
             ),
             flush=True,
         )
+        wheel = ROOT.parent / "pip-25.3-py3-none-any.whl"
+        download(
+            "https://files.pythonhosted.org/packages/44/3c/"
+            "d717024885424591d5376220b5e836c2d5293ce2011523c9de23ff7bf068/"
+            "pip-25.3-py3-none-any.whl",
+            wheel,
+            "9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd",
+        )
         subprocess.run(
-            [sys.executable, str(ROOT / "scripts/bootstrap_gpu.py"), "/tmp/jigsaw/env"],
+            [
+                sys.executable,
+                str(ROOT / "scripts/bootstrap_gpu.py"),
+                "/tmp/jigsaw/env",
+                "--pip-wheel",
+                str(wheel),
+            ],
             check=True,
             timeout=120,
         )

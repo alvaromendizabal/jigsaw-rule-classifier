@@ -763,3 +763,17 @@ limit, job's 1,200-second cap and scientific promotion gates remain unchanged.
 Temporary URLs last 900 seconds; the transport stops normal work with 60 seconds
 remaining for a final save. Successful shards can be resumed with fresh URLs.
 One fixed support-context comparison is next, with zero optimizer steps.
+
+
+The first model job, 6aa309e421047bf1b03735ae, reached the source checksum check
+then stopped with exit code 1: the public PyTorch image lacks Python ensurepip.
+No model was loaded and no training, parity check or candidate inference ran.
+This was an environment-bootstrap failure, not a scientific result. The
+correction creates the isolated venv without ensurepip, then installs pip 25.3
+from its verified 1,778,622-byte public wheel (SHA256
+9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd).
+A real local venv created without pip successfully installed that wheel and
+reported pip 25.3 from inside the isolated environment. Native Torch/CUDA copies
+and constraints remain preserved. Retry this same comparison once using the
+corrected bootstrap and fresh scoped URLs; do not rerun the passed hardware
+probe or alter model, prompt, data or parity thresholds.
