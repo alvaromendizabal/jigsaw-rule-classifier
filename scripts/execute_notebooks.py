@@ -84,6 +84,10 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
     paths += [root / "pyproject.toml", root / "uv.lock"]
     paths += [p for p in sorted((root / "configs").glob("*.json")) if p.name != "local.json"]
     if mode == "public":
+        paths += [
+            root / "reports/checkpoints" / name
+            for name in ("kaggle_adaptation.json", "kaggle_submission.json")
+        ]
         coverage = root / "docs/FEATURE_COVERAGE.md"
         if coverage.exists():
             paths.append(coverage)

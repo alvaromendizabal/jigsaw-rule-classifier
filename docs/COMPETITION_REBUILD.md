@@ -223,10 +223,36 @@ The T4 runtime uses FP16 loss scaling, retries a skipped overflow step without a
 
 An authored-data T4 probe completed two optimizer steps, deliberately reloaded after step one and produced finite predictions. It is a software check, not an AUC measurement. The original-data 117-step preview and saved offline execution are recorded separately in [the runtime receipt](../reports/checkpoints/kaggle_adaptation.json). A ten-row preview cannot establish a new competition score.
 
-The expanded local suite passes 371 tests, including exact interrupted-training recovery, overflow retry, cache corruption, novel-policy support eligibility, extreme-score ranking and generated notebook/source parity. Five public notebooks were executed with the in-process runner; GitHub CI additionally requires real Jupyter execution and replay. The feature gate remains open until the original-competition candidate is evaluated on the hidden run.
+The expanded local suite passes 371 tests, including exact interrupted-training recovery, overflow retry, cache corruption, novel-policy support eligibility, extreme-score ranking and generated notebook/source parity. Five public notebooks were executed with the in-process runner; GitHub CI additionally requires real Jupyter execution and replay. The offline execution gate has passed; broader representation research and the 0.92–0.93 objective remain open.
 
 The original-data T4 preview completed all **117 optimizer steps** in **612.3 worker seconds**, used **8.26 GiB** peak allocated GPU memory, and validated all **10 preview rows**. Canonical notebook replay reused the completed result with identical CSV hash and no model fitting. The fresh offline saved Version 3 (**348640051**) independently completed its 117-step epoch at **23:45:38 UTC on September 9, 2026**, taking **603.5 worker seconds / 8.26 GiB** and producing the same CSV hash. The saved manifest's six runtime source hashes, model assets and configuration match the canonical repository. Saved outputs contain the checkpoints, runtime, validated CSV and manifest; row order, schema and finite ranks passed inspection. The notebook remains private.
 
 GitHub Quality run **34417662301** passed at evidence commit `62464de`, including all 371 tests, five actual Jupyter notebooks and replay, the historical CPU control and the pinned semantic encoder. The submitted implementation remains `a493697`.
 
-**Hidden evaluation is now running.** The account's submission list contained only Version 2 before the action. After submitting Version 3 once, both its new row and Submission Details showed **Notebook Running (after deadline)** at **23:47 UTC**. Kaggle privately reruns the saved notebook with hidden inputs and their legitimate supplied supports. Neither the ten-row preview nor the 0.7199 development result is a new competition score. The target of **0.92–0.93** remains open; record the actual outcome before selecting another experiment.
+## Verified hidden Kaggle evaluation
+
+Version 3 / **348640051**, implementation **a4936977c945110ea5b86398cdfb9d2a9f12556b**, was submitted once and remains private. At **2026-09-10 02:20:43 UTC**, both the authenticated account row and Submission Details reported **Succeeded (after deadline)** and these actual scores:
+
+| Kaggle entry | Public AUC | Private AUC |
+|---|---:|---:|
+| Original lexical Version 2 | 0.59191 | 0.61956 |
+| Support-adapted Qwen3-4B Version 3 | **0.91808** | **0.91425** |
+| Absolute improvement | +0.32617 | +0.29469 |
+
+Private AUC is **0.00575 below 0.92** and **0.01575 below 0.93**. Public AUC is 0.00192 / 0.01192 below those targets. This is a material end-to-end improvement; it changes the backbone and training method together. The matched 881-row development study, not this two-model comparison, isolates the adaptation effect. Neither a leaderboard rank nor a medal is claimed for this late entry.
+
+The entry was last observed running at 02:13:01 UTC and first observed scored at 02:20:43 UTC. Exact completion time and hidden worker duration are not exposed. Kaggle acceptance verifies that a scoreable hidden output was produced; hidden row count, prediction hash, optimizer steps and GPU measurements were not available for independent inspection. The 603.5-second / 8.26-GiB / ten-row measurements belong to the separately verified saved preview. Do not present those as full hidden-run measurements. No hidden raw predictions or released targets were downloaded or added to Git.
+
+The saved source fits only original training labels and supplied positive/negative support labels. Eleven pinned model assets and the six runtime sources were checked before submission, and the saved preview passed schema, order, finite-rank and exact-replay checks. Successful hidden scoring does not authorize any reuse of organizer-released targets or the consumed protected cohort. PR #19 merged after final-head Quality run 34418699358 passed; the scored notebook remains the original immutable Version 3.
+
+[Exact saved version](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Account result](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions) · [Machine-readable receipt](../reports/checkpoints/kaggle_adaptation.json).
+
+## Highest-value remaining representation experiment
+
+Test **complementary support-adapted instruction-model representations**, using one second eligible, pinned backbone and a preregistered equal-weight within-policy rank blend with Qwen. This is a hypothesis motivated by the winner's diverse ensemble, not a promised gain. Our existing adapted-coordinate readout and geometry blend did not beat the direct score, so repeating those searches is lower priority.
+
+Keep the legitimate support construction fixed and evaluate the second model and fixed blend on the existing original-data novel-comment development protocol. Purge query bodies from fitted sources, compare per-policy AUC and paired group uncertainty, and inspect prediction correlation and runtime. Freeze the revision, one-epoch budget and blend before running; reject unsupported gains. The two previously examined development policies are not a fresh holdout. Do not tune to the newly observed private Kaggle score, access released targets, or reuse the consumed protected cohort. No additional paid cloud experiment has been launched.
+
+The evaluated-candidate milestone is complete. The **0.92–0.93 performance objective and broader representation research remain open**.
+
+Publication validation initially hit a non-JSON NumPy array in the new Plotly display and then a full local workspace during pytest. The display now serializes through Plotly JSON; pruning disposable package caches recovered disk space. These were report-publication failures, not Kaggle model failures. All five updated public notebooks executed and their completed outputs replayed.

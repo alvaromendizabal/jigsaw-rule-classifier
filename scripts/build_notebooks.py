@@ -524,7 +524,7 @@ else:
                 (
                     "md",
                     title
-                    + "\n\n**Current decision: competition performance remains open.** The original lexical submission scored **0.59191 public / 0.61956 private**, below the approximately **0.92** objective. A successful submission did not complete the performance goal. The historical research below used post-competition development labels and remains a separate, preserved result. The new original-data representation study reopens the feature gate; [the rebuild record](../docs/COMPETITION_REBUILD.md) explains the failure and next acceptance steps.",
+                    + "\n\n**Verified Kaggle result: 0.91808 public / 0.91425 private AUC.** Support-adapted Qwen3-4B Version 3 succeeded as a late entry, improving private AUC by **0.29469** over the original lexical model. Verified September 10, 2026 at 02:20 UTC. The private gap to **0.92** is **0.00575**; the performance goal remains open. The historical research below used post-competition development labels and remains a separate, preserved result. The new original-data representation study reopens the feature gate; [the rebuild record](../docs/COMPETITION_REBUILD.md) explains the failure and next acceptance steps.",
                 )
             ]
         ).cells[0]
@@ -586,6 +586,20 @@ else:
     outputs["notebooks/03_saved_results.ipynb"].cells[3:3] = (
         new_cells[:2] + adaptation_cells[:2] + historical
     )
+    scored_cells = notebook(
+        [
+            (
+                "md",
+                "## Actual Kaggle scores\nVersion 3 is scored; these are competition results, separate from the development and historical studies below. The immutable private version is 348640051. The next proposed experiment is a second support-adapted backbone with a fixed rank blend; no new experiment is launched here.",
+            ),
+            (
+                "code",
+                "import json\nimport plotly.graph_objects as go\nreceipt = json.loads((root / 'reports/checkpoints/kaggle_adaptation.json').read_text())\nentry = receipt['submission']\nassert entry['status'] == 'succeeded' and entry['script_version_id'] == 348640051\nbaseline = json.loads((root / 'reports/checkpoints/kaggle_submission.json').read_text())['submission']\nscore_table = pd.DataFrame([\n    {'Entry': 'Lexical reference · V2', 'Public AUC': baseline['public_score'], 'Private AUC': baseline['private_score']},\n    {'Entry': 'Support-adapted Qwen · V3', 'Public AUC': entry['public_score'], 'Private AUC': entry['private_score']},\n])\ndisplay(score_table)\nfig = go.Figure()\nfor name, color in [('Public AUC', '#7b8fa1'), ('Private AUC', '#087f8c')]:\n    fig.add_bar(name=name, x=score_table['Entry'], y=score_table[name], marker_color=color,\n                text=[f'{v:.5f}' for v in score_table[name]], textposition='outside')\nfig.add_hrect(y0=0.92, y1=0.93, fillcolor='#d69c2f', opacity=0.2, line_width=0)\nfig.update_layout(title='Verified late Kaggle evaluation · target band 0.92–0.93',\n                  template='plotly_white', barmode='group', height=440,\n                  yaxis=dict(title='Kaggle AUC', range=[0, 1.02]),\n                  legend=dict(orientation='h', y=-0.18), margin=dict(t=80, b=90))\ndisplay({'application/vnd.plotly.v1+json': json.loads(fig.to_json())}, raw=True)\nprint('Receipt verified UTC:', entry['first_verified_scored_utc'])\nprint('Private gap to 0.92:', receipt['comparison']['private_gap_to_0_92'])\nprint('Hidden runtime and prediction hash are not exposed; saved preview metrics are separate.')\n",
+            ),
+        ]
+    ).cells
+    for name in ("02_baseline_and_review", "03_saved_results"):
+        outputs[f"notebooks/{name}.ipynb"].cells[3:3] = scored_cells
     # Keep the original lexical notebook as a reproducible historical control.
     if __package__:
         from .build_adapted_notebook import build as adapted_notebook
