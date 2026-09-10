@@ -1,5 +1,5 @@
 {
-  "status": "registered_not_launched",
+  "status": "gpu_job_in_progress",
   "model_id": "Qwen/Qwen3-8B",
   "revision": "b968826d9c46dd6066d109eabc6255188de91218",
   "original_plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
@@ -36,7 +36,82 @@
     "quality_tests_passed": 387,
     "quality_gate": "passed"
   },
-  "gpu_job": null,
+  "gpu_job": {
+    "archive_sha256": "06d9bbf48b022d6ed06a4c49c31361ad64b5f4cdfe62c36baafc90c639847f7f",
+    "archive_bytes": 543364,
+    "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+    "prefix": "experiments/backbone-capacity-20260910",
+    "key": "experiments/backbone-capacity-20260910/source/06d9bbf48b022d6ed06a4c49c31361ad64b5f4cdfe62c36baafc90c639847f7f/source.tar.gz",
+    "job_name": "jigsaw-backbone-capacity-20260910",
+    "request": {
+      "AlgorithmSpecification": {
+        "ContainerArguments": [
+          "-c",
+          "jigsaw_source=/opt/ml/input/data/source/source.tar.gz; echo \"$JIGSAW_SOURCE_SHA256  $jigsaw_source\"|sha256sum -c - && mkdir -p /opt/ml/code && tar xzf \"$jigsaw_source\" -C /opt/ml/code && exec bash /opt/ml/code/scripts/run_model_study.sh"
+        ],
+        "ContainerEntrypoint": [
+          "/bin/bash"
+        ],
+        "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training@sha256:26e979d1e21417c3a58d79478e6db1804d4fad512048a7a8cdf1816ab971e7c0",
+        "TrainingInputMode": "File"
+      },
+      "Environment": {
+        "JIGSAW_BUCKET": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "JIGSAW_STUDY_PREFIX": "experiments/backbone-capacity-20260910",
+        "JIGSAW_SOURCE_SHA256": "06d9bbf48b022d6ed06a4c49c31361ad64b5f4cdfe62c36baafc90c639847f7f",
+        "JIGSAW_STUDY_CONFIG": "configs/backbone_capacity.json",
+        "JIGSAW_MODEL_CONFIG": "configs/qwen3_8b.json"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "source",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataDistributionType": "FullyReplicated",
+              "S3DataType": "S3Prefix",
+              "S3Uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/backbone-capacity-20260910/source/06d9bbf48b022d6ed06a4c49c31361ad64b5f4cdfe62c36baafc90c639847f7f/"
+            }
+          }
+        }
+      ],
+      "OutputDataConfig": {
+        "S3OutputPath": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/backbone-capacity-20260910/output/"
+      },
+      "ResourceConfig": {
+        "InstanceCount": 1,
+        "InstanceType": "ml.g6.xlarge",
+        "VolumeSizeInGB": 60
+      },
+      "RoleArn": "arn:aws:iam::560403859723:role/service-role/AmazonSageMaker-ExecutionRole-20260902T115323",
+      "StoppingCondition": {
+        "MaxPendingTimeInSeconds": 7200,
+        "MaxRuntimeInSeconds": 3600
+      },
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "jigsaw-rule-classifier"
+        },
+        {
+          "Key": "Purpose",
+          "Value": "bounded-backbone-capacity"
+        }
+      ],
+      "TrainingJobName": "jigsaw-backbone-capacity-20260910"
+    },
+    "source_commit": "172ecc773479d03d77bf0047f2474a05ab448506",
+    "status": "InProgress",
+    "source_version_id": "Q7TgfeH0U0au_PcHiV_9gEDecZk2WVYR",
+    "created_utc": "2026-09-10T04:10:31.083000+00:00",
+    "last_verified_utc": "2026-09-10T04:23:26.348038+00:00",
+    "phase": "adapter_training_fold_0",
+    "run_id": "bfc34303222393401675",
+    "model_assets_verified": 13,
+    "model_assets_verified_utc": "2026-09-10T04:21:00+00:00",
+    "contract_sha256": "24b26b46792671dd1d81d1df5593869eaab38c1c07bdeb550c30e054e726f950",
+    "optimizer_step": 2,
+    "fold_optimizer_steps": 142
+  },
   "development_result": null,
   "kaggle_candidate": null,
   "budget": {
@@ -68,5 +143,13 @@
     "merge_commit": "52e96eb1c64e7ba08a972dd9567718587d8cd267",
     "decision": "Phi blend not promoted; uncertain 0.00365 development gain"
   },
-  "registered_utc": "2026-09-10T04:07:14.808741+00:00"
+  "registered_utc": "2026-09-10T04:07:14.808741+00:00",
+  "initial_ci": {
+    "commit": "172ecc773479d03d77bf0047f2474a05ab448506",
+    "run_id": 34436019357,
+    "conclusion": "success",
+    "tests": 387,
+    "actual_jupyter_notebooks": 5,
+    "replay": true
+  }
 }
