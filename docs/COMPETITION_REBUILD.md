@@ -496,3 +496,21 @@ candidate therefore needs more GPU memory or separately verified quantization.
 Model family, revision, training and rule understanding matter alongside size.
 Direct support context is the next selected hypothesis, not a guaranteed way to
 close the entire gap. [Frozen protocol](../configs/support_context.json).
+
+**Execution attempt, September 10:** implementation commit
+`455743f38b86414bfc2e4f654ec8769d9d92d273` passed Quality run **34510983016**,
+including all five actual Jupyter notebook executions and replay. The recovered
+plan exactly matches reconstruction from the original 2,029 training rows; all
+881 balanced support selections are valid. Saved baseline predictions reproduce
+0.7198933967 policy-macro AUC without inference or fitting.
+
+One job, `jigsaw-support-context-20260910`, was requested at **17:56:33 UTC**.
+AWS reported `Training job waiting for capacity` and no training start. After
+the five-minute queue allowance elapsed, a stop was requested at **18:02:08 UTC**
+(about 335 seconds including checks and API latency). No automatic replacement
+job was launched. The stopping/terminal state is recorded in the
+[durable attempt receipt](../reports/checkpoints/support_context.json).
+The hash-pinned source and retained adapters remain recoverable. **There is no
+new GPU prediction or AUC result from this attempt.** The candidate has not been
+scientifically accepted or rejected, and the Kaggle gap is unchanged. This draft
+stops at the resource blocker instead of escalating into an open-ended run.
