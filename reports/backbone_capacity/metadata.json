@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "study": "original_policy_model_backbone_capacity",
+  "evaluation_run": "fe43002de3b74d4f34f9",
+  "code_preregistration_commit": "172ecc773479d03d77bf0047f2474a05ab448506",
+  "evaluated_utc": "2026-09-10T05:05:13.532488+00:00",
+  "files": {
+    "results.json": "5449959e519e1fe2b65531fe8687d6d99b374b2bb01ec9cc5528884afafe66c9",
+    "uncertainty.json": "086bf7c515e9d82336c9cfade53fd9cfa9cfc251abd5b0637161cd6bdd020e0e",
+    "decision.json": "de1a0caf2a4062f79b0e2784e047f4508fbbe5cac585470ea39b20a34f6d8bd1",
+    "correlations.json": "84a5ddf2e257ba383081ea2998ebd6c1529a02905e1e815f1ef93397b1df370d",
+    "protocol.json": "bbbd940484794656a08b1d13453771a6cf9efcce65f9c91240b12b23bfab8179",
+    "provenance.json": "26d94871fad76261f1f3eb690d59fd6c2662bc6944633008bbd9b4c50a9f0db1",
+    "inference.json": "8c867bcb3c1e10c326fbafd0cf8e411d52901dd42586906ac9f0cb32b85d8a54"
+  }
+}

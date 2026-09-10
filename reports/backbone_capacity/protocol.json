@@ -1,0 +1,12 @@
+{
+  "rows": 881,
+  "policies": 2,
+  "primary_metric": "Equal-weight policy-macro ROC AUC",
+  "candidate": "Adapted Qwen3-8B or fixed 50/50 4B/8B rank blend; no fitted weights",
+  "secondary_control": "Frozen 8B is descriptive, excluded from candidate selection",
+  "scope": "Previously examined original-data policies; not a new holdout",
+  "target_source": "Original train.csv only, loaded after predictions were fixed",
+  "architecture_changes": "8B, different vintage, non-thinking chat, micro-batch 2",
+  "causal_limit": "Size is not isolated from model vintage and native formatting",
+  "limits": "Two policies; conditional uncertainty does not establish transfer"
+}

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -19,10 +20,22 @@ LABELS = {
     "phi": "Support-adapted Phi",
     "blend": "Fixed 50/50 rank blend",
 }
+CAPACITY_LABELS = {
+    "qwen4b": "Adapted Qwen 4B · reused control",
+    "qwen8b_frozen": "Frozen Qwen 8B",
+    "qwen8b": "Support-adapted Qwen 8B",
+    "blend": "Fixed 50/50 4B/8B rank blend",
+}
 
 
-def evidence(root: Path) -> dict:
-    folder = root / "reports/complementarity"
+def report_folder(root: Path, study: str) -> Path:
+    if study not in {"complementarity", "backbone_capacity"}:
+        raise ValueError("Unknown registered model study")
+    return root / "reports" / study
+
+
+def evidence(root: Path, study: str = "complementarity") -> dict:
+    folder = report_folder(root, study)
     manifest = json.loads((folder / "metadata.json").read_text())
     records = {}
     for name, sha in manifest["files"].items():
@@ -42,20 +55,23 @@ def evidence(root: Path) -> dict:
     return records
 
 
-def build(root: Path) -> None:
-    records = evidence(root)
-    folder = root / "reports/complementarity"
-    values = [records["results"][key]["rule_macro_auc"] for key in LABELS]
+def build(root: Path, study: str = "complementarity") -> None:
+    records = evidence(root, study)
+    folder = report_folder(root, study)
+    names = CAPACITY_LABELS if study == "backbone_capacity" else LABELS
+    values = [records["results"][key]["rule_macro_auc"] for key in names]
     labels = [f"{value:.4f}" for value in values]
     colors = ["#7b8fa1", "#b5bdc7", "#4278a4", "#087f8c"]
     title = "Does a second model improve novel-comment ranking?"
+    if study == "backbone_capacity":
+        title = "Does the larger backbone improve novel-comment ranking?"
     subtitle = (
         f"{records['protocol']['rows']} comments · 2 development policies · not a Kaggle score"
     )
     plot = go.Figure(
         go.Bar(
             x=values,
-            y=list(LABELS.values()),
+            y=list(names.values()),
             orientation="h",
             marker_color=colors,
             text=labels,
@@ -71,9 +87,9 @@ def build(root: Path) -> None:
         yaxis={"autorange": "reversed"},
         showlegend=False,
     )
-    plt.rcParams.update({"font.family": "DejaVu Sans", "svg.hashsalt": "jigsaw-complementarity"})
+    plt.rcParams.update({"font.family": "DejaVu Sans", "svg.hashsalt": "jigsaw-" + study})
     figure, axis = plt.subplots(figsize=(10.5, 4.5))
-    bars = axis.barh(list(LABELS.values()), values, color=colors)
+    bars = axis.barh(list(names.values()), values, color=colors)
     axis.bar_label(bars, labels=labels, padding=5, fontsize=10)
     axis.invert_yaxis()
     axis.set(xlim=(0, 1.05), xlabel="Policy-macro ROC AUC")
@@ -85,7 +101,7 @@ def build(root: Path) -> None:
     atomic_bytes(folder / "comparison.plotly.json", plot.to_json().encode())
     figure.savefig(folder / "comparison.svg", metadata={"Date": None}, bbox_inches="tight")
     (root / "logs").mkdir(exist_ok=True)
-    figure.savefig(root / "logs/complementarity-comparison.png", dpi=130, bbox_inches="tight")
+    figure.savefig(root / f"logs/{study}-comparison.png", dpi=130, bbox_inches="tight")
     plt.close(figure)
     atomic_json(
         folder / "figures.json",
@@ -99,11 +115,11 @@ def build(root: Path) -> None:
     )
 
 
-def display_comparison(root: Path) -> None:
+def display_comparison(root: Path, study: str = "complementarity") -> None:
     from IPython.display import display
 
-    evidence(root)
-    folder = root / "reports/complementarity"
+    evidence(root, study)
+    folder = report_folder(root, study)
     record = json.loads((folder / "figures.json").read_text())
     if record["source_sha256"] != digest(Path(__file__)) or record["metadata_sha256"] != digest(
         folder / "metadata.json"
@@ -124,4 +140,8 @@ def display_comparison(root: Path) -> None:
 
 
 if __name__ == "__main__":
-    build(Path(__file__).resolve().parents[1])
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--study", choices=("complementarity", "backbone_capacity"), default="complementarity"
+    )
+    build(Path(__file__).resolve().parents[1], parser.parse_args().study)

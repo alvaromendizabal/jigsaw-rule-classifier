@@ -11,6 +11,32 @@ from scripts.evaluate_complementarity import blend_scores, promotion_decision
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.mark.parametrize("study", ["complementarity", "backbone_capacity"])
+def test_publication_exports_only_verified_aggregates(tmp_path, study):
+    from scripts.publish_complementarity import AGGREGATES, publish
+
+    root, evaluation = tmp_path / "root", tmp_path / "private"
+    (root / "configs").mkdir(parents=True)
+    (root / "scripts").mkdir()
+    atomic_json(root / "configs" / f"{study}.json", {"study": study})
+    evaluator = root / "scripts" / f"evaluate_{study}.py"
+    evaluator.write_text("# registered evaluator\n")
+    for name in AGGREGATES:
+        atomic_json(evaluation / name, {})
+    atomic_json(
+        evaluation / "provenance.json",
+        {"spec": {"study": study}, "source": digest(evaluator)},
+    )
+    np.savez(evaluation / "predictions.npz", scores=[0.1, 0.9])
+    files = {p.name: digest(p) for p in evaluation.iterdir()}
+    atomic_json(evaluation / "complete.json", {"files": files, "finished_at": "fixture"})
+    destination = publish(root, evaluation, "preregistered", study)
+    assert {p.name for p in destination.iterdir()} == set(AGGREGATES) | {"metadata.json"}
+    np.savez(evaluation / "predictions.npz", scores=[0.2, 0.8])
+    with pytest.raises(ValueError, match="checksum"):
+        publish(root, evaluation, "preregistered", study)
+
+
 def test_blend_preserves_ties_and_ignores_monotone_model_scale():
     qwen = np.array([-200.0, -200.0, 10.0, 150.0])
     phi = np.array([1.0, 3.0, 2.0, 4.0])

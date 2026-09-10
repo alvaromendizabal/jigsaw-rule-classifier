@@ -103,7 +103,13 @@ def test_new_model_report_invalidates_notebook_cache(project):
 
 
 @pytest.mark.parametrize(
-    "receipt", ["kaggle_adaptation.json", "kaggle_submission.json", "complementarity.json"]
+    "receipt",
+    [
+        "kaggle_adaptation.json",
+        "kaggle_submission.json",
+        "complementarity.json",
+        "backbone_capacity.json",
+    ],
 )
 def test_changed_scored_or_study_receipt_invalidates_notebook_cache(project, receipt):
     from scripts.execute_notebooks import execution_contract
@@ -112,7 +118,7 @@ def test_changed_scored_or_study_receipt_invalidates_notebook_cache(project, rec
     before = execution_contract(project, project, nb, "public", "inprocess")
     path = project / "reports/checkpoints" / receipt
     data = json.loads(path.read_text())
-    if receipt == "complementarity.json":
+    if receipt in {"complementarity.json", "backbone_capacity.json"}:
         data["status"] = "changed_fixture_status"
     else:
         data["submission"]["public_score"] = 0.5

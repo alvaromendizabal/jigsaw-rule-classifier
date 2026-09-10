@@ -1,5 +1,5 @@
 {
-  "status": "gpu_job_in_progress",
+  "status": "evaluated_not_promoted",
   "model_id": "Qwen/Qwen3-8B",
   "revision": "b968826d9c46dd6066d109eabc6255188de91218",
   "original_plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
@@ -100,20 +100,149 @@
       "TrainingJobName": "jigsaw-backbone-capacity-20260910"
     },
     "source_commit": "172ecc773479d03d77bf0047f2474a05ab448506",
-    "status": "InProgress",
+    "status": "Completed",
     "source_version_id": "Q7TgfeH0U0au_PcHiV_9gEDecZk2WVYR",
     "created_utc": "2026-09-10T04:10:31.083000+00:00",
-    "last_verified_utc": "2026-09-10T04:23:26.348038+00:00",
-    "phase": "adapter_training_fold_0",
+    "last_verified_utc": "2026-09-10T05:05:06.423123+00:00",
+    "phase": "Completed",
     "run_id": "bfc34303222393401675",
     "model_assets_verified": 13,
     "model_assets_verified_utc": "2026-09-10T04:21:00+00:00",
     "contract_sha256": "24b26b46792671dd1d81d1df5593869eaab38c1c07bdeb550c30e054e726f950",
-    "optimizer_step": 2,
-    "fold_optimizer_steps": 142
+    "completed_optimizer_steps": 241,
+    "started_utc": "2026-09-10T04:11:28.686000+00:00",
+    "ended_utc": "2026-09-10T04:48:19.975000+00:00",
+    "billable_seconds": 2211,
+    "compute_cost_usd": 0.6921658333333333,
+    "elapsed_worker_seconds": 1851.2779450570001,
+    "receipt_sha256": "8c867bcb3c1e10c326fbafd0cf8e411d52901dd42586906ac9f0cb32b85d8a54"
   },
-  "development_result": null,
-  "kaggle_candidate": null,
+  "development_result": {
+    "results": {
+      "qwen4b": {
+        "rule_macro_auc": 0.7198933966592936,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6792537313432836,
+          "No legal advice: Do not offer or request legal advice.": 0.7605330619753037
+        },
+        "pooled_auc": 0.7389593814933182
+      },
+      "qwen8b_frozen": {
+        "rule_macro_auc": 0.6351568977240566,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.5851119402985075,
+          "No legal advice: Do not offer or request legal advice.": 0.6852018551496056
+        },
+        "pooled_auc": 0.6585424379542028
+      },
+      "qwen8b": {
+        "rule_macro_auc": 0.7179403194639121,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6827985074626866,
+          "No legal advice: Do not offer or request legal advice.": 0.7530821314651377
+        },
+        "pooled_auc": 0.7343870307671213
+      },
+      "blend": {
+        "rule_macro_auc": 0.725395239366464,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6875373134328359,
+          "No legal advice: Do not offer or request legal advice.": 0.763253165300092
+        },
+        "pooled_auc": 0.7428092269721229
+      }
+    },
+    "uncertainty": [
+      {
+        "contrast": "larger backbone contribution",
+        "candidate": "qwen8b",
+        "reference": "qwen4b",
+        "observed_delta": -0.001953077195381625,
+        "ci_lower": -0.02093423445120666,
+        "ci_upper": 0.01647627461986843,
+        "simultaneous_lower": -0.02069994440362076,
+        "simultaneous_upper": 0.01679379001285751,
+        "draws": 1000,
+        "seed": 2025,
+        "comparisons": 2,
+        "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+      },
+      {
+        "contrast": "fixed 4B/8B blend contribution",
+        "candidate": "blend",
+        "reference": "qwen4b",
+        "observed_delta": 0.005501842707170246,
+        "ci_lower": -0.00432630244009064,
+        "ci_upper": 0.015378578780617838,
+        "simultaneous_lower": -0.013245024501068889,
+        "simultaneous_upper": 0.02424870991540938,
+        "draws": 1000,
+        "seed": 2025,
+        "comparisons": 2,
+        "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+      }
+    ],
+    "decision": {
+      "eligible_for_kaggle_candidate": false,
+      "selected": null,
+      "candidates": {
+        "qwen8b": {
+          "eligible": false,
+          "checks": {
+            "positive_macro_gain": false,
+            "simultaneous_interval_positive": false,
+            "per_policy_regression_within_limit": false
+          },
+          "macro_delta": -0.001953077195381514,
+          "per_rule_delta": {
+            "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.0035447761194029592,
+            "No legal advice: Do not offer or request legal advice.": -0.007450930510165987
+          }
+        },
+        "blend": {
+          "eligible": false,
+          "checks": {
+            "positive_macro_gain": true,
+            "simultaneous_interval_positive": false,
+            "per_policy_regression_within_limit": true
+          },
+          "macro_delta": 0.005501842707170357,
+          "per_rule_delta": {
+            "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.008283582089552266,
+            "No legal advice: Do not offer or request legal advice.": 0.0027201033247883366
+          }
+        }
+      },
+      "selection": {
+        "candidates": [
+          "qwen8b",
+          "blend"
+        ],
+        "priority": [
+          "qwen8b",
+          "blend"
+        ],
+        "method": "highest policy-macro AUC among candidates passing all gates; priority breaks exact ties"
+      },
+      "meaning": "Development eligibility only; offline and hidden-score gates remain"
+    },
+    "correlations": [
+      {
+        "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+        "spearman": 0.9036613121583196
+      },
+      {
+        "rule": "No legal advice: Do not offer or request legal advice.",
+        "spearman": 0.8931103452558966
+      }
+    ],
+    "evaluation_run": "fe43002de3b74d4f34f9",
+    "replay": "all eight checksum-verified outputs reused without model execution"
+  },
+  "kaggle_candidate": {
+    "status": "not_promoted",
+    "reason": "No registered candidate passed all development gates; no new competition submission"
+  },
   "budget": {
     "instance": "ml.g6.xlarge",
     "region": "us-west-2",
@@ -151,5 +280,512 @@
     "tests": 387,
     "actual_jupyter_notebooks": 5,
     "replay": true
+  },
+  "offline_preflight": {
+    "status": "CPU structural feasibility only; actual T4 execution pending development eligibility",
+    "model_id": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "device_map": {
+      "model.embed_tokens": 0,
+      "model.layers.0": 0,
+      "model.layers.1": 0,
+      "model.layers.2": 0,
+      "model.layers.3": 0,
+      "model.layers.4": 0,
+      "model.layers.5": 0,
+      "model.layers.6": 0,
+      "model.layers.7": 0,
+      "model.layers.8": 0,
+      "model.layers.9": 0,
+      "model.layers.10": 0,
+      "model.layers.11": 0,
+      "model.layers.12": 0,
+      "model.layers.13": 0,
+      "model.layers.14": 0,
+      "model.layers.15": 0,
+      "model.layers.16": 0,
+      "model.layers.17": 0,
+      "model.layers.18": 1,
+      "model.layers.19": 1,
+      "model.layers.20": 1,
+      "model.layers.21": 1,
+      "model.layers.22": 1,
+      "model.layers.23": 1,
+      "model.layers.24": 1,
+      "model.layers.25": 1,
+      "model.layers.26": 1,
+      "model.layers.27": 1,
+      "model.layers.28": 1,
+      "model.layers.29": 1,
+      "model.layers.30": 1,
+      "model.layers.31": 1,
+      "model.layers.32": 1,
+      "model.layers.33": 1,
+      "model.layers.34": 1,
+      "model.layers.35": 1,
+      "model.norm": 1,
+      "lm_head": 1
+    },
+    "parameter_count_by_gpu": [
+      4095365632,
+      4095369728
+    ],
+    "fp16_weight_gib_by_gpu": [
+      7.628212928771973,
+      7.628220558166504
+    ],
+    "limits": "Weight allocation excludes activations, adapters, gradients, optimizer, CUDA and cross-device temporary storage; not an empirical memory measurement.",
+    "possible_kaggle_mirror": "manojkumarcs28/qwen3-8b/pyTorch/qwen3-8b/1",
+    "mirror_status": "Observed expected five-shard filenames; bytes not yet verified or attached",
+    "checked_utc": "2026-09-10T04:26:36Z"
+  },
+  "offline_probe": {
+    "status": "passed",
+    "source_commit": "c9606e5c5387813d0105667e4111af9428904163",
+    "notebook": "kaggle/capacity_probe.ipynb",
+    "scope": "Eight authored comments; two optimizer steps with deliberate restart; no competition score",
+    "browser_setup": "Transient connection timeout and zero-byte file-chooser upload recovered using exact immutable GitHub URL; imported source verified",
+    "notebook_sha256": "ada3a4a409326ade69b2e4e388d8b0881ffc3b4fbc32cf674ed51c59de360361",
+    "source_ci": {
+      "run_id": 34437570935,
+      "job_id": 102745732846,
+      "conclusion": "success",
+      "source_commit": "c9606e5c5387813d0105667e4111af9428904163"
+    },
+    "gpu_quota_observed_hours_remaining": 28,
+    "script_version_id": 348683165,
+    "version": 1,
+    "version_name": "8B two-T4 authored probe - GitHub c9606e5",
+    "url": "https://www.kaggle.com/code/alvaromendizabal/jigsaw-8b-two-gpu-recovery-probe?scriptVersionId=348683165",
+    "private": true,
+    "runtime_ui_seconds": 206.1,
+    "run_id": "4514a088d4eb9293b7f8",
+    "manifest": {
+      "run_id": "4514a088d4eb9293b7f8",
+      "status": "passed",
+      "contract": {
+        "model": {
+          "schema": 1,
+          "field_tokens": {
+            "body": 384,
+            "rule": 96,
+            "support": 192
+          },
+          "max_tokens": 2048,
+          "batch_size": 4,
+          "shard_size": 64,
+          "seed": 2025,
+          "model_id": "Qwen/Qwen3-8B",
+          "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+          "revision_date": "2025-07-26T03:49:13Z",
+          "license": "apache-2.0",
+          "files": {
+            "LICENSE": {
+              "algorithm": "git-sha1",
+              "digest": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+            },
+            "config.json": {
+              "algorithm": "git-sha1",
+              "digest": "d46195ac87f837ad233d02b2f80f148bf7c005e0"
+            },
+            "generation_config.json": {
+              "algorithm": "git-sha1",
+              "digest": "20a8a9156fc8c3f25295ca067f61fdf120d517c5"
+            },
+            "merges.txt": {
+              "algorithm": "git-sha1",
+              "digest": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7"
+            },
+            "model-00001-of-00005.safetensors": {
+              "algorithm": "sha256",
+              "digest": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f"
+            },
+            "model-00002-of-00005.safetensors": {
+              "algorithm": "sha256",
+              "digest": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282"
+            },
+            "model-00003-of-00005.safetensors": {
+              "algorithm": "sha256",
+              "digest": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836"
+            },
+            "model-00004-of-00005.safetensors": {
+              "algorithm": "sha256",
+              "digest": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a"
+            },
+            "model-00005-of-00005.safetensors": {
+              "algorithm": "sha256",
+              "digest": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff"
+            },
+            "model.safetensors.index.json": {
+              "algorithm": "git-sha1",
+              "digest": "2b85c00f1b118961cd7a477e2bba0fe197a4ce1a"
+            },
+            "tokenizer.json": {
+              "algorithm": "sha256",
+              "digest": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+            },
+            "tokenizer_config.json": {
+              "algorithm": "git-sha1",
+              "digest": "417d038a63fa3de29cfde265caedae14d1a58d92"
+            },
+            "vocab.json": {
+              "algorithm": "git-sha1",
+              "digest": "4783fe10ac3adce15ac8f358ef5462739852c569"
+            }
+          },
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "training": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.0,
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "seed": 2025,
+          "effective_batch": 16,
+          "micro_batch": 2,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.01,
+          "warmup_fraction": 0.05,
+          "gradient_clip": 1.0,
+          "gradient_checkpointing": true,
+          "checkpoint_steps": 8,
+          "precision": "bfloat16",
+          "keep_checkpoints": 2
+        },
+        "device_map": {
+          "model.embed_tokens": 0,
+          "model.layers.0": 0,
+          "model.layers.1": 0,
+          "model.layers.2": 0,
+          "model.layers.3": 0,
+          "model.layers.4": 0,
+          "model.layers.5": 0,
+          "model.layers.6": 0,
+          "model.layers.7": 0,
+          "model.layers.8": 0,
+          "model.layers.9": 0,
+          "model.layers.10": 0,
+          "model.layers.11": 0,
+          "model.layers.12": 0,
+          "model.layers.13": 0,
+          "model.layers.14": 0,
+          "model.layers.15": 0,
+          "model.layers.16": 0,
+          "model.layers.17": 0,
+          "model.layers.18": 1,
+          "model.layers.19": 1,
+          "model.layers.20": 1,
+          "model.layers.21": 1,
+          "model.layers.22": 1,
+          "model.layers.23": 1,
+          "model.layers.24": 1,
+          "model.layers.25": 1,
+          "model.layers.26": 1,
+          "model.layers.27": 1,
+          "model.layers.28": 1,
+          "model.layers.29": 1,
+          "model.layers.30": 1,
+          "model.layers.31": 1,
+          "model.layers.32": 1,
+          "model.layers.33": 1,
+          "model.layers.34": 1,
+          "model.layers.35": 1,
+          "model.norm": 1,
+          "lm_head": 1
+        },
+        "source": {
+          "jigsaw_rules/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+          "jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866",
+          "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+          "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+          "scripts/decision_training.py": "2eb2d01b5e62a1d6e5ba1a15029002c34e89e30d1037efe83f83ca2e016f627f",
+          "scripts/kaggle_adaptation.py": "0d10176afc258ff9dfcd48a83bd206de4bc795a143db53105c93957178b08b05",
+          "scripts/verify_kaggle_gpu.py": "7c6e941ab359f67f9a735c523562b80cce09dee458dbbacdc1ee9903ab68cb6f",
+          "assets/LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+          "assets/tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+        },
+        "python": "3.12.13",
+        "packages": {
+          "torch": "2.10.0+cu128",
+          "transformers": "5.0.0",
+          "peft": "0.19.1",
+          "accelerate": "1.13.0"
+        },
+        "devices": [
+          "Tesla T4",
+          "Tesla T4"
+        ]
+      },
+      "result": {
+        "status": "passed",
+        "scope": "Authored software probe, not model evaluation",
+        "device": "Tesla T4",
+        "device_map": {
+          "model.embed_tokens": 0,
+          "model.layers.0": 0,
+          "model.layers.1": 0,
+          "model.layers.2": 0,
+          "model.layers.3": 0,
+          "model.layers.4": 0,
+          "model.layers.5": 0,
+          "model.layers.6": 0,
+          "model.layers.7": 0,
+          "model.layers.8": 0,
+          "model.layers.9": 0,
+          "model.layers.10": 0,
+          "model.layers.11": 0,
+          "model.layers.12": 0,
+          "model.layers.13": 0,
+          "model.layers.14": 0,
+          "model.layers.15": 0,
+          "model.layers.16": 0,
+          "model.layers.17": 0,
+          "model.layers.18": 1,
+          "model.layers.19": 1,
+          "model.layers.20": 1,
+          "model.layers.21": 1,
+          "model.layers.22": 1,
+          "model.layers.23": 1,
+          "model.layers.24": 1,
+          "model.layers.25": 1,
+          "model.layers.26": 1,
+          "model.layers.27": 1,
+          "model.layers.28": 1,
+          "model.layers.29": 1,
+          "model.layers.30": 1,
+          "model.layers.31": 1,
+          "model.layers.32": 1,
+          "model.layers.33": 1,
+          "model.layers.34": 1,
+          "model.layers.35": 1,
+          "model.norm": 1,
+          "lm_head": 1
+        },
+        "devices": [
+          "Tesla T4",
+          "Tesla T4"
+        ],
+        "precision": "float16",
+        "intentional_interruption": true,
+        "training": {
+          "optimizer_steps": 2,
+          "resumed_step": 1,
+          "training_contract": "a07a5fa136fe53f6ea8f9357ed8177bcefe466509a4698730bcdaa83509a2fe5",
+          "loss_scale": 128.0
+        },
+        "peak_gpu_gib": 7.891018390655518,
+        "peak_gpu_gib_by_device": [
+          7.891018390655518,
+          7.889617443084717
+        ]
+      },
+      "receipt_sha256": "67da985d51c3f20b775513a83b9e889f13c36912c8075bdc5a68bfb2e385a655"
+    },
+    "model_asset_checks": [
+      "MODEL_ASSET_VERIFIED LICENSE\n",
+      "MODEL_ASSET_VERIFIED config.json\n",
+      "MODEL_ASSET_VERIFIED generation_config.json\n",
+      "MODEL_ASSET_VERIFIED merges.txt\n",
+      "MODEL_ASSET_VERIFIED model-00001-of-00005.safetensors\n",
+      "MODEL_ASSET_VERIFIED model-00002-of-00005.safetensors\n",
+      "MODEL_ASSET_VERIFIED model-00003-of-00005.safetensors\n",
+      "MODEL_ASSET_VERIFIED model-00004-of-00005.safetensors\n",
+      "MODEL_ASSET_VERIFIED model-00005-of-00005.safetensors\n",
+      "MODEL_ASSET_VERIFIED model.safetensors.index.json\n",
+      "MODEL_ASSET_VERIFIED tokenizer.json\n",
+      "MODEL_ASSET_VERIFIED tokenizer_config.json\n",
+      "MODEL_ASSET_VERIFIED vocab.json\n"
+    ],
+    "events": [
+      {
+        "timestamp": "2026-09-10T04:43:00+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "started",
+        "elapsed_seconds": 0.0,
+        "stage_elapsed_seconds": 0.0,
+        "total_elapsed_seconds": 0.0
+      },
+      {
+        "timestamp": "2026-09-10T04:43:14+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "training_ready",
+        "elapsed_seconds": 13.2,
+        "stage_elapsed_seconds": 13.2,
+        "total_elapsed_seconds": 13.2,
+        "examples": 8,
+        "optimizer_steps": 2,
+        "resumed_step": 0,
+        "precision": "float16",
+        "loss_scale": 128.0,
+        "trainable_parameters": 21823488
+      },
+      {
+        "timestamp": "2026-09-10T04:43:15+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "heartbeat",
+        "elapsed_seconds": 15.002,
+        "stage_elapsed_seconds": 15.002,
+        "total_elapsed_seconds": 15.002
+      },
+      {
+        "timestamp": "2026-09-10T04:43:16+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "optimizer_step",
+        "elapsed_seconds": 15.821,
+        "stage_elapsed_seconds": 15.821,
+        "total_elapsed_seconds": 15.821,
+        "step": 1,
+        "total": 2,
+        "loss": 0.0,
+        "gradient_norm": 0.0
+      },
+      {
+        "timestamp": "2026-09-10T04:43:19+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "intentional_restart",
+        "elapsed_seconds": 18.41,
+        "stage_elapsed_seconds": 18.41,
+        "total_elapsed_seconds": 18.41
+      },
+      {
+        "timestamp": "2026-09-10T04:43:30+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "heartbeat",
+        "elapsed_seconds": 30.008,
+        "stage_elapsed_seconds": 30.008,
+        "total_elapsed_seconds": 30.008
+      },
+      {
+        "timestamp": "2026-09-10T04:43:32+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "training_ready",
+        "elapsed_seconds": 31.222,
+        "stage_elapsed_seconds": 31.222,
+        "total_elapsed_seconds": 31.222,
+        "examples": 8,
+        "optimizer_steps": 2,
+        "resumed_step": 1,
+        "precision": "float16",
+        "loss_scale": 128.0,
+        "trainable_parameters": 21823488
+      },
+      {
+        "timestamp": "2026-09-10T04:43:33+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "optimizer_step",
+        "elapsed_seconds": 32.556,
+        "stage_elapsed_seconds": 32.556,
+        "total_elapsed_seconds": 32.556,
+        "step": 2,
+        "total": 2,
+        "loss": 5.960463766996327e-08,
+        "gradient_norm": 4.403359980642563e-06
+      },
+      {
+        "timestamp": "2026-09-10T04:43:36+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "optimizer_checkpoint",
+        "elapsed_seconds": 35.025,
+        "stage_elapsed_seconds": 35.025,
+        "total_elapsed_seconds": 35.025,
+        "step": 2
+      },
+      {
+        "timestamp": "2026-09-10T04:43:36+00:00",
+        "stage": "kaggle_gpu_verification",
+        "event": "completed",
+        "elapsed_seconds": 35.963,
+        "stage_elapsed_seconds": 35.963,
+        "total_elapsed_seconds": 35.963,
+        "error_type": null
+      }
+    ],
+    "receipt_verification": "Captured rendered saved-version logs; model/config/source/run identity and canonical receipt serialization hashes verified; outputs remain in private Kaggle Version 1",
+    "verified_utc": "2026-09-10T05:10:00Z",
+    "verification_recorded_utc": "2026-09-10T05:12:40.112789+00:00",
+    "optional_notebook_download": "Download event timed out; exact executed source and full rendered manifest preserved, private saved outputs intact"
+  },
+  "completed_fold_checks": [
+    {
+      "fold": 0,
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "audit": {
+        "candidate_occurrences": 13201,
+        "forbidden_text_occurrences": 1,
+        "conflicting_pairs": 2,
+        "conflicting_occurrences": 79,
+        "duplicate_occurrences": 11481,
+        "retained_pairs": 1640,
+        "by_source": {
+          "available_support": 994,
+          "train_body": 646
+        },
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "candidate_query_rows": 1012,
+        "novel_query_rows": 234,
+        "known_support_overlap_excluded": 778,
+        "new_rule_training_pairs": 629,
+        "epoch_occurrences": 2269
+      },
+      "sha256": "b1b06498da8347c7be161f261f94a0aa2f9148e8a68494be74b451ff0f016680",
+      "training": {
+        "optimizer_steps": 142,
+        "resumed_step": 8,
+        "training_contract": "cad39921588b5f51abe5eaa90e725ec7cc84f47c8003e4de3989e80eae24ef7b",
+        "loss_scale": 1.0
+      },
+      "peak_gpu_gib": 15.96830701828003
+    },
+    {
+      "fold": 1,
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "audit": {
+        "candidate_occurrences": 13176,
+        "forbidden_text_occurrences": 1,
+        "conflicting_pairs": 10,
+        "conflicting_occurrences": 339,
+        "duplicate_occurrences": 11621,
+        "retained_pairs": 1215,
+        "by_source": {
+          "available_support": 987,
+          "train_body": 228
+        },
+        "scope": "train bodies and supplied support labels; no available body targets",
+        "candidate_query_rows": 1017,
+        "novel_query_rows": 647,
+        "known_support_overlap_excluded": 370,
+        "new_rule_training_pairs": 366,
+        "epoch_occurrences": 1581
+      },
+      "sha256": "1e2830eafb32af1a52c044383679b1fccf75d89576dacd5d5fcdca9cc85e61b8",
+      "training": {
+        "optimizer_steps": 99,
+        "resumed_step": 8,
+        "training_contract": "00fe4710ef06c143fe4c70693385d4eb340145ff8f9488101123726ef1ee1147",
+        "loss_scale": 1.0
+      },
+      "peak_gpu_gib": 15.99977731704712
+    }
+  ],
+  "private_evaluation_backup": {
+    "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+    "key": "experiments/backbone-capacity-20260910/evaluation/fe43002de3b74d4f34f9/evaluation.tar.gz",
+    "sha256": "e70c4a88498d9f68bdffb843a423ae310989507f5fb60a6954ceb3a6b130850a",
+    "ContentLength": 22482,
+    "LastModified": "2026-09-10T05:10:01+00:00",
+    "ServerSideEncryption": "AES256",
+    "VersionId": "ocfFefIpeoWPv9rjmUJUR0.n4CrD.vHs"
   }
 }

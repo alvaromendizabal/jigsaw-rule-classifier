@@ -201,3 +201,34 @@ Current CI executes all five public notebooks in actual Jupyter kernels, verifie
 The workspace disconnected after local verification, before the publication commit. Bounded worker `jigsaw-delivery-publication-20260909-1813` recovered the already verified CI artifact, checked all notebook/input/completion hashes again, and preserved the public notebook bytes in the owned S3 release prefix. No research, model fitting, encoder inference or protected scoring was repeated.
 
 Closeout is recorded by the merged delivery PR and versioned S3 artifacts. A separate GitHub Release page/tag is not created by the connected GitHub toolset.
+
+## Complementarity and backbone-capacity evidence — September 10, 2026
+
+The Phi comparison and Qwen3-8B capacity study completed their registered training,
+prediction, checkpoint recovery and evaluation replay. Both fixed blends fail
+their simultaneous uncertainty gates; neither is promoted. The scored canonical
+4B candidate remains at 0.91425 private Kaggle AUC. The two studies cost about
+$0.99646 in measured SageMaker compute, plus storage. Full model, data, source,
+runtime and private archive identities are in the canonical
+[rebuild report](COMPETITION_REBUILD.md) and checkpoint receipts.
+
+The capacity-results local quality gate passed **391 tests in 76.44 seconds**,
+compilation, Ruff lint/format and canonical notebook-source verification. The
+complete gate took **81.79 seconds**, ending at **2026-09-10 05:14:02 UTC**.
+Tests cover aggregate-only exports for both studies, changed-receipt cache
+invalidation and byte-identical generated probe sources.
+
+Local Jupyter transport again failed before execution because interface discovery
+and ZeroMQ returned `Operation not permitted`. That failed process exited; it is
+not counted as a passing notebook execution. All five public notebooks instead
+rendered locally using the explicitly marked in-process engine in **4.98 seconds**
+at **05:16:55 UTC**, and a second pass reused all five completed checkpoints.
+Actual encrypted Jupyter execution and replay remain required on the final
+GitHub head before this results PR is merged.
+
+The separate private Kaggle probe, saved Version 1 / **348683165**, passed real
+two-T4 FP16 training and optimizer recovery using eight authored comments. Its
+206.1-second run is a hardware/software check only. The Output tab independently
+shows the runtime folder, checkpoint folder and manifest with run identity
+`4514a088d4eb9293b7f8`, status `passed`, and receipt SHA-256
+`67da985d51c3f20b775513a83b9e889f13c36912c8075bdc5a68bfb2e385a655`.

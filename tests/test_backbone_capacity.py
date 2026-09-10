@@ -66,3 +66,16 @@ def test_capacity_protocol_preserves_original_plan_and_predeadline_assets():
     assert capacity["training"]["effective_batch"] == original["training"]["effective_batch"]
     assert model["revision_date"] < "2025-10-23" and len(model["files"]) == 13
     assert model["chat_template_kwargs"] == {"enable_thinking": False}
+
+
+def test_authored_gpu_probe_sources_match_the_generator():
+    import nbformat
+
+    from scripts.build_capacity_probe import build
+
+    root = Path(__file__).resolve().parents[1]
+    actual = nbformat.read(root / "kaggle/capacity_probe.ipynb", as_version=4)
+    expected = build(root)
+    assert [(c.cell_type, c.source) for c in actual.cells] == [
+        (c.cell_type, c.source) for c in expected.cells
+    ]
