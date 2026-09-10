@@ -1,12 +1,203 @@
 {
-  "status": "stopped_capacity_queue",
-  "source_commit": "455743f38b86414bfc2e4f654ec8769d9d92d273",
-  "source_sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a",
-  "source_version_id": "erV7lctUeDlGljicg1vG.NJ7Q1qCBcsV",
+  "checked_utc": "2026-09-10T18:30:27.155531+00:00",
+  "ci": {
+    "actual_jupyter_notebooks": 5,
+    "conclusion": "success",
+    "head": "455743f38b86414bfc2e4f654ec8769d9d92d273",
+    "job_id": 102984742037,
+    "run_id": 34510983016
+  },
+  "gpu_inference_started": false,
   "launch": {
     "arn": "arn:aws:sagemaker:us-west-2:560403859723:training-job/jigsaw-support-context-20260910",
     "job_name": "jigsaw-support-context-20260910",
     "requested_utc": "2026-09-10T17:56:33.098511+00:00"
+  },
+  "notebook_publication": "Separate bounded milestone; draft only",
+  "recovery_attempt": {
+    "checked_utc": "2026-09-10T18:30:27.155531+00:00",
+    "current_head_ci": {
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 34512092065,
+          "jobs_url": "https://api.github.com/repos/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34512092065/jobs",
+          "logs_url": "https://api.github.com/repos/alvaromendizabal/jigsaw-rule-classifier/actions/runs/34512092065/logs",
+          "name": "Quality",
+          "run_number": 91,
+          "status": "completed",
+          "workflow_id": 351894316
+        }
+      ]
+    },
+    "diagnosis": {
+      "active_training": {
+        "TrainingJobSummaries": []
+      },
+      "quotas": [
+        {
+          "Adjustable": true,
+          "QuotaCode": "L-A1025C0C",
+          "QuotaName": "ml.g6.2xlarge for training job usage",
+          "Value": 1
+        },
+        {
+          "Adjustable": true,
+          "QuotaCode": "L-56AE9D73",
+          "QuotaName": "ml.g6.xlarge for training job usage",
+          "Value": 1
+        }
+      ],
+      "stopped_job": {
+        "ResourceConfig": {
+          "InstanceCount": 1,
+          "InstanceType": "ml.g6.xlarge",
+          "VolumeSizeInGB": 60
+        },
+        "SecondaryStatus": "Stopped",
+        "SecondaryStatusTransitions": [
+          {
+            "EndTime": "2026-09-10T17:56:32.970000+00:00",
+            "StartTime": "2026-09-10T17:56:32.778000+00:00",
+            "Status": "Starting",
+            "StatusMessage": "Starting the training job"
+          },
+          {
+            "EndTime": "2026-09-10T18:02:38.848000+00:00",
+            "StartTime": "2026-09-10T17:56:32.970000+00:00",
+            "Status": "Pending",
+            "StatusMessage": "Training job stopped"
+          },
+          {
+            "EndTime": "2026-09-10T18:02:38.848000+00:00",
+            "StartTime": "2026-09-10T18:02:38.848000+00:00",
+            "Status": "Stopped",
+            "StatusMessage": "Training job stopped"
+          }
+        ],
+        "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
+        "TrainingJobStatus": "Stopped"
+      }
+    },
+    "gpu_inference_started": false,
+    "hourly_training_usd": 1.222,
+    "job_max_seconds": 1200,
+    "launch": {
+      "arn": "arn:aws:sagemaker:us-west-2:560403859723:training-job/jigsaw-support-context-l4-2xl-20260910",
+      "job_name": "jigsaw-support-context-l4-2xl-20260910",
+      "requested_utc": "2026-09-10T18:24:31.216816+00:00"
+    },
+    "no_third_job_this_milestone": true,
+    "pricing": {
+      "effective_date": "2026-09-01T00:00:00Z",
+      "publication_date": "2026-09-09T17:55:44Z",
+      "sku": "AHXA6HH84GJYYXYP",
+      "unit": "Hrs",
+      "usage_type": "USW2-Train:ml.g6.2xlarge",
+      "usd": "1.2220000000",
+      "verified_utc": "2026-09-10T18:23:22Z"
+    },
+    "queue_allowance_seconds": 300,
+    "request": {
+      "AlgorithmSpecification": {
+        "ContainerArguments": [
+          "-c",
+          "jigsaw_source=/opt/ml/input/data/source/source.tar.gz; echo \"$JIGSAW_SOURCE_SHA256  $jigsaw_source\"|sha256sum -c - && mkdir -p /opt/ml/code && tar xzf \"$jigsaw_source\" -C /opt/ml/code && exec bash /opt/ml/code/scripts/run_support_context.sh"
+        ],
+        "ContainerEntrypoint": [
+          "/bin/bash"
+        ],
+        "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training@sha256:26e979d1e21417c3a58d79478e6db1804d4fad512048a7a8cdf1816ab971e7c0",
+        "TrainingInputMode": "File"
+      },
+      "Environment": {
+        "JIGSAW_BUCKET": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "JIGSAW_CONTEXT_PREFIX": "experiments/support-context-20260910",
+        "JIGSAW_SOURCE_SHA256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "source",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataDistributionType": "FullyReplicated",
+              "S3DataType": "S3Prefix",
+              "S3Uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/support-context-20260910/source/f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a/"
+            }
+          }
+        }
+      ],
+      "OutputDataConfig": {
+        "S3OutputPath": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/support-context-20260910/output/"
+      },
+      "ResourceConfig": {
+        "InstanceCount": 1,
+        "InstanceType": "ml.g6.2xlarge",
+        "VolumeSizeInGB": 60
+      },
+      "RoleArn": "arn:aws:iam::560403859723:role/service-role/AmazonSageMaker-ExecutionRole-20260902T115323",
+      "StoppingCondition": {
+        "MaxPendingTimeInSeconds": 7200,
+        "MaxRuntimeInSeconds": 1200
+      },
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "jigsaw-rule-classifier"
+        },
+        {
+          "Key": "Purpose",
+          "Value": "one-retained-adapter-context-test"
+        }
+      ],
+      "TrainingJobName": "jigsaw-support-context-l4-2xl-20260910"
+    },
+    "resource_alternative": {
+      "quota": {
+        "QuotaCode": "L-A1025C0C",
+        "QuotaName": "ml.g6.2xlarge for training job usage",
+        "ServiceCode": "sagemaker",
+        "Value": 1
+      },
+      "source": {
+        "ContentLength": 442458,
+        "ServerSideEncryption": "AES256",
+        "VersionId": "erV7lctUeDlGljicg1vG.NJ7Q1qCBcsV"
+      }
+    },
+    "result": null,
+    "state": {
+      "SecondaryStatus": "Stopped",
+      "SecondaryStatusTransitions": [
+        {
+          "EndTime": "2026-09-10T18:24:31.179000+00:00",
+          "StartTime": "2026-09-10T18:24:30.918000+00:00",
+          "Status": "Starting",
+          "StatusMessage": "Starting the training job"
+        },
+        {
+          "EndTime": "2026-09-10T18:30:23.549000+00:00",
+          "StartTime": "2026-09-10T18:24:31.179000+00:00",
+          "Status": "Pending",
+          "StatusMessage": "Training job stopped"
+        },
+        {
+          "EndTime": "2026-09-10T18:30:23.549000+00:00",
+          "StartTime": "2026-09-10T18:30:23.549000+00:00",
+          "Status": "Stopped",
+          "StatusMessage": "Training job stopped"
+        }
+      ],
+      "TrainingEndTime": "2026-09-10T18:30:23.549000+00:00",
+      "TrainingJobStatus": "Stopped"
+    },
+    "stop": {
+      "queue_seconds": 313.493255,
+      "reason": "Changed same-L4 instance also exceeded the fixed five-minute capacity allowance; no third attempt this milestone",
+      "requested_utc": "2026-09-10T18:29:45.211963+00:00"
+    },
+    "third_job_launched": false,
+    "worker_max_seconds": 900
   },
   "request": {
     "AlgorithmSpecification": {
@@ -62,28 +253,22 @@
     ],
     "TrainingJobName": "jigsaw-support-context-20260910"
   },
+  "result": null,
+  "retry_launched": true,
   "scope": "One retained-adapter inference comparison, no follow-on jobs or submission",
-  "notebook_publication": "Separate bounded milestone; draft only",
+  "source_commit": "455743f38b86414bfc2e4f654ec8769d9d92d273",
+  "source_sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a",
+  "source_version_id": "erV7lctUeDlGljicg1vG.NJ7Q1qCBcsV",
   "state": {
     "SecondaryStatus": "Stopped",
     "TrainingEndTime": "2026-09-10T18:02:38.848000+00:00",
     "TrainingJobStatus": "Stopped"
   },
+  "status": "stopped_capacity_queue_after_changed_attempt",
   "stop": {
     "job_name": "jigsaw-support-context-20260910",
     "reason": "User-requested bounded work; five-minute capacity queue limit elapsed",
     "requested_utc": "2026-09-10T18:02:07.834338+00:00",
     "stop_requested": true
-  },
-  "ci": {
-    "run_id": 34510983016,
-    "job_id": 102984742037,
-    "head": "455743f38b86414bfc2e4f654ec8769d9d92d273",
-    "conclusion": "success",
-    "actual_jupyter_notebooks": 5
-  },
-  "checked_utc": "2026-09-10T18:04:12.097268+00:00",
-  "result": null,
-  "gpu_inference_started": false,
-  "retry_launched": false
+  }
 }

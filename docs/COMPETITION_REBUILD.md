@@ -6,6 +6,11 @@ execution did not meet the performance objective. The target is approximately
 The feature and model gates are reopened. The earlier post-competition research
 release remains a reproducible historical artifact, not the competition solution.
 
+The owner's [standing execution and research rules](../AGENTS.md) require short,
+measurable milestones, explicit resource caps, artifact reuse, leakage-safe
+ablations and concrete progress reports. Historical feature-closure documents
+describe an earlier, different data scope; they do not close this rebuild.
+
 ## What failed
 
 The submitted version used TF-IDF and logistic regression fitted on 2,029 original
@@ -514,3 +519,72 @@ The hash-pinned source and retained adapters remain recoverable. **There is no
 new GPU prediction or AUC result from this attempt.** The candidate has not been
 scientifically accepted or rejected, and the Kaggle gap is unchanged. This draft
 stops at the resource blocker instead of escalating into an open-ended run.
+
+### Capacity diagnosis and changed recovery attempt
+
+On September 10 at 18:21–18:23 UTC, AWS verified the first job was stopped and
+there were no active training jobs in `us-west-2`. Both `ml.g6.xlarge` and
+`ml.g6.2xlarge` have a training quota of one. The observed blocker was the
+requested instance's capacity queue; no evidence indicates a model failure or
+an exhausted active-training quota. Capacity availability itself cannot be
+guaranteed by a quota check.
+
+The single changed attempt uses **one `ml.g6.2xlarge`**, retaining the same L4 GPU,
+pinned image, source archive, adapters, prompts, data, precision, parity threshold
+and scientific decision rule. Only host CPU/RAM allocation changes. The AWS
+Pricing API reports **$1.222/hour** for Oregon training, effective September 1,
+2026: the 1,200-second runtime cap is approximately **$0.4073 compute**, plus
+storage. Keep the 900-second worker cap and five-minute queue allowance. If this
+instance also queues beyond the allowance or the smoke gate fails, stop and
+preserve the diagnosis; do not launch a third job in this milestone.
+
+**Recovery outcome:** `jigsaw-support-context-l4-2xl-20260910` was requested at
+**18:24:31 UTC** and also remained `Pending / Training job waiting for capacity`.
+A stop was requested at **18:29:45 UTC**, about 313.5 seconds after the request
+including API/check latency. No training start or billable training time was
+reported; this is not a verified dollar charge of zero. No inference or candidate
+AUC was produced, and no third job was launched. The exact request, price,
+quota diagnosis, stop and terminal state are retained in the existing checkpoint.
+The frozen candidate remains scientifically untested. A future milestone needs
+a bounded GPU-availability and retained-checkpoint parity check before spending
+on candidate inference; repeating these capacity queues is not useful evidence.
+
+### Current representation coverage and next evidence
+
+[Dr.ICL (Luo et al., 2023)](https://arxiv.org/abs/2305.14128) reports benefits from
+retrieved demonstrations even for instruction-tuned models, including simple
+lexical retrieval. This motivates the context-only ablation; it does not establish
+that our character retrieval or Jigsaw model will improve. The domain mechanism
+is policy-specific adjudication: examples can clarify intent and exceptions that
+the rule alone leaves ambiguous. Retrieval must compare both classes under the
+same policy, with query texts excluded. Missing thread context cannot be invented.
+
+| High-value family | Current evidence / remaining question |
+| --- | --- |
+| Supplied-support adaptation | Matched 4B development gain and actual 0.91425 private Kaggle score; retained |
+| Retrieved positive/negative prompt context | Implemented and tested; this single inference ablation supplies the missing result |
+| Adapted coordinates and prototype contrasts | Completed original-data ablations did not improve direct answer scores; preserve rejections |
+| Rule-conditioned intent, negation, quotation and exceptions | Plausible semantic gaps; historical small-model/lexical tests do not exhaust the adapted representation |
+| Semantic or task-trained support selection | Distinct from lexical selection; consider a fixed comparison only after diagnosing the present result |
+| Model diversity and fixed rank ensembles | Phi and 8B comparisons failed promotion gates; size alone is not a demonstrated gain |
+| Public external policy examples / context | Requires license, pre-deadline availability, relevance and contamination review before use |
+
+The **0.01505** private-score gap remains unallocated: current evidence cannot
+separate its causes into feature, model and ensemble contributions. These are
+open hypotheses, not a promise that any one family closes the gap. Broader
+research proceeds through bounded experiments, not an immediate model sweep.
+
+The label-free selection audit covers all **881** queries. Advertising selects
+112 distinct positive and 116 distinct negative examples; legal advice selects
+184 and 135. The most frequently reused example serves at most **5.13%** of its
+policy's queries. Thus retrieval has not collapsed to one default pair. This is
+a diversity diagnostic, not proof of relevance or an AUC improvement. Both
+selection hashes are saved in the [audit](../reports/checkpoints/support_context_selection.json).
+Reproduce using the approved private plan; no query targets or model calls are
+needed:
+
+```bash
+python -m scripts.audit_support_context \
+  --plan runs/support_context/recovery/plan.json \
+  --output reports/checkpoints/support_context_selection.json
+```

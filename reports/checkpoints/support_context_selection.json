@@ -1,0 +1,39 @@
+{
+  "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+  "audit_source_sha256": "6bdb3feea65ec8564013d9886d3c71e5f8cb236d1890cf638d14590de7f943ea",
+  "retrieval_source_sha256": "d46ad186a1a1800edc70e591f6bee31e810e92a989649d08e22f7e09f5445beb",
+  "query_targets_read": false,
+  "meaning": "Label-free selection diversity; neither relevance nor predictive value",
+  "folds": [
+    {
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "queries": 234,
+      "support_selection_sha256": "1a43e81ad52e7b2b08114ea59d307c10f016976395df146b9bdb38a6d8193b95",
+      "class_selection": {
+        "violating_examples": {
+          "unique_selected": 112,
+          "max_query_share": 0.04700854700854701
+        },
+        "permitted_examples": {
+          "unique_selected": 116,
+          "max_query_share": 0.05128205128205128
+        }
+      }
+    },
+    {
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "queries": 647,
+      "support_selection_sha256": "647ac2e07bf48bf6b743c739b64d922fec35041177f13e56f240db2dc3f6c099",
+      "class_selection": {
+        "violating_examples": {
+          "unique_selected": 184,
+          "max_query_share": 0.02627511591962906
+        },
+        "permitted_examples": {
+          "unique_selected": 135,
+          "max_query_share": 0.03245749613601236
+        }
+      }
+    }
+  ]
+}

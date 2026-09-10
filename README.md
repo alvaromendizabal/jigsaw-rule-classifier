@@ -16,6 +16,13 @@ Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training
 
 **Latest executed comparisons:** neither added model clears the registered development gate. The Qwen/Phi blend scores **0.72354**, and the fixed 4B/8B blend scores **0.72540**, versus the same **0.71989** 4B reference on 881 novel comments. The 4B/8B gain is **+0.00550**, with simultaneous 95% interval **[-0.01325, 0.02425]**; adapted 8B alone scores **0.71794**. No new competition entry is submitted. An independent authored-only 8B probe passed offline training and optimizer recovery across two Kaggle T4s, using **7.89 GiB per GPU**. That is runtime evidence, not an AUC result. The private Kaggle gap to the winning **0.92930** remains **0.01505**. [8B results and recovery](reports/checkpoints/backbone_capacity.json) · [Phi comparison](reports/checkpoints/complementarity.json).
 
+**Next representation ablation:** direct retrieved positive/negative context for
+the retained 4B model is implemented and tested. Two bounded AWS allocation
+attempts remained queued for capacity and were cancelled before inference; there
+is **no candidate AUC yet**. The label-free selection audit covers all 881 queries
+without collapsing to one default support pair. [Protocol and attempt evidence](docs/COMPETITION_REBUILD.md#bounded-next-step-retained-4b-with-retrieved-support-context)
+· [Standing execution rules](AGENTS.md) · [Draft PR #25](https://github.com/alvaromendizabal/jigsaw-rule-classifier/pull/25).
+
 ## Historical protected result: post-competition data
 
 Predictions were frozen in [commit 530ad799](https://github.com/alvaromendizabal/jigsaw-rule-classifier/commit/530ad79929012e807cb42a5253f7b92b090682ec) before eligible targets were first interpreted on September 9, 2026. All **12 preregistered acceptance checks passed**, with no new model fitting or candidate selection.
