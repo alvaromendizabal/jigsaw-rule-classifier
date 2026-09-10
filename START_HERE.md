@@ -2,6 +2,8 @@
 
 **Verified Kaggle result — September 10, 2026, 02:20 UTC:** support-adapted Qwen3-4B **Version 3 scored 0.91808 public / 0.91425 private AUC**, up **0.32617 / 0.29469** from the lexical baseline. Kaggle reports **Succeeded (after deadline)**. The private score remains **0.00575 below 0.92** and **0.01575 below 0.93**; the performance goal remains open. [Exact saved version](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Verified receipt](reports/checkpoints/kaggle_adaptation.json).
 
+**Latest development decision:** the completed Phi/Qwen comparison gains only 0.00365 AUC and fails its uncertainty gate. It is not submitted. The next bounded test is Qwen3-8B; the scored reference remains 0.91425 private AUC. [Measured study](docs/COMPETITION_REBUILD.md#measured-result-phi-adds-an-uncertain-small-blend-gain).
+
 **Current neural notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb). **Historical CPU control:** [`kaggle/reference.ipynb`](kaggle/reference.ipynb), which reproduces the original Version 2 approach. The separate 0.7770 research model uses post-competition development labels. Keep these three model/data boundaries distinct.
 
 **Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb). The remaining notebooks explain the audit, validation and semantic diagnostics. No AWS account, private data, or model download is required to read the five executed public notebooks.

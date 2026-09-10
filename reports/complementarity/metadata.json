@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "study": "original_policy_model_complementarity",
+  "evaluation_run": "812dcc2d3672596eda55",
+  "code_preregistration_commit": "230fd2a471b34814269e4920274af1377e31cd88",
+  "evaluated_utc": "2026-09-10T03:52:59.117227+00:00",
+  "files": {
+    "results.json": "c1a9da60d35d191e0a17bd4a3a23c6cd8aa153de04abac94eb0bc67fa21dc807",
+    "uncertainty.json": "8200eb2f81eda86d536053eeae7a180d30392022b0f933fbf08a8ea40a45501e",
+    "decision.json": "3106c9ab4409e3e5eccdf807108bd971369faee0ab5b1c610859cd47b6e249fc",
+    "correlations.json": "c1430bb249f9f706fc115a2a2b63da1d0478ffdf2efbe783aac33da86d0da2e5",
+    "protocol.json": "a40da8508bf1e54b811b5ff3b8002d6e99f085650224b85d11143302c786369d",
+    "provenance.json": "5753803f9fdddf74dba1656efd342c19c0664c4b6e430c01b718bd48852ca8a1",
+    "inference.json": "f465be2b69d95eb638ca24ba3dccaf01704277b132171b9a2e575f8cf04d0400"
+  }
+}

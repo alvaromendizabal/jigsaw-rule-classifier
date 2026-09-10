@@ -102,15 +102,20 @@ def test_new_model_report_invalidates_notebook_cache(project):
     assert "reports/model_validation/results.json" in after["inputs"]
 
 
-@pytest.mark.parametrize("receipt", ["kaggle_adaptation.json", "kaggle_submission.json"])
-def test_changed_kaggle_receipt_invalidates_notebook_cache(project, receipt):
+@pytest.mark.parametrize(
+    "receipt", ["kaggle_adaptation.json", "kaggle_submission.json", "complementarity.json"]
+)
+def test_changed_scored_or_study_receipt_invalidates_notebook_cache(project, receipt):
     from scripts.execute_notebooks import execution_contract
 
     nb = nbformat.read(tiny_notebook(project), as_version=4)
     before = execution_contract(project, project, nb, "public", "inprocess")
     path = project / "reports/checkpoints" / receipt
     data = json.loads(path.read_text())
-    data["submission"]["public_score"] = 0.5
+    if receipt == "complementarity.json":
+        data["status"] = "changed_fixture_status"
+    else:
+        data["submission"]["public_score"] = 0.5
     path.write_text(json.dumps(data))
     after = execution_contract(project, project, nb, "public", "inprocess")
     assert before != after

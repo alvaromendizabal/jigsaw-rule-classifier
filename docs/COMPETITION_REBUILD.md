@@ -251,8 +251,86 @@ The saved source fits only original training labels and supplied positive/negati
 
 Test **complementary support-adapted instruction-model representations**, using one second eligible, pinned backbone and a preregistered equal-weight within-policy rank blend with Qwen. This is a hypothesis motivated by the winner's diverse ensemble, not a promised gain. Our existing adapted-coordinate readout and geometry blend did not beat the direct score, so repeating those searches is lower priority.
 
-Keep the legitimate support construction fixed and evaluate the second model and fixed blend on the existing original-data novel-comment development protocol. Purge query bodies from fitted sources, compare per-policy AUC and paired group uncertainty, and inspect prediction correlation and runtime. Freeze the revision, one-epoch budget and blend before running; reject unsupported gains. The two previously examined development policies are not a fresh holdout. Do not tune to the newly observed private Kaggle score, access released targets, or reuse the consumed protected cohort. No additional paid cloud experiment has been launched.
+Keep the legitimate support construction fixed and evaluate the second model and fixed blend on the existing original-data novel-comment development protocol. Purge query bodies from fitted sources, compare per-policy AUC and paired group uncertainty, and inspect prediction correlation and runtime. Freeze the revision, one-epoch budget and blend before running; reject unsupported gains. The two previously examined development policies are not a fresh holdout. Do not tune to the newly observed private Kaggle score, access released targets, or reuse the consumed protected cohort.
 
 The evaluated-candidate milestone is complete. The **0.92–0.93 performance objective and broader representation research remain open**.
 
 Publication validation initially hit a non-JSON NumPy array in the new Plotly display and then a full local workspace during pytest. The display now serializes through Plotly JSON; pruning disposable package caches recovered disk space. These were report-publication failures, not Kaggle model failures. All five updated public notebooks executed and their completed outputs replayed.
+
+### Registered comparison: Phi-4-mini and fixed Qwen blend
+
+The next authorized experiment pins **microsoft/Phi-4-mini-instruct** revision
+`5a149550068a1eb93398160d8953f5f56c3603e9` (May 1, 2025), with eleven upstream
+asset checksums and the MIT license. This is a distinct 3.8B model family that the
+winner also used in an early small-model ensemble. The verified winning private
+leaderboard score is **0.92930**; the current measured gap is **0.01505**.
+[Pinned model](https://huggingface.co/microsoft/Phi-4-mini-instruct/tree/5a149550068a1eb93398160d8953f5f56c3603e9)
+· [Private leaderboard](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/leaderboard).
+
+Reuse the exact completed Qwen study's two folds, 881 novel queries and saved
+predictions, identified by the plan and artifact SHA256 values in
+`configs/complementarity.json`. Only Phi is newly trained. Its native chat template,
+tokenizer and fused attention/MLP projections differ from Qwen; these are declared
+architecture changes, not a controlled tokenizer ablation. Other training choices
+remain one epoch, rank-8/alpha-16 LoRA, effective batch 16, learning rate 1e-4, seed
+2025, BF16 and the same purged original/support training pairs. Phi's decision-token
+IDs are No=3160 and Yes=13022. No query targets enter the cloud plan.
+
+The primary candidate is the **fixed 50/50 within-policy rank blend** of Qwen and
+adapted Phi log odds. Compare it with Qwen; use frozen-versus-adapted Phi as the
+adaptation control. Both contrasts enter one 1,000-draw comment-group bootstrap
+with simultaneous intervals. No blend weights are fitted or searched. Promotion
+requires positive macro-AUC gain, a simultaneous lower interval above zero, and
+no observed per-policy AUC regression. Prediction rank correlation and runtime
+measure diversity and its cost. A passing development gate permits a new offline
+Kaggle candidate; it does not establish a leaderboard improvement.
+
+One `ml.g6.xlarge` L4 job in the existing project account has a 3,600-second runtime
+cap and a 3,000-second worker budget. Verified training price is $1.127/hour in
+us-west-2 (up to $1.127 compute at the cap, plus storage). Native CUDA/PyTorch stay
+pinned to the proven image. Per-shard feature hashes, transactional optimizer
+checkpoints, UTC heartbeats and a real stop/reload recovery probe preserve progress.
+See [durable experiment state](../reports/checkpoints/complementarity.json).
+
+
+### Measured result: Phi adds an uncertain, small blend gain
+
+The registered GPU study completed on September 10, 2026. Both folds performed
+all 142/99 optimizer steps, resumed from their real step-8 checkpoints and produced
+all 881 finite, ordered query predictions. The worker took **730.0 seconds** and
+peaked at **7.84 GiB** allocated GPU memory. SageMaker billed **972 seconds**,
+approximately **$0.30429 compute**, plus storage. The completed CPU evaluation
+replayed its eight checksummed outputs without model execution or refitting.
+
+| Representation | Policy-macro AUC | Advertising AUC | Legal-advice AUC |
+|---|---:|---:|---:|
+| Adapted Qwen3-4B, reused reference | 0.71989 | 0.67925 | 0.76053 |
+| Frozen Phi-4-mini | 0.60373 | 0.55757 | 0.64988 |
+| Adapted Phi-4-mini | 0.70797 | 0.66832 | 0.74761 |
+| Fixed 50/50 Qwen/Phi rank blend | 0.72354 | 0.68321 | 0.76388 |
+
+The blend improves macro AUC by only **0.00365**. Its paired 95% interval is
+**[-0.00856, 0.01701]** and the preregistered simultaneous interval is
+**[-0.03691, 0.04422]**. Both include zero. Both policies improve slightly, but the
+confidence gate fails, so **do not promote this blend or submit it to Kaggle**.
+Support learning itself improves Phi by 0.10424, with simultaneous interval
+[0.06367, 0.14481]; the adapted Phi model still underperforms adapted Qwen.
+
+Prediction Spearman correlations are 0.80556 and 0.84401 across the two policies.
+This is evidence of some diversity, with insufficient measured added value for
+promotion. No blend weights are tuned after seeing these results. These remain
+exploratory development findings on two previously examined rules, not hidden
+competition scores or a newly untouched holdout.
+
+The existing **0.91425 private Kaggle AUC** remains the scored reference, **0.01505**
+below the winning 0.92930. The next representation test is a fixed **Qwen3-8B
+capacity comparison**, reusing the same 4B predictions and eligible plan. It must
+be registered separately and pass its own development and offline runtime gates.
+
+Reproduce the aggregate export from the private completed evaluation with
+`scripts/publish_complementarity.py`, then render `scripts/build_complementarity_report.py`.
+Private prediction arrays and optimizer states remain in the approved S3 project
+prefix; only the seven aggregate JSON records and verified figures are published.
+[Decision](../reports/complementarity/decision.json) · [Receipt](../reports/checkpoints/complementarity.json).
+
+Private CPU evaluation recovery: `experiments/complementary-support-20260910/evaluation/812dcc2d3672596eda55/evaluation.tar.gz` in the existing project bucket; SHA256 `e9b4048e399f6538c88318effcbd31454b652decd3cf8916269fd01cfbd35ec2`.

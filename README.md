@@ -14,6 +14,8 @@ Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training
 
 **Current rebuild evidence:** support adaptation improves the same 4B model from **0.6146 to 0.7199 AUC on 881 novel comments**, with a paired simultaneous 95% gain interval of **[0.0612, 0.1493]**. Adapted coordinates and a fixed prototype blend do not improve its direct score. The earlier full 2,029-row study rejected a 15,369-column frozen feature bank. Both experiments, optimizer recovery and evaluation replay are complete. These are development results, not new Kaggle scores; the **0.92 objective remains open**. [Measured comparisons and next execution gate](docs/COMPETITION_REBUILD.md).
 
+**Latest executed comparison:** a fixed Qwen/Phi rank blend reaches **0.72354 development AUC**, versus **0.71989** for Qwen alone on the same 881 novel comments. The **+0.00365** gain is uncertain (simultaneous 95% interval **[-0.03691, 0.04422]**), so the blend is **not promoted** and no new Kaggle entry is submitted. The next bounded test increases backbone capacity to Qwen3-8B. The verified private Kaggle gap to the winning **0.92930** remains **0.01505**. [Study and recovery receipt](reports/checkpoints/complementarity.json).
+
 ## Historical protected result: post-competition data
 
 Predictions were frozen in [commit 530ad799](https://github.com/alvaromendizabal/jigsaw-rule-classifier/commit/530ad79929012e807cb42a5253f7b92b090682ec) before eligible targets were first interpreted on September 9, 2026. All **12 preregistered acceptance checks passed**, with no new model fitting or candidate selection.

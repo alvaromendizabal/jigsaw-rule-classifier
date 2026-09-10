@@ -1,0 +1,216 @@
+{
+  "status": "completed_not_promoted",
+  "scope": "Authorized second-model development comparison; original labels and supplied supports only",
+  "baseline_kaggle_private_auc": 0.91425,
+  "leaderboard_private_auc": 0.9293,
+  "measured_private_gap": 0.01505,
+  "model_id": "microsoft/Phi-4-mini-instruct",
+  "revision": "5a149550068a1eb93398160d8953f5f56c3603e9",
+  "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+  "folds": [
+    {
+      "fold": 0,
+      "training_pairs": 1640,
+      "queries": 234,
+      "optimizer_steps": 142,
+      "max_prompt_tokens": 283,
+      "over_limit": 0
+    },
+    {
+      "fold": 1,
+      "training_pairs": 1215,
+      "queries": 647,
+      "optimizer_steps": 99,
+      "max_prompt_tokens": 283,
+      "over_limit": 0
+    }
+  ],
+  "cpu_verification": {
+    "native_phi_fused_lora_optimizer_recovery": "passed_exact",
+    "single_token_decisions": {
+      "No": 3160,
+      "Yes": 13022
+    },
+    "local_model_assets_verified": 9,
+    "weights_verified_on_worker": true,
+    "quality_tests_passed": 382,
+    "quality_gate": "passed; compile, Ruff, tests, notebook source consistency",
+    "focused_checks_passed": 8,
+    "evaluator_fixture": "end-to-end rank comparison and checksum replay passed"
+  },
+  "gpu_job": {
+    "archive_sha256": "0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd",
+    "archive_bytes": 537460,
+    "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+    "prefix": "experiments/complementary-support-20260910",
+    "key": "experiments/complementary-support-20260910/source/0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd/source.tar.gz",
+    "job_name": "jigsaw-complementary-support-20260910",
+    "request": {
+      "AlgorithmSpecification": {
+        "ContainerArguments": [
+          "-c",
+          "jigsaw_source=/opt/ml/input/data/source/source.tar.gz; echo \"$JIGSAW_SOURCE_SHA256  $jigsaw_source\"|sha256sum -c - && mkdir -p /opt/ml/code && tar xzf \"$jigsaw_source\" -C /opt/ml/code && exec bash /opt/ml/code/scripts/run_complementarity.sh"
+        ],
+        "ContainerEntrypoint": [
+          "/bin/bash"
+        ],
+        "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training@sha256:26e979d1e21417c3a58d79478e6db1804d4fad512048a7a8cdf1816ab971e7c0",
+        "TrainingInputMode": "File"
+      },
+      "Environment": {
+        "JIGSAW_BUCKET": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "JIGSAW_COMPLEMENTARY_PREFIX": "experiments/complementary-support-20260910",
+        "JIGSAW_SOURCE_SHA256": "0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "source",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataDistributionType": "FullyReplicated",
+              "S3DataType": "S3Prefix",
+              "S3Uri": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/complementary-support-20260910/source/0d2861d9d9b6c9fb587128075cd9da5172f310f8552b2d9294656844905f49cd/"
+            }
+          }
+        }
+      ],
+      "OutputDataConfig": {
+        "S3OutputPath": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/complementary-support-20260910/output/"
+      },
+      "ResourceConfig": {
+        "InstanceCount": 1,
+        "InstanceType": "ml.g6.xlarge",
+        "VolumeSizeInGB": 60
+      },
+      "RoleArn": "arn:aws:iam::560403859723:role/service-role/AmazonSageMaker-ExecutionRole-20260902T115323",
+      "StoppingCondition": {
+        "MaxPendingTimeInSeconds": 7200,
+        "MaxRuntimeInSeconds": 3600
+      },
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "jigsaw-rule-classifier"
+        },
+        {
+          "Key": "Purpose",
+          "Value": "bounded-complementary-support"
+        }
+      ],
+      "TrainingJobName": "jigsaw-complementary-support-20260910"
+    },
+    "source_commit": "230fd2a471b34814269e4920274af1377e31cd88",
+    "source_version_id": "I6cHjr54IXBHYY_vrwtgVEj6GiVJRgt6",
+    "created_utc": "2026-09-10T03:35:12.063000+00:00",
+    "last_verified_utc": "2026-09-10T03:52:51.440410+00:00",
+    "status": "Completed",
+    "phase": "Completed",
+    "run_id": "843fd8070b600a12730a",
+    "worker_started_utc": "2026-09-10T03:39:49+00:00",
+    "model_assets_verified": 11,
+    "model_assets_verified_utc": "2026-09-10T03:42:16+00:00",
+    "source_configuration_contract_verified": true,
+    "fold_0_resumed_step": 8,
+    "training_started_utc": "2026-09-10T03:36:05.323000+00:00",
+    "completed_utc": "2026-09-10T03:52:17.403000+00:00",
+    "billable_seconds": 972,
+    "estimated_compute_usd": 0.30429,
+    "worker_seconds": 730.005423143,
+    "peak_gpu_gib": 7.844655513763428,
+    "optimizer_steps": [
+      142,
+      99
+    ],
+    "resumed_steps": [
+      8,
+      8
+    ]
+  },
+  "development_result": {
+    "run_id": "812dcc2d3672596eda55",
+    "evaluated_utc": "2026-09-10T03:52:59.117227+00:00",
+    "policy_macro_auc": {
+      "qwen": 0.7198933966592936,
+      "phi_frozen": 0.603727138485183,
+      "phi": 0.707966733352474,
+      "blend": 0.7235441656806669
+    },
+    "blend_contrast": {
+      "contrast": "fixed blend contribution",
+      "candidate": "blend",
+      "reference": "qwen",
+      "observed_delta": 0.003650769021373179,
+      "ci_lower": -0.008560988164492666,
+      "ci_upper": 0.017013471103015786,
+      "simultaneous_lower": -0.03691469015640034,
+      "simultaneous_upper": 0.044216228199146695,
+      "draws": 1000,
+      "seed": 2025,
+      "comparisons": 2,
+      "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+    },
+    "decision": {
+      "eligible_for_kaggle_candidate": false,
+      "checks": {
+        "positive_macro_gain": true,
+        "simultaneous_interval_positive": false,
+        "per_policy_regression_within_limit": true
+      },
+      "macro_delta": 0.00365076902137329,
+      "per_rule_delta": {
+        "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.003955223880596881,
+        "No legal advice: Do not offer or request legal advice.": 0.0033463141621495884
+      },
+      "meaning": "Development gate only; never evidence that the leaderboard target was met."
+    },
+    "replay_verified": true,
+    "replay_retrained": false,
+    "scope": "Previously examined original data; 881 novel comments, two rules. Not a Kaggle score."
+  },
+  "kaggle_candidate": {
+    "status": "not_promoted",
+    "reason": "Fixed blend fails the preregistered positive simultaneous lower-bound gate; no new submission made."
+  },
+  "registered_utc": "2026-09-10T03:32:27.091617+00:00",
+  "source_files": {
+    "scripts/complementary_worker.py": "b4181df4ad79a900d9ef2e2f49388cf2363bdf124793f7b96e6ecd4b6f8bbec5",
+    "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+    "scripts/competition_worker.py": "90d6ef575f3d012b7e6c5e61b070527f80a96b473f8489984b7b74f1f7c76379",
+    "scripts/decision_training.py": "2eb2d01b5e62a1d6e5ba1a15029002c34e89e30d1037efe83f83ca2e016f627f",
+    "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+    "scripts/bootstrap_gpu.py": "38c97062807ed4ac1d0be27d042ad12f493880486d7cbf9a42fc17f37800b859",
+    "scripts/run_complementarity.sh": "f813a4fe4a6d2474ca2b744b1083093298b2360b8baae46066da43ec036c54ad",
+    "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+  },
+  "configuration_files": {
+    "configs/complementarity.json": "85863dcd3c7571f48d41cc740905c4881f41d438348c517a4bf1e95ab029accb",
+    "configs/complementary_model.json": "1c85e848c942ccb2506a1d4b94918a19e0d7e51d0587d2a6b750a42e2dbe4992"
+  },
+  "budget": {
+    "instance_type": "ml.g6.xlarge",
+    "region": "us-west-2",
+    "instances": 1,
+    "runtime_cap_seconds": 3600,
+    "worker_cap_seconds": 3000,
+    "training_usd_per_hour": 1.127,
+    "maximum_compute_usd": 1.127,
+    "storage_extra": true,
+    "price_verified_utc": "2026-09-10T03:32:27+00:00",
+    "training_quota_available": 1
+  },
+  "initial_ci": {
+    "commit": "230fd2a471b34814269e4920274af1377e31cd88",
+    "run_id": 34433808850,
+    "job_id": 102734630353,
+    "conclusion": "success",
+    "actual_jupyter_notebooks": 5,
+    "replay": true
+  },
+  "next_experiment": {
+    "status": "preparing",
+    "model_id": "Qwen/Qwen3-8B",
+    "hypothesis": "Higher backbone capacity may improve the underlying representation more than blending in a weaker model.",
+    "boundary": "Freeze a new bounded comparison before executing it; reuse Qwen3-4B predictions; original/support labels only."
+  }
+}

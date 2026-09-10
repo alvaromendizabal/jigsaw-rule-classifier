@@ -77,6 +77,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
         "build_delivery_report.py",
         "build_competition_report.py",
         "build_adaptation_report.py",
+        "build_complementarity_report.py",
     ):
         figure_builder = root / "scripts" / name
         if figure_builder.exists():
@@ -86,7 +87,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
     if mode == "public":
         paths += [
             root / "reports/checkpoints" / name
-            for name in ("kaggle_adaptation.json", "kaggle_submission.json")
+            for name in ("kaggle_adaptation.json", "kaggle_submission.json", "complementarity.json")
         ]
         coverage = root / "docs/FEATURE_COVERAGE.md"
         if coverage.exists():
@@ -113,6 +114,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "delivery",
                 "competition_features",
                 "support_adaptation",
+                "complementarity",
             )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")

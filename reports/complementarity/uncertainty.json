@@ -1,0 +1,30 @@
+[
+  {
+    "contrast": "fixed blend contribution",
+    "candidate": "blend",
+    "reference": "qwen",
+    "observed_delta": 0.003650769021373179,
+    "ci_lower": -0.008560988164492666,
+    "ci_upper": 0.017013471103015786,
+    "simultaneous_lower": -0.03691469015640034,
+    "simultaneous_upper": 0.044216228199146695,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  },
+  {
+    "contrast": "Phi support adaptation",
+    "candidate": "phi",
+    "reference": "phi_frozen",
+    "observed_delta": 0.10423959486729095,
+    "ci_lower": 0.06431948768607078,
+    "ci_upper": 0.14656111803580177,
+    "simultaneous_lower": 0.06367413568951744,
+    "simultaneous_upper": 0.14480505404506447,
+    "draws": 1000,
+    "seed": 2025,
+    "comparisons": 2,
+    "scope": "Fixed OOF predictions, normalized comment groups, observed rules only"
+  }
+]
