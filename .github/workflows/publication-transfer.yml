@@ -1,0 +1,30 @@
+name: Import verified SageMaker publication
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: jigsaw-publication-transfer
+  cancel-in-progress: false
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the transport branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - name: Import the exact previously tested public files
+        run: python .publication/import_publication.py .publication/patches.xz
+      - name: Publish only the original verified commit
+        env:
+          GIT_TERMINAL_PROMPT: '0'
+        run: |
+          set -euo pipefail
+          expected=6b41e0626d7ebedbcdc09a220804b5518e6e265a
+          test "$(git rev-parse "$expected^{tree}")" = ae71df3286f36e3096410c7e6c36c9e13bedf58b
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = 22126fa3a2ec07555996b8cbd8cfc106d29618c9
+          git push origin "$expected:refs/heads/results/support-selection-publication"
+          test "$(git ls-remote origin refs/heads/results/support-selection-publication | cut -f1)" = "$expected"
+          echo "Published the exact tested SageMaker commit $expected. Main is unchanged. No model or notebook execution."
