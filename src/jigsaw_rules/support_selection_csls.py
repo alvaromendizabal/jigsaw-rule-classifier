@@ -5,6 +5,7 @@ never reads query targets, model predictions, or released labels. Matrix row i
 remains aligned with plan training[i]. The only labels consumed are the legitimate
 binary labels already present on eligible training/support rows.
 """
+
 from __future__ import annotations
 
 from collections import Counter
@@ -139,9 +140,7 @@ def select_fold(
             top = max(counts.values()) if counts else 0
             probs = np.asarray(list(counts.values()), dtype=float) / max(n, 1)
             entropy = (
-                -float(np.sum(probs * np.log(np.maximum(probs, 1e-300))))
-                if len(probs)
-                else 0.0
+                -float(np.sum(probs * np.log(np.maximum(probs, 1e-300)))) if len(probs) else 0.0
             )
             out[name] = {
                 "distinct_supports": len(counts),
@@ -175,15 +174,12 @@ def promotion_diagnostics(result: dict, max_reuse_fraction: float) -> dict:
         for c in ("positive", "negative")
     )
     within_cap = all(
-        csls[c]["maximum_reuse_fraction"] <= max_reuse_fraction
-        for c in ("positive", "negative")
+        csls[c]["maximum_reuse_fraction"] <= max_reuse_fraction for c in ("positive", "negative")
     )
     return {
         "selection_changed": result["changed_pairs"] > 0,
         "reuse_strictly_improved_both_classes": reuse_better,
         "reuse_within_declared_cap_both_classes": within_cap,
-        "eligible_for_blinded_relevance_review": bool(
-            result["changed_pairs"] > 0 and reuse_better
-        ),
+        "eligible_for_blinded_relevance_review": bool(result["changed_pairs"] > 0 and reuse_better),
         "gpu_inference_authorized": False,
     }
