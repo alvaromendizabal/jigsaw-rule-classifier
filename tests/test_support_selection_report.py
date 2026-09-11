@@ -29,6 +29,10 @@ def test_saved_evidence_and_exact_counts():
     assert sum(r["lexical"] for r in reviews) == 24
     assert saved["audit"]["status"] == "awaiting_blinded_relevance_review"
     assert saved["review_decision"]["new_auc"] is None
+    csls = report.csls_table(saved)
+    assert [row["Changed pairs"] for row in csls] == [114, 268]
+    assert csls[1]["CSLS negative max reuse (%)"] > csls[1]["Raw negative max reuse (%)"]
+    assert all(row["Gate passed"] is False for row in csls)
 
 
 @pytest.mark.parametrize("name", sorted(report.EXPECTED))
@@ -66,9 +70,11 @@ def test_false_metric_rejected_even_with_rehashed_payload(tmp_path):
 
 def test_cells_are_read_only_and_explicit_about_review_limits():
     cells = report.notebook_cells()
-    assert len(cells) == 3
+    assert len(cells) == 6
     narrative = "\n".join(text for kind, text in cells if kind == "md")
     assert "one AI reviewer" in narrative
+    assert "CSLS" in narrative
+    assert "18.70% to 19.63%" in narrative
     assert "No new AUC" in narrative
     code = "\n".join(text for kind, text in cells if kind == "code")
     assert not any(s in code for s in ("torch", "fit(", "audit_support_selection", "np.load"))
@@ -82,6 +88,7 @@ def test_builder_inserts_section_once_in_both_canonical_notebooks():
     for name in ("02_baseline_and_review", "03_saved_results"):
         nb = generated[f"notebooks/{name}.ipynb"]
         assert sum("Latest diagnostic: cached-vector" in c.source for c in nb.cells) == 1
+        assert sum("hubness-corrected semantic selection" in c.source for c in nb.cells) == 1
         assert len({c.id for c in nb.cells}) == len(nb.cells)
 
 
