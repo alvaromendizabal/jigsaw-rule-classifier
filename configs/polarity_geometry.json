@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "name": "cached_frozen_rule_polarity_geometry",
+  "source_representation": {
+    "s3_key": "experiments/competition-features-20260909/checkpoints/fe1da83fc62341bf608d/representations.npz",
+    "sha256": "47884bbb86d4cc49dd0499f6b73e1dac38d4a629e50c1d846253c095a158c9b3",
+    "rows": 2029,
+    "prompts": ["rule", "support", "rule_support"],
+    "dimension": 2560
+  },
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "transforms": ["rule", "support", "rule_support", "joint_minus_rule", "joint_minus_support"],
+  "modes": ["centroid", "whitened", "hard_negative"],
+  "validation": "whole-rule GroupKFold; two exact-rule transfer folds",
+  "baseline": "same-cache frozen joint violation probability",
+  "promotion": {
+    "minimum_mean_auc_delta": 0.005,
+    "require_all_fold_wins": true,
+    "no_policy_regression": true,
+    "gpu_training_authorized": false
+  },
+  "restrictions": {
+    "no_new_encoding": true,
+    "no_gpu": true,
+    "no_query_targets": true,
+    "no_saved_prediction_arrays": true,
+    "no_model_calls": true
+  }
+}
