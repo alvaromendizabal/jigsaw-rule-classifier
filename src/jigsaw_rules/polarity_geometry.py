@@ -149,12 +149,15 @@ def evaluate(
                     }
                 )
     summary = {}
-    baseline = float(np.mean([r["auc"] for r in results["frozen_joint"]]))
+    baseline_rows = results["frozen_joint"]
+    baseline = float(np.mean([r["auc"] for r in baseline_rows]))
     for name, rows in results.items():
+        if len(rows) != len(baseline_rows):
+            raise ValueError("candidate/baseline fold alignment mismatch")
         mean = float(np.mean([r["auc"] for r in rows]))
         deltas = [
             float(row["auc"] - baseline_row["auc"])
-            for row, baseline_row in zip(rows, results["frozen_joint"], strict=True)
+            for row, baseline_row in zip(rows, baseline_rows)
         ]
         summary[name] = {
             "mean_auc": mean,
