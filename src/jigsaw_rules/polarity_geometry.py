@@ -154,9 +154,7 @@ def evaluate(
         mean = float(np.mean([r["auc"] for r in rows]))
         deltas = [
             float(row["auc"] - baseline_row["auc"])
-            for row, baseline_row in zip(
-                rows, results["frozen_joint"], strict=True
-            )
+            for row, baseline_row in zip(rows, results["frozen_joint"], strict=True)
         ]
         summary[name] = {
             "mean_auc": mean,
@@ -166,9 +164,7 @@ def evaluate(
             "folds": rows,
         }
     ranked = sorted(
-        (values["mean_auc"], name)
-        for name, values in summary.items()
-        if name != "frozen_joint"
+        (values["mean_auc"], name) for name, values in summary.items() if name != "frozen_joint"
     )
     best_name = ranked[-1][1]
     best = summary[best_name]
