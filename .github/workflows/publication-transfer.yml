@@ -1,6 +1,7 @@
 name: Import verified SageMaker publication
 on:
-  workflow_dispatch:
+  push:
+    branches: [ops/jigsaw-publication-transfer-20260911]
 permissions:
   contents: write
 concurrency:
@@ -16,7 +17,10 @@ jobs:
         with:
           fetch-depth: 0
       - name: Import the exact previously tested public files
-        run: python .publication/import_publication.py .publication/patches.xz
+        run: |
+          set -euo pipefail
+          cat .publication/parts/00.xz .publication/parts/01.xz .publication/parts/02.xz .publication/parts/03.xz .publication/parts/04.xz .publication/parts/05.xz > .publication/patches.xz
+          python .publication/import_publication.py .publication/patches.xz
       - name: Publish only the original verified commit
         env:
           GIT_TERMINAL_PROMPT: '0'
