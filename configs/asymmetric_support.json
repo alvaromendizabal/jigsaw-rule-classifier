@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "name": "asymmetric_cached_support_selection",
+  "evidence_scope": "original-data target-free development audit; not an AUC study",
+  "base_commit": "6b41e0626d7ebedbcdc09a220804b5518e6e265a",
+  "hypothesis": "Nearest violating plus least-similar permitted demonstrations may reduce same-topic negative hubs and better span the rule boundary than nearest/nearest adapted-vector selection.",
+  "account": "560403859723",
+  "region": "us-west-2",
+  "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+  "source": {
+    "name": "source.tar.gz",
+    "key": "experiments/support-context-20260910/source/f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a/source.tar.gz",
+    "bytes": 442458,
+    "sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a"
+  },
+  "plan": {
+    "member": "adaptation_plan.json",
+    "name": "plan.json",
+    "sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "max_bytes": 8388608
+  },
+  "representations": [
+    {
+      "name": "fold_0.npz",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz",
+      "bytes": 21493371,
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b"
+    },
+    {
+      "name": "fold_1.npz",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz",
+      "bytes": 21359643,
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    }
+  ],
+  "dimensions": 2560,
+  "expected_counts": [
+    {"training_rows": 1640, "query_rows": 234, "same_rule_supports": 629},
+    {"training_rows": 1215, "query_rows": 647, "same_rule_supports": 366}
+  ],
+  "selection": {
+    "method": "nearest_positive_farthest_negative",
+    "positive_examples": 1,
+    "negative_examples": 1,
+    "epsilon": 1e-12,
+    "batch_size": 64,
+    "tie_break": "normalized body then original body; exact score ties only"
+  },
+  "audit": {
+    "sample_per_policy": 24,
+    "seed": 2025,
+    "compare_against": ["lexical", "nearest_nearest_semantic"],
+    "no_automatic_inference_or_promotion": true,
+    "stop_if_any_policy_matches_lexical": true
+  },
+  "runtime": {
+    "max_seconds": 600,
+    "heartbeat_seconds": 30,
+    "cpu_threads": 1
+  },
+  "restrictions": [
+    "no query targets",
+    "no saved prediction-array reads",
+    "no organizer-released targets",
+    "no consumed holdout",
+    "no model downloads",
+    "no GPU",
+    "no external LLM/API inference",
+    "no training",
+    "no selection tuning on query scores",
+    "no automatic follow-on inference"
+  ],
+  "research": [
+    {
+      "title": "Jigsaw 5th Place Diverse Ensemble",
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/5th-place-solution-diverse-ensemble",
+      "use": "Most-similar positive plus least-similar negative selection reportedly improved few-shot inference by about 0.006 versus vanilla few-shot; test only the selection mechanism first."
+    },
+    {
+      "title": "Jigsaw 2nd Place Solution",
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/2nd-place-solution",
+      "use": "Conflict cleaning and deduplication strengthened supervision; subreddit was intentionally dropped."
+    },
+    {
+      "title": "Jigsaw 4th Place SALSA",
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/4th-place-solution",
+      "use": "Duplicate conflict ratios were used as soft targets and robust loss was tested; small gains were compared with seed variation."
+    }
+  ]
+}
