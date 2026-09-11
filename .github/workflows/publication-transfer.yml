@@ -1,7 +1,7 @@
 name: Import verified SageMaker publication
+# One-shot transfer completed in run 34558949294; automatic triggering is disabled.
 on:
-  push:
-    branches: [ops/jigsaw-publication-transfer-20260911]
+  workflow_dispatch:
 permissions:
   contents: write
 concurrency:
