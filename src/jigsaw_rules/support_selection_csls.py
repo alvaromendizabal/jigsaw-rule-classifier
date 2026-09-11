@@ -85,8 +85,13 @@ def csls_scores(query: np.ndarray, support: np.ndarray, *, k: int) -> np.ndarray
     return 2.0 * cosine - r_q[:, None] - r_s[None, :]
 
 
-def select_fold(fold: dict, train_vectors: np.ndarray, query_vectors: np.ndarray,
-                config: SelectorConfig = SelectorConfig()) -> dict:
+def select_fold(
+    fold: dict,
+    train_vectors: np.ndarray,
+    query_vectors: np.ndarray,
+    config: SelectorConfig | None = None,
+) -> dict:
+    config = config or SelectorConfig()
     if train_vectors.shape[0] != len(fold["training"]):
         raise ValueError("training/vector row alignment differs")
     if query_vectors.shape[0] != len(fold["queries"]):
@@ -133,7 +138,11 @@ def select_fold(fold: dict, train_vectors: np.ndarray, query_vectors: np.ndarray
             counts = reuse[method][label]
             top = max(counts.values()) if counts else 0
             probs = np.asarray(list(counts.values()), dtype=float) / max(n, 1)
-            entropy = -float(np.sum(probs * np.log(np.maximum(probs, 1e-300)))) if len(probs) else 0.0
+            entropy = (
+                -float(np.sum(probs * np.log(np.maximum(probs, 1e-300))))
+                if len(probs)
+                else 0.0
+            )
             out[name] = {
                 "distinct_supports": len(counts),
                 "maximum_reuse_fraction": top / max(n, 1),
@@ -149,8 +158,11 @@ def select_fold(fold: dict, train_vectors: np.ndarray, query_vectors: np.ndarray
         "raw": summarize("raw"),
         "csls": summarize("csls"),
         "selections": selections,
-        "config": {"k": config.k, "epsilon": config.epsilon,
-                   "max_reuse_fraction": config.max_reuse_fraction},
+        "config": {
+            "k": config.k,
+            "epsilon": config.epsilon,
+            "max_reuse_fraction": config.max_reuse_fraction,
+        },
     }
 
 
@@ -162,12 +174,16 @@ def promotion_diagnostics(result: dict, max_reuse_fraction: float) -> dict:
         csls[c]["maximum_reuse_fraction"] < raw[c]["maximum_reuse_fraction"]
         for c in ("positive", "negative")
     )
-    within_cap = all(csls[c]["maximum_reuse_fraction"] <= max_reuse_fraction
-                     for c in ("positive", "negative"))
+    within_cap = all(
+        csls[c]["maximum_reuse_fraction"] <= max_reuse_fraction
+        for c in ("positive", "negative")
+    )
     return {
         "selection_changed": result["changed_pairs"] > 0,
         "reuse_strictly_improved_both_classes": reuse_better,
         "reuse_within_declared_cap_both_classes": within_cap,
-        "eligible_for_blinded_relevance_review": bool(result["changed_pairs"] > 0 and reuse_better),
+        "eligible_for_blinded_relevance_review": bool(
+            result["changed_pairs"] > 0 and reuse_better
+        ),
         "gpu_inference_authorized": False,
     }
