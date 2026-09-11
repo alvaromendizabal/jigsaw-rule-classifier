@@ -1,8 +1,9 @@
 {
-  "evidence_scope": "Completed target-free selection audit and subsequent single-AI relevance review; not AUC evidence",
+  "evidence_scope": "Completed target-free raw and CSLS selection diagnostics plus single-AI relevance review; not AUC evidence",
   "executed_source_note": "The original portable snapshot hashes are preserved separately. Publication formatting or integration does not reattribute the historical audit to new code.",
   "files": {
     "audit.json": "da4934c06609c6787b7d12eb1aba5ea9683222865fda0ae363e0663cc9559ed3",
+    "csls_audit.json": "cd36c21dca0effcbbd4683d20178366cfb4385917be16fb3e5fe6ad5e627d0fe",
     "executed_source_manifest.json": "fab4994e189c0840f7c1b03c5f979c0108ec00eb24cd80ce4d531aedb22e6647",
     "replay_check.json": "5e531adf7b48125fd6ec9326b32b83b3b15388d51095c7e7815e8a823995d9fa",
     "review_decision.json": "c25c7eb229b4c8d4736eb0983dbbf3e728ab9bf6947e33aa4fe0e5ca149feb10",
