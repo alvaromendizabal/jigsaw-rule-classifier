@@ -7,10 +7,14 @@ from pathlib import Path
 
 import numpy as np
 
-from jigsaw_rules.support_selection_csls import SelectorConfig, promotion_diagnostics, select_fold
+from jigsaw_rules.support_selection_csls import (
+    SelectorConfig,
+    promotion_diagnostics,
+    select_fold,
+)
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--representations", type=Path, required=True)
@@ -29,22 +33,27 @@ def main():
     private = {"schema": 1, "query_targets_read": False, "folds": []}
 
     for i, fold in enumerate(plan["folds"]):
-        with np.load(args.representations / f"fold_{i}.npz", allow_pickle=False) as saved:
+        path = args.representations / f"fold_{i}.npz"
+        with np.load(path, allow_pickle=False) as saved:
             train = saved["train_adapted_vectors"]
             query = saved["query_adapted_vectors"]
             ids = saved["query_row_ids"]
         expected = np.asarray([row["row_id"] for row in fold["queries"]])
         if not np.array_equal(ids, expected):
             raise ValueError("query row order differs")
+
         result = select_fold(fold, train, query, SelectorConfig(k=args.k))
         gate = promotion_diagnostics(result, 0.25)
         public["folds"].append(
-            {key: value for key, value in result.items() if key != "selections"} | {"gate": gate}
+            {key: value for key, value in result.items() if key != "selections"}
+            | {"gate": gate}
         )
         private["folds"].append({"fold": i, "selections": result["selections"]})
 
     (args.output / "audit.json").write_text(json.dumps(public, indent=2) + "\n")
-    (args.output / "selected_pairs.private.json").write_text(json.dumps(private, indent=2) + "\n")
+    (args.output / "selected_pairs.private.json").write_text(
+        json.dumps(private, indent=2) + "\n"
+    )
     print(json.dumps(public, indent=2))
 
 
