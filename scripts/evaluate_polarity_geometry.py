@@ -26,9 +26,7 @@ def main() -> int:
         result = evaluate(frame, data["row_ids"], data["scores"], data["vectors"])
     result["elapsed_seconds"] = time.monotonic() - started
     args.output.mkdir(parents=True, exist_ok=True)
-    (args.output / "audit.json").write_text(
-        json.dumps(result, indent=2, sort_keys=True) + "\n"
-    )
+    (args.output / "audit.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(
         json.dumps(
             {
