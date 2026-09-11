@@ -100,7 +100,12 @@ def whole_rule_folds(frame: pd.DataFrame) -> list[tuple[np.ndarray, np.ndarray]]
     return list(GroupKFold(n_splits=n).split(np.zeros(len(frame)), frame["rule_violation"], groups))
 
 
-def evaluate(frame: pd.DataFrame, row_ids: np.ndarray, scores: np.ndarray, vectors: np.ndarray) -> dict:
+def evaluate(
+    frame: pd.DataFrame,
+    row_ids: np.ndarray,
+    scores: np.ndarray,
+    vectors: np.ndarray,
+) -> dict:
     required = {"row_id", "rule", "rule_violation"}
     if required.difference(frame.columns):
         raise ValueError("missing required training columns")
@@ -108,7 +113,10 @@ def evaluate(frame: pd.DataFrame, row_ids: np.ndarray, scores: np.ndarray, vecto
         raise ValueError("score schema mismatch")
     aligned = aligned_vectors(frame, row_ids, vectors)
     score_lookup = {int(row_id): i for i, row_id in enumerate(np.asarray(row_ids).tolist())}
-    frozen_joint = np.asarray([scores[score_lookup[int(r)], 2, 0] for r in frame.row_id], dtype=float)
+    frozen_joint = np.asarray(
+        [scores[score_lookup[int(r)], 2, 0] for r in frame.row_id],
+        dtype=float,
+    )
     y = frame["rule_violation"].to_numpy(dtype=int)
     folds = whole_rule_folds(frame)
     results: dict[str, list[dict]] = {"frozen_joint": []}
@@ -121,21 +129,70 @@ def evaluate(frame: pd.DataFrame, row_ids: np.ndarray, scores: np.ndarray, vecto
         if train_rules & val_rules:
             raise AssertionError("rule leakage")
         baseline_auc = float(roc_auc_score(y[va], frozen_joint[va]))
-        results["frozen_joint"].append({"fold": fold_idx, "auc": baseline_auc, "validation_rules": sorted(val_rules)})
+        results["frozen_joint"].append(
+            {
+                "fold": fold_idx,
+                "auc": baseline_auc,
+                "validation_rules": sorted(val_rules),
+            }
+        )
         for transform in TRANSFORMS:
             x = transform_vectors(aligned, transform)
             for mode in MODES:
                 pred = polarity_score(x[tr], y[tr], x[va], mode=mode)
                 auc = float(roc_auc_score(y[va], pred))
-                results[f"{transform}/{mode}"].append({"fold": fold_idx, "auc": auc, "validation_rules": sorted(val_rules)})
+                results[f"{transform}/{mode}"].append(
+                    {
+                        "fold": fold_idx,
+                        "auc": auc,
+                        "validation_rules": sorted(val_rules),
+                    }
+                )
     summary = {}
     baseline = float(np.mean([r["auc"] for r in results["frozen_joint"]]))
     for name, rows in results.items():
         mean = float(np.mean([r["auc"] for r in rows]))
-        deltas = [float(r["auc"] - b["auc"]) for r, b in zip(rows, results["frozen_joint"], strict=True)]
-        summary[name] = {"mean_auc": mean, "delta_vs_frozen_joint": float(mean - baseline), "fold_deltas": deltas, "fold_wins": int(sum(v > 0 for v in deltas)), "folds": rows}
-    ranked = sorted((v["mean_auc"], k) for k, v in summary.items() if k != "frozen_joint")
+        deltas = [
+            float(row["auc"] - baseline_row["auc"])
+            for row, baseline_row in zip(
+                rows, results["frozen_joint"], strict=True
+            )
+        ]
+        summary[name] = {
+            "mean_auc": mean,
+            "delta_vs_frozen_joint": float(mean - baseline),
+            "fold_deltas": deltas,
+            "fold_wins": int(sum(value > 0 for value in deltas)),
+            "folds": rows,
+        }
+    ranked = sorted(
+        (values["mean_auc"], name)
+        for name, values in summary.items()
+        if name != "frozen_joint"
+    )
     best_name = ranked[-1][1]
     best = summary[best_name]
-    promote = bool(best["delta_vs_frozen_joint"] >= 0.005 and best["fold_wins"] == len(folds) and min(best["fold_deltas"]) >= 0.0)
-    return {"schema": 1, "method": "cached_frozen_rule_polarity_geometry", "rows": int(len(frame)), "rules": int(frame["rule"].nunique()), "baseline": "frozen_joint", "results": summary, "best_candidate": best_name, "promotion": {"minimum_mean_auc_delta": 0.005, "require_all_fold_wins": True, "no_policy_regression": True, "passed": promote}, "query_targets_read": False, "saved_prediction_arrays_read": False, "model_calls": 0, "gpu": False}
+    promote = bool(
+        best["delta_vs_frozen_joint"] >= 0.005
+        and best["fold_wins"] == len(folds)
+        and min(best["fold_deltas"]) >= 0.0
+    )
+    return {
+        "schema": 1,
+        "method": "cached_frozen_rule_polarity_geometry",
+        "rows": int(len(frame)),
+        "rules": int(frame["rule"].nunique()),
+        "baseline": "frozen_joint",
+        "results": summary,
+        "best_candidate": best_name,
+        "promotion": {
+            "minimum_mean_auc_delta": 0.005,
+            "require_all_fold_wins": True,
+            "no_policy_regression": True,
+            "passed": promote,
+        },
+        "query_targets_read": False,
+        "saved_prediction_arrays_read": False,
+        "model_calls": 0,
+        "gpu": False,
+    }
