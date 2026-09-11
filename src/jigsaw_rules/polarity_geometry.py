@@ -156,8 +156,8 @@ def evaluate(
             raise ValueError("candidate/baseline fold alignment mismatch")
         mean = float(np.mean([r["auc"] for r in rows]))
         deltas = [
-            float(row["auc"] - baseline_row["auc"])
-            for row, baseline_row in zip(rows, baseline_rows)
+            float(rows[index]["auc"] - baseline_rows[index]["auc"])
+            for index in range(len(rows))
         ]
         summary[name] = {
             "mean_auc": mean,
