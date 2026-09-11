@@ -1,0 +1,85 @@
+{
+  "elapsed_seconds": 4.7523666889999845,
+  "feature_family": {
+    "char_tfidf": {
+      "max_features": 90000,
+      "min_df": 2,
+      "ngram_range": [3, 5]
+    },
+    "ranker": "Ridge(alpha=1.0, solver='lsqr')",
+    "word_tfidf": {
+      "max_features": 60000,
+      "min_df": 2,
+      "ngram_range": [1, 2]
+    }
+  },
+  "fold_metadata": [
+    {
+      "fold": 0,
+      "train_rows": 1012,
+      "train_rules": 1,
+      "validation_rows": 1017,
+      "validation_rule_names": ["No legal advice: Do not offer or request legal advice."],
+      "validation_rules": 1
+    },
+    {
+      "fold": 1,
+      "train_rows": 1017,
+      "train_rules": 1,
+      "validation_rows": 1012,
+      "validation_rule_names": ["No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed."],
+      "validation_rules": 1
+    }
+  ],
+  "gate": {
+    "gpu_training_authorized_by_this_worker": false,
+    "majority_delta_auc": -0.0012110630309586368,
+    "majority_fold_wins": 0,
+    "majority_promote_to_single_policy_gpu_ablation": false,
+    "soft_delta_auc": -0.0003618466778219087,
+    "soft_fold_wins": 1,
+    "soft_promote_to_single_policy_gpu_ablation": false
+  },
+  "gpu": false,
+  "input_path": "/opt/ml/processing/input/train/83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "method": "grouped_unseen_rule_conflict_supervision_ablation",
+  "model_calls": 0,
+  "prediction_arrays_read": false,
+  "query_targets_read": false,
+  "regimes": {
+    "drop_conflicts": {
+      "folds": [
+        {"auc": 0.5085649400235451, "conflicting_pairs_retained": 0, "fold": 0, "target_mean": 0.4411764705882353, "train_pairs": 850},
+        {"auc": 0.6312327971616312, "conflicting_pairs_retained": 0, "fold": 1, "target_mean": 0.5830039525691699, "train_pairs": 1012}
+      ],
+      "max_auc": 0.6312327971616312,
+      "mean_auc": 0.5698988685925881,
+      "min_auc": 0.5085649400235451,
+      "std_auc": 0.06133392856904302
+    },
+    "majority": {
+      "folds": [
+        {"auc": 0.5061428139616277, "conflicting_pairs_retained": 5, "fold": 0, "target_mean": 0.4421052631578947, "train_pairs": 855},
+        {"auc": 0.6312327971616312, "conflicting_pairs_retained": 0, "fold": 1, "target_mean": 0.5830039525691699, "train_pairs": 1012}
+      ],
+      "max_auc": 0.6312327971616312,
+      "mean_auc": 0.5686878055616295,
+      "min_auc": 0.5061428139616277,
+      "std_auc": 0.06254499160000171
+    },
+    "soft": {
+      "folds": [
+        {"auc": 0.5058246364822299, "conflicting_pairs_retained": 10, "fold": 0, "target_mean": 0.44197586328400285, "train_pairs": 860},
+        {"auc": 0.6332494073473025, "conflicting_pairs_retained": 1, "fold": 1, "target_mean": 0.5829220138203356, "train_pairs": 1013}
+      ],
+      "max_auc": 0.6332494073473025,
+      "mean_auc": 0.5695370219147662,
+      "min_auc": 0.5058246364822299,
+      "std_auc": 0.06371238543253632
+    }
+  },
+  "schema": 1,
+  "train_rows": 2029,
+  "unique_rules": 2,
+  "validation": "GroupKFold by exact rule string; no rule appears in both train and validation within a fold."
+}

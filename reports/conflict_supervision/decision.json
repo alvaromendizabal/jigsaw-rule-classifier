@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "decision": "stop_conflict_aware_supervision_before_gpu",
+  "source_job": "jigsaw-conflict-ablation-20260911-050449",
+  "source_train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "baseline": {
+    "regime": "drop_conflicts",
+    "mean_auc": 0.5698988685925881
+  },
+  "majority": {
+    "mean_auc": 0.5686878055616295,
+    "delta_auc": -0.0012110630309586368,
+    "fold_wins": 0,
+    "promote": false
+  },
+  "soft": {
+    "mean_auc": 0.5695370219147662,
+    "delta_auc": -0.0003618466778219087,
+    "fold_wins": 1,
+    "promote": false
+  },
+  "policy_specific": {
+    "legal_advice_holdout": {
+      "drop_conflicts_auc": 0.5085649400235451,
+      "majority_auc": 0.5061428139616277,
+      "soft_auc": 0.5058246364822299,
+      "conclusion": "both conflict-aware regimes underperform the current conflict-drop treatment"
+    },
+    "advertising_holdout": {
+      "drop_conflicts_auc": 0.6312327971616312,
+      "majority_auc": 0.6312327971616312,
+      "soft_auc": 0.6332494073473025,
+      "conclusion": "soft targets improve this fold by about +0.0020 but do not offset the legal-advice regression"
+    }
+  },
+  "methodological_note": "The original training snapshot contains only two unique rules, so unseen-rule validation yields two folds. The predeclared three-fold-win clause is therefore unreachable. The stop decision does not rely on that clause: both candidate mean deltas are negative and the legal-advice holdout regresses.",
+  "gpu_training_authorized": false,
+  "query_targets_read": false,
+  "prediction_arrays_read": false,
+  "model_calls": 0,
+  "next_research_family": "rule-polarity contrastive geometry and cross-rule hard-negative construction"
+}
