@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "milestone": "csls_hubness_corrected_support_selection",
+  "decision": "STOP_CSLS_SELECTOR",
+  "github": {
+    "implementation_head": "3854d9fee7fab79a6543b8d669acb88e232259ab",
+    "implementation_pr": 27,
+    "implementation_ci_run": 34562306849,
+    "merged_main": "44f8fe2053cd47a5d7a443a90501abc7069742d5"
+  },
+  "aws": {
+    "account": "560403859723",
+    "region": "us-west-2",
+    "processing_job": "jigsaw-csls-support-audit-20260911-043145",
+    "instance_type": "ml.m5.2xlarge",
+    "max_runtime_seconds": 600,
+    "start_utc": "2026-09-11T04:32:26.422000+00:00",
+    "end_utc": "2026-09-11T04:33:57.490000+00:00",
+    "status": "Completed",
+    "output_prefix": "s3://sagemaker-jigsaw-rules-560403859723-us-west-2/experiments/support-selection-20260910/csls/runs/jigsaw-csls-support-audit-20260911-043145/output/"
+  },
+  "inputs": {
+    "source_sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a",
+    "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "representation_sha256": [
+      "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    ]
+  },
+  "boundaries": {
+    "query_targets_read": false,
+    "prediction_arrays_read": false,
+    "model_calls": 0,
+    "gpu": false,
+    "training": false,
+    "new_auc": null,
+    "blinded_review_run": false,
+    "gpu_inference_authorized": false
+  },
+  "result": {
+    "folds": [
+      {"fold": 0, "changed_pairs": 114, "queries": 234, "raw_negative_max_reuse": 0.09829059829059829, "csls_negative_max_reuse": 0.09829059829059829},
+      {"fold": 1, "changed_pairs": 268, "queries": 647, "raw_negative_max_reuse": 0.18701700154559506, "csls_negative_max_reuse": 0.19629057187017002}
+    ],
+    "all_policies_passed_gate": false
+  },
+  "lesson": "CSLS increased support diversity but failed the predeclared strict max-reuse gate; legal-advice negative max reuse worsened, so no review or GPU inference is justified.",
+  "next_hypothesis": "conflict-aware supervision using majority or soft targets on legitimate duplicated support/training labels; begin with CPU-only occurrence/provenance audit."
+}
