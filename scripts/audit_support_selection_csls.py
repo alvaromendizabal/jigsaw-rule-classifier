@@ -1,4 +1,5 @@
 """Run one bounded CSLS support-selection audit on recovered cached vectors."""
+
 from __future__ import annotations
 
 import argparse
@@ -45,15 +46,12 @@ def main() -> None:
         result = select_fold(fold, train, query, SelectorConfig(k=args.k))
         gate = promotion_diagnostics(result, 0.25)
         public["folds"].append(
-            {key: value for key, value in result.items() if key != "selections"}
-            | {"gate": gate}
+            {key: value for key, value in result.items() if key != "selections"} | {"gate": gate}
         )
         private["folds"].append({"fold": i, "selections": result["selections"]})
 
     (args.output / "audit.json").write_text(json.dumps(public, indent=2) + "\n")
-    (args.output / "selected_pairs.private.json").write_text(
-        json.dumps(private, indent=2) + "\n"
-    )
+    (args.output / "selected_pairs.private.json").write_text(json.dumps(private, indent=2) + "\n")
     print(json.dumps(public, indent=2))
 
 
