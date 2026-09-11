@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "research_question": "Does conflict-aware duplicate-label supervision improve unseen-rule generalization enough to justify a bounded GPU adaptation ablation?",
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "validation": {
+    "type": "GroupKFold",
+    "group": "exact rule string",
+    "maximum_splits": 5,
+    "actual_splits_on_official_train": 2,
+    "metric": "roc_auc"
+  },
+  "representation": {
+    "word_tfidf": {"ngram_range": [1, 2], "min_df": 2, "max_features": 60000, "sublinear_tf": true},
+    "char_tfidf": {"analyzer": "char_wb", "ngram_range": [3, 5], "min_df": 2, "max_features": 90000, "sublinear_tf": true},
+    "ranker": {"type": "Ridge", "alpha": 1.0, "solver": "lsqr"}
+  },
+  "regimes": ["drop_conflicts", "majority", "soft"],
+  "promotion_gate": {
+    "minimum_mean_auc_delta": 0.002,
+    "fold_win_rule": "require both folds when there are two valid folds; otherwise require at least 60% with a minimum of two",
+    "gpu_training_authorized_before_gate": false
+  },
+  "compute": {
+    "instance_type": "ml.m5.large",
+    "max_runtime_seconds": 300,
+    "gpu": false,
+    "model_calls": 0
+  }
+}

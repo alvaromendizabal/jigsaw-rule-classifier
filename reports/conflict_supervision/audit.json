@@ -1,0 +1,105 @@
+{
+  "all_protocol_reconstructions_passed": true,
+  "eligible_for_next_bounded_ablation": true,
+  "folds": [
+    {
+      "candidate_occurrences": 13201,
+      "candidate_query_rows": 1012,
+      "conflict_occurrence_fraction_after_forbidden_purge": 0.005984848484848485,
+      "conflict_source_patterns": {
+        "available_support": 1,
+        "available_support+train_body+train_support": 1
+      },
+      "conflicting_occurrences": 79,
+      "conflicting_pairs": 2,
+      "duplicate_occurrences": 11481,
+      "exact_tie_pairs": 0,
+      "fold": 0,
+      "forbidden_text_occurrences": 1,
+      "gate": {
+        "eligible_for_bounded_conflict_ablation": true,
+        "gpu_training_authorized": false,
+        "has_nontrivial_soft_targets": true,
+        "meaningful_conflict_mass": true,
+        "protocol_reconstruction_passed": true
+      },
+      "majority_margin_summary": {
+        "max": 0.9285714285714286,
+        "mean": 0.6701680672268908,
+        "median": 0.6701680672268908,
+        "min": 0.41176470588235303
+      },
+      "majority_recoverable_pairs": 2,
+      "mean_conflict_entropy_bits": 0.5481329394065229,
+      "novel_query_rows": 234,
+      "occurrence_weighted_conflict_entropy_bits": 0.6430001102999305,
+      "reconstructs_published_protocol_exactly": true,
+      "retained_pairs": 1640,
+      "rule": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "same_rule_conflicting_occurrences": 51,
+      "same_rule_conflicting_pairs": 1,
+      "soft_target_summary": {
+        "max": 0.9642857142857143,
+        "median": 0.8350840336134454,
+        "min": 0.7058823529411765,
+        "q25": 0.770483193277311,
+        "q75": 0.8996848739495799
+      },
+      "soft_targets_0.2_to_0.8_pairs": 1,
+      "soft_targets_0.4_to_0.6_pairs": 0
+    },
+    {
+      "candidate_occurrences": 13176,
+      "candidate_query_rows": 1017,
+      "conflict_occurrence_fraction_after_forbidden_purge": 0.02573055028462998,
+      "conflict_source_patterns": {
+        "available_support+train_body+train_support": 9,
+        "train_body": 1
+      },
+      "conflicting_occurrences": 339,
+      "conflicting_pairs": 10,
+      "duplicate_occurrences": 11621,
+      "exact_tie_pairs": 1,
+      "fold": 1,
+      "forbidden_text_occurrences": 1,
+      "gate": {
+        "eligible_for_bounded_conflict_ablation": true,
+        "gpu_training_authorized": false,
+        "has_nontrivial_soft_targets": true,
+        "meaningful_conflict_mass": true,
+        "protocol_reconstruction_passed": true
+      },
+      "majority_margin_summary": {
+        "max": 0.9555555555555556,
+        "mean": 0.7653588078588079,
+        "median": 0.9017857142857143,
+        "min": 0.0
+      },
+      "majority_recoverable_pairs": 9,
+      "mean_conflict_entropy_bits": 0.4038765751086264,
+      "novel_query_rows": 647,
+      "occurrence_weighted_conflict_entropy_bits": 0.46311577378181756,
+      "reconstructs_published_protocol_exactly": true,
+      "retained_pairs": 1215,
+      "rule": "No legal advice: Do not offer or request legal advice.",
+      "same_rule_conflicting_occurrences": 0,
+      "same_rule_conflicting_pairs": 0,
+      "soft_target_summary": {
+        "max": 0.9743589743589743,
+        "median": 0.9083333333333333,
+        "min": 0.022222222222222223,
+        "q25": 0.5555555555555556,
+        "q75": 0.9575892857142857
+      },
+      "soft_targets_0.2_to_0.8_pairs": 2,
+      "soft_targets_0.4_to_0.6_pairs": 1
+    }
+  ],
+  "gpu": false,
+  "method": "conflict_soft_target_train_only_audit",
+  "model_calls": 0,
+  "query_targets_used_for_selection": false,
+  "schema": 1,
+  "train_rows": 2029,
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a"
+}
