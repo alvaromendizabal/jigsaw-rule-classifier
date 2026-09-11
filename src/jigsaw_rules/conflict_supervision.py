@@ -128,9 +128,12 @@ def evaluate_regimes(
     frame: pd.DataFrame,
     *,
     n_splits: int = 5,
-    gate: PromotionGate = PromotionGate(),
+    gate: PromotionGate | None = None,
 ) -> dict:
     """Compare supervision regimes using identical features and unseen-rule folds."""
+    if gate is None:
+        gate = PromotionGate()
+
     required = {"row_id", "body", "rule", "rule_violation"}
     missing = required.difference(frame.columns)
     if missing:
