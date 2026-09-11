@@ -21,11 +21,36 @@ def sample_frame(rules=("r1", "r2", "r3", "r4", "r5")):
             row_id += 1
     rows.extend(
         [
-            {"row_id": row_id, "body": "duplicate conflict", "rule": rules[0], "rule_violation": 0},
-            {"row_id": row_id + 1, "body": "duplicate conflict", "rule": rules[0], "rule_violation": 1},
-            {"row_id": row_id + 2, "body": "majority conflict", "rule": rules[-1], "rule_violation": 1},
-            {"row_id": row_id + 3, "body": "majority conflict", "rule": rules[-1], "rule_violation": 1},
-            {"row_id": row_id + 4, "body": "majority conflict", "rule": rules[-1], "rule_violation": 0},
+            {
+                "row_id": row_id,
+                "body": "duplicate conflict",
+                "rule": rules[0],
+                "rule_violation": 0,
+            },
+            {
+                "row_id": row_id + 1,
+                "body": "duplicate conflict",
+                "rule": rules[0],
+                "rule_violation": 1,
+            },
+            {
+                "row_id": row_id + 2,
+                "body": "majority conflict",
+                "rule": rules[-1],
+                "rule_violation": 1,
+            },
+            {
+                "row_id": row_id + 3,
+                "body": "majority conflict",
+                "rule": rules[-1],
+                "rule_violation": 1,
+            },
+            {
+                "row_id": row_id + 4,
+                "body": "majority conflict",
+                "rule": rules[-1],
+                "rule_violation": 0,
+            },
         ]
     )
     return pd.DataFrame(rows)
