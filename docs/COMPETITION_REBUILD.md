@@ -1,5 +1,10 @@
 # Competition performance rebuild
 
+**Current decision — September 10, 2026:** the cached-vector support-selection audit and single-AI relevance review are complete. Stop this raw adapted-vector cosine selector before another GPU comparison; keep support-adapted Qwen3-4B unchanged (**0.91808 public / 0.91425 private Kaggle AUC**). Feature research remains open. [Audit and review](SUPPORT_SELECTION_RESULT.md). No new AUC was measured.
+
+Earlier proposals and pending-CI statements below are dated history; they are not instructions to repeat completed experiments.
+
+
 The original late entry scored **0.59191 public / 0.61956 private**. Its successful
 execution did not meet the performance objective. The target is approximately
 **0.92 private AUC**, with no guarantee that a given experiment will achieve it.

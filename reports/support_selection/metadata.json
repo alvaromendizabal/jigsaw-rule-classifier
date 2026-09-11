@@ -1,0 +1,16 @@
+{
+  "evidence_scope": "Completed target-free selection audit and subsequent single-AI relevance review; not AUC evidence",
+  "executed_source_note": "The original portable snapshot hashes are preserved separately. Publication formatting or integration does not reattribute the historical audit to new code.",
+  "files": {
+    "audit.json": "da4934c06609c6787b7d12eb1aba5ea9683222865fda0ae363e0663cc9559ed3",
+    "executed_source_manifest.json": "fab4994e189c0840f7c1b03c5f979c0108ec00eb24cd80ce4d531aedb22e6647",
+    "replay_check.json": "5e531adf7b48125fd6ec9326b32b83b3b15388d51095c7e7815e8a823995d9fa",
+    "review_decision.json": "c25c7eb229b4c8d4736eb0983dbbf3e728ab9bf6947e33aa4fe0e5ca149feb10",
+    "review_provenance.json": "044a4970f303556e44aa582fffedf287afeebb654d16b4e9e6c3a770d7f94a68",
+    "review_summary.json": "8d5f819c4f74276f9e571c59a72fb6648036bd8404ae630262b4fdf11f6d5a13"
+  },
+  "historical_base_commit": "22126fa3a2ec07555996b8cbd8cfc106d29618c9",
+  "run_id": "adf2ff53497b509795385392",
+  "schema": 1,
+  "status_precedence": "review_decision.json is later than audit.json; the earlier awaiting-review status is preserved rather than rewritten."
+}

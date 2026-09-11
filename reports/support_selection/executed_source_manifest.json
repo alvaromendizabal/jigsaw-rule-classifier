@@ -1,0 +1,80 @@
+{
+  "base_repository_reference": "22126fa3a2ec07555996b8cbd8cfc106d29618c9",
+  "files": {
+    "README.md": {
+      "bytes": 3100,
+      "sha256": "204a828a3f5b44c566ee95f609e6da72ec0a1c249360953233fc019fb11c2206"
+    },
+    "cloudshell_controller.py": {
+      "bytes": 16682,
+      "sha256": "7d59efe96bb397e166d9000474e442162868880679204425eb9af698e039f1d5"
+    },
+    "cloudshell_worker.py": {
+      "bytes": 3116,
+      "sha256": "573914ac15eeff31040150f9e03ab72ab85044e97ec8c3fcdc6a56be19668591"
+    },
+    "configs/support_selection.json": {
+      "bytes": 3866,
+      "sha256": "1b00174de07d2499719a75334a53bc7875166d7b4c301690e200dd5c9a1c2603"
+    },
+    "docs/COMPETITION_REBUILD.append.md": {
+      "bytes": 2111,
+      "sha256": "d68a77b9344f1be9bba71e9fe639ca2a0cc8c0663b5835d477ee2caba88c99f5"
+    },
+    "docs/SUPPORT_SELECTION_AUDIT.md": {
+      "bytes": 7525,
+      "sha256": "155cc85a4cb6ec3c9433987b94dd0da5773c930123584174b95d48c4f620ca4a"
+    },
+    "pytest.ini": {
+      "bytes": 62,
+      "sha256": "92f2b35fc08afbd3ec7537d04e04c4e6c764435c38c9bee009972ab6d5768ca8"
+    },
+    "requirements.json": {
+      "bytes": 257,
+      "sha256": "8beffd64bda93159c337e454217d47f143b6a280aff755483f2a2f10dbed686d"
+    },
+    "requirements.txt": {
+      "bytes": 177,
+      "sha256": "2ae797d97a0b0a0802f2b80c5ba8dc0a55501069a636f5e7c4dca8381c3b3350"
+    },
+    "scripts/__init__.py": {
+      "bytes": 31,
+      "sha256": "e6ea0c089a226a8589527538cf633ad4e30616d4b88b8635fce6b7f4bef6caf7"
+    },
+    "scripts/audit_support_selection.py": {
+      "bytes": 20295,
+      "sha256": "86664183d48c5a23469978c354c68c55cdc0b57fcc6337842d88927d5a016842"
+    },
+    "scripts/recover_support_selection.py": {
+      "bytes": 9048,
+      "sha256": "1096f0c6be984a193f06f170c7a937b9c99440adc6e9f90182a4195bdb0eb0d0"
+    },
+    "scripts/summarize_support_selection_review.py": {
+      "bytes": 4084,
+      "sha256": "1b094f65a602eda17c14d0c7ea78546b4a0c366d0693ac6e906d696278eea35f"
+    },
+    "scripts/support_selection_runtime.py": {
+      "bytes": 6541,
+      "sha256": "cefea1378e9d6c991657c01f399903c9cf1eae19e8c95423f94f77b0a9198c2d"
+    },
+    "src/jigsaw_rules/__init__.py": {
+      "bytes": 70,
+      "sha256": "41a2f7f08c2e88d60897df740d388c2f4f79b00d8660122a3ecafaa1e9505dab"
+    },
+    "src/jigsaw_rules/data.py": {
+      "bytes": 525,
+      "sha256": "316ade27ed7fefc90461b9ea9f877caff0cb771ec2b2290203e91f912e5f2849"
+    },
+    "src/jigsaw_rules/support_selection.py": {
+      "bytes": 14882,
+      "sha256": "7a2e585836a425db581f09075be16ff82d9bee3aa5127e0f8673adf6bcf4fe5f"
+    },
+    "tests/test_support_selection.py": {
+      "bytes": 24755,
+      "sha256": "689540a0e9c2c7af73f4ae77bccb5f05db230ad5af2a40fa28308d33e015c775"
+    }
+  },
+  "not_a_git_checkout": true,
+  "purpose": "portable CloudShell M1 support-selection snapshot",
+  "schema": 1
+}

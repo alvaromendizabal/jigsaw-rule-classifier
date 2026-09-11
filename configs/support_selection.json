@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "name": "cached_adapted_semantic_support_selection",
+  "evidence_scope": "original-data target-free development audit; not an AUC study",
+  "base_commit": "22126fa3a2ec07555996b8cbd8cfc106d29618c9",
+  "hypothesis": "Adapted same-rule representation similarity may select more behavior-relevant positive/negative demonstrations than character similarity. This is unproven; nearest decision vectors may instead collapse onto class hubs.",
+  "account": "560403859723",
+  "region": "us-west-2",
+  "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+  "source": {
+    "name": "source.tar.gz",
+    "key": "experiments/support-context-20260910/source/f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a/source.tar.gz",
+    "bytes": 442458,
+    "sha256": "f7bb12075892a74ce2ddfd127e6c240fd4ffb44e47e716abd52abed4250b367a"
+  },
+  "plan": {
+    "member": "adaptation_plan.json",
+    "name": "plan.json",
+    "sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "max_bytes": 8388608
+  },
+  "representations": [
+    {
+      "name": "fold_0.npz",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz",
+      "bytes": 21493371,
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b"
+    },
+    {
+      "name": "fold_1.npz",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz",
+      "bytes": 21359643,
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    }
+  ],
+  "dimensions": 2560,
+  "expected_counts": [
+    {
+      "training_rows": 1640,
+      "query_rows": 234,
+      "same_rule_supports": 629
+    },
+    {
+      "training_rows": 1215,
+      "query_rows": 647,
+      "same_rule_supports": 366
+    }
+  ],
+  "selection": {
+    "method": "row_L2_adapted_cosine",
+    "positive_examples": 1,
+    "negative_examples": 1,
+    "epsilon": 1e-12,
+    "tie_break": "normalized body then original body; exact score ties only",
+    "lexical_analyzer": "char_wb",
+    "lexical_ngram_range": [
+      3,
+      5
+    ],
+    "lexical_sublinear_tf": true,
+    "batch_size": 64
+  },
+  "audit": {
+    "sample_per_policy": 24,
+    "seed": 2025,
+    "small_change_warning_fraction": 0.05,
+    "high_reuse_warning_fraction": 0.25,
+    "warnings_are_not_statistical_promotion_gates": true,
+    "stop_if_any_policy_identical": true,
+    "no_automatic_inference_or_promotion": true,
+    "qualitative_review": "label-blind and selector-blind A/B; relevance/behavior only, not query-target labeling"
+  },
+  "runtime": {
+    "max_seconds": 600,
+    "heartbeat_seconds": 30,
+    "cpu_threads": 1,
+    "recovery_max_seconds": 300
+  },
+  "restrictions": [
+    "no query targets",
+    "no saved prediction-array reads",
+    "no organizer-released targets",
+    "no consumed holdout",
+    "no model downloads",
+    "no GPU",
+    "no external LLM/API inference",
+    "no training",
+    "no selection tuning on query scores",
+    "no automatic cloud jobs",
+    "no automatic git publication"
+  ],
+  "research": [
+    {
+      "title": "What Makes Good In-Context Examples for GPT-3?",
+      "url": "https://arxiv.org/abs/2101.06804",
+      "use": "Semantic and task-adapted retrieval are hypotheses worth testing, not established Jigsaw gains."
+    },
+    {
+      "title": "Dr.ICL: Demonstration-Retrieved In-context Learning",
+      "url": "https://arxiv.org/abs/2305.14128",
+      "use": "Retain a strong lexical comparator; semantic selection is not presumed superior."
+    },
+    {
+      "title": "Detecting Community Sensitive Norm Violations in Online Conversations",
+      "url": "https://aclanthology.org/2021.findings-emnlp.288/",
+      "use": "Rule-specific behavior matters beyond generic toxicity; absent context cannot be invented."
+    }
+  ]
+}

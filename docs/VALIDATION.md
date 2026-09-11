@@ -1,9 +1,8 @@
 # Verification record
 
-**Latest milestone:** the competition rebuild has completed its frozen-feature and
-support-adaptation comparisons. The 0.92 competition objective remains open.
-The earlier research release and its protected cohort are historical evidence.
-[Current results and next gate](COMPETITION_REBUILD.md).
+**Current decision — September 10, 2026:** the cached-vector support-selection audit and single-AI relevance review are complete. Stop this raw adapted-vector cosine selector before another GPU comparison; keep support-adapted Qwen3-4B unchanged (**0.91808 public / 0.91425 private Kaggle AUC**). Feature research remains open. [Audit and review](SUPPORT_SELECTION_RESULT.md). No new AUC was measured.
+
+The prior main tree `74bfe6257decfd062e13e3d6221c8dd3f48d1170` is preserved in CI run 34524541757. Its 398-test/Jupyter result predates this publication candidate. The completed CloudShell audit passed 53 targeted tests and verified checkpoint reuse. Those checks are not a claim that the new publication has passed exact-head CI. Read the new execution/publication receipt for that gate.
 
 This record separates software correctness, executed research, notebook rendering and independent performance evidence. The last category is not established by passing tests.
 
@@ -34,7 +33,7 @@ not a Kaggle submission result. [Cloud receipt](../reports/checkpoints/support_a
 and [aggregate checksums](../reports/support_adaptation/metadata.json) preserve the
 runtime, exact configuration, source identity, measurements and limitations.
 
-## Current milestone: feature research closure
+## Historical milestone: feature research closure
 
 The 2026-09-09 closeout passes **263 tests in 115.66 seconds**, compilation, Ruff, formatting and canonical notebook-source checks. The full quality invocation takes 120.06 seconds. Tests additionally cover policy-intent compilation, support/batch invariance, forbidden target access, independent cache identity, all five replacement tolerances, fixed fusion and stale stopping-rationale publication. The feature gate now permits final model development and explicitly denies production promotion.
 

@@ -715,6 +715,13 @@ else:
         ]
     ).cells[0]
     outputs["kaggle/submission.ipynb"] = adapted_notebook(ROOT)
+    if __package__:
+        from .build_support_selection_report import notebook_cells
+    else:
+        from build_support_selection_report import notebook_cells
+
+    for name in ("02_baseline_and_review", "03_saved_results"):
+        outputs[f"notebooks/{name}.ipynb"].cells[3:3] = notebook(notebook_cells()).cells
     return outputs
 
 

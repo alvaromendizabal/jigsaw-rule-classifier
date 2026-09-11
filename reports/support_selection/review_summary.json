@@ -1,0 +1,29 @@
+{
+  "actual_cloudshell_key_verified": true,
+  "automatic_inference_allowed": false,
+  "cases": 48,
+  "contains_comment_text": false,
+  "counts_by_fold": {
+    "0": {
+      "lexical": 11,
+      "semantic": 6,
+      "tie": 1,
+      "unclear": 6
+    },
+    "1": {
+      "lexical": 13,
+      "semantic": 7,
+      "tie": 0,
+      "unclear": 4
+    }
+  },
+  "decision": "STOP_CURRENT_SEMANTIC_SELECTOR",
+  "limitation": "One AI preference review is not human validation, target labeling or AUC evidence.",
+  "official_metric": null,
+  "query_targets_read": false,
+  "ratings_sha256": "30be81a3b70a7624b7ea8350c3ab6eb5ea8f226e11dbfa7a39d91bcfb369c845",
+  "reviewer_type": "single_ai_reviewer",
+  "run_id": "adf2ff53497b509795385392",
+  "schema": 1,
+  "status": "single_ai_relevance_review_recorded"
+}

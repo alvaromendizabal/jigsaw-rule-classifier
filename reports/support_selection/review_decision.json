@@ -1,0 +1,25 @@
+{
+  "cases": 48,
+  "constraints": [
+    "No automatic GPU inference, retraining, model downloads, cloud resource changes, or GitHub publication.",
+    "Preserve existing lexical-prompt rejection and all historical audit outputs.",
+    "Keep this review as exploratory diagnostic evidence; do not turn preferences into query targets or a fitted per-query selector.",
+    "Any revised representation must have training-only transforms, its own frozen protocol, tests, ablations and appropriate validation."
+  ],
+  "current_accepted_model": "support-adapted Qwen3-4B; unchanged",
+  "decision": "STOP_CURRENT_SEMANTIC_SELECTOR",
+  "feature_research_closed": false,
+  "lexical_preferred": 24,
+  "lexical_prompt_promoted": false,
+  "new_auc": null,
+  "next_experiment_authorized_by_this_file": false,
+  "next_research_hypothesis": "Investigate whether decision-token representations have overly concentrated geometry that favors frequently reused examples rather than rule-relevant behavior. This is an unproven explanation, not an identified root cause.",
+  "query_targets_read": false,
+  "reason": "The proposed raw adapted-vector cosine selector was less often preferred for rule-relevant demonstration utility in both reviewed policies. This is insufficient justification to spend on its GPU inference ablation.",
+  "reviewer_type": "single_ai_reviewer",
+  "run_id": "adf2ff53497b509795385392",
+  "schema": 1,
+  "semantic_preferred": 13,
+  "tie": 1,
+  "unclear": 10
+}

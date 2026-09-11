@@ -1,8 +1,10 @@
 # Start with the evidence
 
+**Current decision — September 10, 2026:** the cached-vector support-selection audit and single-AI relevance review are complete. Stop this raw adapted-vector cosine selector before another GPU comparison; keep support-adapted Qwen3-4B unchanged (**0.91808 public / 0.91425 private Kaggle AUC**). Feature research remains open. [Audit and review](docs/SUPPORT_SELECTION_RESULT.md). No new AUC was measured.
+
+
 **Verified Kaggle result — September 10, 2026, 02:20 UTC:** support-adapted Qwen3-4B **Version 3 scored 0.91808 public / 0.91425 private AUC**, up **0.32617 / 0.29469** from the lexical baseline. Kaggle reports **Succeeded (after deadline)**. The private score remains **0.00575 below 0.92** and **0.01575 below 0.93**; the performance goal remains open. [Exact saved version](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Verified receipt](reports/checkpoints/kaggle_adaptation.json).
 
-**Latest development decision:** the completed Phi/Qwen comparison gains only 0.00365 AUC and fails its uncertainty gate. It is not submitted. The next bounded test is Qwen3-8B; the scored reference remains 0.91425 private AUC. [Measured study](docs/COMPETITION_REBUILD.md#measured-result-phi-adds-an-uncertain-small-blend-gain).
 
 **Current neural notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb). **Historical CPU control:** [`kaggle/reference.ipynb`](kaggle/reference.ipynb), which reproduces the original Version 2 approach. The separate 0.7770 research model uses post-competition development labels. Keep these three model/data boundaries distinct.
 

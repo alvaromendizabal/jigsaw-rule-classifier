@@ -18,7 +18,12 @@ def delivery_evidence(root: Path) -> dict:
             raise ValueError("Delivery evidence checksum mismatch")
     record = json.loads((folder / "verification.json").read_text())
     bundle = json.loads((folder / "bundle.json").read_text())
-    sources = {p.name: digest(p) for p in (root / "src/jigsaw_rules").glob("*.py")}
+    # This report describes a frozen historical release, not the current package.
+    # Verify every originally recorded source byte; additive research modules are
+    # not part of that release and must not invalidate its saved display evidence.
+    if any(Path(name).name != name or not name.endswith(".py") for name in bundle["sources"]):
+        raise ValueError("Invalid historical delivery source name")
+    sources = {name: digest(root / "src/jigsaw_rules" / name) for name in bundle["sources"]}
     if (
         sources != bundle["sources"]
         or record["status"] != "passed"

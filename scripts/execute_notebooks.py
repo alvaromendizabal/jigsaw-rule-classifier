@@ -78,6 +78,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
         "build_competition_report.py",
         "build_adaptation_report.py",
         "build_complementarity_report.py",
+        "build_support_selection_report.py",
     ):
         figure_builder = root / "scripts" / name
         if figure_builder.exists():
@@ -93,6 +94,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "complementarity.json",
                 "backbone_capacity.json",
                 "support_context.json",
+                "support_selection.json",
             )
         ]
         coverage = root / "docs/FEATURE_COVERAGE.md"
@@ -123,6 +125,7 @@ def execution_contract(root: Path, work: Path, nb, mode: str, engine: str) -> di
                 "complementarity",
                 "backbone_capacity",
                 "support_context",
+                "support_selection",
             )
             for p in sorted((root / "reports" / kind).rglob("*"))
             if p.suffix in (".json", ".svg")

@@ -1,8 +1,10 @@
 {
-  "schema": 1,
-  "reader_sha256": "6840e5e888e3ed524441a174d569db54f41987c62d67d9b61fc3686dcccf4a7e",
   "files": {
-    "verification.json": "52db54eff1eceb08b442b2afd00da988f22437e3d86e64b043473fd9d1164ec3",
-    "bundle.json": "dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a"
-  }
+    "bundle.json": "dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a",
+    "verification.json": "52db54eff1eceb08b442b2afd00da988f22437e3d86e64b043473fd9d1164ec3"
+  },
+  "historical_reader_sha256": "6840e5e888e3ed524441a174d569db54f41987c62d67d9b61fc3686dcccf4a7e",
+  "reader_sha256": "b0dbc9a23cfbc79bedc6d19ea2d930fa4167b3b8578d6e0b4c564dca9e7f663e",
+  "schema": 1,
+  "source_scope": "Every originally recorded source hash is checked; additive research modules are excluded from this historical release record."
 }

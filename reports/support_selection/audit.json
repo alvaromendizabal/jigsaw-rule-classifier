@@ -1,0 +1,346 @@
+{
+  "arrays_loaded": [
+    "train_adapted_vectors",
+    "query_adapted_vectors",
+    "query_row_ids"
+  ],
+  "automatic_inference_allowed": false,
+  "base_commit": "22126fa3a2ec07555996b8cbd8cfc106d29618c9",
+  "evidence_scope": "original-data target-free development audit; not an AUC study",
+  "folds": [
+    {
+      "changed_pair_fraction": 0.9871794871794872,
+      "changed_pairs": 231,
+      "cue_diagnostics_are_not_intent_labels": true,
+      "fold": 0,
+      "methods": {
+        "lexical": {
+          "balanced_pairs": 234,
+          "class_counts_per_pair": {
+            "negative": 1,
+            "positive": 1
+          },
+          "classes": {
+            "negative": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.04700854700854701,
+                "commercial_cue": 0.3034188034188034,
+                "exception": 0.1282051282051282,
+                "negation": 0.1752136752136752,
+                "personal_account": 0.03418803418803419,
+                "quotation": 0.13247863247863248,
+                "request": 0.2863247863247863
+              },
+              "distinct_supports": 116,
+              "effective_support_count": 89.89948435579558,
+              "maximum_reuse_fraction": 0.05128205128205128,
+              "selected_cosine": {
+                "max": 0.8740423794533438,
+                "mean": 0.1891768035546932,
+                "median": 0.15458051614751453,
+                "min": 0.05268021915967467
+              },
+              "word_set_overlap": {
+                "max": 0.6666666666666666,
+                "mean": 0.12560540900484762,
+                "median": 0.10859950859950859,
+                "min": 0.0
+              }
+            },
+            "positive": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.017094017094017096,
+                "commercial_cue": 0.2777777777777778,
+                "exception": 0.13675213675213677,
+                "negation": 0.21367521367521367,
+                "personal_account": 0.01282051282051282,
+                "quotation": 0.04700854700854701,
+                "request": 0.2863247863247863
+              },
+              "distinct_supports": 112,
+              "effective_support_count": 86.48054515266703,
+              "maximum_reuse_fraction": 0.04700854700854701,
+              "selected_cosine": {
+                "max": 0.8368610789809324,
+                "mean": 0.20335523600875338,
+                "median": 0.15208012372831115,
+                "min": 0.04797022503800229
+              },
+              "word_set_overlap": {
+                "max": 0.8181818181818182,
+                "mean": 0.13966895627620382,
+                "median": 0.1105006105006105,
+                "min": 0.0
+              }
+            }
+          },
+          "positive_minus_negative_cosine": {
+            "max": 0.782716326939765,
+            "mean": 0.014178432454060185,
+            "median": 0.0031408751352809267,
+            "min": -0.8128294559670723
+          },
+          "positive_negative_pair_semantic_cosine": {
+            "max": 0.9961054897467414,
+            "mean": 0.9693275789489644,
+            "median": 0.9691592971661145,
+            "min": 0.9290659186516058
+          }
+        },
+        "semantic": {
+          "balanced_pairs": 234,
+          "class_counts_per_pair": {
+            "negative": 1,
+            "positive": 1
+          },
+          "classes": {
+            "negative": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.04700854700854701,
+                "commercial_cue": 0.24786324786324787,
+                "exception": 0.11538461538461539,
+                "negation": 0.19230769230769232,
+                "personal_account": 0.06837606837606838,
+                "quotation": 0.09401709401709402,
+                "request": 0.3076923076923077
+              },
+              "distinct_supports": 73,
+              "effective_support_count": 45.46765405266833,
+              "maximum_reuse_fraction": 0.09829059829059829,
+              "selected_cosine": {
+                "max": 0.9993721202429527,
+                "mean": 0.993257834740412,
+                "median": 0.9939777778518422,
+                "min": 0.9796407298187324
+              },
+              "word_set_overlap": {
+                "max": 0.5882352941176471,
+                "mean": 0.0781575117332545,
+                "median": 0.0672316384180791,
+                "min": 0.0
+              }
+            },
+            "positive": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.008547008547008548,
+                "commercial_cue": 0.23504273504273504,
+                "exception": 0.1752136752136752,
+                "negation": 0.13675213675213677,
+                "personal_account": 0.029914529914529916,
+                "quotation": 0.042735042735042736,
+                "request": 0.2777777777777778
+              },
+              "distinct_supports": 88,
+              "effective_support_count": 56.33299728148506,
+              "maximum_reuse_fraction": 0.09829059829059829,
+              "selected_cosine": {
+                "max": 0.9997975951840348,
+                "mean": 0.9941723347988489,
+                "median": 0.9945156667143582,
+                "min": 0.9814218583622137
+              },
+              "word_set_overlap": {
+                "max": 0.8181818181818182,
+                "mean": 0.09111456986607276,
+                "median": 0.0684633411449615,
+                "min": 0.0
+              }
+            }
+          },
+          "positive_minus_negative_cosine": {
+            "max": 0.015345387113106734,
+            "mean": 0.0009145000584369513,
+            "median": 6.493152211861641e-05,
+            "min": -0.006368923144625893
+          },
+          "positive_negative_pair_semantic_cosine": {
+            "max": 0.9975011746526913,
+            "mean": 0.993155747220784,
+            "median": 0.9939624317520221,
+            "min": 0.9839100566626573
+          }
+        }
+      },
+      "queries": 234,
+      "warnings": [],
+      "zero_same_rule_supports": 0,
+      "zero_training_rows": 0
+    },
+    {
+      "changed_pair_fraction": 1.0,
+      "changed_pairs": 647,
+      "cue_diagnostics_are_not_intent_labels": true,
+      "fold": 1,
+      "methods": {
+        "lexical": {
+          "balanced_pairs": 647,
+          "class_counts_per_pair": {
+            "negative": 1,
+            "positive": 1
+          },
+          "classes": {
+            "negative": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.14683153013910355,
+                "commercial_cue": 0.04327666151468315,
+                "exception": 0.33075734157650694,
+                "negation": 0.45440494590417313,
+                "personal_account": 0.07727975270479134,
+                "quotation": 0.25193199381761977,
+                "request": 0.38330757341576505
+              },
+              "distinct_supports": 135,
+              "effective_support_count": 101.60229151875227,
+              "maximum_reuse_fraction": 0.03245749613601236,
+              "selected_cosine": {
+                "max": 0.4353135315956203,
+                "mean": 0.16283833285876956,
+                "median": 0.15423027031114508,
+                "min": 0.0813184982582421
+              },
+              "word_set_overlap": {
+                "max": 0.27450980392156865,
+                "mean": 0.11185743804851803,
+                "median": 0.1111111111111111,
+                "min": 0.0
+              }
+            },
+            "positive": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.0865533230293663,
+                "commercial_cue": 0.03709428129829984,
+                "exception": 0.34312210200927357,
+                "negation": 0.42040185471406494,
+                "personal_account": 0.02472952086553323,
+                "quotation": 0.241112828438949,
+                "request": 0.29675425038639874
+              },
+              "distinct_supports": 184,
+              "effective_support_count": 145.37242312756027,
+              "maximum_reuse_fraction": 0.02627511591962906,
+              "selected_cosine": {
+                "max": 0.8874973511445873,
+                "mean": 0.18788330106628953,
+                "median": 0.18130175067764556,
+                "min": 0.08911174297701266
+              },
+              "word_set_overlap": {
+                "max": 0.6739130434782609,
+                "mean": 0.12272687926385414,
+                "median": 0.12280701754385964,
+                "min": 0.014084507042253521
+              }
+            }
+          },
+          "positive_minus_negative_cosine": {
+            "max": 0.7844941283678594,
+            "mean": 0.02504496820751999,
+            "median": 0.025581196637754045,
+            "min": -0.2930793529819653
+          },
+          "positive_negative_pair_semantic_cosine": {
+            "max": 0.9931223008915473,
+            "mean": 0.9423469115405331,
+            "median": 0.938287121662921,
+            "min": 0.8868158050539917
+          }
+        },
+        "semantic": {
+          "balanced_pairs": 647,
+          "class_counts_per_pair": {
+            "negative": 1,
+            "positive": 1
+          },
+          "classes": {
+            "negative": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.061823802163833076,
+                "commercial_cue": 0.05100463678516229,
+                "exception": 0.3400309119010819,
+                "negation": 0.49768160741885625,
+                "personal_account": 0.04482225656877898,
+                "quotation": 0.2117465224111283,
+                "request": 0.43585780525502316
+              },
+              "distinct_supports": 81,
+              "effective_support_count": 25.611458405790753,
+              "maximum_reuse_fraction": 0.18701700154559506,
+              "selected_cosine": {
+                "max": 0.9971701707319405,
+                "mean": 0.9915259256134059,
+                "median": 0.9921531253933991,
+                "min": 0.975800707920919
+              },
+              "word_set_overlap": {
+                "max": 0.2222222222222222,
+                "mean": 0.07164163589882624,
+                "median": 0.06896551724137931,
+                "min": 0.0
+              }
+            },
+            "positive": {
+              "cue_disagreement_fraction": {
+                "advice_offer": 0.07727975270479134,
+                "commercial_cue": 0.05100463678516229,
+                "exception": 0.28438948995363217,
+                "negation": 0.45131375579598143,
+                "personal_account": 0.10664605873261206,
+                "quotation": 0.28438948995363217,
+                "request": 0.29984544049459044
+              },
+              "distinct_supports": 146,
+              "effective_support_count": 64.80132871350807,
+              "maximum_reuse_fraction": 0.14064914992272023,
+              "selected_cosine": {
+                "max": 0.9973305429082272,
+                "mean": 0.9925900678746687,
+                "median": 0.993315790448363,
+                "min": 0.9765888136143398
+              },
+              "word_set_overlap": {
+                "max": 0.20408163265306123,
+                "mean": 0.08576067198489752,
+                "median": 0.08571428571428572,
+                "min": 0.0
+              }
+            }
+          },
+          "positive_minus_negative_cosine": {
+            "max": 0.013585975707068432,
+            "mean": 0.0010641422612629793,
+            "median": 0.0013235928739785408,
+            "min": -0.012283744096572513
+          },
+          "positive_negative_pair_semantic_cosine": {
+            "max": 0.9956298306567517,
+            "mean": 0.991185697565546,
+            "median": 0.9917664619138642,
+            "min": 0.9803947794927834
+          }
+        }
+      },
+      "queries": 647,
+      "warnings": [],
+      "zero_same_rule_supports": 0,
+      "zero_training_rows": 0
+    }
+  ],
+  "identical_selection_folds": [],
+  "limitations": [
+    "Two repeatedly inspected policies, not independent confirmation.",
+    "Changed pairs/diversity/cosine/cue flags do not establish relevance or AUC gains.",
+    "Adapted decision vectors are not established semantic-retrieval embeddings.",
+    "Training-vector order relies on the pinned producer/plan/matrix contract; no train_row_ids exist."
+  ],
+  "new_model_calls": 0,
+  "official_metric": null,
+  "official_metric_note": "Not measured: label-free selection audit.",
+  "prediction_arrays_read": false,
+  "qualitative_cases": 48,
+  "qualitative_review_completed": false,
+  "query_targets_read": false,
+  "run_id": "adf2ff53497b509795385392",
+  "schema": 1,
+  "status": "awaiting_blinded_relevance_review",
+  "total_queries": 881
+}

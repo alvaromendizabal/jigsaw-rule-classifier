@@ -1,0 +1,19 @@
+{
+  "audit_targeted_tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 53
+  },
+  "decision": "STOP_CURRENT_SEMANTIC_SELECTOR",
+  "feature_research_closed": false,
+  "full_cloudshell_checkpoints_migrated": false,
+  "metadata_sha256": "3d91457cd00c5fb3607e4ba1062ec2a09afed0d4d349154f93b891189c17c3de",
+  "new_model_calls": 0,
+  "official_metric": null,
+  "publication_status": "Read the external publication receipt and GitHub commit/CI; this research receipt is not a merge claim.",
+  "reviewer_type": "single_ai_reviewer",
+  "run_id": "adf2ff53497b509795385392",
+  "schema": 1,
+  "scope": "Public aggregates and executed-source provenance only; private selected examples remain in CloudShell."
+}

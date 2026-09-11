@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "run_id": "adf2ff53497b509795385392",
+  "reviewer": "ChatGPT",
+  "reviewer_type": "single_ai_reviewer",
+  "user_requested_ai_review": true,
+  "independent_human_review": false,
+  "protocol_deviation": "User explicitly replaced the proposed user-completed review with a single ChatGPT AI review. This is a qualitative diagnostic, not independent human evidence or model performance.",
+  "frozen_at_utc": "2026-09-10T22:38:31.975046+00:00",
+  "ratings_sha256": "30be81a3b70a7624b7ea8350c3ab6eb5ea8f226e11dbfa7a39d91bcfb369c845",
+  "decisions_sha256": "325c3c84d9c6f8c88ea518210a40e0769e9a07ba7d4851afd28d69133e8be5df",
+  "html_sha256": "094785eb3037f82480736126c6fde1a1f332c8c0077bd2e41e5063814d9d1a7a",
+  "preparation_sha256": "9ec6de71e003f78b99faed3f393d73a8cacc327ab390d34b1db5d0df710144dc",
+  "cases": 48,
+  "cases_per_policy": 24,
+  "method_identity_key_read_before_freeze": false,
+  "blinding_scope": "Method names were withheld during case decisions. Prior aggregate project findings were already visible; this is not an independent or double-blind study.",
+  "query_targets_read": false,
+  "prediction_arrays_read": false,
+  "generated_query_violation_labels": false,
+  "supplied_labels_modified": false,
+  "external_llm_api_calls": 0,
+  "cloud_jobs_launched": 0,
+  "rubric": [
+    "Compare how useful the full supplied positive/negative pair is for the named rule and the query communicative act.",
+    "Prefer behavior, actor relationship, direction, conditionality and use-versus-discussion relevance over shared topic words alone.",
+    "Preserve supplied demonstration labels even when their apparent boundary is ambiguous; do not assign a query target.",
+    "Choose unclear when missing context or inadequate demonstrations prevent a defensible comparison; tie when utility is comparable.",
+    "Ratings are diagnostic preferences, not correctness labels, calibrated confidence, training targets or measured AUC."
+  ],
+  "post_review_restriction": "Do not use these judgments as training labels or loosen any model promotion gate. Do not infer an ensemble or per-query selector from these preferences."
+}
