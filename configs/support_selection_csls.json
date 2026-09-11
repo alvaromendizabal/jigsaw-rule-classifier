@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "name": "csls_hubness_corrected_support_selection",
+  "base_commit": "6b41e0626d7ebedbcdc09a220804b5518e6e265a",
+  "hypothesis": "Raw adapted-vector cosine overuses semantic hubs. CSLS-style local-scaling correction will reduce support reuse while preserving same-rule positive/negative relevance.",
+  "k": 16,
+  "epsilon": 1e-12,
+  "max_reuse_fraction": 0.25,
+  "selection": "one positive and one negative independently within the same rule; stable original plan row mapping",
+  "restrictions": [
+    "no query targets",
+    "no organizer-released targets",
+    "no consumed holdout",
+    "no model predictions as selector inputs",
+    "no new embeddings",
+    "no GPU",
+    "no automatic inference",
+    "no automatic Kaggle submission"
+  ],
+  "decision": {
+    "continue_to_blinded_relevance_review_only_if": [
+      "at least one pair changes in every policy",
+      "maximum reuse fraction strictly improves for both classes in every policy"
+    ],
+    "gpu_inference_requires_separate_gate": true
+  }
+}
