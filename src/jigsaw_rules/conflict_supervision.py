@@ -17,7 +17,6 @@ REGIMES = ("drop_conflicts", "majority", "soft")
 @dataclass(frozen=True)
 class PromotionGate:
     minimum_mean_auc_delta: float = 0.002
-    minimum_fold_wins: int = 3
 
 
 def normalize_text(value: object) -> str:
@@ -39,6 +38,11 @@ def collapse_training(frame: pd.DataFrame, regime: str) -> pd.DataFrame:
     """
     if regime not in REGIMES:
         raise ValueError(f"unknown regime: {regime}")
+
+    required = {"rule", "body", "rule_violation"}
+    missing = required.difference(frame.columns)
+    if missing:
+        raise ValueError(f"missing columns: {sorted(missing)}")
 
     work = frame[["rule", "body", "rule_violation"]].copy()
     work["rule"] = work["rule"].map(normalize_text)
@@ -65,7 +69,9 @@ def collapse_training(frame: pd.DataFrame, regime: str) -> pd.DataFrame:
     return grouped.reset_index(drop=True)
 
 
-def grouped_rule_folds(frame: pd.DataFrame, n_splits: int = 5) -> list[tuple[np.ndarray, np.ndarray]]:
+def grouped_rule_folds(
+    frame: pd.DataFrame, n_splits: int = 5
+) -> list[tuple[np.ndarray, np.ndarray]]:
     """Return deterministic GroupKFold indices with exact rule isolation."""
     groups = frame["rule"].map(normalize_text).to_numpy()
     actual_splits = min(n_splits, len(np.unique(groups)))
@@ -107,6 +113,15 @@ def safe_auc(y_true: np.ndarray, y_score: np.ndarray) -> float | None:
     if len(np.unique(y_true)) < 2:
         return None
     return float(roc_auc_score(y_true, y_score))
+
+
+def required_fold_wins(n_valid_folds: int) -> int:
+    """Require both official-rule folds; otherwise require at least 60% of folds."""
+    if n_valid_folds < 1:
+        raise ValueError("need at least one valid AUC fold")
+    if n_valid_folds <= 2:
+        return n_valid_folds
+    return max(2, math.ceil(0.60 * n_valid_folds))
 
 
 def evaluate_regimes(
@@ -182,21 +197,25 @@ def evaluate_regimes(
             "folds": rows,
         }
 
+    baseline_rows = by_regime["drop_conflicts"]
+    valid_auc_folds = sum(row["auc"] is not None for row in baseline_rows)
+    minimum_fold_wins = required_fold_wins(valid_auc_folds)
     baseline = summary["drop_conflicts"]["mean_auc"]
 
     def candidate_gate(name: str) -> dict:
         delta = summary[name]["mean_auc"] - baseline
-        fold_wins = sum(
-            candidate["auc"] is not None
-            and baseline_row["auc"] is not None
-            and candidate["auc"] > baseline_row["auc"]
-            for candidate, baseline_row in zip(by_regime[name], by_regime["drop_conflicts"])
-        )
+        fold_deltas = [
+            float(candidate["auc"] - baseline_row["auc"])
+            for candidate, baseline_row in zip(by_regime[name], baseline_rows, strict=True)
+            if candidate["auc"] is not None and baseline_row["auc"] is not None
+        ]
+        fold_wins = sum(value > 0.0 for value in fold_deltas)
         return {
             "delta_auc": float(delta),
+            "fold_deltas": fold_deltas,
             "fold_wins": int(fold_wins),
             "promote_to_single_policy_gpu_ablation": bool(
-                delta >= gate.minimum_mean_auc_delta and fold_wins >= gate.minimum_fold_wins
+                delta >= gate.minimum_mean_auc_delta and fold_wins >= minimum_fold_wins
             ),
         }
 
@@ -204,13 +223,17 @@ def evaluate_regimes(
         "schema": 1,
         "method": "grouped_unseen_rule_conflict_supervision_ablation",
         "train_rows": int(len(frame)),
-        "unique_rules": int(frame["rule"].nunique()),
-        "validation": "GroupKFold by exact rule string",
+        "unique_rules": int(frame["rule"].map(normalize_text).nunique()),
+        "validation": (
+            "GroupKFold by exact rule string; the official two-rule training file yields "
+            "two whole-rule transfer folds."
+        ),
         "regimes": summary,
         "fold_metadata": fold_metadata,
         "gate": {
             "minimum_mean_auc_delta": gate.minimum_mean_auc_delta,
-            "minimum_fold_wins": gate.minimum_fold_wins,
+            "valid_auc_folds": int(valid_auc_folds),
+            "required_fold_wins": int(minimum_fold_wins),
             "soft": candidate_gate("soft"),
             "majority": candidate_gate("majority"),
             "gpu_training_authorized_by_this_module": False,

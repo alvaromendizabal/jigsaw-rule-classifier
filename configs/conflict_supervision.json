@@ -5,7 +5,8 @@
   "validation": {
     "type": "GroupKFold",
     "group": "exact rule string",
-    "n_splits": 5,
+    "maximum_splits": 5,
+    "actual_splits_on_official_train": 2,
     "metric": "roc_auc"
   },
   "representation": {
@@ -16,7 +17,7 @@
   "regimes": ["drop_conflicts", "majority", "soft"],
   "promotion_gate": {
     "minimum_mean_auc_delta": 0.002,
-    "minimum_fold_wins": 3,
+    "fold_win_rule": "require both folds when there are two valid folds; otherwise require at least 60% with a minimum of two",
     "gpu_training_authorized_before_gate": false
   },
   "compute": {
