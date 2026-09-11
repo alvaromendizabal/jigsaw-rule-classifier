@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "method": "csls_hubness_corrected_support_selection",
+  "source_head": "3854d9fee7fab79a6543b8d669acb88e232259ab",
+  "k": 16,
+  "query_targets_read": false,
+  "prediction_arrays_read": false,
+  "model_calls": 0,
+  "gpu": false,
+  "folds": [
+    {
+      "fold": 0,
+      "rule_sha256": "90acdf6b7205bdf373451f7e713fddd6f454c5b4bf333c5b9811b3b32fecaf15",
+      "queries": 234,
+      "same_rule_supports": 629,
+      "changed_pairs": 114,
+      "changed_pair_fraction": 0.48717948717948717,
+      "raw": {
+        "positive": {
+          "distinct_supports": 88,
+          "maximum_reuse_fraction": 0.09829059829059829,
+          "effective_support_count": 56.33299728148506
+        },
+        "negative": {
+          "distinct_supports": 73,
+          "maximum_reuse_fraction": 0.09829059829059829,
+          "effective_support_count": 45.467654052668294
+        }
+      },
+      "csls": {
+        "positive": {
+          "distinct_supports": 97,
+          "maximum_reuse_fraction": 0.05982905982905983,
+          "effective_support_count": 70.89675397360998
+        },
+        "negative": {
+          "distinct_supports": 90,
+          "maximum_reuse_fraction": 0.09829059829059829,
+          "effective_support_count": 58.316944362636015
+        }
+      },
+      "gate": {
+        "selection_changed": true,
+        "reuse_strictly_improved_both_classes": false,
+        "gpu_inference_authorized": false,
+        "eligible_for_blinded_relevance_review": false
+      }
+    },
+    {
+      "fold": 1,
+      "rule_sha256": "45fe6347add12c57b933f03acba75770c0e922803e5112d93596569e0c37a158",
+      "queries": 647,
+      "same_rule_supports": 366,
+      "changed_pairs": 268,
+      "changed_pair_fraction": 0.4142194744976816,
+      "raw": {
+        "positive": {
+          "distinct_supports": 146,
+          "maximum_reuse_fraction": 0.14064914992272023,
+          "effective_support_count": 64.80132871350807
+        },
+        "negative": {
+          "distinct_supports": 81,
+          "maximum_reuse_fraction": 0.18701700154559506,
+          "effective_support_count": 25.611458405790753
+        }
+      },
+      "csls": {
+        "positive": {
+          "distinct_supports": 162,
+          "maximum_reuse_fraction": 0.1143740340030912,
+          "effective_support_count": 83.45194007055971
+        },
+        "negative": {
+          "distinct_supports": 104,
+          "maximum_reuse_fraction": 0.19629057187017002,
+          "effective_support_count": 33.057790053759845
+        }
+      },
+      "gate": {
+        "selection_changed": true,
+        "reuse_strictly_improved_both_classes": false,
+        "gpu_inference_authorized": false,
+        "eligible_for_blinded_relevance_review": false
+      }
+    }
+  ],
+  "all_policies_eligible_for_blinded_relevance_review": false,
+  "gpu_inference_authorized": false
+}
