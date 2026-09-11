@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "name": "support_selection_csls",
+  "files": {
+    "audit.json": "cd36c21dca0effcbbd4683d20178366cfb4385917be16fb3e5fe6ad5e627d0fe"
+  },
+  "processing_job": "jigsaw-csls-support-audit-20260911-043145",
+  "decision": "STOP_CSLS_SELECTOR",
+  "query_targets_read": false,
+  "new_auc": null
+}
