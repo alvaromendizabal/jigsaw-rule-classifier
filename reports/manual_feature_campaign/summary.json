@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "scope": "Original-training/supplied-support manual feature campaign through Round 13",
+  "status": "research_open_no_new_Kaggle_score",
+  "accepted_recorded_private_auc": 0.91425,
+  "historical_target_private_auc": 0.9293,
+  "score_scope_note": "Local two-policy exploratory AUC is not comparable to a hidden Kaggle score. Repeated adaptive use and in-sample adapted training margins remain limitations.",
+  "studies": [
+    {
+      "study": "behavioral_features",
+      "run_id": "32e706fe1e7dddb7de34",
+      "primary": "full vs lexical_control",
+      "decision": "DO_NOT_PROMOTE_THIS_FEATURE_SET",
+      "primary_macro_auc": null,
+      "new_fits_at_completed_run": 20,
+      "source_report": "reports/behavioral_features/results.json",
+      "source_sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1"
+    },
+    {
+      "study": "relational_features",
+      "run_id": "b951f663d66c68cb6bca",
+      "primary": "add_act_roles vs add_behavior",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": null,
+      "new_fits_at_completed_run": 18,
+      "source_report": "reports/relational_features/results.json",
+      "source_sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12"
+    },
+    {
+      "study": "policy_features",
+      "run_id": "5927fe5eb15c3cf2d8aa",
+      "primary": "condition_lexical",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.6945184576666579,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/policy_features/results.json",
+      "source_sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09"
+    },
+    {
+      "study": "evidence_features",
+      "run_id": "e5628cf8367060756148",
+      "primary": "rule_both",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.702246077566026,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/evidence_features/results.json",
+      "source_sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c"
+    },
+    {
+      "study": "scope_lexical_features",
+      "run_id": "5b69b9779637e79f13cd",
+      "primary": "scope_both",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.708097520581862,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/scope_lexical_features/results.json",
+      "source_sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d"
+    },
+    {
+      "study": "local_support_features",
+      "run_id": "32a90cf7c6607257c2bf",
+      "primary": "frozen_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7175129064711472,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/local_support_features/results.json",
+      "source_sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508"
+    },
+    {
+      "study": "matched_support_features",
+      "run_id": "6dacdcfb6a19ec13d83f",
+      "primary": "paired_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7208811664900094,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/matched_support_features/results.json",
+      "source_sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841"
+    },
+    {
+      "study": "conditioned_geometry_features",
+      "run_id": "eab42d2b77ef0e2ac8e0",
+      "primary": "dual",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.715516089806929,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/conditioned_geometry_features/results.json",
+      "source_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc"
+    },
+    {
+      "study": "behavior_support_features",
+      "run_id": "7648bca3c639da0e050f",
+      "primary": "conditioned_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7288020596173745,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/behavior_support_features/results.json",
+      "source_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad"
+    },
+    {
+      "study": "crossmodal_support_features",
+      "run_id": "db369c331ca5c7fb49a7",
+      "primary": "crossmodal_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7166489867009057,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/crossmodal_support_features/results.json",
+      "source_sha256": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932"
+    },
+    {
+      "study": "multiprototype_features",
+      "run_id": "3a78a2db1228e0e87362",
+      "primary": "prototype_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7162940209570337,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/multiprototype_features/results.json",
+      "source_sha256": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5"
+    },
+    {
+      "study": "reference_consistency_features",
+      "run_id": "94bc26be8bfe2d6c311d",
+      "primary": "consistency_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7265976273356218,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/reference_consistency_features/results.json",
+      "source_sha256": "c8b377235434f0d4de6a2dd1c31b68be08df3779cbe8e5c62fa55262b9d0028a"
+    },
+    {
+      "study": "passage_support_features",
+      "run_id": "377538354e20ebccc0d9",
+      "primary": "passage_all",
+      "decision": "DO_NOT_PROMOTE_PRIMARY",
+      "primary_macro_auc": 0.7243840034237142,
+      "new_fits_at_completed_run": 12,
+      "source_report": "reports/passage_support_features/results.json",
+      "source_sha256": "d2f7118641b49332780ed4eec7c3995017487ea67afb62aee337f5a6e1a08618"
+    }
+  ],
+  "publication": "Exact saved source, executed notebook outputs, public aggregates, and local dashboards where present. Private data/models/row-level predictions excluded."
+}

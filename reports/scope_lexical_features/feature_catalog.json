@@ -1,0 +1,92 @@
+{
+  "families": {
+    "attribution": [
+      "authored",
+      "quoted",
+      "code",
+      "boundary"
+    ],
+    "negation": [
+      "unmarked",
+      "negation_window",
+      "boundary"
+    ]
+  },
+  "vocabulary": "same eligible-training word unigrams and bigrams",
+  "allocation": "value * sqrt(channel count / total term count)",
+  "control": "collapsed term value plus zero channel blocks",
+  "weights": "inherited Round 4 per-rule diagnostic weights",
+  "no_automatic_label_inversion": true,
+  "energy_checks": [
+    {
+      "fold": 0,
+      "training": [
+        {
+          "family": "attribution",
+          "columns": 33616,
+          "scoped_nonzeros": 58794,
+          "copy_nonzeros": 58512,
+          "max_per_term_energy_error": 5.551115123125783e-17
+        },
+        {
+          "family": "negation",
+          "columns": 25212,
+          "scoped_nonzeros": 59320,
+          "copy_nonzeros": 58512,
+          "max_per_term_energy_error": 5.551115123125783e-17
+        }
+      ],
+      "query": [
+        {
+          "family": "attribution",
+          "columns": 33616,
+          "scoped_nonzeros": 5798,
+          "copy_nonzeros": 5789,
+          "max_per_term_energy_error": 1.3877787807814457e-17
+        },
+        {
+          "family": "negation",
+          "columns": 25212,
+          "scoped_nonzeros": 5800,
+          "copy_nonzeros": 5789,
+          "max_per_term_energy_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "fold": 1,
+      "training": [
+        {
+          "family": "attribution",
+          "columns": 22572,
+          "scoped_nonzeros": 35392,
+          "copy_nonzeros": 35267,
+          "max_per_term_energy_error": 5.551115123125783e-17
+        },
+        {
+          "family": "negation",
+          "columns": 16929,
+          "scoped_nonzeros": 35574,
+          "copy_nonzeros": 35267,
+          "max_per_term_energy_error": 5.551115123125783e-17
+        }
+      ],
+      "query": [
+        {
+          "family": "attribution",
+          "columns": 22572,
+          "scoped_nonzeros": 21786,
+          "copy_nonzeros": 21640,
+          "max_per_term_energy_error": 1.1102230246251565e-16
+        },
+        {
+          "family": "negation",
+          "columns": 16929,
+          "scoped_nonzeros": 22105,
+          "copy_nonzeros": 21640,
+          "max_per_term_energy_error": 1.1102230246251565e-16
+        }
+      ]
+    }
+  ]
+}

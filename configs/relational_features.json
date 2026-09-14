@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "name": "round2_action_relationships",
+  "prior_run_id": "32e706fe1e7dddb7de34",
+  "prior_results_sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "query_counts": [
+    234,
+    647
+  ],
+  "max_seconds": 240,
+  "feature_budget_per_family": 12,
+  "bootstrap_replicates": 500,
+  "bootstrap_seed": 20260912,
+  "minimum_macro_delta": 0.003,
+  "primary": "add_act_roles vs add_behavior",
+  "gate": "primary macro delta >=.003, simultaneous low >0, no policy regression and ranked-pooled delta >=0",
+  "new_fits": 18,
+  "cached_control_fits": 4,
+  "automatic_gpu_authorization": false,
+  "same_model_as_round1": true,
+  "hypothesis": "Clause-local actor/action/topic relationships add beyond the measured round-1 behavior anchor; diagnostic removals distinguish topic and length proxies.",
+  "selection_note": "Chosen after round 1; exploratory follow-up, never independent confirmation."
+}

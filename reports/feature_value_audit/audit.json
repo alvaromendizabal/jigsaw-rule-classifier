@@ -1,0 +1,2409 @@
+{
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "qwen_adapted_reference",
+      "auc": 0.6792537313432836,
+      "brier": 0.25023770188266237,
+      "log_loss": 0.7600029858994344
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "lexical_control",
+      "auc": 0.6730223880597015,
+      "brier": 0.23359891811569944,
+      "log_loss": 0.6675266668166108
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "add_behavior",
+      "auc": 0.6757835820895522,
+      "brier": 0.23157672008813296,
+      "log_loss": 0.6637188982469613
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "add_act_roles",
+      "auc": 0.6757835820895522,
+      "brier": 0.23147163488587255,
+      "log_loss": 0.6633795362213664
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "condition_lexical",
+      "auc": 0.6866044776119403,
+      "brier": 0.23133527104504256,
+      "log_loss": 0.6697198819107667
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "rule_both",
+      "auc": 0.6886940298507462,
+      "brier": 0.23178594779864406,
+      "log_loss": 0.6704476011307502
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "copy_both",
+      "auc": 0.695410447761194,
+      "brier": 0.23222194759351014,
+      "log_loss": 0.6786934079561456
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "scope_both",
+      "auc": 0.6954850746268657,
+      "brier": 0.23215090670901065,
+      "log_loss": 0.6782777459854391
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "qwen_adapted_reference",
+      "auc": 0.7605330619753037,
+      "brier": 0.2215279122190867,
+      "log_loss": 0.7098793479450484
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "lexical_control",
+      "auc": 0.6419933073716757,
+      "brier": 0.2324659310304598,
+      "log_loss": 0.6560628420070657
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "add_behavior",
+      "auc": 0.6839396489305493,
+      "brier": 0.23199739696893093,
+      "log_loss": 0.7102775003385506
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "add_act_roles",
+      "auc": 0.6964149429561066,
+      "brier": 0.23003212429324277,
+      "log_loss": 0.7165907017194239
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "condition_lexical",
+      "auc": 0.7024324377213753,
+      "brier": 0.23034707850922898,
+      "log_loss": 0.7259473746738514
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "rule_both",
+      "auc": 0.7157981252813057,
+      "brier": 0.2233329036542671,
+      "log_loss": 0.7036769237822638
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "copy_both",
+      "auc": 0.7215416528052288,
+      "brier": 0.22241764190212476,
+      "log_loss": 0.7086445277568405
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "scope_both",
+      "auc": 0.7207099665368584,
+      "brier": 0.2227130408112001,
+      "log_loss": 0.7091644951215751
+    }
+  ],
+  "pair_decomposition": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "lexical_control",
+      "pairs": 13400,
+      "gained_auc_credit": 0.14033582089552238,
+      "lost_auc_credit": 0.14656716417910448,
+      "net_auc_delta": -0.0062313432835821025,
+      "pairs_improved": 1911,
+      "pairs_worsened": 1985,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "add_behavior",
+      "pairs": 13400,
+      "gained_auc_credit": 0.14906716417910448,
+      "lost_auc_credit": 0.15253731343283583,
+      "net_auc_delta": -0.003470149253731347,
+      "pairs_improved": 2028,
+      "pairs_worsened": 2065,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "add_act_roles",
+      "pairs": 13400,
+      "gained_auc_credit": 0.15082089552238806,
+      "lost_auc_credit": 0.1542910447761194,
+      "net_auc_delta": -0.003470149253731347,
+      "pairs_improved": 2052,
+      "pairs_worsened": 2088,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "condition_lexical",
+      "pairs": 13400,
+      "gained_auc_credit": 0.14977611940298508,
+      "lost_auc_credit": 0.14242537313432835,
+      "net_auc_delta": 0.007350746268656727,
+      "pairs_improved": 2037,
+      "pairs_worsened": 1930,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "rule_both",
+      "pairs": 13400,
+      "gained_auc_credit": 0.14600746268656717,
+      "lost_auc_credit": 0.13656716417910447,
+      "net_auc_delta": 0.009440298507462641,
+      "pairs_improved": 1987,
+      "pairs_worsened": 1851,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "copy_both",
+      "pairs": 13400,
+      "gained_auc_credit": 0.1455597014925373,
+      "lost_auc_credit": 0.12940298507462686,
+      "net_auc_delta": 0.01615671641791039,
+      "pairs_improved": 1982,
+      "pairs_worsened": 1754,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "model": "scope_both",
+      "pairs": 13400,
+      "gained_auc_credit": 0.14701492537313432,
+      "lost_auc_credit": 0.13078358208955224,
+      "net_auc_delta": 0.01623134328358211,
+      "pairs_improved": 2001,
+      "pairs_worsened": 1773,
+      "reference_ties": 104,
+      "candidate_ties": 1,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "lexical_control",
+      "pairs": 102202,
+      "gained_auc_credit": 0.10639713508541908,
+      "lost_auc_credit": 0.22493688968904718,
+      "net_auc_delta": -0.11853975460362798,
+      "pairs_improved": 11013,
+      "pairs_worsened": 23131,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "add_behavior",
+      "pairs": 102202,
+      "gained_auc_credit": 0.11316803976438818,
+      "lost_auc_credit": 0.18976145280914267,
+      "net_auc_delta": -0.07659341304475442,
+      "pairs_improved": 11720,
+      "pairs_worsened": 19521,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "add_act_roles",
+      "pairs": 102202,
+      "gained_auc_credit": 0.11948885540400384,
+      "lost_auc_credit": 0.18360697442320112,
+      "net_auc_delta": -0.06411811901919706,
+      "pairs_improved": 12363,
+      "pairs_worsened": 18895,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "condition_lexical",
+      "pairs": 102202,
+      "gained_auc_credit": 0.1168910588833878,
+      "lost_auc_credit": 0.1749916831373163,
+      "net_auc_delta": -0.05810062425392837,
+      "pairs_improved": 12098,
+      "pairs_worsened": 18014,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "rule_both",
+      "pairs": 102202,
+      "gained_auc_credit": 0.1187745836676386,
+      "lost_auc_credit": 0.16350952036163677,
+      "net_auc_delta": -0.04473493669399797,
+      "pairs_improved": 12295,
+      "pairs_worsened": 16836,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "copy_both",
+      "pairs": 102202,
+      "gained_auc_credit": 0.11945460949883564,
+      "lost_auc_credit": 0.1584460186689106,
+      "net_auc_delta": -0.03899140917007493,
+      "pairs_improved": 12364,
+      "pairs_worsened": 16319,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "model": "scope_both",
+      "pairs": 102202,
+      "gained_auc_credit": 0.11946439404316941,
+      "lost_auc_credit": 0.15928748948161484,
+      "net_auc_delta": -0.03982309543844531,
+      "pairs_improved": 12364,
+      "pairs_worsened": 16406,
+      "reference_ties": 562,
+      "candidate_ties": 0,
+      "pair_count_is_not_independent_sample_size": true
+    }
+  ],
+  "slices": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "explicit_quotation",
+      "present": true,
+      "rows": 7,
+      "positive_rows": 6,
+      "negative_rows": 1,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "explicit_quotation",
+      "present": true,
+      "rows": 7,
+      "positive_rows": 6,
+      "negative_rows": 1,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "explicit_quotation",
+      "present": true,
+      "rows": 7,
+      "positive_rows": 6,
+      "negative_rows": 1,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "explicit_quotation",
+      "present": false,
+      "rows": 227,
+      "positive_rows": 128,
+      "negative_rows": 99,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6789378156565656,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "explicit_quotation",
+      "present": false,
+      "rows": 227,
+      "positive_rows": 128,
+      "negative_rows": 99,
+      "model": "rule_both",
+      "auc": 0.7002446338383838,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "explicit_quotation",
+      "present": false,
+      "rows": 227,
+      "positive_rows": 128,
+      "negative_rows": 99,
+      "model": "scope_both",
+      "auc": 0.7066366792929293,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "code_markup",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "code_markup",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "code_markup",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "code_markup",
+      "present": false,
+      "rows": 234,
+      "positive_rows": 134,
+      "negative_rows": 100,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6792537313432836,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "code_markup",
+      "present": false,
+      "rows": 234,
+      "positive_rows": 134,
+      "negative_rows": 100,
+      "model": "rule_both",
+      "auc": 0.6886940298507462,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "code_markup",
+      "present": false,
+      "rows": 234,
+      "positive_rows": 134,
+      "negative_rows": 100,
+      "model": "scope_both",
+      "auc": 0.6954850746268657,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "negation_word",
+      "present": true,
+      "rows": 26,
+      "positive_rows": 17,
+      "negative_rows": 9,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "negation_word",
+      "present": true,
+      "rows": 26,
+      "positive_rows": 17,
+      "negative_rows": 9,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "negation_word",
+      "present": true,
+      "rows": 26,
+      "positive_rows": 17,
+      "negative_rows": 9,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "negation_word",
+      "present": false,
+      "rows": 208,
+      "positive_rows": 117,
+      "negative_rows": 91,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6976143514605053,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "negation_word",
+      "present": false,
+      "rows": 208,
+      "positive_rows": 117,
+      "negative_rows": 91,
+      "model": "rule_both",
+      "auc": 0.6950784258476567,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "negation_word",
+      "present": false,
+      "rows": 208,
+      "positive_rows": 117,
+      "negative_rows": 91,
+      "model": "scope_both",
+      "auc": 0.7024983563445102,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "question_mark",
+      "present": true,
+      "rows": 52,
+      "positive_rows": 31,
+      "negative_rows": 21,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6551459293394778,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "question_mark",
+      "present": true,
+      "rows": 52,
+      "positive_rows": 31,
+      "negative_rows": 21,
+      "model": "rule_both",
+      "auc": 0.6559139784946237,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "question_mark",
+      "present": true,
+      "rows": 52,
+      "positive_rows": 31,
+      "negative_rows": 21,
+      "model": "scope_both",
+      "auc": 0.6651305683563749,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "question_mark",
+      "present": false,
+      "rows": 182,
+      "positive_rows": 103,
+      "negative_rows": 79,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6875384048175003,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "question_mark",
+      "present": false,
+      "rows": 182,
+      "positive_rows": 103,
+      "negative_rows": 79,
+      "model": "rule_both",
+      "auc": 0.6990905739215928,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "question_mark",
+      "present": false,
+      "rows": 182,
+      "positive_rows": 103,
+      "negative_rows": 79,
+      "model": "scope_both",
+      "auc": 0.7046208676416369,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "link",
+      "present": true,
+      "rows": 187,
+      "positive_rows": 105,
+      "negative_rows": 82,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6682926829268293,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "link",
+      "present": true,
+      "rows": 187,
+      "positive_rows": 105,
+      "negative_rows": 82,
+      "model": "rule_both",
+      "auc": 0.683855981416957,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "link",
+      "present": true,
+      "rows": 187,
+      "positive_rows": 105,
+      "negative_rows": 82,
+      "model": "scope_both",
+      "auc": 0.6912891986062718,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "link",
+      "present": false,
+      "rows": 47,
+      "positive_rows": 29,
+      "negative_rows": 18,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7193486590038314,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "link",
+      "present": false,
+      "rows": 47,
+      "positive_rows": 29,
+      "negative_rows": 18,
+      "model": "rule_both",
+      "auc": 0.7136015325670497,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "link",
+      "present": false,
+      "rows": 47,
+      "positive_rows": 29,
+      "negative_rows": 18,
+      "model": "scope_both",
+      "auc": 0.7231800766283525,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "advice_directive",
+      "present": true,
+      "rows": 2,
+      "positive_rows": 1,
+      "negative_rows": 1,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "advice_directive",
+      "present": true,
+      "rows": 2,
+      "positive_rows": 1,
+      "negative_rows": 1,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "advice_directive",
+      "present": true,
+      "rows": 2,
+      "positive_rows": 1,
+      "negative_rows": 1,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "advice_directive",
+      "present": false,
+      "rows": 232,
+      "positive_rows": 133,
+      "negative_rows": 99,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6844003949267106,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "advice_directive",
+      "present": false,
+      "rows": 232,
+      "positive_rows": 133,
+      "negative_rows": 99,
+      "model": "rule_both",
+      "auc": 0.6865269233690287,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "advice_directive",
+      "present": false,
+      "rows": 232,
+      "positive_rows": 133,
+      "negative_rows": 99,
+      "model": "scope_both",
+      "auc": 0.6935140882509303,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "first_person_request",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "first_person_request",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "first_person_request",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "first_person_request",
+      "present": false,
+      "rows": 234,
+      "positive_rows": 134,
+      "negative_rows": 100,
+      "model": "qwen_adapted_reference",
+      "auc": 0.6792537313432836,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "first_person_request",
+      "present": false,
+      "rows": 234,
+      "positive_rows": 134,
+      "negative_rows": 100,
+      "model": "rule_both",
+      "auc": 0.6886940298507462,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "slice": "first_person_request",
+      "present": false,
+      "rows": 234,
+      "positive_rows": 134,
+      "negative_rows": 100,
+      "model": "scope_both",
+      "auc": 0.6954850746268657,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "explicit_quotation",
+      "present": true,
+      "rows": 107,
+      "positive_rows": 52,
+      "negative_rows": 55,
+      "model": "qwen_adapted_reference",
+      "auc": 0.769055944055944,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "explicit_quotation",
+      "present": true,
+      "rows": 107,
+      "positive_rows": 52,
+      "negative_rows": 55,
+      "model": "rule_both",
+      "auc": 0.6888111888111889,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "explicit_quotation",
+      "present": true,
+      "rows": 107,
+      "positive_rows": 52,
+      "negative_rows": 55,
+      "model": "scope_both",
+      "auc": 0.6912587412587413,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "explicit_quotation",
+      "present": false,
+      "rows": 540,
+      "positive_rows": 321,
+      "negative_rows": 219,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7593849130144098,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "explicit_quotation",
+      "present": false,
+      "rows": 540,
+      "positive_rows": 321,
+      "negative_rows": 219,
+      "model": "rule_both",
+      "auc": 0.7220017354443165,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "explicit_quotation",
+      "present": false,
+      "rows": 540,
+      "positive_rows": 321,
+      "negative_rows": 219,
+      "model": "scope_both",
+      "auc": 0.7277059417630407,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "code_markup",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "code_markup",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "code_markup",
+      "present": true,
+      "rows": 0,
+      "positive_rows": 0,
+      "negative_rows": 0,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "code_markup",
+      "present": false,
+      "rows": 647,
+      "positive_rows": 373,
+      "negative_rows": 274,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7605330619753037,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "code_markup",
+      "present": false,
+      "rows": 647,
+      "positive_rows": 373,
+      "negative_rows": 274,
+      "model": "rule_both",
+      "auc": 0.7157981252813057,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "code_markup",
+      "present": false,
+      "rows": 647,
+      "positive_rows": 373,
+      "negative_rows": 274,
+      "model": "scope_both",
+      "auc": 0.7207099665368584,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "negation_word",
+      "present": true,
+      "rows": 385,
+      "positive_rows": 235,
+      "negative_rows": 150,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7942553191489361,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "negation_word",
+      "present": true,
+      "rows": 385,
+      "positive_rows": 235,
+      "negative_rows": 150,
+      "model": "rule_both",
+      "auc": 0.7216170212765958,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "negation_word",
+      "present": true,
+      "rows": 385,
+      "positive_rows": 235,
+      "negative_rows": 150,
+      "model": "scope_both",
+      "auc": 0.7261560283687944,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "negation_word",
+      "present": false,
+      "rows": 262,
+      "positive_rows": 138,
+      "negative_rows": 124,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7088300607760637,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "negation_word",
+      "present": false,
+      "rows": 262,
+      "positive_rows": 138,
+      "negative_rows": 124,
+      "model": "rule_both",
+      "auc": 0.6864188873305282,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "negation_word",
+      "present": false,
+      "rows": 262,
+      "positive_rows": 138,
+      "negative_rows": 124,
+      "model": "scope_both",
+      "auc": 0.6941327723235157,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "question_mark",
+      "present": true,
+      "rows": 174,
+      "positive_rows": 94,
+      "negative_rows": 80,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7499335106382979,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "question_mark",
+      "present": true,
+      "rows": 174,
+      "positive_rows": 94,
+      "negative_rows": 80,
+      "model": "rule_both",
+      "auc": 0.7155585106382978,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "question_mark",
+      "present": true,
+      "rows": 174,
+      "positive_rows": 94,
+      "negative_rows": 80,
+      "model": "scope_both",
+      "auc": 0.7083776595744681,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "question_mark",
+      "present": false,
+      "rows": 473,
+      "positive_rows": 279,
+      "negative_rows": 194,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7630621143258323,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "question_mark",
+      "present": false,
+      "rows": 473,
+      "positive_rows": 279,
+      "negative_rows": 194,
+      "model": "rule_both",
+      "auc": 0.7137604847947382,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "question_mark",
+      "present": false,
+      "rows": 473,
+      "positive_rows": 279,
+      "negative_rows": 194,
+      "model": "scope_both",
+      "auc": 0.7230351402283561,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "link",
+      "present": true,
+      "rows": 12,
+      "positive_rows": 7,
+      "negative_rows": 5,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "link",
+      "present": true,
+      "rows": 12,
+      "positive_rows": 7,
+      "negative_rows": 5,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "link",
+      "present": true,
+      "rows": 12,
+      "positive_rows": 7,
+      "negative_rows": 5,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "link",
+      "present": false,
+      "rows": 635,
+      "positive_rows": 366,
+      "negative_rows": 269,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7575771426249821,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "link",
+      "present": false,
+      "rows": 635,
+      "positive_rows": 366,
+      "negative_rows": 269,
+      "model": "rule_both",
+      "auc": 0.7141304568631035,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "link",
+      "present": false,
+      "rows": 635,
+      "positive_rows": 366,
+      "negative_rows": 269,
+      "model": "scope_both",
+      "auc": 0.7187620614703314,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "advice_directive",
+      "present": true,
+      "rows": 21,
+      "positive_rows": 11,
+      "negative_rows": 10,
+      "model": "qwen_adapted_reference",
+      "auc": 0.9545454545454546,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "advice_directive",
+      "present": true,
+      "rows": 21,
+      "positive_rows": 11,
+      "negative_rows": 10,
+      "model": "rule_both",
+      "auc": 0.8545454545454545,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "advice_directive",
+      "present": true,
+      "rows": 21,
+      "positive_rows": 11,
+      "negative_rows": 10,
+      "model": "scope_both",
+      "auc": 0.8545454545454545,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "advice_directive",
+      "present": false,
+      "rows": 626,
+      "positive_rows": 362,
+      "negative_rows": 264,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7531286623137452,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "advice_directive",
+      "present": false,
+      "rows": 626,
+      "positive_rows": 362,
+      "negative_rows": 264,
+      "model": "rule_both",
+      "auc": 0.7120061108320777,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "advice_directive",
+      "present": false,
+      "rows": 626,
+      "positive_rows": 362,
+      "negative_rows": 264,
+      "model": "scope_both",
+      "auc": 0.7167357274401474,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "first_person_request",
+      "present": true,
+      "rows": 7,
+      "positive_rows": 3,
+      "negative_rows": 4,
+      "model": "qwen_adapted_reference",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "first_person_request",
+      "present": true,
+      "rows": 7,
+      "positive_rows": 3,
+      "negative_rows": 4,
+      "model": "rule_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "first_person_request",
+      "present": true,
+      "rows": 7,
+      "positive_rows": 3,
+      "negative_rows": 4,
+      "model": "scope_both",
+      "auc": null,
+      "status": "insufficient_class_support"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "first_person_request",
+      "present": false,
+      "rows": 640,
+      "positive_rows": 370,
+      "negative_rows": 270,
+      "model": "qwen_adapted_reference",
+      "auc": 0.7615215215215214,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "first_person_request",
+      "present": false,
+      "rows": 640,
+      "positive_rows": 370,
+      "negative_rows": 270,
+      "model": "rule_both",
+      "auc": 0.7181981981981982,
+      "status": "descriptive_only"
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "slice": "first_person_request",
+      "present": false,
+      "rows": 640,
+      "positive_rows": 370,
+      "negative_rows": 270,
+      "model": "scope_both",
+      "auc": 0.723033033033033,
+      "status": "descriptive_only"
+    }
+  ],
+  "correlations": [
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "qwen_adapted_reference",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "lexical_control",
+      "spearman": 0.5646294723421472
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "add_behavior",
+      "spearman": 0.5246994494841977
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "add_act_roles",
+      "spearman": 0.5157036972258111
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "condition_lexical",
+      "spearman": 0.5482655291327688
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "rule_both",
+      "spearman": 0.5711291083446689
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "copy_both",
+      "spearman": 0.584853156875477
+    },
+    {
+      "fold": 0,
+      "left": "qwen_adapted_reference",
+      "right": "scope_both",
+      "spearman": 0.5804896924965001
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5646294723421472
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "lexical_control",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "add_behavior",
+      "spearman": 0.9384387256686989
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "add_act_roles",
+      "spearman": 0.9317909200509846
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "condition_lexical",
+      "spearman": 0.9351429200940671
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "rule_both",
+      "spearman": 0.9414301445392231
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "copy_both",
+      "spearman": 0.9284417297313245
+    },
+    {
+      "fold": 0,
+      "left": "lexical_control",
+      "right": "scope_both",
+      "spearman": 0.9281607573890713
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5246994494841978
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "lexical_control",
+      "spearman": 0.9384387256686989
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "add_behavior",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "add_act_roles",
+      "spearman": 0.9891994256926672
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "condition_lexical",
+      "spearman": 0.9806382004287637
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "rule_both",
+      "spearman": 0.966360125913043
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "copy_both",
+      "spearman": 0.9431649279165627
+    },
+    {
+      "fold": 0,
+      "left": "add_behavior",
+      "right": "scope_both",
+      "spearman": 0.9447842648032587
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5157036972258111
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "lexical_control",
+      "spearman": 0.9317909200509846
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "add_behavior",
+      "spearman": 0.9891994256926672
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "add_act_roles",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "condition_lexical",
+      "spearman": 0.988167320863784
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "rule_both",
+      "spearman": 0.9710120902370566
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "copy_both",
+      "spearman": 0.9476389431321479
+    },
+    {
+      "fold": 0,
+      "left": "add_act_roles",
+      "right": "scope_both",
+      "spearman": 0.9491487008310224
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5482655291327689
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "lexical_control",
+      "spearman": 0.9351429200940671
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "add_behavior",
+      "spearman": 0.9806382004287637
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "add_act_roles",
+      "spearman": 0.988167320863784
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "condition_lexical",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "rule_both",
+      "spearman": 0.9830208453331911
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "copy_both",
+      "spearman": 0.9660332614980882
+    },
+    {
+      "fold": 0,
+      "left": "condition_lexical",
+      "right": "scope_both",
+      "spearman": 0.9670419519705991
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5711291083446689
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "lexical_control",
+      "spearman": 0.9414301445392231
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "add_behavior",
+      "spearman": 0.966360125913043
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "add_act_roles",
+      "spearman": 0.9710120902370566
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "condition_lexical",
+      "spearman": 0.9830208453331911
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "rule_both",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "copy_both",
+      "spearman": 0.9890205400099841
+    },
+    {
+      "fold": 0,
+      "left": "rule_both",
+      "right": "scope_both",
+      "spearman": 0.9896499179092667
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.584853156875477
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "lexical_control",
+      "spearman": 0.9284417297313245
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "add_behavior",
+      "spearman": 0.9431649279165627
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "add_act_roles",
+      "spearman": 0.9476389431321479
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "condition_lexical",
+      "spearman": 0.9660332614980882
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "rule_both",
+      "spearman": 0.9890205400099841
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "copy_both",
+      "spearman": 1.0
+    },
+    {
+      "fold": 0,
+      "left": "copy_both",
+      "right": "scope_both",
+      "spearman": 0.9994670892489705
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5804896924965002
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "lexical_control",
+      "spearman": 0.9281607573890712
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "add_behavior",
+      "spearman": 0.9447842648032587
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "add_act_roles",
+      "spearman": 0.9491487008310224
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "condition_lexical",
+      "spearman": 0.9670419519705991
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "rule_both",
+      "spearman": 0.9896499179092667
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "copy_both",
+      "spearman": 0.9994670892489705
+    },
+    {
+      "fold": 0,
+      "left": "scope_both",
+      "right": "scope_both",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.9999999999999999
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "lexical_control",
+      "spearman": 0.4410961872217376
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "add_behavior",
+      "spearman": 0.48513578043585975
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "add_act_roles",
+      "spearman": 0.48080566603454294
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "condition_lexical",
+      "spearman": 0.510246332113873
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "rule_both",
+      "spearman": 0.532119599769323
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "copy_both",
+      "spearman": 0.5429298872694038
+    },
+    {
+      "fold": 1,
+      "left": "qwen_adapted_reference",
+      "right": "scope_both",
+      "spearman": 0.5405731062182397
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.4410961872217376
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "lexical_control",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "add_behavior",
+      "spearman": 0.7227863290333308
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "add_act_roles",
+      "spearman": 0.6948996447599181
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "condition_lexical",
+      "spearman": 0.7081338802405279
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "rule_both",
+      "spearman": 0.7137586164079469
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "copy_both",
+      "spearman": 0.7126665004426794
+    },
+    {
+      "fold": 1,
+      "left": "lexical_control",
+      "right": "scope_both",
+      "spearman": 0.7114844861734838
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.4851357804358598
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "lexical_control",
+      "spearman": 0.7227863290333308
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "add_behavior",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "add_act_roles",
+      "spearman": 0.9108723225873699
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "condition_lexical",
+      "spearman": 0.9076154253349505
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "rule_both",
+      "spearman": 0.8914070136849013
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "copy_both",
+      "spearman": 0.8802653838694131
+    },
+    {
+      "fold": 1,
+      "left": "add_behavior",
+      "right": "scope_both",
+      "spearman": 0.8816936991102883
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.48080566603454294
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "lexical_control",
+      "spearman": 0.6948996447599181
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "add_behavior",
+      "spearman": 0.9108723225873699
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "add_act_roles",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "condition_lexical",
+      "spearman": 0.9919430472755864
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "rule_both",
+      "spearman": 0.9780583007559057
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "copy_both",
+      "spearman": 0.9621797082159806
+    },
+    {
+      "fold": 1,
+      "left": "add_act_roles",
+      "right": "scope_both",
+      "spearman": 0.9642488313275873
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.510246332113873
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "lexical_control",
+      "spearman": 0.7081338802405279
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "add_behavior",
+      "spearman": 0.9076154253349505
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "add_act_roles",
+      "spearman": 0.9919430472755864
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "condition_lexical",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "rule_both",
+      "spearman": 0.9904606778549221
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "copy_both",
+      "spearman": 0.9804194936651937
+    },
+    {
+      "fold": 1,
+      "left": "condition_lexical",
+      "right": "scope_both",
+      "spearman": 0.98175799921555
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5321195997693229
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "lexical_control",
+      "spearman": 0.7137586164079469
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "add_behavior",
+      "spearman": 0.8914070136849013
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "add_act_roles",
+      "spearman": 0.9780583007559057
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "condition_lexical",
+      "spearman": 0.9904606778549221
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "rule_both",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "copy_both",
+      "spearman": 0.9954438529376288
+    },
+    {
+      "fold": 1,
+      "left": "rule_both",
+      "right": "scope_both",
+      "spearman": 0.9959230299494494
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5429298872694038
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "lexical_control",
+      "spearman": 0.7126665004426794
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "add_behavior",
+      "spearman": 0.8802653838694131
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "add_act_roles",
+      "spearman": 0.9621797082159806
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "condition_lexical",
+      "spearman": 0.9804194936651937
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "rule_both",
+      "spearman": 0.9954438529376288
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "copy_both",
+      "spearman": 1.0
+    },
+    {
+      "fold": 1,
+      "left": "copy_both",
+      "right": "scope_both",
+      "spearman": 0.9992571537882401
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "qwen_adapted_reference",
+      "spearman": 0.5405731062182398
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "lexical_control",
+      "spearman": 0.7114844861734838
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "add_behavior",
+      "spearman": 0.8816936991102883
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "add_act_roles",
+      "spearman": 0.9642488313275873
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "condition_lexical",
+      "spearman": 0.98175799921555
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "rule_both",
+      "spearman": 0.9959230299494494
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "copy_both",
+      "spearman": 0.9992571537882401
+    },
+    {
+      "fold": 1,
+      "left": "scope_both",
+      "right": "scope_both",
+      "spearman": 1.0
+    }
+  ],
+  "contrasts": [
+    {
+      "model": "lexical_control",
+      "delta_auc": -0.06238554894360504,
+      "simultaneous_low": -0.10724995457335093,
+      "simultaneous_high": -0.017521143313859143,
+      "valid_draws": 500
+    },
+    {
+      "model": "add_behavior",
+      "delta_auc": -0.040031781149242884,
+      "simultaneous_low": -0.08489618677898877,
+      "simultaneous_high": 0.004832624480503013,
+      "valid_draws": 500
+    },
+    {
+      "model": "add_act_roles",
+      "delta_auc": -0.03379413413646415,
+      "simultaneous_low": -0.07865853976621004,
+      "simultaneous_high": 0.011070271493281748,
+      "valid_draws": 500
+    },
+    {
+      "model": "condition_lexical",
+      "delta_auc": -0.025374938992635765,
+      "simultaneous_low": -0.07023934462238166,
+      "simultaneous_high": 0.019489466637110132,
+      "valid_draws": 500
+    },
+    {
+      "model": "rule_both",
+      "delta_auc": -0.017647319093267666,
+      "simultaneous_low": -0.06251172472301356,
+      "simultaneous_high": 0.02721708653647823,
+      "valid_draws": 500
+    },
+    {
+      "model": "copy_both",
+      "delta_auc": -0.011417346376082271,
+      "simultaneous_low": -0.05628175200582817,
+      "simultaneous_high": 0.033447059253663626,
+      "valid_draws": 500
+    },
+    {
+      "model": "scope_both",
+      "delta_auc": -0.0117958760774316,
+      "simultaneous_low": -0.0566602817071775,
+      "simultaneous_high": 0.0330685295523143,
+      "valid_draws": 500
+    }
+  ],
+  "macro_auc": {
+    "qwen_adapted_reference": 0.7198933966592936,
+    "lexical_control": 0.6575078477156886,
+    "add_behavior": 0.6798616155100508,
+    "add_act_roles": 0.6860992625228295,
+    "condition_lexical": 0.6945184576666579,
+    "rule_both": 0.702246077566026,
+    "copy_both": 0.7084760502832114,
+    "scope_both": 0.708097520581862
+  },
+  "model_fits": 0,
+  "new_neural_inference": 0,
+  "blends_tested": 0,
+  "automatic_gpu_authorization": false,
+  "promotion": "NONE_DIAGNOSTIC_ONLY",
+  "next_gate": "choose_one_preregistered_feature_hypothesis_after_review",
+  "schema": 1,
+  "status": "FEATURE_VALUE_AUDIT_COMPLETE",
+  "run_id": "a6103241df718b4b27a4",
+  "identity": {
+    "source": {
+      "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+      "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+      "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+      "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+      "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+    },
+    "config": {
+      "schema": 1,
+      "name": "feature_value_against_cached_qwen_development",
+      "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+      "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+      "query_counts": [
+        234,
+        647
+      ],
+      "bootstrap_replicates": 500,
+      "seed": 20260917,
+      "minimum_slice_class": 10,
+      "max_seconds": 240,
+      "model_fits": 0,
+      "ensembles": false,
+      "account": "560403859723",
+      "region": "us-west-2",
+      "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+      "reference_run": "d13858b7407993fcc6e8",
+      "reference_auc": [
+        0.6792537313432836,
+        0.7605330619753037
+      ],
+      "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+      "reference_files": [
+        {
+          "name": "fold_0.npz",
+          "bytes": 21493371,
+          "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+          "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+        },
+        {
+          "name": "fold_1.npz",
+          "bytes": 21359643,
+          "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+          "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "public": "reports/behavioral_features",
+          "private": "runs/behavioral_features",
+          "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+          "run_id": "32e706fe1e7dddb7de34"
+        },
+        {
+          "round": 2,
+          "public": "reports/relational_features",
+          "private": "runs/relational_features",
+          "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+          "run_id": "b951f663d66c68cb6bca"
+        },
+        {
+          "round": 3,
+          "public": "reports/policy_features",
+          "private": "runs/policy_features",
+          "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+          "run_id": "5927fe5eb15c3cf2d8aa"
+        },
+        {
+          "round": 4,
+          "public": "reports/evidence_features",
+          "private": "runs/evidence_features",
+          "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+          "run_id": "e5628cf8367060756148"
+        },
+        {
+          "round": 5,
+          "public": "reports/scope_lexical_features",
+          "private": "runs/scope_lexical_features",
+          "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+          "run_id": "5b69b9779637e79f13cd"
+        }
+      ],
+      "model_round": {
+        "lexical_control": 1,
+        "add_behavior": 1,
+        "add_act_roles": 2,
+        "condition_lexical": 3,
+        "rule_both": 4,
+        "copy_both": 5,
+        "scope_both": 5
+      },
+      "restrictions": [
+        "No new fits or inference",
+        "No blends, thresholds or slice tuning",
+        "Original train labels only for retrospective scoring",
+        "No private content in public export",
+        "No automatic promotion"
+      ]
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0"
+      }
+    },
+    "references": [
+      "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    ],
+    "reports": {
+      "1": "32e706fe1e7dddb7de34",
+      "2": "b951f663d66c68cb6bca",
+      "3": "5927fe5eb15c3cf2d8aa",
+      "4": "e5628cf8367060756148",
+      "5": "5b69b9779637e79f13cd"
+    }
+  },
+  "reference_recovery": [
+    {
+      "fold": 0,
+      "origin": "verified_private_s3_read",
+      "bytes": 21493371,
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b"
+    },
+    {
+      "fold": 1,
+      "origin": "verified_private_s3_read",
+      "bytes": 21359643,
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+    }
+  ],
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "research_ledger": [
+    {
+      "round": 1,
+      "family": "Behavior addition",
+      "comparison": "add_behavior vs control",
+      "delta_auc": 0.022353767794362156,
+      "simultaneous_low": -0.016497876431267176,
+      "simultaneous_high": 0.06120541201999149,
+      "valid_draws": 500,
+      "historical_decision": "DO_NOT_PROMOTE_THIS_FEATURE_SET"
+    },
+    {
+      "round": 2,
+      "family": "Actor-action addition",
+      "comparison": "add_act_roles vs behavior",
+      "delta_auc": 0.006237647012778735,
+      "simultaneous_low": -0.014359387430889721,
+      "simultaneous_high": 0.02683468145644719,
+      "valid_draws": 500,
+      "historical_decision": "DO_NOT_PROMOTE_PRIMARY"
+    },
+    {
+      "round": 3,
+      "family": "Policy conditioning vs copy",
+      "comparison": "conditioning: lexical",
+      "candidate": "condition_lexical",
+      "reference": "copy_lexical",
+      "delta_auc": 0.009703771459915522,
+      "simultaneous_low": -0.014176787260252403,
+      "simultaneous_high": 0.033584330180083444,
+      "valid_draws": 500,
+      "historical_decision": "DO_NOT_PROMOTE_PRIMARY"
+    },
+    {
+      "round": 4,
+      "family": "Diagnostic lexical weighting vs shuffle",
+      "comparison": "Learned weights versus permuted weights",
+      "candidate": "rule_both",
+      "reference": "permuted_both",
+      "delta_auc": 0.00713681888983686,
+      "simultaneous_low": -0.0025219810845049356,
+      "simultaneous_high": 0.016795618864178657,
+      "valid_draws": 500,
+      "historical_decision": "DO_NOT_PROMOTE_PRIMARY"
+    },
+    {
+      "round": 5,
+      "family": "Lexical scope vs copy",
+      "comparison": "Scope versus collapsed: both",
+      "candidate": "scope_both",
+      "reference": "copy_both",
+      "delta_auc": -0.0003785297013493283,
+      "simultaneous_low": -0.008406807087525272,
+      "simultaneous_high": 0.007649747684826616,
+      "valid_draws": 500,
+      "historical_decision": "DO_NOT_PROMOTE_PRIMARY"
+    }
+  ],
+  "elapsed_seconds": 4.228,
+  "kaggle_score": null,
+  "limitations": [
+    "Cached Qwen scores are from development folds, not hidden Kaggle predictions.",
+    "The 881 comments have been repeatedly inspected; this is not fresh validation.",
+    "Conditional intervals cover seven contrasts, not all historical selection.",
+    "Pairs share comments; pair counts are not independent sample sizes.",
+    "Slices are fixed, overlapping, approximate text flags; not causal mechanisms.",
+    "Ranking complementarity does not guarantee useful feature additions or blends.",
+    "No threshold, calibrator, ensemble weight, or feature is fitted in this audit.",
+    "Source/data hashes and exact historical row order are required before scoring."
+  ]
+}

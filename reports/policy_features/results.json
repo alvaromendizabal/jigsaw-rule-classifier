@@ -1,0 +1,1625 @@
+{
+  "schema": 1,
+  "status": "POLICY_ROUND_COMPLETE",
+  "run_id": "5927fe5eb15c3cf2d8aa",
+  "identity": {
+    "source": {
+      "scripts/policy_features.py": "b4b013f18ea27af4610f3cbbd2c45abd72e89cec2f3a9125b451e1f01906463b",
+      "scripts/run_policy_features.py": "05ac4998db621956324ec727a2269431f743d8a1ba4b7a96b1d3f753f015b73c",
+      "tests/test_policy_features.py": "db12e3a657df5f9fdd8d03a4805830317592a8c886364e3fcde32801160740e3",
+      "configs/policy_features.json": "119a957065fed1e1efd2ce87156ace1cb8c7bd45bb76bd476c442216aab73efa",
+      "scripts/relational_features.py": "79e8c74d2317fb8398347d95185301aed3127da2923791060b750b1ca6bee56d",
+      "scripts/run_relational_features.py": "036aed1f2ac198453e8fe3d0295117e501572092e9fdaa642ed2bbee95110364",
+      "configs/relational_features.json": "2a51950820b41fdf7237877495ad6390acc048f5417771cd30ec239dc4a4b185",
+      "tests/test_relational_features.py": "29df3dc8df357e7ee65d67d45ff4249383131c954ac7719d679f330cffdf4a87",
+      "scripts/behavioral_features.py": "cb28b2b8a9fae23859b839fae1be79e5dc600cde631c767ce3ffd7f22c4606cc",
+      "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+      "configs/behavioral_features.json": "60d100e4f403c4bd933c506d3045c3f030118dbf5da8d794f99426255845d581",
+      "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+      "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+      "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+      "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+    },
+    "config": {
+      "schema": 1,
+      "name": "round3_policy_conditioned_feature_effects",
+      "round2_run_id": "b951f663d66c68cb6bca",
+      "round2_results_sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+      "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+      "query_counts": [
+        234,
+        647
+      ],
+      "max_seconds": 240,
+      "bootstrap_replicates": 500,
+      "bootstrap_seed": 20260913,
+      "minimum_macro_delta": 0.003,
+      "new_fits": 12,
+      "cached_control_fits": 6,
+      "primary": "condition_lexical",
+      "gate": "primary beats add_act_roles AND copy_lexical by >=0.003 macro AUC, simultaneous lower bounds >0, no policy regression relative to either, ranked-pooled delta >=0 vs actor anchor",
+      "augmentation_scale": 1.0,
+      "selection": "reuse prior train-only lexical vocabularies and screened dense columns; new policy map uses eligible training rules only; no additional validation-led screening",
+      "automatic_gpu_authorization": false,
+      "reference_status": "add_act_roles is an exploratory anchor selected after Round 2, not a promoted model",
+      "question": "Do policy-specific feature effects help beyond shared coefficients and their norm-matched duplication control?",
+      "prior_results_preserved": true
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "plotly": "7.0.0",
+        "joblib": "1.5.3"
+      }
+    },
+    "round2_results_sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+    "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a"
+  },
+  "round2_run_id": "b951f663d66c68cb6bca",
+  "new_fits": 12,
+  "reused_new_fits": 0,
+  "reused_prior_controls": 6,
+  "candidate_fits": 12,
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "control_design_parity": true,
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "lexical_control",
+      "auc": 0.6730223880597015,
+      "brier": 0.23359891811569944,
+      "log_loss": 0.6675266668166108,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "add_behavior",
+      "auc": 0.6757835820895522,
+      "brier": 0.23157672008813296,
+      "log_loss": 0.6637188982469613,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "add_act_roles",
+      "auc": 0.6757835820895522,
+      "brier": 0.23147163488587255,
+      "log_loss": 0.6633795362213664,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "copy_lexical",
+      "auc": 0.6730970149253731,
+      "brier": 0.2371432719656674,
+      "log_loss": 0.683999527502442,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "condition_lexical",
+      "auc": 0.6866044776119403,
+      "brier": 0.23133527104504256,
+      "log_loss": 0.6697198819107667,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "copy_behavior",
+      "auc": 0.6751119402985075,
+      "brier": 0.23172834116824778,
+      "log_loss": 0.6640523975555352,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "condition_behavior",
+      "auc": 0.6734701492537313,
+      "brier": 0.2433092410273494,
+      "log_loss": 0.7971460298588765,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "copy_both",
+      "auc": 0.6725746268656716,
+      "brier": 0.23745131253619597,
+      "log_loss": 0.6848119870138343,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "condition_both",
+      "auc": 0.6841417910447761,
+      "brier": 0.24216716779646283,
+      "log_loss": 0.7976401070498911,
+      "queries": 234
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "lexical_control",
+      "auc": 0.6419933073716757,
+      "brier": 0.2324659310304598,
+      "log_loss": 0.6560628420070657,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "add_behavior",
+      "auc": 0.6839396489305493,
+      "brier": 0.23199739696893093,
+      "log_loss": 0.7102775003385506,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "add_act_roles",
+      "auc": 0.6964149429561066,
+      "brier": 0.23003212429324277,
+      "log_loss": 0.7165907017194239,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "copy_lexical",
+      "auc": 0.6965323574881117,
+      "brier": 0.23452680030066927,
+      "log_loss": 0.7398853138743321,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "condition_lexical",
+      "auc": 0.7024324377213753,
+      "brier": 0.23034707850922898,
+      "log_loss": 0.7259473746738514,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "copy_behavior",
+      "auc": 0.6950548912937125,
+      "brier": 0.2312247878694627,
+      "log_loss": 0.7249192088682879,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "condition_behavior",
+      "auc": 0.69380246961899,
+      "brier": 0.23446729022611607,
+      "log_loss": 0.7508561652217435,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "copy_both",
+      "auc": 0.6945460949883564,
+      "brier": 0.23586817397514423,
+      "log_loss": 0.7490795866746954,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "condition_both",
+      "auc": 0.7016594587190075,
+      "brier": 0.23465307351705222,
+      "log_loss": 0.7642774075703547,
+      "queries": 647
+    }
+  ],
+  "pooled_metrics": [
+    {
+      "variant": "lexical_control",
+      "macro_auc": 0.6575078477156886,
+      "pooled_auc": 0.6413447035618982,
+      "ranked_pooled_auc": 0.6502468120115179
+    },
+    {
+      "variant": "add_behavior",
+      "macro_auc": 0.6798616155100508,
+      "pooled_auc": 0.6807766140345326,
+      "ranked_pooled_auc": 0.6817839023721377
+    },
+    {
+      "variant": "add_act_roles",
+      "macro_auc": 0.6860992625228295,
+      "pooled_auc": 0.6910551740868482,
+      "ranked_pooled_auc": 0.6909444251073211
+    },
+    {
+      "variant": "copy_lexical",
+      "macro_auc": 0.6848146862067424,
+      "pooled_auc": 0.6903695851659652,
+      "ranked_pooled_auc": 0.6902852049910874
+    },
+    {
+      "variant": "condition_lexical",
+      "macro_auc": 0.6945184576666579,
+      "pooled_auc": 0.6987865076100369,
+      "ranked_pooled_auc": 0.6982274889514708
+    },
+    {
+      "variant": "copy_behavior",
+      "macro_auc": 0.68508341579611,
+      "pooled_auc": 0.6897578288981004,
+      "ranked_pooled_auc": 0.68977365018089
+    },
+    {
+      "variant": "condition_behavior",
+      "macro_auc": 0.6836363094363607,
+      "pooled_auc": 0.6883075446423863,
+      "ranked_pooled_auc": 0.688402472339124
+    },
+    {
+      "variant": "copy_both",
+      "macro_auc": 0.683560360927014,
+      "pooled_auc": 0.6889456697149005,
+      "ranked_pooled_auc": 0.6886767079074771
+    },
+    {
+      "variant": "condition_both",
+      "macro_auc": 0.6929006248818919,
+      "pooled_auc": 0.6972254743747958,
+      "ranked_pooled_auc": 0.6969934288938813
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison": "copy_lexical vs actor anchor",
+      "candidate": "copy_lexical",
+      "reference": "add_act_roles",
+      "delta_auc": -0.0012845763160871382,
+      "simultaneous_low": -0.025165135036255063,
+      "simultaneous_high": 0.022595982404080787,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "condition_lexical vs actor anchor",
+      "candidate": "condition_lexical",
+      "reference": "add_act_roles",
+      "delta_auc": 0.008419195143828384,
+      "simultaneous_low": -0.01546136357633954,
+      "simultaneous_high": 0.032299753863996306,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "copy_behavior vs actor anchor",
+      "candidate": "copy_behavior",
+      "reference": "add_act_roles",
+      "delta_auc": -0.0010158467267195048,
+      "simultaneous_low": -0.02489640544688743,
+      "simultaneous_high": 0.02286471199344842,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "condition_behavior vs actor anchor",
+      "candidate": "condition_behavior",
+      "reference": "add_act_roles",
+      "delta_auc": -0.002462953086468822,
+      "simultaneous_low": -0.026343511806636747,
+      "simultaneous_high": 0.021417605633699103,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "copy_both vs actor anchor",
+      "candidate": "copy_both",
+      "reference": "add_act_roles",
+      "delta_auc": -0.0025389015958154904,
+      "simultaneous_low": -0.026419460315983415,
+      "simultaneous_high": 0.021341657124352435,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "condition_both vs actor anchor",
+      "candidate": "condition_both",
+      "reference": "add_act_roles",
+      "delta_auc": 0.006801362359062368,
+      "simultaneous_low": -0.017079196361105557,
+      "simultaneous_high": 0.030681921079230293,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "conditioning: lexical",
+      "candidate": "condition_lexical",
+      "reference": "copy_lexical",
+      "delta_auc": 0.009703771459915522,
+      "simultaneous_low": -0.014176787260252403,
+      "simultaneous_high": 0.033584330180083444,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "conditioning: behavior",
+      "candidate": "condition_behavior",
+      "reference": "copy_behavior",
+      "delta_auc": -0.0014471063597493172,
+      "simultaneous_low": -0.025327665079917242,
+      "simultaneous_high": 0.022433452360418608,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "conditioning: both",
+      "candidate": "condition_both",
+      "reference": "copy_both",
+      "delta_auc": 0.009340263954877859,
+      "simultaneous_low": -0.014540294765290066,
+      "simultaneous_high": 0.03322082267504578,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "removal: policy lexical",
+      "candidate": "condition_both",
+      "reference": "condition_behavior",
+      "delta_auc": 0.00926431544553119,
+      "simultaneous_low": -0.014616243274636734,
+      "simultaneous_high": 0.03314487416569911,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "removal: policy behavior",
+      "candidate": "condition_both",
+      "reference": "condition_lexical",
+      "delta_auc": -0.0016178327847660157,
+      "simultaneous_low": -0.02549839150493394,
+      "simultaneous_high": 0.02226272593540191,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "Round 2 actor gain (reused)",
+      "candidate": "add_act_roles",
+      "reference": "add_behavior",
+      "delta_auc": 0.006237647012778735,
+      "simultaneous_low": -0.01764291170738919,
+      "simultaneous_high": 0.03011820573294666,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "Round 1 behavior gain (reused)",
+      "candidate": "add_behavior",
+      "reference": "lexical_control",
+      "delta_auc": 0.022353767794362156,
+      "simultaneous_low": -0.001526790925805769,
+      "simultaneous_high": 0.04623432651453008,
+      "valid_draws": 500
+    }
+  ],
+  "blocks": [
+    {
+      "fold": 0,
+      "family": "lexical",
+      "base_columns": 28404,
+      "training": {
+        "condition": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 760032,
+          "active_columns": 43365
+        },
+        "copy": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 760032,
+          "active_columns": 28404
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 115995,
+          "active_columns": 12949
+        },
+        "copy": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 115995,
+          "active_columns": 12949
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    },
+    {
+      "fold": 0,
+      "family": "behavior",
+      "base_columns": 36,
+      "training": {
+        "condition": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 59040,
+          "active_columns": 72
+        },
+        "copy": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 59040,
+          "active_columns": 36
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 8424,
+          "active_columns": 36
+        },
+        "copy": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 8424,
+          "active_columns": 36
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    },
+    {
+      "fold": 1,
+      "family": "lexical",
+      "base_columns": 25643,
+      "training": {
+        "condition": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 578901,
+          "active_columns": 39329
+        },
+        "copy": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 578901,
+          "active_columns": 25643
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 279318,
+          "active_columns": 15480
+        },
+        "copy": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 279318,
+          "active_columns": 15480
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    },
+    {
+      "fold": 1,
+      "family": "behavior",
+      "base_columns": 36,
+      "training": {
+        "condition": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 43740,
+          "active_columns": 72
+        },
+        "copy": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 43740,
+          "active_columns": 36
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 23292,
+          "active_columns": 36
+        },
+        "copy": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 23292,
+          "active_columns": 36
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    }
+  ],
+  "support_coverage": [
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "rows": 629,
+      "permitted": 379,
+      "violating": 250,
+      "query_policy": true
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "rows": 1011,
+      "permitted": 422,
+      "violating": 589,
+      "query_policy": false
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "rows": 849,
+      "permitted": 474,
+      "violating": 375,
+      "query_policy": false
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "rows": 366,
+      "permitted": 148,
+      "violating": 218,
+      "query_policy": true
+    }
+  ],
+  "dense_rule_effects": [
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_topic_present",
+      "deviation_coefficient": -0.4360974237209762
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_topic_log_count",
+      "deviation_coefficient": -0.31785745962769485
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/second_person_log_count",
+      "deviation_coefficient": 0.6348274204384098
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/log_words",
+      "deviation_coefficient": 0.2539866205209832
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/url_log_count",
+      "deviation_coefficient": -0.07076259499760962
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/second_person_present",
+      "deviation_coefficient": -0.16785381122768303
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/url_present",
+      "deviation_coefficient": 0.3290368231817145
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/log_chars",
+      "deviation_coefficient": -0.1477787364198692
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/conditional_log_count",
+      "deviation_coefficient": 0.04712869070543355
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/conditional_present",
+      "deviation_coefficient": -0.1937807672056856
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_action_present",
+      "deviation_coefficient": 0.2079514107056057
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_action_log_count",
+      "deviation_coefficient": 0.20579646987227046
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/negation_log_count",
+      "deviation_coefficient": -0.354622026074014
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/hedge_present",
+      "deviation_coefficient": -0.07080850783881948
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/exception_present",
+      "deviation_coefficient": -0.07121823133787329
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/negation_present",
+      "deviation_coefficient": 0.010374961442778092
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/exception_log_count",
+      "deviation_coefficient": -0.0314474451006367
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/money_present",
+      "deviation_coefficient": 0.4227370516527528
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/hedge_log_count",
+      "deviation_coefficient": -0.28506532424200914
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/money_log_count",
+      "deviation_coefficient": 0.39721039173414113
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/resource_log_count",
+      "deviation_coefficient": 0.30794560565355755
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/resource_present",
+      "deviation_coefficient": 0.318181894806753
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/first_person_log_count",
+      "deviation_coefficient": 0.41392477499744035
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/first_person_present",
+      "deviation_coefficient": -0.1916550124341385
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/legal_without_guidance_present",
+      "deviation_coefficient": -0.04502086462439575
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/legal_without_guidance_log_count",
+      "deviation_coefficient": 0.0029502345751303656
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/resource_legal_present",
+      "deviation_coefficient": 0.1443332278234598
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/resource_legal_log_count",
+      "deviation_coefficient": 0.14243730278020128
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/question_legal_present",
+      "deviation_coefficient": 0.157675363969803
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/question_legal_log_count",
+      "deviation_coefficient": 0.15668046896900578
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_legal_present",
+      "deviation_coefficient": 0.08297285402311168
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_legal_log_count",
+      "deviation_coefficient": 0.08297285402310957
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_without_legal_present",
+      "deviation_coefficient": -0.08392643683837289
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_without_legal_log_count",
+      "deviation_coefficient": -0.08003750131894374
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/experience_legal_present",
+      "deviation_coefficient": 0.04428311372537636
+    },
+    {
+      "fold": 0,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/reported_legal_present",
+      "deviation_coefficient": 0.04428311372537636
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_topic_present",
+      "deviation_coefficient": 0.48353655403704743
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_topic_log_count",
+      "deviation_coefficient": 0.020251549776364123
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/second_person_log_count",
+      "deviation_coefficient": -0.2939654487455838
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/log_words",
+      "deviation_coefficient": 0.022271712446760454
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/url_log_count",
+      "deviation_coefficient": -0.16191372311308797
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/second_person_present",
+      "deviation_coefficient": 0.09633237154137968
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/url_present",
+      "deviation_coefficient": -0.13846113502875793
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/log_chars",
+      "deviation_coefficient": 0.09967710380225084
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/conditional_log_count",
+      "deviation_coefficient": 0.02619110705830816
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/conditional_present",
+      "deviation_coefficient": 0.1383807129703466
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_action_present",
+      "deviation_coefficient": -0.09497402568931418
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_action_log_count",
+      "deviation_coefficient": -0.020505237095409898
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/negation_log_count",
+      "deviation_coefficient": 0.1599257107069379
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/hedge_present",
+      "deviation_coefficient": 0.2847291957459939
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/exception_present",
+      "deviation_coefficient": 0.17483402925578923
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/negation_present",
+      "deviation_coefficient": 0.032009771327170804
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/exception_log_count",
+      "deviation_coefficient": -0.05974836098107491
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/money_present",
+      "deviation_coefficient": -0.07183015921031768
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/hedge_log_count",
+      "deviation_coefficient": -0.025619759224378372
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/money_log_count",
+      "deviation_coefficient": -0.36352936072224507
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/resource_log_count",
+      "deviation_coefficient": 0.04254008270485901
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/resource_present",
+      "deviation_coefficient": -0.30587259249149934
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/first_person_log_count",
+      "deviation_coefficient": -0.3046201429357726
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/first_person_present",
+      "deviation_coefficient": 0.10886929047937816
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/legal_without_guidance_present",
+      "deviation_coefficient": 0.04387813899366791
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/legal_without_guidance_log_count",
+      "deviation_coefficient": 0.34023582543875336
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/resource_legal_present",
+      "deviation_coefficient": -0.07148384702054544
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/resource_legal_log_count",
+      "deviation_coefficient": -0.03830210821017297
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/question_legal_present",
+      "deviation_coefficient": 0.4267436503891188
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/question_legal_log_count",
+      "deviation_coefficient": -0.6009876144798354
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_legal_present",
+      "deviation_coefficient": 0.06642681246316225
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_legal_log_count",
+      "deviation_coefficient": 0.06642681246316683
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_without_legal_present",
+      "deviation_coefficient": -0.32155197727448714
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_without_legal_log_count",
+      "deviation_coefficient": 0.30043335150652734
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/experience_legal_present",
+      "deviation_coefficient": 0.05390960671925014
+    },
+    {
+      "fold": 0,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/reported_legal_present",
+      "deviation_coefficient": 0.056661631126092626
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_topic_present",
+      "deviation_coefficient": -0.49711316639095554
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_topic_log_count",
+      "deviation_coefficient": -0.4112042794414461
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/second_person_log_count",
+      "deviation_coefficient": 0.09424630898737779
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/second_person_present",
+      "deviation_coefficient": 0.16717548304777172
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/log_words",
+      "deviation_coefficient": 0.23877879968282564
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/url_log_count",
+      "deviation_coefficient": 0.03708144722928466
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/log_chars",
+      "deviation_coefficient": -0.3268172975619896
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/money_present",
+      "deviation_coefficient": 0.04269596176434811
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/money_log_count",
+      "deviation_coefficient": 0.295670555828864
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/url_present",
+      "deviation_coefficient": 0.24333411033505442
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/conditional_log_count",
+      "deviation_coefficient": -0.014418006882405512
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_action_present",
+      "deviation_coefficient": -0.015040215886297134
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/legal_action_log_count",
+      "deviation_coefficient": -0.014855117119643263
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/conditional_present",
+      "deviation_coefficient": -0.08598528870703843
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/exception_log_count",
+      "deviation_coefficient": 0.10040070123723362
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/negation_log_count",
+      "deviation_coefficient": -0.3009472031854662
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/exception_present",
+      "deviation_coefficient": -0.09773701277099066
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/negation_present",
+      "deviation_coefficient": 0.1260387602487889
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/hedge_present",
+      "deviation_coefficient": -0.05401283891247953
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/transaction_log_count",
+      "deviation_coefficient": 0.27768831699970004
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/first_person_log_count",
+      "deviation_coefficient": 0.21073460904257443
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/direct_contact_present",
+      "deviation_coefficient": 0.28437292470913955
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/transaction_present",
+      "deviation_coefficient": -0.08304069712582347
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "behavior/direct_contact_log_count",
+      "deviation_coefficient": -0.07904981771492907
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/legal_without_guidance_present",
+      "deviation_coefficient": -0.046635887845659155
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/legal_without_guidance_log_count",
+      "deviation_coefficient": -0.04434704958416796
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/resource_legal_present",
+      "deviation_coefficient": -0.009863584202518242
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/resource_legal_log_count",
+      "deviation_coefficient": -0.00965236069321294
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_legal_present",
+      "deviation_coefficient": -0.006960182013219493
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_legal_log_count",
+      "deviation_coefficient": -0.0069601820132220065
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_without_legal_present",
+      "deviation_coefficient": -0.04310965648560778
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/directive_without_legal_log_count",
+      "deviation_coefficient": -0.043109656485609514
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/question_legal_present",
+      "deviation_coefficient": -0.008242212982388161
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/question_legal_log_count",
+      "deviation_coefficient": -0.008242212982387427
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/request_without_legal_log_count",
+      "deviation_coefficient": 0.004080118269220722
+    },
+    {
+      "fold": 1,
+      "policy": "no advertising: spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "feature": "act_roles/request_without_legal_present",
+      "deviation_coefficient": 0.006079467448475054
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_topic_present",
+      "deviation_coefficient": 0.16880654096414746
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_topic_log_count",
+      "deviation_coefficient": 0.42017618839267457
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/second_person_log_count",
+      "deviation_coefficient": 0.10365630413541463
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/second_person_present",
+      "deviation_coefficient": -0.23821559413451102
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/log_words",
+      "deviation_coefficient": 0.2901051278573651
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/url_log_count",
+      "deviation_coefficient": -0.42469845468940265
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/log_chars",
+      "deviation_coefficient": 0.20427960627648764
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/money_present",
+      "deviation_coefficient": -0.1907997071446481
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/money_log_count",
+      "deviation_coefficient": 0.10020207776551208
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/url_present",
+      "deviation_coefficient": 0.0736082444650452
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/conditional_log_count",
+      "deviation_coefficient": -0.16896101900154945
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_action_present",
+      "deviation_coefficient": 0.14427267682187647
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/legal_action_log_count",
+      "deviation_coefficient": 0.13938374275988183
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/conditional_present",
+      "deviation_coefficient": 0.2116256749259988
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/exception_log_count",
+      "deviation_coefficient": 0.20855568400341293
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/negation_log_count",
+      "deviation_coefficient": 0.10813855166877287
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/exception_present",
+      "deviation_coefficient": -0.18204689075663733
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/negation_present",
+      "deviation_coefficient": -0.048569853043013075
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/hedge_present",
+      "deviation_coefficient": 0.08861552324419981
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/transaction_log_count",
+      "deviation_coefficient": -0.2498388159232153
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/first_person_log_count",
+      "deviation_coefficient": -0.2947324165188912
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/direct_contact_present",
+      "deviation_coefficient": -0.0928287309748248
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/transaction_present",
+      "deviation_coefficient": 0.019519172505862287
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "behavior/direct_contact_log_count",
+      "deviation_coefficient": -0.07060454732871332
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/legal_without_guidance_present",
+      "deviation_coefficient": 0.26558301289771735
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/legal_without_guidance_log_count",
+      "deviation_coefficient": 0.49762585931765946
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/resource_legal_present",
+      "deviation_coefficient": 0.11477632161913978
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/resource_legal_log_count",
+      "deviation_coefficient": 0.10591702347759675
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_legal_present",
+      "deviation_coefficient": 0.12081573578214963
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_legal_log_count",
+      "deviation_coefficient": 0.12081573578214959
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_without_legal_present",
+      "deviation_coefficient": -0.04693655549434886
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/directive_without_legal_log_count",
+      "deviation_coefficient": -0.04693655549434883
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/question_legal_present",
+      "deviation_coefficient": -0.03203676078101714
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/question_legal_log_count",
+      "deviation_coefficient": -0.032036760781017824
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/request_without_legal_log_count",
+      "deviation_coefficient": -0.11937409678254607
+    },
+    {
+      "fold": 1,
+      "policy": "no legal advice: do not offer or request legal advice.",
+      "feature": "act_roles/request_without_legal_present",
+      "deviation_coefficient": 0.0025822927040722744
+    }
+  ],
+  "design_sizes": [
+    {
+      "fold": 0,
+      "variant": "copy_lexical",
+      "columns": 85248,
+      "nonzeros": 1579104,
+      "training_rows": 1640
+    },
+    {
+      "fold": 0,
+      "variant": "condition_lexical",
+      "columns": 85248,
+      "nonzeros": 1579104,
+      "training_rows": 1640
+    },
+    {
+      "fold": 0,
+      "variant": "copy_behavior",
+      "columns": 28512,
+      "nonzeros": 878112,
+      "training_rows": 1640
+    },
+    {
+      "fold": 0,
+      "variant": "condition_behavior",
+      "columns": 28512,
+      "nonzeros": 878112,
+      "training_rows": 1640
+    },
+    {
+      "fold": 0,
+      "variant": "copy_both",
+      "columns": 85320,
+      "nonzeros": 1638144,
+      "training_rows": 1640
+    },
+    {
+      "fold": 0,
+      "variant": "condition_both",
+      "columns": 85320,
+      "nonzeros": 1638144,
+      "training_rows": 1640
+    },
+    {
+      "fold": 1,
+      "variant": "copy_lexical",
+      "columns": 76965,
+      "nonzeros": 1201542,
+      "training_rows": 1215
+    },
+    {
+      "fold": 1,
+      "variant": "condition_lexical",
+      "columns": 76965,
+      "nonzeros": 1201542,
+      "training_rows": 1215
+    },
+    {
+      "fold": 1,
+      "variant": "copy_behavior",
+      "columns": 25751,
+      "nonzeros": 666381,
+      "training_rows": 1215
+    },
+    {
+      "fold": 1,
+      "variant": "condition_behavior",
+      "columns": 25751,
+      "nonzeros": 666381,
+      "training_rows": 1215
+    },
+    {
+      "fold": 1,
+      "variant": "copy_both",
+      "columns": 77037,
+      "nonzeros": 1245282,
+      "training_rows": 1215
+    },
+    {
+      "fold": 1,
+      "variant": "condition_both",
+      "columns": 77037,
+      "nonzeros": 1245282,
+      "training_rows": 1215
+    }
+  ],
+  "decision": "DO_NOT_PROMOTE_PRIMARY",
+  "primary_requirements": [
+    {
+      "reference": "add_act_roles",
+      "contrast": {
+        "comparison": "condition_lexical vs actor anchor",
+        "candidate": "condition_lexical",
+        "reference": "add_act_roles",
+        "delta_auc": 0.008419195143828384,
+        "simultaneous_low": -0.01546136357633954,
+        "simultaneous_high": 0.032299753863996306,
+        "valid_draws": 500
+      },
+      "per_policy_delta": [
+        0.010820895522388074,
+        0.006017494765268694
+      ],
+      "passed": false
+    },
+    {
+      "reference": "copy_lexical",
+      "contrast": {
+        "comparison": "conditioning: lexical",
+        "candidate": "condition_lexical",
+        "reference": "copy_lexical",
+        "delta_auc": 0.009703771459915522,
+        "simultaneous_low": -0.014176787260252403,
+        "simultaneous_high": 0.033584330180083444,
+        "valid_draws": 500
+      },
+      "per_policy_delta": [
+        0.013507462686567218,
+        0.005900080233263605
+      ],
+      "passed": false
+    }
+  ],
+  "primary_ranked_pooled_delta": 0.007283063844149673,
+  "new_neural_inference": 0,
+  "gpu": false,
+  "automatic_gpu_authorization": false,
+  "kaggle_score": null,
+  "elapsed_seconds": 17.204,
+  "limitations": [
+    "Exploratory follow-up chosen after Round 2, not a fresh holdout.",
+    "Actor anchor was not promoted; its reuse is diagnostic only.",
+    "The query rule has legal supplied labels in training: not zero-shot transfer.",
+    "Unknown policies receive no learned extra rule block; the shared features remain.",
+    "Intervals cover this round's 13 contrasts, not all adaptive project choices.",
+    "No new Kaggle score or accepted-Qwen-model comparison occurs in this round.",
+    "Coefficient plots show fitted associations, not causal feature value."
+  ]
+}

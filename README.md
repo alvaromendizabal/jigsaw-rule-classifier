@@ -129,3 +129,11 @@ The primary metric is equal-weight **policy-macro ROC AUC**; pooled AUC is separ
 [Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/overview) · [Host data release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641107) · [Research and model sources](docs/FEATURE_RESEARCH.md#research-sources-and-external-data-feasibility).
 
 Code: MIT. Data and third-party models retain their own terms. The canonical [Kaggle notebook](kaggle/submission.ipynb) supports the user's own offline CSV generation; notebook execution generates files locally, and the separate completed Kaggle entry is recorded above.
+
+<!-- BEGIN MANUAL FEATURE CAMPAIGN -->
+## Manual feature research — through Round 13
+
+[Research ledger and notebook guide](docs/MANUAL_FEATURE_CAMPAIGN.md) · [Machine-readable results](reports/manual_feature_campaign/summary.json)
+
+Notebooks 05–19 preserve the executed manual readiness, feature, and audit milestones. The feature gate remains open: no new Kaggle score or promoted replacement is claimed. Local two-policy diagnostic AUC must not be compared directly with the recorded 0.91425 private Kaggle AUC.
+<!-- END MANUAL FEATURE CAMPAIGN -->

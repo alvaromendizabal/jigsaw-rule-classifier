@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "name": "round9_behavior_support_features",
+  "round7_run_id": "6dacdcfb6a19ec13d83f",
+  "round7_results_sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841",
+  "classifiers": {
+    "C": 1.0,
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "seed": 2025
+  },
+  "primary": "conditioned_all",
+  "new_fits": 12,
+  "cached_control_readouts": 6,
+  "max_seconds": 240,
+  "seed": 20260921,
+  "bootstrap_replicates": 500,
+  "minimum_macro_delta": 0.003,
+  "crossfit_folds": 3,
+  "automatic_gpu_authorization": false,
+  "independent_of_other_new_round": true,
+  "new_primary_columns": 48,
+  "reference_status": "Round 7 pinned; six Round 6 readouts reused without refitting.",
+  "hyperparameters": {
+    "temperature": 0.1,
+    "backoff": 0.2,
+    "descriptor_columns": 12
+  },
+  "selection": "No validation-led feature selection or hyperparameter search.",
+  "pooling": "Original 234/647 cohorts; same-rule references and group cross-fitting."
+}

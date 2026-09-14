@@ -1,0 +1,34 @@
+{
+  "primary": "prototype_all",
+  "new_fits": 12,
+  "cached_control_readouts": 10,
+  "crossfit_folds": 3,
+  "minimum_macro_delta": 0.003,
+  "automatic_gpu_authorization": false,
+  "independent_of_other_new_round": true,
+  "hyperparameters": {
+    "maximum_modes_per_class": 4,
+    "spherical_iterations": 12,
+    "radius_floor": 0.05
+  },
+  "schema": 1,
+  "name": "round11_multiprototype_features",
+  "round8_run_id": "eab42d2b77ef0e2ac8e0",
+  "round8_results_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+  "round9_run_id": "7648bca3c639da0e050f",
+  "round9_results_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+  "classifiers": {
+    "C": 1.0,
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "seed": 2025
+  },
+  "max_seconds": 240,
+  "seed": 20260923,
+  "bootstrap_replicates": 500,
+  "new_primary_columns": 36,
+  "question": "Do multiple bounded, reference-only subtypes within each supplied class help beyond a single mean and matched random class partitions?",
+  "reference_status": "context_evidence is an adaptively chosen exploratory anchor, not promoted",
+  "raw_data_and_cache_reuse": true,
+  "scope": "original permitted support/training labels; no released targets"
+}
