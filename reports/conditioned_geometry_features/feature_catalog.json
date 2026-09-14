@@ -1,0 +1,12 @@
+{
+  "new_primary_columns": 18,
+  "families": [
+    "deflation similarity (9)",
+    "whitened similarity (9)"
+  ],
+  "same_rule_only": true,
+  "frozen_vectors_only": true,
+  "transform_or_reference_fitted_on_inner_training_only": true,
+  "no_new_neural_encoding": true,
+  "independent_round": 8
+}

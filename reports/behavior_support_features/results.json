@@ -1,0 +1,3673 @@
+{
+  "schema": 1,
+  "status": "BEHAVIOR_SUPPORT_ROUND_COMPLETE",
+  "run_id": "7648bca3c639da0e050f",
+  "identity": {
+    "source": {
+      "scripts/behavior_support_features.py": "773f0bcddde62fa2f7c5ce0a9bc6d5fca918ee46c07804cda032601ab632d98b",
+      "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+      "tests/test_behavior_support_features.py": "fa1d7c818beef1152c35a33b4ee8df9e679fc3ee59dc51b4e0a4531b33d60194",
+      "configs/behavior_support_features.json": "8b9cb75d55dc5cdc36da8f51ea1702caedcba20645177bbf25dbc70041dda1ba",
+      "docs/BEHAVIOR_SUPPORT_FEATURES.md": "d0724df92c9f081d3b118f7ba545b3ac2696416a847b7103e44a97b21837443f",
+      "scripts/relational_features.py": "79e8c74d2317fb8398347d95185301aed3127da2923791060b750b1ca6bee56d",
+      "scripts/behavioral_features.py": "cb28b2b8a9fae23859b839fae1be79e5dc600cde631c767ce3ffd7f22c4606cc"
+    },
+    "config": {
+      "schema": 1,
+      "name": "round9_behavior_support_features",
+      "round7_run_id": "6dacdcfb6a19ec13d83f",
+      "round7_results_sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841",
+      "classifiers": {
+        "C": 1.0,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "seed": 2025
+      },
+      "primary": "conditioned_all",
+      "new_fits": 12,
+      "cached_control_readouts": 6,
+      "max_seconds": 240,
+      "seed": 20260921,
+      "bootstrap_replicates": 500,
+      "minimum_macro_delta": 0.003,
+      "crossfit_folds": 3,
+      "automatic_gpu_authorization": false,
+      "independent_of_other_new_round": true,
+      "new_primary_columns": 48,
+      "reference_status": "Round 7 pinned; six Round 6 readouts reused without refitting.",
+      "hyperparameters": {
+        "temperature": 0.1,
+        "backoff": 0.2,
+        "descriptor_columns": 12
+      },
+      "selection": "No validation-led feature selection or hyperparameter search.",
+      "pooling": "Original 234/647 cohorts; same-rule references and group cross-fitting."
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0"
+      }
+    },
+    "round7_identity": {
+      "source": {
+        "scripts/matched_support_features.py": "9ba7f130e49564f3dc33c68457f6fbbbf3a02449530b598415d8e25eec85dbaf",
+        "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+        "tests/test_matched_support_features.py": "0da6ba7a07a58c3852a7a34e4dc795e1a652ec08cb60d2ce66a69351b5a97699",
+        "configs/matched_support_features.json": "5ce5af8b5fcb34f5c02521d1859e199d4618d9952e9a9fb5d15cba101e43da74",
+        "docs/MATCHED_SUPPORT_FEATURES.md": "af7888dee1ca09e95e8d19ea75acdfa39c1173166186762c2ca74478023ca3ce"
+      },
+      "config": {
+        "schema": 1,
+        "name": "round7_matched_opposing_support_contrasts",
+        "round6_run_id": "32a90cf7c6607257c2bf",
+        "round6_results_sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508",
+        "primary": "paired_all",
+        "new_fits": 12,
+        "cached_control_readouts": 6,
+        "crossfit_folds": 3,
+        "pair_temperature": 0.1,
+        "vote_scale": 5.0,
+        "max_seconds": 240,
+        "seed": 20260919,
+        "bootstrap_replicates": 500,
+        "minimum_macro_delta": 0.003,
+        "automatic_gpu_authorization": false,
+        "classifiers": {
+          "C": 1.0,
+          "solver": "liblinear",
+          "max_iter": 2000,
+          "seed": 2025
+        },
+        "gate": "Primary beats qwen_raw, answer_only, frozen_basic, repaired_all and orientation_all by >=0.003 policy-macro AUC; simultaneous lower bound >0 and no policy regression for every contrast; ranked-pooled AUC cannot decline vs qwen_raw.",
+        "restrictions": [
+          "no downloads",
+          "no neural inference",
+          "same-rule explicit opposite labels only",
+          "no query labels in features",
+          "no query-query matching",
+          "no Git writes",
+          "no cloud calls"
+        ]
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "round6_identity": {
+        "source": {
+          "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f",
+          "scripts/run_local_support_features.py": "89b856d6e9d152db242233ff8717bc8f363e1517713f7be06010f9688471d7ad",
+          "tests/test_local_support_features.py": "862b26a756be083bdd7bba77c03040d3a69d16ba2f2c663f77f20fbee59ddb5a",
+          "configs/local_support_features.json": "9e5229185007b1b0a564dfd75821e5121f56f3e7e44b47b129b3d30cb315b6a4",
+          "docs/LOCAL_SUPPORT_FEATURES.md": "3af58daad45fff8b7f48bbe87a64997d0eaf4e0ae70e43a224263ae26291e940"
+        },
+        "config": {
+          "schema": 1,
+          "name": "round6_local_support_density",
+          "audit_run_id": "a6103241df718b4b27a4",
+          "audit_sha256": "f0dc52212107bd3d64cb27dd8861cc5a24b5d71a4af1b9c303c511594d7c9c60",
+          "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+          "query_counts": [
+            234,
+            647
+          ],
+          "expected_same_rule_training": [
+            629,
+            366
+          ],
+          "dimensions": 2560,
+          "neighbors": 10,
+          "crossfit_folds": 3,
+          "max_seconds": 240,
+          "new_fits": 12,
+          "seed": 20260918,
+          "bootstrap_replicates": 500,
+          "minimum_macro_delta": 0.003,
+          "primary": "frozen_all",
+          "classifiers": {
+            "C": 1.0,
+            "solver": "liblinear",
+            "max_iter": 2000,
+            "seed": 2025
+          },
+          "reference_files": [
+            {
+              "name": "fold_0.npz",
+              "bytes": 21493371,
+              "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+            },
+            {
+              "name": "fold_1.npz",
+              "bytes": 21359643,
+              "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+            }
+          ],
+          "builder_sources": {
+            "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+            "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+            "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+            "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+            "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+          },
+          "automatic_gpu_authorization": false,
+          "gate": "primary beats raw Qwen, answer_only, frozen_basic and shuffled_all by >=0.003 macro AUC; simultaneous lower bounds >0; no per-policy regression; ranked pooled vs Qwen >=0",
+          "restrictions": [
+            "no downloads",
+            "no query targets in features or fitting",
+            "same-rule references only",
+            "no query-query distances",
+            "no package install",
+            "no neural inference",
+            "no automatic Git publication"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "audit_run": "a6103241df718b4b27a4"
+      },
+      "audit_identity": {
+        "source": {
+          "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+          "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+          "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+          "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+          "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+        },
+        "config": {
+          "schema": 1,
+          "name": "feature_value_against_cached_qwen_development",
+          "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+          "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+          "query_counts": [
+            234,
+            647
+          ],
+          "bootstrap_replicates": 500,
+          "seed": 20260917,
+          "minimum_slice_class": 10,
+          "max_seconds": 240,
+          "model_fits": 0,
+          "ensembles": false,
+          "account": "560403859723",
+          "region": "us-west-2",
+          "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+          "reference_run": "d13858b7407993fcc6e8",
+          "reference_auc": [
+            0.6792537313432836,
+            0.7605330619753037
+          ],
+          "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+          "reference_files": [
+            {
+              "name": "fold_0.npz",
+              "bytes": 21493371,
+              "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+            },
+            {
+              "name": "fold_1.npz",
+              "bytes": 21359643,
+              "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+            }
+          ],
+          "rounds": [
+            {
+              "round": 1,
+              "public": "reports/behavioral_features",
+              "private": "runs/behavioral_features",
+              "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+              "run_id": "32e706fe1e7dddb7de34"
+            },
+            {
+              "round": 2,
+              "public": "reports/relational_features",
+              "private": "runs/relational_features",
+              "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+              "run_id": "b951f663d66c68cb6bca"
+            },
+            {
+              "round": 3,
+              "public": "reports/policy_features",
+              "private": "runs/policy_features",
+              "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+              "run_id": "5927fe5eb15c3cf2d8aa"
+            },
+            {
+              "round": 4,
+              "public": "reports/evidence_features",
+              "private": "runs/evidence_features",
+              "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+              "run_id": "e5628cf8367060756148"
+            },
+            {
+              "round": 5,
+              "public": "reports/scope_lexical_features",
+              "private": "runs/scope_lexical_features",
+              "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+              "run_id": "5b69b9779637e79f13cd"
+            }
+          ],
+          "model_round": {
+            "lexical_control": 1,
+            "add_behavior": 1,
+            "add_act_roles": 2,
+            "condition_lexical": 3,
+            "rule_both": 4,
+            "copy_both": 5,
+            "scope_both": 5
+          },
+          "restrictions": [
+            "No new fits or inference",
+            "No blends, thresholds or slice tuning",
+            "Original train labels only for retrospective scoring",
+            "No private content in public export",
+            "No automatic promotion"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "references": [
+          "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+          "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+        ],
+        "reports": {
+          "1": "32e706fe1e7dddb7de34",
+          "2": "b951f663d66c68cb6bca",
+          "3": "5927fe5eb15c3cf2d8aa",
+          "4": "e5628cf8367060756148",
+          "5": "5b69b9779637e79f13cd"
+        }
+      }
+    },
+    "audit_identity": {
+      "source": {
+        "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+        "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+        "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+        "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+        "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+      },
+      "config": {
+        "schema": 1,
+        "name": "feature_value_against_cached_qwen_development",
+        "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+        "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+        "query_counts": [
+          234,
+          647
+        ],
+        "bootstrap_replicates": 500,
+        "seed": 20260917,
+        "minimum_slice_class": 10,
+        "max_seconds": 240,
+        "model_fits": 0,
+        "ensembles": false,
+        "account": "560403859723",
+        "region": "us-west-2",
+        "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "reference_run": "d13858b7407993fcc6e8",
+        "reference_auc": [
+          0.6792537313432836,
+          0.7605330619753037
+        ],
+        "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+        "reference_files": [
+          {
+            "name": "fold_0.npz",
+            "bytes": 21493371,
+            "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+          },
+          {
+            "name": "fold_1.npz",
+            "bytes": 21359643,
+            "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+          }
+        ],
+        "rounds": [
+          {
+            "round": 1,
+            "public": "reports/behavioral_features",
+            "private": "runs/behavioral_features",
+            "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+            "run_id": "32e706fe1e7dddb7de34"
+          },
+          {
+            "round": 2,
+            "public": "reports/relational_features",
+            "private": "runs/relational_features",
+            "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+            "run_id": "b951f663d66c68cb6bca"
+          },
+          {
+            "round": 3,
+            "public": "reports/policy_features",
+            "private": "runs/policy_features",
+            "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+            "run_id": "5927fe5eb15c3cf2d8aa"
+          },
+          {
+            "round": 4,
+            "public": "reports/evidence_features",
+            "private": "runs/evidence_features",
+            "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+            "run_id": "e5628cf8367060756148"
+          },
+          {
+            "round": 5,
+            "public": "reports/scope_lexical_features",
+            "private": "runs/scope_lexical_features",
+            "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+            "run_id": "5b69b9779637e79f13cd"
+          }
+        ],
+        "model_round": {
+          "lexical_control": 1,
+          "add_behavior": 1,
+          "add_act_roles": 2,
+          "condition_lexical": 3,
+          "rule_both": 4,
+          "copy_both": 5,
+          "scope_both": 5
+        },
+        "restrictions": [
+          "No new fits or inference",
+          "No blends, thresholds or slice tuning",
+          "Original train labels only for retrospective scoring",
+          "No private content in public export",
+          "No automatic promotion"
+        ]
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "references": [
+        "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+        "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+      ],
+      "reports": {
+        "1": "32e706fe1e7dddb7de34",
+        "2": "b951f663d66c68cb6bca",
+        "3": "5927fe5eb15c3cf2d8aa",
+        "4": "e5628cf8367060756148",
+        "5": "5b69b9779637e79f13cd"
+      }
+    }
+  },
+  "new_fits": 12,
+  "reused_new_fits": 0,
+  "reused_prior_controls": 6,
+  "control_design_parity": true,
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "qwen_raw",
+      "auc": 0.6792537313432836,
+      "brier": 0.25023770188266237,
+      "log_loss": 0.7600029858994344
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "qwen_raw",
+      "auc": 0.7605330619753037,
+      "brier": 0.2215279122190867,
+      "log_loss": 0.7098793479450484
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "answer_only",
+      "auc": 0.6792537313432836,
+      "brier": 0.2607471050051889,
+      "log_loss": 0.8287071344390946
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "answer_only",
+      "auc": 0.7605330619753037,
+      "brier": 0.22835742570137949,
+      "log_loss": 0.7672579840398105
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "frozen_basic",
+      "auc": 0.6930970149253732,
+      "brier": 0.25446942503043884,
+      "log_loss": 0.8272923823580525
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "frozen_basic",
+      "auc": 0.7530381010156357,
+      "brier": 0.23432719270508912,
+      "log_loss": 0.8215150267538596
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "role_evidence",
+      "auc": 0.6930970149253732,
+      "brier": 0.25446942503043884,
+      "log_loss": 0.8272923823580525
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "role_evidence",
+      "auc": 0.7545742744760376,
+      "brier": 0.23384802721068648,
+      "log_loss": 0.8161722037670472
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "context_evidence",
+      "auc": 0.7034701492537313,
+      "brier": 0.24708063170336345,
+      "log_loss": 0.8231883906824257
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "context_evidence",
+      "auc": 0.7550439326040586,
+      "brier": 0.23538018446232475,
+      "log_loss": 0.8403668188796676
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "conditioned_all",
+      "auc": 0.7034701492537313,
+      "brier": 0.24708063170336345,
+      "log_loss": 0.8231883906824257
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "conditioned_all",
+      "auc": 0.7541339699810179,
+      "brier": 0.23548357404412806,
+      "log_loss": 0.832929006862983
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "permuted_all",
+      "auc": 0.7049626865671642,
+      "brier": 0.2459113746230982,
+      "log_loss": 0.817818864387812
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "permuted_all",
+      "auc": 0.7304553726932936,
+      "brier": 0.35456112978575366,
+      "log_loss": 1.301658428827299
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "uniform_all",
+      "auc": 0.7032462686567164,
+      "brier": 0.2478045724753044,
+      "log_loss": 0.8210816312678599
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "uniform_all",
+      "auc": 0.7545742744760375,
+      "brier": 0.2338707466167126,
+      "log_loss": 0.8175391835307207
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "descriptor_only",
+      "auc": 0.6928731343283583,
+      "brier": 0.25551655547546065,
+      "log_loss": 0.8285736327533837
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "descriptor_only",
+      "auc": 0.7543003072346921,
+      "brier": 0.23325524216788637,
+      "log_loss": 0.8153053468406871
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate": "role_evidence",
+      "reference": "frozen_basic",
+      "comparison": "role_evidence vs basic geometry",
+      "delta_auc": 0.0007680867302010119,
+      "simultaneous_low": -0.014407358490335876,
+      "simultaneous_high": 0.015943531950737902
+    },
+    {
+      "candidate": "context_evidence",
+      "reference": "frozen_basic",
+      "comparison": "context_evidence vs basic geometry",
+      "delta_auc": 0.006189482958390502,
+      "simultaneous_low": -0.008985962262146386,
+      "simultaneous_high": 0.021364928178927392
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "frozen_basic",
+      "comparison": "conditioned_all vs basic geometry",
+      "delta_auc": 0.0057345016468700605,
+      "simultaneous_low": -0.009440943573666828,
+      "simultaneous_high": 0.02090994686740695
+    },
+    {
+      "candidate": "permuted_all",
+      "reference": "frozen_basic",
+      "comparison": "permuted_all vs basic geometry",
+      "delta_auc": -0.0053585283402756145,
+      "simultaneous_low": -0.020533973560812505,
+      "simultaneous_high": 0.009816916880261274
+    },
+    {
+      "candidate": "uniform_all",
+      "reference": "frozen_basic",
+      "comparison": "uniform_all vs basic geometry",
+      "delta_auc": 0.005842713595872406,
+      "simultaneous_low": -0.009332731624664482,
+      "simultaneous_high": 0.021018158816409296
+    },
+    {
+      "candidate": "descriptor_only",
+      "reference": "frozen_basic",
+      "comparison": "descriptor_only vs basic geometry",
+      "delta_auc": 0.0005191628110207125,
+      "simultaneous_low": -0.014656282409516176,
+      "simultaneous_high": 0.015694608031557603
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "qwen_raw",
+      "comparison": "Primary vs raw Qwen",
+      "delta_auc": 0.008908662958080904,
+      "simultaneous_low": -0.006266782262455984,
+      "simultaneous_high": 0.024084108178617794
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "answer_only",
+      "comparison": "Primary vs answer-only",
+      "delta_auc": 0.008908662958080904,
+      "simultaneous_low": -0.006266782262455984,
+      "simultaneous_high": 0.024084108178617794
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "permuted_all",
+      "comparison": "Correct behavior alignment vs reference permutation",
+      "delta_auc": 0.011093029987145675,
+      "simultaneous_low": -0.004082415233391213,
+      "simultaneous_high": 0.026268475207682565
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "uniform_all",
+      "comparison": "Semantic affinity vs uniform reference weighting",
+      "delta_auc": -0.00010821194900234588,
+      "simultaneous_low": -0.015283657169539234,
+      "simultaneous_high": 0.015067233271534542
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "descriptor_only",
+      "comparison": "Conditional evidence beyond direct descriptors",
+      "delta_auc": 0.005215338835849348,
+      "simultaneous_low": -0.00996010638468754,
+      "simultaneous_high": 0.020390784056386238
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "role_evidence",
+      "comparison": "Context evidence beyond actor roles",
+      "delta_auc": 0.0049664149166690486,
+      "simultaneous_low": -0.01020903030386784,
+      "simultaneous_high": 0.02014186013720594
+    },
+    {
+      "candidate": "conditioned_all",
+      "reference": "context_evidence",
+      "comparison": "Actor roles beyond context evidence",
+      "delta_auc": -0.0004549813115204415,
+      "simultaneous_low": -0.01563042653205733,
+      "simultaneous_high": 0.014720463909016447
+    }
+  ],
+  "pooled_metrics": [
+    {
+      "variant": "qwen_raw",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7396660654579207,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "answer_only",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7386798721640351,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "frozen_basic",
+      "macro_auc": 0.7230675579705045,
+      "pooled_auc": 0.7338517440327396,
+      "ranked_pooled_auc": 0.7370898332436794
+    },
+    {
+      "variant": "role_evidence",
+      "macro_auc": 0.7238356447007055,
+      "pooled_auc": 0.735001423915451,
+      "ranked_pooled_auc": 0.7382184180826714
+    },
+    {
+      "variant": "context_evidence",
+      "macro_auc": 0.729257040928895,
+      "pooled_auc": 0.7361827463637419,
+      "ranked_pooled_auc": 0.7413299370312945
+    },
+    {
+      "variant": "conditioned_all",
+      "macro_auc": 0.7288020596173745,
+      "pooled_auc": 0.7353916822242614,
+      "ranked_pooled_auc": 0.7406865381978505
+    },
+    {
+      "variant": "permuted_all",
+      "macro_auc": 0.7177090296302289,
+      "pooled_auc": 0.7021986309316626,
+      "ranked_pooled_auc": 0.7236681116771615
+    },
+    {
+      "variant": "uniform_all",
+      "macro_auc": 0.7289102715663769,
+      "pooled_auc": 0.7359137845563186,
+      "ranked_pooled_auc": 0.7409133099178349
+    },
+    {
+      "variant": "descriptor_only",
+      "macro_auc": 0.7235867207815252,
+      "pooled_auc": 0.7348010210001159,
+      "ranked_pooled_auc": 0.737954730036178
+    }
+  ],
+  "diagnostics": [
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0477326968973747,
+      "query_prevalence": 0.08095238095238096,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.8804946520146523,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.00477326968973747,
+      "query_prevalence": 0.004761904761904762,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9914945280360666,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.011933174224343675,
+      "query_prevalence": 0.01904761904761905,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9722958805297264,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.06205250596658711,
+      "query_prevalence": 0.05238095238095238,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.887565204036462,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.002386634844868735,
+      "query_prevalence": 0.009523809523809525,
+      "zero_stratum_fraction": 0.009523809523809525,
+      "mean_minimum_coverage": 0.9876643990929704,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 419,
+      "query_rows": 210,
+      "reference_prevalence": 0.01909307875894988,
+      "query_prevalence": 0.004761904761904762,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9725398632228457,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.06666666666666667,
+      "query_prevalence": 0.0430622009569378,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.89684342561848,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.007142857142857143,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9901840490797547,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 420,
+      "query_rows": 209,
+      "reference_prevalence": 0.011904761904761904,
+      "query_prevalence": 0.019138755980861243,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9654923994476896,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.058823529411764705,
+      "query_prevalence": 0.07264957264957266,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.8788951221162306,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.0047694753577106515,
+      "query_prevalence": 0.017094017094017096,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9800702703921704,
+      "backoff": 0.2
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 629,
+      "query_rows": 234,
+      "reference_prevalence": 0.014308426073131956,
+      "query_prevalence": 0.017094017094017096,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9707426200302188,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9934426229508196,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.020491803278688523,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9708029197080297,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9941605839416056,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9941605839416056,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9925233644859812,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9876510709584777,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9945205479452053,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.01639344262295082,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9717044688973719,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9945205479452053,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9934426229508196,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9934426229508196,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.00819672131147541,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9918367346938779,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9947712418300653,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.03278688524590164,
+      "zero_stratum_fraction": 0.03278688524590164,
+      "mean_minimum_coverage": 0.9687131683274401,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9934426229508196,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9947712418300653,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9912087912087912,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 244,
+      "query_rows": 122,
+      "reference_prevalence": 0.004098360655737705,
+      "query_prevalence": 0.00819672131147541,
+      "zero_stratum_fraction": 0.00819672131147541,
+      "mean_minimum_coverage": 0.9847234732480634,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/self_request_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.00273224043715847,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9963302752293578,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/other_request_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/directive_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.01366120218579235,
+      "query_prevalence": 0.0030911901081916537,
+      "zero_stratum_fraction": 0.0030911901081916537,
+      "mean_minimum_coverage": 0.9792351431447895,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/offer_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.00273224043715847,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9963302752293578,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/experience_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.00273224043715847,
+      "query_prevalence": 0.0015455950540958269,
+      "zero_stratum_fraction": 0.0015455950540958269,
+      "mean_minimum_coverage": 0.9950994710945366,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "act_roles/reported_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0030911901081916537,
+      "zero_stratum_fraction": 0.0030911901081916537,
+      "mean_minimum_coverage": 0.9975270479134466,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/quoted_directive_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/directive_legal_negated_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "action_scope/disclaimer_then_directive_legal_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/cta_url_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.00273224043715847,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9945945945945945,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/owned_business_url_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.0,
+      "query_prevalence": 0.0,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 1.0,
+      "backoff": 0.2
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_text_overlap": 0,
+      "descriptor": "link_intent/resource_url_present",
+      "references": 366,
+      "query_rows": 647,
+      "reference_prevalence": 0.00546448087431694,
+      "query_prevalence": 0.0030911901081916537,
+      "zero_stratum_fraction": 0.0,
+      "mean_minimum_coverage": 0.9921496954606719,
+      "backoff": 0.2
+    }
+  ],
+  "coefficients": [
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "answer/log_odds",
+      "coefficient": 4.184027745614786
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.15454198911115422
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.11409641503885481
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2745237002059489
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.3362269976806682
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.08662532571257073
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3533638598924287
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.918003685556251
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.21616131203798572
+    },
+    {
+      "fold": 0,
+      "variant": "role_evidence",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.326606863032858
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "answer/log_odds",
+      "coefficient": 4.263814660645034
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.16236799411899763
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.1485394169328154
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2499593351212238
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.38750624202282297
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.11178753706607857
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4165591721881835
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.0362002091222149
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.28001961533373604
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4367106619816419
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.06277398087073224
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.43300971563841056
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.994951295753999
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.092694097140346
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.21003795466983288
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.05479812755626849
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.22521778736025122
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.10605579835524573
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.005288300526090375
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.19455798972646393
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.45946567060530863
+    },
+    {
+      "fold": 0,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.23275979689756807
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.263814660645034
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.16236799411899763
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.1485394169328154
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2499593351212238
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.38750624202282297
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.11178753706607857
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4165591721881835
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.0362002091222149
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.28001961533373604
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4367106619816419
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.06277398087073224
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.43300971563841056
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.994951295753999
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.092694097140346
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.21003795466983288
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.05479812755626849
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.22521778736025122
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.10605579835524573
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.005288300526090375
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.19455798972646393
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.45946567060530863
+    },
+    {
+      "fold": 0,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.23275979689756807
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.262320081115054
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.24430343313281025
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.13686250289934124
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.20911138855341604
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.15715979983508035
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.11963177447989592
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.370195905939351
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.667479377908868
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.28150350793657053
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.3972469518547582
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.10676466033711293
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": -0.40662808596983235
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.46724984365029726
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -0.3177555736084084
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.3584653923367801
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.17519805057031954
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.15534220902678034
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": -0.04850050069381989
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.2499165371444244
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.04597256145753825
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5103949231188435
+    },
+    {
+      "fold": 0,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.20723918898095461
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.250635322352705
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.13794454022385028
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.1214004470793091
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.23459184830838725
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.3559628944754686
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.10933707743392297
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3876270834746152
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.9363268652786814
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.25425064030259154
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4049799933528061
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9345718299877299
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.063086537087594
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.2684935857291449
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.20467066500375375
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.44807755814825
+    },
+    {
+      "fold": 0,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.1663055550677809
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "answer/log_odds",
+      "coefficient": 4.213402731041516
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.17317876540139304
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.12246001581485595
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.25803307696259514
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.3261895214994656
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.07702315390820023
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3224884219592456
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.9228096840570152
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.20947051410663153
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.29280866775647474
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.14991644328890105
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.0884126982221917
+    },
+    {
+      "fold": 0,
+      "variant": "descriptor_only",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.05054316354415812
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "answer/log_odds",
+      "coefficient": 4.116515297190081
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.26000093765121113
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.37750436218945144
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.7184295143886351
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.6913989498972982
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.12425639678812984
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3277822910329225
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.6958661567064423
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3610370207973406
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.01985561659746273
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/self_request_legal_present/affinity_delta",
+      "coefficient": 0.11650678262122001
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/self_request_legal_present/similarity_delta",
+      "coefficient": 0.09387991173717715
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/self_request_legal_present/effective_delta",
+      "coefficient": 0.11304207859595379
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/self_request_legal_present/minimum_coverage",
+      "coefficient": -0.125357467103968
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/directive_legal_present/affinity_delta",
+      "coefficient": -0.536253236330485
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/directive_legal_present/similarity_delta",
+      "coefficient": 0.08180953468507875
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/directive_legal_present/effective_delta",
+      "coefficient": -0.2381818151254886
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/directive_legal_present/minimum_coverage",
+      "coefficient": -0.24181616319243723
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/offer_legal_present/affinity_delta",
+      "coefficient": -0.0440134010479289
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/offer_legal_present/similarity_delta",
+      "coefficient": 0.22779444481588268
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/offer_legal_present/effective_delta",
+      "coefficient": -0.13888055358458212
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/offer_legal_present/minimum_coverage",
+      "coefficient": -0.09962701972811004
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/experience_legal_present/affinity_delta",
+      "coefficient": 0.08003750347927777
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/experience_legal_present/similarity_delta",
+      "coefficient": 0.0011275923898854596
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/experience_legal_present/effective_delta",
+      "coefficient": -0.13462907202789146
+    },
+    {
+      "fold": 1,
+      "variant": "role_evidence",
+      "feature": "conditional/act_roles/experience_legal_present/minimum_coverage",
+      "coefficient": -0.07292529487840674
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "answer/log_odds",
+      "coefficient": 4.049207629793107
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.3253109396786537
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.3575521974406905
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8797596863532614
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4654939546504618
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.1526988762749182
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3712078916232301
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.27057115554821115
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.38307707731598395
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "basic/margin/top5",
+      "coefficient": -0.010175232223551059
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.006436082337124031
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5077839827739679
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.16295700130969526
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.09853228298141363
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3464671777589163
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.1639671073785889
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.30669463718526596
+    },
+    {
+      "fold": 1,
+      "variant": "context_evidence",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.20228311001538296
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.082913556790878
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.1518441642806876
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.32050022137098416
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8342813424198143
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.7541205541176139
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.18262514543423913
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3991364289710307
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.5867467871483913
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3971171454633053
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.04419499463955348
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/self_request_legal_present/affinity_delta",
+      "coefficient": 0.331698735617346
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/self_request_legal_present/similarity_delta",
+      "coefficient": -0.030696042422027135
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/self_request_legal_present/effective_delta",
+      "coefficient": 0.30688249888582053
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/self_request_legal_present/minimum_coverage",
+      "coefficient": -0.13672447426266593
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/directive_legal_present/affinity_delta",
+      "coefficient": -0.40172533097394425
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/directive_legal_present/similarity_delta",
+      "coefficient": -0.005551908529842757
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/directive_legal_present/effective_delta",
+      "coefficient": -0.20942301564883428
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/directive_legal_present/minimum_coverage",
+      "coefficient": -0.20276719853960157
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/offer_legal_present/affinity_delta",
+      "coefficient": 0.12168800580682924
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/offer_legal_present/similarity_delta",
+      "coefficient": 0.17526625563590364
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/offer_legal_present/effective_delta",
+      "coefficient": -0.1020322325393753
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/offer_legal_present/minimum_coverage",
+      "coefficient": -0.09295745685139353
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/experience_legal_present/affinity_delta",
+      "coefficient": -0.07800463456641711
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/experience_legal_present/similarity_delta",
+      "coefficient": 0.030119333477771612
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/experience_legal_present/effective_delta",
+      "coefficient": -0.07561769884714853
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/act_roles/experience_legal_present/minimum_coverage",
+      "coefficient": -0.05905885939943227
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.011230080546639284
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5234265370770759
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.2972699604712936
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.1088669456819517
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.19574759710151546
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.06103637218655131
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.18056654093250066
+    },
+    {
+      "fold": 1,
+      "variant": "conditioned_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.091464154267097
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "answer/log_odds",
+      "coefficient": 3.963598243037222
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.15294762864060826
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.24798730911396594
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.4220741221163381
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4160733392193447
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.23172782506107112
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.5264117080289306
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.41737040820124127
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.413477199025316
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.3931647240556937
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/self_request_legal_present/affinity_delta",
+      "coefficient": -0.028371160538460484
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/self_request_legal_present/similarity_delta",
+      "coefficient": -0.14922084902873886
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/self_request_legal_present/effective_delta",
+      "coefficient": 0.20239457818368373
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/self_request_legal_present/minimum_coverage",
+      "coefficient": -0.17096696171227296
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/directive_legal_present/affinity_delta",
+      "coefficient": -0.16114222970306427
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/directive_legal_present/similarity_delta",
+      "coefficient": -0.5660554603801262
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/directive_legal_present/effective_delta",
+      "coefficient": 0.27327602669224105
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/directive_legal_present/minimum_coverage",
+      "coefficient": -0.39159657484216703
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/offer_legal_present/affinity_delta",
+      "coefficient": -0.19870756126975253
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/offer_legal_present/similarity_delta",
+      "coefficient": -0.14576692802962046
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/offer_legal_present/effective_delta",
+      "coefficient": 0.6458680018077146
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/offer_legal_present/minimum_coverage",
+      "coefficient": -0.11465868452298887
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/experience_legal_present/affinity_delta",
+      "coefficient": 0.3478180446089456
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/experience_legal_present/similarity_delta",
+      "coefficient": -0.32763411471172443
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/experience_legal_present/effective_delta",
+      "coefficient": 0.3892425351984805
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/act_roles/experience_legal_present/minimum_coverage",
+      "coefficient": -0.025765219535725036
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.3960869800938894
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": -0.022724865099145966
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.14740722552003044
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.11567900825154187
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.00027119969698196885
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.4332546281751949
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.09416331189095672
+    },
+    {
+      "fold": 1,
+      "variant": "permuted_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.46416203911830095
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.068049040999944
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.041858939445416896
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.37764729506435724
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.7711041459875482
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.6641193661844835
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.1320785290703999
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.35603309299062
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.5861766246559219
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3703061988021252
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.026131667345506544
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/self_request_legal_present/effective_delta",
+      "coefficient": 0.2742760049910269
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/self_request_legal_present/minimum_coverage",
+      "coefficient": -0.13789789146288345
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/directive_legal_present/effective_delta",
+      "coefficient": -0.17592499024288527
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/directive_legal_present/minimum_coverage",
+      "coefficient": -0.18052236322456186
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/offer_legal_present/effective_delta",
+      "coefficient": -0.22861328751438584
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/offer_legal_present/minimum_coverage",
+      "coefficient": -0.10693718654216847
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/experience_legal_present/effective_delta",
+      "coefficient": -0.08707076144849758
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/act_roles/experience_legal_present/minimum_coverage",
+      "coefficient": -0.07726229481776928
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.01961000656832743
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.1181687035581461
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.19271843054925875
+    },
+    {
+      "fold": 1,
+      "variant": "uniform_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.11188814973827267
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "answer/log_odds",
+      "coefficient": 4.1561471220344455
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.023199792151505593
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.48003046907757424
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8928404106303883
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.6323722716641653
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.09321261592838231
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.27399326768982357
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.5515658873329911
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.38298901142379876
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "basic/margin/top5",
+      "coefficient": -0.12772657241952665
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "conditional/act_roles/self_request_legal_present/affinity_delta",
+      "coefficient": 0.16763174646639756
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "conditional/act_roles/directive_legal_present/affinity_delta",
+      "coefficient": 0.3726782512104898
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "conditional/act_roles/offer_legal_present/affinity_delta",
+      "coefficient": 0.09569269388551126
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "conditional/act_roles/experience_legal_present/affinity_delta",
+      "coefficient": 0.07468730148505122
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.1112619354823248
+    },
+    {
+      "fold": 1,
+      "variant": "descriptor_only",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.11026394302698288
+    }
+  ],
+  "decision": "DO_NOT_PROMOTE_PRIMARY",
+  "primary_requirements": [
+    {
+      "reference": "qwen_raw",
+      "contrast": {
+        "candidate": "conditioned_all",
+        "reference": "qwen_raw",
+        "comparison": "Primary vs raw Qwen",
+        "delta_auc": 0.008908662958080904,
+        "simultaneous_low": -0.006266782262455984,
+        "simultaneous_high": 0.024084108178617794
+      },
+      "per_policy_delta": [
+        0.024216417910447707,
+        -0.006399091994285788
+      ],
+      "passed": false
+    },
+    {
+      "reference": "answer_only",
+      "contrast": {
+        "candidate": "conditioned_all",
+        "reference": "answer_only",
+        "comparison": "Primary vs answer-only",
+        "delta_auc": 0.008908662958080904,
+        "simultaneous_low": -0.006266782262455984,
+        "simultaneous_high": 0.024084108178617794
+      },
+      "per_policy_delta": [
+        0.024216417910447707,
+        -0.006399091994285788
+      ],
+      "passed": false
+    },
+    {
+      "reference": "frozen_basic",
+      "contrast": {
+        "candidate": "conditioned_all",
+        "reference": "frozen_basic",
+        "comparison": "conditioned_all vs basic geometry",
+        "delta_auc": 0.0057345016468700605,
+        "simultaneous_low": -0.009440943573666828,
+        "simultaneous_high": 0.02090994686740695
+      },
+      "per_policy_delta": [
+        0.010373134328358069,
+        0.001095868965382163
+      ],
+      "passed": false
+    },
+    {
+      "reference": "permuted_all",
+      "contrast": {
+        "candidate": "conditioned_all",
+        "reference": "permuted_all",
+        "comparison": "Correct behavior alignment vs reference permutation",
+        "delta_auc": 0.011093029987145675,
+        "simultaneous_low": -0.004082415233391213,
+        "simultaneous_high": 0.026268475207682565
+      },
+      "per_policy_delta": [
+        -0.0014925373134329067,
+        0.023678597287724257
+      ],
+      "passed": false
+    },
+    {
+      "reference": "uniform_all",
+      "contrast": {
+        "candidate": "conditioned_all",
+        "reference": "uniform_all",
+        "comparison": "Semantic affinity vs uniform reference weighting",
+        "delta_auc": -0.00010821194900234588,
+        "simultaneous_low": -0.015283657169539234,
+        "simultaneous_high": 0.015067233271534542
+      },
+      "per_policy_delta": [
+        0.00022388059701494711,
+        -0.00044030449501963886
+      ],
+      "passed": false
+    },
+    {
+      "reference": "descriptor_only",
+      "contrast": {
+        "candidate": "conditioned_all",
+        "reference": "descriptor_only",
+        "comparison": "Conditional evidence beyond direct descriptors",
+        "delta_auc": 0.005215338835849348,
+        "simultaneous_low": -0.00996010638468754,
+        "simultaneous_high": 0.020390784056386238
+      },
+      "per_policy_delta": [
+        0.010597014925373016,
+        -0.00016633725367420915
+      ],
+      "passed": false
+    }
+  ],
+  "new_neural_inference": 0,
+  "automatic_gpu_authorization": false,
+  "kaggle_score": null,
+  "elapsed_seconds": 6.307,
+  "limitations": [
+    "Exploratory follow-up on repeatedly inspected development data, not a Kaggle score.",
+    "Both new rounds were fixed before either result; neither selects the other round.",
+    "Cross-fitting excludes each held training group from every fitted reference statistic.",
+    "The retained adapted training answer margin is in-sample on supplied support labels.",
+    "Cross-fitting new features does not make that answer margin out-of-fold.",
+    "Inner reference pools are smaller than the outer inference pool.",
+    "Conditional intervals cover this round only, not all adaptive project choices.",
+    "A screen pass is eligibility for new validation, never automatic GPU authorization.",
+    "Behavior descriptors are approximate observable cues, never inferred moderation labels.",
+    "Behavior matching includes matching absence; rare/empty strata back off at weight 0.2.",
+    "Reference permutation preserves descriptor rows but breaks their example alignment.",
+    "Uniform-weight control removes affinity weighting; direct-cue control uses no labels."
+  ]
+}

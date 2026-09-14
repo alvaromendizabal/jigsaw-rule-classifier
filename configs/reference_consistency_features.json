@@ -1,0 +1,53 @@
+{
+  "primary": "consistency_all",
+  "new_fits": 12,
+  "cached_control_readouts": 10,
+  "crossfit_folds": 3,
+  "minimum_macro_delta": 0.003,
+  "automatic_gpu_authorization": false,
+  "independent_of_other_new_round": true,
+  "hyperparameters": {
+    "neighbors": 7,
+    "quality_floor": 0.25,
+    "kernel_temperature": 0.1
+  },
+  "schema": 1,
+  "name": "round12_reference_consistency_features",
+  "round8_run_id": "eab42d2b77ef0e2ac8e0",
+  "round8_results_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+  "round9_run_id": "7648bca3c639da0e050f",
+  "round9_results_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+  "classifiers": {
+    "C": 1.0,
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "seed": 2025
+  },
+  "max_seconds": 240,
+  "seed": 20260926,
+  "bootstrap_replicates": 500,
+  "new_primary_columns": 48,
+  "question": "Does consistency with other labeled references make support evidence more useful without deleting rare or disputed examples?",
+  "reference_status": "context_evidence is an adaptively chosen exploratory anchor, not promoted",
+  "raw_data_and_cache_reuse": true,
+  "scope": "original permitted support/training labels; no released targets",
+  "new_family_columns": {
+    "agreement": 24,
+    "reciprocity": 24
+  },
+  "references": [
+    "qwen_raw",
+    "frozen_basic",
+    "context_evidence",
+    "uniform_all",
+    "quality_null_all",
+    "geometry_only_all",
+    "label_null_all"
+  ],
+  "round10_run_id": "db369c331ca5c7fb49a7",
+  "round10_results_sha256": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+  "round11_run_id": "3a78a2db1228e0e87362",
+  "round11_results_sha256": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5",
+  "feature_construction_fits": "8 reference-only kNN quality graphs plus 8 shuffled-label statistics; no encoder or classifier fits here",
+  "promotion_gate": "Primary >= +0.003 macro AUC against every specified comparator, simultaneous lows >0, no per-policy regression, ranked-pooled nondecrease vs raw Qwen. Exploration only."
+}

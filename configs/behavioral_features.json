@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "name": "behavioral_feature_round1",
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "query_counts": [
+    234,
+    647
+  ],
+  "seed": 20260911,
+  "word_features": 12000,
+  "char_features": 20000,
+  "classifier_c": 1.0,
+  "feature_budget_per_family": 24,
+  "bootstrap_replicates": 500,
+  "minimum_macro_delta": 0.003,
+  "max_seconds": 240,
+  "primary": "full vs lexical_control",
+  "gate": "macro delta >= 0.003, simultaneous 95% lower bound > 0, no per-policy regression; no decrease in local per-policy-ranked pooled AUC",
+  "neural_inference": false,
+  "automatic_gpu_authorization": false,
+  "query_targets_in_feature_functions": false,
+  "training_population": "canonical original training bodies and supplied labeled support pairs",
+  "validation": "canonical historical novel-query plan: global support exclusion and all-source query purge",
+  "scope": "diagnostic of behavioral features under one fixed lexical classifier, not promotion of the accepted Qwen model"
+}

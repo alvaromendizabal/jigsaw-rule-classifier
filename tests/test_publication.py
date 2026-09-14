@@ -9,7 +9,7 @@ from pathlib import Path
 import nbformat
 import pytest
 
-from scripts.execute_notebooks import execution_contract, push_publication
+from scripts.execute_notebooks import execution_contract, push_publication, select_notebooks
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,7 +37,8 @@ def repository(tmp_path, monkeypatch):
     git(root, "remote", "add", "origin", str(remote))
     git(root, "push", "-u", "origin", "main")
     monkeypatch.setattr("scripts.execute_notebooks.PUBLIC_ORIGINS", {str(remote)})
-    for path in (root / "notebooks").glob("*.ipynb"):
+    # Match the legacy publisher's explicit scope; leave manual research notebooks intact.
+    for path in select_notebooks(root, None, "public"):
         nb = nbformat.read(path, as_version=4)
         # Authored publication fixture, not evidence of a model/kernel execution.
         for index, cell in enumerate(nb.cells):
@@ -136,3 +137,78 @@ def test_failed_push_preserves_commit_for_retry(repository, monkeypatch):
     monkeypatch.setattr("scripts.execute_notebooks.subprocess.run", real_run)
     assert push_publication(root, "results/retry") == completed_commit
     assert git(remote, "rev-parse", "results/retry") == completed_commit
+
+
+def test_fixture_changes_only_selected_canonical_notebooks(repository):
+    root, _ = repository
+    selected = {str(p.relative_to(root)) for p in select_notebooks(root, None, "public")}
+    changed = set(git(root, "diff", "--name-only").splitlines())
+    assert len(selected) == 5
+    assert changed == selected
+    manual = sorted(
+        p for p in (root / "notebooks").glob("*.ipynb") if str(p.relative_to(root)) not in selected
+    )
+    assert len(manual) >= 15
+    for path in manual:
+        saved = subprocess.run(
+            ["git", "show", "HEAD:" + str(path.relative_to(root))],
+            cwd=root,
+            check=True,
+            capture_output=True,
+        ).stdout
+        assert path.read_bytes() == saved
+
+
+def test_scoped_push_preserves_all_manual_notebook_bytes(repository):
+    root, remote = repository
+    selected = set(select_notebooks(root, None, "public"))
+    saved = {
+        str(p.relative_to(root)): p.read_bytes()
+        for p in (root / "notebooks").glob("*.ipynb")
+        if p not in selected
+    }
+    before = git(root, "rev-parse", "HEAD")
+    pushed = push_publication(root, "results/manual-preservation")
+    touched = set(git(root, "diff", "--name-only", before, pushed).splitlines())
+    assert not (touched & set(saved))
+    for name, original in saved.items():
+        assert (root / name).read_bytes() == original
+        published = subprocess.run(
+            ["git", "show", "results/manual-preservation:" + name],
+            cwd=remote,
+            check=True,
+            capture_output=True,
+        ).stdout
+        assert published == original
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "05_data_readiness.ipynb",
+        "07_relational_feature_investigation.ipynb",
+        "19_passage_support_investigation.ipynb",
+    ],
+)
+def test_out_of_scope_notebook_edit_is_still_rejected(repository, name):
+    root, _ = repository
+    path = root / "notebooks" / name
+    changed = path.read_bytes() + b"\n"
+    path.write_bytes(changed)
+    before = git(root, "rev-parse", "HEAD")
+    with pytest.raises(ValueError, match="Unpublished source or unrelated edits"):
+        push_publication(root, "results/unrelated-notebook")
+    assert path.read_bytes() == changed
+    assert git(root, "rev-parse", "HEAD") == before
+    assert not git(root, "diff", "--cached", "--name-only")
+
+
+def test_untracked_source_is_still_rejected_and_preserved(repository):
+    root, _ = repository
+    source = root / "scripts/private_unreviewed.py"
+    source.write_text("# Authored unreviewed test source.\n")
+    before = git(root, "rev-parse", "HEAD")
+    with pytest.raises(ValueError, match="Unpublished source or unrelated edits"):
+        push_publication(root, "results/unreviewed-source")
+    assert source.read_text() == "# Authored unreviewed test source.\n"
+    assert git(root, "rev-parse", "HEAD") == before

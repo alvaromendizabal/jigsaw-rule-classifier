@@ -1,0 +1,14 @@
+{
+  "new_primary_columns": 48,
+  "families": [
+    "word_passages",
+    "character_passages"
+  ],
+  "reference_label_source": "explicit same-rule supplied labels only",
+  "new_vector_inference": false,
+  "crossfit_folds": 3,
+  "independent_round": 13,
+  "new_neural_encoding": false,
+  "anchor": "Round 9 context_evidence (exploratory, unpromoted)",
+  "feature_construction": "16 reference-only vocabulary/IDF fits"
+}

@@ -1,0 +1,23 @@
+{
+  "global_features": [
+    "pair/global_mean",
+    "pair/global_std",
+    "pair/global_soft_vote",
+    "pair/global_positive_fraction"
+  ],
+  "local_features": [
+    "pair/nearest_midpoint_margin",
+    "pair/top5_mean",
+    "pair/top20_mean",
+    "pair/top20_std",
+    "pair/weighted_mean",
+    "pair/weighted_std",
+    "pair/weighted_soft_vote",
+    "pair/local_minus_global"
+  ],
+  "new_columns": 12,
+  "reused_basic_columns": 9,
+  "same_rule_only": true,
+  "frozen_vectors_only": true,
+  "pairing": "maximum-total-cosine one-to-one opposing-class assignment"
+}

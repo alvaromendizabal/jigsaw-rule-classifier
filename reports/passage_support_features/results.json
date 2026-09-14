@@ -1,0 +1,6241 @@
+{
+  "schema": 1,
+  "status": "PASSAGE_SUPPORT_ROUND_COMPLETE",
+  "run_id": "377538354e20ebccc0d9",
+  "identity": {
+    "source": {
+      "scripts/passage_support_features.py": "3748a65fac81046fc7a63e5fb0d4b6ba2ac002a844a5623536140497212004f0",
+      "scripts/run_passage_support_features.py": "4ae061aedb8191532bb6b1cff0b18c0900508217ed9124e717149ec9fab5a81e",
+      "tests/test_passage_support_features.py": "2aa3aa5838b4d4aee26be9246545c773a4c833e53e5b36cb183e962d1a530208",
+      "configs/passage_support_features.json": "5b538b0724379c0c2373380fefb4121b2b98ed7f01501c598f81e238bff5a985",
+      "docs/PASSAGE_SUPPORT_FEATURES.md": "c39e192fb7139d40df391aec0ac71beb624c7aac0122fbe6ff5921bc7863569d",
+      "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+      "scripts/run_conditioned_geometry_features.py": "df6ad9e3c25ce730a8137f897801da7599c43b029dcbd3a66a3ec182ff197e5c",
+      "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+      "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f",
+      "scripts/multiprototype_features.py": "89b465355974ddafb60efba6893b1cd66bf63f80e70c51feb66207401950de4f",
+      "scripts/run_multiprototype_features.py": "1a6a2690c0207d791bb5bfa05f2ba74f294b5cb94b72e8140119e508e35be15b",
+      "tests/test_multiprototype_features.py": "ca341b7bc9eef0240138a929d99965627e72661329be053169e301b80b4c5a37",
+      "configs/multiprototype_features.json": "51d5eb1445ad7b3d82f68bc93cdc54e04402fcea2378beaa0ce9620a2334b176",
+      "docs/MULTIPROTOTYPE_FEATURES.md": "4fbb6cf9ff6b8deae20c26cdfc722d51f99cdab72aa1adbd3b6db9f4ea3d3fab",
+      "scripts/crossmodal_support_features.py": "c8be68c1e583b6ea9713f574cdc29d9dcedb396045e863cbec8b0bc6a2362167",
+      "scripts/run_crossmodal_support_features.py": "961e7336c1fb742953e7e3471c4b67a8e0383c9b7e80ddc42651804c77e9af51",
+      "tests/test_crossmodal_support_features.py": "90d6dc8642d3c8adfaa809c9188ffdd8ff734a7987df087b6eeda50f79e31a9b",
+      "configs/crossmodal_support_features.json": "4999f5e96c8dea6a257bbbf5eccde423b33911762affbbafd17e984dd1d2d6c0",
+      "docs/CROSSMODAL_SUPPORT_FEATURES.md": "5603cb3899ef0debe06d17a9ca0d96fb60ecd13b5dbb69a9396e1e50baaae3b8"
+    },
+    "config": {
+      "primary": "passage_all",
+      "new_fits": 12,
+      "cached_control_readouts": 10,
+      "crossfit_folds": 3,
+      "minimum_macro_delta": 0.003,
+      "automatic_gpu_authorization": false,
+      "independent_of_other_new_round": true,
+      "hyperparameters": {
+        "max_passages": 12,
+        "max_characters": 50000,
+        "vocabulary_cap_per_family": 6000,
+        "top_references": 5
+      },
+      "schema": 1,
+      "name": "round13_passage_support_features",
+      "round8_run_id": "eab42d2b77ef0e2ac8e0",
+      "round8_results_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+      "round9_run_id": "7648bca3c639da0e050f",
+      "round9_results_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+      "classifiers": {
+        "C": 1.0,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "seed": 2025
+      },
+      "max_seconds": 240,
+      "seed": 20260927,
+      "bootstrap_replicates": 500,
+      "new_primary_columns": 48,
+      "question": "Does a localized phrase provide evidence that is diluted when a whole comment is represented by one vector?",
+      "reference_status": "context_evidence is an adaptively chosen exploratory anchor, not promoted",
+      "raw_data_and_cache_reuse": true,
+      "scope": "original permitted support/training labels; no released targets",
+      "new_family_columns": {
+        "word_passages": 24,
+        "character_passages": 24
+      },
+      "references": [
+        "qwen_raw",
+        "frozen_basic",
+        "context_evidence",
+        "uniform_all",
+        "whole_comment_all",
+        "boundary_null_all",
+        "label_null_all"
+      ],
+      "round10_run_id": "db369c331ca5c7fb49a7",
+      "round10_results_sha256": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+      "round11_run_id": "3a78a2db1228e0e87362",
+      "round11_results_sha256": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5",
+      "feature_construction_fits": "16 reference-only TF-IDF vocabulary/IDF fits, shared across six candidates; no encoder fits",
+      "promotion_gate": "Primary >= +0.003 macro AUC against every specified comparator, simultaneous lows >0, no per-policy regression, ranked-pooled nondecrease vs raw Qwen. Exploration only."
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0"
+      }
+    },
+    "round9_identity": {
+      "source": {
+        "scripts/behavior_support_features.py": "773f0bcddde62fa2f7c5ce0a9bc6d5fca918ee46c07804cda032601ab632d98b",
+        "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+        "tests/test_behavior_support_features.py": "fa1d7c818beef1152c35a33b4ee8df9e679fc3ee59dc51b4e0a4531b33d60194",
+        "configs/behavior_support_features.json": "8b9cb75d55dc5cdc36da8f51ea1702caedcba20645177bbf25dbc70041dda1ba",
+        "docs/BEHAVIOR_SUPPORT_FEATURES.md": "d0724df92c9f081d3b118f7ba545b3ac2696416a847b7103e44a97b21837443f",
+        "scripts/relational_features.py": "79e8c74d2317fb8398347d95185301aed3127da2923791060b750b1ca6bee56d",
+        "scripts/behavioral_features.py": "cb28b2b8a9fae23859b839fae1be79e5dc600cde631c767ce3ffd7f22c4606cc"
+      },
+      "config": {
+        "schema": 1,
+        "name": "round9_behavior_support_features",
+        "round7_run_id": "6dacdcfb6a19ec13d83f",
+        "round7_results_sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841",
+        "classifiers": {
+          "C": 1.0,
+          "solver": "liblinear",
+          "max_iter": 2000,
+          "seed": 2025
+        },
+        "primary": "conditioned_all",
+        "new_fits": 12,
+        "cached_control_readouts": 6,
+        "max_seconds": 240,
+        "seed": 20260921,
+        "bootstrap_replicates": 500,
+        "minimum_macro_delta": 0.003,
+        "crossfit_folds": 3,
+        "automatic_gpu_authorization": false,
+        "independent_of_other_new_round": true,
+        "new_primary_columns": 48,
+        "reference_status": "Round 7 pinned; six Round 6 readouts reused without refitting.",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "backoff": 0.2,
+          "descriptor_columns": 12
+        },
+        "selection": "No validation-led feature selection or hyperparameter search.",
+        "pooling": "Original 234/647 cohorts; same-rule references and group cross-fitting."
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "round7_identity": {
+        "source": {
+          "scripts/matched_support_features.py": "9ba7f130e49564f3dc33c68457f6fbbbf3a02449530b598415d8e25eec85dbaf",
+          "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+          "tests/test_matched_support_features.py": "0da6ba7a07a58c3852a7a34e4dc795e1a652ec08cb60d2ce66a69351b5a97699",
+          "configs/matched_support_features.json": "5ce5af8b5fcb34f5c02521d1859e199d4618d9952e9a9fb5d15cba101e43da74",
+          "docs/MATCHED_SUPPORT_FEATURES.md": "af7888dee1ca09e95e8d19ea75acdfa39c1173166186762c2ca74478023ca3ce"
+        },
+        "config": {
+          "schema": 1,
+          "name": "round7_matched_opposing_support_contrasts",
+          "round6_run_id": "32a90cf7c6607257c2bf",
+          "round6_results_sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508",
+          "primary": "paired_all",
+          "new_fits": 12,
+          "cached_control_readouts": 6,
+          "crossfit_folds": 3,
+          "pair_temperature": 0.1,
+          "vote_scale": 5.0,
+          "max_seconds": 240,
+          "seed": 20260919,
+          "bootstrap_replicates": 500,
+          "minimum_macro_delta": 0.003,
+          "automatic_gpu_authorization": false,
+          "classifiers": {
+            "C": 1.0,
+            "solver": "liblinear",
+            "max_iter": 2000,
+            "seed": 2025
+          },
+          "gate": "Primary beats qwen_raw, answer_only, frozen_basic, repaired_all and orientation_all by >=0.003 policy-macro AUC; simultaneous lower bound >0 and no policy regression for every contrast; ranked-pooled AUC cannot decline vs qwen_raw.",
+          "restrictions": [
+            "no downloads",
+            "no neural inference",
+            "same-rule explicit opposite labels only",
+            "no query labels in features",
+            "no query-query matching",
+            "no Git writes",
+            "no cloud calls"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "round6_identity": {
+          "source": {
+            "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f",
+            "scripts/run_local_support_features.py": "89b856d6e9d152db242233ff8717bc8f363e1517713f7be06010f9688471d7ad",
+            "tests/test_local_support_features.py": "862b26a756be083bdd7bba77c03040d3a69d16ba2f2c663f77f20fbee59ddb5a",
+            "configs/local_support_features.json": "9e5229185007b1b0a564dfd75821e5121f56f3e7e44b47b129b3d30cb315b6a4",
+            "docs/LOCAL_SUPPORT_FEATURES.md": "3af58daad45fff8b7f48bbe87a64997d0eaf4e0ae70e43a224263ae26291e940"
+          },
+          "config": {
+            "schema": 1,
+            "name": "round6_local_support_density",
+            "audit_run_id": "a6103241df718b4b27a4",
+            "audit_sha256": "f0dc52212107bd3d64cb27dd8861cc5a24b5d71a4af1b9c303c511594d7c9c60",
+            "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+            "query_counts": [
+              234,
+              647
+            ],
+            "expected_same_rule_training": [
+              629,
+              366
+            ],
+            "dimensions": 2560,
+            "neighbors": 10,
+            "crossfit_folds": 3,
+            "max_seconds": 240,
+            "new_fits": 12,
+            "seed": 20260918,
+            "bootstrap_replicates": 500,
+            "minimum_macro_delta": 0.003,
+            "primary": "frozen_all",
+            "classifiers": {
+              "C": 1.0,
+              "solver": "liblinear",
+              "max_iter": 2000,
+              "seed": 2025
+            },
+            "reference_files": [
+              {
+                "name": "fold_0.npz",
+                "bytes": 21493371,
+                "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+              },
+              {
+                "name": "fold_1.npz",
+                "bytes": 21359643,
+                "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+              }
+            ],
+            "builder_sources": {
+              "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+              "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+              "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+              "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+              "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+            },
+            "automatic_gpu_authorization": false,
+            "gate": "primary beats raw Qwen, answer_only, frozen_basic and shuffled_all by >=0.003 macro AUC; simultaneous lower bounds >0; no per-policy regression; ranked pooled vs Qwen >=0",
+            "restrictions": [
+              "no downloads",
+              "no query targets in features or fitting",
+              "same-rule references only",
+              "no query-query distances",
+              "no package install",
+              "no neural inference",
+              "no automatic Git publication"
+            ]
+          },
+          "environment": {
+            "python": "3.12.14",
+            "packages": {
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "scipy": "1.17.0",
+              "scikit-learn": "1.8.0",
+              "joblib": "1.5.3",
+              "plotly": "7.0.0"
+            }
+          },
+          "audit_run": "a6103241df718b4b27a4"
+        },
+        "audit_identity": {
+          "source": {
+            "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+            "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+            "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+            "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+            "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+          },
+          "config": {
+            "schema": 1,
+            "name": "feature_value_against_cached_qwen_development",
+            "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+            "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+            "query_counts": [
+              234,
+              647
+            ],
+            "bootstrap_replicates": 500,
+            "seed": 20260917,
+            "minimum_slice_class": 10,
+            "max_seconds": 240,
+            "model_fits": 0,
+            "ensembles": false,
+            "account": "560403859723",
+            "region": "us-west-2",
+            "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+            "reference_run": "d13858b7407993fcc6e8",
+            "reference_auc": [
+              0.6792537313432836,
+              0.7605330619753037
+            ],
+            "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+            "reference_files": [
+              {
+                "name": "fold_0.npz",
+                "bytes": 21493371,
+                "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+              },
+              {
+                "name": "fold_1.npz",
+                "bytes": 21359643,
+                "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+              }
+            ],
+            "rounds": [
+              {
+                "round": 1,
+                "public": "reports/behavioral_features",
+                "private": "runs/behavioral_features",
+                "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+                "run_id": "32e706fe1e7dddb7de34"
+              },
+              {
+                "round": 2,
+                "public": "reports/relational_features",
+                "private": "runs/relational_features",
+                "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+                "run_id": "b951f663d66c68cb6bca"
+              },
+              {
+                "round": 3,
+                "public": "reports/policy_features",
+                "private": "runs/policy_features",
+                "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+                "run_id": "5927fe5eb15c3cf2d8aa"
+              },
+              {
+                "round": 4,
+                "public": "reports/evidence_features",
+                "private": "runs/evidence_features",
+                "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+                "run_id": "e5628cf8367060756148"
+              },
+              {
+                "round": 5,
+                "public": "reports/scope_lexical_features",
+                "private": "runs/scope_lexical_features",
+                "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+                "run_id": "5b69b9779637e79f13cd"
+              }
+            ],
+            "model_round": {
+              "lexical_control": 1,
+              "add_behavior": 1,
+              "add_act_roles": 2,
+              "condition_lexical": 3,
+              "rule_both": 4,
+              "copy_both": 5,
+              "scope_both": 5
+            },
+            "restrictions": [
+              "No new fits or inference",
+              "No blends, thresholds or slice tuning",
+              "Original train labels only for retrospective scoring",
+              "No private content in public export",
+              "No automatic promotion"
+            ]
+          },
+          "environment": {
+            "python": "3.12.14",
+            "packages": {
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "scipy": "1.17.0",
+              "scikit-learn": "1.8.0",
+              "joblib": "1.5.3",
+              "plotly": "7.0.0"
+            }
+          },
+          "references": [
+            "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+          ],
+          "reports": {
+            "1": "32e706fe1e7dddb7de34",
+            "2": "b951f663d66c68cb6bca",
+            "3": "5927fe5eb15c3cf2d8aa",
+            "4": "e5628cf8367060756148",
+            "5": "5b69b9779637e79f13cd"
+          }
+        }
+      },
+      "audit_identity": {
+        "source": {
+          "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+          "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+          "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+          "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+          "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+        },
+        "config": {
+          "schema": 1,
+          "name": "feature_value_against_cached_qwen_development",
+          "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+          "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+          "query_counts": [
+            234,
+            647
+          ],
+          "bootstrap_replicates": 500,
+          "seed": 20260917,
+          "minimum_slice_class": 10,
+          "max_seconds": 240,
+          "model_fits": 0,
+          "ensembles": false,
+          "account": "560403859723",
+          "region": "us-west-2",
+          "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+          "reference_run": "d13858b7407993fcc6e8",
+          "reference_auc": [
+            0.6792537313432836,
+            0.7605330619753037
+          ],
+          "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+          "reference_files": [
+            {
+              "name": "fold_0.npz",
+              "bytes": 21493371,
+              "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+            },
+            {
+              "name": "fold_1.npz",
+              "bytes": 21359643,
+              "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+            }
+          ],
+          "rounds": [
+            {
+              "round": 1,
+              "public": "reports/behavioral_features",
+              "private": "runs/behavioral_features",
+              "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+              "run_id": "32e706fe1e7dddb7de34"
+            },
+            {
+              "round": 2,
+              "public": "reports/relational_features",
+              "private": "runs/relational_features",
+              "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+              "run_id": "b951f663d66c68cb6bca"
+            },
+            {
+              "round": 3,
+              "public": "reports/policy_features",
+              "private": "runs/policy_features",
+              "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+              "run_id": "5927fe5eb15c3cf2d8aa"
+            },
+            {
+              "round": 4,
+              "public": "reports/evidence_features",
+              "private": "runs/evidence_features",
+              "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+              "run_id": "e5628cf8367060756148"
+            },
+            {
+              "round": 5,
+              "public": "reports/scope_lexical_features",
+              "private": "runs/scope_lexical_features",
+              "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+              "run_id": "5b69b9779637e79f13cd"
+            }
+          ],
+          "model_round": {
+            "lexical_control": 1,
+            "add_behavior": 1,
+            "add_act_roles": 2,
+            "condition_lexical": 3,
+            "rule_both": 4,
+            "copy_both": 5,
+            "scope_both": 5
+          },
+          "restrictions": [
+            "No new fits or inference",
+            "No blends, thresholds or slice tuning",
+            "Original train labels only for retrospective scoring",
+            "No private content in public export",
+            "No automatic promotion"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "references": [
+          "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+          "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+        ],
+        "reports": {
+          "1": "32e706fe1e7dddb7de34",
+          "2": "b951f663d66c68cb6bca",
+          "3": "5927fe5eb15c3cf2d8aa",
+          "4": "e5628cf8367060756148",
+          "5": "5b69b9779637e79f13cd"
+        }
+      }
+    },
+    "completed_source_reports": {
+      "10": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+      "11": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5"
+    },
+    "round8_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+    "audit_identity": {
+      "source": {
+        "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+        "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+        "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+        "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+        "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+      },
+      "config": {
+        "schema": 1,
+        "name": "feature_value_against_cached_qwen_development",
+        "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+        "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+        "query_counts": [
+          234,
+          647
+        ],
+        "bootstrap_replicates": 500,
+        "seed": 20260917,
+        "minimum_slice_class": 10,
+        "max_seconds": 240,
+        "model_fits": 0,
+        "ensembles": false,
+        "account": "560403859723",
+        "region": "us-west-2",
+        "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "reference_run": "d13858b7407993fcc6e8",
+        "reference_auc": [
+          0.6792537313432836,
+          0.7605330619753037
+        ],
+        "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+        "reference_files": [
+          {
+            "name": "fold_0.npz",
+            "bytes": 21493371,
+            "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+          },
+          {
+            "name": "fold_1.npz",
+            "bytes": 21359643,
+            "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+          }
+        ],
+        "rounds": [
+          {
+            "round": 1,
+            "public": "reports/behavioral_features",
+            "private": "runs/behavioral_features",
+            "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+            "run_id": "32e706fe1e7dddb7de34"
+          },
+          {
+            "round": 2,
+            "public": "reports/relational_features",
+            "private": "runs/relational_features",
+            "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+            "run_id": "b951f663d66c68cb6bca"
+          },
+          {
+            "round": 3,
+            "public": "reports/policy_features",
+            "private": "runs/policy_features",
+            "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+            "run_id": "5927fe5eb15c3cf2d8aa"
+          },
+          {
+            "round": 4,
+            "public": "reports/evidence_features",
+            "private": "runs/evidence_features",
+            "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+            "run_id": "e5628cf8367060756148"
+          },
+          {
+            "round": 5,
+            "public": "reports/scope_lexical_features",
+            "private": "runs/scope_lexical_features",
+            "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+            "run_id": "5b69b9779637e79f13cd"
+          }
+        ],
+        "model_round": {
+          "lexical_control": 1,
+          "add_behavior": 1,
+          "add_act_roles": 2,
+          "condition_lexical": 3,
+          "rule_both": 4,
+          "copy_both": 5,
+          "scope_both": 5
+        },
+        "restrictions": [
+          "No new fits or inference",
+          "No blends, thresholds or slice tuning",
+          "Original train labels only for retrospective scoring",
+          "No private content in public export",
+          "No automatic promotion"
+        ]
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "references": [
+        "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+        "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+      ],
+      "reports": {
+        "1": "32e706fe1e7dddb7de34",
+        "2": "b951f663d66c68cb6bca",
+        "3": "5927fe5eb15c3cf2d8aa",
+        "4": "e5628cf8367060756148",
+        "5": "5b69b9779637e79f13cd"
+      }
+    }
+  },
+  "new_fits": 12,
+  "reused_new_fits": 0,
+  "reused_prior_controls": 10,
+  "control_design_parity": true,
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "qwen_raw",
+      "auc": 0.6792537313432836,
+      "brier": 0.25023770188266237,
+      "log_loss": 0.7600029858994344
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "qwen_raw",
+      "auc": 0.7605330619753037,
+      "brier": 0.2215279122190867,
+      "log_loss": 0.7098793479450484
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "answer_only",
+      "auc": 0.6792537313432836,
+      "brier": 0.2607471050051889,
+      "log_loss": 0.8287071344390946
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "answer_only",
+      "auc": 0.7605330619753037,
+      "brier": 0.22835742570137949,
+      "log_loss": 0.7672579840398105
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "frozen_basic",
+      "auc": 0.6930970149253732,
+      "brier": 0.25446942503043884,
+      "log_loss": 0.8272923823580525
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "frozen_basic",
+      "auc": 0.7530381010156357,
+      "brier": 0.23432719270508912,
+      "log_loss": 0.8215150267538596
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "context_evidence",
+      "auc": 0.7034701492537313,
+      "brier": 0.24708063170336345,
+      "log_loss": 0.8231883906824257
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "context_evidence",
+      "auc": 0.7550439326040586,
+      "brier": 0.23538018446232475,
+      "log_loss": 0.8403668188796676
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "uniform_all",
+      "auc": 0.7032462686567164,
+      "brier": 0.2478045724753044,
+      "log_loss": 0.8210816312678599
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "uniform_all",
+      "auc": 0.7545742744760375,
+      "brier": 0.2338707466167126,
+      "log_loss": 0.8175391835307207
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "word_passages",
+      "auc": 0.6996641791044776,
+      "brier": 0.262270399583788,
+      "log_loss": 0.8941940098552873
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "word_passages",
+      "auc": 0.7608461673939845,
+      "brier": 0.23791269229370465,
+      "log_loss": 0.8848254894702381
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "character_passages",
+      "auc": 0.6959328358208956,
+      "brier": 0.25378250214577275,
+      "log_loss": 0.861943805997474
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "character_passages",
+      "auc": 0.7534294827889865,
+      "brier": 0.23936019384895424,
+      "log_loss": 0.8955891419146449
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "passage_all",
+      "auc": 0.6916791044776118,
+      "brier": 0.26930629396542893,
+      "log_loss": 0.9068742131059951
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "passage_all",
+      "auc": 0.7570889023698166,
+      "brier": 0.24014613331365506,
+      "log_loss": 0.9330891898217126
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "whole_comment_all",
+      "auc": 0.6936194029850746,
+      "brier": 0.25088049307584687,
+      "log_loss": 0.8408834713567216
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "whole_comment_all",
+      "auc": 0.7602786638226258,
+      "brier": 0.2356788348795767,
+      "log_loss": 0.8614044138339962
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "boundary_null_all",
+      "auc": 0.6942910447761195,
+      "brier": 0.26156915004992815,
+      "log_loss": 0.9313604444504456
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "boundary_null_all",
+      "auc": 0.7525782274319485,
+      "brier": 0.24406030710965468,
+      "log_loss": 0.9450596977076081
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "label_null_all",
+      "auc": 0.6827238805970148,
+      "brier": 0.26826177237335697,
+      "log_loss": 0.915049075721239
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "label_null_all",
+      "auc": 0.747568540733058,
+      "brier": 0.2457180143668503,
+      "log_loss": 0.9982001966433194
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate": "word_passages",
+      "reference": "context_evidence",
+      "comparison": "word_passages vs context anchor",
+      "delta_auc": 0.000998132320336076,
+      "simultaneous_low": -0.023292857365852526,
+      "simultaneous_high": 0.025289122006524677
+    },
+    {
+      "candidate": "character_passages",
+      "reference": "context_evidence",
+      "comparison": "character_passages vs context anchor",
+      "delta_auc": -0.004575881623953948,
+      "simultaneous_low": -0.02886687131014255,
+      "simultaneous_high": 0.019715108062234653
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "context_evidence",
+      "comparison": "passage_all vs context anchor",
+      "delta_auc": -0.004873037505180755,
+      "simultaneous_low": -0.029164027191369356,
+      "simultaneous_high": 0.019417952181007846
+    },
+    {
+      "candidate": "whole_comment_all",
+      "reference": "context_evidence",
+      "comparison": "whole_comment_all vs context anchor",
+      "delta_auc": -0.0023080075250447862,
+      "simultaneous_low": -0.026598997211233388,
+      "simultaneous_high": 0.021982982161143815
+    },
+    {
+      "candidate": "boundary_null_all",
+      "reference": "context_evidence",
+      "comparison": "boundary_null_all vs context anchor",
+      "delta_auc": -0.0058224048248609606,
+      "simultaneous_low": -0.030113394511049562,
+      "simultaneous_high": 0.01846858486132764
+    },
+    {
+      "candidate": "label_null_all",
+      "reference": "context_evidence",
+      "comparison": "label_null_all vs context anchor",
+      "delta_auc": -0.01411083026385862,
+      "simultaneous_low": -0.038401819950047225,
+      "simultaneous_high": 0.010180159422329981
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "qwen_raw",
+      "comparison": "Primary vs qwen_raw",
+      "delta_auc": 0.0044906067644205905,
+      "simultaneous_low": -0.01980038292176801,
+      "simultaneous_high": 0.028781596450609192
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "frozen_basic",
+      "comparison": "Primary vs frozen_basic",
+      "delta_auc": 0.001316445453209747,
+      "simultaneous_low": -0.022974544232978854,
+      "simultaneous_high": 0.02560743513939835
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "uniform_all",
+      "comparison": "Primary vs uniform_all",
+      "delta_auc": -0.004526268142662659,
+      "simultaneous_low": -0.02881725782885126,
+      "simultaneous_high": 0.019764721543525942
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "whole_comment_all",
+      "comparison": "Primary vs whole_comment_all",
+      "delta_auc": -0.002565029980135969,
+      "simultaneous_low": -0.02685601966632457,
+      "simultaneous_high": 0.021725959706052633
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "boundary_null_all",
+      "comparison": "Primary vs boundary_null_all",
+      "delta_auc": 0.0009493673196802055,
+      "simultaneous_low": -0.023341622366508396,
+      "simultaneous_high": 0.025240357005868807
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "label_null_all",
+      "comparison": "Primary vs label_null_all",
+      "delta_auc": 0.009237792758677865,
+      "simultaneous_low": -0.015053196927510736,
+      "simultaneous_high": 0.03352878244486647
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "word_passages",
+      "comparison": "Family removal: character_passages",
+      "delta_auc": -0.005871169825516831,
+      "simultaneous_low": -0.030162159511705432,
+      "simultaneous_high": 0.01841981986067177
+    },
+    {
+      "candidate": "passage_all",
+      "reference": "character_passages",
+      "comparison": "Family removal: word_passages",
+      "delta_auc": -0.00029715588122680714,
+      "simultaneous_low": -0.02458814556741541,
+      "simultaneous_high": 0.023993833804961794
+    }
+  ],
+  "pooled_metrics": [
+    {
+      "variant": "qwen_raw",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7396660654579207,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "answer_only",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7386798721640351,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "frozen_basic",
+      "macro_auc": 0.7230675579705045,
+      "pooled_auc": 0.7338517440327396,
+      "ranked_pooled_auc": 0.7370898332436794
+    },
+    {
+      "variant": "context_evidence",
+      "macro_auc": 0.729257040928895,
+      "pooled_auc": 0.7361827463637419,
+      "ranked_pooled_auc": 0.7413299370312945
+    },
+    {
+      "variant": "uniform_all",
+      "macro_auc": 0.7289102715663769,
+      "pooled_auc": 0.7359137845563186,
+      "ranked_pooled_auc": 0.7409133099178349
+    },
+    {
+      "variant": "word_passages",
+      "macro_auc": 0.7302551732492311,
+      "pooled_auc": 0.7380127414064067,
+      "ranked_pooled_auc": 0.7445733000031642
+    },
+    {
+      "variant": "character_passages",
+      "macro_auc": 0.724681159304941,
+      "pooled_auc": 0.73464808193315,
+      "ranked_pooled_auc": 0.7381445854296533
+    },
+    {
+      "variant": "passage_all",
+      "macro_auc": 0.7243840034237142,
+      "pooled_auc": 0.7355182524865783,
+      "ranked_pooled_auc": 0.7397108924258247
+    },
+    {
+      "variant": "whole_comment_all",
+      "macro_auc": 0.7269490334038502,
+      "pooled_auc": 0.7398743790146504,
+      "ranked_pooled_auc": 0.7425112594795853
+    },
+    {
+      "variant": "boundary_null_all",
+      "macro_auc": 0.723434636104034,
+      "pooled_auc": 0.7332030714383655,
+      "ranked_pooled_auc": 0.7370581906781002
+    },
+    {
+      "variant": "label_null_all",
+      "macro_auc": 0.7151462106650364,
+      "pooled_auc": 0.727080234998787,
+      "ranked_pooled_auc": 0.7303235979706568
+    }
+  ],
+  "diagnostics": [
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.3380952380952382,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.04276985743380855,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.3380952380952382,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.016293279022403257,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.3380952380952382,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.04276985743380855,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.3380952380952382,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.004073319755600814,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.3380952380952382,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.004073319755600814,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.3380952380952382,
+      "multiple_passage_fraction": 0.5857142857142857,
+      "zero_lexical_fraction": 0.004073319755600814,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1857142857142855,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.0784313725490196,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1857142857142855,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.032679738562091505,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1857142857142855,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.0784313725490196,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1857142857142855,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.034858387799564274,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1857142857142855,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.008714596949891068,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1857142857142855,
+      "multiple_passage_fraction": 0.5952380952380952,
+      "zero_lexical_fraction": 0.034858387799564274,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1578947368421053,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.04434589800443459,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1578947368421053,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.026607538802660754,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1578947368421053,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.04434589800443459,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1578947368421053,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.011086474501108648,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1578947368421053,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.0022172949002217295,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.1578947368421053,
+      "multiple_passage_fraction": 0.507177033492823,
+      "zero_lexical_fraction": 0.011086474501108648,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.5811965811965814,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.0347682119205298,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.5811965811965814,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.006622516556291391,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.5811965811965814,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.0347682119205298,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.5811965811965814,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.004966887417218543,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.5811965811965814,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.5811965811965814,
+      "multiple_passage_fraction": 0.7136752136752137,
+      "zero_lexical_fraction": 0.004966887417218543,
+      "maximum_passages": 12,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.942622950819672,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.03064066852367688,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.942622950819672,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.005571030640668524,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.942622950819672,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.03064066852367688,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.942622950819672,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.008356545961002786,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.942622950819672,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.942622950819672,
+      "multiple_passage_fraction": 0.819672131147541,
+      "zero_lexical_fraction": 0.008356545961002786,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9836065573770494,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.03296703296703297,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9836065573770494,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9836065573770494,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.03296703296703297,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9836065573770494,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.005494505494505495,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9836065573770494,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9836065573770494,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.005494505494505495,
+      "maximum_passages": 8,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9918032786885247,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.03287671232876712,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9918032786885247,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9918032786885247,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.03287671232876712,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9918032786885247,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0027397260273972603,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9918032786885247,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_passages": 2.9918032786885247,
+      "multiple_passage_fraction": 0.8032786885245902,
+      "zero_lexical_fraction": 0.0027397260273972603,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 3.006182380216383,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.02622107969151671,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 3.006182380216383,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.0010282776349614395,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 3.006182380216383,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.02622107969151671,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "passages",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 3.006182380216383,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.006683804627249357,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "whole_comment",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 1.0,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 1,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "boundary_null",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 3.006182380216383,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.0,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_passages": 3.006182380216383,
+      "multiple_passage_fraction": 0.8253477588871716,
+      "zero_lexical_fraction": 0.006683804627249357,
+      "maximum_passages": 11,
+      "new_passage_labels": 0,
+      "query_used_for_vocabulary": false
+    }
+  ],
+  "coefficients": [
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "answer/log_odds",
+      "coefficient": 4.099476468976999
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.14520956158074894
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4592797461775417
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.21506568848750204
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4402389110231298
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.12702869703391495
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.38572398221383464
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1228256797208667
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.5569671814668689
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4158866332861151
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.08699309007091581
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.43795783808192473
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.036825720613066
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.1575240362613168
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.1938768015699747
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.14671276620617818
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.30573825805816307
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.10336480571154101
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.08872316500539618
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.17747700769982422
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5333633700635902
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.23192107619854446
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": -0.5926068467564514
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": 0.17165837947105209
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.39766541480024403
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": -0.11237438679296179
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": -0.16180454820956663
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": -0.10204237233940192
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": 0.06328638175258498
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": -0.20366302193526734
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": -0.5821182580612797
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.5681160037177548
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.15745211311504637
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.9662103682816121
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": -0.6364632747048943
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": -0.06976722818630032
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": 0.39405415959103535
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": -0.36684191727343096
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": 0.054110099730863996
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.1698129314554877
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": -0.2164977561153058
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.5546250545904182
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.1450212628535158
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": 0.026099123588837717
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": 0.2565710831764214
+    },
+    {
+      "fold": 0,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": -0.15475339475613112
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "answer/log_odds",
+      "coefficient": 3.7172835941904463
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.1286549501049161
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.40818568751663914
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2773941390004945
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4163602098677104
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.110766351716418
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4011510368259937
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.04990006313545
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.4919955538274027
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.3948151569981622
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.046301132207985374
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.43403838750216617
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9483052312939847
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.071779126795453
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.1687315917709944
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.21166184113499084
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.3709290096232813
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.16992740955114696
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.1078962870555847
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.09072414563690363
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.48926439634664076
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.27401492448831477
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": -0.1389103088682925
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.3943039441417498
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": 0.033164261812964384
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.5131402077092163
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.20062427030491492
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.17884837520247643
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": -0.0037198479977904554
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": 0.14085719032460023
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.040040406773513136
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.6341210919234394
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": -0.1858800846804299
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.6437145099120302
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.4218050287317436
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.283040544870814
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": 0.09005833227843144
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": 0.14800557614832607
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 0.122061307953109
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": 0.06176304072904651
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.1676686660813233
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.68629006047836
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.0662910337727284
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": -0.028004286880172324
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": 0.06046388493634056
+    },
+    {
+      "fold": 0,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.000467168059723547
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.073112342087724
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.1233007724171441
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4960371821920453
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.21929971154057704
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.42424926008614705
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.14486471759549732
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.38890947300136763
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.0589982061476328
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.6123778801871669
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4175962901962314
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.13679171888879293
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.46358903254067746
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9592560307979899
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.0743875803212266
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.14277113734666205
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.22164670562166058
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.3918296847587612
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.1611422468607316
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.13095884974452257
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.10518605245277562
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5330008865835796
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.27137378701770326
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": -0.09132785057346161
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": -0.006753739174534007
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.33305411557812453
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": 0.3893011161507718
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": -0.1556442661851189
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": -0.059680320864590616
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": 0.11499631360549421
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": -0.44638757986304545
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": -0.3695412685022208
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.38136301242612325
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.20000434032720563
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.8695994256514893
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": -0.7226111419637316
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.021547549207129126
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": 0.5868203589476979
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": -0.6209877813414388
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": -0.152845458809241
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.19754142936859925
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": -0.12568898008815316
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.16385895001977338
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.18606589962107353
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": 0.052772836343174666
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": 0.3642110372427058
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": -0.15465878439138275
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": -0.31444459712640777
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.37631924073077777
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": -0.017310129605050684
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.6576924404383315
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.04953332102136024
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.07870439334254228
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": -0.04742167578797688
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": 0.3710892759106954
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": -0.13174982641028596
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.4149005099080037
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": -0.1837409345365911
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.4241036475598089
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.024700383747002924
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.20226351064131365
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": -0.3185690637762317
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": 0.44361950551910195
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 0.15640644997067613
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": -0.040896730270740006
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.10765042316849975
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.6728880198071822
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": 0.023320592082292507
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": -0.05580702467112642
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": -0.1497063935916562
+    },
+    {
+      "fold": 0,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.05317360524533658
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "answer/log_odds",
+      "coefficient": 3.7749187545398057
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.21847164687616147
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4007315436468769
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.20839270810636903
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.38864776460890277
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.08615942535451575
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3528098193646015
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1163168897446276
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.4511054580361572
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.3722026492106024
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.11667873720927124
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.4974385409860913
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9756477232157761
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.077680938521534
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.27384895469086273
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.14983690200693225
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.304702261100734
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.1135052798268285
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.04358168249495777
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.12288444295375162
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.4890151616072227
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.2520003772329446
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": 0.09556497434851456
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": 0.09556497434851456
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": 0.09556497434851456
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": 0.09556497434851456
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": 0.09556497434851456
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": 0.034508467902344804
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.034508467902344804
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.034508467902344804
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": 0.034508467902344804
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.034508467902344804
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": -0.03777094413596586
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": -0.03777094413596586
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": -0.03777094413596586
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.03777094413596586
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": -0.03777094413596586
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": -0.14494599208691034
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": -0.14494599208691034
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.14494599208691034
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.14494599208691034
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.14494599208691034
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.1435349390850262
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.1435349390850262
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.1435349390850262
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": 0.1435349390850262
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": 0.1435349390850262
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 0.17939538412013606
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": 0.17939538412013606
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.17939538412013606
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": 0.17939538412013606
+    },
+    {
+      "fold": 0,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": 0.17939538412013606
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.084102002990976
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.14747922379811237
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.6290353010732661
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.22609968330029692
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4925254719825726
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.14248844981937614
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.43025194549911844
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.235433199190666
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.718339849271046
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.47357646205988946
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.1982162946182707
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.6278894251273578
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.273849146008498
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.3912770143540003
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.22882133467971547
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.18841919808893434
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.4191966640004147
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.16621431931436703
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.05986301032821097
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.21218304318766015
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.6278737090702854
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.3121535477326438
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": 0.3000631552844778
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": 0.44453999642830455
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.012686119766889922
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": 0.4074627655071208
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": -0.6566384418264898
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": -0.45218144823352224
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": 0.25511633929780453
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": -0.4002922385706136
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": -0.5568360158076965
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.4692494016146347
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.010632835371439378
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 1.2737313159327905
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": -0.5641159512321695
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": -0.17648244481472475
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": 0.5801732310804644
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": -0.4720030515057399
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": -0.505121976219272
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": -0.05096140680412517
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": -0.0069324137040886954
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.3881758807582319
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": 0.1838248095327441
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": 0.20944061537088016
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": 0.10588662788378754
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": -0.06247503711701721
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": -0.4090912345833775
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.40979022936997817
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": 0.2378650047160488
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.5200303213297786
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.1691895945580165
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.3309084531834091
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": -0.2422046489928559
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": 0.2879559322756724
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.04328403669288359
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.41770301416610084
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": -0.20751513477840614
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.18752063197256075
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.31100158428458485
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.37329053406216817
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": -0.16224464184862572
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": 0.39656516335904146
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 0.31925620712500635
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": -0.062074800477555564
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.4394254180329062
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.4522229154377831
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.04433618413652883
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": 0.03806896725060753
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": 0.16077787950211367
+    },
+    {
+      "fold": 0,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.08637306387602064
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.426977463695095
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.16295197146796422
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.2220621805898799
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.19830217591513352
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.34264877440934843
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.11888761377745032
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3888394983799713
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.9430991408855541
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.3504828520125149
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4322292836886259
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.17811020119018747
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.634988545761693
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.1980311556490841
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.2409477254441257
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.25414326434557455
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.0053170623279280545
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.11504420572488679
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.013819150337594916
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.0678052476807907
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.12495080334907518
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.4623402145189317
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.254555927879171
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": -0.30169491736917975
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": -0.3028695933274937
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.10283640245761812
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": 0.7196590415611855
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": -0.1528305445546701
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": -0.09567704207898935
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": 0.006478530700259878
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": -0.3645504087143471
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": 0.27074379974690854
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.2684246663510146
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": -0.08747173819490289
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.3055872674303171
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": -0.23268346381310423
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": -0.011770556423470864
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": 0.20004923660151114
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": -0.3391744374868433
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": 0.7864939756992324
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.7530601132691566
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": -0.33000810045114487
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": -0.5989942177195624
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.08832375258382187
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": 0.1288309959487038
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": 0.2675126449946864
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": 0.03539929872899669
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": -0.04088907559351706
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.8932742535666264
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": -0.05082683832455887
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.6879090993805321
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.19522072389107972
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.10085401955333108
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": 0.06989400367392826
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": 0.1781437951342065
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.13677421123152314
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": -0.0356132333338553
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": -0.043409119903797755
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": -0.2582787320710062
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.3175566180689149
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.40086613862923365
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": -0.1616597946457235
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": 0.31766165690795656
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 0.2301802233471438
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": -1.483488416000526
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": 0.032718388722582946
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.7168313731078766
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.16207721312145965
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": -0.3444491286997553
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": -0.2997361509459678
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.16018631700916733
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "answer/log_odds",
+      "coefficient": 4.132832808333372
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.17314057586835452
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.47462754610039853
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.9404871345065787
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.3923124971841119
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.06421370811510577
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.40552005900772403
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.2679980042325006
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3458490196251128
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "basic/margin/top5",
+      "coefficient": -0.0009485364894754583
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.0964427463339092
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.4436652398072963
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.06506980390241951
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.12507538409120086
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3246325684309807
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.13674950987824308
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.2851723583476644
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.13007310452250953
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": 0.0830930253398049
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": -0.26695701827953006
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.16516994289441458
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": -0.12938957181463817
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": 0.4220809743368601
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": 0.3372533218911638
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": -0.04944956331870408
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": 0.024846961847300175
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": -0.6639753106474414
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": -0.08513237555850618
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.44896619622820144
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.5217214462287836
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": 0.2867851655112093
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.28424722206828296
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": -0.007365869045996774
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": 0.15941091815090713
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": -0.6150583981718694
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.1628477421109258
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": 0.3795521141189132
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.5855912183733419
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.10309521958314777
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": -0.05751819964526901
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": 0.038644900620545715
+    },
+    {
+      "fold": 1,
+      "variant": "word_passages",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": 0.1186921302235933
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "answer/log_odds",
+      "coefficient": 4.332101729613006
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.2494303058446659
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.2276743974558053
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.6825507336498344
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4644699560594709
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.18661568482594498
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3747973989869777
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.299709413853135
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3489157409229524
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.09129745179074637
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.0797572830236682
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.4371318307433717
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.13516656109503883
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.08271110049810203
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.26326468945546044
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.3027746020581915
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.36019312865353553
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.1741339886946077
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": 0.44834420352405746
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.11517078002201837
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": 0.23581828652347445
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.10821928183122385
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.1255471765909243
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.07864221140136773
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": 0.035940667764717056
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": -0.41168014109398793
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.35112069026611564
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.16039617977309617
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": 0.05879526610556344
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": -0.2182414648185377
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.22866123688866768
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.061322221207762866
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": 0.13451013032558262
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": -0.3425781868399991
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 1.3395514764143884e-05
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": 0.048555527870975196
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.15473989364393295
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": -0.11394081921815637
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.11158853298222235
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": 0.011327506004785494
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": 0.09612036469695096
+    },
+    {
+      "fold": 1,
+      "variant": "character_passages",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.06083424061261689
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.450994936751784
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.22922617441681375
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.3557554654447555
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.7176938916853727
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.41488912046158416
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.03629694428548058
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.41031604128417004
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.2651759693882603
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.24532968658379747
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.1145349474031836
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.029152396208590857
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.47234452452188463
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.01685670328856522
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.07409018845302609
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.28945302691122204
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.28988147674258063
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.417086923697737
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.14735903708497988
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": 0.16682519841989696
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": -0.2540087963103241
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.18384141788783076
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": -0.33474725160479885
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": 0.4106438059723178
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": 0.33120194360061417
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": -0.04558468798497688
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": 0.13886650923436203
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": -0.6445896504406063
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.06251958750093906
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.5477324665798877
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.32507968278992366
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": 0.37115047979393484
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.32273898877272067
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": -0.043759333786529284
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": 0.21151365717893944
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": -0.6678474735067397
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.2777166191875369
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": 0.48370454542608404
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.5955818748635473
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.017231301642372472
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": -0.017559898586663524
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": -5.470392658793292e-05
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": 0.06291588172220566
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": 0.4612390947307622
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.18704867413937262
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": 0.048207419620728546
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": 0.04793150405072624
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.2515629748287078
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": -0.19496812475231376
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": 0.039660542887828186
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": -0.5410011596644873
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.4076570716008137
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.1740843937067738
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": -0.09533486209410434
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": -0.3001724826210581
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.2358917869512516
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.06080070446475657
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": 0.1405738403542946
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": -0.3544984493543694
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": 0.041279903393416056
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": 0.001352659706105688
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.15371110882745045
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": -0.3146059187364715
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.02024173259076609
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": 0.10625766263975955
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": 0.09891247685322004
+    },
+    {
+      "fold": 1,
+      "variant": "passage_all",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.16287381112996743
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.167773009061189
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.11362170890583143
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.3028398771093363
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.7782767282559283
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.40859261962054505
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.24758089458272645
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.33511775090699913
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.3055057669138639
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.4633508444565083
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "basic/margin/top5",
+      "coefficient": -0.001310931477068819
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.16631446002799538
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5768242476750395
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.03866392144994419
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.09445511619121927
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3278308856556162
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.20504347957608846
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.2631851821912535
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.14473437768996814
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": -0.029720944645126656
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": -0.029720944645126656
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": -0.029720944645126656
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": -0.029720944645126656
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": -0.029720944645126656
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": 0.02960169562057381
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.02960169562057381
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.02960169562057381
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": 0.02960169562057381
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.02960169562057381
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": 0.04638171217589082
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.04638171217589082
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.04638171217589082
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": 0.04638171217589082
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": 0.04638171217589082
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": 0.08511194336150367
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.08511194336150367
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": 0.08511194336150367
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": 0.08511194336150367
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": 0.08511194336150367
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.027343056141523873
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.027343056141523873
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.027343056141523873
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": 0.027343056141523873
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": 0.027343056141523873
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": -0.05155917642672747
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": -0.05155917642672747
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": -0.05155917642672747
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.05155917642672747
+    },
+    {
+      "fold": 1,
+      "variant": "whole_comment_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": -0.05155917642672747
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.515614608949037
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.024363479025765796
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.6420613768375907
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8782351892365162
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.37871388800404787
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.09842953856053617
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.406276545664425
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.33446224990711465
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.48143576405613003
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.03065247179151888
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.20927792216562183
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5567920345298977
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.02771044603113907
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.145734834872046
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.4257074763090959
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.016801595435220848
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.3737687695192653
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.21197247561488503
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": 0.10103705251367162
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": -0.629720126844553
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": -0.11223543714793993
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": 0.2594768993835701
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": 0.08416904797652715
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": 0.24259825824285874
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": 0.14320227940617325
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": 0.2960987009248832
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": -0.8074429497969646
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": 0.6091572598748457
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.13594905000987198
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": 0.16916036531010542
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": 0.06166235722828725
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.2327350853825653
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": 0.13605545819923248
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": 0.11111862613337485
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": -0.702710898322636
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": 0.9560025044187415
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": 0.23690752561336018
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": -0.08973404281633188
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": -0.016385169179788505
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": -0.02530544464904144
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": -0.006265907954696599
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": -0.15286399939585024
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": 0.5897958061983718
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.3252152379471776
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": 0.196855950873823
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": -0.7269188809990957
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": 0.026773597174554346
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": 0.12896213259962866
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": 0.0841218668667326
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": -0.6357541253933301
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": 0.2929910610326212
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": -0.08636970907723195
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": 0.031612327537562275
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.18199037418511718
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.2596469197450486
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.2210135804329207
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": 0.040851300535185736
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": -0.23698514416570587
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": -0.19677349353870172
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": -0.3272336248028275
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.16129437891271833
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.7301622272143414
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": -0.2259494444762124
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": -0.26774516642542756
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": -0.03008166354310363
+    },
+    {
+      "fold": 1,
+      "variant": "boundary_null_all",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": 0.3112967742428551
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.3777874104779615
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.22171825423536098
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.6055502687215545
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 1.1019505488983705
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.26568351028519044
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.006441581682207806
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4762016030802748
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.140171582338397
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.35258567243389016
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.00010178047810472258
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.06700622734368605
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.46379515828989604
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.10464971564904976
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.07466134555275125
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3665183016129388
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.2617044775186365
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.22317393044748335
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.10090190683834462
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/maximum_evidence",
+      "coefficient": -0.29960680974389864
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/mean_evidence",
+      "coefficient": 0.3931006157005859
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/dispersion",
+      "coefficient": 0.623625738213072
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/top2_evidence",
+      "coefficient": -0.5679207890865324
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/first_evidence",
+      "coefficient": 0.2718357837301871
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/last_evidence",
+      "coefficient": 0.13121759010066975
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/ending_shift",
+      "coefficient": -0.1174456118771793
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/permitted/strongest_position",
+      "coefficient": 0.3353357940668992
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/maximum_evidence",
+      "coefficient": 0.12235502229159696
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/mean_evidence",
+      "coefficient": -0.701217156280329
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/dispersion",
+      "coefficient": 0.39753014267882514
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/top2_evidence",
+      "coefficient": -0.0945192937586608
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/first_evidence",
+      "coefficient": 0.612101645596922
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/last_evidence",
+      "coefficient": 0.5480786843029364
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/ending_shift",
+      "coefficient": -0.025098667372215958
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/violating/strongest_position",
+      "coefficient": 0.039247416055182505
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/maximum_evidence",
+      "coefficient": 0.3813451200559486
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/mean_evidence",
+      "coefficient": -1.0957807274610214
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/dispersion",
+      "coefficient": -0.2897454641592068
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/top2_evidence",
+      "coefficient": 0.4998474268399538
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/first_evidence",
+      "coefficient": 0.30667018312531263
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/last_evidence",
+      "coefficient": 0.4679452772128875
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/ending_shift",
+      "coefficient": 0.1028893706355181
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_passages/margin/strongest_position",
+      "coefficient": -0.26599689699129864
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/maximum_evidence",
+      "coefficient": -0.11588904084475182
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/mean_evidence",
+      "coefficient": 0.10627441060728418
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/dispersion",
+      "coefficient": -0.15385886830787734
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/top2_evidence",
+      "coefficient": 0.62422724534396
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/first_evidence",
+      "coefficient": -0.26103346819582196
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/last_evidence",
+      "coefficient": 0.030548945561270444
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/ending_shift",
+      "coefficient": 0.22645099130934246
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/permitted/strongest_position",
+      "coefficient": -0.26477927144713836
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/maximum_evidence",
+      "coefficient": -0.20206277866711275
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/mean_evidence",
+      "coefficient": 0.11355581704795208
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/dispersion",
+      "coefficient": -0.2439882602111484
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/top2_evidence",
+      "coefficient": 0.607583459933866
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/first_evidence",
+      "coefficient": -0.24887899121335508
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/last_evidence",
+      "coefficient": -0.1649676619292384
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/ending_shift",
+      "coefficient": 0.07431178614504892
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/violating/strongest_position",
+      "coefficient": -0.3424534555845053
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/maximum_evidence",
+      "coefficient": -0.0943658117011699
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/mean_evidence",
+      "coefficient": 0.015959287454065295
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/dispersion",
+      "coefficient": -0.10549520346685487
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/top2_evidence",
+      "coefficient": 0.02011139133368616
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/first_evidence",
+      "coefficient": 0.010770253290780995
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/last_evidence",
+      "coefficient": -0.21545180909090686
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/ending_shift",
+      "coefficient": -0.16550234066080743
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_passages/margin/strongest_position",
+      "coefficient": -0.06896552596441707
+    }
+  ],
+  "decision": "DO_NOT_PROMOTE_PRIMARY",
+  "primary_requirements": [
+    {
+      "reference": "qwen_raw",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "qwen_raw",
+        "comparison": "Primary vs qwen_raw",
+        "delta_auc": 0.0044906067644205905,
+        "simultaneous_low": -0.01980038292176801,
+        "simultaneous_high": 0.028781596450609192
+      },
+      "per_policy_delta": [
+        0.012425373134328233,
+        -0.0034441596054870516
+      ],
+      "passed": false
+    },
+    {
+      "reference": "frozen_basic",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "frozen_basic",
+        "comparison": "Primary vs frozen_basic",
+        "delta_auc": 0.001316445453209747,
+        "simultaneous_low": -0.022974544232978854,
+        "simultaneous_high": 0.02560743513939835
+      },
+      "per_policy_delta": [
+        -0.0014179104477614057,
+        0.0040508013541809
+      ],
+      "passed": false
+    },
+    {
+      "reference": "context_evidence",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "context_evidence",
+        "comparison": "passage_all vs context anchor",
+        "delta_auc": -0.004873037505180755,
+        "simultaneous_low": -0.029164027191369356,
+        "simultaneous_high": 0.019417952181007846
+      },
+      "per_policy_delta": [
+        -0.011791044776119475,
+        0.0020449697657580757
+      ],
+      "passed": false
+    },
+    {
+      "reference": "uniform_all",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "uniform_all",
+        "comparison": "Primary vs uniform_all",
+        "delta_auc": -0.004526268142662659,
+        "simultaneous_low": -0.02881725782885126,
+        "simultaneous_high": 0.019764721543525942
+      },
+      "per_policy_delta": [
+        -0.011567164179104528,
+        0.002514627893779098
+      ],
+      "passed": false
+    },
+    {
+      "reference": "whole_comment_all",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "whole_comment_all",
+        "comparison": "Primary vs whole_comment_all",
+        "delta_auc": -0.002565029980135969,
+        "simultaneous_low": -0.02685601966632457,
+        "simultaneous_high": 0.021725959706052633
+      },
+      "per_policy_delta": [
+        -0.001940298507462801,
+        -0.0031897614528091367
+      ],
+      "passed": false
+    },
+    {
+      "reference": "boundary_null_all",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "boundary_null_all",
+        "comparison": "Primary vs boundary_null_all",
+        "delta_auc": 0.0009493673196802055,
+        "simultaneous_low": -0.023341622366508396,
+        "simultaneous_high": 0.025240357005868807
+      },
+      "per_policy_delta": [
+        -0.0026119402985076423,
+        0.004510674937868164
+      ],
+      "passed": false
+    },
+    {
+      "reference": "label_null_all",
+      "contrast": {
+        "candidate": "passage_all",
+        "reference": "label_null_all",
+        "comparison": "Primary vs label_null_all",
+        "delta_auc": 0.009237792758677865,
+        "simultaneous_low": -0.015053196927510736,
+        "simultaneous_high": 0.03352878244486647
+      },
+      "per_policy_delta": [
+        0.008955223880596996,
+        0.009520361636758623
+      ],
+      "passed": false
+    }
+  ],
+  "new_neural_inference": 0,
+  "automatic_gpu_authorization": false,
+  "kaggle_score": null,
+  "elapsed_seconds": 7.307,
+  "limitations": [
+    "Exploratory adaptive development on the same 881 queries, not a fresh holdout or Kaggle score.",
+    "The context_evidence anchor is held fixed, selected after Round 9, and was never promoted.",
+    "New reference features are text-group cross-fitted. The inherited adapted answer score is in-sample on support labels.",
+    "Cross-fitting the new features cannot repair that inherited answer-score limitation.",
+    "Simultaneous intervals cover this round, not the full adaptive project history.",
+    "Both new designs are fixed before either run; no companion-round result is read.",
+    "Reference labels belong to entire reference comments, never automatically to their sentences.",
+    "Segmentation is a fixed punctuation/newline heuristic, not a parser or encoder. Max twelve chunks; excess chunks are merged, not discarded.",
+    "Prior scope-token features and whole-comment lexical/semantic agreement did not establish gains; this tests passage localization instead.",
+    "The fixed-count boundary control preserves content and passage count, but not individual passage lengths or feature norms."
+  ]
+}

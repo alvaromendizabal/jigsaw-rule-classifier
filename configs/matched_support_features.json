@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "name": "round7_matched_opposing_support_contrasts",
+  "round6_run_id": "32a90cf7c6607257c2bf",
+  "round6_results_sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508",
+  "primary": "paired_all",
+  "new_fits": 12,
+  "cached_control_readouts": 6,
+  "crossfit_folds": 3,
+  "pair_temperature": 0.1,
+  "vote_scale": 5.0,
+  "max_seconds": 240,
+  "seed": 20260919,
+  "bootstrap_replicates": 500,
+  "minimum_macro_delta": 0.003,
+  "automatic_gpu_authorization": false,
+  "classifiers": {
+    "C": 1.0,
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "seed": 2025
+  },
+  "gate": "Primary beats qwen_raw, answer_only, frozen_basic, repaired_all and orientation_all by >=0.003 policy-macro AUC; simultaneous lower bound >0 and no policy regression for every contrast; ranked-pooled AUC cannot decline vs qwen_raw.",
+  "restrictions": [
+    "no downloads",
+    "no neural inference",
+    "same-rule explicit opposite labels only",
+    "no query labels in features",
+    "no query-query matching",
+    "no Git writes",
+    "no cloud calls"
+  ]
+}

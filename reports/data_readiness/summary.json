@@ -1,0 +1,274 @@
+{
+  "schema": 1,
+  "scope": "original_training_descriptive_profile",
+  "file_rows": {
+    "train.csv": 2029,
+    "test.csv": 10,
+    "sample_submission.csv": 10
+  },
+  "policies": [
+    {
+      "policy": "Advertising",
+      "rows": 1012,
+      "permitted": 574,
+      "violating": 438,
+      "violation_rate": 0.43280632411067194,
+      "communities": 93,
+      "unique_normalized_bodies": 860,
+      "repeated_body_occurrences": 152
+    },
+    {
+      "policy": "Legal advice",
+      "rows": 1017,
+      "permitted": 424,
+      "violating": 593,
+      "violation_rate": 0.5830875122910522,
+      "communities": 83,
+      "unique_normalized_bodies": 1013,
+      "repeated_body_occurrences": 4
+    }
+  ],
+  "length_bins": [
+    {
+      "policy": "Advertising",
+      "characters": "0\u201379",
+      "rows": 269
+    },
+    {
+      "policy": "Advertising",
+      "characters": "80\u2013159",
+      "rows": 434
+    },
+    {
+      "policy": "Advertising",
+      "characters": "160\u2013319",
+      "rows": 219
+    },
+    {
+      "policy": "Advertising",
+      "characters": "320\u2013639",
+      "rows": 90
+    },
+    {
+      "policy": "Advertising",
+      "characters": "640\u20131,279",
+      "rows": 0
+    },
+    {
+      "policy": "Advertising",
+      "characters": "1,280\u20132,559",
+      "rows": 0
+    },
+    {
+      "policy": "Advertising",
+      "characters": "2,560\u20135,119",
+      "rows": 0
+    },
+    {
+      "policy": "Advertising",
+      "characters": "5,120+",
+      "rows": 0
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "0\u201379",
+      "rows": 115
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "80\u2013159",
+      "rows": 339
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "160\u2013319",
+      "rows": 365
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "320\u2013639",
+      "rows": 198
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "640\u20131,279",
+      "rows": 0
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "1,280\u20132,559",
+      "rows": 0
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "2,560\u20135,119",
+      "rows": 0
+    },
+    {
+      "policy": "Legal advice",
+      "characters": "5,120+",
+      "rows": 0
+    }
+  ],
+  "fold_preflight": [
+    {
+      "policy": "Advertising",
+      "candidate_queries": 1012,
+      "support_known_queries": 778,
+      "novel_queries": 234,
+      "training_before": 1017,
+      "training_retained": 1016,
+      "training_purged": 1,
+      "status": "eligible_for_later_protocol_review"
+    },
+    {
+      "policy": "Legal advice",
+      "candidate_queries": 1017,
+      "support_known_queries": 369,
+      "novel_queries": 648,
+      "training_before": 1012,
+      "training_retained": 1001,
+      "training_purged": 11,
+      "status": "eligible_for_later_protocol_review"
+    }
+  ],
+  "support_conflicts": [
+    {
+      "policy": "Advertising",
+      "unique_labeled_texts": 860,
+      "conflicting_text_pairs": 10,
+      "conflicting_occurrences": 198
+    },
+    {
+      "policy": "Legal advice",
+      "unique_labeled_texts": 1013,
+      "conflicting_text_pairs": 1,
+      "conflicting_occurrences": 15
+    }
+  ],
+  "missingness": [
+    {
+      "file": "train",
+      "column": "row_id",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "body",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "rule",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "subreddit",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "positive_example_1",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "positive_example_2",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "negative_example_1",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "negative_example_2",
+      "missing": 0
+    },
+    {
+      "file": "train",
+      "column": "rule_violation",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "row_id",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "body",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "rule",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "subreddit",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "positive_example_1",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "positive_example_2",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "negative_example_1",
+      "missing": 0
+    },
+    {
+      "file": "preview_test",
+      "column": "negative_example_2",
+      "missing": 0
+    },
+    {
+      "file": "sample",
+      "column": "row_id",
+      "missing": 0
+    },
+    {
+      "file": "sample",
+      "column": "rule_violation",
+      "missing": 0
+    }
+  ],
+  "train_preview_body_overlap": 10,
+  "training_labels_used_for_descriptive_counts": true,
+  "test_target_labels_used": false,
+  "model_fits": 0,
+  "new_model_metric": null,
+  "model_forward_passes": 0,
+  "feature_selection_performed": false,
+  "limitations": [
+    "Counts are a data audit, not feature-value evidence or a model score.",
+    "Known-support query exclusion and exact-text purging do not prove semantic isolation.",
+    "Original-data development has been inspected before; it is not a fresh holdout.",
+    "Conflict counts use training bodies plus their four supplied supports, not every historical study's population.",
+    "No raw comment text, community names, IDs, or row-level labels are exported."
+  ],
+  "raw_identity": {
+    "train.csv": {
+      "sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+      "bytes": 1971422
+    },
+    "test.csv": {
+      "sha256": "107b8b329200171f55d2523e6d32670641b53d5be41e0c1d5b9da0b8813cdd41",
+      "bytes": 9167
+    },
+    "sample_submission.csv": {
+      "sha256": "6524e86a03abe387f0867247629e08493770a6f9d37120cc8165322e7486a066",
+      "bytes": 112
+    }
+  }
+}
