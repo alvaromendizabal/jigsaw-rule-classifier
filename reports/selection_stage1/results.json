@@ -1,0 +1,866 @@
+{
+  "exact_duplicates": {},
+  "first_submission": {
+    "classifier_fits": 0,
+    "explicit_similarity_columns": 8,
+    "purpose": "historical feature count only, not validation",
+    "total_columns": 40008,
+    "word_unigram_bigram_columns": 40000
+  },
+  "identity": {
+    "combination_results_sha256": "1fdf13a59919fb2ff66e636e6e298768b2df9aae9d0e43f0f855d465ac2b4f4d",
+    "combination_run_id": "47bf7e41726aeb5fa9fb",
+    "config": {
+      "automatic_promotion": false,
+      "combination_run_id": "47bf7e41726aeb5fa9fb",
+      "combination_status": "COMBINATION_SCREEN_COMPLETE",
+      "correlation_threshold": 0.98,
+      "inner_splits": 4,
+      "k_grid": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        12,
+        20,
+        32,
+        9999
+      ],
+      "minimum_selection_frequency": 0.6,
+      "name": "nested_readout_selection_stage1",
+      "new_feature_families": 0,
+      "new_neural_inference": 0,
+      "outer_splits": 5,
+      "permutation_metric": "macro_auc",
+      "permutation_repeats": 3,
+      "primary_metric": "macro_auc",
+      "probability_guard": "one_se_brier_within_auc_one_se_set",
+      "raw_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+      "required_main_ancestor": "c9f29976ffceff94c0746948c316a36bac80eb91",
+      "revision": "stage1-recovery-v5",
+      "schema": 2,
+      "scientific_max_seconds": 240,
+      "secondary_metrics": [
+        "pooled_auc",
+        "brier",
+        "probability_rmse",
+        "log_loss"
+      ],
+      "seed": 20260915,
+      "selection_target": "saved feature/model readout channels, not raw token columns"
+    },
+    "source_sha256": "8ed3f033375e37992ba2d4538d67a8d945aa31ce3f9698b694df419c3f4caf51"
+  },
+  "importance": [
+    {
+      "mean_abs_linear_shap": 0.5441752933466149,
+      "mean_permutation_macro_auc_drop": 0.10502548721993166,
+      "readout": "add_relations",
+      "selection_frequency": 0.6
+    },
+    {
+      "mean_abs_linear_shap": 0.40779162484444564,
+      "mean_permutation_macro_auc_drop": 0.07555496078829411,
+      "readout": "add_legacy_support",
+      "selection_frequency": 0.4
+    },
+    {
+      "mean_abs_linear_shap": 0.3864389631123896,
+      "mean_permutation_macro_auc_drop": 0.07349305679027901,
+      "readout": "without_windows",
+      "selection_frequency": 0.4
+    },
+    {
+      "mean_abs_linear_shap": 0.5280288990930765,
+      "mean_permutation_macro_auc_drop": 0.10109697432475206,
+      "readout": "frozen_margin_all",
+      "selection_frequency": 0.2
+    },
+    {
+      "mean_abs_linear_shap": 0.43071413276327625,
+      "mean_permutation_macro_auc_drop": 0.08735505077727299,
+      "readout": "without_bm25",
+      "selection_frequency": 0.2
+    },
+    {
+      "mean_abs_linear_shap": 0.34909820338591857,
+      "mean_permutation_macro_auc_drop": 0.06563791155180045,
+      "readout": "add_scope",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.35755596683267565,
+      "mean_permutation_macro_auc_drop": 0.06352000139222361,
+      "readout": "pair_bm25_passages",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.3321049345517673,
+      "mean_permutation_macro_auc_drop": 0.05812484516373405,
+      "readout": "add_local_density",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.315258560075513,
+      "mean_permutation_macro_auc_drop": 0.048593281918281904,
+      "readout": "qwen_raw",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.26420865557862033,
+      "mean_permutation_macro_auc_drop": 0.04496885189385187,
+      "readout": "add_matched_pairs",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.26939621687258447,
+      "mean_permutation_macro_auc_drop": 0.04012183228294339,
+      "readout": "add_crossmodal",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.27252576271837986,
+      "mean_permutation_macro_auc_drop": 0.03993299501910612,
+      "readout": "compact_stronger_penalty",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.24391863011444626,
+      "mean_permutation_macro_auc_drop": 0.032553657795324445,
+      "readout": "without_passages",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.2325006521119287,
+      "mean_permutation_macro_auc_drop": 0.0323333135194246,
+      "readout": "pair_consistency_actor_support",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.25148715504148433,
+      "mean_permutation_macro_auc_drop": 0.031105121516232615,
+      "readout": "without_local_density",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.2604693760727554,
+      "mean_permutation_macro_auc_drop": 0.029425915989804867,
+      "readout": "add_windows",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.21118622461502298,
+      "mean_permutation_macro_auc_drop": 0.026721229796229783,
+      "readout": "all_lexical_scope",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.2443028269602066,
+      "mean_permutation_macro_auc_drop": 0.02531163900886122,
+      "readout": "without_legacy_support",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.20454573655253222,
+      "mean_permutation_macro_auc_drop": 0.024976700107255646,
+      "readout": "all_lexical_scope_copy",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.5266525546456778,
+      "mean_permutation_macro_auc_drop": 0.024497076174853936,
+      "readout": "without_matched_pairs",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.21486386801721286,
+      "mean_permutation_macro_auc_drop": 0.019757305148971803,
+      "readout": "answer_only",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.19018896748287464,
+      "mean_permutation_macro_auc_drop": 0.018139105033549464,
+      "readout": "uniform_all",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.16017106905599238,
+      "mean_permutation_macro_auc_drop": 0.017390821338043542,
+      "readout": "add_passages",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.20453724412704197,
+      "mean_permutation_macro_auc_drop": 0.014244823728157047,
+      "readout": "without_crossmodal",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.13787887377177727,
+      "mean_permutation_macro_auc_drop": 0.013638542641320407,
+      "readout": "without_conditioned_geometry",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.386782694253444,
+      "mean_permutation_macro_auc_drop": 0.013136113697224797,
+      "readout": "without_lexical",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.1870226104368244,
+      "mean_permutation_macro_auc_drop": 0.012271881224659003,
+      "readout": "all_features_stronger_penalty",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.3009026830701842,
+      "mean_permutation_macro_auc_drop": 0.011624660363549233,
+      "readout": "without_consistency",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.3060864006288339,
+      "mean_permutation_macro_auc_drop": 0.011034954048842933,
+      "readout": "without_scope",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.24725582592870055,
+      "mean_permutation_macro_auc_drop": 0.01054424718035828,
+      "readout": "without_behavior",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.10618847509968887,
+      "mean_permutation_macro_auc_drop": 0.010385968447079555,
+      "readout": "without_actor_support",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.1655903642820403,
+      "mean_permutation_macro_auc_drop": 0.009874216815883467,
+      "readout": "without_relations",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.1419989580505547,
+      "mean_permutation_macro_auc_drop": 0.008227295749517948,
+      "readout": "pair_passages_windows",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.1327822327662285,
+      "mean_permutation_macro_auc_drop": 0.007719412438856881,
+      "readout": "pair_lexical_scope",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.4596060300496059,
+      "mean_permutation_macro_auc_drop": 0.007518920863365313,
+      "readout": "add_lexical",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.24635821803160582,
+      "mean_permutation_macro_auc_drop": 0.007116327302438401,
+      "readout": "add_behavior",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.40697540103470375,
+      "mean_permutation_macro_auc_drop": 0.00663854141631917,
+      "readout": "add_bm25",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.26816205036516794,
+      "mean_permutation_macro_auc_drop": 0.0046730598508376246,
+      "readout": "add_rule_alignment",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.20048630905746362,
+      "mean_permutation_macro_auc_drop": 0.004664518889518875,
+      "readout": "without_rule_alignment",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.19132248783432498,
+      "mean_permutation_macro_auc_drop": 0.004546001576557116,
+      "readout": "compact",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.15769746327223363,
+      "mean_permutation_macro_auc_drop": 0.004443437823993366,
+      "readout": "add_consistency",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.21929507539143764,
+      "mean_permutation_macro_auc_drop": 0.003944113927447238,
+      "readout": "frozen_basic",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.24591745915214086,
+      "mean_permutation_macro_auc_drop": 0.0036576702771147023,
+      "readout": "without_prototypes",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.17821577069415342,
+      "mean_permutation_macro_auc_drop": 0.0031434985684985484,
+      "readout": "add_prototypes",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.17161276577085594,
+      "mean_permutation_macro_auc_drop": 0.0023119265147042824,
+      "readout": "pair_behavior_relations",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.28582395373863523,
+      "mean_permutation_macro_auc_drop": 0.0016570657292879227,
+      "readout": "add_conditioned_geometry",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.11736457336659571,
+      "mean_permutation_macro_auc_drop": 0.0015944473222250898,
+      "readout": "compact_lexical_evidence",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.1550935829377802,
+      "mean_permutation_macro_auc_drop": 0.0013482953038508345,
+      "readout": "all_features",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.24469328036080137,
+      "mean_permutation_macro_auc_drop": 0.0010277526360859567,
+      "readout": "anchor_refit",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.07849727015963004,
+      "mean_permutation_macro_auc_drop": 0.0004581912526356926,
+      "readout": "frozen_margin_anchor",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.07761779915502483,
+      "mean_permutation_macro_auc_drop": 7.64300819856254e-05,
+      "readout": "all_lexical_evidence",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.24469328036080462,
+      "mean_permutation_macro_auc_drop": -0.0003855230521897293,
+      "readout": "context_evidence",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.12542611538286336,
+      "mean_permutation_macro_auc_drop": -0.0005098328709439938,
+      "readout": "pair_passages_actor_support",
+      "selection_frequency": 0.0
+    },
+    {
+      "mean_abs_linear_shap": 0.20967249718798664,
+      "mean_permutation_macro_auc_drop": -0.001728111289222423,
+      "readout": "add_actor_support",
+      "selection_frequency": 0.0
+    }
+  ],
+  "limitations": [
+    "Nested resampling occurs on a repeatedly inspected development cohort, not a fresh holdout.",
+    "Historical feature invention already adapted to these policies.",
+    "Selection is over saved model/readout channels; raw token-column pruning belongs inside Stage 2 model pipelines.",
+    "Interventional linear SHAP assumes an independent background; correlated channels are clustered and held-out macro-AUC permutation importance is also required.",
+    "Probability RMSE equals sqrt(Brier) and is a secondary probability-quality guard, not an independent objective.",
+    "No feature, model, ensemble, or Kaggle submission is promoted automatically."
+  ],
+  "outer_folds": [
+    {
+      "advertising_auc": 0.7092592592592593,
+      "auc_one_se_threshold": 0.7089915967026206,
+      "brier": 0.20921948856831524,
+      "brier_one_se_threshold": 0.21273552702188392,
+      "inner_k_curve": [
+        {
+          "k": 1,
+          "mean_auc": 0.6900240580032246,
+          "mean_brier": 0.21649006590237033,
+          "mean_log_loss": 0.6181197664008753,
+          "mean_probability_rmse": 0.46528492980363156,
+          "se_auc": 0.03124923190954143,
+          "se_brier": 0.007805535593304832
+        },
+        {
+          "k": 2,
+          "mean_auc": 0.6932972084847084,
+          "mean_brier": 0.21715679320878825,
+          "mean_log_loss": 0.6207684469879333,
+          "mean_probability_rmse": 0.46600085108161365,
+          "se_auc": 0.030582873955954024,
+          "se_brier": 0.00926655235133876
+        },
+        {
+          "k": 3,
+          "mean_auc": 0.7196787566995901,
+          "mean_brier": 0.20832662800745194,
+          "mean_log_loss": 0.6030419438122501,
+          "mean_probability_rmse": 0.45642811921205284,
+          "se_auc": 0.01944776670793419,
+          "se_brier": 0.005991954435470007
+        },
+        {
+          "k": 5,
+          "mean_auc": 0.7214223429431762,
+          "mean_brier": 0.20846353087546934,
+          "mean_log_loss": 0.6040469050705474,
+          "mean_probability_rmse": 0.45657806657292394,
+          "se_auc": 0.019891057703905604,
+          "se_brier": 0.005499435706488041
+        },
+        {
+          "k": 8,
+          "mean_auc": 0.7229120304745305,
+          "mean_brier": 0.2096814398433744,
+          "mean_log_loss": 0.6076845696431004,
+          "mean_probability_rmse": 0.4579098599543085,
+          "se_auc": 0.018886783027072425,
+          "se_brier": 0.005981590936964639
+        },
+        {
+          "k": 12,
+          "mean_auc": 0.7325346420138086,
+          "mean_brier": 0.2062494979793686,
+          "mean_log_loss": 0.5996974874986265,
+          "mean_probability_rmse": 0.4541470004077629,
+          "se_auc": 0.023543045311187973,
+          "se_brier": 0.006486029042515334
+        },
+        {
+          "k": 20,
+          "mean_auc": 0.7316548951340618,
+          "mean_brier": 0.2064888160105376,
+          "mean_log_loss": 0.6003812980846648,
+          "mean_probability_rmse": 0.45441040482204803,
+          "se_auc": 0.015315133389217406,
+          "se_brier": 0.005083024555388248
+        },
+        {
+          "k": 23,
+          "mean_auc": 0.7290847404805738,
+          "mean_brier": 0.2077129154737884,
+          "mean_log_loss": 0.6038397905516435,
+          "mean_probability_rmse": 0.455755324131039,
+          "se_auc": 0.015214071655491662,
+          "se_brier": 0.00474781426673945
+        }
+      ],
+      "legal_advice_auc": 0.7466830466830466,
+      "log_loss": 0.6023500243709525,
+      "macro_auc": 0.727971152971153,
+      "outer_fold": 0,
+      "pooled_auc": 0.7349174917491749,
+      "probability_rmse": 0.45740516893484623,
+      "selected_count": 3,
+      "selected_readouts": [
+        "without_bm25",
+        "without_windows",
+        "add_legacy_support"
+      ]
+    },
+    {
+      "advertising_auc": 0.5961538461538463,
+      "auc_one_se_threshold": 0.725087271179503,
+      "brier": 0.22307543150105713,
+      "brier_one_se_threshold": 0.21014788324065917,
+      "inner_k_curve": [
+        {
+          "k": 1,
+          "mean_auc": 0.6988657331573997,
+          "mean_brier": 0.21697029905474485,
+          "mean_log_loss": 0.6214654086627754,
+          "mean_probability_rmse": 0.46580070744337093,
+          "se_auc": 0.01670666475044776,
+          "se_brier": 0.005415992305564093
+        },
+        {
+          "k": 2,
+          "mean_auc": 0.7063871485121486,
+          "mean_brier": 0.2137164068850819,
+          "mean_log_loss": 0.6148217466325103,
+          "mean_probability_rmse": 0.46229471864286087,
+          "se_auc": 0.012736249990384144,
+          "se_brier": 0.004909285247361872
+        },
+        {
+          "k": 3,
+          "mean_auc": 0.733912772621106,
+          "mean_brier": 0.20534623974543925,
+          "mean_log_loss": 0.5956551377341313,
+          "mean_probability_rmse": 0.4531514534296886,
+          "se_auc": 0.01917106669905282,
+          "se_brier": 0.006019773645867484
+        },
+        {
+          "k": 5,
+          "mean_auc": 0.7320158453908454,
+          "mean_brier": 0.2064782201604793,
+          "mean_log_loss": 0.5982672956596476,
+          "mean_probability_rmse": 0.4543987457734443,
+          "se_auc": 0.018891203882138774,
+          "se_brier": 0.006189647649348606
+        },
+        {
+          "k": 8,
+          "mean_auc": 0.7404865433615433,
+          "mean_brier": 0.20523455929255396,
+          "mean_log_loss": 0.5960062460359261,
+          "mean_probability_rmse": 0.453028210261297,
+          "se_auc": 0.02115201053516865,
+          "se_brier": 0.006395877700695629
+        },
+        {
+          "k": 12,
+          "mean_auc": 0.7410309969059969,
+          "mean_brier": 0.2051020437683969,
+          "mean_log_loss": 0.5960044876737847,
+          "mean_probability_rmse": 0.4528819313777013,
+          "se_auc": 0.015943725726493937,
+          "se_brier": 0.005045839472262248
+        },
+        {
+          "k": 20,
+          "mean_auc": 0.737042910334577,
+          "mean_brier": 0.2078575051368354,
+          "mean_log_loss": 0.6054174797547804,
+          "mean_probability_rmse": 0.45591392294690386,
+          "se_auc": 0.01680267315736711,
+          "se_brier": 0.006489049403634239
+        },
+        {
+          "k": 23,
+          "mean_auc": 0.7336878886462219,
+          "mean_brier": 0.20864831321208288,
+          "mean_log_loss": 0.6071688163630806,
+          "mean_probability_rmse": 0.456780377437651,
+          "se_auc": 0.016990266715041513,
+          "se_brier": 0.00660895414531981
+        }
+      ],
+      "legal_advice_auc": 0.7449696969696971,
+      "log_loss": 0.6407050381354024,
+      "macro_auc": 0.6705617715617717,
+      "outer_fold": 1,
+      "pooled_auc": 0.7123432343234324,
+      "probability_rmse": 0.47230861891464265,
+      "selected_count": 3,
+      "selected_readouts": [
+        "frozen_margin_all",
+        "without_windows",
+        "add_relations"
+      ]
+    },
+    {
+      "advertising_auc": 0.6925925925925926,
+      "auc_one_se_threshold": 0.7141745607190064,
+      "brier": 0.20364439734541426,
+      "brier_one_se_threshold": 0.21140477368288524,
+      "inner_k_curve": [
+        {
+          "k": 1,
+          "mean_auc": 0.725673877986378,
+          "mean_brier": 0.21023559668326258,
+          "mean_log_loss": 0.6079347096176976,
+          "mean_probability_rmse": 0.4585145544944703,
+          "se_auc": 0.015048580756299643,
+          "se_brier": 0.004320792339005183
+        },
+        {
+          "k": 2,
+          "mean_auc": 0.724578481599315,
+          "mean_brier": 0.20914759608749228,
+          "mean_log_loss": 0.6045128716142474,
+          "mean_probability_rmse": 0.45732657487564865,
+          "se_auc": 0.004235662014960091,
+          "se_brier": 0.0021599408789843275
+        },
+        {
+          "k": 3,
+          "mean_auc": 0.7247847700556034,
+          "mean_brier": 0.20774151136914326,
+          "mean_log_loss": 0.6008593776321761,
+          "mean_probability_rmse": 0.45578669503304203,
+          "se_auc": 0.00994079722231882,
+          "se_brier": 0.003526853466203388
+        },
+        {
+          "k": 5,
+          "mean_auc": 0.7273499497457832,
+          "mean_brier": 0.20732540193303933,
+          "mean_log_loss": 0.6004033544962121,
+          "mean_probability_rmse": 0.4553299923495479,
+          "se_auc": 0.013175389026776679,
+          "se_brier": 0.004079371749845909
+        },
+        {
+          "k": 8,
+          "mean_auc": 0.7255277948402948,
+          "mean_brier": 0.20801668473594317,
+          "mean_log_loss": 0.6022125763980346,
+          "mean_probability_rmse": 0.4560884615246731,
+          "se_auc": 0.014480215203623591,
+          "se_brier": 0.004288313008063737
+        },
+        {
+          "k": 12,
+          "mean_auc": 0.7214598195223196,
+          "mean_brier": 0.20874866400464184,
+          "mean_log_loss": 0.6047243460857094,
+          "mean_probability_rmse": 0.45689021001181657,
+          "se_auc": 0.011933820012999025,
+          "se_brier": 0.003899596191370204
+        },
+        {
+          "k": 20,
+          "mean_auc": 0.7242183294891629,
+          "mean_brier": 0.20867834183328288,
+          "mean_log_loss": 0.6049946147846557,
+          "mean_probability_rmse": 0.45681324612283614,
+          "se_auc": 0.013398680152443486,
+          "se_brier": 0.004849610062123173
+        },
+        {
+          "k": 25,
+          "mean_auc": 0.7192639984098318,
+          "mean_brier": 0.2097651907252274,
+          "mean_log_loss": 0.6081006747175731,
+          "mean_probability_rmse": 0.4580012999165258,
+          "se_auc": 0.012861878693357948,
+          "se_brier": 0.004447052132070022
+        }
+      ],
+      "legal_advice_auc": 0.7764848484848486,
+      "log_loss": 0.592451908018256,
+      "macro_auc": 0.7345387205387206,
+      "outer_fold": 2,
+      "pooled_auc": 0.7568627450980392,
+      "probability_rmse": 0.45126976116887585,
+      "selected_count": 1,
+      "selected_readouts": [
+        "add_relations"
+      ]
+    },
+    {
+      "advertising_auc": 0.7592592592592592,
+      "auc_one_se_threshold": 0.6967185060440428,
+      "brier": 0.1974425804566156,
+      "brier_one_se_threshold": 0.2139607472209992,
+      "inner_k_curve": [
+        {
+          "k": 1,
+          "mean_auc": 0.7203464180964181,
+          "mean_brier": 0.2085482763983898,
+          "mean_log_loss": 0.6025829026453154,
+          "mean_probability_rmse": 0.4566708622174069,
+          "se_auc": 0.023627912052375234,
+          "se_brier": 0.005412470822609397
+        },
+        {
+          "k": 2,
+          "mean_auc": 0.7144730123480125,
+          "mean_brier": 0.2108357230925215,
+          "mean_log_loss": 0.6072956322243396,
+          "mean_probability_rmse": 0.45916851274071646,
+          "se_auc": 0.026425899788373192,
+          "se_brier": 0.006952824295953585
+        },
+        {
+          "k": 3,
+          "mean_auc": 0.7179015685265685,
+          "mean_brier": 0.21062977286220497,
+          "mean_log_loss": 0.6081604811808035,
+          "mean_probability_rmse": 0.45894419362511274,
+          "se_auc": 0.02853568299395886,
+          "se_brier": 0.00735431001794409
+        },
+        {
+          "k": 5,
+          "mean_auc": 0.7146451328951329,
+          "mean_brier": 0.21088728105822108,
+          "mean_log_loss": 0.6093424673182005,
+          "mean_probability_rmse": 0.4592246520584681,
+          "se_auc": 0.034288039405966614,
+          "se_brier": 0.007996201729667836
+        },
+        {
+          "k": 8,
+          "mean_auc": 0.7133851885101885,
+          "mean_brier": 0.21201140965957244,
+          "mean_log_loss": 0.6119404042905634,
+          "mean_probability_rmse": 0.460446967260696,
+          "se_auc": 0.0357969667008054,
+          "se_brier": 0.008550325265625146
+        },
+        {
+          "k": 12,
+          "mean_auc": 0.7111419382669383,
+          "mean_brier": 0.21383089713291914,
+          "mean_log_loss": 0.616733489143418,
+          "mean_probability_rmse": 0.46241853026551516,
+          "se_auc": 0.030771952787372842,
+          "se_brier": 0.006871058135820082
+        },
+        {
+          "k": 20,
+          "mean_auc": 0.704697261947262,
+          "mean_brier": 0.21726488662032883,
+          "mean_log_loss": 0.6248471984735053,
+          "mean_probability_rmse": 0.46611681649596043,
+          "se_auc": 0.035600329360040414,
+          "se_brier": 0.008919459433022461
+        },
+        {
+          "k": 27,
+          "mean_auc": 0.7012663843913843,
+          "mean_brier": 0.22000536874884197,
+          "mean_log_loss": 0.6314881126620803,
+          "mean_probability_rmse": 0.46904729905292275,
+          "se_auc": 0.035909392675017096,
+          "se_brier": 0.009124290943531923
+        }
+      ],
+      "legal_advice_auc": 0.7545679012345679,
+      "log_loss": 0.5839350770380692,
+      "macro_auc": 0.7569135802469136,
+      "outer_fold": 3,
+      "pooled_auc": 0.75344462109168,
+      "probability_rmse": 0.44434511413609085,
+      "selected_count": 1,
+      "selected_readouts": [
+        "add_legacy_support"
+      ]
+    },
+    {
+      "advertising_auc": 0.686111111111111,
+      "auc_one_se_threshold": 0.7203044606903954,
+      "brier": 0.21093016843969592,
+      "brier_one_se_threshold": 0.21426614631713672,
+      "inner_k_curve": [
+        {
+          "k": 1,
+          "mean_auc": 0.7333728772478774,
+          "mean_brier": 0.20924037899562054,
+          "mean_log_loss": 0.6056498865571194,
+          "mean_probability_rmse": 0.45742800416636115,
+          "se_auc": 0.03599755783401424,
+          "se_brier": 0.010138633846946228
+        },
+        {
+          "k": 2,
+          "mean_auc": 0.7344435312351978,
+          "mean_brier": 0.20803036140219505,
+          "mean_log_loss": 0.6020088258923347,
+          "mean_probability_rmse": 0.4561034547141636,
+          "se_auc": 0.03688261366936592,
+          "se_brier": 0.010516489684572927
+        },
+        {
+          "k": 3,
+          "mean_auc": 0.7345450794617461,
+          "mean_brier": 0.20793989801137536,
+          "mean_log_loss": 0.6017443600414991,
+          "mean_probability_rmse": 0.45600427411524924,
+          "se_auc": 0.03617740904156061,
+          "se_brier": 0.010649043864589083
+        },
+        {
+          "k": 5,
+          "mean_auc": 0.729683527641861,
+          "mean_brier": 0.20950474524001123,
+          "mean_log_loss": 0.6052419326209826,
+          "mean_probability_rmse": 0.45771688328049603,
+          "se_auc": 0.03390146894497558,
+          "se_brier": 0.01003436719934538
+        },
+        {
+          "k": 8,
+          "mean_auc": 0.7430063137146472,
+          "mean_brier": 0.20614298966516348,
+          "mean_log_loss": 0.5990203828671377,
+          "mean_probability_rmse": 0.4540297233278494,
+          "se_auc": 0.030019379883487917,
+          "se_brier": 0.009613523132756506
+        },
+        {
+          "k": 12,
+          "mean_auc": 0.7472272033105366,
+          "mean_brier": 0.20599698448867587,
+          "mean_log_loss": 0.5985453270044052,
+          "mean_probability_rmse": 0.453868906721617,
+          "se_auc": 0.026922742620141167,
+          "se_brier": 0.008269161828460856
+        },
+        {
+          "k": 20,
+          "mean_auc": 0.7387626382209715,
+          "mean_brier": 0.20739485288383017,
+          "mean_log_loss": 0.6038318966698927,
+          "mean_probability_rmse": 0.4554062503785276,
+          "se_auc": 0.027172225906157855,
+          "se_brier": 0.008689260596027893
+        },
+        {
+          "k": 24,
+          "mean_auc": 0.7309667645500978,
+          "mean_brier": 0.20939010635673783,
+          "mean_log_loss": 0.6095119853688133,
+          "mean_probability_rmse": 0.4575916371140734,
+          "se_auc": 0.025461832020155124,
+          "se_brier": 0.008516815238407882
+        }
+      ],
+      "legal_advice_auc": 0.7670761670761671,
+      "log_loss": 0.611452965367911,
+      "macro_auc": 0.726593639093639,
+      "outer_fold": 4,
+      "pooled_auc": 0.7447524752475247,
+      "probability_rmse": 0.45927134511059575,
+      "selected_count": 1,
+      "selected_readouts": [
+        "add_relations"
+      ]
+    }
+  ],
+  "readouts_after_exact_dedup": 54,
+  "readouts_before_exact_dedup": 54,
+  "rows": 881,
+  "run_id": "83a0afec64f656c0f42a",
+  "schema": 2,
+  "selection": "SHORTLIST_ONLY_NOT_PROMOTION",
+  "shortlist": [
+    "add_relations"
+  ],
+  "status": "SELECTION_STAGE1_COMPLETE",
+  "summary": {
+    "brier_mean": 0.2088624132622196,
+    "log_loss_mean": 0.6061790025861182,
+    "macro_auc_mean": 0.7233157728824395,
+    "macro_auc_se": 0.014265638506225146,
+    "mean_selection_jaccard": 0.22000000000000003,
+    "median_selected_count": 1,
+    "outer_folds_reused_this_invocation": 0,
+    "pooled_auc_mean": 0.7404641135019702,
+    "probability_rmse": 0.4570146751059747
+  }
+}

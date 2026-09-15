@@ -1,0 +1,806 @@
+{
+  "combination_configurations": 49,
+  "combination_group_count": 16,
+  "combination_groups": [
+    "actor_support",
+    "behavior",
+    "bm25",
+    "conditioned_geometry",
+    "consistency",
+    "crossmodal",
+    "legacy_support",
+    "lexical",
+    "local_density",
+    "matched_pairs",
+    "passages",
+    "prototypes",
+    "relations",
+    "rule_alignment",
+    "scope",
+    "windows"
+  ],
+  "combination_run_id": "47bf7e41726aeb5fa9fb",
+  "coverage_gaps": {
+    "context_support_raw_group_present": false,
+    "policy_conditioned_raw_group_present": true,
+    "required_stage2_repairs": [
+      "Round 3 policy-conditioned lexical/behavior interactions must be rebuilt inside Stage-2 training folds and compared with norm-matched copy controls.",
+      "Round 9 context-conditional support evidence (24 columns) must be exposed as an explicit raw candidate arm; actor-conditional 24 remains separate."
+    ]
+  },
+  "git_branch": "main",
+  "git_head": "c9f29976ffceff94c0746948c316a36bac80eb91",
+  "historical_rounds": 15,
+  "historical_variants": 153,
+  "inventory": {
+    "actor_support": {
+      "fold_widths": [
+        24,
+        24
+      ],
+      "max": 24,
+      "min": 24
+    },
+    "behavior": {
+      "fold_widths": [
+        58,
+        58
+      ],
+      "max": 58,
+      "min": 58
+    },
+    "bm25": {
+      "fold_widths": [
+        48,
+        48
+      ],
+      "max": 48,
+      "min": 48
+    },
+    "conditioned_geometry": {
+      "fold_widths": [
+        18,
+        18
+      ],
+      "max": 18,
+      "min": 18
+    },
+    "consistency": {
+      "fold_widths": [
+        48,
+        48
+      ],
+      "max": 48,
+      "min": 48
+    },
+    "crossmodal": {
+      "fold_widths": [
+        48,
+        48
+      ],
+      "max": 48,
+      "min": 48
+    },
+    "legacy_support": {
+      "fold_widths": [
+        65,
+        65
+      ],
+      "max": 65,
+      "min": 65
+    },
+    "lexical": {
+      "fold_widths": [
+        20356,
+        14006
+      ],
+      "max": 20356,
+      "min": 14006
+    },
+    "local_density": {
+      "fold_widths": [
+        12,
+        12
+      ],
+      "max": 12,
+      "min": 12
+    },
+    "matched_pairs": {
+      "fold_widths": [
+        12,
+        12
+      ],
+      "max": 12,
+      "min": 12
+    },
+    "passages": {
+      "fold_widths": [
+        48,
+        48
+      ],
+      "max": 48,
+      "min": 48
+    },
+    "prototypes": {
+      "fold_widths": [
+        36,
+        36
+      ],
+      "max": 36,
+      "min": 36
+    },
+    "relations": {
+      "fold_widths": [
+        72,
+        72
+      ],
+      "max": 72,
+      "min": 72
+    },
+    "rule_alignment": {
+      "fold_widths": [
+        36,
+        36
+      ],
+      "max": 36,
+      "min": 36
+    },
+    "scope": {
+      "fold_widths": [
+        121,
+        121
+      ],
+      "max": 121,
+      "min": 121
+    },
+    "windows": {
+      "fold_widths": [
+        48,
+        48
+      ],
+      "max": 48,
+      "min": 48
+    }
+  },
+  "model_selection_policy": {
+    "automatic_promotion": false,
+    "explainability": "raw-feature SHAP/linear contributions plus held-out family permutation and controlled add/remove ablations",
+    "feature_count_selection": "model-specific fold-internal regularization/stability; no preset final count",
+    "full_compatible_matrix_remains_candidate": true,
+    "hard_top_k_cap": false,
+    "primary_metric": "official-aligned per-rule/macro AUC development proxy",
+    "secondary": [
+      "Brier",
+      "probability RMSE",
+      "log loss"
+    ]
+  },
+  "notebooks": {
+    "1": {
+      "exists": true,
+      "path": "notebooks/06_behavioral_feature_investigation.ipynb",
+      "sha256": "45167a6377173b30b8c2a09256b891778a40e7c8594d8b31ab7e75b56bc9bddb"
+    },
+    "10": {
+      "exists": true,
+      "path": "notebooks/16_crossmodal_support_investigation.ipynb",
+      "sha256": "a3855c6564b8beb638f9477e50d94030762e8dfc8c9a0a9f65a7bde24a3c08f0"
+    },
+    "11": {
+      "exists": true,
+      "path": "notebooks/17_multiprototype_investigation.ipynb",
+      "sha256": "4393e0da404419b4a85d12886ee11a972f44f086220cbbea8f29710fc5dc1432"
+    },
+    "12": {
+      "exists": true,
+      "path": "notebooks/18_reference_consistency_investigation.ipynb",
+      "sha256": "161a439f15f84ff4157b5c01d79fa0bbb83e16e4cf585dc46703b179c97310a3"
+    },
+    "13": {
+      "exists": true,
+      "path": "notebooks/19_passage_support_investigation.ipynb",
+      "sha256": "56661ae9ee9ce89f11e3684a2d13bddca91dc9f3e6547c23a9b27a56abff7727"
+    },
+    "14": {
+      "exists": true,
+      "path": "notebooks/20_bm25_support_investigation.ipynb",
+      "sha256": "14ac1423b75db6104c205223b8a3165c6145df93e1ceb2fdd6bacf9c18c599dc"
+    },
+    "15": {
+      "exists": true,
+      "path": "notebooks/21_action_window_investigation.ipynb",
+      "sha256": "da378b7489114f2157e3f445a3fbe9d11527af2ec9e8801d4d5aaee099011580"
+    },
+    "2": {
+      "exists": true,
+      "path": "notebooks/07_relational_feature_investigation.ipynb",
+      "sha256": "2a048ce1aceabe0db67c84a91e866a96f636be80c94900e57216a16ee446e02a"
+    },
+    "3": {
+      "exists": true,
+      "path": "notebooks/08_policy_feature_investigation.ipynb",
+      "sha256": "78e1a16c2756cc3da91b848d3b4d04c0d9821caf60c2f1f284aaf919bfe86920"
+    },
+    "4": {
+      "exists": true,
+      "path": "notebooks/09_lexical_evidence_investigation.ipynb",
+      "sha256": "2a9677858c3d4217c624c000cf9e242a23fd9dcbb6a044b47540eca22cdb81f5"
+    },
+    "5": {
+      "exists": true,
+      "path": "notebooks/10_scope_lexical_investigation.ipynb",
+      "sha256": "a43cae43d51a9bd898f48066cd7af211a1bf6b119e81209bf1f05f968408e151"
+    },
+    "6": {
+      "exists": true,
+      "path": "notebooks/12_local_support_feature_investigation.ipynb",
+      "sha256": "e8c2008f9a4a15d336488d3c050bc3b4be685fc319607bec9cae90044f57f419"
+    },
+    "7": {
+      "exists": true,
+      "path": "notebooks/13_matched_support_feature_investigation.ipynb",
+      "sha256": "8ed39ed5bb72fea2baf55d521d71476b8e3a9182b2491e9282e46f82404d5731"
+    },
+    "8": {
+      "exists": true,
+      "path": "notebooks/14_conditioned_geometry_investigation.ipynb",
+      "sha256": "ae722616f36e0c78970e0e617aa1dd95c5bff08076b0a6d08e9890b6b8c4dfca"
+    },
+    "9": {
+      "exists": true,
+      "path": "notebooks/15_behavior_support_investigation.ipynb",
+      "sha256": "95ddaaa978d4d62697ab276968f0a251af52be7e970fd9dd44ee87ccad8b8a75"
+    }
+  },
+  "private_bank_checks": {
+    "round9_fold0_conditioned": {
+      "exists": true,
+      "sha256": "658a466d4c1862db03c19d99068386e6ba5c3eacd8920ac1aa47c21e0badce74",
+      "shapes": {
+        "query": [
+          234,
+          48
+        ],
+        "training": [
+          629,
+          48
+        ]
+      }
+    },
+    "round9_fold1_conditioned": {
+      "exists": true,
+      "sha256": "a85ed9b1dc09215addbd1c79c770938144c316fd62dca651569dc3cc98ea793b",
+      "shapes": {
+        "query": [
+          647,
+          48
+        ],
+        "training": [
+          366,
+          48
+        ]
+      }
+    }
+  },
+  "report_status": {
+    "action_window_features": {
+      "sha256": "252a5dcd22a138f8e0c453bb25ff405f3cf1a084ee11947064ecdf55a76da1d3",
+      "status": "ACTION_WINDOW_ROUND_COMPLETE"
+    },
+    "behavior_support_features": {
+      "sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+      "status": "BEHAVIOR_SUPPORT_ROUND_COMPLETE"
+    },
+    "behavioral_features": {
+      "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+      "status": "FEATURE_ROUND_COMPLETE"
+    },
+    "bm25_support_features": {
+      "sha256": "3a23ac28504c805258f2e501b9cab0ecb335b535a3c9f89b81c077f6387df87d",
+      "status": "BM25_SUPPORT_ROUND_COMPLETE"
+    },
+    "conditioned_geometry_features": {
+      "sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+      "status": "CONDITIONED_GEOMETRY_ROUND_COMPLETE"
+    },
+    "crossmodal_support_features": {
+      "sha256": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+      "status": "CROSSMODAL_SUPPORT_ROUND_COMPLETE"
+    },
+    "evidence_features": {
+      "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+      "status": "EVIDENCE_ROUND_COMPLETE"
+    },
+    "local_support_features": {
+      "sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508",
+      "status": "LOCAL_SUPPORT_ROUND_COMPLETE"
+    },
+    "matched_support_features": {
+      "sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841",
+      "status": "MATCHED_SUPPORT_ROUND_COMPLETE"
+    },
+    "multiprototype_features": {
+      "sha256": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5",
+      "status": "MULTIPROTOTYPE_ROUND_COMPLETE"
+    },
+    "passage_support_features": {
+      "sha256": "d2f7118641b49332780ed4eec7c3995017487ea67afb62aee337f5a6e1a08618",
+      "status": "PASSAGE_SUPPORT_ROUND_COMPLETE"
+    },
+    "policy_features": {
+      "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+      "status": "POLICY_ROUND_COMPLETE"
+    },
+    "reference_consistency_features": {
+      "sha256": "c8b377235434f0d4de6a2dd1c31b68be08df3779cbe8e5c62fa55262b9d0028a",
+      "status": "REFERENCE_CONSISTENCY_ROUND_COMPLETE"
+    },
+    "relational_features": {
+      "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+      "status": "RELATIONAL_ROUND_COMPLETE"
+    },
+    "scope_lexical_features": {
+      "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+      "status": "SCOPE_ROUND_COMPLETE"
+    }
+  },
+  "round_dispositions": [
+    {
+      "coverage": "raw_additive",
+      "round": 1,
+      "stage2": "include_all",
+      "study": "behavioral_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 2,
+      "stage2": "include_all",
+      "study": "relational_features"
+    },
+    {
+      "coverage": "historical_not_raw_group",
+      "round": 3,
+      "stage2": "rebuild_condition_and_copy_inside_training_folds",
+      "study": "policy_features"
+    },
+    {
+      "coverage": "alternative_lexical_encoding",
+      "round": 4,
+      "stage2": "compare_encoding_arm",
+      "study": "evidence_features"
+    },
+    {
+      "coverage": "alternative_lexical_encoding",
+      "round": 5,
+      "stage2": "compare_scope_and_copy_arms",
+      "study": "scope_lexical_features"
+    },
+    {
+      "coverage": "density_raw_basic_via_control",
+      "round": 6,
+      "stage2": "expose_basic_and_density_in_registry",
+      "study": "local_support_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 7,
+      "stage2": "include_all",
+      "study": "matched_support_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 8,
+      "stage2": "include_all",
+      "study": "conditioned_geometry_features"
+    },
+    {
+      "coverage": "actor_raw_context_readout_only",
+      "round": 9,
+      "stage2": "expose_context_24_as_raw_candidate_arm",
+      "study": "behavior_support_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 10,
+      "stage2": "include_all",
+      "study": "crossmodal_support_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 11,
+      "stage2": "include_all",
+      "study": "multiprototype_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 12,
+      "stage2": "include_all",
+      "study": "reference_consistency_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 13,
+      "stage2": "include_all",
+      "study": "passage_support_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 14,
+      "stage2": "include_all",
+      "study": "bm25_support_features"
+    },
+    {
+      "coverage": "raw_additive",
+      "round": 15,
+      "stage2": "include_all",
+      "study": "action_window_features"
+    }
+  ],
+  "schema": 1,
+  "stage1": {
+    "readouts_after_exact_dedup": 54,
+    "readouts_before_exact_dedup": 54,
+    "shortlist": [
+      "add_relations"
+    ],
+    "summary": {
+      "brier_mean": 0.2088624132622196,
+      "log_loss_mean": 0.6061790025861182,
+      "macro_auc_mean": 0.7233157728824395,
+      "macro_auc_se": 0.014265638506225146,
+      "mean_selection_jaccard": 0.22000000000000003,
+      "median_selected_count": 1,
+      "outer_folds_reused_this_invocation": 0,
+      "pooled_auc_mean": 0.7404641135019702,
+      "probability_rmse": 0.4570146751059747
+    },
+    "top_importance": [
+      {
+        "mean_abs_linear_shap": 0.5441752933466149,
+        "mean_permutation_macro_auc_drop": 0.10502548721993166,
+        "readout": "add_relations",
+        "selection_frequency": 0.6
+      },
+      {
+        "mean_abs_linear_shap": 0.40779162484444564,
+        "mean_permutation_macro_auc_drop": 0.07555496078829411,
+        "readout": "add_legacy_support",
+        "selection_frequency": 0.4
+      },
+      {
+        "mean_abs_linear_shap": 0.3864389631123896,
+        "mean_permutation_macro_auc_drop": 0.07349305679027901,
+        "readout": "without_windows",
+        "selection_frequency": 0.4
+      },
+      {
+        "mean_abs_linear_shap": 0.5280288990930765,
+        "mean_permutation_macro_auc_drop": 0.10109697432475206,
+        "readout": "frozen_margin_all",
+        "selection_frequency": 0.2
+      },
+      {
+        "mean_abs_linear_shap": 0.43071413276327625,
+        "mean_permutation_macro_auc_drop": 0.08735505077727299,
+        "readout": "without_bm25",
+        "selection_frequency": 0.2
+      },
+      {
+        "mean_abs_linear_shap": 0.34909820338591857,
+        "mean_permutation_macro_auc_drop": 0.06563791155180045,
+        "readout": "add_scope",
+        "selection_frequency": 0.0
+      },
+      {
+        "mean_abs_linear_shap": 0.35755596683267565,
+        "mean_permutation_macro_auc_drop": 0.06352000139222361,
+        "readout": "pair_bm25_passages",
+        "selection_frequency": 0.0
+      },
+      {
+        "mean_abs_linear_shap": 0.3321049345517673,
+        "mean_permutation_macro_auc_drop": 0.05812484516373405,
+        "readout": "add_local_density",
+        "selection_frequency": 0.0
+      },
+      {
+        "mean_abs_linear_shap": 0.315258560075513,
+        "mean_permutation_macro_auc_drop": 0.048593281918281904,
+        "readout": "qwen_raw",
+        "selection_frequency": 0.0
+      },
+      {
+        "mean_abs_linear_shap": 0.26420865557862033,
+        "mean_permutation_macro_auc_drop": 0.04496885189385187,
+        "readout": "add_matched_pairs",
+        "selection_frequency": 0.0
+      },
+      {
+        "mean_abs_linear_shap": 0.26939621687258447,
+        "mean_permutation_macro_auc_drop": 0.04012183228294339,
+        "readout": "add_crossmodal",
+        "selection_frequency": 0.0
+      },
+      {
+        "mean_abs_linear_shap": 0.27252576271837986,
+        "mean_permutation_macro_auc_drop": 0.03993299501910612,
+        "readout": "compact_stronger_penalty",
+        "selection_frequency": 0.0
+      }
+    ]
+  },
+  "status": "MODEL_SELECTION_COVERAGE_AUDIT_COMPLETE",
+  "workspace_census": {
+    "feature_related_configs": [
+      "action_window_features.json",
+      "behavior_support_features.json",
+      "behavioral_features.json",
+      "bm25_support_features.json",
+      "competition_features.json",
+      "conditioned_geometry_features.json",
+      "crossmodal_support_features.json",
+      "evidence_features.json",
+      "feature_combination_evaluation.json",
+      "feature_decision.json",
+      "feature_value_audit.json",
+      "local_support_features.json",
+      "matched_support_features.json",
+      "multiprototype_features.json",
+      "passage_support_features.json",
+      "policy_features.json",
+      "reference_consistency_features.json",
+      "relational_features.json",
+      "scope_lexical_features.json",
+      "selection_stage1.json",
+      "support_adaptation.json",
+      "support_context.json",
+      "support_selection.json",
+      "support_selection_csls.json"
+    ],
+    "feature_related_notebooks": [
+      "06_behavioral_feature_investigation.ipynb",
+      "07_relational_feature_investigation.ipynb",
+      "08_policy_feature_investigation.ipynb",
+      "09_lexical_evidence_investigation.ipynb",
+      "10_scope_lexical_investigation.ipynb",
+      "11_feature_value_audit.ipynb",
+      "12_local_support_feature_investigation.ipynb",
+      "13_matched_support_feature_investigation.ipynb",
+      "14_conditioned_geometry_investigation.ipynb",
+      "15_behavior_support_investigation.ipynb",
+      "16_crossmodal_support_investigation.ipynb",
+      "17_multiprototype_investigation.ipynb",
+      "18_reference_consistency_investigation.ipynb",
+      "19_passage_support_investigation.ipynb",
+      "20_bm25_support_investigation.ipynb",
+      "21_action_window_investigation.ipynb",
+      "22_feature_campaign_review.ipynb",
+      "23_feature_combination_evaluation.ipynb",
+      "24_feature_selection_stability.ipynb"
+    ],
+    "feature_related_scripts": [
+      "action_window_features.py",
+      "audit_support_context.py",
+      "audit_support_selection.py",
+      "audit_support_selection_csls.py",
+      "behavior_support_features.py",
+      "behavioral_features.py",
+      "bm25_support_features.py",
+      "build_support_selection_report.py",
+      "competition_features.py",
+      "conditioned_geometry_features.py",
+      "crossmodal_support_features.py",
+      "evaluate_competition_features.py",
+      "evaluate_support_adaptation.py",
+      "evaluate_support_context.py",
+      "evidence_features.py",
+      "feature_combination_evaluation.py",
+      "feature_value_audit.py",
+      "local_support_features.py",
+      "matched_support_features.py",
+      "multiprototype_features.py",
+      "passage_support_features.py",
+      "policy_features.py",
+      "recover_support_selection.py",
+      "reference_consistency_features.py",
+      "relational_features.py",
+      "run_action_window_features.py",
+      "run_behavior_support_features.py",
+      "run_behavioral_features.py",
+      "run_bm25_support_features.py",
+      "run_competition_features.sh",
+      "run_conditioned_geometry_features.py",
+      "run_crossmodal_support_features.py",
+      "run_evidence_features.py",
+      "run_feature_decision.py",
+      "run_feature_value_audit.py",
+      "run_local_support_features.py",
+      "run_matched_support_features.py",
+      "run_multiprototype_features.py",
+      "run_passage_support_features.py",
+      "run_policy_features.py",
+      "run_reference_consistency_features.py",
+      "run_relational_features.py",
+      "run_scope_lexical_features.py",
+      "run_support_adaptation.sh",
+      "run_support_context.sh",
+      "scope_lexical_features.py",
+      "selection_stage1.py",
+      "summarize_support_selection_review.py",
+      "support_adaptation.py",
+      "support_context.py",
+      "support_context_hardware.py",
+      "support_context_hf.py",
+      "support_context_storage.py",
+      "support_selection_runtime.py"
+    ],
+    "git": {
+      "branch": "main",
+      "dirty_entries": [
+        "?? configs/action_window_features.json",
+        "?? configs/bm25_support_features.json",
+        "?? configs/feature_combination_evaluation.json",
+        "?? configs/selection_stage1.json",
+        "?? docs/ACTION_WINDOW_FEATURES.md",
+        "?? docs/BM25_SUPPORT_FEATURES.md",
+        "?? docs/FEATURE_COMBINATION_EVALUATION.md",
+        "?? docs/SELECTION_STAGE1.md",
+        "?? notebooks/20_bm25_support_investigation.ipynb",
+        "?? notebooks/21_action_window_investigation.ipynb",
+        "?? notebooks/22_feature_campaign_review.ipynb",
+        "?? notebooks/23_feature_combination_evaluation.ipynb",
+        "?? notebooks/24_feature_selection_stability.ipynb",
+        "?? reports/action_window_features/",
+        "?? reports/bm25_support_features/",
+        "?? reports/feature_combinations/",
+        "?? reports/model_selection/",
+        "?? reports/selection_stage1/",
+        "?? scripts/action_window_features.py",
+        "?? scripts/bm25_support_features.py",
+        "?? scripts/feature_combination_evaluation.py",
+        "?? scripts/run_action_window_features.py",
+        "?? scripts/run_bm25_support_features.py",
+        "?? scripts/selection_stage1.py",
+        "?? tests/test_action_window_features.py",
+        "?? tests/test_bm25_support_features.py",
+        "?? tests/test_feature_combination_evaluation.py",
+        "?? tests/test_selection_stage1.py"
+      ],
+      "feature_related_dirty_entries": [
+        "?? configs/action_window_features.json",
+        "?? configs/bm25_support_features.json",
+        "?? configs/feature_combination_evaluation.json",
+        "?? configs/selection_stage1.json",
+        "?? docs/ACTION_WINDOW_FEATURES.md",
+        "?? docs/BM25_SUPPORT_FEATURES.md",
+        "?? docs/FEATURE_COMBINATION_EVALUATION.md",
+        "?? docs/SELECTION_STAGE1.md",
+        "?? notebooks/20_bm25_support_investigation.ipynb",
+        "?? notebooks/21_action_window_investigation.ipynb",
+        "?? notebooks/22_feature_campaign_review.ipynb",
+        "?? notebooks/23_feature_combination_evaluation.ipynb",
+        "?? notebooks/24_feature_selection_stability.ipynb",
+        "?? reports/action_window_features/",
+        "?? reports/bm25_support_features/",
+        "?? reports/feature_combinations/",
+        "?? reports/model_selection/",
+        "?? reports/selection_stage1/",
+        "?? scripts/action_window_features.py",
+        "?? scripts/bm25_support_features.py",
+        "?? scripts/feature_combination_evaluation.py",
+        "?? scripts/run_action_window_features.py",
+        "?? scripts/run_bm25_support_features.py",
+        "?? scripts/selection_stage1.py",
+        "?? tests/test_action_window_features.py",
+        "?? tests/test_bm25_support_features.py",
+        "?? tests/test_feature_combination_evaluation.py",
+        "?? tests/test_selection_stage1.py"
+      ],
+      "head": "c9f29976ffceff94c0746948c316a36bac80eb91"
+    },
+    "interpretation": "Candidate lists are a conservative filesystem census, not proof of omitted predictive features. Any non-empty candidate list must be reconciled before claiming complete historical feature coverage.",
+    "registered_studies": [
+      "behavioral_features",
+      "relational_features",
+      "policy_features",
+      "evidence_features",
+      "scope_lexical_features",
+      "local_support_features",
+      "matched_support_features",
+      "conditioned_geometry_features",
+      "behavior_support_features",
+      "crossmodal_support_features",
+      "multiprototype_features",
+      "reference_consistency_features",
+      "passage_support_features",
+      "bm25_support_features",
+      "action_window_features"
+    ],
+    "registered_study_count": 15,
+    "report_directories": [
+      "action_window_features",
+      "backbone_capacity",
+      "baseline",
+      "behavior_support_features",
+      "behavioral_features",
+      "bm25_support_features",
+      "checkpoints",
+      "competition_features",
+      "complementarity",
+      "conditioned_geometry_features",
+      "confirmation",
+      "confirmation_inputs",
+      "conflict_supervision",
+      "crossmodal_support_features",
+      "data_readiness",
+      "delivery",
+      "evidence_features",
+      "expanded",
+      "feature_combinations",
+      "feature_decision",
+      "feature_value_audit",
+      "features",
+      "formatting",
+      "instructions",
+      "local_support_features",
+      "manual_feature_campaign",
+      "matched_support_features",
+      "model_selection",
+      "model_validation",
+      "multiprototype_features",
+      "pairs",
+      "passage_support_features",
+      "policy_features",
+      "reference_consistency_features",
+      "relational_features",
+      "released",
+      "research",
+      "resolution",
+      "retrieval",
+      "robustness",
+      "scope_lexical_features",
+      "selection_stage1",
+      "semantic",
+      "sensitivity",
+      "support_adaptation",
+      "support_context",
+      "support_selection"
+    ],
+    "run_directories": [
+      "action_window_features",
+      "behavior_support_features",
+      "behavioral_features",
+      "bm25_support_features",
+      "conditioned_geometry_features",
+      "crossmodal_support_features",
+      "evidence_features",
+      "feature_combinations",
+      "feature_value_audit",
+      "local_support_features",
+      "manual_publication",
+      "matched_support_features",
+      "model_selection",
+      "multiprototype_features",
+      "notebook_readiness",
+      "passage_support_features",
+      "policy_features",
+      "reference_consistency_features",
+      "relational_features",
+      "scope_lexical_features",
+      "selection_stage1"
+    ],
+    "unregistered_report_candidates": [
+      "competition_features",
+      "feature_decision",
+      "feature_value_audit",
+      "features",
+      "manual_feature_campaign",
+      "support_adaptation",
+      "support_context",
+      "support_selection"
+    ],
+    "unregistered_run_candidates": [
+      "feature_value_audit"
+    ]
+  }
+}
