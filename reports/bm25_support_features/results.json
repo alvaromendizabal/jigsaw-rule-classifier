@@ -1,0 +1,6410 @@
+{
+  "schema": 1,
+  "status": "BM25_SUPPORT_ROUND_COMPLETE",
+  "run_id": "beb42e731d2d910d7ef5",
+  "identity": {
+    "source": {
+      "scripts/bm25_support_features.py": "cfb8390f53686846be6a57c2a309200eff71764b36246222eba46c5517c3133f",
+      "scripts/run_bm25_support_features.py": "15bcb4ce78070259998ef9fd87e75b84e5de3cb4c59c3e1afd04a930115096e1",
+      "tests/test_bm25_support_features.py": "5be3de944fe84f6a46797d7f11779298f19c24410c86a0020c9dc1d5f97d8382",
+      "configs/bm25_support_features.json": "b8d8a131d4a6d2276381e7f36d002aedef6eb3bf50275b576e9e729f3e80288a",
+      "docs/BM25_SUPPORT_FEATURES.md": "c3d45dc724e2688e7621ff95758d1533af5f24eddbe0fd823d858e4c6c867c3b",
+      "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+      "scripts/run_conditioned_geometry_features.py": "df6ad9e3c25ce730a8137f897801da7599c43b029dcbd3a66a3ec182ff197e5c",
+      "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+      "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f",
+      "scripts/passage_support_features.py": "3748a65fac81046fc7a63e5fb0d4b6ba2ac002a844a5623536140497212004f0",
+      "scripts/run_passage_support_features.py": "4ae061aedb8191532bb6b1cff0b18c0900508217ed9124e717149ec9fab5a81e",
+      "tests/test_passage_support_features.py": "2aa3aa5838b4d4aee26be9246545c773a4c833e53e5b36cb183e962d1a530208",
+      "configs/passage_support_features.json": "5b538b0724379c0c2373380fefb4121b2b98ed7f01501c598f81e238bff5a985",
+      "docs/PASSAGE_SUPPORT_FEATURES.md": "c39e192fb7139d40df391aec0ac71beb624c7aac0122fbe6ff5921bc7863569d",
+      "scripts/multiprototype_features.py": "89b465355974ddafb60efba6893b1cd66bf63f80e70c51feb66207401950de4f",
+      "scripts/run_multiprototype_features.py": "1a6a2690c0207d791bb5bfa05f2ba74f294b5cb94b72e8140119e508e35be15b",
+      "tests/test_multiprototype_features.py": "ca341b7bc9eef0240138a929d99965627e72661329be053169e301b80b4c5a37",
+      "configs/multiprototype_features.json": "51d5eb1445ad7b3d82f68bc93cdc54e04402fcea2378beaa0ce9620a2334b176",
+      "docs/MULTIPROTOTYPE_FEATURES.md": "4fbb6cf9ff6b8deae20c26cdfc722d51f99cdab72aa1adbd3b6db9f4ea3d3fab",
+      "scripts/crossmodal_support_features.py": "c8be68c1e583b6ea9713f574cdc29d9dcedb396045e863cbec8b0bc6a2362167",
+      "scripts/run_crossmodal_support_features.py": "961e7336c1fb742953e7e3471c4b67a8e0383c9b7e80ddc42651804c77e9af51",
+      "tests/test_crossmodal_support_features.py": "90d6dc8642d3c8adfaa809c9188ffdd8ff734a7987df087b6eeda50f79e31a9b",
+      "configs/crossmodal_support_features.json": "4999f5e96c8dea6a257bbbf5eccde423b33911762affbbafd17e984dd1d2d6c0",
+      "docs/CROSSMODAL_SUPPORT_FEATURES.md": "5603cb3899ef0debe06d17a9ca0d96fb60ecd13b5dbb69a9396e1e50baaae3b8",
+      "scripts/reference_consistency_features.py": "4e124d3a31e39e19d1f78da70eb0abb133200858e803d6dd3e8a9176efb5d228",
+      "scripts/run_reference_consistency_features.py": "b42d762ace9594c5d915017355d53f7db6677e70fc6462908c69b5469ff8cf7f",
+      "tests/test_reference_consistency_features.py": "e3009e04552f9faacaa9be9e20ca9f147c349514ce1b9efef5652004a26e44c3",
+      "configs/reference_consistency_features.json": "4d03ccdd3dbbf12c77469ae9f604962e51e09db593d8a5d040a54d2bc99a9a44",
+      "docs/REFERENCE_CONSISTENCY_FEATURES.md": "17cd2f19852942dbb75b29480249410e493631935bb6172df39d04f46dc9ade6"
+    },
+    "config": {
+      "automatic_gpu_authorization": false,
+      "bootstrap_replicates": 500,
+      "cached_control_readouts": 10,
+      "candidate_families": [
+        "word_bm25",
+        "character_bm25"
+      ],
+      "classifiers": {
+        "C": 1.0,
+        "max_iter": 2000,
+        "seed": 2025,
+        "solver": "liblinear"
+      },
+      "crossfit_folds": 3,
+      "feature_construction": "16 reference-only count vocabularies and TF-IDF transforms",
+      "feature_construction_fits": "16 reference-only count vocabularies plus 16 TF-IDF transformers; no encoder fits",
+      "hyperparameters": {
+        "b": 0.75,
+        "k1": 1.2,
+        "max_characters": 50000,
+        "vocabulary_cap_per_family": 6000
+      },
+      "hypothesis": "Term saturation and reference-length normalization",
+      "independent_of_other_new_round": true,
+      "max_seconds": 240,
+      "minimum_macro_delta": 0.003,
+      "name": "round14_bm25_support_features",
+      "new_family_columns": {
+        "character_bm25": 24,
+        "word_bm25": 24
+      },
+      "new_fits": 12,
+      "new_primary_columns": 48,
+      "primary": "bm25_all",
+      "promotion_gate": "Primary >= +0.003 macro AUC against every specified comparator, simultaneous lows >0, no per-policy regression, ranked-pooled nondecrease vs raw Qwen. Exploration only.",
+      "question": "Does saturating repeated terms and adjusting reference length improve same-rule example evidence?",
+      "raw_data_and_cache_reuse": true,
+      "reference_status": "context_evidence is an adaptively chosen exploratory anchor, not promoted",
+      "references": [
+        "qwen_raw",
+        "frozen_basic",
+        "context_evidence",
+        "uniform_all",
+        "tfidf_all",
+        "no_length_all",
+        "label_null_all"
+      ],
+      "round10_results_sha256": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+      "round10_run_id": "db369c331ca5c7fb49a7",
+      "round11_results_sha256": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5",
+      "round11_run_id": "3a78a2db1228e0e87362",
+      "round12_results_sha256": "c8b377235434f0d4de6a2dd1c31b68be08df3779cbe8e5c62fa55262b9d0028a",
+      "round12_run_id": "94bc26be8bfe2d6c311d",
+      "round13_results_sha256": "d2f7118641b49332780ed4eec7c3995017487ea67afb62aee337f5a6e1a08618",
+      "round13_run_id": "377538354e20ebccc0d9",
+      "round8_results_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+      "round8_run_id": "eab42d2b77ef0e2ac8e0",
+      "round9_results_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+      "round9_run_id": "7648bca3c639da0e050f",
+      "schema": 1,
+      "scope": "original permitted support/training labels; no released targets",
+      "seed": 20260913
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0"
+      }
+    },
+    "round9_identity": {
+      "source": {
+        "scripts/behavior_support_features.py": "773f0bcddde62fa2f7c5ce0a9bc6d5fca918ee46c07804cda032601ab632d98b",
+        "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+        "tests/test_behavior_support_features.py": "fa1d7c818beef1152c35a33b4ee8df9e679fc3ee59dc51b4e0a4531b33d60194",
+        "configs/behavior_support_features.json": "8b9cb75d55dc5cdc36da8f51ea1702caedcba20645177bbf25dbc70041dda1ba",
+        "docs/BEHAVIOR_SUPPORT_FEATURES.md": "d0724df92c9f081d3b118f7ba545b3ac2696416a847b7103e44a97b21837443f",
+        "scripts/relational_features.py": "79e8c74d2317fb8398347d95185301aed3127da2923791060b750b1ca6bee56d",
+        "scripts/behavioral_features.py": "cb28b2b8a9fae23859b839fae1be79e5dc600cde631c767ce3ffd7f22c4606cc"
+      },
+      "config": {
+        "schema": 1,
+        "name": "round9_behavior_support_features",
+        "round7_run_id": "6dacdcfb6a19ec13d83f",
+        "round7_results_sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841",
+        "classifiers": {
+          "C": 1.0,
+          "solver": "liblinear",
+          "max_iter": 2000,
+          "seed": 2025
+        },
+        "primary": "conditioned_all",
+        "new_fits": 12,
+        "cached_control_readouts": 6,
+        "max_seconds": 240,
+        "seed": 20260921,
+        "bootstrap_replicates": 500,
+        "minimum_macro_delta": 0.003,
+        "crossfit_folds": 3,
+        "automatic_gpu_authorization": false,
+        "independent_of_other_new_round": true,
+        "new_primary_columns": 48,
+        "reference_status": "Round 7 pinned; six Round 6 readouts reused without refitting.",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "backoff": 0.2,
+          "descriptor_columns": 12
+        },
+        "selection": "No validation-led feature selection or hyperparameter search.",
+        "pooling": "Original 234/647 cohorts; same-rule references and group cross-fitting."
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "round7_identity": {
+        "source": {
+          "scripts/matched_support_features.py": "9ba7f130e49564f3dc33c68457f6fbbbf3a02449530b598415d8e25eec85dbaf",
+          "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+          "tests/test_matched_support_features.py": "0da6ba7a07a58c3852a7a34e4dc795e1a652ec08cb60d2ce66a69351b5a97699",
+          "configs/matched_support_features.json": "5ce5af8b5fcb34f5c02521d1859e199d4618d9952e9a9fb5d15cba101e43da74",
+          "docs/MATCHED_SUPPORT_FEATURES.md": "af7888dee1ca09e95e8d19ea75acdfa39c1173166186762c2ca74478023ca3ce"
+        },
+        "config": {
+          "schema": 1,
+          "name": "round7_matched_opposing_support_contrasts",
+          "round6_run_id": "32a90cf7c6607257c2bf",
+          "round6_results_sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508",
+          "primary": "paired_all",
+          "new_fits": 12,
+          "cached_control_readouts": 6,
+          "crossfit_folds": 3,
+          "pair_temperature": 0.1,
+          "vote_scale": 5.0,
+          "max_seconds": 240,
+          "seed": 20260919,
+          "bootstrap_replicates": 500,
+          "minimum_macro_delta": 0.003,
+          "automatic_gpu_authorization": false,
+          "classifiers": {
+            "C": 1.0,
+            "solver": "liblinear",
+            "max_iter": 2000,
+            "seed": 2025
+          },
+          "gate": "Primary beats qwen_raw, answer_only, frozen_basic, repaired_all and orientation_all by >=0.003 policy-macro AUC; simultaneous lower bound >0 and no policy regression for every contrast; ranked-pooled AUC cannot decline vs qwen_raw.",
+          "restrictions": [
+            "no downloads",
+            "no neural inference",
+            "same-rule explicit opposite labels only",
+            "no query labels in features",
+            "no query-query matching",
+            "no Git writes",
+            "no cloud calls"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "round6_identity": {
+          "source": {
+            "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f",
+            "scripts/run_local_support_features.py": "89b856d6e9d152db242233ff8717bc8f363e1517713f7be06010f9688471d7ad",
+            "tests/test_local_support_features.py": "862b26a756be083bdd7bba77c03040d3a69d16ba2f2c663f77f20fbee59ddb5a",
+            "configs/local_support_features.json": "9e5229185007b1b0a564dfd75821e5121f56f3e7e44b47b129b3d30cb315b6a4",
+            "docs/LOCAL_SUPPORT_FEATURES.md": "3af58daad45fff8b7f48bbe87a64997d0eaf4e0ae70e43a224263ae26291e940"
+          },
+          "config": {
+            "schema": 1,
+            "name": "round6_local_support_density",
+            "audit_run_id": "a6103241df718b4b27a4",
+            "audit_sha256": "f0dc52212107bd3d64cb27dd8861cc5a24b5d71a4af1b9c303c511594d7c9c60",
+            "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+            "query_counts": [
+              234,
+              647
+            ],
+            "expected_same_rule_training": [
+              629,
+              366
+            ],
+            "dimensions": 2560,
+            "neighbors": 10,
+            "crossfit_folds": 3,
+            "max_seconds": 240,
+            "new_fits": 12,
+            "seed": 20260918,
+            "bootstrap_replicates": 500,
+            "minimum_macro_delta": 0.003,
+            "primary": "frozen_all",
+            "classifiers": {
+              "C": 1.0,
+              "solver": "liblinear",
+              "max_iter": 2000,
+              "seed": 2025
+            },
+            "reference_files": [
+              {
+                "name": "fold_0.npz",
+                "bytes": 21493371,
+                "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+              },
+              {
+                "name": "fold_1.npz",
+                "bytes": 21359643,
+                "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+              }
+            ],
+            "builder_sources": {
+              "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+              "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+              "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+              "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+              "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+            },
+            "automatic_gpu_authorization": false,
+            "gate": "primary beats raw Qwen, answer_only, frozen_basic and shuffled_all by >=0.003 macro AUC; simultaneous lower bounds >0; no per-policy regression; ranked pooled vs Qwen >=0",
+            "restrictions": [
+              "no downloads",
+              "no query targets in features or fitting",
+              "same-rule references only",
+              "no query-query distances",
+              "no package install",
+              "no neural inference",
+              "no automatic Git publication"
+            ]
+          },
+          "environment": {
+            "python": "3.12.14",
+            "packages": {
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "scipy": "1.17.0",
+              "scikit-learn": "1.8.0",
+              "joblib": "1.5.3",
+              "plotly": "7.0.0"
+            }
+          },
+          "audit_run": "a6103241df718b4b27a4"
+        },
+        "audit_identity": {
+          "source": {
+            "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+            "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+            "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+            "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+            "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+          },
+          "config": {
+            "schema": 1,
+            "name": "feature_value_against_cached_qwen_development",
+            "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+            "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+            "query_counts": [
+              234,
+              647
+            ],
+            "bootstrap_replicates": 500,
+            "seed": 20260917,
+            "minimum_slice_class": 10,
+            "max_seconds": 240,
+            "model_fits": 0,
+            "ensembles": false,
+            "account": "560403859723",
+            "region": "us-west-2",
+            "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+            "reference_run": "d13858b7407993fcc6e8",
+            "reference_auc": [
+              0.6792537313432836,
+              0.7605330619753037
+            ],
+            "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+            "reference_files": [
+              {
+                "name": "fold_0.npz",
+                "bytes": 21493371,
+                "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+              },
+              {
+                "name": "fold_1.npz",
+                "bytes": 21359643,
+                "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+              }
+            ],
+            "rounds": [
+              {
+                "round": 1,
+                "public": "reports/behavioral_features",
+                "private": "runs/behavioral_features",
+                "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+                "run_id": "32e706fe1e7dddb7de34"
+              },
+              {
+                "round": 2,
+                "public": "reports/relational_features",
+                "private": "runs/relational_features",
+                "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+                "run_id": "b951f663d66c68cb6bca"
+              },
+              {
+                "round": 3,
+                "public": "reports/policy_features",
+                "private": "runs/policy_features",
+                "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+                "run_id": "5927fe5eb15c3cf2d8aa"
+              },
+              {
+                "round": 4,
+                "public": "reports/evidence_features",
+                "private": "runs/evidence_features",
+                "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+                "run_id": "e5628cf8367060756148"
+              },
+              {
+                "round": 5,
+                "public": "reports/scope_lexical_features",
+                "private": "runs/scope_lexical_features",
+                "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+                "run_id": "5b69b9779637e79f13cd"
+              }
+            ],
+            "model_round": {
+              "lexical_control": 1,
+              "add_behavior": 1,
+              "add_act_roles": 2,
+              "condition_lexical": 3,
+              "rule_both": 4,
+              "copy_both": 5,
+              "scope_both": 5
+            },
+            "restrictions": [
+              "No new fits or inference",
+              "No blends, thresholds or slice tuning",
+              "Original train labels only for retrospective scoring",
+              "No private content in public export",
+              "No automatic promotion"
+            ]
+          },
+          "environment": {
+            "python": "3.12.14",
+            "packages": {
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "scipy": "1.17.0",
+              "scikit-learn": "1.8.0",
+              "joblib": "1.5.3",
+              "plotly": "7.0.0"
+            }
+          },
+          "references": [
+            "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+          ],
+          "reports": {
+            "1": "32e706fe1e7dddb7de34",
+            "2": "b951f663d66c68cb6bca",
+            "3": "5927fe5eb15c3cf2d8aa",
+            "4": "e5628cf8367060756148",
+            "5": "5b69b9779637e79f13cd"
+          }
+        }
+      },
+      "audit_identity": {
+        "source": {
+          "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+          "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+          "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+          "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+          "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+        },
+        "config": {
+          "schema": 1,
+          "name": "feature_value_against_cached_qwen_development",
+          "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+          "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+          "query_counts": [
+            234,
+            647
+          ],
+          "bootstrap_replicates": 500,
+          "seed": 20260917,
+          "minimum_slice_class": 10,
+          "max_seconds": 240,
+          "model_fits": 0,
+          "ensembles": false,
+          "account": "560403859723",
+          "region": "us-west-2",
+          "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+          "reference_run": "d13858b7407993fcc6e8",
+          "reference_auc": [
+            0.6792537313432836,
+            0.7605330619753037
+          ],
+          "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+          "reference_files": [
+            {
+              "name": "fold_0.npz",
+              "bytes": 21493371,
+              "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+            },
+            {
+              "name": "fold_1.npz",
+              "bytes": 21359643,
+              "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+            }
+          ],
+          "rounds": [
+            {
+              "round": 1,
+              "public": "reports/behavioral_features",
+              "private": "runs/behavioral_features",
+              "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+              "run_id": "32e706fe1e7dddb7de34"
+            },
+            {
+              "round": 2,
+              "public": "reports/relational_features",
+              "private": "runs/relational_features",
+              "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+              "run_id": "b951f663d66c68cb6bca"
+            },
+            {
+              "round": 3,
+              "public": "reports/policy_features",
+              "private": "runs/policy_features",
+              "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+              "run_id": "5927fe5eb15c3cf2d8aa"
+            },
+            {
+              "round": 4,
+              "public": "reports/evidence_features",
+              "private": "runs/evidence_features",
+              "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+              "run_id": "e5628cf8367060756148"
+            },
+            {
+              "round": 5,
+              "public": "reports/scope_lexical_features",
+              "private": "runs/scope_lexical_features",
+              "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+              "run_id": "5b69b9779637e79f13cd"
+            }
+          ],
+          "model_round": {
+            "lexical_control": 1,
+            "add_behavior": 1,
+            "add_act_roles": 2,
+            "condition_lexical": 3,
+            "rule_both": 4,
+            "copy_both": 5,
+            "scope_both": 5
+          },
+          "restrictions": [
+            "No new fits or inference",
+            "No blends, thresholds or slice tuning",
+            "Original train labels only for retrospective scoring",
+            "No private content in public export",
+            "No automatic promotion"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "references": [
+          "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+          "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+        ],
+        "reports": {
+          "1": "32e706fe1e7dddb7de34",
+          "2": "b951f663d66c68cb6bca",
+          "3": "5927fe5eb15c3cf2d8aa",
+          "4": "e5628cf8367060756148",
+          "5": "5b69b9779637e79f13cd"
+        }
+      }
+    },
+    "completed_source_reports": {
+      "10": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+      "11": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5"
+    },
+    "round8_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+    "audit_identity": {
+      "source": {
+        "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+        "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+        "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+        "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+        "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+      },
+      "config": {
+        "schema": 1,
+        "name": "feature_value_against_cached_qwen_development",
+        "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+        "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+        "query_counts": [
+          234,
+          647
+        ],
+        "bootstrap_replicates": 500,
+        "seed": 20260917,
+        "minimum_slice_class": 10,
+        "max_seconds": 240,
+        "model_fits": 0,
+        "ensembles": false,
+        "account": "560403859723",
+        "region": "us-west-2",
+        "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "reference_run": "d13858b7407993fcc6e8",
+        "reference_auc": [
+          0.6792537313432836,
+          0.7605330619753037
+        ],
+        "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+        "reference_files": [
+          {
+            "name": "fold_0.npz",
+            "bytes": 21493371,
+            "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+          },
+          {
+            "name": "fold_1.npz",
+            "bytes": 21359643,
+            "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+          }
+        ],
+        "rounds": [
+          {
+            "round": 1,
+            "public": "reports/behavioral_features",
+            "private": "runs/behavioral_features",
+            "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+            "run_id": "32e706fe1e7dddb7de34"
+          },
+          {
+            "round": 2,
+            "public": "reports/relational_features",
+            "private": "runs/relational_features",
+            "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+            "run_id": "b951f663d66c68cb6bca"
+          },
+          {
+            "round": 3,
+            "public": "reports/policy_features",
+            "private": "runs/policy_features",
+            "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+            "run_id": "5927fe5eb15c3cf2d8aa"
+          },
+          {
+            "round": 4,
+            "public": "reports/evidence_features",
+            "private": "runs/evidence_features",
+            "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+            "run_id": "e5628cf8367060756148"
+          },
+          {
+            "round": 5,
+            "public": "reports/scope_lexical_features",
+            "private": "runs/scope_lexical_features",
+            "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+            "run_id": "5b69b9779637e79f13cd"
+          }
+        ],
+        "model_round": {
+          "lexical_control": 1,
+          "add_behavior": 1,
+          "add_act_roles": 2,
+          "condition_lexical": 3,
+          "rule_both": 4,
+          "copy_both": 5,
+          "scope_both": 5
+        },
+        "restrictions": [
+          "No new fits or inference",
+          "No blends, thresholds or slice tuning",
+          "Original train labels only for retrospective scoring",
+          "No private content in public export",
+          "No automatic promotion"
+        ]
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "references": [
+        "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+        "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+      ],
+      "reports": {
+        "1": "32e706fe1e7dddb7de34",
+        "2": "b951f663d66c68cb6bca",
+        "3": "5927fe5eb15c3cf2d8aa",
+        "4": "e5628cf8367060756148",
+        "5": "5b69b9779637e79f13cd"
+      }
+    }
+  },
+  "new_fits": 12,
+  "reused_new_fits": 0,
+  "reused_prior_controls": 10,
+  "control_design_parity": true,
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "qwen_raw",
+      "auc": 0.6792537313432836,
+      "brier": 0.25023770188266237,
+      "log_loss": 0.7600029858994344
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "qwen_raw",
+      "auc": 0.7605330619753037,
+      "brier": 0.2215279122190867,
+      "log_loss": 0.7098793479450484
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "answer_only",
+      "auc": 0.6792537313432836,
+      "brier": 0.2607471050051889,
+      "log_loss": 0.8287071344390946
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "answer_only",
+      "auc": 0.7605330619753037,
+      "brier": 0.22835742570137949,
+      "log_loss": 0.7672579840398105
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "frozen_basic",
+      "auc": 0.6930970149253732,
+      "brier": 0.25446942503043884,
+      "log_loss": 0.8272923823580525
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "frozen_basic",
+      "auc": 0.7530381010156357,
+      "brier": 0.23432719270508912,
+      "log_loss": 0.8215150267538596
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "context_evidence",
+      "auc": 0.7034701492537313,
+      "brier": 0.24708063170336345,
+      "log_loss": 0.8231883906824257
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "context_evidence",
+      "auc": 0.7550439326040586,
+      "brier": 0.23538018446232475,
+      "log_loss": 0.8403668188796676
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "uniform_all",
+      "auc": 0.7032462686567164,
+      "brier": 0.2478045724753044,
+      "log_loss": 0.8210816312678599
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "uniform_all",
+      "auc": 0.7545742744760375,
+      "brier": 0.2338707466167126,
+      "log_loss": 0.8175391835307207
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "word_bm25",
+      "auc": 0.6959328358208956,
+      "brier": 0.2612242408919336,
+      "log_loss": 0.8822567334006687
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "word_bm25",
+      "auc": 0.7517171875305766,
+      "brier": 0.23843489152817057,
+      "log_loss": 0.8446127913228625
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "character_bm25",
+      "auc": 0.6910074626865671,
+      "brier": 0.2590280321675402,
+      "log_loss": 0.8704698180739553
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "character_bm25",
+      "auc": 0.7434492475685406,
+      "brier": 0.23944119986431242,
+      "log_loss": 0.909576821906114
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "bm25_all",
+      "auc": 0.6824253731343284,
+      "brier": 0.2685543105065799,
+      "log_loss": 0.914064081462346
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "bm25_all",
+      "auc": 0.7346920803898163,
+      "brier": 0.24758406671638614,
+      "log_loss": 0.9790089284514313
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "tfidf_all",
+      "auc": 0.6903358208955224,
+      "brier": 0.2615033575013453,
+      "log_loss": 0.8928050676991119
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "tfidf_all",
+      "auc": 0.7523727520009393,
+      "brier": 0.24245680243785103,
+      "log_loss": 0.8993159487540309
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "no_length_all",
+      "auc": 0.6911567164179104,
+      "brier": 0.264476365151776,
+      "log_loss": 0.8937099711060901
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "no_length_all",
+      "auc": 0.7354944130251855,
+      "brier": 0.2508149753501581,
+      "log_loss": 0.9486510738206323
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "label_null_all",
+      "auc": 0.6980970149253731,
+      "brier": 0.26225616412316755,
+      "log_loss": 0.909904089349361
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "label_null_all",
+      "auc": 0.732744956067396,
+      "brier": 0.25558277241036564,
+      "log_loss": 1.003043648320409
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate": "word_bm25",
+      "reference": "context_evidence",
+      "comparison": "word_bm25 vs context anchor",
+      "delta_auc": -0.005432029253158888,
+      "simultaneous_low": -0.029062806797506148,
+      "simultaneous_high": 0.018198748291188373
+    },
+    {
+      "candidate": "character_bm25",
+      "reference": "context_evidence",
+      "comparison": "character_bm25 vs context anchor",
+      "delta_auc": -0.012028685801341199,
+      "simultaneous_low": -0.03565946334568846,
+      "simultaneous_high": 0.011602091743006061
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "context_evidence",
+      "comparison": "bm25_all vs context anchor",
+      "delta_auc": -0.020698314166822662,
+      "simultaneous_low": -0.04432909171116992,
+      "simultaneous_high": 0.002932463377524598
+    },
+    {
+      "candidate": "tfidf_all",
+      "reference": "context_evidence",
+      "comparison": "tfidf_all vs context anchor",
+      "delta_auc": -0.007902754480664131,
+      "simultaneous_low": -0.03153353202501139,
+      "simultaneous_high": 0.01572802306368313
+    },
+    {
+      "candidate": "no_length_all",
+      "reference": "context_evidence",
+      "comparison": "no_length_all vs context anchor",
+      "delta_auc": -0.01593147620734703,
+      "simultaneous_low": -0.03956225375169429,
+      "simultaneous_high": 0.007699301337000232
+    },
+    {
+      "candidate": "label_null_all",
+      "reference": "context_evidence",
+      "comparison": "label_null_all vs context anchor",
+      "delta_auc": -0.01383605543251043,
+      "simultaneous_low": -0.03746683297685769,
+      "simultaneous_high": 0.00979472211183683
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "qwen_raw",
+      "comparison": "Primary vs qwen_raw",
+      "delta_auc": -0.011334669897221317,
+      "simultaneous_low": -0.03496544744156858,
+      "simultaneous_high": 0.012296107647125944
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "frozen_basic",
+      "comparison": "Primary vs frozen_basic",
+      "delta_auc": -0.01450883120843216,
+      "simultaneous_low": -0.03813960875277942,
+      "simultaneous_high": 0.0091219463359151
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "uniform_all",
+      "comparison": "Primary vs uniform_all",
+      "delta_auc": -0.020351544804304567,
+      "simultaneous_low": -0.04398232234865183,
+      "simultaneous_high": 0.0032792327400426938
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "tfidf_all",
+      "comparison": "Primary vs tfidf_all",
+      "delta_auc": -0.01279555968615853,
+      "simultaneous_low": -0.03642633723050579,
+      "simultaneous_high": 0.01083521785818873
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "no_length_all",
+      "comparison": "Primary vs no_length_all",
+      "delta_auc": -0.004766837959475634,
+      "simultaneous_low": -0.028397615503822894,
+      "simultaneous_high": 0.018863939584871627
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "label_null_all",
+      "comparison": "Primary vs label_null_all",
+      "delta_auc": -0.006862258734312232,
+      "simultaneous_low": -0.030493036278659492,
+      "simultaneous_high": 0.016768518810035028
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "word_bm25",
+      "comparison": "Family removal: character_bm25",
+      "delta_auc": -0.015266284913663775,
+      "simultaneous_low": -0.038897062458011035,
+      "simultaneous_high": 0.008364492630683486
+    },
+    {
+      "candidate": "bm25_all",
+      "reference": "character_bm25",
+      "comparison": "Family removal: word_bm25",
+      "delta_auc": -0.008669628365481463,
+      "simultaneous_low": -0.032300405909828724,
+      "simultaneous_high": 0.014961149178865797
+    }
+  ],
+  "pooled_metrics": [
+    {
+      "variant": "qwen_raw",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7396660654579207,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "answer_only",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7386798721640351,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "frozen_basic",
+      "macro_auc": 0.7230675579705045,
+      "pooled_auc": 0.7338517440327396,
+      "ranked_pooled_auc": 0.7370898332436794
+    },
+    {
+      "variant": "context_evidence",
+      "macro_auc": 0.729257040928895,
+      "pooled_auc": 0.7361827463637419,
+      "ranked_pooled_auc": 0.7413299370312945
+    },
+    {
+      "variant": "uniform_all",
+      "macro_auc": 0.7289102715663769,
+      "pooled_auc": 0.7359137845563186,
+      "ranked_pooled_auc": 0.7409133099178349
+    },
+    {
+      "variant": "word_bm25",
+      "macro_auc": 0.7238250116757361,
+      "pooled_auc": 0.731847714879389,
+      "ranked_pooled_auc": 0.7368525140018353
+    },
+    {
+      "variant": "character_bm25",
+      "macro_auc": 0.7172283551275538,
+      "pooled_auc": 0.7283828539484648,
+      "ranked_pooled_auc": 0.7295008912655971
+    },
+    {
+      "variant": "bm25_all",
+      "macro_auc": 0.7085587267620723,
+      "pooled_auc": 0.7210101361685072,
+      "ranked_pooled_auc": 0.7208097332531722
+    },
+    {
+      "variant": "tfidf_all",
+      "macro_auc": 0.7213542864482309,
+      "pooled_auc": 0.7347324621080278,
+      "ranked_pooled_auc": 0.7358294043814406
+    },
+    {
+      "variant": "no_length_all",
+      "macro_auc": 0.713325564721548,
+      "pooled_auc": 0.7203139997257644,
+      "ranked_pooled_auc": 0.72372612304739
+    },
+    {
+      "variant": "label_null_all",
+      "macro_auc": 0.7154209854963846,
+      "pooled_auc": 0.7181306627007985,
+      "ranked_pooled_auc": 0.7235679102194938
+    }
+  ],
+  "diagnostics": [
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 41.68257756563246,
+      "maximum_reference_length": 161.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.020246316678969062,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 41.68257756563246,
+      "maximum_reference_length": 161.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.022656637501248945,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 41.68257756563246,
+      "maximum_reference_length": 161.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.020123613208381897,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 41.68257756563246,
+      "maximum_reference_length": 161.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.020246316678969062,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 317.3126491646778,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03119780266866983,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 317.3126491646778,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.05134544780828759,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 317.3126491646778,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.031357059493505486,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 317.3126491646778,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03119780266866983,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.124105011933175,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.022490254032051318,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.124105011933175,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.024066142750009265,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.124105011933175,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02243574050591141,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.124105011933175,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.022490254032051318,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 330.26252983293557,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03292801528877205,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 330.26252983293557,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.05183681781132334,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 330.26252983293557,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03312721635849882,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 419,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 330.26252983293557,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03292801528877205,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.076190476190476,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02170563595137367,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.076190476190476,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.023460023605707803,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.076190476190476,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02167281221865662,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 43.076190476190476,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02170563595137367,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 327.24285714285713,
+      "maximum_reference_length": 1156.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03351484941898636,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 327.24285714285713,
+      "maximum_reference_length": 1156.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.0524513595487226,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 327.24285714285713,
+      "maximum_reference_length": 1156.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03372475019363054,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 420,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 327.24285714285713,
+      "maximum_reference_length": 1156.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03351484941898636,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 42.62798092209857,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.01884093921265372,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 42.62798092209857,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.0226498706373629,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 42.62798092209857,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.0193436324291571,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 42.62798092209857,
+      "maximum_reference_length": 165.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.01884093921265372,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 324.94117647058823,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.029079008510138404,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 324.94117647058823,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04996913970777914,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 324.94117647058823,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.029586890579326806,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 629,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 324.94117647058823,
+      "maximum_reference_length": 1251.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.029079008510138404,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.28688524590164,
+      "maximum_reference_length": 179.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.027308147619050833,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.28688524590164,
+      "maximum_reference_length": 179.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03536218442704669,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.28688524590164,
+      "maximum_reference_length": 179.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02870034500484271,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.28688524590164,
+      "maximum_reference_length": 179.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.027308147619050833,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 400.24590163934425,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.042463041958582956,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 400.24590163934425,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.07717116970846585,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 400.24590163934425,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04454938684405136,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 400.24590163934425,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.042463041958582956,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 70.82786885245902,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02724388243318667,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 70.82786885245902,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.036038598541841264,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 70.82786885245902,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.028714309728316675,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 70.82786885245902,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02724388243318667,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 389.405737704918,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04194125525502939,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 389.405737704918,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.07858171377141898,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 389.405737704918,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04418565784053765,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 389.405737704918,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04194125525502939,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.62295081967213,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.027990352156287014,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.62295081967213,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03526838046942097,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.62295081967213,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02938171875032845,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 72.62295081967213,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.027990352156287014,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 395.0860655737705,
+      "maximum_reference_length": 963.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04173564765436049,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 395.0860655737705,
+      "maximum_reference_length": 963.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.07716941509634494,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 395.0860655737705,
+      "maximum_reference_length": 963.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.043786340804570355,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 244,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 395.0860655737705,
+      "maximum_reference_length": 963.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04173564765436049,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 71.91256830601093,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02556925914186364,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 71.91256830601093,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.03585616562795377,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 71.91256830601093,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02689380930130979,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "word",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 71.91256830601093,
+      "maximum_reference_length": 189.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.02556925914186364,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "bm25",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 394.91256830601094,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04121246111596762,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "tfidf",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 394.91256830601094,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.07759923636855043,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "no_length",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 394.91256830601094,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04332105164797189,
+      "query_used_for_vocabulary": false
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "mode": "label_null",
+      "family": "character",
+      "reference_rows": 366,
+      "vocabulary_columns": 6000,
+      "mean_reference_length": 394.91256830601094,
+      "maximum_reference_length": 992.0,
+      "zero_query_fraction": 0.0,
+      "mean_similarity": 0.04121246111596762,
+      "query_used_for_vocabulary": false
+    }
+  ],
+  "coefficients": [
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "answer/log_odds",
+      "coefficient": 4.636406749514019
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.23339300744425112
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.39801876784373424
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.22497579079395763
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.40378816385471616
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.11063370197159599
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3309614627854182
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1686859429786085
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.4834513630195007
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.32845891829727225
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.09356745535581161
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5226209142598988
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.0782776570973465
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.2301250752328523
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.30541922424234963
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.018966882911758576
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.37728554407764525
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.20001524955291197
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.009405951276479918
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.11720795771102155
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5065039302572755
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.20604916674610874
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.342313680196059
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.9506012353349911
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": 0.2742529753675713
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": -6.209953192166104e-05
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": 0.3429895807412083
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.13398302676396748
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": 0.2775582621462899
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.27715707093457564
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": -0.07998445942367333
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": 0.11951533081348358
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.22016734983798159
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.22145767842020972
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.07781678964328365
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.1811403558912362
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.2865245567637466
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.19073817577300037
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": -0.2814827347847404
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.711472729062768
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": -0.32039610764522597
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": 0.1560539785319869
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": -0.272733522070234
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": 0.06456083164675595
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": -0.5164026768112385
+    },
+    {
+      "fold": 0,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.06309003032667343
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "answer/log_odds",
+      "coefficient": 4.160385173288848
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.10202314376187693
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4847207337970214
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.1579453941622293
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.47264021063552175
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.13584824503985235
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.44357406680555544
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1308273926241992
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.590338326088048
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.5409830420171422
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.025168940399823744
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.4359526963723686
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9129692397614814
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -0.9875886704825592
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.26124446585923006
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.21869122147344652
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.22370989559596752
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.03887021756165088
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.04178856348481513
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.1209389753647633
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5307571205900264
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.2572417740481944
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.22615021395583826
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": 0.04078038186716166
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.4120282663282805
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": -0.03025841375897819
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.0452260592278618
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": -0.03158709422515101
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": 0.624579713277549
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.2330906255013064
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": 0.4688654707882319
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": 0.24821970939468352
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": 0.7388173026741516
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.02535956718347377
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": -0.24181148454726706
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": -0.15547508163821513
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": 0.2858480481684351
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.3717862935004334
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": 0.15190260852980214
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": 0.1346950202765145
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": 0.2119535769476741
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.03601048887014757
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": -0.13596778054404587
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.1745966738276164
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": -0.35457030612003826
+    },
+    {
+      "fold": 0,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.07462468288679505
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.302695041741936
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.14222361712362636
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.3201015604410194
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.302563812555746
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.48168437245451473
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.17086461543230494
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.45332476984233167
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.2054559133338691
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.5044969981695163
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.45382010975578274
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.014740499635546666
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.35015244674498663
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.033339873188962
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.0647149713217214
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.3341712879263775
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.20186459401945048
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.510848251061572
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.12844420603806753
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.0196464320339585
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.16023438744195284
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5633603373851522
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.2503309969396272
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.38280018931941684
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.7938571225791079
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": 0.10741077652892857
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.26572830141313364
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": 0.5842487064474282
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.1827524084773114
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": 0.15236520860334943
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.6649946374433247
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": -0.15765828032179285
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.18071177837816588
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.5302261448866077
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.014515476008881287
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.11514590874276003
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.256781546034262
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.40084428099749264
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.5339430022867118
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": -0.3575575138220327
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.42071891853126636
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": -0.3959152837915477
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.22604904362849587
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": -0.4528857008950843
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": 0.10583097500509105
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": -0.522541922371586
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.10016653981206891
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.06279793017122202
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": 0.20237432117010412
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.39240605292973557
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": -0.546466364627728
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.34042808652058143
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": -0.039961933214446604
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": 0.32266941338518634
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.5878847573238486
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": 0.34386562944184823
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": 0.22010271504197884
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": 0.692982871884952
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.539084453648069
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.03947624839764265
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": -0.16527074934799388
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": 0.2782418089079834
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.5925670443627983
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": 0.18170686539884182
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": 0.012884098844973036
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": 0.19508329208356137
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.7072466204205666
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.2222996490973738
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.17517600633582836
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": -0.06382154171433628
+    },
+    {
+      "fold": 0,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": 0.03843081965390253
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.258892816486115
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.20117071379899037
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.46614688581066327
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2756093880689723
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.43959796966967407
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.12228430994115853
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.37978569918157273
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1990133094335333
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.5559091218757892
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.36467154400864743
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.12102093254605897
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.4982051000961024
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9893192924973464
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.0863404192913506
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.41120021933890194
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.02549118187357807
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.5078821207215154
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.20890579048326177
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.06773441469853078
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.04626621258010722
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.4730290941505813
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.2368440718856773
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.43051193162858226
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.9839148508190383
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": 0.19447895728889944
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.3931071090919424
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": 0.8300432285224483
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.09247561697337778
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": 0.5036424335698045
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.614307189230048
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": 0.1172720216473919
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.3384511270524221
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.0875361995557378
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": -0.3301118271308279
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.46549650753497396
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.09591494624175634
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.10017162288354153
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.4247794122527616
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": -0.21078904690233594
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.4127400324325096
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": -0.17315126730120226
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.4428457552391459
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": -0.7490380390148413
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": -0.00872991844771619
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": -0.4901361100933057
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.19450189006829546
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": -0.013619835950037386
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": -0.09218055156313709
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.17990534812339973
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": -0.5513772610537335
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.5063486500290787
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": -0.06599520617161933
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": 0.0024007063323090885
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.3942333981188021
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": 0.5518328976318477
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": 0.2219156087212254
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": 0.9156363903857425
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.2670454727106806
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": -0.14171676972348393
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": -0.19026684419984669
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": 0.2681768403173926
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.5129090549147953
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": 0.342110700211322
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": 0.19517688319558318
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": 0.422460704951696
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.49016001936402787
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.20283114387643605
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.1690437502423499
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": 0.23728534696217013
+    },
+    {
+      "fold": 0,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.03517099498709045
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.239355680206822
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.12838077088620573
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4168939795903101
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.3241512389805224
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4627959943568325
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.19944267226355838
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.46591915248652793
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1467345724995621
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.624429658167087
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.4571776185018033
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.004667542710441526
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.3626002211640493
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.9689879004541441
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.0087978140072036
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.2949793018944356
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.14861237272015493
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.3900959781629302
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.12400768451916519
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.020151606120319777
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.08214258860444658
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5313309429279051
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.23274750338934694
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.14179210262701583
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.36554524008608685
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": 0.14141608564767869
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.457956659233801
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": 0.0921826816337883
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.20574585395227585
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": -0.07348751911181106
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.07080845837126021
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": -0.36524860443554774
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": 0.14292115816550632
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.852640878147891
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.2964489500244054
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.28878117152510163
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.24314141514220633
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.5023192368602053
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.5208714145700307
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": -0.31011616392912017
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.33721032964645137
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": -0.5790667693483875
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.19534055788601004
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": -0.2426186311757551
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": 0.0350290597380957
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": -0.4112609693894406
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": 0.27900133139285094
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.4244365738098019
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": -0.4175406514223911
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.5875290198996572
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": -0.4770677515645497
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.4013156601158173
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": -0.05446903781350667
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": 0.456889279524766
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.07158527995584264
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": 0.3567591412462364
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": 0.2275417321514485
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": 0.6858954985311492
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.34237788711666034
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.06979762463087555
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": -0.1804100197255789
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": 0.4985657405183853
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.3911828995317861
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.10905021255853886
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": 0.4137223046280793
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.024773368739871446
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.5242669729860693
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.29385036566127337
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.17351904711182956
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": -0.014662010882968545
+    },
+    {
+      "fold": 0,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.21016873333817299
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.8600396365026794
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.20752086822287594
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.5132228242449687
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": -0.05022653754158795
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.42499407469632045
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.004085283708974639
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3265253789010142
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1772373293033882
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.4276195771573087
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.5150738580785782
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.010058631393197966
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.39930851734553907
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.1168168655350152
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.1918382221006942
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.10375820481833863
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.14417544704118904
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.372560815232845
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.041472239552121475
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.02613279359226349
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.1914322231877051
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5013919792774877
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.1689164987465058
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.053806027250336765
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.3417481484753321
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": -0.17591820213613937
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": -0.06422259381188762
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": 0.36913372453774085
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.3177460777565143
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": -0.3004452391230272
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.3694675861408545
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": 0.07322555822424746
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": 0.03613292136217292
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.07046317184781146
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": -0.12264239964650205
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": 0.43037799261230314
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.3858155064696937
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.23356726442849363
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.22161561524870735
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": 0.024309974745222136
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.6071891449400046
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": 0.16816746722356876
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.1417341515595344
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": 0.17522517161973827
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": 0.3128900228246168
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": 0.11436027677376248
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.09287018778913081
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": -0.2798540070769567
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": 0.6362886543278213
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": -0.11411984871036424
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": 0.20818965667749206
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.2544833195812214
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": -0.20717068859382964
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": 0.1662221486057767
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.42596280981025636
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": -0.5000937942158841
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": 0.47522204539840257
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": -0.5084912779656502
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.3328751103268252
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": -0.4037853177758315
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": -0.17225427688664993
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": -0.13126521246150166
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.25458716866990033
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.3216771645238312
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": -0.31586157898999406
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.6130466191206442
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.25109593279868053
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": -0.31033282102555965
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": 0.10492907459717465
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": -0.7292620652823545
+    },
+    {
+      "fold": 0,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": 0.10478160781225952
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "answer/log_odds",
+      "coefficient": 3.9597780742341575
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.24432880673469354
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.3054627793594531
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8690048774641262
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.38911628863173087
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.13635600684009766
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.31528634342967604
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.23709625614135474
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.33420245912804347
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "basic/margin/top5",
+      "coefficient": -0.06876991827834893
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.15977327299659097
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5963753113649788
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.0673775152898334
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.10327831895868615
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3107034829154065
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.14542017763066176
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.26728912627447854
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.20771602108878423
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.07607400356211028
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.25552238217632206
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": 0.08758795110447545
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.23894111021380765
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": -0.2935822058795192
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.18074298543853415
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": -0.1928233004770224
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.04490158093899429
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": 0.08188796172016226
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.29696592145200196
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": 0.1373189642188831
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.14534650700953025
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.053918387595485805
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.11717104070838466
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.011301851635914966
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": -0.031130331351154138
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": 0.008120705685828646
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": -0.1017319752642232
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": 0.09753523329390584
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.06587687562358456
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": 0.3953483228043924
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": -0.22293860519038622
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": 0.38985694882800803
+    },
+    {
+      "fold": 1,
+      "variant": "word_bm25",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.06310368748007471
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "answer/log_odds",
+      "coefficient": 4.243677190766388
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.43770457281670644
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.20527023022820334
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.844062246467295
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.5104440777670257
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.13985307590714274
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.46919078852331425
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.2646648756240019
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.2812241532071345
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.11942092674906495
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.03522413104996226
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5379042008349855
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.11447673060563282
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.08011851667007178
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3014968608996921
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.23651939683477624
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.28257868166974337
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.2309230396581867
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.09670432225155934
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": -0.010808382229834334
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.1388890061482262
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": 0.18859114462795634
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.2316657398883536
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": 0.051947424474676346
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": -0.1480872243328693
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": 0.014422353881450724
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": -0.10761688801124078
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": -0.3524357265868044
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": -0.13146121553266754
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.24688176373620022
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.23291330113932895
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": 0.06615084112380651
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": -0.025884857350026463
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.03550984313780006
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.25216101298365995
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": -0.5081270875522442
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.3871521680585858
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.14219214716192666
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.7967268350661733
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.03761089894464098
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": 0.24410770503293028
+    },
+    {
+      "fold": 1,
+      "variant": "character_bm25",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.041885169315743695
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.263893852871737
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.4853544581682867
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.295693828744094
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.955767619933905
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4400985182469184
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.12651423918960053
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4605416938729958
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.18548002111417053
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.31707651395579184
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.054383240396353456
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.03886992969195992
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5600642433231829
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.027175020554188585
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.06728308813675327
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3616535772622954
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.2846261301086375
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.3414113701759395
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.25982545242381355
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": -0.03796560018603775
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.2972704884410389
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": -0.105856028929954
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.3939981064203114
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": -0.5255560175923434
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.3014808519579637
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": -0.009361029651751009
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.04804747962140699
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": -0.059127166494144894
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.20968366841632732
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.02577750792260767
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.2830969815086677
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.21516433913854938
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.2638267755713336
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": 0.17656334682100372
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": -0.0972321239424686
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": -0.02544832207635035
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.07855665126828439
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": 0.09988055354473818
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.027124417371836358
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": 0.5023017592136676
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": -0.25181668119300865
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": 0.3872420351752893
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.11436610448510952
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.048279130976323296
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": 0.10094866157578682
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": -0.10775418852927625
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": 0.1916882036721102
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": 0.05246713989801534
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": 0.07082374954173302
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": -0.7802559076725691
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": 0.2504583055369193
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": -0.1476887339131075
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": -0.2975335998900299
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": -0.2575191703651945
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.18119702833493087
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.39456344782590574
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": 0.15892727907239404
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": -0.7185792499390071
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": 0.06548030991285735
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.24582310562387674
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": -0.5748346784998766
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.25144887843306507
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.025263506679876473
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.6054774539635447
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.027834506898971406
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": 0.24865195685459646
+    },
+    {
+      "fold": 1,
+      "variant": "bm25_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.1446765346892017
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.038208780525287
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.2364464271497742
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.3153107218875059
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8274979675612779
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.28749343496807944
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.1667190405114093
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4628017784465597
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.15305194558742183
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3754773324055941
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.12029834695139052
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.15968401789014788
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5848346136691943
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.008065051661742123
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.08801927316216084
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.44704661367274984
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.19405983905445578
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.3388988070414203
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.1905486707711349
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": -0.17714123744155022
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": 0.46837114460067947
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": -0.47895279495651927
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.5522566298145186
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": -0.38669028218358487
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.21425040995773742
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": -0.12665021242333016
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": 0.07845176048393936
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": 0.04124445957622078
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.3681245132508279
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.1038532367106536
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.3725494115628997
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": 0.468954759117881
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.31683494264065043
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": -0.012893990287711172
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.16886064119606792
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": 0.1681643890704566
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": -0.6217273519830768
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": 0.29765807842589564
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.1359813854352954
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": 0.6434055852177638
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": 0.0481029411127225
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": 0.25388426597053587
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": 0.032600797999034814
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.08486422010624717
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": 0.016695537103592256
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.23601446641249396
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": 0.08182526664304113
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": 0.11924986005467497
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": 0.052412667709614134
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": -0.47682299211357676
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.0807169750434375
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": -0.012506218616094945
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": -0.3837976495065625
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": 0.1348887752565808
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.17060405407506363
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.17909335367879103
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": 0.1577197473124537
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": -0.49211345700467984
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.16295699994104276
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.07875598524648898
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": -0.35094779413084476
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.08608271556469793
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.27538594925850035
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.03702848731558952
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": -0.0069205178529285925
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": 0.12020426166180034
+    },
+    {
+      "fold": 1,
+      "variant": "tfidf_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.049588446897142625
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.1871619853118185
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.3650692942993691
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.17821635766760774
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.7250711445965663
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.44115748234910507
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.2079819026312996
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3183200198500191
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.23397020605150326
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.3458328188202423
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.005763263099672809
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.12147922637739522
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5631019556476867
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.017119745903786922
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.08004968626643148
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.30165777105769315
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.2446630983554727
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.4082987960252963
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.3103061775517391
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": 0.20341682388906718
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": -0.42831763700180353
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": 0.3591615220251163
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.19137493359185564
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": -0.45980468164040617
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.2502336564019911
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": -0.0022089128865314697
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": -0.05819486476026504
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": 0.07363186626513149
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.3032286718376971
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": 0.36661741224914624
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.06831464257509533
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": -0.21524429673382375
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.28599007647638264
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": 0.15458758270749656
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": -0.3799536771064161
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": -0.10101452014976715
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": 0.02040920533535462
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": 0.15153403188806167
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": -0.11195562901888591
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": 0.2734729695550818
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": -0.09137788913851824
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": 0.2619018409768003
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": -0.2928852816177851
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": 0.009103091185949241
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": 0.10511095100823988
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.133905349464133
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": 0.08897290119628166
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": -0.025058934866340938
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": -0.06930367734762341
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": -0.4678959029145816
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.16551034432417497
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": -0.1523575010291365
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": 0.024098158810232546
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": -0.06960271470298011
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.09209448074612783
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.27711951416040653
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": 0.26886950173912677
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": -0.3825907792117833
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.21327124867845432
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.18720443276030085
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": -0.08434529728514185
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.2534165433122749
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.040635021907827334
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.4691808293174416
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": 0.17197249236497938
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": 0.1436757660743435
+    },
+    {
+      "fold": 1,
+      "variant": "no_length_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.07208628119318956
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.20350868074026
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.646371060622795
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.4732345736273781
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 1.1781507754650664
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.5261741711951972
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.019407306850947798
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.504432324221294
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.1956132248614287
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.29242653866298735
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "basic/margin/top5",
+      "coefficient": -0.005260738587650551
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.09089832351316553
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.6198343334822372
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.08529543329201067
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.08815006214532367
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.2615182362862148
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.1791817003072476
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.4433784887402158
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.2567096596632611
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/maximum",
+      "coefficient": -0.16799591797456914
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/top3",
+      "coefficient": 0.0912329439736597
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/top5",
+      "coefficient": -0.21812129020187673
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/mean",
+      "coefficient": 0.08176592191816383
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/dispersion",
+      "coefficient": 0.022992594106312457
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/overlap_fraction",
+      "coefficient": 0.35751376848198824
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/effective_coverage",
+      "coefficient": 0.12119559475523738
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/permitted/peak_excess",
+      "coefficient": -0.052386914685527884
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/maximum",
+      "coefficient": -0.027143489408907123
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/top3",
+      "coefficient": -0.1261238472830986
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/top5",
+      "coefficient": -0.11421925744162995
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/mean",
+      "coefficient": 0.11551168856169018
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/dispersion",
+      "coefficient": 0.004535502533596709
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/overlap_fraction",
+      "coefficient": 0.1636557959663678
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/effective_coverage",
+      "coefficient": 0.35214697451804905
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/violating/peak_excess",
+      "coefficient": 0.09856411644416492
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/maximum",
+      "coefficient": 0.139718869746976
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/top3",
+      "coefficient": -0.31953010696511297
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/top5",
+      "coefficient": 0.10926114607888525
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/mean",
+      "coefficient": 0.07750913394997155
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/dispersion",
+      "coefficient": -0.035161370199657545
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/overlap_fraction",
+      "coefficient": -0.6307999912655974
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/effective_coverage",
+      "coefficient": 0.5487379786419943
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "word_bm25/margin/peak_excess",
+      "coefficient": 0.13220095946357388
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/maximum",
+      "coefficient": -0.007023178094860501
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/top3",
+      "coefficient": -0.34683490650514825
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/top5",
+      "coefficient": 0.010813232020105276
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/mean",
+      "coefficient": 0.11928405623557509
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/dispersion",
+      "coefficient": 0.24574543822880562
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/overlap_fraction",
+      "coefficient": 0.1283688658365812
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/effective_coverage",
+      "coefficient": -0.6898198378381628
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/permitted/peak_excess",
+      "coefficient": -0.02708258815609523
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/maximum",
+      "coefficient": -0.17364553727307855
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/top3",
+      "coefficient": -0.44401908023719633
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/top5",
+      "coefficient": -0.17557668783375885
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/mean",
+      "coefficient": 0.12825843725466965
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/dispersion",
+      "coefficient": 0.46622035570138487
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/overlap_fraction",
+      "coefficient": 0.18596385991122974
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/effective_coverage",
+      "coefficient": -0.6654383975860017
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/violating/peak_excess",
+      "coefficient": -0.11935993945434623
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/maximum",
+      "coefficient": -0.22030143529269497
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/top3",
+      "coefficient": -0.22883359555834815
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/top5",
+      "coefficient": -0.34163309827261085
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/mean",
+      "coefficient": 0.021211400015821655
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/dispersion",
+      "coefficient": 0.4993654000636294
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/overlap_fraction",
+      "coefficient": 0.14522652701554534
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/effective_coverage",
+      "coefficient": 0.03224764547002312
+    },
+    {
+      "fold": 1,
+      "variant": "label_null_all",
+      "feature": "character_bm25/margin/peak_excess",
+      "coefficient": -0.0704298694031411
+    }
+  ],
+  "decision": "DO_NOT_PROMOTE_PRIMARY",
+  "primary_requirements": [
+    {
+      "reference": "qwen_raw",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "qwen_raw",
+        "comparison": "Primary vs qwen_raw",
+        "delta_auc": -0.011334669897221317,
+        "simultaneous_low": -0.03496544744156858,
+        "simultaneous_high": 0.012296107647125944
+      },
+      "per_policy_delta": [
+        0.003171641791044788,
+        -0.02584098158548742
+      ],
+      "passed": false
+    },
+    {
+      "reference": "frozen_basic",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "frozen_basic",
+        "comparison": "Primary vs frozen_basic",
+        "delta_auc": -0.01450883120843216,
+        "simultaneous_low": -0.03813960875277942,
+        "simultaneous_high": 0.0091219463359151
+      },
+      "per_policy_delta": [
+        -0.01067164179104485,
+        -0.01834602062581947
+      ],
+      "passed": false
+    },
+    {
+      "reference": "context_evidence",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "context_evidence",
+        "comparison": "bm25_all vs context anchor",
+        "delta_auc": -0.020698314166822662,
+        "simultaneous_low": -0.04432909171116992,
+        "simultaneous_high": 0.002932463377524598
+      },
+      "per_policy_delta": [
+        -0.02104477611940292,
+        -0.020351852214242294
+      ],
+      "passed": false
+    },
+    {
+      "reference": "uniform_all",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "uniform_all",
+        "comparison": "Primary vs uniform_all",
+        "delta_auc": -0.020351544804304567,
+        "simultaneous_low": -0.04398232234865183,
+        "simultaneous_high": 0.0032792327400426938
+      },
+      "per_policy_delta": [
+        -0.020820895522387972,
+        -0.019882194086221272
+      ],
+      "passed": false
+    },
+    {
+      "reference": "tfidf_all",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "tfidf_all",
+        "comparison": "Primary vs tfidf_all",
+        "delta_auc": -0.01279555968615853,
+        "simultaneous_low": -0.03642633723050579,
+        "simultaneous_high": 0.01083521785818873
+      },
+      "per_policy_delta": [
+        -0.007910447761193984,
+        -0.017680671611123078
+      ],
+      "passed": false
+    },
+    {
+      "reference": "no_length_all",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "no_length_all",
+        "comparison": "Primary vs no_length_all",
+        "delta_auc": -0.004766837959475634,
+        "simultaneous_low": -0.028397615503822894,
+        "simultaneous_high": 0.018863939584871627
+      },
+      "per_policy_delta": [
+        -0.00873134328358205,
+        -0.0008023326353692184
+      ],
+      "passed": false
+    },
+    {
+      "reference": "label_null_all",
+      "contrast": {
+        "candidate": "bm25_all",
+        "reference": "label_null_all",
+        "comparison": "Primary vs label_null_all",
+        "delta_auc": -0.006862258734312232,
+        "simultaneous_low": -0.030493036278659492,
+        "simultaneous_high": 0.016768518810035028
+      },
+      "per_policy_delta": [
+        -0.015671641791044744,
+        0.0019471243224202794
+      ],
+      "passed": false
+    }
+  ],
+  "new_neural_inference": 0,
+  "automatic_gpu_authorization": false,
+  "kaggle_score": null,
+  "elapsed_seconds": 5.976,
+  "limitations": [
+    "This repeatedly inspected development cohort is not independent confirmation.",
+    "The unpromoted Round 9 context-evidence anchor was chosen adaptively before these rounds.",
+    "New reference statistics are group-cross-fitted; inherited adapted answer training margins remain in-sample.",
+    "No semantic counterpart labels or passage labels are invented; original supplied reference labels only.",
+    "Simultaneous intervals cover this round, not the entire adaptive project search.",
+    "Both Rounds 14 and 15 were specified before running either. Round 15 is not an input.",
+    "Term-frequency saturation and reference-length normalization change existing comparisons, not labels or neural weights. The bounded similarity is normalized for query length; it is a BM25-inspired feature, not raw search-engine BM25. The same count vocabularies are reused for TF-IDF and b=0 controls."
+  ]
+}
