@@ -75,20 +75,31 @@ def resolve_supervision(
         resolved["target_probability"] = (resolved.positive_count > 0).astype(float)
     elif conflict_mode == "majority":
         resolved = grouped.loc[grouped.positive_count != grouped.negative_count].copy()
-        resolved["target_probability"] = (
-            resolved.positive_count > resolved.negative_count
-        ).astype(float)
+        resolved["target_probability"] = (resolved.positive_count > resolved.negative_count).astype(
+            float
+        )
     else:
         resolved = grouped.copy()
 
     resolved["hard_label"] = (resolved.target_probability >= 0.5).astype(int)
-    resolved = resolved[
-        [
-            "body", "rule", "normalized_body", "normalized_rule",
-            "target_probability", "hard_label", "occurrence_count",
-            "positive_count", "negative_count", "conflict",
+    resolved = (
+        resolved[
+            [
+                "body",
+                "rule",
+                "normalized_body",
+                "normalized_rule",
+                "target_probability",
+                "hard_label",
+                "occurrence_count",
+                "positive_count",
+                "negative_count",
+                "conflict",
+            ]
         ]
-    ].sort_values(["normalized_rule", "normalized_body"], kind="stable").reset_index(drop=True)
+        .sort_values(["normalized_rule", "normalized_body"], kind="stable")
+        .reset_index(drop=True)
+    )
 
     audit = {
         "input_occurrences": int(before),
@@ -282,13 +293,9 @@ def most_uncertain(
     if len(groups) != len(probability):
         raise ValueError("group alignment mismatch")
     unique = sorted(set(groups.tolist()))
-    raw = {
-        group: count * int((groups == group).sum()) / len(groups)
-        for group in unique
-    }
+    raw = {group: count * int((groups == group).sum()) / len(groups) for group in unique}
     quotas = {
-        group: min(int(math.floor(raw[group])), int((groups == group).sum()))
-        for group in unique
+        group: min(int(math.floor(raw[group])), int((groups == group).sum())) for group in unique
     }
     remainder = count - sum(quotas.values())
     by_fraction = sorted(
@@ -305,24 +312,24 @@ def most_uncertain(
     chosen: list[int] = []
     for group in unique:
         indices = np.flatnonzero(groups == group)
-        local = indices[
-            np.lexsort((indices, uncertainty[indices]))[: quotas[group]]
-        ]
+        local = indices[np.lexsort((indices, uncertainty[indices]))[: quotas[group]]]
         chosen.extend(map(int, local))
     if len(chosen) < count:
         mask = np.ones(len(probability), dtype=bool)
         mask[chosen] = False
         remaining_indices = np.flatnonzero(mask)
         extra = remaining_indices[
-            np.lexsort((remaining_indices, uncertainty[remaining_indices]))[
-                : count - len(chosen)
-            ]
+            np.lexsort((remaining_indices, uncertainty[remaining_indices]))[: count - len(chosen)]
         ]
         chosen.extend(map(int, extra))
     return np.asarray(chosen[:count], dtype=int)
 
 
 def adaptive_bar_height(category_count: int) -> int:
-    if not isinstance(category_count, int) or isinstance(category_count, bool) or category_count < 1:
+    if (
+        not isinstance(category_count, int)
+        or isinstance(category_count, bool)
+        or category_count < 1
+    ):
         raise ValueError("positive category count required")
     return max(480, min(1100, 34 * category_count + 150))

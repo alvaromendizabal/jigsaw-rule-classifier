@@ -98,9 +98,7 @@ def test_soft_ce_is_finite_and_prefers_correct_margin():
 
 
 def test_gce_hard_is_finite():
-    loss = generalized_cross_entropy_hard(
-        np.array([0.9, 0.1, 0.55]), np.array([1, 0, 1]), q=0.955
-    )
+    loss = generalized_cross_entropy_hard(np.array([0.9, 0.1, 0.55]), np.array([1, 0, 1]), q=0.955)
     assert np.isfinite(loss).all()
     assert (loss >= 0).all()
 
