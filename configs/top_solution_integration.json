@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "name": "top_solution_integration",
+  "objective": "Close the hidden-leaderboard gap using independently implemented, evidence-backed competition methods while preserving the existing full-feature Stage-2 route.",
+  "current_private_auc": 0.91425,
+  "winning_private_auc": 0.9293,
+  "gap_to_winner": 0.01505,
+  "no_hard_feature_top_k": true,
+  "full_compatible_feature_matrix_remains_candidate": true,
+  "already_present": [
+    "support-label online adaptation",
+    "subreddit excluded from the current Qwen prompt",
+    "single decision-position training loss",
+    "last-token forward scoring without generation",
+    "test-prompt length sorting",
+    "per-rule rank normalization"
+  ],
+  "highest_priority_gaps": [
+    "conflicting duplicate supervision is currently dropped instead of majority/soft resolution",
+    "current decision verbalizers omit the single-letter Y/N variants used by a top solution",
+    "current scored backbone is 4B while multiple public 14B routes score materially higher",
+    "no two-stage uncertainty pseudo-label route is in the current scored pipeline",
+    "no Deep Mutual Learning peer training is in the current pipeline",
+    "no task-trained contrastive BGE normal/flipped-rule route is in the current ensemble"
+  ],
+  "phase_1_4b_parity_arms": [
+    {
+      "name": "current_control",
+      "conflict_mode": "drop",
+      "prompt_style": "current",
+      "target_mode": "hard",
+      "loss": "ce",
+      "expanded_verbalizers": false
+    },
+    {
+      "name": "majority_concise",
+      "conflict_mode": "majority",
+      "prompt_style": "concise_binary",
+      "target_mode": "hard",
+      "loss": "ce",
+      "expanded_verbalizers": true
+    },
+    {
+      "name": "soft_concise",
+      "conflict_mode": "soft",
+      "prompt_style": "concise_binary",
+      "target_mode": "soft",
+      "loss": "soft_ce",
+      "expanded_verbalizers": true
+    },
+    {
+      "name": "soft_numeric",
+      "conflict_mode": "soft",
+      "prompt_style": "numeric_structured",
+      "target_mode": "soft",
+      "loss": "soft_ce",
+      "expanded_verbalizers": false
+    },
+    {
+      "name": "majority_compliance",
+      "conflict_mode": "majority",
+      "prompt_style": "compliance",
+      "target_mode": "hard",
+      "loss": "ce",
+      "expanded_verbalizers": true
+    }
+  ],
+  "phase_2_scale": [
+    "Run the best registered Phase-1 recipe on Qwen3-14B.",
+    "Retain Qwen3-4B as a diversity member even if 14B wins.",
+    "Add one architecture-diverse member only after matched OOF evidence."
+  ],
+  "phase_3_distillation_and_pseudolabel": [
+    "Two-stage uncertainty-selected soft pseudo-label training: small/current model -> uncertain target-domain rows -> Qwen3-14B.",
+    "Deep Mutual Learning challenger: Qwen3-14B + Qwen3-8B + Qwen3Guard-Gen-4B with peer KL plus supervised decision loss."
+  ],
+  "phase_4_fast_diversity": [
+    "Normal-rule and flipped-rule BGE triplet encoders.",
+    "Centroid-difference embedding features with group-safe classical readouts.",
+    "Optional body-only embedding challenger for ensemble diversity."
+  ],
+  "ensemble_policy": {
+    "per_rule_rank_normalization": true,
+    "weight_selection": "OOF-only constrained non-negative blend plus simple fixed/rank-average baselines",
+    "kaggle_private_labels_for_weight_tuning": false
+  },
+  "public_method_evidence": [
+    {
+      "name": "first_place",
+      "private_auc": 0.9293,
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/1st-place-solution",
+      "public_code": "https://www.kaggle.com/code/wowfattie/1st-place-code",
+      "code_license": "Apache-2.0"
+    },
+    {
+      "name": "dml_data_augmentation",
+      "private_auc": 0.92894,
+      "public_code": "https://www.kaggle.com/code/yangjiahua/jigsaw-dml-no-subreddit-dataaugment",
+      "code_license": "Apache-2.0"
+    },
+    {
+      "name": "fourth_place_salsa",
+      "private_auc": 0.9286,
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/4th-place-solution"
+    },
+    {
+      "name": "sixth_place_dml",
+      "private_auc": 0.92781,
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/6th-place-solution",
+      "public_code": "https://www.kaggle.com/code/ducnh279/6th-place-solution-deep-mutual-learning",
+      "code_license": "Apache-2.0"
+    },
+    {
+      "name": "eleventh_place_post_pseudolabel",
+      "private_auc": 0.92734,
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/11th-place-solution"
+    },
+    {
+      "name": "third_place_qwen3_14b_subensemble",
+      "private_auc": 0.92049,
+      "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/3rd-place-solution"
+    }
+  ]
+}
