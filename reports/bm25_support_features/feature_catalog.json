@@ -1,0 +1,14 @@
+{
+  "new_primary_columns": 48,
+  "families": [
+    "word_bm25",
+    "character_bm25"
+  ],
+  "reference_label_source": "explicit same-rule supplied labels only",
+  "new_vector_inference": false,
+  "crossfit_folds": 3,
+  "independent_round": 14,
+  "new_neural_encoding": false,
+  "anchor": "Round 9 context_evidence (exploratory, unpromoted)",
+  "feature_construction": "16 reference-only count vocabularies and TF-IDF transforms"
+}

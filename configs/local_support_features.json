@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "name": "round6_local_support_density",
+  "audit_run_id": "a6103241df718b4b27a4",
+  "audit_sha256": "f0dc52212107bd3d64cb27dd8861cc5a24b5d71a4af1b9c303c511594d7c9c60",
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "query_counts": [
+    234,
+    647
+  ],
+  "expected_same_rule_training": [
+    629,
+    366
+  ],
+  "dimensions": 2560,
+  "neighbors": 10,
+  "crossfit_folds": 3,
+  "max_seconds": 240,
+  "new_fits": 12,
+  "seed": 20260918,
+  "bootstrap_replicates": 500,
+  "minimum_macro_delta": 0.003,
+  "primary": "frozen_all",
+  "classifiers": {
+    "C": 1.0,
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "seed": 2025
+  },
+  "reference_files": [
+    {
+      "name": "fold_0.npz",
+      "bytes": 21493371,
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+    },
+    {
+      "name": "fold_1.npz",
+      "bytes": 21359643,
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+    }
+  ],
+  "builder_sources": {
+    "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+    "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+    "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+    "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+    "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+  },
+  "automatic_gpu_authorization": false,
+  "gate": "primary beats raw Qwen, answer_only, frozen_basic and shuffled_all by >=0.003 macro AUC; simultaneous lower bounds >0; no per-policy regression; ranked pooled vs Qwen >=0",
+  "restrictions": [
+    "no downloads",
+    "no query targets in features or fitting",
+    "same-rule references only",
+    "no query-query distances",
+    "no package install",
+    "no neural inference",
+    "no automatic Git publication"
+  ]
+}

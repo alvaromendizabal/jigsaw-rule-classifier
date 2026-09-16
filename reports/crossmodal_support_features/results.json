@@ -1,0 +1,5223 @@
+{
+  "schema": 1,
+  "status": "CROSSMODAL_SUPPORT_ROUND_COMPLETE",
+  "run_id": "db369c331ca5c7fb49a7",
+  "identity": {
+    "source": {
+      "scripts/crossmodal_support_features.py": "c8be68c1e583b6ea9713f574cdc29d9dcedb396045e863cbec8b0bc6a2362167",
+      "scripts/run_crossmodal_support_features.py": "961e7336c1fb742953e7e3471c4b67a8e0383c9b7e80ddc42651804c77e9af51",
+      "tests/test_crossmodal_support_features.py": "90d6dc8642d3c8adfaa809c9188ffdd8ff734a7987df087b6eeda50f79e31a9b",
+      "configs/crossmodal_support_features.json": "4999f5e96c8dea6a257bbbf5eccde423b33911762affbbafd17e984dd1d2d6c0",
+      "docs/CROSSMODAL_SUPPORT_FEATURES.md": "5603cb3899ef0debe06d17a9ca0d96fb60ecd13b5dbb69a9396e1e50baaae3b8",
+      "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+      "scripts/run_conditioned_geometry_features.py": "df6ad9e3c25ce730a8137f897801da7599c43b029dcbd3a66a3ec182ff197e5c",
+      "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+      "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f"
+    },
+    "config": {
+      "primary": "crossmodal_all",
+      "new_fits": 12,
+      "cached_control_readouts": 10,
+      "crossfit_folds": 3,
+      "minimum_macro_delta": 0.003,
+      "automatic_gpu_authorization": false,
+      "independent_of_other_new_round": true,
+      "hyperparameters": {
+        "vocabulary_limit_per_family": 6000,
+        "neighbors": 5,
+        "temperature": 0.1
+      },
+      "schema": 1,
+      "name": "round10_crossmodal_support_features",
+      "round8_run_id": "eab42d2b77ef0e2ac8e0",
+      "round8_results_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+      "round9_run_id": "7648bca3c639da0e050f",
+      "round9_results_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+      "classifiers": {
+        "C": 1.0,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "seed": 2025
+      },
+      "max_seconds": 240,
+      "seed": 20260922,
+      "bootstrap_replicates": 500,
+      "new_primary_columns": 48,
+      "question": "Does agreement between exact-word/character overlap and frozen semantic neighbors add evidence beyond the existing context-conditioned anchor?",
+      "reference_status": "context_evidence is an adaptively chosen exploratory anchor, not promoted",
+      "raw_data_and_cache_reuse": true,
+      "scope": "original permitted support/training labels; no released targets"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "joblib": "1.5.3",
+        "plotly": "7.0.0"
+      }
+    },
+    "round9_identity": {
+      "source": {
+        "scripts/behavior_support_features.py": "773f0bcddde62fa2f7c5ce0a9bc6d5fca918ee46c07804cda032601ab632d98b",
+        "scripts/run_behavior_support_features.py": "443e88387eef5b9cbc701396e5f335ebde621301cb3b4cc2dfd1aec6ce0d37f3",
+        "tests/test_behavior_support_features.py": "fa1d7c818beef1152c35a33b4ee8df9e679fc3ee59dc51b4e0a4531b33d60194",
+        "configs/behavior_support_features.json": "8b9cb75d55dc5cdc36da8f51ea1702caedcba20645177bbf25dbc70041dda1ba",
+        "docs/BEHAVIOR_SUPPORT_FEATURES.md": "d0724df92c9f081d3b118f7ba545b3ac2696416a847b7103e44a97b21837443f",
+        "scripts/relational_features.py": "79e8c74d2317fb8398347d95185301aed3127da2923791060b750b1ca6bee56d",
+        "scripts/behavioral_features.py": "cb28b2b8a9fae23859b839fae1be79e5dc600cde631c767ce3ffd7f22c4606cc"
+      },
+      "config": {
+        "schema": 1,
+        "name": "round9_behavior_support_features",
+        "round7_run_id": "6dacdcfb6a19ec13d83f",
+        "round7_results_sha256": "b54e3edbba0d702b06d98175b7658f50fd6d1efc8879a81fe52847077ff99841",
+        "classifiers": {
+          "C": 1.0,
+          "solver": "liblinear",
+          "max_iter": 2000,
+          "seed": 2025
+        },
+        "primary": "conditioned_all",
+        "new_fits": 12,
+        "cached_control_readouts": 6,
+        "max_seconds": 240,
+        "seed": 20260921,
+        "bootstrap_replicates": 500,
+        "minimum_macro_delta": 0.003,
+        "crossfit_folds": 3,
+        "automatic_gpu_authorization": false,
+        "independent_of_other_new_round": true,
+        "new_primary_columns": 48,
+        "reference_status": "Round 7 pinned; six Round 6 readouts reused without refitting.",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "backoff": 0.2,
+          "descriptor_columns": 12
+        },
+        "selection": "No validation-led feature selection or hyperparameter search.",
+        "pooling": "Original 234/647 cohorts; same-rule references and group cross-fitting."
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "round7_identity": {
+        "source": {
+          "scripts/matched_support_features.py": "9ba7f130e49564f3dc33c68457f6fbbbf3a02449530b598415d8e25eec85dbaf",
+          "scripts/run_matched_support_features.py": "d65c3b7096e619e6d599191b2aa9ddde511afcf338579b22377207e8e30eb805",
+          "tests/test_matched_support_features.py": "0da6ba7a07a58c3852a7a34e4dc795e1a652ec08cb60d2ce66a69351b5a97699",
+          "configs/matched_support_features.json": "5ce5af8b5fcb34f5c02521d1859e199d4618d9952e9a9fb5d15cba101e43da74",
+          "docs/MATCHED_SUPPORT_FEATURES.md": "af7888dee1ca09e95e8d19ea75acdfa39c1173166186762c2ca74478023ca3ce"
+        },
+        "config": {
+          "schema": 1,
+          "name": "round7_matched_opposing_support_contrasts",
+          "round6_run_id": "32a90cf7c6607257c2bf",
+          "round6_results_sha256": "9fa4543b48e2a3318c1412d278731b502c89bd1df76b081aef9d4d4a0ae7e508",
+          "primary": "paired_all",
+          "new_fits": 12,
+          "cached_control_readouts": 6,
+          "crossfit_folds": 3,
+          "pair_temperature": 0.1,
+          "vote_scale": 5.0,
+          "max_seconds": 240,
+          "seed": 20260919,
+          "bootstrap_replicates": 500,
+          "minimum_macro_delta": 0.003,
+          "automatic_gpu_authorization": false,
+          "classifiers": {
+            "C": 1.0,
+            "solver": "liblinear",
+            "max_iter": 2000,
+            "seed": 2025
+          },
+          "gate": "Primary beats qwen_raw, answer_only, frozen_basic, repaired_all and orientation_all by >=0.003 policy-macro AUC; simultaneous lower bound >0 and no policy regression for every contrast; ranked-pooled AUC cannot decline vs qwen_raw.",
+          "restrictions": [
+            "no downloads",
+            "no neural inference",
+            "same-rule explicit opposite labels only",
+            "no query labels in features",
+            "no query-query matching",
+            "no Git writes",
+            "no cloud calls"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "round6_identity": {
+          "source": {
+            "scripts/local_support_features.py": "18fd2b95f9f5a6a0685a98464040678c0cef1873fa81e3affec0863a6f3de06f",
+            "scripts/run_local_support_features.py": "89b856d6e9d152db242233ff8717bc8f363e1517713f7be06010f9688471d7ad",
+            "tests/test_local_support_features.py": "862b26a756be083bdd7bba77c03040d3a69d16ba2f2c663f77f20fbee59ddb5a",
+            "configs/local_support_features.json": "9e5229185007b1b0a564dfd75821e5121f56f3e7e44b47b129b3d30cb315b6a4",
+            "docs/LOCAL_SUPPORT_FEATURES.md": "3af58daad45fff8b7f48bbe87a64997d0eaf4e0ae70e43a224263ae26291e940"
+          },
+          "config": {
+            "schema": 1,
+            "name": "round6_local_support_density",
+            "audit_run_id": "a6103241df718b4b27a4",
+            "audit_sha256": "f0dc52212107bd3d64cb27dd8861cc5a24b5d71a4af1b9c303c511594d7c9c60",
+            "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+            "query_counts": [
+              234,
+              647
+            ],
+            "expected_same_rule_training": [
+              629,
+              366
+            ],
+            "dimensions": 2560,
+            "neighbors": 10,
+            "crossfit_folds": 3,
+            "max_seconds": 240,
+            "new_fits": 12,
+            "seed": 20260918,
+            "bootstrap_replicates": 500,
+            "minimum_macro_delta": 0.003,
+            "primary": "frozen_all",
+            "classifiers": {
+              "C": 1.0,
+              "solver": "liblinear",
+              "max_iter": 2000,
+              "seed": 2025
+            },
+            "reference_files": [
+              {
+                "name": "fold_0.npz",
+                "bytes": 21493371,
+                "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+              },
+              {
+                "name": "fold_1.npz",
+                "bytes": 21359643,
+                "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+              }
+            ],
+            "builder_sources": {
+              "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+              "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+              "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+              "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+              "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+            },
+            "automatic_gpu_authorization": false,
+            "gate": "primary beats raw Qwen, answer_only, frozen_basic and shuffled_all by >=0.003 macro AUC; simultaneous lower bounds >0; no per-policy regression; ranked pooled vs Qwen >=0",
+            "restrictions": [
+              "no downloads",
+              "no query targets in features or fitting",
+              "same-rule references only",
+              "no query-query distances",
+              "no package install",
+              "no neural inference",
+              "no automatic Git publication"
+            ]
+          },
+          "environment": {
+            "python": "3.12.14",
+            "packages": {
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "scipy": "1.17.0",
+              "scikit-learn": "1.8.0",
+              "joblib": "1.5.3",
+              "plotly": "7.0.0"
+            }
+          },
+          "audit_run": "a6103241df718b4b27a4"
+        },
+        "audit_identity": {
+          "source": {
+            "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+            "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+            "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+            "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+            "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+          },
+          "config": {
+            "schema": 1,
+            "name": "feature_value_against_cached_qwen_development",
+            "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+            "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+            "query_counts": [
+              234,
+              647
+            ],
+            "bootstrap_replicates": 500,
+            "seed": 20260917,
+            "minimum_slice_class": 10,
+            "max_seconds": 240,
+            "model_fits": 0,
+            "ensembles": false,
+            "account": "560403859723",
+            "region": "us-west-2",
+            "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+            "reference_run": "d13858b7407993fcc6e8",
+            "reference_auc": [
+              0.6792537313432836,
+              0.7605330619753037
+            ],
+            "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+            "reference_files": [
+              {
+                "name": "fold_0.npz",
+                "bytes": 21493371,
+                "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+              },
+              {
+                "name": "fold_1.npz",
+                "bytes": 21359643,
+                "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+                "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+              }
+            ],
+            "rounds": [
+              {
+                "round": 1,
+                "public": "reports/behavioral_features",
+                "private": "runs/behavioral_features",
+                "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+                "run_id": "32e706fe1e7dddb7de34"
+              },
+              {
+                "round": 2,
+                "public": "reports/relational_features",
+                "private": "runs/relational_features",
+                "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+                "run_id": "b951f663d66c68cb6bca"
+              },
+              {
+                "round": 3,
+                "public": "reports/policy_features",
+                "private": "runs/policy_features",
+                "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+                "run_id": "5927fe5eb15c3cf2d8aa"
+              },
+              {
+                "round": 4,
+                "public": "reports/evidence_features",
+                "private": "runs/evidence_features",
+                "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+                "run_id": "e5628cf8367060756148"
+              },
+              {
+                "round": 5,
+                "public": "reports/scope_lexical_features",
+                "private": "runs/scope_lexical_features",
+                "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+                "run_id": "5b69b9779637e79f13cd"
+              }
+            ],
+            "model_round": {
+              "lexical_control": 1,
+              "add_behavior": 1,
+              "add_act_roles": 2,
+              "condition_lexical": 3,
+              "rule_both": 4,
+              "copy_both": 5,
+              "scope_both": 5
+            },
+            "restrictions": [
+              "No new fits or inference",
+              "No blends, thresholds or slice tuning",
+              "Original train labels only for retrospective scoring",
+              "No private content in public export",
+              "No automatic promotion"
+            ]
+          },
+          "environment": {
+            "python": "3.12.14",
+            "packages": {
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "scipy": "1.17.0",
+              "scikit-learn": "1.8.0",
+              "joblib": "1.5.3",
+              "plotly": "7.0.0"
+            }
+          },
+          "references": [
+            "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+          ],
+          "reports": {
+            "1": "32e706fe1e7dddb7de34",
+            "2": "b951f663d66c68cb6bca",
+            "3": "5927fe5eb15c3cf2d8aa",
+            "4": "e5628cf8367060756148",
+            "5": "5b69b9779637e79f13cd"
+          }
+        }
+      },
+      "audit_identity": {
+        "source": {
+          "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+          "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+          "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+          "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+          "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+        },
+        "config": {
+          "schema": 1,
+          "name": "feature_value_against_cached_qwen_development",
+          "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+          "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+          "query_counts": [
+            234,
+            647
+          ],
+          "bootstrap_replicates": 500,
+          "seed": 20260917,
+          "minimum_slice_class": 10,
+          "max_seconds": 240,
+          "model_fits": 0,
+          "ensembles": false,
+          "account": "560403859723",
+          "region": "us-west-2",
+          "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+          "reference_run": "d13858b7407993fcc6e8",
+          "reference_auc": [
+            0.6792537313432836,
+            0.7605330619753037
+          ],
+          "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+          "reference_files": [
+            {
+              "name": "fold_0.npz",
+              "bytes": 21493371,
+              "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+            },
+            {
+              "name": "fold_1.npz",
+              "bytes": 21359643,
+              "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+              "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+            }
+          ],
+          "rounds": [
+            {
+              "round": 1,
+              "public": "reports/behavioral_features",
+              "private": "runs/behavioral_features",
+              "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+              "run_id": "32e706fe1e7dddb7de34"
+            },
+            {
+              "round": 2,
+              "public": "reports/relational_features",
+              "private": "runs/relational_features",
+              "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+              "run_id": "b951f663d66c68cb6bca"
+            },
+            {
+              "round": 3,
+              "public": "reports/policy_features",
+              "private": "runs/policy_features",
+              "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+              "run_id": "5927fe5eb15c3cf2d8aa"
+            },
+            {
+              "round": 4,
+              "public": "reports/evidence_features",
+              "private": "runs/evidence_features",
+              "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+              "run_id": "e5628cf8367060756148"
+            },
+            {
+              "round": 5,
+              "public": "reports/scope_lexical_features",
+              "private": "runs/scope_lexical_features",
+              "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+              "run_id": "5b69b9779637e79f13cd"
+            }
+          ],
+          "model_round": {
+            "lexical_control": 1,
+            "add_behavior": 1,
+            "add_act_roles": 2,
+            "condition_lexical": 3,
+            "rule_both": 4,
+            "copy_both": 5,
+            "scope_both": 5
+          },
+          "restrictions": [
+            "No new fits or inference",
+            "No blends, thresholds or slice tuning",
+            "Original train labels only for retrospective scoring",
+            "No private content in public export",
+            "No automatic promotion"
+          ]
+        },
+        "environment": {
+          "python": "3.12.14",
+          "packages": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3",
+            "scipy": "1.17.0",
+            "scikit-learn": "1.8.0",
+            "joblib": "1.5.3",
+            "plotly": "7.0.0"
+          }
+        },
+        "references": [
+          "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+          "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+        ],
+        "reports": {
+          "1": "32e706fe1e7dddb7de34",
+          "2": "b951f663d66c68cb6bca",
+          "3": "5927fe5eb15c3cf2d8aa",
+          "4": "e5628cf8367060756148",
+          "5": "5b69b9779637e79f13cd"
+        }
+      }
+    },
+    "round8_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+    "audit_identity": {
+      "source": {
+        "scripts/feature_value_audit.py": "9c840510c5664c56dd99d33997de0634619ecaf136faa4dc03a51ec1c3eda566",
+        "scripts/run_feature_value_audit.py": "8a148b4d6abf75c0c70a2b6d7d17c5b95601cd6441013176856f45a2fc4dc87c",
+        "tests/test_feature_value_audit.py": "0a545543ed99c7057837c311541bf8aba7e3c2b6025e6073acc8b4ad6063ef66",
+        "configs/feature_value_audit.json": "a05b1d85c22c527e17d84fefc10971ec6da8c992fc5e77c3045eb720482b5a0e",
+        "docs/FEATURE_VALUE_AUDIT.md": "36ca19fdd821f02939cea89e5600e67179246007dfd6208b54bab5c41f4d8f0a"
+      },
+      "config": {
+        "schema": 1,
+        "name": "feature_value_against_cached_qwen_development",
+        "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+        "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+        "query_counts": [
+          234,
+          647
+        ],
+        "bootstrap_replicates": 500,
+        "seed": 20260917,
+        "minimum_slice_class": 10,
+        "max_seconds": 240,
+        "model_fits": 0,
+        "ensembles": false,
+        "account": "560403859723",
+        "region": "us-west-2",
+        "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+        "reference_run": "d13858b7407993fcc6e8",
+        "reference_auc": [
+          0.6792537313432836,
+          0.7605330619753037
+        ],
+        "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+        "reference_files": [
+          {
+            "name": "fold_0.npz",
+            "bytes": 21493371,
+            "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+          },
+          {
+            "name": "fold_1.npz",
+            "bytes": 21359643,
+            "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+            "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+          }
+        ],
+        "rounds": [
+          {
+            "round": 1,
+            "public": "reports/behavioral_features",
+            "private": "runs/behavioral_features",
+            "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+            "run_id": "32e706fe1e7dddb7de34"
+          },
+          {
+            "round": 2,
+            "public": "reports/relational_features",
+            "private": "runs/relational_features",
+            "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+            "run_id": "b951f663d66c68cb6bca"
+          },
+          {
+            "round": 3,
+            "public": "reports/policy_features",
+            "private": "runs/policy_features",
+            "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+            "run_id": "5927fe5eb15c3cf2d8aa"
+          },
+          {
+            "round": 4,
+            "public": "reports/evidence_features",
+            "private": "runs/evidence_features",
+            "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+            "run_id": "e5628cf8367060756148"
+          },
+          {
+            "round": 5,
+            "public": "reports/scope_lexical_features",
+            "private": "runs/scope_lexical_features",
+            "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+            "run_id": "5b69b9779637e79f13cd"
+          }
+        ],
+        "model_round": {
+          "lexical_control": 1,
+          "add_behavior": 1,
+          "add_act_roles": 2,
+          "condition_lexical": 3,
+          "rule_both": 4,
+          "copy_both": 5,
+          "scope_both": 5
+        },
+        "restrictions": [
+          "No new fits or inference",
+          "No blends, thresholds or slice tuning",
+          "Original train labels only for retrospective scoring",
+          "No private content in public export",
+          "No automatic promotion"
+        ]
+      },
+      "environment": {
+        "python": "3.12.14",
+        "packages": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "scipy": "1.17.0",
+          "scikit-learn": "1.8.0",
+          "joblib": "1.5.3",
+          "plotly": "7.0.0"
+        }
+      },
+      "references": [
+        "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+        "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2"
+      ],
+      "reports": {
+        "1": "32e706fe1e7dddb7de34",
+        "2": "b951f663d66c68cb6bca",
+        "3": "5927fe5eb15c3cf2d8aa",
+        "4": "e5628cf8367060756148",
+        "5": "5b69b9779637e79f13cd"
+      }
+    }
+  },
+  "new_fits": 12,
+  "reused_new_fits": 0,
+  "reused_prior_controls": 10,
+  "control_design_parity": true,
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "qwen_raw",
+      "auc": 0.6792537313432836,
+      "brier": 0.25023770188266237,
+      "log_loss": 0.7600029858994344
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "qwen_raw",
+      "auc": 0.7605330619753037,
+      "brier": 0.2215279122190867,
+      "log_loss": 0.7098793479450484
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "answer_only",
+      "auc": 0.6792537313432836,
+      "brier": 0.2607471050051889,
+      "log_loss": 0.8287071344390946
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "answer_only",
+      "auc": 0.7605330619753037,
+      "brier": 0.22835742570137949,
+      "log_loss": 0.7672579840398105
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "frozen_basic",
+      "auc": 0.6930970149253732,
+      "brier": 0.25446942503043884,
+      "log_loss": 0.8272923823580525
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "frozen_basic",
+      "auc": 0.7530381010156357,
+      "brier": 0.23432719270508912,
+      "log_loss": 0.8215150267538596
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "context_evidence",
+      "auc": 0.7034701492537313,
+      "brier": 0.24708063170336345,
+      "log_loss": 0.8231883906824257
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "context_evidence",
+      "auc": 0.7550439326040586,
+      "brier": 0.23538018446232475,
+      "log_loss": 0.8403668188796676
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "uniform_all",
+      "auc": 0.7032462686567164,
+      "brier": 0.2478045724753044,
+      "log_loss": 0.8210816312678599
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "uniform_all",
+      "auc": 0.7545742744760375,
+      "brier": 0.2338707466167126,
+      "log_loss": 0.8175391835307207
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "word_agreement",
+      "auc": 0.6898880597014925,
+      "brier": 0.2651038840000785,
+      "log_loss": 0.9053602289368277
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "word_agreement",
+      "auc": 0.7504256276785191,
+      "brier": 0.23990569840700976,
+      "log_loss": 0.8789908968398239
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "character_agreement",
+      "auc": 0.6908582089552239,
+      "brier": 0.26178579792751566,
+      "log_loss": 0.9012810242550806
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "character_agreement",
+      "auc": 0.7533609909786501,
+      "brier": 0.24648379870884946,
+      "log_loss": 0.9765820607757038
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "crossmodal_all",
+      "auc": 0.6798880597014925,
+      "brier": 0.2717169980214084,
+      "log_loss": 0.9465084819089833
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "crossmodal_all",
+      "auc": 0.753409913700319,
+      "brier": 0.250425888095989,
+      "log_loss": 0.9897308467016999
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "alignment_null",
+      "auc": 0.684365671641791,
+      "brier": 0.2682238067016481,
+      "log_loss": 0.9437655778034805
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "alignment_null",
+      "auc": 0.7482436742920883,
+      "brier": 0.24512390584675575,
+      "log_loss": 0.9641127339034586
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "label_null",
+      "auc": 0.6966044776119402,
+      "brier": 0.2564056442413476,
+      "log_loss": 0.9139240161731536
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "label_null",
+      "auc": 0.7437623529872215,
+      "brier": 0.24767902959929788,
+      "log_loss": 0.9488828820340564
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "lexical_only",
+      "auc": 0.6901865671641791,
+      "brier": 0.2551047988812405,
+      "log_loss": 0.8521505503597635
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "lexical_only",
+      "auc": 0.7548286726287157,
+      "brier": 0.2424631817746705,
+      "log_loss": 0.8980516521874223
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate": "word_agreement",
+      "reference": "context_evidence",
+      "comparison": "word_agreement vs context anchor",
+      "delta_auc": -0.009100197238889218,
+      "simultaneous_low": -0.03425398511020161,
+      "simultaneous_high": 0.01605359063242318
+    },
+    {
+      "candidate": "character_agreement",
+      "reference": "context_evidence",
+      "comparison": "character_agreement vs context anchor",
+      "delta_auc": -0.007147440961958074,
+      "simultaneous_low": -0.03230122883327047,
+      "simultaneous_high": 0.018006346909354324
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "context_evidence",
+      "comparison": "crossmodal_all vs context anchor",
+      "delta_auc": -0.012608054227989274,
+      "simultaneous_low": -0.03776184209930167,
+      "simultaneous_high": 0.012545733643323124
+    },
+    {
+      "candidate": "alignment_null",
+      "reference": "context_evidence",
+      "comparison": "alignment_null vs context anchor",
+      "delta_auc": -0.012952367961955424,
+      "simultaneous_low": -0.03810615583326782,
+      "simultaneous_high": 0.012201419909356973
+    },
+    {
+      "candidate": "label_null",
+      "reference": "context_evidence",
+      "comparison": "label_null vs context anchor",
+      "delta_auc": -0.00907362562931413,
+      "simultaneous_low": -0.034227413500626525,
+      "simultaneous_high": 0.016080162241998267
+    },
+    {
+      "candidate": "lexical_only",
+      "reference": "context_evidence",
+      "comparison": "lexical_only vs context anchor",
+      "delta_auc": -0.006749421032447578,
+      "simultaneous_low": -0.03190320890375997,
+      "simultaneous_high": 0.01840436683886482
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "qwen_raw",
+      "comparison": "Primary vs qwen_raw",
+      "delta_auc": -0.0032444099583879282,
+      "simultaneous_low": -0.028398197829700326,
+      "simultaneous_high": 0.02190937791292447
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "frozen_basic",
+      "comparison": "Primary vs frozen_basic",
+      "delta_auc": -0.006418571269598772,
+      "simultaneous_low": -0.031572359140911166,
+      "simultaneous_high": 0.018735216601713626
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "uniform_all",
+      "comparison": "Primary vs uniform_all",
+      "delta_auc": -0.012261284865471178,
+      "simultaneous_low": -0.03741507273678357,
+      "simultaneous_high": 0.01289250300584122
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "alignment_null",
+      "comparison": "Primary vs alignment_null",
+      "delta_auc": 0.0003443137339661506,
+      "simultaneous_low": -0.024809474137346247,
+      "simultaneous_high": 0.025498101605278548
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "label_null",
+      "comparison": "Primary vs label_null",
+      "delta_auc": -0.0035344285986751434,
+      "simultaneous_low": -0.02868821646998754,
+      "simultaneous_high": 0.021619359272637254
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "lexical_only",
+      "comparison": "Primary vs lexical_only",
+      "delta_auc": -0.005858633195541696,
+      "simultaneous_low": -0.031012421066854094,
+      "simultaneous_high": 0.0192951546757707
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "word_agreement",
+      "comparison": "Family removal: character-agreement",
+      "delta_auc": -0.0035078569891000555,
+      "simultaneous_low": -0.028661644860412453,
+      "simultaneous_high": 0.021645930882212342
+    },
+    {
+      "candidate": "crossmodal_all",
+      "reference": "character_agreement",
+      "comparison": "Family removal: word-agreement",
+      "delta_auc": -0.0054606132660312,
+      "simultaneous_low": -0.030614401137343598,
+      "simultaneous_high": 0.019693174605281197
+    }
+  ],
+  "pooled_metrics": [
+    {
+      "variant": "qwen_raw",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7396660654579207,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "answer_only",
+      "macro_auc": 0.7198933966592936,
+      "pooled_auc": 0.7386798721640351,
+      "ranked_pooled_auc": 0.7389593814933182
+    },
+    {
+      "variant": "frozen_basic",
+      "macro_auc": 0.7230675579705045,
+      "pooled_auc": 0.7338517440327396,
+      "ranked_pooled_auc": 0.7370898332436794
+    },
+    {
+      "variant": "context_evidence",
+      "macro_auc": 0.729257040928895,
+      "pooled_auc": 0.7361827463637419,
+      "ranked_pooled_auc": 0.7413299370312945
+    },
+    {
+      "variant": "uniform_all",
+      "macro_auc": 0.7289102715663769,
+      "pooled_auc": 0.7359137845563186,
+      "ranked_pooled_auc": 0.7409133099178349
+    },
+    {
+      "variant": "word_agreement",
+      "macro_auc": 0.7201568436900058,
+      "pooled_auc": 0.7322010568616903,
+      "ranked_pooled_auc": 0.7343211087554979
+    },
+    {
+      "variant": "character_agreement",
+      "macro_auc": 0.7221095999669369,
+      "pooled_auc": 0.7342367285806201,
+      "ranked_pooled_auc": 0.7366943011739391
+    },
+    {
+      "variant": "crossmodal_all",
+      "macro_auc": 0.7166489867009057,
+      "pooled_auc": 0.7332927253741734,
+      "ranked_pooled_auc": 0.7338781128373888
+    },
+    {
+      "variant": "alignment_null",
+      "macro_auc": 0.7163046729669396,
+      "pooled_auc": 0.7308140577371346,
+      "ranked_pooled_auc": 0.731246506133384
+    },
+    {
+      "variant": "label_null",
+      "macro_auc": 0.7201834152995809,
+      "pooled_auc": 0.7296327352888439,
+      "ranked_pooled_auc": 0.7312148635678047
+    },
+    {
+      "variant": "lexical_only",
+      "macro_auc": 0.7225076198964474,
+      "pooled_auc": 0.7348748536531342,
+      "ranked_pooled_auc": 0.7376541256631755
+    }
+  ],
+  "diagnostics": [
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 419,
+      "query_rows": 210,
+      "mean_top5_agreement": 0.10619047619047618,
+      "mean_lexical_nearest": 0.2549559558800228
+    },
+    {
+      "fold": 0,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 419,
+      "query_rows": 210,
+      "mean_top5_agreement": 0.1157142857142857,
+      "mean_lexical_nearest": 0.33390623406451647
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 419,
+      "query_rows": 210,
+      "mean_top5_agreement": 0.11666666666666667,
+      "mean_lexical_nearest": 0.2699218271593401
+    },
+    {
+      "fold": 0,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 419,
+      "query_rows": 210,
+      "mean_top5_agreement": 0.11,
+      "mean_lexical_nearest": 0.3447905324861534
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 420,
+      "query_rows": 209,
+      "mean_top5_agreement": 0.11435406698564594,
+      "mean_lexical_nearest": 0.2636988063644381
+    },
+    {
+      "fold": 0,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 420,
+      "query_rows": 209,
+      "mean_top5_agreement": 0.11387559808612442,
+      "mean_lexical_nearest": 0.33431569631075897
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 629,
+      "query_rows": 234,
+      "mean_top5_agreement": 0.05982905982905984,
+      "mean_lexical_nearest": 0.24218866061265654
+    },
+    {
+      "fold": 0,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 629,
+      "query_rows": 234,
+      "mean_top5_agreement": 0.06666666666666667,
+      "mean_lexical_nearest": 0.29586744967144896
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 244,
+      "query_rows": 122,
+      "mean_top5_agreement": 0.05655737704918033,
+      "mean_lexical_nearest": 0.14585831810047942
+    },
+    {
+      "fold": 1,
+      "inner_fold": "0",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 244,
+      "query_rows": 122,
+      "mean_top5_agreement": 0.0680327868852459,
+      "mean_lexical_nearest": 0.21860313212463503
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 244,
+      "query_rows": 122,
+      "mean_top5_agreement": 0.06885245901639345,
+      "mean_lexical_nearest": 0.14117476411697305
+    },
+    {
+      "fold": 1,
+      "inner_fold": "1",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 244,
+      "query_rows": 122,
+      "mean_top5_agreement": 0.05491803278688525,
+      "mean_lexical_nearest": 0.22207698966492345
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 244,
+      "query_rows": 122,
+      "mean_top5_agreement": 0.05819672131147541,
+      "mean_lexical_nearest": 0.14084080329472728
+    },
+    {
+      "fold": 1,
+      "inner_fold": "2",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 244,
+      "query_rows": 122,
+      "mean_top5_agreement": 0.0639344262295082,
+      "mean_lexical_nearest": 0.21953823539631068
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "family": "word",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 366,
+      "query_rows": 647,
+      "mean_top5_agreement": 0.03894899536321484,
+      "mean_lexical_nearest": 0.16107747634667968
+    },
+    {
+      "fold": 1,
+      "inner_fold": "outer_query",
+      "self_overlap": 0,
+      "family": "character",
+      "vocabulary_columns": 6000,
+      "zero_lexical_query_fraction": 0.0,
+      "reference_rows": 366,
+      "query_rows": 647,
+      "mean_top5_agreement": 0.03987635239567234,
+      "mean_lexical_nearest": 0.23142659514227848
+    }
+  ],
+  "coefficients": [
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "answer/log_odds",
+      "coefficient": 4.429404016497704
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.11320947151958534
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4361519884309828
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.1700851493147024
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.47897399144797975
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.09605775520831342
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.2885217950551645
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1595850188284285
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.494203341994942
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.30461588931862105
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.03259359015696622
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.44717307086482
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.0247216010950961
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.157803115603852
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.212802199254877
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.09981622600177159
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.27751151307689637
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.1220136518367947
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.0027379334723582407
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.21036195289765103
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.48208252484011793
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.21113551928014027
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": 0.634381530212144
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.530286699784824
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": 0.27992783046978775
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.3682509067633944
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": 0.21655383260135858
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": -0.6643452607577698
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 0.6780950621069226
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": -0.00823884045644086
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.6445332315754878
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": 0.11301412867020574
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.18606051397165702
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": -0.5529126111029925
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": 0.23442993653628819
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/joint_top5",
+      "coefficient": 0.038423761547227715
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": -0.0013200952829638332
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": 0.4050065033426797
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": -0.035217332558613694
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": 0.39539342228915864
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": -0.05700486747163444
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": -0.15712568206464075
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.013445146878255616
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.4316294628735582
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": -0.40026945756436894
+    },
+    {
+      "fold": 0,
+      "variant": "word_agreement",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": 0.28682897366783394
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "answer/log_odds",
+      "coefficient": 4.161727209268885
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.6675691633491516
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.544764084863103
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2990920943528672
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.10359021081703707
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.07519633090197303
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3958012070481513
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.141729193523303
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.554006349940859
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.37172627400944336
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.07477983567884322
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5277055001559174
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.8893099424306213
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.0346123204095543
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.364277752165672
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.03662323012968008
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.31577835846164615
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.1655865477835524
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.04438063015604814
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.1036779095708393
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.46487321476037247
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.22596232074854586
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.23265369140122433
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": -0.16430791109956489
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.4423223679593761
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.8669169465973897
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.6518094466852
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": -0.192726221110297
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": 0.42721926291381374
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.6185200256402265
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": 0.13182686197470042
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.31781206605314366
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.4214668436454284
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.20053980136036656
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.18838462791862792
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.22349591323088192
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": 0.10543509955345481
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": 0.7528940370922143
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": 0.2384178709838699
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": 0.2949124732971856
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": -0.05207532321692812
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": 0.41993253341058523
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": -0.35451259796914136
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.25832422521604803
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": -0.19218579767726204
+    },
+    {
+      "fold": 0,
+      "variant": "character_agreement",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": -0.03849583942523895
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.329249097020441
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.6461946875271886
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.4809216735594452
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.272718388660883
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.07481247754719642
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.09735167296695553
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.36547025235632424
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.051869827383766
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.532830154616102
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.34566402046018985
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.012164968062876702
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.45301198686666666
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.8937006570951525
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.011632744555883
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.3872013798071302
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.10509196287296643
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.40544226465133504
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.1675476632937771
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.029738887374351
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.12192495090718074
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.4600162761192203
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.2152797869873827
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": 0.99204775192473
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.23153069782555405
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": 0.447389811818822
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.1605710225051401
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": -0.02250847961714247
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": -0.3479873025585255
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 1.0174297370434828
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": -0.3129651097694144
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.7883456085583566
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.2929336368136416
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.2999152849661465
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": -0.4409784238831303
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": 0.20754706150159577
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/joint_top5",
+      "coefficient": -0.32766054232287967
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": -0.2328450247959817
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": 0.5258278595604635
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": -0.18309864806453904
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": -0.036299230111095246
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": -0.08810366998481028
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": -0.20874797987429763
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": 0.14606928343964834
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.012427804908902221
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": -0.7443658045028354
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": 0.5755908179790008
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.7103753412999929
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": -0.09274608248726463
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.6923790927574622
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.8065000171782678
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.6113172625635493
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": -0.1637338998425832
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": -0.291287031087471
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.7799552958357543
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.1616764109097637
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.45807548146390187
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.7372652356347524
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.24462571627135607
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.11046375718186603
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.33873318620912235
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": 0.4716670499092095
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": 0.4690677248669306
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": 0.3885909323657485
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": 0.33075711161724364
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": -0.16899091458858745
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": 0.3528682012021222
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": -0.37419471077812144
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.30769000005618397
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.44817355558836797
+    },
+    {
+      "fold": 0,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": -0.32046539838844657
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "answer/log_odds",
+      "coefficient": 4.3902165860207765
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.06443673752216296
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.457812213901119
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.2038256371841065
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.6065598454595549
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.09127893518106218
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.26393765778423284
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.3591183721844953
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.5052559486506834
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.24481109598596368
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.10964449627722966
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.45104618215523523
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 0.8037477787493923
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -0.8937399184054715
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.24032758988432334
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.12734348583124577
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.22489728994481098
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.051776723184476944
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.03117031939274615
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.013749584367029978
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5679551953873223
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.29008860080327914
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": 1.1653085891316375
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.6519648289048835
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": 0.049521953164046395
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": 0.23606970934357946
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": -0.1456524882104206
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": -0.671935527773983
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 0.8926806460269034
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": -0.6538282191351995
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.6273897763592533
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.20953869155270385
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.2186418201949381
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": 0.25244313012370095
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": -0.21127962495491112
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/joint_top5",
+      "coefficient": -0.18594386711272062
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": -0.24540317862977573
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": -0.004472596372679296
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": -0.3892003689400824
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": 0.2733964920719666
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": 0.2505730116361093
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": 0.0810386758145092
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.07403430240043851
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.2948986571984466
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": -0.6902252649613836
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": 0.5696627363439614
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.6598235084881341
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": 0.003356647029886268
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": 0.1414803665606132
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.08703036133511874
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": -0.027515211543672695
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": 0.07795484564877611
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": -0.2895864128457877
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.6652006621088189
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.1474323243473969
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.5848858962434996
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": 0.1565822367898884
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.3674295280255432
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": -0.04966020281077543
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.5261159202912659
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": 0.33294235264247946
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": 0.05639156865769295
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": 0.3625854984796774
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": 0.3426065811341164
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": 0.04926803901058999
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": -0.22405310309951318
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": -0.02275042992194985
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.2625193315641123
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.3738155198394053
+    },
+    {
+      "fold": 0,
+      "variant": "alignment_null",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": -0.589100534064151
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "answer/log_odds",
+      "coefficient": 4.577780837400088
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.11779001475526125
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.3292758001465993
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.0392526785450577
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.4259249934214456
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.011472768401867409
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3709712367378896
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.0548717018670672
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.25444323168488797
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.5175911117428708
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.24893825005129674
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.6473928082314628
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.0833414790242315
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.2575530439707312
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.19860774286026592
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.04922515864444792
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": 0.018622251601468146
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": -0.08744138613917166
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.0026735150596995366
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.17404997291492508
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.5849339366946958
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.25090552632259044
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": 0.41469031697722547
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": 0.32421758406927537
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": 0.738892447666802
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.3082771292547368
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": -0.13439502698332348
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": 0.19043213696039904
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": -0.055238233487928466
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": -0.11172147459245708
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.24892203747152655
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.008515789882471715
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.6102918282301011
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": -0.24055811090657978
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": -0.2758816616363544
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/joint_top5",
+      "coefficient": -0.0427504012901814
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": 0.3635479880710345
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": -0.29880773381227915
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": -0.2091956702217563
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": -0.453702434587811
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": -0.1998942110728532
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": 0.20678340314420335
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.14870907730146332
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/joint_top5",
+      "coefficient": -0.3081548804733477
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": 0.6840799634813357
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": -0.20928865471048314
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.5947401111104618
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": -0.03978699361292527
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.6391261169101504
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.38423062188532514
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.7147575958195735
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": -0.20350685957079861
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": 0.10049782308894367
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.1864833913274289
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.019894731192665376
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": -0.37684484159172343
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.6185484269840387
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.5608024328573076
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.7352554522103038
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/joint_top5",
+      "coefficient": -0.3515767966545197
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": 0.2190788165497875
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": 0.26078972713933757
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": 0.7886779991369747
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": -0.3687418045121362
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": 0.10392201774689541
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": -0.06663047948620798
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": 0.06462790548766417
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/joint_top5",
+      "coefficient": -0.10536933787317705
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.25833613916805714
+    },
+    {
+      "fold": 0,
+      "variant": "label_null",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": 0.048742614027631914
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "answer/log_odds",
+      "coefficient": 3.8584617217613317
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.22333654221145305
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/permitted/nearest",
+      "coefficient": 0.35095632044284636
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.1961781164348693
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.3861002931083494
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/violating/nearest",
+      "coefficient": -0.06798123739760634
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.34617487546744974
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/margin/centroid",
+      "coefficient": -1.1177236027650648
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/margin/nearest",
+      "coefficient": -0.38451127896811965
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.37102472670418424
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.16131610881699665
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5410408361119534
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": 1.0096524722838827
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": -1.1082463238708253
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/owned_business_url_present/affinity_delta",
+      "coefficient": -0.3089426927543348
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/owned_business_url_present/similarity_delta",
+      "coefficient": -0.12632876313973068
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/owned_business_url_present/effective_delta",
+      "coefficient": -0.32509335413010404
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/owned_business_url_present/minimum_coverage",
+      "coefficient": 0.08413219994052912
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": -0.0068819678562179395
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": -0.15811759300181835
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": 0.513512602477296
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": -0.2582749336148708
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": 0.9131151787271379
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.20444271264587296
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.5348448174801866
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.17290857535856086
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": -0.2797631337965527
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": 0.020293279601332103
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.7442560897513611
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": -0.2011110795415392
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.23088423089579255
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.627256202991075
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": 0.37013155814466664
+    },
+    {
+      "fold": 0,
+      "variant": "lexical_only",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": 0.5014280913116206
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "answer/log_odds",
+      "coefficient": 4.499038877982502
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.08360942822270825
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.15571523293333647
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.6608710572337049
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.7586265133939788
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.12022961697237743
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.316118329770932
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.683751325355726
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.2299402282845065
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.03494567414807767
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.127614748861142
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.6134510539624264
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.11741463286212617
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.11138525294739499
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.4520924622041921
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.10535269760957154
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.28756772411508047
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.12995115211233402
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": -0.001078425638967381
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.16394114523876524
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.09414024427127432
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": 0.3553643627352389
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": 0.265748924585658
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": 0.006255883094919704
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 0.018781006744435187
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": 0.11642087669006072
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.11586128150964169
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.28697537396308415
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.45687530227363415
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": 0.24486978931579523
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": 0.09580346960138765
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/joint_top5",
+      "coefficient": 0.170071911916926
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": 0.1364854478678063
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": -0.45527952028193996
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": 0.07272024088177041
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": -0.09279636235790327
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": 0.40953646920158415
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": -0.05590053357904907
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.13645014801525757
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.1272494539063644
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": 0.2728083605249457
+    },
+    {
+      "fold": 1,
+      "variant": "word_agreement",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": -0.3610619122798269
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "answer/log_odds",
+      "coefficient": 4.342938040241322
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.3496971391660822
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.16043992546335104
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8195820312552526
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.39093611845202725
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.15153492594917378
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4545639728993102
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.4736394540440609
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.26940284880151194
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.11479297332181172
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.061419515603063746
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.5704350137742414
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.33919899214569377
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.06179890608295521
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3479160199031935
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.2681502563213983
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.3171938566395587
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.13490341957874388
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": 0.06613634183420218
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": 0.30620383877470286
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -1.0362686360479723
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.33189389613636927
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.66605155943362
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": 0.3139239924608409
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": -0.29870087337238194
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.5072894012370665
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.4501142529182408
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.12536510364795608
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.12154191747195602
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.036908767460550426
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.09733913202681424
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.4678465667999718
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": 0.06230233615063091
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": -0.05577126026103727
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": -0.4006034438810528
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": -0.15949298004593843
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": 0.4182129070088855
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": 0.30517837102973056
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": -0.4184729742488626
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.18441514509107693
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.7887666130492316
+    },
+    {
+      "fold": 1,
+      "variant": "character_agreement",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": -0.5345777046721368
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "answer/log_odds",
+      "coefficient": 4.548011941027178
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.18906470030553488
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.22239699896140722
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.8551242729405711
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.6733462354361622
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.1123080447188588
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.4665365795521092
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.6523215976300561
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.2586284206758456
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.11092599799306356
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": 0.10186344544986145
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.676984812826168
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.31192036690947783
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.05133946699688645
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.4079054273407883
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.33005815460037274
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.33449504719038464
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.17507841005540642
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": -0.021848620896755794
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.24791437764194194
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": 0.17534649340012087
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": 0.2641616272789188
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": 0.31373886091033865
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": -0.08932997868210636
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 0.4089977506746591
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": -0.05493401078635533
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": 0.0077407258351723475
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.26338963086829736
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.595666838731235
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": 0.20067158356094353
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": 0.18525882689417886
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/joint_top5",
+      "coefficient": 0.10960281513665403
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": 0.4561216739160266
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": -0.7026779897024295
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": 0.022387082174584478
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": -0.008247556992600031
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": 0.38375238519405414
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": -0.021429989795319765
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.11242715553317696
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.15125003449340244
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": 0.296623971199339
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": -0.3309162552035484
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": 0.047247902548389835
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": 0.44046478439329045
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -1.004899014864876
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.6349982204114424
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.6240475722529152
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": 0.39191566639808123
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": -0.5528909279108468
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.5155346322883196
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.45815608865861784
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.20920922107973894
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.1981046697464404
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.2784018127173484
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.11786584200584305
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.4369091677580545
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": -0.2731419135255693
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": 0.4499115985387952
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": -0.3914136105995924
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": -0.20161434777502327
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": 0.34763031175141573
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": 0.32139361438238095
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": -0.3743202743683612
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.09191116282546996
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.46860071668613884
+    },
+    {
+      "fold": 1,
+      "variant": "crossmodal_all",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": -0.3060916134998758
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "answer/log_odds",
+      "coefficient": 4.1382587204144174
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.29172856025401406
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.3961272587800279
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/permitted/top5",
+      "coefficient": 1.1848415555955154
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/violating/centroid",
+      "coefficient": 0.508203427661464
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.14133012275710008
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.6658094506246219
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/margin/centroid",
+      "coefficient": 0.320487645698975
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.39170213974267803
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.17585076622851703
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.30411720474548604
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.7663087026466266
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.08220118209755857
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.07126291894428094
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.27683580647099576
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.06302085098340036
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.3771027627453732
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.23343029726044728
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": -0.182407265604141
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.14150845602201334
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.9271804988329659
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.3571532215355801
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": 0.39537273400229045
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": -0.08184509920349219
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 0.8625702389695868
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": 0.3765356369535105
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": -0.10263042901268082
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.05661546746216001
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": -0.5069957236135278
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": -0.6095354187187944
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": 0.3673529267995747
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/joint_top5",
+      "coefficient": -0.07677712730333347
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": 0.7680252105785015
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": -0.20977786178212085
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": 0.083178157085012
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": 0.06786518817652509
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": 0.07635463072346259
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": -0.2596261348714183
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.09612703282670311
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.0011545204134641254
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": 0.21671602038782764
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": -0.43590581086542873
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.08102020486064522
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": 0.4091687495868379
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.1746649124021398
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.3880653676724722
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.10638386231209511
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": 0.3353138989893307
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": -0.35531824465456835
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": -0.2422929680502902
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.4238446329182409
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.16622784417204292
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.7149122328570593
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.1612214203631152
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.204668489275483
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.3222215492590943
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": -0.13289042894983788
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": -0.11107439127934116
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": -0.2605078912658215
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": -0.21436973131771142
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": -0.5205888565913688
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": 0.22122653043697316
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": 0.04207810952923193
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.02822262339348039
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.4257078844125907
+    },
+    {
+      "fold": 1,
+      "variant": "alignment_null",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": 0.15194678233281217
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "answer/log_odds",
+      "coefficient": 4.449474448662489
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/permitted/centroid",
+      "coefficient": 0.030204634862382108
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.36389614653718455
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/permitted/top5",
+      "coefficient": 1.001238350505548
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.5108717335977562
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.2798363063646043
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.5820330021883725
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.4501252629234026
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.5360250283574585
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.17076752936378098
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.0848842242382169
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.4626915134031985
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.0756561154038356
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.03147555453985861
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.33972034799820106
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.21596739998486578
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.32810482787492784
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.16789890951257555
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": 0.20574612937171866
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.25198029311975095
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.05124880937611844
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/lexical_at_semantic_top5",
+      "coefficient": 0.15064953412987048
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/top5_overlap",
+      "coefficient": 0.047048044541507114
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/joint_top5",
+      "coefficient": -0.17109773355214242
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/affinity_weighted_lexical",
+      "coefficient": 0.41349638345673806
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/permitted/alignment_covariance",
+      "coefficient": -0.17827597659507613
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": -0.005689331436913961
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": -0.19963526268195997
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/semantic_at_lexical_top5",
+      "coefficient": 0.12294142238168437
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/lexical_at_semantic_top5",
+      "coefficient": 0.3402276116766798
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/top5_overlap",
+      "coefficient": -0.4626804908712589
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/joint_top5",
+      "coefficient": 0.1788494536005761
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/affinity_weighted_lexical",
+      "coefficient": 0.08846028968009222
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/violating/alignment_covariance",
+      "coefficient": -0.2997450647811068
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": -0.17077299972206786
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": 0.06908556566337352
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/semantic_at_lexical_top5",
+      "coefficient": 0.2180011790219475
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/lexical_at_semantic_top5",
+      "coefficient": 0.18007381299293776
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/top5_overlap",
+      "coefficient": -0.3213486691721977
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/joint_top5",
+      "coefficient": 0.30444202389655545
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/affinity_weighted_lexical",
+      "coefficient": -0.9508303913886215
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "word/margin/alignment_covariance",
+      "coefficient": -0.09957685386667744
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": 0.044191823115511585
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": 0.17710367652186218
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/semantic_at_lexical_top5",
+      "coefficient": -0.09314593205403368
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/lexical_at_semantic_top5",
+      "coefficient": -0.1987324061900866
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/top5_overlap",
+      "coefficient": 0.48095916790789384
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/joint_top5",
+      "coefficient": -0.10954381003746129
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/affinity_weighted_lexical",
+      "coefficient": -0.17839780814082334
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/permitted/alignment_covariance",
+      "coefficient": 0.36438837202980123
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.34066925360157063
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.28448197139837794
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/semantic_at_lexical_top5",
+      "coefficient": -0.12200782819759154
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/lexical_at_semantic_top5",
+      "coefficient": -0.28876660668038784
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/top5_overlap",
+      "coefficient": 0.3187708952625394
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/joint_top5",
+      "coefficient": 0.15270309480589772
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/affinity_weighted_lexical",
+      "coefficient": 0.031033910208797512
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/violating/alignment_covariance",
+      "coefficient": 0.4293548759318405
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": -0.30357008699492755
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": 0.11119039096429305
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/semantic_at_lexical_top5",
+      "coefficient": -0.03735211140084878
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/lexical_at_semantic_top5",
+      "coefficient": -0.112138381099492
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/top5_overlap",
+      "coefficient": -0.15278556245527733
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/joint_top5",
+      "coefficient": 0.27816254529868456
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/affinity_weighted_lexical",
+      "coefficient": 0.7109209798916133
+    },
+    {
+      "fold": 1,
+      "variant": "label_null",
+      "feature": "character/margin/alignment_covariance",
+      "coefficient": 0.026664277442282565
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "answer/log_odds",
+      "coefficient": 4.172517634441216
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/permitted/centroid",
+      "coefficient": -0.15630249797554335
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/permitted/nearest",
+      "coefficient": -0.26501989535299875
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/permitted/top5",
+      "coefficient": 0.802366321074977
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/violating/centroid",
+      "coefficient": -0.42478552825141136
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/violating/nearest",
+      "coefficient": 0.2590156319773198
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/violating/top5",
+      "coefficient": 0.3705541160625077
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/margin/centroid",
+      "coefficient": -0.3025110095894969
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/margin/nearest",
+      "coefficient": 0.4552335011585422
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "basic/margin/top5",
+      "coefficient": 0.027290173198401314
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/affinity_delta",
+      "coefficient": -0.18992623083808197
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/similarity_delta",
+      "coefficient": 0.6083377572625587
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/effective_delta",
+      "coefficient": -0.015093205011342991
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/cta_url_present/minimum_coverage",
+      "coefficient": 0.07849986703535747
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/affinity_delta",
+      "coefficient": 0.3472799573354653
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/similarity_delta",
+      "coefficient": 0.15096361296265198
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/effective_delta",
+      "coefficient": -0.2521822286649953
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "conditional/link_intent/resource_url_present/minimum_coverage",
+      "coefficient": 0.11263998045457795
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "word/permitted/lexical_nearest",
+      "coefficient": -0.10970370891660129
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "word/permitted/lexical_top5",
+      "coefficient": -0.07719901924520746
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "word/violating/lexical_nearest",
+      "coefficient": -0.08173803692031104
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "word/violating/lexical_top5",
+      "coefficient": 0.2055649170834376
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "word/margin/lexical_nearest",
+      "coefficient": 0.03761342441637517
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "word/margin/lexical_top5",
+      "coefficient": 0.2201091890759199
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "character/permitted/lexical_nearest",
+      "coefficient": -0.07489002642350953
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "character/permitted/lexical_top5",
+      "coefficient": 0.5343032615541999
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "character/violating/lexical_nearest",
+      "coefficient": -0.4452517041198559
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "character/violating/lexical_top5",
+      "coefficient": 0.43070089430314074
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "character/margin/lexical_nearest",
+      "coefficient": -0.2819913845057207
+    },
+    {
+      "fold": 1,
+      "variant": "lexical_only",
+      "feature": "character/margin/lexical_top5",
+      "coefficient": -0.0741654117969563
+    }
+  ],
+  "decision": "DO_NOT_PROMOTE_PRIMARY",
+  "primary_requirements": [
+    {
+      "reference": "qwen_raw",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "qwen_raw",
+        "comparison": "Primary vs qwen_raw",
+        "delta_auc": -0.0032444099583879282,
+        "simultaneous_low": -0.028398197829700326,
+        "simultaneous_high": 0.02190937791292447
+      },
+      "per_policy_delta": [
+        0.0006343283582088688,
+        -0.007123148274984725
+      ],
+      "passed": false
+    },
+    {
+      "reference": "frozen_basic",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "frozen_basic",
+        "comparison": "Primary vs frozen_basic",
+        "delta_auc": -0.006418571269598772,
+        "simultaneous_low": -0.031572359140911166,
+        "simultaneous_high": 0.018735216601713626
+      },
+      "per_policy_delta": [
+        -0.01320895522388077,
+        0.0003718126846832259
+      ],
+      "passed": false
+    },
+    {
+      "reference": "context_evidence",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "context_evidence",
+        "comparison": "crossmodal_all vs context anchor",
+        "delta_auc": -0.012608054227989274,
+        "simultaneous_low": -0.03776184209930167,
+        "simultaneous_high": 0.012545733643323124
+      },
+      "per_policy_delta": [
+        -0.02358208955223884,
+        -0.001634018903739598
+      ],
+      "passed": false
+    },
+    {
+      "reference": "uniform_all",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "uniform_all",
+        "comparison": "Primary vs uniform_all",
+        "delta_auc": -0.012261284865471178,
+        "simultaneous_low": -0.03741507273678357,
+        "simultaneous_high": 0.01289250300584122
+      },
+      "per_policy_delta": [
+        -0.02335820895522389,
+        -0.0011643607757185759
+      ],
+      "passed": false
+    },
+    {
+      "reference": "alignment_null",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "alignment_null",
+        "comparison": "Primary vs alignment_null",
+        "delta_auc": 0.0003443137339661506,
+        "simultaneous_low": -0.024809474137346247,
+        "simultaneous_high": 0.025498101605278548
+      },
+      "per_policy_delta": [
+        -0.004477611940298498,
+        0.005166239408230688
+      ],
+      "passed": false
+    },
+    {
+      "reference": "label_null",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "label_null",
+        "comparison": "Primary vs label_null",
+        "delta_auc": -0.0035344285986751434,
+        "simultaneous_low": -0.02868821646998754,
+        "simultaneous_high": 0.021619359272637254
+      },
+      "per_policy_delta": [
+        -0.016716417910447756,
+        0.00964756071309747
+      ],
+      "passed": false
+    },
+    {
+      "reference": "lexical_only",
+      "contrast": {
+        "candidate": "crossmodal_all",
+        "reference": "lexical_only",
+        "comparison": "Primary vs lexical_only",
+        "delta_auc": -0.005858633195541696,
+        "simultaneous_low": -0.031012421066854094,
+        "simultaneous_high": 0.0192951546757707
+      },
+      "per_policy_delta": [
+        -0.010298507462686679,
+        -0.0014187589283967128
+      ],
+      "passed": false
+    }
+  ],
+  "new_neural_inference": 0,
+  "automatic_gpu_authorization": false,
+  "kaggle_score": null,
+  "elapsed_seconds": 5.385,
+  "limitations": [
+    "Exploratory same-cohort follow-up; no independent holdout or Kaggle score.",
+    "Both new designs were frozen before either new result; they are independent.",
+    "The context_evidence anchor was selected after Round 9 and was not promoted.",
+    "Reference features are group cross-fitted, but the adapted answer margin is in-sample.",
+    "Cross-fitting new features does not remove the inherited answer-score limitation.",
+    "Intervals cover planned within-round contrasts only, not all adaptive history.",
+    "No new encoding, GPU, downloads, or automatic model promotion.",
+    "Within-class alignment null preserves both marginal similarity distributions.",
+    "TF-IDF vocabularies and IDF are refitted on each inner reference pool only.",
+    "Top-neighbor ties use normalized-text order; empty lexical vocabularies map to zeros."
+  ]
+}

@@ -1,0 +1,6187 @@
+{
+  "schema": 1,
+  "run_id": "32e706fe1e7dddb7de34",
+  "status": "FEATURE_ROUND_COMPLETE",
+  "new_fits": 20,
+  "reused_fits": 0,
+  "fit_count": 20,
+  "new_dense_candidates": 280,
+  "primary_candidate": "full",
+  "primary_comparison": {
+    "comparison": "full vs control",
+    "delta_auc": -0.010553495608784047,
+    "simultaneous_low": -0.04940513983441338,
+    "simultaneous_high": 0.028298148616845285,
+    "valid_draws": 500
+  },
+  "primary_policy_deltas": [
+    -0.043582089552238745,
+    0.02247509833467065
+  ],
+  "pooled_metrics": [
+    {
+      "variant": "lexical_control",
+      "pooled_auc": 0.6413447035618982,
+      "ranked_pooled_auc": 0.6502468120115179,
+      "rows": 881
+    },
+    {
+      "variant": "add_behavior",
+      "pooled_auc": 0.6807766140345326,
+      "ranked_pooled_auc": 0.6817839023721377,
+      "rows": 881
+    },
+    {
+      "variant": "add_scope",
+      "pooled_auc": 0.6735884778871205,
+      "ranked_pooled_auc": 0.6749280131633073,
+      "rows": 881
+    },
+    {
+      "variant": "add_rule_alignment",
+      "pooled_auc": 0.6652084717695578,
+      "ranked_pooled_auc": 0.6680932189981963,
+      "rows": 881
+    },
+    {
+      "variant": "add_support_contrast",
+      "pooled_auc": 0.6643488487379892,
+      "ranked_pooled_auc": 0.6668169688531679,
+      "rows": 881
+    },
+    {
+      "variant": "full",
+      "pooled_auc": 0.654365619297746,
+      "ranked_pooled_auc": 0.6551777784809458,
+      "rows": 881
+    },
+    {
+      "variant": "without_behavior",
+      "pooled_auc": 0.656385469733886,
+      "ranked_pooled_auc": 0.6574507694417197,
+      "rows": 881
+    },
+    {
+      "variant": "without_scope",
+      "pooled_auc": 0.6592754907234545,
+      "ranked_pooled_auc": 0.6609841892647322,
+      "rows": 881
+    },
+    {
+      "variant": "without_rule_alignment",
+      "pooled_auc": 0.6570974274594183,
+      "ranked_pooled_auc": 0.6574718644854392,
+      "rows": 881
+    },
+    {
+      "variant": "without_support_contrast",
+      "pooled_auc": 0.667381261272664,
+      "ranked_pooled_auc": 0.6675922117098587,
+      "rows": 881
+    }
+  ],
+  "primary_ranked_pooled_delta": 0.004930966469427922,
+  "decision": "DO_NOT_PROMOTE_THIS_FEATURE_SET",
+  "cohorts": [
+    {
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "readiness_same_rule_novel": 234,
+      "canonical_global_novel": 234,
+      "cross_rule_support_exclusions": 0,
+      "training_pairs": 1640,
+      "epoch_weight": 2269,
+      "query_identity": "611962e825d4b59ccb603b0a353700197e1ea9373734dcbc92fcf1e8f36b58b8",
+      "query_text_in_training": 0
+    },
+    {
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "readiness_same_rule_novel": 648,
+      "canonical_global_novel": 647,
+      "cross_rule_support_exclusions": 1,
+      "training_pairs": 1215,
+      "epoch_weight": 1581,
+      "query_identity": "4581c7c30d6d76345504618c44d31a3429f285fa75023d174181363f65ded648",
+      "query_text_in_training": 0
+    }
+  ],
+  "metrics": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "lexical_control",
+      "auc": 0.6730223880597015,
+      "brier": 0.23359891811569944,
+      "log_loss": 0.6675266668166108,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "add_behavior",
+      "auc": 0.6757835820895522,
+      "brier": 0.23157672008813296,
+      "log_loss": 0.6637188982469613,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "add_scope",
+      "auc": 0.6610820895522388,
+      "brier": 0.23897104040015021,
+      "log_loss": 0.7343408415922956,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "add_rule_alignment",
+      "auc": 0.624365671641791,
+      "brier": 0.2614583912042268,
+      "log_loss": 0.7656836304294944,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "add_support_contrast",
+      "auc": 0.6295149253731344,
+      "brier": 0.26048396210098745,
+      "log_loss": 0.7435460616035858,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "full",
+      "auc": 0.6294402985074627,
+      "brier": 0.2634473279048927,
+      "log_loss": 0.7867200941321347,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "without_behavior",
+      "auc": 0.625634328358209,
+      "brier": 0.2682169832538148,
+      "log_loss": 0.7974088684861289,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "without_scope",
+      "auc": 0.6286940298507462,
+      "brier": 0.2637843300717498,
+      "log_loss": 0.7807734658160347,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "without_rule_alignment",
+      "auc": 0.6321268656716417,
+      "brier": 0.25956631407341707,
+      "log_loss": 0.7924606090956043,
+      "queries": 234
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "variant": "without_support_contrast",
+      "auc": 0.6357835820895522,
+      "brier": 0.2539977174899666,
+      "log_loss": 0.7572870770682302,
+      "queries": 234
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "lexical_control",
+      "auc": 0.6419933073716757,
+      "brier": 0.2324659310304598,
+      "log_loss": 0.6560628420070657,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "add_behavior",
+      "auc": 0.6839396489305493,
+      "brier": 0.23199739696893093,
+      "log_loss": 0.7102775003385506,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "add_scope",
+      "auc": 0.6799573393867047,
+      "brier": 0.23357612299363914,
+      "log_loss": 0.7418008236363971,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "add_rule_alignment",
+      "auc": 0.6839787871078844,
+      "brier": 0.22651891021517206,
+      "log_loss": 0.7075654705447804,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "add_support_contrast",
+      "auc": 0.6803585057043894,
+      "brier": 0.23518204248981758,
+      "log_loss": 0.7259096156871085,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "full",
+      "auc": 0.6644684057063464,
+      "brier": 0.2499196212986904,
+      "log_loss": 0.8288422087550461,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "without_behavior",
+      "auc": 0.6689888651885483,
+      "brier": 0.2445725102094672,
+      "log_loss": 0.8013626158320967,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "without_scope",
+      "auc": 0.672746130212716,
+      "brier": 0.24407677494209035,
+      "log_loss": 0.7836054294495257,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "without_rule_alignment",
+      "auc": 0.6666601436371108,
+      "brier": 0.24988915950888071,
+      "log_loss": 0.8333113917598182,
+      "queries": 647
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "variant": "without_support_contrast",
+      "auc": 0.6791158685740005,
+      "brier": 0.2370583579221347,
+      "log_loss": 0.7736978264254092,
+      "queries": 647
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison": "add_behavior vs control",
+      "delta_auc": 0.022353767794362156,
+      "simultaneous_low": -0.016497876431267176,
+      "simultaneous_high": 0.06120541201999149,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "add_scope vs control",
+      "delta_auc": 0.013011866753783075,
+      "simultaneous_low": -0.025839777471846258,
+      "simultaneous_high": 0.05186351097941241,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "add_rule_alignment vs control",
+      "delta_auc": -0.003335618340850832,
+      "simultaneous_low": -0.042187262566480165,
+      "simultaneous_high": 0.0355160258847785,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "add_support_contrast vs control",
+      "delta_auc": -0.002571132176926727,
+      "simultaneous_low": -0.04142277640255606,
+      "simultaneous_high": 0.036280512048702605,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "full vs control",
+      "delta_auc": -0.010553495608784047,
+      "simultaneous_low": -0.04940513983441338,
+      "simultaneous_high": 0.028298148616845285,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "without_behavior vs control",
+      "delta_auc": -0.010196250942309915,
+      "simultaneous_low": -0.04904789516793925,
+      "simultaneous_high": 0.028655393283319418,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "without_scope vs control",
+      "delta_auc": -0.006787767683957502,
+      "simultaneous_low": -0.045639411909586834,
+      "simultaneous_high": 0.03206387654167183,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "without_rule_alignment vs control",
+      "delta_auc": -0.008114343061312423,
+      "simultaneous_low": -0.046965987286941756,
+      "simultaneous_high": 0.03073730116431691,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "without_support_contrast vs control",
+      "delta_auc": -5.8122383912229125e-05,
+      "simultaneous_low": -0.03890976660954156,
+      "simultaneous_high": 0.0387935218417171,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "ablation: behavior",
+      "delta_auc": -0.00035724466647413244,
+      "simultaneous_low": -0.039208888892103465,
+      "simultaneous_high": 0.0384943995591552,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "ablation: scope",
+      "delta_auc": -0.003765727924826545,
+      "simultaneous_low": -0.04261737215045588,
+      "simultaneous_high": 0.03508591630080279,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "ablation: rule_alignment",
+      "delta_auc": -0.0024391525474716236,
+      "simultaneous_low": -0.041290796773100956,
+      "simultaneous_high": 0.03641249167815771,
+      "valid_draws": 500
+    },
+    {
+      "comparison": "ablation: support_contrast",
+      "delta_auc": -0.010495373224871818,
+      "simultaneous_low": -0.04934701745050115,
+      "simultaneous_high": 0.028356271000757514,
+      "valid_draws": 500
+    }
+  ],
+  "selection": [
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "family": "behavior",
+      "candidates": 58,
+      "constant": 0,
+      "retained": 24,
+      "names": [
+        "behavior/legal_topic_present",
+        "behavior/legal_topic_log_count",
+        "behavior/second_person_log_count",
+        "behavior/log_words",
+        "behavior/url_log_count",
+        "behavior/second_person_present",
+        "behavior/url_present",
+        "behavior/log_chars",
+        "behavior/conditional_log_count",
+        "behavior/conditional_present",
+        "behavior/legal_action_present",
+        "behavior/legal_action_log_count",
+        "behavior/negation_log_count",
+        "behavior/hedge_present",
+        "behavior/exception_present",
+        "behavior/negation_present",
+        "behavior/exception_log_count",
+        "behavior/money_present",
+        "behavior/hedge_log_count",
+        "behavior/money_log_count",
+        "behavior/resource_log_count",
+        "behavior/resource_present",
+        "behavior/first_person_log_count",
+        "behavior/first_person_present"
+      ]
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "family": "scope",
+      "candidates": 121,
+      "constant": 46,
+      "retained": 24,
+      "names": [
+        "scope/legal_topic_authored",
+        "scope/legal_topic_authored_minus_quoted",
+        "scope/second_person_authored",
+        "scope/second_person_authored_minus_quoted",
+        "scope/url_authored",
+        "scope/url_authored_minus_quoted",
+        "scope/conditional_authored",
+        "scope/legal_action_authored",
+        "scope/conditional_authored_minus_quoted",
+        "scope/negation_authored",
+        "scope/legal_action_authored_minus_quoted",
+        "scope/negation_authored_minus_quoted",
+        "scope/exception_authored",
+        "scope/exception_authored_minus_quoted",
+        "scope/hedge_authored",
+        "scope/money_authored",
+        "scope/hedge_authored_minus_quoted",
+        "scope/url_quoted",
+        "scope/resource_authored",
+        "scope/first_person_authored_minus_quoted",
+        "scope/legal_action_preceded_by_negation",
+        "scope/first_person_authored",
+        "scope/hedge_quoted",
+        "scope/direct_contact_authored"
+      ]
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "family": "rule_alignment",
+      "candidates": 36,
+      "constant": 16,
+      "retained": 19,
+      "names": [
+        "rule_alignment/legal_topic_authored_match",
+        "rule_alignment/url_authored_match",
+        "rule_alignment/legal_action_authored_match",
+        "rule_alignment/direct_contact_authored_match",
+        "rule_alignment/quote_authored_match",
+        "rule_alignment/url_quoted_match",
+        "rule_alignment/disclaimer_with_legal_topic",
+        "rule_alignment/directive_with_legal_topic",
+        "rule_alignment/request_with_legal_topic",
+        "rule_alignment/legal_action_quoted_match",
+        "rule_alignment/self_promotion_authored_match",
+        "rule_alignment/anecdote_with_legal_topic",
+        "rule_alignment/offer_with_legal_topic",
+        "rule_alignment/legal_topic_quoted_match",
+        "rule_alignment/promotion_authored_match",
+        "rule_alignment/offer_authored_match",
+        "rule_alignment/request_quoted_match",
+        "rule_alignment/commercial_action_authored_match",
+        "rule_alignment/request_authored_match"
+      ]
+    },
+    {
+      "fold": 0,
+      "policy": "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.",
+      "family": "support_contrast",
+      "candidates": 65,
+      "constant": 14,
+      "retained": 24,
+      "names": [
+        "support_contrast/mean_margin",
+        "support_contrast/top3_margin",
+        "support_contrast/relative_distance_authored_money",
+        "support_contrast/relative_distance_authored_direct_contact",
+        "support_contrast/max_margin",
+        "support_contrast/relative_distance_authored_transaction",
+        "support_contrast/relative_distance_authored_second_person",
+        "support_contrast/relative_distance_authored_promotion",
+        "support_contrast/relative_distance_authored_question",
+        "support_contrast/relative_distance_authored_meta",
+        "support_contrast/relative_distance_authored_legal_topic",
+        "support_contrast/relative_distance_authored_commercial_action",
+        "support_contrast/relative_distance_quoted_first_person",
+        "support_contrast/relative_distance_authored_self_promotion",
+        "support_contrast/relative_distance_quoted_anecdote",
+        "support_contrast/relative_distance_authored_anecdote",
+        "support_contrast/relative_distance_quoted_url",
+        "support_contrast/relative_distance_quoted_hedge",
+        "support_contrast/relative_distance_authored_url",
+        "support_contrast/relative_distance_authored_urgency",
+        "support_contrast/relative_distance_quoted_second_person",
+        "support_contrast/relative_distance_authored_disclaimer",
+        "support_contrast/negative_mean",
+        "support_contrast/relative_distance_quoted_negation"
+      ]
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "family": "behavior",
+      "candidates": 58,
+      "constant": 2,
+      "retained": 24,
+      "names": [
+        "behavior/legal_topic_present",
+        "behavior/legal_topic_log_count",
+        "behavior/second_person_log_count",
+        "behavior/second_person_present",
+        "behavior/log_words",
+        "behavior/url_log_count",
+        "behavior/log_chars",
+        "behavior/money_present",
+        "behavior/money_log_count",
+        "behavior/url_present",
+        "behavior/conditional_log_count",
+        "behavior/legal_action_present",
+        "behavior/legal_action_log_count",
+        "behavior/conditional_present",
+        "behavior/exception_log_count",
+        "behavior/negation_log_count",
+        "behavior/exception_present",
+        "behavior/negation_present",
+        "behavior/hedge_present",
+        "behavior/transaction_log_count",
+        "behavior/first_person_log_count",
+        "behavior/direct_contact_present",
+        "behavior/transaction_present",
+        "behavior/direct_contact_log_count"
+      ]
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "family": "scope",
+      "candidates": 121,
+      "constant": 50,
+      "retained": 24,
+      "names": [
+        "scope/legal_topic_authored",
+        "scope/legal_topic_authored_minus_quoted",
+        "scope/second_person_authored",
+        "scope/second_person_authored_minus_quoted",
+        "scope/url_authored",
+        "scope/money_authored",
+        "scope/url_authored_minus_quoted",
+        "scope/conditional_authored",
+        "scope/legal_action_authored",
+        "scope/conditional_authored_minus_quoted",
+        "scope/legal_action_authored_minus_quoted",
+        "scope/negation_authored",
+        "scope/negation_authored_minus_quoted",
+        "scope/exception_authored",
+        "scope/exception_authored_minus_quoted",
+        "scope/transaction_authored",
+        "scope/transaction_authored_minus_quoted",
+        "scope/first_person_authored",
+        "scope/direct_contact_authored",
+        "scope/urgency_authored",
+        "scope/first_person_authored_minus_quoted",
+        "scope/hedge_authored",
+        "scope/legal_topic_quoted",
+        "scope/conditional_quoted"
+      ]
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "family": "rule_alignment",
+      "candidates": 36,
+      "constant": 16,
+      "retained": 19,
+      "names": [
+        "rule_alignment/legal_topic_authored_match",
+        "rule_alignment/url_authored_match",
+        "rule_alignment/legal_action_authored_match",
+        "rule_alignment/direct_contact_authored_match",
+        "rule_alignment/quote_authored_match",
+        "rule_alignment/legal_topic_quoted_match",
+        "rule_alignment/directive_with_legal_topic",
+        "rule_alignment/disclaimer_with_legal_topic",
+        "rule_alignment/legal_action_quoted_match",
+        "rule_alignment/request_with_legal_topic",
+        "rule_alignment/commercial_action_authored_match",
+        "rule_alignment/url_quoted_match",
+        "rule_alignment/anecdote_with_legal_topic",
+        "rule_alignment/offer_with_legal_topic",
+        "rule_alignment/promotion_authored_match",
+        "rule_alignment/offer_authored_match",
+        "rule_alignment/request_quoted_match",
+        "rule_alignment/request_authored_match",
+        "rule_alignment/self_promotion_authored_match"
+      ]
+    },
+    {
+      "fold": 1,
+      "policy": "No legal advice: Do not offer or request legal advice.",
+      "family": "support_contrast",
+      "candidates": 65,
+      "constant": 16,
+      "retained": 24,
+      "names": [
+        "support_contrast/mean_margin",
+        "support_contrast/top3_margin",
+        "support_contrast/relative_distance_authored_money",
+        "support_contrast/relative_distance_authored_second_person",
+        "support_contrast/max_margin",
+        "support_contrast/relative_distance_authored_question",
+        "support_contrast/relative_distance_authored_direct_contact",
+        "support_contrast/negative_mean",
+        "support_contrast/relative_distance_authored_transaction",
+        "support_contrast/relative_distance_authored_legal_topic",
+        "support_contrast/negative_spread",
+        "support_contrast/relative_distance_quoted_anecdote",
+        "support_contrast/relative_distance_authored_jurisdiction",
+        "support_contrast/relative_distance_authored_commercial_action",
+        "support_contrast/relative_distance_quoted_legal_action",
+        "support_contrast/relative_distance_authored_anecdote",
+        "support_contrast/relative_distance_authored_url",
+        "support_contrast/relative_distance_quoted_legal_topic",
+        "support_contrast/relative_distance_authored_request",
+        "support_contrast/relative_distance_authored_promotion",
+        "support_contrast/relative_distance_quoted_conditional",
+        "support_contrast/negative_max",
+        "support_contrast/relative_distance_authored_urgency",
+        "support_contrast/relative_distance_quoted_exception"
+      ]
+    }
+  ],
+  "stability": [
+    {
+      "family": "behavior",
+      "selected_name_jaccard": 0.7142857142857143
+    },
+    {
+      "family": "scope",
+      "selected_name_jaccard": 0.6551724137931034
+    },
+    {
+      "family": "rule_alignment",
+      "selected_name_jaccard": 1.0
+    },
+    {
+      "family": "support_contrast",
+      "selected_name_jaccard": 0.5
+    }
+  ],
+  "coefficients": [
+    {
+      "coefficient": 0.884340356214353,
+      "feature": "behavior/legal_topic_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.15228556439266952,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.11338573274321168,
+      "feature": "behavior/second_person_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.5491235189596666,
+      "feature": "behavior/log_words",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.30884125236468374,
+      "feature": "behavior/url_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.06596730538977298,
+      "feature": "behavior/second_person_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.45841562341287995,
+      "feature": "behavior/url_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.1358879813397155,
+      "feature": "behavior/log_chars",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.12001300399110357,
+      "feature": "behavior/conditional_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.009848031096657725,
+      "feature": "behavior/conditional_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.05405433824588088,
+      "feature": "behavior/legal_action_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.16473951995021344,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.05351123906856531,
+      "feature": "behavior/negation_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.4594236361893819,
+      "feature": "behavior/hedge_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.30711545359061,
+      "feature": "behavior/exception_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.02333592797342442,
+      "feature": "behavior/negation_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.252709827859457,
+      "feature": "behavior/exception_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.5225779455785734,
+      "feature": "behavior/money_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.35613545055225415,
+      "feature": "behavior/hedge_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.26027528092776137,
+      "feature": "behavior/money_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.31874665079434966,
+      "feature": "behavior/resource_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.22243795081040688,
+      "feature": "behavior/resource_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.014398739170261911,
+      "feature": "behavior/first_person_log_count",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.023264781664965893,
+      "feature": "behavior/first_person_present",
+      "fold": 0,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.4706095503102193,
+      "feature": "scope/legal_topic_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.3129194874790722,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.498656583852102,
+      "feature": "scope/second_person_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.2423535282392451,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.04097735537865565,
+      "feature": "scope/url_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.0951970388201309,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.5521262435097475,
+      "feature": "scope/conditional_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.5209680126046449,
+      "feature": "scope/legal_action_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.4482809597401493,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.039425708464602846,
+      "feature": "scope/negation_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.345416746125222,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.03553284363827069,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.1273264478815376,
+      "feature": "scope/exception_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.05095255137096944,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.0721989821260363,
+      "feature": "scope/hedge_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.2615670448783513,
+      "feature": "scope/money_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.0249743946459548,
+      "feature": "scope/hedge_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.378099225976656,
+      "feature": "scope/url_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.10181037624719218,
+      "feature": "scope/resource_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.1879286173288097,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.18079460045013776,
+      "feature": "scope/legal_action_preceded_by_negation",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.1446246444559932,
+      "feature": "scope/first_person_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.3122232553254715,
+      "feature": "scope/hedge_quoted",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.12434879191947606,
+      "feature": "scope/direct_contact_authored",
+      "fold": 0,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.7757110031019622,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.17114592189879194,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.19231280521196384,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.3407318517314748,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.4822506579088167,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.08578083409252653,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.2474585377539171,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.20935736662592425,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.1694318649756625,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.19535721730932767,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.07496891514109776,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.09847848332849977,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.04459680493344491,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.06750225571917358,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.10199468475761658,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.03713688400297959,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.04131131955100017,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.05983679774840671,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.02997598393127716,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 0,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.6974081469443972,
+      "feature": "support_contrast/mean_margin",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.1498864932342706,
+      "feature": "support_contrast/top3_margin",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.47284940350631033,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.8550596182754994,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.3661661721082796,
+      "feature": "support_contrast/max_margin",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.42735965918808855,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.19371052035199068,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.14460311313361834,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.020326197068121995,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.22192811270635257,
+      "feature": "support_contrast/relative_distance_authored_meta",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.6665174416826082,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.4653914712494784,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.09413172039265955,
+      "feature": "support_contrast/relative_distance_quoted_first_person",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.37172301440391803,
+      "feature": "support_contrast/relative_distance_authored_self_promotion",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.5438289826842867,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.08558206058855086,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.14133678469336242,
+      "feature": "support_contrast/relative_distance_quoted_url",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.8400006603988811,
+      "feature": "support_contrast/relative_distance_quoted_hedge",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.47064073971822074,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.14454156906114837,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.22254885671885838,
+      "feature": "support_contrast/relative_distance_quoted_second_person",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.18700111346712153,
+      "feature": "support_contrast/relative_distance_authored_disclaimer",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.16591872929990453,
+      "feature": "support_contrast/negative_mean",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.1284606403536591,
+      "feature": "support_contrast/relative_distance_quoted_negation",
+      "fold": 0,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.7456062101749529,
+      "feature": "behavior/legal_topic_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15983174213978105,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10989240075811758,
+      "feature": "behavior/second_person_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.40443444124599315,
+      "feature": "behavior/log_words",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.09599987211435371,
+      "feature": "behavior/url_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.19620109868383054,
+      "feature": "behavior/second_person_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10238110794443912,
+      "feature": "behavior/url_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10203880533197998,
+      "feature": "behavior/log_chars",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.31614557887431605,
+      "feature": "behavior/conditional_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.11804113500228647,
+      "feature": "behavior/conditional_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.01312642892598448,
+      "feature": "behavior/legal_action_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.0703731159476109,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.2812131313708615,
+      "feature": "behavior/negation_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.39755752020528473,
+      "feature": "behavior/hedge_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.2823605690456627,
+      "feature": "behavior/exception_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.08321796083160214,
+      "feature": "behavior/negation_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.010398115407811779,
+      "feature": "behavior/exception_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.2527570873820067,
+      "feature": "behavior/money_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.0676601173483471,
+      "feature": "behavior/hedge_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10315714968311752,
+      "feature": "behavior/money_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15268186289940225,
+      "feature": "behavior/resource_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.13663845570444924,
+      "feature": "behavior/resource_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.08532804554498548,
+      "feature": "behavior/first_person_log_count",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2201186617576782,
+      "feature": "behavior/first_person_present",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.44947337013368743,
+      "feature": "scope/legal_topic_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.3944660257252505,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.298034531341067,
+      "feature": "scope/second_person_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.0650431091255425,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.0921290413407119,
+      "feature": "scope/url_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.08634600120879012,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.1004295884698639,
+      "feature": "scope/conditional_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.04201530441260264,
+      "feature": "scope/legal_action_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.26898312482629405,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.33093787646551626,
+      "feature": "scope/negation_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.01189530248843322,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.0031830508064219793,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2827187773986193,
+      "feature": "scope/exception_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.006726148103425881,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10205295717854304,
+      "feature": "scope/hedge_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10315714968311752,
+      "feature": "scope/money_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.13399124101949245,
+      "feature": "scope/hedge_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.028802873033585703,
+      "feature": "scope/url_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15268186289940225,
+      "feature": "scope/resource_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.19114728927514418,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.19798451747047024,
+      "feature": "scope/legal_action_preceded_by_negation",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.07753760211188665,
+      "feature": "scope/first_person_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.22538406938315902,
+      "feature": "scope/hedge_quoted",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2065736498302553,
+      "feature": "scope/direct_contact_authored",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.7398150489695345,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15669066339992985,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.04201530441260264,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.4123179871847979,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.6029739823778432,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.028802873033585703,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.2730704134442427,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.21312255508826275,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.1720325572534753,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.14072559867010007,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.012958402189049072,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.09537863020322421,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.05038008991812366,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2515066656369232,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.5252888065797696,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.12460626796949682,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.018544916319380864,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.13092647713532055,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.012375397583011228,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.7548491689201475,
+      "feature": "support_contrast/mean_margin",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.258604604689098,
+      "feature": "support_contrast/top3_margin",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.6965342481759509,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.17909247821822347,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.33949738323461964,
+      "feature": "support_contrast/max_margin",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.4648219794033062,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5817979696440881,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.8892967063537318,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.0007990170686954289,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15321741243531256,
+      "feature": "support_contrast/relative_distance_authored_meta",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.1787791306547081,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.6145637484760916,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.06513951331945057,
+      "feature": "support_contrast/relative_distance_quoted_first_person",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.5439674356321966,
+      "feature": "support_contrast/relative_distance_authored_self_promotion",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.7048298785252954,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.1511768413244692,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5060327651651325,
+      "feature": "support_contrast/relative_distance_quoted_url",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.25518278602517525,
+      "feature": "support_contrast/relative_distance_quoted_hedge",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5725993255377585,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.21180747831236268,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.1538623705586189,
+      "feature": "support_contrast/relative_distance_quoted_second_person",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.19989860780723764,
+      "feature": "support_contrast/relative_distance_authored_disclaimer",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.17204567271241844,
+      "feature": "support_contrast/negative_mean",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.15601857441399122,
+      "feature": "support_contrast/relative_distance_quoted_negation",
+      "fold": 0,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.07592597942227756,
+      "feature": "scope/legal_topic_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.057915576620888615,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.3908853310375017,
+      "feature": "scope/second_person_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.0016266407465394986,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.15184448468806633,
+      "feature": "scope/url_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.14376457272000795,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.491374645947555,
+      "feature": "scope/conditional_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.06733141121594145,
+      "feature": "scope/legal_action_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.44145396921793995,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.017794782678821338,
+      "feature": "scope/negation_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.025426571724507876,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.06937963202034933,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.20980251632035626,
+      "feature": "scope/exception_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.18430592603322432,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.06917612451465076,
+      "feature": "scope/hedge_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.025457550334847864,
+      "feature": "scope/money_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.024773720158064096,
+      "feature": "scope/hedge_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.03748089065760275,
+      "feature": "scope/url_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.17074758235145304,
+      "feature": "scope/resource_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.09499520128717838,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.19513581975035402,
+      "feature": "scope/legal_action_preceded_by_negation",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.05698427568963662,
+      "feature": "scope/first_person_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.29344272129882953,
+      "feature": "scope/hedge_quoted",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.17715139465905083,
+      "feature": "scope/direct_contact_authored",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.5547394019583893,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2929227850662871,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.06733141121594145,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.3645690315343687,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.6090513445803072,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.03748089065760275,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2873976127536373,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2136115078533073,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.1733745108425803,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.1948073836009202,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.015031892706996168,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.0977445833338092,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.03765930842177571,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.08378295864870462,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.4926272624619552,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.11457483955618983,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.026736327877391476,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.13380565943008754,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.010200129169256401,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.7279939230391391,
+      "feature": "support_contrast/mean_margin",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.21494770319835108,
+      "feature": "support_contrast/top3_margin",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.7701498409459402,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2895296109551356,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.31489266439406915,
+      "feature": "support_contrast/max_margin",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.46541605946685477,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.4595772113096902,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.8181755102317168,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.0021535366188635283,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.1064286516665342,
+      "feature": "support_contrast/relative_distance_authored_meta",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2000741415005814,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.6181954703940243,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.01769525838824868,
+      "feature": "support_contrast/relative_distance_quoted_first_person",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.503569196651869,
+      "feature": "support_contrast/relative_distance_authored_self_promotion",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.658653571721153,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.10928559531176771,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.5014829626163309,
+      "feature": "support_contrast/relative_distance_quoted_url",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.24094825744779746,
+      "feature": "support_contrast/relative_distance_quoted_hedge",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.47661979934914406,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.18543506587813063,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.1894007375379906,
+      "feature": "support_contrast/relative_distance_quoted_second_person",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.2745842182289471,
+      "feature": "support_contrast/relative_distance_authored_disclaimer",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.13182293291355238,
+      "feature": "support_contrast/negative_mean",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.11672315531325486,
+      "feature": "support_contrast/relative_distance_quoted_negation",
+      "fold": 0,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.6736449223127642,
+      "feature": "behavior/legal_topic_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.4074578694207102,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.22009090899672556,
+      "feature": "behavior/second_person_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.39216834451578364,
+      "feature": "behavior/log_words",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.26679332152336865,
+      "feature": "behavior/url_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.17329304140314997,
+      "feature": "behavior/second_person_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.091824466395408,
+      "feature": "behavior/url_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.09697829765526825,
+      "feature": "behavior/log_chars",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.11698297193403998,
+      "feature": "behavior/conditional_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.07079987635006553,
+      "feature": "behavior/conditional_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.0035989648172640677,
+      "feature": "behavior/legal_action_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.10338523514253511,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.040742488763210336,
+      "feature": "behavior/negation_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.3938416201793632,
+      "feature": "behavior/hedge_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.23717426541646,
+      "feature": "behavior/exception_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.08338371014953616,
+      "feature": "behavior/negation_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.2010912258332773,
+      "feature": "behavior/exception_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.23634807335960212,
+      "feature": "behavior/money_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.2934854715089744,
+      "feature": "behavior/hedge_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.1888378412115878,
+      "feature": "behavior/money_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.2806295307433338,
+      "feature": "behavior/resource_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.13590689237369757,
+      "feature": "behavior/resource_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.14477451781534015,
+      "feature": "behavior/first_person_log_count",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.19820251234988964,
+      "feature": "behavior/first_person_present",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.49270705794255554,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.16899214051503,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.0761554598595052,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.07621632290619905,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.5785437191163318,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.026592440230323457,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.2592896986037388,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.2133880573408236,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.170980923768808,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.13868898586361306,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.009795211361051598,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.09623731342142601,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.06249515825851418,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.06714646909744594,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.5710999323449024,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.0725858926289683,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.012730932584152288,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.13561221611190402,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.0011655927232040706,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.7379467989736602,
+      "feature": "support_contrast/mean_margin",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.2445802024437976,
+      "feature": "support_contrast/top3_margin",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.6766271240278969,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.7300689603015778,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.33379437771579273,
+      "feature": "support_contrast/max_margin",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.45273444616812214,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.5304078221544724,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.991773556913132,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.005608773014473845,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.31441748403992487,
+      "feature": "support_contrast/relative_distance_authored_meta",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.15171150685052842,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.6138534479729675,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.03907252384846036,
+      "feature": "support_contrast/relative_distance_quoted_first_person",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.5406379536787846,
+      "feature": "support_contrast/relative_distance_authored_self_promotion",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.9506587139423096,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.11226362369693568,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.455339689604057,
+      "feature": "support_contrast/relative_distance_quoted_url",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.6911405589459106,
+      "feature": "support_contrast/relative_distance_quoted_hedge",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.55660155453278,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.14230312039802231,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.13212788787962032,
+      "feature": "support_contrast/relative_distance_quoted_second_person",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.12099572919076537,
+      "feature": "support_contrast/relative_distance_authored_disclaimer",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.16399868671731826,
+      "feature": "support_contrast/negative_mean",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.12311076326773146,
+      "feature": "support_contrast/relative_distance_quoted_negation",
+      "fold": 0,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.4394847514642854,
+      "feature": "behavior/legal_topic_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.0793555102247461,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.18937750096624933,
+      "feature": "behavior/second_person_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.3897383893549804,
+      "feature": "behavior/log_words",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.07592787784984939,
+      "feature": "behavior/url_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.20609806864000724,
+      "feature": "behavior/second_person_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.14886515261384678,
+      "feature": "behavior/url_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.07771573322084667,
+      "feature": "behavior/log_chars",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.32550503963518085,
+      "feature": "behavior/conditional_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.0703707664911133,
+      "feature": "behavior/conditional_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.09998871004171159,
+      "feature": "behavior/legal_action_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.2108818096323207,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.16170126851683425,
+      "feature": "behavior/negation_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.41429625914684387,
+      "feature": "behavior/hedge_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.28509435514915155,
+      "feature": "behavior/exception_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.0634512739874388,
+      "feature": "behavior/negation_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.02610591116023418,
+      "feature": "behavior/exception_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.34243101659866115,
+      "feature": "behavior/money_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.08196955370511227,
+      "feature": "behavior/hedge_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.11519309721598005,
+      "feature": "behavior/money_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.1658879261897823,
+      "feature": "behavior/resource_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.18788998823903616,
+      "feature": "behavior/resource_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.06472890696578208,
+      "feature": "behavior/first_person_log_count",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.22244073504256964,
+      "feature": "behavior/first_person_present",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.3836421761602547,
+      "feature": "scope/legal_topic_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.42354089859906036,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.28198515215680675,
+      "feature": "scope/second_person_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.18062851975954958,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.024462821951329827,
+      "feature": "scope/url_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.026834936499113286,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.08217403954246995,
+      "feature": "scope/conditional_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.020963547015085574,
+      "feature": "scope/legal_action_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.3095084489987876,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.36633261899608666,
+      "feature": "scope/negation_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.16943954059847618,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.1456242270785885,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.27537816034816137,
+      "feature": "scope/exception_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.03798060408350002,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.10866620056732221,
+      "feature": "scope/hedge_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.11519309721598005,
+      "feature": "scope/money_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.13280702536055197,
+      "feature": "scope/hedge_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.35017147985051245,
+      "feature": "scope/url_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.1658879261897823,
+      "feature": "scope/resource_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.49994453682147916,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.19084604912067885,
+      "feature": "scope/legal_action_preceded_by_negation",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.21451498303684874,
+      "feature": "scope/first_person_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.17333107798690783,
+      "feature": "scope/hedge_quoted",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.02427812891192387,
+      "feature": "scope/direct_contact_authored",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.7429951847256362,
+      "feature": "support_contrast/mean_margin",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.22629788011737062,
+      "feature": "support_contrast/top3_margin",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.34257932029982885,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.8448406695734227,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.34495924132611216,
+      "feature": "support_contrast/max_margin",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.4409265731482091,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.5926399749237224,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.15119165190426237,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.015763650830600436,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.29920999865419,
+      "feature": "support_contrast/relative_distance_authored_meta",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.23954395236894616,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.45121139657450476,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.36513187266025926,
+      "feature": "support_contrast/relative_distance_quoted_first_person",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.5776170250961082,
+      "feature": "support_contrast/relative_distance_authored_self_promotion",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.40285839831024006,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.10248721687515473,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.4132553990278348,
+      "feature": "support_contrast/relative_distance_quoted_url",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.6131414921643223,
+      "feature": "support_contrast/relative_distance_quoted_hedge",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.6280939428488581,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.04393619313878678,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.22460557896549563,
+      "feature": "support_contrast/relative_distance_quoted_second_person",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.160307315216171,
+      "feature": "support_contrast/relative_distance_authored_disclaimer",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.11761396453585705,
+      "feature": "support_contrast/negative_mean",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.05847224870922033,
+      "feature": "support_contrast/relative_distance_quoted_negation",
+      "fold": 0,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.7430498019924056,
+      "feature": "behavior/legal_topic_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.1918489632858541,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.07978763474342974,
+      "feature": "behavior/second_person_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.5402505208952639,
+      "feature": "behavior/log_words",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.26845283565500405,
+      "feature": "behavior/url_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.07963482757782976,
+      "feature": "behavior/second_person_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.523027952091369,
+      "feature": "behavior/url_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.17653759732664387,
+      "feature": "behavior/log_chars",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.32731470098963783,
+      "feature": "behavior/conditional_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.06373972122815258,
+      "feature": "behavior/conditional_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.004496781672978359,
+      "feature": "behavior/legal_action_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.07175278918382043,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.17247763348221815,
+      "feature": "behavior/negation_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.4479086977465808,
+      "feature": "behavior/hedge_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.31611593704321966,
+      "feature": "behavior/exception_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.025747910975994034,
+      "feature": "behavior/negation_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.07850567280815336,
+      "feature": "behavior/exception_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.5385537942964908,
+      "feature": "behavior/money_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.08212111314480752,
+      "feature": "behavior/hedge_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.13564797039690063,
+      "feature": "behavior/money_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.16579274153966084,
+      "feature": "behavior/resource_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.1852461970265001,
+      "feature": "behavior/resource_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.0498486021440226,
+      "feature": "behavior/first_person_log_count",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.015024589666232869,
+      "feature": "behavior/first_person_present",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.5524393627843719,
+      "feature": "scope/legal_topic_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.49038908561349476,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.325510953300255,
+      "feature": "scope/second_person_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.12605689484513072,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.2600411971800451,
+      "feature": "scope/url_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.24619855507530522,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.09104777343048798,
+      "feature": "scope/conditional_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.04430280449446107,
+      "feature": "scope/legal_action_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.24790239686196874,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.2844303544714143,
+      "feature": "scope/negation_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.014989186277383494,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06198146172817859,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.24114843875458392,
+      "feature": "scope/exception_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06859604104413364,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.11896382836061806,
+      "feature": "scope/hedge_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.13564797039690063,
+      "feature": "scope/money_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.1529641717826158,
+      "feature": "scope/hedge_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.06422500092817074,
+      "feature": "scope/url_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.16579274153966084,
+      "feature": "scope/resource_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.283860372582765,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.17506001284430797,
+      "feature": "scope/legal_action_preceded_by_negation",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.22381736523440002,
+      "feature": "scope/first_person_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.24090892023737978,
+      "feature": "scope/hedge_quoted",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.2456899586468167,
+      "feature": "scope/direct_contact_authored",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.8995506543234779,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.49492997354197754,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.04430280449446107,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.5035746430421787,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.5316872957591733,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.06422500092817074,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.23645922928978008,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.2052102123774977,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.1780776107155167,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.13658174740668763,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.07098944743668296,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.09138973026492256,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06049327732125448,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.2827937101516834,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.07368065532011621,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.12869375103175026,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.01117565783076329,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.04649201960649173,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.041251214989117276,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 0,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.4969661165202729,
+      "feature": "behavior/legal_topic_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.7131316663031265,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.2679213576741897,
+      "feature": "behavior/second_person_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.07238779543051026,
+      "feature": "behavior/second_person_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.8589740939343301,
+      "feature": "behavior/log_words",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.4814996458962158,
+      "feature": "behavior/url_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.30999796176041977,
+      "feature": "behavior/log_chars",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.1288502424220715,
+      "feature": "behavior/money_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.5341545038186992,
+      "feature": "behavior/money_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.48180608201174313,
+      "feature": "behavior/url_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.11858428996032148,
+      "feature": "behavior/conditional_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.22950681466117231,
+      "feature": "behavior/legal_action_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.2159969868271449,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.12843211417058237,
+      "feature": "behavior/conditional_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.29520379569131205,
+      "feature": "behavior/exception_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.045956246276107525,
+      "feature": "behavior/negation_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.24284984413621352,
+      "feature": "behavior/exception_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.015316743787991954,
+      "feature": "behavior/negation_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.08320299367383988,
+      "feature": "behavior/hedge_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.2765893641977489,
+      "feature": "behavior/transaction_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.1680920621246838,
+      "feature": "behavior/first_person_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.05450527804415698,
+      "feature": "behavior/direct_contact_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": -0.27518931802435387,
+      "feature": "behavior/transaction_present",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.019579847311809905,
+      "feature": "behavior/direct_contact_log_count",
+      "fold": 1,
+      "variant": "add_behavior"
+    },
+    {
+      "coefficient": 0.659521910140447,
+      "feature": "scope/legal_topic_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.574716545165075,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.3313467516146506,
+      "feature": "scope/second_person_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.013692751118733523,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.09356502076854716,
+      "feature": "scope/url_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.4163862122465505,
+      "feature": "scope/money_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.10367951901932271,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.05308466304572324,
+      "feature": "scope/conditional_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.28763220837699305,
+      "feature": "scope/legal_action_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.0019460336707148107,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.0979810356174587,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.23148483238077863,
+      "feature": "scope/negation_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.279006169612166,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.03231506782488482,
+      "feature": "scope/exception_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.036716499552396226,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.10205680632831321,
+      "feature": "scope/transaction_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.08298919567689443,
+      "feature": "scope/transaction_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": -0.1779732107602023,
+      "feature": "scope/first_person_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.07862455138837991,
+      "feature": "scope/direct_contact_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.36168915685686787,
+      "feature": "scope/urgency_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.11363465315688892,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.07179027416051008,
+      "feature": "scope/hedge_authored",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.4857786511460583,
+      "feature": "scope/legal_topic_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 0.34405937154425525,
+      "feature": "scope/conditional_quoted",
+      "fold": 1,
+      "variant": "add_scope"
+    },
+    {
+      "coefficient": 1.3066679600253686,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.025827985883299466,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.32498574226426935,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.19167683624696413,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.3316529728247157,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.28424944689054266,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.14299815006843233,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.06600082073593797,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.07582953437711637,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.06726967860150071,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.08358897554337179,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.1266330335620456,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.08773659677288484,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.005067609012350075,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.059864545982242515,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.025532519126917598,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.2599850768088434,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": -0.08875425996547906,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.02593551211933772,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 1,
+      "variant": "add_rule_alignment"
+    },
+    {
+      "coefficient": 0.47781233209617396,
+      "feature": "support_contrast/mean_margin",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.44166164371438604,
+      "feature": "support_contrast/top3_margin",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.678137944964929,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.03277196954188168,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.47351341962200577,
+      "feature": "support_contrast/max_margin",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.2807846506702831,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.594895542848627,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.25426032324880404,
+      "feature": "support_contrast/negative_mean",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.49570430873561894,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 1.0882754758354964,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.09662243729746167,
+      "feature": "support_contrast/negative_spread",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.9974367607853185,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.24953331479671317,
+      "feature": "support_contrast/relative_distance_authored_jurisdiction",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.268942583599881,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.329668396897496,
+      "feature": "support_contrast/relative_distance_quoted_legal_action",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.26496776586631776,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.23042238744974491,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.4510773016637503,
+      "feature": "support_contrast/relative_distance_quoted_legal_topic",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.0334722279212792,
+      "feature": "support_contrast/relative_distance_authored_request",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.05312721693917187,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.5980338037329307,
+      "feature": "support_contrast/relative_distance_quoted_conditional",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.05500676180342095,
+      "feature": "support_contrast/negative_max",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.5679153444244444,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": 0.01864974600346863,
+      "feature": "support_contrast/relative_distance_quoted_exception",
+      "fold": 1,
+      "variant": "add_support_contrast"
+    },
+    {
+      "coefficient": -0.2236186480155956,
+      "feature": "behavior/legal_topic_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.04773569687942515,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.05471207155317348,
+      "feature": "behavior/second_person_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5037775279349778,
+      "feature": "behavior/second_person_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.8136165242417079,
+      "feature": "behavior/log_words",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2396824507607455,
+      "feature": "behavior/url_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2507283573797908,
+      "feature": "behavior/log_chars",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.42296058013905174,
+      "feature": "behavior/money_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.27239883898706296,
+      "feature": "behavior/money_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.11147165810269061,
+      "feature": "behavior/url_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.01572423332899566,
+      "feature": "behavior/conditional_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.1482168451434318,
+      "feature": "behavior/legal_action_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.13868443324514554,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.13294845008555103,
+      "feature": "behavior/conditional_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.3462567425561446,
+      "feature": "behavior/exception_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.39483429586677604,
+      "feature": "behavior/negation_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.46842946094169857,
+      "feature": "behavior/exception_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.01718322949949589,
+      "feature": "behavior/negation_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.5744116516255678,
+      "feature": "behavior/hedge_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.01765306947654775,
+      "feature": "behavior/transaction_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.26019070602285493,
+      "feature": "behavior/first_person_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.41364861908730494,
+      "feature": "behavior/direct_contact_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.1571803670472321,
+      "feature": "behavior/transaction_present",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.4080337903707383,
+      "feature": "behavior/direct_contact_log_count",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.012766407557210304,
+      "feature": "scope/legal_topic_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.022818206095200598,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.386327422661688,
+      "feature": "scope/second_person_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2079604623125521,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.25982874293991604,
+      "feature": "scope/url_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.27239883898706296,
+      "feature": "scope/money_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.26654227374047496,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.056962724956716684,
+      "feature": "scope/conditional_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.11147770914817187,
+      "feature": "scope/legal_action_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.10639400697485545,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.07549566119760001,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.22835859717484872,
+      "feature": "scope/negation_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.4611935671570289,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15688372358082187,
+      "feature": "scope/exception_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.03620446622520876,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.022239089994302148,
+      "feature": "scope/transaction_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.061369089507727945,
+      "feature": "scope/transaction_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.3062451600084355,
+      "feature": "scope/first_person_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.4080337903707383,
+      "feature": "scope/direct_contact_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.4226677072643251,
+      "feature": "scope/urgency_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.09727521527152998,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5275933432911621,
+      "feature": "scope/hedge_authored",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.20114212452646385,
+      "feature": "scope/legal_topic_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.3331541600413558,
+      "feature": "scope/conditional_quoted",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 1.0142348523277254,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.10324672163798468,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.11147770914817187,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.6401020555733651,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.31640753397587273,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.20114212452646385,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.14953195457544155,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.03415441690989685,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.11261830006928394,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.07441147152135776,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.14972541234093645,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.08189016224024867,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.13103739296960681,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.0020698373401544954,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.16508915666792806,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.11719470891773369,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2807303181225238,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.14353482318240274,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.04343378349419094,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.44408512208311307,
+      "feature": "support_contrast/mean_margin",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.3036352189152791,
+      "feature": "support_contrast/top3_margin",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.5843138543452644,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.19709934043475028,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.46371307224665986,
+      "feature": "support_contrast/max_margin",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.3057925684282516,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.1365834308190072,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.43597668106789866,
+      "feature": "support_contrast/negative_mean",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.7381364768969084,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.4146794045586747,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.27804693379263534,
+      "feature": "support_contrast/negative_spread",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.9517928969484466,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.8258502864614836,
+      "feature": "support_contrast/relative_distance_authored_jurisdiction",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5352817297965679,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.25942985442728306,
+      "feature": "support_contrast/relative_distance_quoted_legal_action",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.3593335020615028,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.5554080653927517,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.2380163426704084,
+      "feature": "support_contrast/relative_distance_quoted_legal_topic",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.27785312687835256,
+      "feature": "support_contrast/relative_distance_authored_request",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.378959802366099,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.4656857421109563,
+      "feature": "support_contrast/relative_distance_quoted_conditional",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.15768593749268564,
+      "feature": "support_contrast/negative_max",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.13034042585463979,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": 0.2960759767505354,
+      "feature": "support_contrast/relative_distance_quoted_exception",
+      "fold": 1,
+      "variant": "full"
+    },
+    {
+      "coefficient": -0.049783538536898465,
+      "feature": "scope/legal_topic_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.0809312508029458,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.5825278676856233,
+      "feature": "scope/second_person_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.12349994061438913,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.35483419029138036,
+      "feature": "scope/url_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.21242799951142396,
+      "feature": "scope/money_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.34992099665108894,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.02909219003832813,
+      "feature": "scope/conditional_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.17609372073436325,
+      "feature": "scope/legal_action_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.018075091952711557,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.13138479977548997,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.5758646501072369,
+      "feature": "scope/negation_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.5147818551111719,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.09253150978764077,
+      "feature": "scope/exception_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.0688093639279761,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.23769468749880154,
+      "feature": "scope/transaction_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.002002385845763916,
+      "feature": "scope/transaction_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.15946490471671615,
+      "feature": "scope/first_person_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.28231463117196953,
+      "feature": "scope/direct_contact_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.42222380797702175,
+      "feature": "scope/urgency_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.20714321377814274,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.032858682137225294,
+      "feature": "scope/hedge_authored",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.17544082135535996,
+      "feature": "scope/legal_topic_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.3174470136991714,
+      "feature": "scope/conditional_quoted",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.9758669850377573,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.27644068074742356,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.17609372073436325,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.3767862275194807,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.33209416477555803,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.17544082135535996,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.13043284792880605,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.05206278893904394,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.13438824260348922,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.08848847092717194,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.17362456760871994,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.04733324170701375,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.12377273223748837,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.007860245549229131,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.15297365496573317,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.11061970394673655,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.26596132522642996,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.11242286566226597,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.040860234093544494,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.39858796290020504,
+      "feature": "support_contrast/mean_margin",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.3553920975534035,
+      "feature": "support_contrast/top3_margin",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.45940807346215784,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.36731532790444316,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.48347228815382637,
+      "feature": "support_contrast/max_margin",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2973377977821504,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.19413953755721655,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.27298604441354213,
+      "feature": "support_contrast/negative_mean",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.7223736328753804,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.37196593111327664,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.254721137209631,
+      "feature": "support_contrast/negative_spread",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.8691092862946517,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.8540394130078267,
+      "feature": "support_contrast/relative_distance_authored_jurisdiction",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.5528639180751512,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.17008324081756374,
+      "feature": "support_contrast/relative_distance_quoted_legal_action",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.3598515453676491,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.41122973284978537,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.15592846224101545,
+      "feature": "support_contrast/relative_distance_quoted_legal_topic",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.22217192991609058,
+      "feature": "support_contrast/relative_distance_authored_request",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.3452474284285633,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.47123973832621713,
+      "feature": "support_contrast/relative_distance_quoted_conditional",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.19498319801926792,
+      "feature": "support_contrast/negative_max",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.19448802045497504,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": 0.2839890857335903,
+      "feature": "support_contrast/relative_distance_quoted_exception",
+      "fold": 1,
+      "variant": "without_behavior"
+    },
+    {
+      "coefficient": -0.17246401505554856,
+      "feature": "behavior/legal_topic_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.027466105403566112,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.27111233857641753,
+      "feature": "behavior/second_person_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.41613767966077425,
+      "feature": "behavior/second_person_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.7907776672770772,
+      "feature": "behavior/log_words",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.6195860873894848,
+      "feature": "behavior/url_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.2381964996860825,
+      "feature": "behavior/log_chars",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.37108443949455466,
+      "feature": "behavior/money_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.47357371065113246,
+      "feature": "behavior/money_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.19336618800942798,
+      "feature": "behavior/url_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.17461836792635005,
+      "feature": "behavior/conditional_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.18887312955654695,
+      "feature": "behavior/legal_action_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.177214045875834,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.13669294482613953,
+      "feature": "behavior/conditional_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.4035020817984096,
+      "feature": "behavior/exception_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.1431319722472197,
+      "feature": "behavior/negation_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.38828961906523835,
+      "feature": "behavior/exception_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.026194089607742357,
+      "feature": "behavior/negation_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.07031224122854117,
+      "feature": "behavior/hedge_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.048729983787262406,
+      "feature": "behavior/transaction_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.1267354832013452,
+      "feature": "behavior/first_person_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.3410839288023429,
+      "feature": "behavior/direct_contact_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.15955128686694783,
+      "feature": "behavior/transaction_present",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.701244498334585,
+      "feature": "behavior/direct_contact_log_count",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 1.0542232383363654,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.01355394821377535,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.17133797263361253,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.5496367738432142,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.30408126038251043,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.31921152395176,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.14638113713129705,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.03710666542150205,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.044545035503479435,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.07208714440181022,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.1303605404864288,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.2444759779111923,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.13633640827318694,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.0009910200121774483,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.0849449459423414,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.11192997328791736,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.2429282522412995,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.10154488914131139,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.03985444876951776,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.4221826884905051,
+      "feature": "support_contrast/mean_margin",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.3363782130816103,
+      "feature": "support_contrast/top3_margin",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.6121812766929293,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.10096624378562531,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.49314107231554016,
+      "feature": "support_contrast/max_margin",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.31057203619985746,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.028807819139789095,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.43328289740818526,
+      "feature": "support_contrast/negative_mean",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.7039357622946626,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.34428278116140254,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.26573895237383816,
+      "feature": "support_contrast/negative_spread",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.994853712313474,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.618056719455436,
+      "feature": "support_contrast/relative_distance_authored_jurisdiction",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.4904534909646494,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.14581237001685962,
+      "feature": "support_contrast/relative_distance_quoted_legal_action",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.44226090115765393,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.6051908447640146,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.09644944558596834,
+      "feature": "support_contrast/relative_distance_quoted_legal_topic",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.22651344814035304,
+      "feature": "support_contrast/relative_distance_authored_request",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.15373347281784575,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.7237844389651859,
+      "feature": "support_contrast/relative_distance_quoted_conditional",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.13396548638351996,
+      "feature": "support_contrast/negative_max",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": 0.5119834436133328,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.06316735767759506,
+      "feature": "support_contrast/relative_distance_quoted_exception",
+      "fold": 1,
+      "variant": "without_scope"
+    },
+    {
+      "coefficient": -0.33639037207984573,
+      "feature": "behavior/legal_topic_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.2636218513133445,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.03680721074707745,
+      "feature": "behavior/second_person_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.5637673362995749,
+      "feature": "behavior/second_person_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.7938721713742848,
+      "feature": "behavior/log_words",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.16947585875100052,
+      "feature": "behavior/url_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.23584545575633753,
+      "feature": "behavior/log_chars",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.3547045826180188,
+      "feature": "behavior/money_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.28036850681718917,
+      "feature": "behavior/money_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.3024119727422443,
+      "feature": "behavior/url_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.016021654767408723,
+      "feature": "behavior/conditional_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.2186496984525905,
+      "feature": "behavior/legal_action_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.2051780753124772,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.15194598049066152,
+      "feature": "behavior/conditional_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.36523389128573225,
+      "feature": "behavior/exception_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.39712706088596816,
+      "feature": "behavior/negation_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.44311230768532855,
+      "feature": "behavior/exception_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.03845508383747149,
+      "feature": "behavior/negation_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.5845653014474649,
+      "feature": "behavior/hedge_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.156745531659806,
+      "feature": "behavior/transaction_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.06363055751917376,
+      "feature": "behavior/first_person_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.12791992194337384,
+      "feature": "behavior/direct_contact_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.20889363731090738,
+      "feature": "behavior/transaction_present",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.07415416082651838,
+      "feature": "behavior/direct_contact_log_count",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.20206112039017304,
+      "feature": "scope/legal_topic_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.13640604255562405,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.4201815823165407,
+      "feature": "scope/second_person_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.10130524735687865,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.19782159971865595,
+      "feature": "scope/url_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.28036850681718917,
+      "feature": "scope/money_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.21545745531355884,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.06184060339601898,
+      "feature": "scope/conditional_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.1148124371897211,
+      "feature": "scope/legal_action_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.11093293403310459,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.01558635553768629,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.2075384939890742,
+      "feature": "scope/negation_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.4012842312441704,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.14662389071465431,
+      "feature": "scope/exception_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.07518997251665939,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.018913673209323852,
+      "feature": "scope/transaction_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.1190689386744915,
+      "feature": "scope/transaction_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.2544073713882149,
+      "feature": "scope/first_person_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.07415416082651838,
+      "feature": "scope/direct_contact_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.3593322423061119,
+      "feature": "scope/urgency_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.042018047131342044,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.5316227426797434,
+      "feature": "scope/hedge_authored",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.37293607503713094,
+      "feature": "scope/legal_topic_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.33089802293413934,
+      "feature": "scope/conditional_quoted",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.4446134622897508,
+      "feature": "support_contrast/mean_margin",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.4312772380111769,
+      "feature": "support_contrast/top3_margin",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.4472005530958607,
+      "feature": "support_contrast/relative_distance_authored_money",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.22712971499669699,
+      "feature": "support_contrast/relative_distance_authored_second_person",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.5168903326102335,
+      "feature": "support_contrast/max_margin",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.3184786544001596,
+      "feature": "support_contrast/relative_distance_authored_question",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.5109490105583769,
+      "feature": "support_contrast/relative_distance_authored_direct_contact",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.46622101822126727,
+      "feature": "support_contrast/negative_mean",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.6759903032406759,
+      "feature": "support_contrast/relative_distance_authored_transaction",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.9338974919224383,
+      "feature": "support_contrast/relative_distance_authored_legal_topic",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.2848787698677427,
+      "feature": "support_contrast/negative_spread",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.8921593644577723,
+      "feature": "support_contrast/relative_distance_quoted_anecdote",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.7926697154161666,
+      "feature": "support_contrast/relative_distance_authored_jurisdiction",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.32151785444523806,
+      "feature": "support_contrast/relative_distance_authored_commercial_action",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.03929799220960622,
+      "feature": "support_contrast/relative_distance_quoted_legal_action",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.23132754779893272,
+      "feature": "support_contrast/relative_distance_authored_anecdote",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.6457610698462988,
+      "feature": "support_contrast/relative_distance_authored_url",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.016552207832374485,
+      "feature": "support_contrast/relative_distance_quoted_legal_topic",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.05562482111096401,
+      "feature": "support_contrast/relative_distance_authored_request",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.006946608092989496,
+      "feature": "support_contrast/relative_distance_authored_promotion",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.3732908836619515,
+      "feature": "support_contrast/relative_distance_quoted_conditional",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.15618459117028244,
+      "feature": "support_contrast/negative_max",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.18170797513104645,
+      "feature": "support_contrast/relative_distance_authored_urgency",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": 0.3010701878030096,
+      "feature": "support_contrast/relative_distance_quoted_exception",
+      "fold": 1,
+      "variant": "without_rule_alignment"
+    },
+    {
+      "coefficient": -0.058101611629698825,
+      "feature": "behavior/legal_topic_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.03768232320975186,
+      "feature": "behavior/legal_topic_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.07443526693930863,
+      "feature": "behavior/second_person_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.050966632640699026,
+      "feature": "behavior/second_person_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.8326819105871681,
+      "feature": "behavior/log_words",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.4199619900497809,
+      "feature": "behavior/url_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.26378976666421206,
+      "feature": "behavior/log_chars",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.19399604996746453,
+      "feature": "behavior/money_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.30910341486783577,
+      "feature": "behavior/money_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.6518703714502142,
+      "feature": "behavior/url_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.04797154456195055,
+      "feature": "behavior/conditional_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.11749996002882447,
+      "feature": "behavior/legal_action_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.10776374641262315,
+      "feature": "behavior/legal_action_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.014314976078003536,
+      "feature": "behavior/conditional_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.2481100413625459,
+      "feature": "behavior/exception_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.18032844963548605,
+      "feature": "behavior/negation_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.46297054886506495,
+      "feature": "behavior/exception_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.010702064170142467,
+      "feature": "behavior/negation_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.6481052332428033,
+      "feature": "behavior/hedge_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.1585515969130336,
+      "feature": "behavior/transaction_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.1684229176738815,
+      "feature": "behavior/first_person_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.3336041764854023,
+      "feature": "behavior/direct_contact_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.2080164111918997,
+      "feature": "behavior/transaction_present",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.3469612865211696,
+      "feature": "behavior/direct_contact_log_count",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.008673320771567374,
+      "feature": "scope/legal_topic_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.019237698307251975,
+      "feature": "scope/legal_topic_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.44959287370565326,
+      "feature": "scope/second_person_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.1353841828717252,
+      "feature": "scope/second_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.4372394423811096,
+      "feature": "scope/url_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.30910341486783577,
+      "feature": "scope/money_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.4325293347041722,
+      "feature": "scope/url_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.0009337438143001744,
+      "feature": "scope/conditional_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.096176156910673,
+      "feature": "scope/legal_action_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.054112232311851464,
+      "feature": "scope/conditional_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.076983939736807,
+      "feature": "scope/legal_action_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.12675554435796188,
+      "feature": "scope/negation_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.2383767924462194,
+      "feature": "scope/negation_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.16644452986019978,
+      "feature": "scope/exception_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.08006861384104598,
+      "feature": "scope/exception_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06150486783823956,
+      "feature": "scope/transaction_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.03704912069328914,
+      "feature": "scope/transaction_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.44625877662906943,
+      "feature": "scope/first_person_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.3469612865211696,
+      "feature": "scope/direct_contact_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.36466951248752966,
+      "feature": "scope/urgency_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.11901218061578331,
+      "feature": "scope/first_person_authored_minus_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.5859306679855746,
+      "feature": "scope/hedge_authored",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.15775344305826897,
+      "feature": "scope/legal_topic_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.37064990700493317,
+      "feature": "scope/conditional_quoted",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 1.3499637682739742,
+      "feature": "rule_alignment/legal_topic_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.6836932518699124,
+      "feature": "rule_alignment/url_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.096176156910673,
+      "feature": "rule_alignment/legal_action_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.5232500913340973,
+      "feature": "rule_alignment/direct_contact_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.3636105788370612,
+      "feature": "rule_alignment/quote_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.15775344305826897,
+      "feature": "rule_alignment/legal_topic_quoted_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.16626035208531525,
+      "feature": "rule_alignment/directive_with_legal_topic",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.036597114704515425,
+      "feature": "rule_alignment/disclaimer_with_legal_topic",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.05465218735653511,
+      "feature": "rule_alignment/legal_action_quoted_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06406029105508175,
+      "feature": "rule_alignment/request_with_legal_topic",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06778788240402256,
+      "feature": "rule_alignment/commercial_action_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.06448234627615174,
+      "feature": "rule_alignment/url_quoted_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.09389804471478462,
+      "feature": "rule_alignment/anecdote_with_legal_topic",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.004051494529199982,
+      "feature": "rule_alignment/offer_with_legal_topic",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.016062123212424045,
+      "feature": "rule_alignment/promotion_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.11512637520105552,
+      "feature": "rule_alignment/offer_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.26247697382060353,
+      "feature": "rule_alignment/request_quoted_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": -0.10489273530259383,
+      "feature": "rule_alignment/request_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    },
+    {
+      "coefficient": 0.03609769103700502,
+      "feature": "rule_alignment/self_promotion_authored_match",
+      "fold": 1,
+      "variant": "without_support_contrast"
+    }
+  ],
+  "identity": {
+    "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+    "config": {
+      "schema": 1,
+      "name": "behavioral_feature_round1",
+      "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+      "query_counts": [
+        234,
+        647
+      ],
+      "seed": 20260911,
+      "word_features": 12000,
+      "char_features": 20000,
+      "classifier_c": 1.0,
+      "feature_budget_per_family": 24,
+      "bootstrap_replicates": 500,
+      "minimum_macro_delta": 0.003,
+      "max_seconds": 240,
+      "primary": "full vs lexical_control",
+      "gate": "macro delta >= 0.003, simultaneous 95% lower bound > 0, no per-policy regression; no decrease in local per-policy-ranked pooled AUC",
+      "neural_inference": false,
+      "automatic_gpu_authorization": false,
+      "query_targets_in_feature_functions": false,
+      "training_population": "canonical original training bodies and supplied labeled support pairs",
+      "validation": "canonical historical novel-query plan: global support exclusion and all-source query purge",
+      "scope": "diagnostic of behavioral features under one fixed lexical classifier, not promotion of the accepted Qwen model"
+    },
+    "source": {
+      "scripts/behavioral_features.py": "cb28b2b8a9fae23859b839fae1be79e5dc600cde631c767ce3ffd7f22c4606cc",
+      "scripts/run_behavioral_features.py": "370b60f2efb6e80be67fa50c07e1d720aad7ff7bfebe69692f2a86ea0f1fc04a",
+      "configs/behavioral_features.json": "60d100e4f403c4bd933c506d3045c3f030118dbf5da8d794f99426255845d581",
+      "scripts/support_adaptation.py": "9283758e76cd780674311e98dd77745719e8734ebc061975fff4cb48e5df773d",
+      "scripts/competition_features.py": "8e6095a537e5d48a79c1bd3f00b985fd4db1284c9306b39bfe9eaefa98a17905",
+      "src/jigsaw_rules/data.py": "e9f18b55a5d6ae41f8d0ebfe5da2b2e5f78fedad119d3fb8f9f4d4473953896c",
+      "src/jigsaw_rules/runtime.py": "dcffd765ddc45f30c08570b69dec6f6f6b42c5c89815c231a3d6ae25069aa866"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "plotly": "7.0.0",
+        "joblib": "1.5.3"
+      }
+    }
+  },
+  "elapsed_seconds": 23.893,
+  "new_neural_inference": 0,
+  "gpu": false,
+  "automatic_gpu_authorization": false,
+  "kaggle_score": null,
+  "limitations": [
+    "The original-data development set has been inspected repeatedly; it is not a fresh holdout.",
+    "Fixed lexical CPU readout tests feature value; it does not measure an improvement over the accepted Qwen model.",
+    "Heuristic speech-act, quotation and negation cues are fallible; their firing never supplies a label.",
+    "Bootstrap intervals are conditional on these fitted predictions, not independent policy or retraining uncertainty.",
+    "No external threads, timestamps, unseen labels or cross-rule negative labels were manufactured.",
+    "A negative finding rejects this registered representation, not all feature engineering."
+  ]
+}

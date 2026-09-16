@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "name": "feature_value_against_cached_qwen_development",
+  "base": "824e92bfae7414aa156f0bf3195ba677a1f55b21",
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "query_counts": [
+    234,
+    647
+  ],
+  "bootstrap_replicates": 500,
+  "seed": 20260917,
+  "minimum_slice_class": 10,
+  "max_seconds": 240,
+  "model_fits": 0,
+  "ensembles": false,
+  "account": "560403859723",
+  "region": "us-west-2",
+  "bucket": "sagemaker-jigsaw-rules-560403859723-us-west-2",
+  "reference_run": "d13858b7407993fcc6e8",
+  "reference_auc": [
+    0.6792537313432836,
+    0.7605330619753037
+  ],
+  "reference_note": "Qwen support-adapted development-fold scores, not hidden Kaggle outputs",
+  "reference_files": [
+    {
+      "name": "fold_0.npz",
+      "bytes": 21493371,
+      "sha256": "d4413fed09cb18d330b655656d41143759c8012dcce3e8a4517029dda18eff8b",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_0/representations.npz"
+    },
+    {
+      "name": "fold_1.npz",
+      "bytes": 21359643,
+      "sha256": "39530ccecc3cfc1f0dbd7d222ab6d02dcbe84944c0ceff27d46f8826e99622c2",
+      "key": "experiments/support-adaptation-20260909/checkpoints/d13858b7407993fcc6e8/fold_1/representations.npz"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "public": "reports/behavioral_features",
+      "private": "runs/behavioral_features",
+      "sha256": "9e9ac8719b7bb28b11300750627af4f813ab13715f7f40c24608a1105cb540d1",
+      "run_id": "32e706fe1e7dddb7de34"
+    },
+    {
+      "round": 2,
+      "public": "reports/relational_features",
+      "private": "runs/relational_features",
+      "sha256": "c664483cb9e6780178b2bce6272ebd88fd5c86f75b9d8c07100f838c3f07bd12",
+      "run_id": "b951f663d66c68cb6bca"
+    },
+    {
+      "round": 3,
+      "public": "reports/policy_features",
+      "private": "runs/policy_features",
+      "sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+      "run_id": "5927fe5eb15c3cf2d8aa"
+    },
+    {
+      "round": 4,
+      "public": "reports/evidence_features",
+      "private": "runs/evidence_features",
+      "sha256": "9794d7035347a34713c0be5c6d54768ef57879d3d6e97a241e35dea1f804667c",
+      "run_id": "e5628cf8367060756148"
+    },
+    {
+      "round": 5,
+      "public": "reports/scope_lexical_features",
+      "private": "runs/scope_lexical_features",
+      "sha256": "ccd053b4242c3364c52f22f5f1760a949059e9442a38352a98f8dbd6da19331d",
+      "run_id": "5b69b9779637e79f13cd"
+    }
+  ],
+  "model_round": {
+    "lexical_control": 1,
+    "add_behavior": 1,
+    "add_act_roles": 2,
+    "condition_lexical": 3,
+    "rule_both": 4,
+    "copy_both": 5,
+    "scope_both": 5
+  },
+  "restrictions": [
+    "No new fits or inference",
+    "No blends, thresholds or slice tuning",
+    "Original train labels only for retrospective scoring",
+    "No private content in public export",
+    "No automatic promotion"
+  ]
+}

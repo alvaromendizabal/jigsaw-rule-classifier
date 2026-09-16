@@ -1,0 +1,164 @@
+{
+  "lexical": "training-fitted word and character columns multiplied by normalized rule indicators",
+  "behavior": "Round 1 behavior + Round 2 actor-role training-selected columns by rule",
+  "controls": "same width and per-row norm; one shared copy block plus zero padding",
+  "sparse_screen": "existing train-only min_df/vocabulary budget, no query-led screening",
+  "dimensions": [
+    {
+      "fold": 0,
+      "family": "lexical",
+      "base_columns": 28404,
+      "training": {
+        "condition": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 760032,
+          "active_columns": 43365
+        },
+        "copy": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 760032,
+          "active_columns": 28404
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 115995,
+          "active_columns": 12949
+        },
+        "copy": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 56808,
+          "nonzeros": 115995,
+          "active_columns": 12949
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    },
+    {
+      "fold": 0,
+      "family": "behavior",
+      "base_columns": 36,
+      "training": {
+        "condition": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 59040,
+          "active_columns": 72
+        },
+        "copy": {
+          "known_rows": 1640,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 59040,
+          "active_columns": 36
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 8424,
+          "active_columns": 36
+        },
+        "copy": {
+          "known_rows": 234,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 8424,
+          "active_columns": 36
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    },
+    {
+      "fold": 1,
+      "family": "lexical",
+      "base_columns": 25643,
+      "training": {
+        "condition": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 578901,
+          "active_columns": 39329
+        },
+        "copy": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 578901,
+          "active_columns": 25643
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 279318,
+          "active_columns": 15480
+        },
+        "copy": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 51286,
+          "nonzeros": 279318,
+          "active_columns": 15480
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    },
+    {
+      "fold": 1,
+      "family": "behavior",
+      "base_columns": 36,
+      "training": {
+        "condition": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 43740,
+          "active_columns": 72
+        },
+        "copy": {
+          "known_rows": 1215,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 43740,
+          "active_columns": 36
+        }
+      },
+      "query": {
+        "condition": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 23292,
+          "active_columns": 36
+        },
+        "copy": {
+          "known_rows": 647,
+          "unknown_rows": 0,
+          "columns": 72,
+          "nonzeros": 23292,
+          "active_columns": 36
+        }
+      },
+      "rule_count": 2,
+      "row_norm_parity": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "name": "round4_rule_evidence_weighted_lexical_features",
+  "round3_run_id": "5927fe5eb15c3cf2d8aa",
+  "round3_results_sha256": "7d7ffc1ec06480a0c19d492c12df53ed2ee61346e9be4aa7cfa22069a199cf09",
+  "train_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "query_counts": [
+    234,
+    647
+  ],
+  "max_seconds": 240,
+  "bootstrap_replicates": 500,
+  "bootstrap_seed": 20260914,
+  "minimum_macro_delta": 0.003,
+  "new_fits": 12,
+  "cached_control_fits": 10,
+  "primary": "rule_both",
+  "alpha": 1.0,
+  "shrinkage_pairs": 64.0,
+  "weight_cap": 3.0,
+  "permutation_seed": 20260911,
+  "weighting": "1 + min(abs(smoothed log-count ratio), 3); family row norms preserved",
+  "counting": "eligible deduplicated training-pair incidence; existing repeat weights for counts",
+  "reliability": "min(unique class pairs) / (min(unique class pairs) + 64)",
+  "gate": "primary beats condition_lexical and permuted_both by >=0.003 macro AUC, positive simultaneous bounds, no per-policy regression; ranked pooled AUC not below condition_lexical",
+  "automatic_gpu_authorization": false,
+  "reference_status": "condition_lexical is an exploratory anchor, not a promoted model",
+  "prior_results_preserved": true,
+  "question": "Does rule-specific diagnostic term evidence improve norm-matched feature weighting?"
+}

@@ -1,0 +1,29 @@
+{
+  "historical_basic": [
+    "basic/permitted/centroid",
+    "basic/permitted/nearest",
+    "basic/permitted/top5",
+    "basic/violating/centroid",
+    "basic/violating/nearest",
+    "basic/violating/top5",
+    "basic/margin/centroid",
+    "basic/margin/nearest",
+    "basic/margin/top5"
+  ],
+  "new_local_density": [
+    "local/log_density_permitted",
+    "local/log_density_violating",
+    "local/log_density_ratio",
+    "local/evidence_share",
+    "local/entropy",
+    "local/nearest_permitted",
+    "local/nearest_violating",
+    "local/nearest_margin",
+    "local/log_effective_permitted",
+    "local/log_effective_violating",
+    "local/effective_margin",
+    "local/log_relative_radius"
+  ],
+  "fixed_features": true,
+  "screen": "training-only near-constant removal"
+}

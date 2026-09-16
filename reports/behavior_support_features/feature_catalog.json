@@ -1,0 +1,12 @@
+{
+  "new_primary_columns": 48,
+  "families": [
+    "actor-conditional support evidence (24)",
+    "context-conditional support evidence (24)"
+  ],
+  "same_rule_only": true,
+  "frozen_vectors_only": true,
+  "transform_or_reference_fitted_on_inner_training_only": true,
+  "no_new_neural_encoding": true,
+  "independent_round": 9
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 2,
+  "name": "nested_readout_selection_stage1",
+  "revision": "stage1-recovery-v5",
+  "combination_status": "COMBINATION_SCREEN_COMPLETE",
+  "combination_run_id": "47bf7e41726aeb5fa9fb",
+  "raw_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+  "required_main_ancestor": "c9f29976ffceff94c0746948c316a36bac80eb91",
+  "seed": 20260915,
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "permutation_repeats": 3,
+  "permutation_metric": "macro_auc",
+  "correlation_threshold": 0.98,
+  "k_grid": [
+    1,
+    2,
+    3,
+    5,
+    8,
+    12,
+    20,
+    32,
+    9999
+  ],
+  "minimum_selection_frequency": 0.6,
+  "primary_metric": "macro_auc",
+  "probability_guard": "one_se_brier_within_auc_one_se_set",
+  "secondary_metrics": [
+    "pooled_auc",
+    "brier",
+    "probability_rmse",
+    "log_loss"
+  ],
+  "automatic_promotion": false,
+  "new_feature_families": 0,
+  "new_neural_inference": 0,
+  "selection_target": "saved feature/model readout channels, not raw token columns",
+  "scientific_max_seconds": 240
+}

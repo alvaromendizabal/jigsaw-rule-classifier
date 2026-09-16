@@ -1,0 +1,65 @@
+{
+  "automatic_gpu_authorization": false,
+  "bootstrap_replicates": 500,
+  "cached_control_readouts": 10,
+  "candidate_families": [
+    "action_windows",
+    "qualification_windows"
+  ],
+  "classifiers": {
+    "C": 1.0,
+    "max_iter": 2000,
+    "seed": 2025,
+    "solver": "liblinear"
+  },
+  "crossfit_folds": 3,
+  "feature_construction": "8 reference-only word TF-IDF vocabularies/transforms",
+  "feature_construction_fits": "8 reference-only word TF-IDF vocabulary/IDF fits; no encoder fits",
+  "hyperparameters": {
+    "max_characters": 50000,
+    "max_windows": 6,
+    "radius_tokens": 12,
+    "top_references": 5,
+    "vocabulary_cap_per_family": 6000
+  },
+  "hypothesis": "Action-centered and qualification-centered evidence windows",
+  "independent_of_other_new_round": true,
+  "max_seconds": 240,
+  "minimum_macro_delta": 0.003,
+  "name": "round15_action_window_features",
+  "new_family_columns": {
+    "action_windows": 24,
+    "qualification_windows": 24
+  },
+  "new_fits": 12,
+  "new_primary_columns": 48,
+  "primary": "window_all",
+  "promotion_gate": "Primary >= +0.003 macro AUC against every specified comparator, simultaneous lows >0, no per-policy regression, ranked-pooled nondecrease vs raw Qwen. Exploration only.",
+  "question": "Do cue-centered text windows give more useful reference evidence than length-matched displaced windows and the whole comment?",
+  "raw_data_and_cache_reuse": true,
+  "reference_status": "context_evidence is an adaptively chosen exploratory anchor, not promoted",
+  "references": [
+    "qwen_raw",
+    "frozen_basic",
+    "context_evidence",
+    "uniform_all",
+    "displaced_all",
+    "whole_comment_all",
+    "label_null_all"
+  ],
+  "round10_results_sha256": "5147c7bd77b2acc7763125f0b0f5b0b260cd3ec06aba612ab74cf2d3f885e932",
+  "round10_run_id": "db369c331ca5c7fb49a7",
+  "round11_results_sha256": "dd3e004f0f6172105e3fd33b15aaea105af66bb42fe48cdc2d591a084a2676f5",
+  "round11_run_id": "3a78a2db1228e0e87362",
+  "round12_results_sha256": "c8b377235434f0d4de6a2dd1c31b68be08df3779cbe8e5c62fa55262b9d0028a",
+  "round12_run_id": "94bc26be8bfe2d6c311d",
+  "round13_results_sha256": "d2f7118641b49332780ed4eec7c3995017487ea67afb62aee337f5a6e1a08618",
+  "round13_run_id": "377538354e20ebccc0d9",
+  "round8_results_sha256": "d7c7ce8dd5982d67916c7508442bcc2719c7fa899cc0eb427ddc060cc7f367fc",
+  "round8_run_id": "eab42d2b77ef0e2ac8e0",
+  "round9_results_sha256": "1dd194fc88e1f5089c1265858e58b99ceb562f4542b71fcef8b2f580fdaa09ad",
+  "round9_run_id": "7648bca3c639da0e050f",
+  "schema": 1,
+  "scope": "original permitted support/training labels; no released targets",
+  "seed": 20260913
+}
