@@ -14,16 +14,24 @@ rank normalization. Reimplementing those is not the next bottleneck.
 
 ## Immediate gaps
 
-The fastest same-backbone gap is supervision and prompting. The current support builder
-drops conflicting rule/body labels; stronger public systems instead resolve them by
-majority or empirical soft targets. We therefore register matched 4B arms for drop,
-majority, and soft resolution, plus concise/numeric/compliance prompt families and an
-expanded decision-token set.
+Conflict supervision is no longer only a paper-design gap. Earlier CPU proxy work in
+PR #28 rejected majority and soft conflict resolution under a fixed TF-IDF/Ridge
+whole-rule transfer study. Because that proxy is not the LoRA system, a later explicitly
+exploratory end-to-end 4B check changed only conflict handling: strict annotation-occurrence
+majorities are retained and ties remain excluded.
 
-No arm is promoted from a public leaderboard number alone. Every change must use the
-project's existing group-safe 881-row benchmark, target-free query construction, paired
-bootstrap uncertainty, per-policy regression checks, durable checkpoints, and bounded
-runtime.
+The September 21 audit recovered 10 normalized rule/comment pairs, discarded one tie,
+preserved uncontested-label parity and both policy-level query-purge checks, completed the
+bounded Kaggle preview, and was confirmed as submission 56444879. Its score was still
+pending at the captured snapshot. This closes the implementation question—majority
+supervision can be wired into the strong neural path reproducibly—but does **not** establish
+predictive improvement or authorize promotion. [Executed checkpoint](../notebooks/27_latest_system_checkpoint.ipynb).
+
+Remaining same-backbone gaps include prompt/verbalizer choices that have not been cleanly
+benchmarked end to end. The next larger capability gap is backbone capacity and complementary
+model diversity. No arm is promoted from a public leaderboard number alone; changes remain
+subject to target-free query construction, policy-level regression checks, durable
+checkpoints, bounded runtime and honest separation of exploratory from scored evidence.
 
 ## Scale and diversity
 
