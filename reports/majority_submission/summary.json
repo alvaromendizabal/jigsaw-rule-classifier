@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "title": "September 21 majority-supervision checkpoint",
+  "source_run_id": "20260921T230818672281Z",
+  "source_repository_commit": "2251a7737ad0ba1d0796c2ca5d8b2a791e20e57a",
+  "verified_scored_system": {
+    "model": "support-adapted Qwen3-4B",
+    "public_auc": 0.91808,
+    "private_auc": 0.91425,
+    "winning_private_auc": 0.9293,
+    "private_gap_to_winner": 0.01505,
+    "scope": "late Kaggle score using original competition boundary and supplied support labels"
+  },
+  "candidate": {
+    "name": "strict-majority conflict-resolution Qwen3-4B",
+    "recipe": "JIGSAW_MAJORITY_V1",
+    "single_factor_change": "retain strict-majority labels for conflicting normalized rule/comment pairs; drop ties",
+    "submission_ref": "56444879",
+    "kernel": "alvaromendizabal/jigsaw-majority-4b3061daa2",
+    "notebook_version": 1,
+    "status_as_of_utc": "2026-09-21T23:08:21.271489+00:00",
+    "status": "pending",
+    "public_auc": null,
+    "private_auc": null,
+    "automatic_promotion": false
+  },
+  "supervision_audit": {
+    "training_rows": 2029,
+    "candidate_occurrences": 10185,
+    "conflicting_pairs": 11,
+    "conflicting_occurrences": 213,
+    "baseline_retained_pairs": 1862,
+    "candidate_retained_pairs": 1872,
+    "resolved_majority_pairs": 10,
+    "discarded_tie_pairs": 1,
+    "retained_growth_ratio": 1.0053705692803436,
+    "uncontested_label_parity": true,
+    "forbidden_text_occurrences": 0,
+    "folds": [
+      {
+        "policy": "Advertising",
+        "query_rows": 234,
+        "baseline_pairs": 1640,
+        "candidate_pairs": 1642,
+        "recovered_pairs": 2,
+        "purge_passed": true
+      },
+      {
+        "policy": "Legal advice",
+        "query_rows": 647,
+        "baseline_pairs": 1215,
+        "candidate_pairs": 1224,
+        "recovered_pairs": 9,
+        "purge_passed": true
+      }
+    ]
+  },
+  "preview_and_reconciliation": {
+    "preview_rows": 10,
+    "preview_elapsed_seconds": 686.6717705249998,
+    "finite": true,
+    "id_order_passed": true,
+    "local_remote_audit_parity": true,
+    "preview_retrained_by_recovery": false,
+    "reconciliation_elapsed_seconds": 2.6,
+    "new_remote_previews_during_reconciliation": 0,
+    "new_remote_submissions_during_reconciliation": 0,
+    "model_fits_during_reconciliation": 0
+  },
+  "notebook_gate": {
+    "executed_code_cells": 2,
+    "plotly_outputs": 1,
+    "svg_fallbacks": 1,
+    "save_reopen_verified": true,
+    "next_cell_sentinel_verified": true
+  },
+  "decision": "Retain the scored 4B system as the verified best until the candidate receives an official score. Do not promote from preview completion or the supervision audit alone.",
+  "next_high_value_direction": "After this one-factor submission resolves, prioritize stronger backbone capacity and complementary-model diversity (not another broad raw-feature sweep).",
+  "limitations": [
+    "Annotation-occurrence majorities may reflect repeated supports, not independent label votes. This is an exploratory supervision recipe, not proof of better labels.",
+    "The candidate submission was pending at the captured status snapshot; no candidate AUC is claimed here.",
+    "The 881-row development cohort used elsewhere in the project has been inspected repeatedly and is not a fresh independent holdout.",
+    "AWS-private data, row-level predictions, checkpoints, credentials, and full logs are intentionally excluded from this public checkpoint."
+  ]
+}
