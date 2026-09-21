@@ -32,11 +32,7 @@ def test_latest_checkpoint_notebook_is_executed_and_portable():
         for cell in code
         for out in cell.outputs
     )
-    svg = sum(
-        "image/svg+xml" in out.get("data", {})
-        for cell in code
-        for out in cell.outputs
-    )
+    svg = sum("image/svg+xml" in out.get("data", {}) for cell in code for out in cell.outputs)
     assert plotly >= 2
     assert svg >= 1
     assert "PLOTLY_SENTINEL_COMPLETE" in text
