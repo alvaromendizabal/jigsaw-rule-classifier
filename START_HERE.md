@@ -1,6 +1,6 @@
 # Start with the evidence
 
-**Current decision — September 10, 2026:** the cached-vector support-selection audit and single-AI relevance review are complete. Stop this raw adapted-vector cosine selector before another GPU comparison; keep support-adapted Qwen3-4B unchanged (**0.91808 public / 0.91425 private Kaggle AUC**). Feature research remains open. [Audit and review](docs/SUPPORT_SELECTION_RESULT.md). No new AUC was measured.
+**Current portfolio checkpoint — September 21, 2026:** support-adapted Qwen3-4B remains the verified best (**0.91808 public / 0.91425 private Kaggle AUC**). The strict-majority supervision candidate is confirmed as official submission **56444879** but was still pending at the captured snapshot; it is not promoted and no candidate AUC is claimed. Review [27 · Latest system checkpoint](notebooks/27_latest_system_checkpoint.ipynb) for the compact end-to-end evidence.
 
 
 **Verified Kaggle result — September 10, 2026, 02:20 UTC:** support-adapted Qwen3-4B **Version 3 scored 0.91808 public / 0.91425 private AUC**, up **0.32617 / 0.29469** from the lexical baseline. Kaggle reports **Succeeded (after deadline)**. The private score remains **0.00575 below 0.92** and **0.01575 below 0.93**; the performance goal remains open. [Exact saved version](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Verified receipt](reports/checkpoints/kaggle_adaptation.json).
@@ -8,7 +8,7 @@
 
 **Current neural notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb). **Historical CPU control:** [`kaggle/reference.ipynb`](kaggle/reference.ipynb), which reproduces the original Version 2 approach. The separate 0.7770 research model uses post-competition development labels. Keep these three model/data boundaries distinct.
 
-**Employer review:** open [03 · Results and model decision](notebooks/03_saved_results.ipynb), then [02 · Feature research](notebooks/02_baseline_and_review.ipynb). The remaining notebooks explain the audit, validation and semantic diagnostics. No AWS account, private data, or model download is required to read the five executed public notebooks.
+**Employer review:** open [27 · Latest system checkpoint](notebooks/27_latest_system_checkpoint.ipynb), then [03 · Results and model decision](notebooks/03_saved_results.ipynb) and [02 · Feature research](notebooks/02_baseline_and_review.ipynb). The remaining notebooks explain the audit, validation and semantic diagnostics. No AWS account, private data, or model download is required to read the five executed public notebooks.
 
 ## Update an existing SageMaker checkout
 
@@ -74,6 +74,8 @@ Routine public verification does not rewrite canonical notebooks. Deliberate pub
 Only public aggregate evidence can be published. Private or synthetic execution cannot overwrite the five public notebooks. Failed execution preserves the last-good canonical file. Publish intentional source/output changes through a feature branch and reviewed pull request. The aggregate reader checks committed checksums and provenance; private `jigsaw review` recomputes metrics from saved row-level predictions.
 
 ## Run and submit on Kaggle
+
+**September 21 exploratory entry:** strict-majority conflict resolution is already submitted as **56444879** from `alvaromendizabal/jigsaw-majority-4b3061daa2`, version 1. The captured status was pending, so do not treat it as a result and do not create a duplicate entry. The verified best remains Version 3 at 0.91808 public / 0.91425 private AUC. [Public aggregate checkpoint](reports/majority_submission/summary.json).
 
 **Version 3 is submitted and scored: 0.91808 public / 0.91425 private AUC.** The account row and Submission Details verified success at 02:20 UTC on September 10, 2026. No upload or duplicate submission is needed. The saved offline preview completed 117 steps in 603.5 worker seconds / 8.26 GiB; these are preview measurements, not hidden-run runtime. [Receipt](reports/checkpoints/kaggle_adaptation.json).
 
