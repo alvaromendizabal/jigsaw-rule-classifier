@@ -2,3 +2,4 @@
 reports/**/*.svg linguist-generated=true whitespace=-blank-at-eol
 reports/**/*.json linguist-generated=true
 *.ipynb linguist-generated=false
+reports/**/*.html linguist-generated=true
