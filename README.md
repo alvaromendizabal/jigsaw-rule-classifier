@@ -1,141 +1,63 @@
-# Jigsaw · Rule-conditioned comment classification
+# Jigsaw · Rule-conditioned NLP
 
-**Current portfolio checkpoint — September 21, 2026:** the verified best remains support-adapted Qwen3-4B (**0.91808 public / 0.91425 private Kaggle AUC**). A one-factor strict-majority conflict-resolution candidate recovered **10** normalized training pairs while retaining both query-purge checks and uncontested-label parity, completed its bounded preview, and was confirmed as official submission **56444879**. Its score was still **pending** at the captured snapshot, so the candidate is not promoted and no candidate AUC is claimed. [Latest executed checkpoint](notebooks/27_latest_system_checkpoint.ipynb) · [Public aggregate receipt](reports/majority_submission/summary.json) · [Top-solution track](docs/TOP_SOLUTION_INTEGRATION.md).
+**A complete machine-learning research portfolio: from lexical baselines to a support-adapted language model, with verified Kaggle results and reproducible evidence.**
 
-
-Predict whether a comment violates a supplied community rule, using the rule and examples of permitted and prohibited comments.
-
-**Start with [27 · Latest system checkpoint](notebooks/27_latest_system_checkpoint.ipynb), then [03 · Results and examples](notebooks/03_saved_results.ipynb) and [02 · Feature research](notebooks/02_baseline_and_review.ipynb).** The competition rebuild improves private Kaggle AUC from **0.61956 to 0.91425**. The **0.92–0.93 objective remains open**. Historical post-competition research is preserved separately. [Measured rebuild and remaining experiment](docs/COMPETITION_REBUILD.md).
-
-**Original baseline submission:** Version 2 succeeded as a late submission: **0.59191 public / 0.61956 private**. These are the original-training lexical reference scores. [Submission record](reports/checkpoints/kaggle_submission.json) · [Kaggle result, signed-in account](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/submissions#). **Current support-adapted GPU notebook:** [`kaggle/submission.ipynb`](kaggle/submission.ipynb) · [download](https://github.com/alvaromendizabal/jigsaw-rule-classifier/raw/refs/heads/main/kaggle/submission.ipynb). [Run the accepted model and find the AWS backups](docs/DELIVERY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md).
+Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
-**Verified Kaggle result — September 10, 2026, 02:20 UTC:** support-adapted Qwen3-4B **Version 3 scored 0.91808 public / 0.91425 private AUC**, up **0.32617 / 0.29469** from the lexical baseline. Kaggle reports **Succeeded (after deadline)**. The private score remains **0.00575 below 0.92** and **0.01575 below 0.93**; the performance goal remains open. [Exact saved version](https://www.kaggle.com/code/alvaromendizabal/jigsaw-support-adapted-rule-classifier?scriptVersionId=348640051) · [Verified receipt](reports/checkpoints/kaggle_adaptation.json).
+**0.91425 private ROC AUC · 0.91808 public ROC AUC · +0.29469 private AUC over the original baseline**
 
-Built by Alvaro Mendizabal. This project combines rule-conditioned NLP, training-only screening, cross-fitted target features, frozen representations, matched ablations and resumable AWS experiments. Its central finding is that **features which work on familiar policies can fail on a new policy**. The late Kaggle lexical-reference scores are reported separately from the post-competition research. No medal or state-of-the-art claim is made.
+[Project review notebook](notebooks/27_latest_system_checkpoint.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md) · [Closeout and evidence](docs/PROJECT_CLOSEOUT.md)
 
-**Latest controlled capability:** the September 21 checkpoint turns conflict-label handling into a reproducible end-to-end one-factor experiment rather than another broad feature sweep. The published notebook records the supervision delta, policy-level purge checks, Plotly evidence, exact submission identity and the explicit no-promotion decision while the leaderboard result is unresolved. AWS-private data, checkpoints, row-level predictions and operational logs stay outside the public repository.
+## The problem
 
-**Current rebuild evidence:** support adaptation improves the same 4B model from **0.6146 to 0.7199 AUC on 881 novel comments**, with a paired simultaneous 95% gain interval of **[0.0612, 0.1493]**. Adapted coordinates and a fixed prototype blend do not improve its direct score. The earlier full 2,029-row study rejected a 15,369-column frozen feature bank. Both experiments, optimizer recovery and evaluation replay are complete. These are development results, not new Kaggle scores; the **0.92 objective remains open**. [Measured comparisons and next execution gate](docs/COMPETITION_REBUILD.md).
+Community moderation is not a fixed toxicity classification task. A comment can be acceptable under one policy and violate another. This project predicts whether an English-language comment violates a supplied community rule, using permitted and prohibited examples to adapt to that rule. The difficult part is transferring beyond familiar policies without learning shortcuts from duplicated comments or support examples.
 
-**Latest executed comparisons:** neither added model clears the registered development gate. The Qwen/Phi blend scores **0.72354**, and the fixed 4B/8B blend scores **0.72540**, versus the same **0.71989** 4B reference on 881 novel comments. The 4B/8B gain is **+0.00550**, with simultaneous 95% interval **[-0.01325, 0.02425]**; adapted 8B alone scores **0.71794**. No new competition entry is submitted. An independent authored-only 8B probe passed offline training and optimizer recovery across two Kaggle T4s, using **7.89 GiB per GPU**. That is runtime evidence, not an AUC result. The private Kaggle gap to the winning **0.92930** remains **0.01505**. [8B results and recovery](reports/checkpoints/backbone_capacity.json) · [Phi comparison](reports/checkpoints/complementarity.json).
+## Results that matter
 
-**Latest representation ablation — support examples in the prompt:** the retained
-4B model improves from **0.71989 to 0.72286 development AUC** (+0.00296).
-The simultaneous 95% gain interval is **[-0.01159, 0.01751]**: advertising improves
-by 0.01470, but legal advice declines by 0.00878. **Do not promote this candidate.**
-No new Kaggle submission was made; the private score and 0.01505 gap are unchanged.
-The worker completed all **881 comments in 185.8 seconds**, with **7.83 GiB**
-peak GPU allocation, zero training, exact baseline parity and replay of all
-29 inference shards. Private S3 recovery and the HF job both completed.
-[Measured result](reports/support_context/results.json) ·
-[Decision and uncertainty](reports/support_context/decision.json) ·
-[Protocol, failures and next hypothesis](docs/COMPETITION_REBUILD.md) ·
-[Standing execution rules](AGENTS.md).
+| System | Public Kaggle AUC | Private Kaggle AUC | Role |
+| --- | ---: | ---: | --- |
+| Original lexical reference | 0.59191 | 0.61956 | Reproducible baseline |
+| **Support-adapted Qwen3-4B** | **0.91808** | **0.91425** | **Retained final system** |
+| Historical competition winner | — | 0.92930 | External comparison, not our model |
 
-![Retained 4B support-context comparison](reports/support_context/comparison.svg)
+The retained system improves private AUC by **0.29469** and is **0.01505 AUC units (1.505 percentage points)** below the documented winning private score. This is a strong ranking result for the completed project, not a claim of winning or a leaderboard percentile. AUC measures ranking, not classification accuracy. These are verified **late submissions**, not an original competition placement or medal. [Scored-version receipt](reports/checkpoints/kaggle_adaptation.json) · [Historical winning benchmark](configs/top_solution_integration.json).
 
-Feature research remains open. The next hypothesis is semantic, contrastive
-selection of support examples using retained representations, beginning with a
-CPU audit of the legal-advice weakness. It has not been launched.
+A separate matched study isolates the mechanism: support adaptation raises the same 4B backbone from **0.61460 to 0.71989 policy-macro AUC** on **881 novel development comments**. The simultaneous 95% gain interval is **[0.06124, 0.14935]**, conditional on the observed policies and fixed predictions. This development result explains the method; it is not substituted for the Kaggle score. [Matched results](reports/support_adaptation/results.json) · [Uncertainty](reports/support_adaptation/uncertainty.json).
 
-## Historical protected result: post-competition data
+## What I built
 
-Predictions were frozen in [commit 530ad799](https://github.com/alvaromendizabal/jigsaw-rule-classifier/commit/530ad79929012e807cb42a5253f7b92b090682ec) before eligible targets were first interpreted on September 9, 2026. All **12 preregistered acceptance checks passed**, with no new model fitting or candidate selection.
+**A task-adapted neural classifier.** The final path uses a pinned Qwen3-4B-Instruct-2507 model, LoRA adaptation from original training labels and supplied support labels, decision-position loss, efficient last-token scoring, length-sorted inference, and within-policy rank normalization. Output schemas, identifiers, ordering, model assets, and numerical validity are checked explicitly.
 
-| Protected cohort | Lexical reference AUC | Accepted route AUC |
-| --- | ---: | ---: |
-| All six policies, 43,509 rows | 0.6801 | **0.7770** |
-| Four familiar policies, 25,485 rows | 0.7581 | **0.8276** |
-| Two unseen policies, 18,024 rows | 0.5241 | **0.6757** |
+**A substantial feature and generalization investigation.** Lexical, semantic, retrieval, behavioral, policy-intent, and representation-geometry families were examined through controlled comparisons. The separate four-policy research campaign records **323 fixed fits**. Its full feature model reached **0.7989 familiar-policy AUC but 0.5515 held-out-policy AUC**, exposing why more features alone were not enough. Negative results, transfer failures, calibration choices, and stopping decisions remain visible. [Feature research](notebooks/02_baseline_and_review.ipynb) · [Expanded study](docs/EXPANDED_STUDY.md).
 
-Primary policy-macro AUC improves by **0.0969**, with a paired 95% bootstrap interval of **[0.0898, 0.1051]**. Every policy improves. Overall log loss falls from **0.6685 to 0.5121**, and Brier from **0.2360 to 0.1739**. The interval conditions on six observed policies and fixed predictions. This post-competition benchmark is not a Kaggle leaderboard score or proof of performance on arbitrary future policies. [Protocol, recovery and full results](docs/CONFIRMATION.md).
+**Reproducible ML engineering.** Immutable input identities, training-only transformations, query/support separation, paired uncertainty, saved optimizer and random state, content-addressed checkpoints, and replay checks preserve the connection between code and evidence. GitHub Actions checks software quality, notebook execution and reuse, offline inference, and the pinned encoder. The public review needs no AWS account or private data.
 
-![Protected policy-level comparison](reports/confirmation/policy_gains.svg)
+## Architecture
 
-## What the development research found
+Original training labels + supplied labeled examples → audited support pairs → pinned 4B model + LoRA → decision-token scores → within-rule ranks → validated submission.
 
-The expanded study uses **11,135 development rows across four policies** and seven strict comment/support-purged splits. Financial-advice and spoiler policies were wholly excluded from development. The original 43,576-row reserve yielded **43,509 eligible confirmation rows** after 67 target-blind near-copy exclusions. This is a post-competition benchmark built from the host's released data.
+The final model uses direct adapted decisions; it does **not** concatenate every historical feature bank. The separate post-competition research route is documented independently in the model card. [Inference implementation](scripts/kaggle_adaptation.py) · [Training](scripts/decision_training.py) · [Offline notebook](kaggle/submission.ipynb).
 
-| Representation | Held-out policy AUC ↑ | Log loss ↓ | Brier ↓ |
-| --- | ---: | ---: | ---: |
-| Rule/example lexical reference | 0.4728 | 0.8126 | 0.2992 |
-| Words + compact semantic comparisons | 0.5761 | 0.8156 | 0.2969 |
-| Compact semantic comparisons alone | 0.6876 | 0.6891 | 0.2456 |
-| Frozen semantic centroid | **0.7042** | **0.6237** | **0.2177** |
-| All transferable feature families | 0.5515 | 1.4700 | 0.4503 |
-| Semantic comparisons + labeled retrieval | 0.5590 | 1.4763 | 0.3613 |
-| Plain-document support centroid | 0.6865 | 0.6214 | 0.2170 |
-| Fixed centroid/intent average (rejected) | 0.7086 | 0.6549 | 0.2320 |
+## Review the work
 
-The centroid's matched development improvement is **+0.2314 AUC**, with a within-study simultaneous 95% interval of **[0.1889, 0.2740]**. Compact semantic features add **+0.1385** to the same screened-word control. These intervals condition on fixed predictions and four observed policies; they do not establish independent generalization.
-
-![Feature contributions under matched validation](reports/expanded/ablation.svg)
-
-Most of the centroid's average gain comes from avoiding reversed lexical ranking on illegal-activity promotion. Legal-advice AUC remains **0.5702** and medical-advice AUC **0.5969**. The full feature model reaches **0.7989 on familiar policies**, but only **0.5515 on held-out policies**. Reporting only familiar-policy performance would conceal the project's central failure mode.
-
-## What makes the feature work substantive
-
-- **188,595–188,598 candidate columns per fold**, including 309 retrieval and 77 semantic-formatting/intent candidates; **9,281–9,660 retained** across banks before final family selection. Counts are fold-specific, not independent hypotheses or one promoted model's width.
-- **323 fixed fits** in the four-policy campaign: 238 primary comparisons, 22 changed-training sensitivities, 35 retrieval and 28 formatting/intent fits. Six identical sensitivity cases reuse saved fits. Six embedding-resolution scores and one fixed fusion require no additional inference or fitting; three new frozen formatting scores use the separately recorded encoder caches.
-- Matched additions/removals, per-policy results, group permutation, coefficient contributions, selection stability and paired uncertainty. Classifier hyperparameters stay fixed.
-- Exact body/support isolation; training-only vocabulary, scaling, screening, percentiles, NB and SVD; inner cross-fitting for target context; query-policy exclusion for labeled retrieval.
-- Explicit negative results: adding retrieval damages the compact semantic model; no shorter embedding prefix improves the centroid; larger combined banks do not solve transfer. Historical NLI/instruction failures remain documented on their original two-policy cohort.
-- Conflict, near-copy and support-dependence sensitivities. Removing all 18 self-support matches leaves centroid AUC **0.7034**. Missing timestamps, authors and threads are treated as unavailable data, not invented features.
-- A source-checked 48-row qualitative error audit, completed before new scores, motivates a falsifiable policy-intent comparison. No labels were changed; one assistant's stratified review cannot estimate a population label-error rate.
-
-[Expanded study and results](docs/EXPANDED_STUDY.md) · [Retrieval experiment](docs/RETRIEVAL_STUDY.md) · [Embedding resolution](docs/RESOLUTION_STUDY.md) · [Historical methods and feature provenance](docs/FEATURE_RESEARCH.md).
-
-## Historical research scope and deliverables
-
-**Feature research: COMPLETE for the declared four-policy scope.** Retain the original frozen centroid for unseen policies. Seven new semantic candidates and one fixed average fail the predeclared replacement criteria. The average's higher AUC is uncertain, advertising regresses and probability losses worsen. [Stopping evidence](reports/feature_decision/decision.json) · [Coverage and exclusions](docs/FEATURE_COVERAGE.md) · [Semantic results](docs/SEMANTIC_FORMATTING.md).
-
-**Model fitting and development calibration: COMPLETE.** Nine inner fits validate calibration without sharing outer validation labels. Familiar-policy log loss improves from **0.4761 to 0.4689**; transfer calibration worsens log loss to 0.6976 and is rejected. The fitted route uses calibrated familiar-policy features and the raw unseen-policy centroid. Its familiar pipeline retains **9,263 of 181,958 candidate columns**. [Protocol, results and lineage](docs/MODEL_VALIDATION.md).
-
-**Protected confirmation and offline delivery: COMPLETE.** The exact accepted artifact is packaged with its pinned encoder and locked runtime. Real offline predictions match saved cloud probabilities within **0.00000122**; batch/order parity, missing-support rejection and restart reuse pass. A separate environment restored the package and ran with zero network calls. On the tested CPU, peak memory was **3.88 GiB** and warm mean latency **1.11 seconds per authored comment**. These are small-run measurements, not production-load estimates. [Download and measured budgets](docs/DELIVERY.md).
-
-**Historical portfolio artifacts: delivered.** Five executed evidence notebooks, four authored inference examples, model/data cards and verified private S3 recovery make that scoped study reviewable and runnable. The original lexical notebook is preserved as `kaggle/reference.ipynb`, separately from the current neural `kaggle/submission.ipynb` and the model trained with post-competition labels. CI verifies its 2,029-row training / 10-row preview workflow and replay. Kaggle Version 2 passed its offline preview run and its submitted hidden-test run: **0.59191 public / 0.61956 private**, recorded on September 9, 2026 as a late entry. The competition performance objective remains open.
-
-The historical research and local inference release remains preserved. The original baseline was submitted and scored, but the competition performance goal is open. [Current rebuild](docs/COMPETITION_REBUILD.md). [Acceptance record](docs/ROADMAP.md#completed-deliverables) · [Quality and execution evidence](docs/VALIDATION.md).
-
-## Review or reproduce
-
-The five executed notebooks need no private data, AWS account or model download to read. They render verified public aggregates and Plotly figures with SVG fallbacks.
-
-| Notebook | Question |
+| Start with | What it demonstrates |
 | --- | --- |
-| [03 · Results](notebooks/03_saved_results.ipynb) | What improved, what failed, and what can we claim? |
-| [02 · Feature research](notebooks/02_baseline_and_review.ipynb) | Which families contribute, and how were they screened? |
-| [01 · Validation](notebooks/01_data_and_validation.ipynb) | What prevents leakage and misleading validation? |
-| [04 · Diagnostics](notebooks/04_semantic_benchmark.ipynb) | Which policies, probability errors and support conditions matter? |
-| [00 · Environment](notebooks/00_environment_and_data.ipynb) | Where did the data and artifacts come from? |
+| [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) | Final score, matched evidence, feature-transfer lesson, latest experiment, and project conclusion |
+| [03 · Results and examples](notebooks/03_saved_results.ipynb) | Detailed model comparisons and documented decisions |
+| [02 · Feature research](notebooks/02_baseline_and_review.ipynb) | Feature contributions, ablations, and negative results |
+| [01 · Validation](notebooks/01_data_and_validation.ipynb) | Data boundaries and leakage controls |
+| [26 · Public-method map](notebooks/26_top_solution_integration.ipynb) | Attribution and comparison with leading methods |
 
-```bash
-uv sync --locked --extra semantic --group dev
-uv run python scripts/verify.py
-uv run python scripts/execute_notebooks.py --publish
-uv run jigsaw gate
-# After restoring private artifacts; no fitting:
-uv run python scripts/verify_expanded.py
-```
+Saved notebooks include visible evidence; the project-review notebook can also be rerun from public aggregates without model loading or cloud access. [Reproduction guide](START_HERE.md).
 
-Automated tests, locked dependencies and CI cover software contracts. Private verification checks all 100 expanded/retrieval metric records and 20 new semantic metric records, replays 14 earlier and all 28 new fitted models, and rebuilds all 28 new feature transforms. Source/configuration/data identities, completed-stage hashes and encrypted S3 archives preserve expensive work. Interrupted active stages restart; intact completed work is reused. The historical frozen-model runners do not have neural optimizer state. The new support-adaptation runner saves adapter, optimizer, scheduler and RNG state; its cloud verification status is recorded in the rebuild receipt. [Actual quality and execution record](docs/VALIDATION.md).
+## Completed scope
 
-[START_HERE.md](START_HERE.md) covers restoration and the user's offline submission workflow. [VALIDATION.md](docs/VALIDATION.md) records actual executions, checksums and limits. Public aggregates do not substitute for private OOF verification.
+**The research-and-engineering portfolio is complete, with the scored support-adapted 4B system retained.** Further backbone scaling and ensemble research are optional future work, not unfinished requirements for this release.
 
-## Metric, provenance and limits
+The latest supplementary majority-supervision experiment recovered ten conflicting pairs and completed its preview. Submission **56444879** was last observed pending at **2026-09-21 23:08 UTC**; no later score is verified in this release. It is preserved as an unpromoted experiment and does not replace the final system. [Experiment snapshot](reports/majority_submission/summary.json).
 
-The primary metric is equal-weight **policy-macro ROC AUC**; pooled AUC is separate. The official column-averaged AUC description and [host per-rule release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641121) strongly corroborate this aggregation. Executable scorer parity is not claimed. The separate late Kaggle receipts distinguish the original lexical reference from the support-adapted model. [Arithmetic audit](reports/released/metric.json) · [Released-data boundary](docs/RELEASED_DATA.md).
+AWS remains the private data, checkpoint, and recovery workspace. GitHub contains reviewable code, configurations, tests, executed notebooks, and compact aggregate evidence—not raw comments, row-level predictions, model weights, environments, credentials, or a mirror of AWS. No deployment, autonomous moderation, fairness certification, or production-load claim is made.
 
-[Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/overview) · [Host data release](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/discussion/641107) · [Research and model sources](docs/FEATURE_RESEARCH.md#research-sources-and-external-data-feasibility).
-
-Code: MIT. Data and third-party models retain their own terms. The canonical [Kaggle notebook](kaggle/submission.ipynb) supports the user's own offline CSV generation; notebook execution generates files locally, and the separate completed Kaggle entry is recorded above.
-
-<!-- BEGIN MANUAL FEATURE CAMPAIGN -->
-## Manual feature research — through Round 13
-
-[Research ledger and notebook guide](docs/MANUAL_FEATURE_CAMPAIGN.md) · [Machine-readable results](reports/manual_feature_campaign/summary.json)
-
-Notebooks 05–19 preserve the executed manual readiness, feature, and audit milestones. The feature gate remains open: no new Kaggle score or promoted replacement is claimed. Local two-policy diagnostic AUC must not be compared directly with the recorded 0.91425 private Kaggle AUC.
-<!-- END MANUAL FEATURE CAMPAIGN -->
+[Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [License](LICENSE) · [Project conclusion](docs/PROJECT_CLOSEOUT.md)
