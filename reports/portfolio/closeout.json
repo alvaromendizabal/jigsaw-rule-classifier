@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "completed_local_date": "2026-09-21",
+  "completion_scope": "Research-and-engineering portfolio and retained competition inference path; not production deployment or a competition win",
+  "reviewed_base_commit": "9043e3d9021bd3e40decf9ca9f84dc274924658e",
+  "final_model": {
+    "name": "Support-adapted Qwen3-4B",
+    "notebook_version": 3,
+    "script_version_id": 348640051,
+    "public_auc": 0.91808,
+    "private_auc": 0.91425,
+    "baseline_private_auc": 0.61956,
+    "private_auc_gain": 0.29469,
+    "historical_winner_private_auc": 0.9293,
+    "gap_to_historical_winner": 0.01505,
+    "late_submission": true
+  },
+  "supplementary_candidate": {
+    "submission_ref": "56444879",
+    "last_verified_status": "pending",
+    "last_verified_utc": "2026-09-21T23:08:21.271489+00:00",
+    "public_auc": null,
+    "private_auc": null,
+    "promoted": false,
+    "blocks_portfolio_closeout": false
+  },
+  "publication_boundary": {
+    "aws_modified": false,
+    "aws_checkout_synchronized": false,
+    "raw_data_included": false,
+    "row_predictions_included": false,
+    "weights_included": false,
+    "new_model_training": false,
+    "new_submission": false
+  },
+  "sources_sha256": {
+    "reports/checkpoints/kaggle_adaptation.json": "70e87fb5a0176fed8a037a9ff4f6d6005259d4ee621a3de300d363f5c3a56664",
+    "reports/support_adaptation/results.json": "9a82581f63ddca049b87bbbe32174379a19ded7367f83d6d6738c3f267b1b10e",
+    "reports/support_adaptation/uncertainty.json": "d8c10c267627f4f254a6d5844470c34811cc3a1abd0224e9d64fbbaf0f7c9b3b",
+    "reports/expanded/results.json": "7484147d3b7e98ede2d17e0e911ba76f3dc4bed089f98ac8f3f75d055153d9f9",
+    "reports/confirmation/results.json": "bf246705cbcbf3b84bbd15b2f83e27427a193438a9645ec248bdce6a34fcda5d",
+    "reports/majority_submission/summary.json": "fe9c9ff2070b2c80ec642f75be76bdd94662b03cf98f173b46770343f4435095",
+    "configs/top_solution_integration.json": "ce35c968b0362eb19883bec67b0237a393198ba66188542c995e07b87749a979"
+  },
+  "future_work": "Optional capacity/ensemble research, outside the completed release; no automatic launch",
+  "interpretation": "Strong ranking performance and substantial end-to-end improvement; AUC is not accuracy and no original rank or medal is claimed."
+}

@@ -1,37 +1,39 @@
-# Model card
+# Model card · retained competition system
 
-**Model:** accepted rule-conditioned route `a971cf3bc6add1c2d818`, packaged as offline artifact `4ce868936ca14fdad7df`. **Owner:** Alvaro Mendizabal. **Release scope:** research and local human-review support, September 2026.
+**Model:** support-adapted Qwen3-4B-Instruct-2507. **Owner:** Alvaro Mendizabal. **Status:** final retained system for the completed research portfolio, September 21, 2026.
 
-Given a comment, supplied rule, community and two violating/two permitted examples, estimate rule-violation probability. A normalized policy seen in development uses the fitted seven-family classifier with development-validated calibration. An unseen policy uses the original frozen semantic centroid; calibration for unseen policies was rejected on development evidence. Membership depends on the supplied policy text, not targets or test-cohort statistics.
+## Task and model
 
-The encoder is `Qwen/Qwen3-Embedding-0.6B`, pinned to revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`. Encoding uses the frozen instruction/pooling contract, 256-token maximum, CPU float32 and four threads. The encoder was not fine-tuned. The familiar pipeline retains 9,263 of 181,958 candidate columns. [Feature research](docs/FEATURE_RESEARCH.md) · [Model and calibration protocol](docs/MODEL_VALIDATION.md).
+Rank English comments by whether they violate the supplied community rule. The backbone is `Qwen/Qwen3-4B-Instruct-2507`, pinned to revision `cdbee75f17c01a7cc42f958dc650907174af0554`. The original training labels and supplied positive/negative examples supervise one LoRA epoch. The scored system drops conflicting normalized rule/comment pairs; strict-majority conflict handling is a separate, unpromoted experiment.
 
-## Evaluation
+Training applies loss at the decision position. Inference uses the final-token answer score, length-sorted batches, restored row order, and within-policy ranks. These rank scores are not calibrated probabilities. The canonical implementation and exact runtime are recorded in [the scored receipt](reports/checkpoints/kaggle_adaptation.json), [training settings](configs/kaggle_adaptation.json), and [inference source](scripts/kaggle_adaptation.py).
 
-Development contains 11,135 rows across four policies. One protected comparison used 43,509 eligible rows across six policies, including two policies excluded wholly from development. Predictions were committed before target access. All 12 predeclared acceptance checks passed; no post-confirmation selection or refitting occurred.
+## Verified performance
 
-| Policy group | Rows | Lexical AUC | Accepted AUC |
-| --- | ---: | ---: | ---: |
-| All six | 43,509 | 0.6801 | 0.7770 |
-| Four familiar | 25,485 | 0.7581 | 0.8276 |
-| Two unseen | 18,024 | 0.5241 | 0.6757 |
+| Evaluation | Result | Meaning |
+| --- | ---: | --- |
+| Kaggle public | 0.91808 ROC AUC | Successful late evaluation |
+| Kaggle private | 0.91425 ROC AUC | Retained final leaderboard result |
+| Private improvement over lexical baseline | +0.29469 AUC | End-to-end system improvement |
+| Fixed-backbone development study | 0.61460 → 0.71989 macro AUC | 881 novel comments; isolates support adaptation |
 
-The primary metric averages ROC AUC equally across policies. The gain is 0.0969, with paired 2,000-draw 95% interval [0.0898, 0.1051], conditional on the six observed policies and frozen predictions. Overall log loss is 0.5121 and Brier score 0.1739. Every policy improves over the reference. This is an organizer-released post-competition benchmark. No Kaggle score is claimed for this accepted research artifact, and no medal, executable-scorer parity or state-of-the-art claim is made. A separate original-training-only lexical reference completed a late Kaggle entry with 0.59191 public / 0.61956 private; [its receipt](reports/checkpoints/kaggle_submission.json) does not evaluate this artifact. [Protocol and full results](docs/CONFIRMATION.md).
+The historical winner's recorded private score is 0.92930: the absolute gap is 0.01505. No original placement, medal, accuracy percentage, or state-of-the-art claim follows from this comparison. The matched development gain has a simultaneous 95% interval of [0.06124, 0.14935], conditional on fixed predictions and the observed policies; the repeatedly inspected cohort is not a fresh final holdout.
 
-## Appropriate use and limitations
+## Data and operational boundaries
 
-- Use the score to support a person's review of English comments with the specified rule and complete support examples. No automatic deletion, account penalty or deployment threshold was validated.
-- Performance on two unseen policies does not establish broad policy, language, demographic or temporal generalization. Legal/medical intent and missing conversational context remain difficult; a moderation score is not professional advice.
-- Four support examples are mandatory. Contradictory or unrepresentative examples can change the prediction; missing text is rejected. Long inputs are truncated under the pinned encoder contract.
-- The unseen score is uncalibrated. A number such as 0.8 is not established to mean 80% correctness for a new policy. Closest-example similarity is descriptive, not a causal explanation.
-- Author/thread/timestamp context is absent. Pretraining contamination cannot be fully audited. No demographic fairness, adversarial-security or production-load claim is made.
+Only original competition training labels and legitimate supplied support labels are used in the neural competition path. Released hidden targets are excluded. Development query bodies are removed from adaptation sources across rules. The historical post-competition route documented below uses a different data boundary and must not be substituted for this model or its score.
 
-## Artifact and operation
+The recorded offline two-T4 preview completed 117 optimizer steps in 603.5 worker seconds, with about 8.26 GiB peak allocated GPU memory. Those are **preview measurements**, not hidden-evaluation timing or deployment benchmarks. Checkpoints preserve adapter, optimizer, scheduler, FP16 loss scaler, random state, and data order within the documented recovery contract.
 
-Candidate SHA-256: `a38b20e1f34ff6d508bc70ba360ceb5f1a646a4f37cac4ebdcb56feebb20d698`.
+## Intended use and limitations
 
-Bundle manifest SHA-256: `dbf1428343c2e349590c4ceec32a840891e796d67005948d8cf3c22e535da18a`.
+This is a reproducible research classifier and a starting point for human-review support—not a deployed autonomous moderation service. No automatic content deletion, account penalty, operating threshold, demographic fairness guarantee, multilingual performance, adversarial robustness, or production-load capacity has been validated. Missing conversation context, contradictory examples, and unfamiliar policy intent remain important limitations. Model and data licenses retain their respective terms; pinned assets and attribution are preserved.
 
-The private bundle preserves the exact accepted candidate, encoder, source and dependency lock. It passed offline parity, batch/order invariance, corrupted-artifact rejection, missing-support validation, restart reuse and a fresh-environment restoration. Measured peak memory was 3.88 GiB; warm mean latency was 1.11 seconds per authored comment on the tested CPU. These are small-run measurements. [Download, exact budgets and reproducibility](docs/DELIVERY.md).
+## Supplementary experiment
 
-Project code is MIT; upstream model/data terms remain separate. Weights are preserved in the owner's private S3 bucket. The GitHub submission notebook is a separately identified original-training-only reference and does not contain this post-competition fitted model.
+Strict-majority candidate submission 56444879 was last observed pending at 2026-09-21 23:08 UTC. No later score is verified for this closeout. Its completed supervision audit and preview are preserved; it is not the final retained model. [Snapshot](reports/majority_submission/summary.json) · [Project closeout](docs/PROJECT_CLOSEOUT.md).
+
+
+## Historical research artifact
+
+The separate 0.6B embedding/routing artifact, its 43,509-row protected confirmation, and its original operating limits are preserved in [HISTORICAL_MODEL_CARD.md](HISTORICAL_MODEL_CARD.md). That artifact is not the retained 4B competition model.
