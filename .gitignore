@@ -25,3 +25,6 @@ MANIFEST.sha256
 models/
 reports/semantic/comparison.png
 kaggle_output/
+# Generated standalone Plotly dashboards duplicate saved notebook outputs.
+reports/**/dashboard.html
+reports/**/review_dashboard.html

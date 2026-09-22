@@ -30,7 +30,7 @@ Round 12 consistency primary: 0.726598 policy-macro AUC versus 0.729257 context 
 
 ## Reproduction without private artifacts
 
-The tracked notebooks contain the saved executed outputs; GitHub can display the saved tables and Plotly JSON. The optional standalone dashboards are also tracked when present at publication. Do not Run All on a fresh clone without private input/checkpoint recovery. CI verifies notebook integrity and runs the software tests with authored synthetic inputs; it does not reconstruct private experiments.
+The tracked notebooks contain the saved executed outputs; GitHub can display the saved tables and Plotly JSON. Standalone HTML dashboards are generated only on demand and are deliberately not tracked because they duplicate notebook outputs and bundle megabytes of browser JavaScript. Do not Run All on a fresh clone without private input/checkpoint recovery. CI verifies notebook integrity and runs the software tests with authored synthetic inputs; it does not reconstruct private experiments.
 
 ## What stays private
 
@@ -38,6 +38,6 @@ Original Kaggle CSVs, model arrays, token vocabularies, row-level labels/predict
 
 ## Publication contract
 
-The allowlist and byte checks are in reports/manual_feature_campaign/publication_manifest.json. The existing Quality workflow must pass on the exact PR head before merge. The merge helper then fetches and fast-forwards the original checkout, verifies its commit/tree against GitHub, and rechecks the raw-data hashes. It does not reset, clean, stash, delete branches, or overwrite experiments. The unfinished historical PR #29 is separate and is not merged by this workflow.
+The allowlist and byte checks are in reports/manual_feature_campaign/publication_manifest.json. The manifest intentionally excludes generated standalone HTML dashboards. The existing Quality workflow must pass on the exact PR head before merge. The merge helper then fetches and fast-forwards the original checkout, verifies its commit/tree against GitHub, and rechecks the raw-data hashes. It does not reset, clean, stash, delete branches, or overwrite experiments. The unfinished historical PR #29 is separate and is not merged by this workflow.
 
 Future manual helpers must accept a clean descendant of the reviewed base and verify source/checkpoint content, rather than require the obsolete base HEAD. Previously delivered helpers are historical entry points, not instructions to rerun old studies after publication.
