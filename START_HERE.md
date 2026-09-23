@@ -40,3 +40,23 @@ Do not treat GitHub as an AWS mirror. Do not publish raw competition rows, priva
 ## Current score-focused direction
 
 The latest evidence favors **model diversity over standalone parameter count**. The 14B model is weaker alone on the fixed development cohort, while a fixed 4B+14B rank blend improves both observed policies. The next milestone is leakage-safe multi-model OOF ensemble selection across preserved 4B, 8B, 14B, and Phi predictions. Only a fixed candidate that survives those AWS gates should be sent to Kaggle for one official score.
+
+<details>
+<summary>Existing tested operator continuation</summary>
+
+Close notebook tabs first. This continuation requires `main`, preserves tracked notebook edits in a named local stash, fast-forwards only, and runs the quality gate before notebook execution. Review local changes first; a stash is not a cloud backup and is not automatically popped or dropped.
+
+<!-- workspace-update:start -->
+```bash
+cd "$HOME/projects/jigsaw-rule-classifier" &&
+test "$(git branch --show-current)" = main &&
+git stash push -m "notebook-session-$(date -u +%Y%m%dT%H%M%SZ)" -- notebooks kaggle/submission.ipynb &&
+git pull --ff-only origin main &&
+.venv/bin/python scripts/verify.py &&
+.venv/bin/python scripts/execute_notebooks.py
+```
+<!-- workspace-update:end -->
+
+Private data, untracked artifacts, model weights, and environments remain outside publication. Stop on conflicts or a failed gate rather than discarding local work.
+
+</details>
