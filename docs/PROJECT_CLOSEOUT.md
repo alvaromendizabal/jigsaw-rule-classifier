@@ -1,51 +1,41 @@
-# Project closeout · rule-conditioned NLP
+# Project closeout · historical release and frontier extension
 
-**Decision: complete the research-and-engineering portfolio and retain the verified support-adapted Qwen3-4B system.** This closeout follows the owner's instruction to finish the project. It does not depend on reaching the original stretch target or starting another modeling round.
+The original portfolio closeout retained the support-adapted Qwen3-4B system at **0.91808 public / 0.91425 private ROC AUC**. That scored result remains the canonical leaderboard system.
 
-## Delivered result
+Competitive research was subsequently reopened. This document therefore distinguishes the **historical completed release** from the newer frontier extension rather than pretending the later experiments did not happen.
 
-The final retained system scored **0.91808 public / 0.91425 private ROC AUC** in a successful late Kaggle evaluation. Private AUC improved **0.29469** over the 0.61956 lexical reference. The documented historical winner scored 0.92930 private AUC, leaving a **0.01505** absolute gap. This is a strong completed result and a substantial improvement, not an original rank, medal, or claim to have won.
+## Retained scored result
 
-[Exact scored version and runtime](../reports/checkpoints/kaggle_adaptation.json) · [Historical benchmark attribution](../configs/top_solution_integration.json) · [Final model card](../MODEL_CARD.md).
+The retained Qwen3-4B system improved private AUC by **0.29469** over the 0.61956 lexical reference. The documented historical winner scored 0.92930 private AUC, leaving a **0.01505** absolute gap.
 
-## Technical contribution
+The matched 881-comment study shows support adaptation at fixed backbone: **0.614600 → 0.719893** policy-macro AUC. The repeatedly inspected cohort is development evidence, not a fresh final holdout.
 
-The project connects policy-conditioned language modeling, data-quality analysis, transfer-aware validation, feature research, parameter-efficient adaptation, reproducible inference, and cloud recovery in one coherent workflow.
+## Post-closeout frontier extension
 
-The matched 881-comment study demonstrates that legitimate support adaptation adds signal at a fixed backbone: **0.614600 → 0.719893** policy-macro AUC, with simultaneous 95% gain interval **[0.061237, 0.149350]**. The interval is conditional on the observed policies and fixed predictions, not an adaptive-search-wide guarantee. [Results](../reports/support_adaptation/results.json) · [Uncertainty](../reports/support_adaptation/uncertainty.json).
+Three later directions are now resolved enough to update the public record:
 
-The separate four-policy feature campaign records **323 fixed fits** and shows why larger feature banks can fail under policy shift: the full transferable-feature model reached **0.798916 familiar-policy AUC and 0.551454 held-out-policy AUC**. The original frozen centroid performed better on the held-out-policy protocol. These are post-competition research results, not Kaggle scores. [Expanded study](EXPANDED_STUDY.md).
+- **Strict-majority conflict handling:** scored **0.91720 public / 0.91288 private**, a regression versus the retained 4B system. Rejected.
+- **Qwen3-8B / Phi diversity studies:** standalone models did not beat the retained development reference; fixed blends produced small positive but uncertain gains.
+- **Qwen3-14B AWS study:** standalone 14B scored **0.708455** policy-macro AUC versus **0.719893** for 4B on the fixed development cohort. A fixed 50/50 4B+14B rank blend reached **0.730175**, improving both observed policies by a combined **+0.010282** policy-macro AUC.
 
-A subsequent frozen confirmation used **43,509 eligible rows**, passed all **12** declared checks, and improved macro AUC from **0.680103 to 0.776991**. This evaluates the separate historical research route, not the final 4B neural system. [Confirmation](CONFIRMATION.md).
+The 14B blend interval crosses zero and has not been hidden-scored. The correct conclusion is **complementarity worth further ensemble study**, not a promotion claim.
 
-## Scope completed and preserved
+[Latest frontier report](QWEN14B_FRONTIER.md) · [Executed notebook](../notebooks/28_qwen14b_frontier_review.ipynb).
 
-The delivered portfolio includes the retained neural inference path, source/configuration/model identities, documented validation boundaries, executed evidence notebooks, matched comparisons, negative results, model/data cards, automated quality gates, and private-artifact recovery documentation. The project-review notebook renders public aggregates without loading a model or accessing private accounts.
+## Publication boundary
 
-The accepted competition notebook and historical research outputs are preserved. This publication changes presentation, closeout metadata, and report verification—not the scored model or its predictions.
+**GitHub:** public source, compact configurations, tests, aggregate evidence, attribution, and executed review notebooks.
 
-## Latest supplementary experiment
+**AWS/private storage:** raw comments/labels, row-level predictions, model weights, optimizer/checkpoint state, environments, caches, and operational logs.
 
-The strict-majority conflict-resolution arm recovered **10** pairs, dropped **one tie**, preserved uncontested-label parity, and passed both recorded query-purge checks. It completed a ten-row engineering preview and was confirmed as submission **56444879**. Its last verified status was pending at **2026-09-21 23:08 UTC**; no later score was available in the reviewed evidence. The history identifies it through the unique description and prior version-specific submission command, not an independently returned version field.
-
-This is a documented **unpromoted supplementary experiment**. It is not a hidden project blocker and is not a claimed performance improvement. No new preview, training job, submission, or automatic promotion is authorized by this closeout. [Immutable experiment snapshot](../reports/majority_submission/summary.json).
-
-## Publication and storage boundary
-
-**GitHub:** source, small configurations, tests, executed notebooks, compact aggregate results, attribution, and documentation.
-
-**AWS/private storage:** raw comments and labels by row, row-level predictions, model weights, optimizer checkpoints, environments, private caches, and full operational logs. Public publication is not a cloud backup or a synchronization of every workspace file. The AWS checkout is not claimed to have been updated by a GitHub merge.
-
-## What is deliberately outside this release
-
-Stronger-backbone and ensemble experiments remain optional research opportunities. The original 0.92–0.93 stretch objective was not achieved by the retained result; that fact does not make the completed portfolio unfinished. The source remains available for maintenance, but no new research round is required to call this project complete.
-
-Production deployment would require an explicit operating threshold, human-review policy, privacy and fairness review, robustness tests, and load validation. No such deployment is claimed.
+This boundary is intentional. The repository is an employer-facing research artifact, not a backup of the cloud workspace.
 
 ## Employer-facing description
 
-> Built an end-to-end rule-conditioned NLP system using Qwen3-4B and LoRA, achieving 0.91425 private Kaggle ROC AUC—a 0.29469 improvement over the lexical baseline. Combined controlled feature and representation studies, transfer-aware validation, support-example adaptation, resumable cloud execution, and tested offline inference. Published a reproducible notebook-first portfolio with clear model decisions and preserved negative results.
+> Built an end-to-end rule-conditioned NLP system using Qwen3-4B and LoRA, reaching 0.91425 private Kaggle ROC AUC (+0.29469 over the lexical baseline). Extended the system with transfer-aware feature research, resumable AWS experiments, Qwen3-8B/14B and Phi backbone studies, and model-diversity analysis. Preserved negative results and separated hidden leaderboard scoring from development selection.
 
-## Verification
+## Current next step
 
-The machine-readable [closeout record](../reports/portfolio/closeout.json) pins the reviewed result files. The [project-review notebook](../notebooks/27_latest_system_checkpoint.ipynb) is executed from those aggregates and stores its Plotly and SVG outputs. The closeout tests verify source hashes, metric arithmetic, unscored-candidate handling, report execution, and output persistence. GitHub Quality must pass on the exact publication head before merge.
+The latest evidence points toward leakage-safe ensemble selection across preserved 4B, 8B, 14B, and Phi OOF predictions. Another Kaggle submission should be reserved for a fixed candidate after that AWS evidence is available.
+
+The original closeout remains valid as a historical release boundary; this frontier extension is an additional research phase.

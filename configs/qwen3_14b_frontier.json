@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "qwen3_14b_frontier",
+  "status": "executed_aws_development_study",
+  "model_id": "unsloth/Qwen3-14B-bnb-4bit",
+  "model_revision": "b455922269e4678c84f854fe38a6993d73614a1e",
+  "license": "apache-2.0",
+  "execution": {
+    "canonical_workspace": "AWS",
+    "studio_instance": "ml.g6e.8xlarge",
+    "gpu": "NVIDIA L40S",
+    "kaggle_operations": 0
+  },
+  "training": {
+    "rank": 16,
+    "alpha": 32,
+    "learning_rate": 0.0001,
+    "epochs": 1,
+    "effective_batch": 16,
+    "optimizer": "PagedAdamW8bit",
+    "conflict_mode": "drop",
+    "support_weight": 2,
+    "subreddit_used": false,
+    "expanded_verbalizers": true,
+    "decision_position_loss": true
+  },
+  "evaluation": {
+    "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+    "rows": 881,
+    "policies": 2,
+    "primary_metric": "equal-weight policy-macro ROC AUC",
+    "private_leaderboard_score_used_for_selection": false
+  }
+}

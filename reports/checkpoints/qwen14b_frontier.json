@@ -1,0 +1,89 @@
+{
+  "status": "completed_not_promoted_as_standalone",
+  "scope": "AWS-only winner-aligned Qwen3-14B capacity/diversity study; original labels and supplied supports only",
+  "baseline_kaggle_public_auc": 0.91808,
+  "baseline_kaggle_private_auc": 0.91425,
+  "historical_winner_private_auc": 0.9293,
+  "gap_to_historical_winner": 0.01505,
+  "aws_run_id": "d99f74c1728d0f9a4722",
+  "executed_utc": "2026-09-23T02:20:06.885051+00:00",
+  "model": {
+    "model_id": "unsloth/Qwen3-14B-bnb-4bit",
+    "model_revision": "b455922269e4678c84f854fe38a6993d73614a1e",
+    "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
+    "training_sha256": "83948d06a1e4b16421b738add60ef489cf1d44a2349ca711958fbb41c6207a0a",
+    "recipe": "aws-qwen3-14b-frontier-v1",
+    "rank": 16,
+    "alpha": 32,
+    "learning_rate": 0.0001,
+    "epoch": 1,
+    "test_support_weight": 2,
+    "subreddit_used": false,
+    "expanded_verbalizers": true
+  },
+  "development_result": {
+    "rows": 881,
+    "policies": 2,
+    "metrics": {
+      "qwen4b": {
+        "rule_macro_auc": 0.7198933966592936,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6792537313432836,
+          "No legal advice: Do not offer or request legal advice.": 0.7605330619753037
+        },
+        "pooled_auc": 0.7389593814933182
+      },
+      "qwen14b": {
+        "rule_macro_auc": 0.7084553581625151,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6776492537313433,
+          "No legal advice: Do not offer or request legal advice.": 0.739261462593687
+        },
+        "pooled_auc": 0.722877047537681
+      },
+      "blend_50_50": {
+        "rule_macro_auc": 0.7301752652852838,
+        "per_rule_auc": {
+          "No Advertising: Spam, referral links, unsolicited advertising, and promotional content are not allowed.": 0.6896268656716418,
+          "No legal advice: Do not offer or request legal advice.": 0.7707236648989257
+        },
+        "pooled_auc": 0.7488714151610079
+      }
+    },
+    "uncertainty": {
+      "qwen14b_minus_4b": {
+        "draws": 1000,
+        "lower_95": -0.04142825644709551,
+        "upper_95": 0.01750750465854484
+      },
+      "blend_minus_4b": {
+        "draws": 1000,
+        "lower_95": -0.0042902097033746004,
+        "upper_95": 0.024501236890247125
+      }
+    },
+    "decision": {
+      "qwen14b_positive": false,
+      "blend_positive": true,
+      "private_score_used_for_selection": false
+    },
+    "blend_gain_vs_qwen4b": 0.01028186862599012,
+    "standalone_14b_delta_vs_qwen4b": -0.011438038496778491
+  },
+  "execution": {
+    "workspace": "AWS SageMaker Studio",
+    "instance_type": "ml.g6e.8xlarge",
+    "gpu": "NVIDIA L40S",
+    "competition_platform_operations": 0,
+    "training_jobs_created": 0,
+    "checkpoint_storage": "private AWS S3",
+    "public_repo_boundary": "aggregate metrics/configuration only; no raw rows, row-level predictions, weights, caches, or logs"
+  },
+  "interpretation": [
+    "The 14B model is weaker than the retained 4B model on this repeatedly examined two-policy development cohort.",
+    "A fixed 50/50 rank blend improves both observed policies and raises policy-macro AUC by 0.010282 over 4B.",
+    "The blend interval crosses zero, so the development evidence is promising rather than conclusive.",
+    "No Kaggle private/public score was used to choose the 14B recipe or blend.",
+    "The next score-focused step is leakage-safe multi-model ensemble selection from preserved OOF predictions."
+  ]
+}

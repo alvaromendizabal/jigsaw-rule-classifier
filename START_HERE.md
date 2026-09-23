@@ -1,40 +1,50 @@
-# Start with the finished project
+# Start here
 
-**Final retained system: support-adapted Qwen3-4B, 0.91425 private / 0.91808 public Kaggle AUC.** The portfolio is complete. Review does not require more training, a Kaggle submission, AWS access, or private data.
+**Retained scored system: support-adapted Qwen3-4B, 0.91425 private / 0.91808 public Kaggle ROC AUC.**
 
-## A short review path
+The portfolio is reviewable without AWS, Kaggle, model weights, or private data. Frontier research has been reopened after the original closeout; the latest public evidence is the completed Qwen3-14B AWS study.
 
-Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the result, architecture, controlled adaptation evidence, and final decision. Continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb) for deeper evidence.
+## Fastest review path
 
-The [model card](MODEL_CARD.md) distinguishes the retained 4B system from the separate post-competition research artifact. The [closeout](docs/PROJECT_CLOSEOUT.md) records exactly what is complete and what is outside this release.
+1. Open [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) for the latest backbone/diversity experiment.
+2. Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the retained scored system and overall research narrative.
+3. Read the [model card](MODEL_CARD.md) for data/operational boundaries.
+4. Read [QWEN14B_FRONTIER.md](docs/QWEN14B_FRONTIER.md) for the latest AWS execution and decision.
+5. Continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb).
 
-## Reproduce the public review
+## Reproduce the public notebooks
 
-From the repository root, install the locked project environment once, then execute the aggregate-only notebook. This does not load a model or call AWS or Kaggle. The first command installs dependencies; the second performs only local notebook rendering.
+The aggregate notebooks require no model loading and no cloud access.
 
 ```bash
 uv sync --locked --group dev
-uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/27_latest_system_checkpoint.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-project-review.ipynb'); print('Saved /tmp/jigsaw-project-review.ipynb')"
+uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/28_qwen14b_frontier_review.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-qwen14b-frontier-review.ipynb'); print('Saved /tmp/jigsaw-qwen14b-frontier-review.ipynb')"
 ```
 
-Alternatively, open that notebook in Jupyter with the project environment and Run All. Both Plotly figures have SVG fallbacks and a subsequent-cell check. Saved outputs are already embedded for readers who do not rerun anything.
+Saved Plotly and SVG outputs are already embedded.
 
-Software verification remains `uv run --extra semantic python scripts/verify.py`. The full Quality workflow additionally tests the existing historical CPU inference path and pinned encoder; it is more substantial than merely viewing the saved portfolio.
+## Reproduce the retained neural inference separately
 
-## Reproduce neural inference separately
+The retained scored model remains [scripts/kaggle_adaptation.py](scripts/kaggle_adaptation.py), with [decision-position training](scripts/decision_training.py), [pinned settings](configs/kaggle_adaptation.json), and the self-contained [submission notebook](kaggle/submission.ipynb).
 
-The retained model's implementation is [scripts/kaggle_adaptation.py](scripts/kaggle_adaptation.py), with [decision-position training](scripts/decision_training.py) and [pinned settings](configs/kaggle_adaptation.json). The self-contained [Kaggle notebook](kaggle/submission.ipynb) is the neural inference entry point; [kaggle/reference.ipynb](kaggle/reference.ipynb) preserves the lexical control.
-
-Reproduction of the neural path requires its model assets and suitable GPU resources. The original train/supplied-support boundary is mandatory. The ten-row preview is an execution check, not hidden-test performance. Do not resubmit the recorded baseline or the supplementary majority candidate simply to review this repository. [Exact scored-version receipt](reports/checkpoints/kaggle_adaptation.json) · [Delivery and restore details](docs/DELIVERY.md).
+The Qwen3-14B frontier result is **development evidence only**. Its public configuration is [configs/qwen3_14b_frontier.json](configs/qwen3_14b_frontier.json), and its aggregate checkpoint is [reports/checkpoints/qwen14b_frontier.json](reports/checkpoints/qwen14b_frontier.json).
 
 ## AWS and GitHub serve different purposes
 
-AWS preserves private working data, model state, caches, and recoverable runs. GitHub preserves public source, aggregate results, tests, and executed analysis. Publishing this closeout does not alter the AWS workspace or imply that its local checkout was fast-forwarded. Never use a broad upload, `git add .`, force push, hard reset, or `git clean` to synchronize them.
+**AWS:** raw comments/labels, row-level predictions, model weights, optimizer checkpoints, caches, resumable training state, full logs.
+
+**GitHub:** source, compact configs, tests, aggregate results, attribution, and executed review notebooks.
+
+Do not treat GitHub as an AWS mirror. Do not publish raw competition rows, private predictions, model weights, caches, credentials, or full training logs.
+
+## Current score-focused direction
+
+The latest evidence favors **model diversity over standalone parameter count**. The 14B model is weaker alone on the fixed development cohort, while a fixed 4B+14B rank blend improves both observed policies. The next milestone is leakage-safe multi-model OOF ensemble selection across preserved 4B, 8B, 14B, and Phi predictions. Only a fixed candidate that survives those AWS gates should be sent to Kaggle for one official score.
 
 <details>
-<summary>Existing tested operator continuation (optional; not part of project review)</summary>
+<summary>Existing tested operator continuation</summary>
 
-Close notebook tabs first. This existing continuation requires `main`, retains tracked notebook edits in a named local stash, fast-forwards, and then runs its verification steps. Review any local changes first. A local stash is not a cloud backup; do not automatically pop or drop it. No continuation command was executed against AWS for this publication.
+Close notebook tabs first. This continuation requires `main`, preserves tracked notebook edits in a named local stash, fast-forwards only, and runs the quality gate before notebook execution. Review local changes first; a stash is not a cloud backup and is not automatically popped or dropped.
 
 <!-- workspace-update:start -->
 ```bash

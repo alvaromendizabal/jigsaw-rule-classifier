@@ -1,63 +1,86 @@
 # Jigsaw · Rule-conditioned NLP
 
-**A complete machine-learning research portfolio: from lexical baselines to a support-adapted language model, with verified Kaggle results and reproducible evidence.**
+**A reproducible rule-conditioned NLP portfolio: lexical baselines → support-adapted Qwen3-4B → transfer analysis → AWS backbone/diversity research.**
 
 Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
-**0.91425 private ROC AUC · 0.91808 public ROC AUC · +0.29469 private AUC over the original baseline**
+**0.91425 private ROC AUC · 0.91808 public ROC AUC · +0.29469 private AUC over the lexical baseline**
 
-[Project review notebook](notebooks/27_latest_system_checkpoint.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md) · [Closeout and evidence](docs/PROJECT_CLOSEOUT.md)
+[Latest 14B frontier review](notebooks/28_qwen14b_frontier_review.ipynb) · [Project review](notebooks/27_latest_system_checkpoint.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md)
 
 ## The problem
 
-Community moderation is not a fixed toxicity classification task. A comment can be acceptable under one policy and violate another. This project predicts whether an English-language comment violates a supplied community rule, using permitted and prohibited examples to adapt to that rule. The difficult part is transferring beyond familiar policies without learning shortcuts from duplicated comments or support examples.
+Community moderation is not a fixed toxicity task. A comment can be acceptable under one policy and violate another. This project ranks English-language comments by whether they violate a supplied community rule, using permitted/prohibited support examples while explicitly testing transfer beyond familiar policies.
 
-## Results that matter
+## Verified competition results
 
-| System | Public Kaggle AUC | Private Kaggle AUC | Role |
+| System | Public Kaggle AUC | Private Kaggle AUC | Decision |
 | --- | ---: | ---: | --- |
-| Original lexical reference | 0.59191 | 0.61956 | Reproducible baseline |
-| **Support-adapted Qwen3-4B** | **0.91808** | **0.91425** | **Retained final system** |
-| Historical competition winner | — | 0.92930 | External comparison, not our model |
+| Original lexical reference | 0.59191 | 0.61956 | Baseline |
+| **Support-adapted Qwen3-4B** | **0.91808** | **0.91425** | **Retained scored system** |
+| Strict-majority 4B candidate | 0.91720 | 0.91288 | Rejected regression |
+| Historical competition winner | — | 0.92930 | External benchmark |
 
-The retained system improves private AUC by **0.29469** and is **0.01505 AUC units (1.505 percentage points)** below the documented winning private score. This is a strong ranking result for the completed project, not a claim of winning or a leaderboard percentile. AUC measures ranking, not classification accuracy. These are verified **late submissions**, not an original competition placement or medal. [Scored-version receipt](reports/checkpoints/kaggle_adaptation.json) · [Historical winning benchmark](configs/top_solution_integration.json).
+The retained 4B system improves private AUC by **0.29469** over the lexical baseline and remains **0.01505 AUC** below the documented historical winning private score. These were successful **late submissions**; no original placement, medal, or leaderboard percentile is claimed. AUC is a ranking metric, not classification accuracy.
 
-A separate matched study isolates the mechanism: support adaptation raises the same 4B backbone from **0.61460 to 0.71989 policy-macro AUC** on **881 novel development comments**. The simultaneous 95% gain interval is **[0.06124, 0.14935]**, conditional on the observed policies and fixed predictions. This development result explains the method; it is not substituted for the Kaggle score. [Matched results](reports/support_adaptation/results.json) · [Uncertainty](reports/support_adaptation/uncertainty.json).
+## Latest frontier result: 14B adds diversity
+
+The latest AWS-only experiment independently implemented a winner-aligned `Qwen3-14B` route with one LoRA epoch, decision-position loss, support weighting, expanded decision verbalizers, conflict-drop supervision, and within-policy ranks.
+
+On the fixed 881-comment / two-policy development cohort:
+
+| Candidate | Policy-macro AUC | Change vs 4B |
+| --- | ---: | ---: |
+| Qwen3-4B | 0.719893 | — |
+| Qwen3-14B | 0.708455 | −0.011438 |
+| **Fixed 50/50 4B + 14B rank blend** | **0.730175** | **+0.010282** |
+
+The standalone 14B model is **not promoted**. The blend improves both observed policies and is the largest development blend gain measured so far, but its grouped-bootstrap interval crosses zero. The result is evidence of **complementarity**, not proof of hidden-test improvement. [Frontier report](docs/QWEN14B_FRONTIER.md) · [Machine-readable checkpoint](reports/checkpoints/qwen14b_frontier.json).
 
 ## What I built
 
-**A task-adapted neural classifier.** The final path uses a pinned Qwen3-4B-Instruct-2507 model, LoRA adaptation from original training labels and supplied support labels, decision-position loss, efficient last-token scoring, length-sorted inference, and within-policy rank normalization. Output schemas, identifiers, ordering, model assets, and numerical validity are checked explicitly.
+**Task-adapted neural ranking.** The retained scored path uses Qwen3-4B-Instruct-2507, LoRA adaptation from original training labels plus legitimate supplied support labels, one-position decision loss, forward-only final-token scoring, length-sorted inference, restored row ordering, and within-rule rank normalization.
 
-**A substantial feature and generalization investigation.** Lexical, semantic, retrieval, behavioral, policy-intent, and representation-geometry families were examined through controlled comparisons. The separate four-policy research campaign records **323 fixed fits**. Its full feature model reached **0.7989 familiar-policy AUC but 0.5515 held-out-policy AUC**, exposing why more features alone were not enough. Negative results, transfer failures, calibration choices, and stopping decisions remain visible. [Feature research](notebooks/02_baseline_and_review.ipynb) · [Expanded study](docs/EXPANDED_STUDY.md).
+**Transfer-aware model research.** A separate fixed 881-comment study isolates support adaptation: policy-macro AUC rises from **0.61460 to 0.71989** on the same 4B backbone. Subsequent Phi, 8B, and 14B studies preserve negative results and model diversity rather than selecting on private leaderboard scores.
 
-**Reproducible ML engineering.** Immutable input identities, training-only transformations, query/support separation, paired uncertainty, saved optimizer and random state, content-addressed checkpoints, and replay checks preserve the connection between code and evidence. GitHub Actions checks software quality, notebook execution and reuse, offline inference, and the pinned encoder. The public review needs no AWS account or private data.
+**A large feature/generalization campaign.** The separate four-policy feature campaign records **323 fixed fits**. The full feature model reached **0.7989 familiar-policy AUC but 0.5515 held-out-policy AUC**, demonstrating why more engineered features alone did not solve policy transfer.
+
+**Reproducible ML engineering.** Immutable data/model identities, query/support separation, content-addressed checkpoints, optimizer-state recovery, paired/grouped uncertainty, executable notebooks, and CI preserve the connection between code and evidence.
 
 ## Architecture
 
-Original training labels + supplied labeled examples → audited support pairs → pinned 4B model + LoRA → decision-token scores → within-rule ranks → validated submission.
+Retained scored path:
 
-The final model uses direct adapted decisions; it does **not** concatenate every historical feature bank. The separate post-competition research route is documented independently in the model card. [Inference implementation](scripts/kaggle_adaptation.py) · [Training](scripts/decision_training.py) · [Offline notebook](kaggle/submission.ipynb).
+`original labels + supplied support labels → audited pairs → Qwen3-4B + LoRA → decision logits → within-rule ranks → validated submission`
+
+Frontier research path:
+
+`preserved OOF predictions → backbone/diversity studies in AWS → group-safe ensemble evidence → fixed submission candidate only after promotion`
+
+AWS remains the canonical private workspace for raw data, model weights, row-level predictions, optimizer state, caches, and operational logs. GitHub publishes source, compact configurations, aggregate evidence, tests, and executed notebooks—not a mirror of AWS.
 
 ## Review the work
 
 | Start with | What it demonstrates |
 | --- | --- |
-| [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) | Final score, matched evidence, feature-transfer lesson, latest experiment, and project conclusion |
-| [03 · Results and examples](notebooks/03_saved_results.ipynb) | Detailed model comparisons and documented decisions |
-| [02 · Feature research](notebooks/02_baseline_and_review.ipynb) | Feature contributions, ablations, and negative results |
-| [01 · Validation](notebooks/01_data_and_validation.ipynb) | Data boundaries and leakage controls |
-| [26 · Public-method map](notebooks/26_top_solution_integration.ipynb) | Attribution and comparison with leading methods |
+| [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) | Latest backbone/diversity result and next ensemble direction |
+| [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) | Retained Kaggle result, matched adaptation evidence, and feature-transfer lesson |
+| [26 · Public-method map](notebooks/26_top_solution_integration.ipynb) | Leading-solution mechanisms and independent implementation plan |
+| [03 · Results](notebooks/03_saved_results.ipynb) | Detailed model comparisons and decisions |
+| [02 · Feature research](notebooks/02_baseline_and_review.ipynb) | Ablations, transfer failures, and negative results |
+| [01 · Validation](notebooks/01_data_and_validation.ipynb) | Leakage controls and data boundaries |
 
-Saved notebooks include visible evidence; the project-review notebook can also be rerun from public aggregates without model loading or cloud access. [Reproduction guide](START_HERE.md).
+## Current research state
 
-## Completed scope
+The public portfolio remains complete and reviewable, while competitive frontier research has been reopened. The current evidence says:
 
-**The research-and-engineering portfolio is complete, with the scored support-adapted 4B system retained.** Further backbone scaling and ensemble research are optional future work, not unfinished requirements for this release.
+- majority conflict resolution regressed on the hidden leaderboard;
+- 8B and Phi add limited but uncertain blend gains;
+- 14B is weaker alone on the fixed development cohort but adds materially more blend diversity;
+- the next score-focused milestone is leakage-safe multi-model OOF ensemble selection before spending another Kaggle submission.
 
-The latest supplementary majority-supervision experiment recovered ten conflicting pairs and completed its preview. Submission **56444879** was last observed pending at **2026-09-21 23:08 UTC**; no later score is verified in this release. It is preserved as an unpromoted experiment and does not replace the final system. [Experiment snapshot](reports/majority_submission/summary.json).
+No claim is made that the 14B blend has improved the 0.91425 private leaderboard score yet.
 
-AWS remains the private data, checkpoint, and recovery workspace. GitHub contains reviewable code, configurations, tests, executed notebooks, and compact aggregate evidence—not raw comments, row-level predictions, model weights, environments, credentials, or a mirror of AWS. No deployment, autonomous moderation, fairness certification, or production-load claim is made.
-
-[Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [License](LICENSE) · [Project conclusion](docs/PROJECT_CLOSEOUT.md)
+[Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [License](LICENSE) · [Historical closeout](docs/PROJECT_CLOSEOUT.md)
