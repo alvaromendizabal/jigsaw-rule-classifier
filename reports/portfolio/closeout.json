@@ -2,7 +2,7 @@
   "schema": 1,
   "status": "complete",
   "completed_local_date": "2026-09-21",
-  "completion_scope": "Research-and-engineering portfolio and retained competition inference path; not production deployment or a competition win",
+  "completion_scope": "Historical research-and-engineering release plus documented post-closeout frontier extension; not production deployment or a competition win",
   "reviewed_base_commit": "9043e3d9021bd3e40decf9ca9f84dc274924658e",
   "final_model": {
     "name": "Support-adapted Qwen3-4B",
@@ -18,12 +18,23 @@
   },
   "supplementary_candidate": {
     "submission_ref": "56444879",
-    "last_verified_status": "pending",
-    "last_verified_utc": "2026-09-21T23:08:21.271489+00:00",
-    "public_auc": null,
-    "private_auc": null,
+    "last_verified_status": "complete",
+    "last_verified_utc": "2026-09-22T22:47:35.410321+00:00",
+    "public_auc": 0.9172,
+    "private_auc": 0.91288,
+    "private_delta_vs_retained": -0.00137,
     "promoted": false,
     "blocks_portfolio_closeout": false
+  },
+  "frontier_extension": {
+    "qwen14b_status": "completed_not_promoted_as_standalone",
+    "qwen14b_policy_macro_auc": 0.7084553581625151,
+    "qwen4b_reference_policy_macro_auc": 0.7198933966592936,
+    "fixed_4b14b_blend_policy_macro_auc": 0.7301752652852838,
+    "fixed_blend_gain": 0.01028186862599012,
+    "fixed_blend_ci_95": [-0.0042902097033746004, 0.024501236890247125],
+    "private_leaderboard_score_used_for_selection": false,
+    "next_milestone": "Leakage-safe multi-model OOF ensemble selection across preserved 4B, 8B, 14B, and Phi predictions"
   },
   "publication_boundary": {
     "aws_modified": false,
@@ -40,9 +51,11 @@
     "reports/support_adaptation/uncertainty.json": "d8c10c267627f4f254a6d5844470c34811cc3a1abd0224e9d64fbbaf0f7c9b3b",
     "reports/expanded/results.json": "7484147d3b7e98ede2d17e0e911ba76f3dc4bed089f98ac8f3f75d055153d9f9",
     "reports/confirmation/results.json": "bf246705cbcbf3b84bbd15b2f83e27427a193438a9645ec248bdce6a34fcda5d",
-    "reports/majority_submission/summary.json": "fe9c9ff2070b2c80ec642f75be76bdd94662b03cf98f173b46770343f4435095",
+    "reports/majority_submission/summary.json": "16b0668ff5aceb7cee3f3ab8461dde8098ec421e995d5dbd11fdcedf4fe85ef9",
+    "reports/checkpoints/qwen14b_frontier.json": "10d14f786c6e340b0ace28ec3e2806af5da927b6aebe251b6cf644dcaa93a19c",
+    "configs/qwen3_14b_frontier.json": "6c1d9fae3d0c21df793ff7b06a359df68671f8d96e0523b45aa47f970fc4d05d",
     "configs/top_solution_integration.json": "ce35c968b0362eb19883bec67b0237a393198ba66188542c995e07b87749a979"
   },
-  "future_work": "Optional capacity/ensemble research, outside the completed release; no automatic launch",
-  "interpretation": "Strong ranking performance and substantial end-to-end improvement; AUC is not accuracy and no original rank or medal is claimed."
+  "future_work": "Frontier research reopened: prioritize group-safe ensemble selection, then DML or uncertainty-selected pseudo-labeling if ensemble evidence does not transfer",
+  "interpretation": "The retained 4B leaderboard result remains canonical. Majority supervision regressed; 14B is weaker alone on the fixed development cohort but adds useful blend diversity. No hidden-score improvement is claimed for the frontier blend."
 }
