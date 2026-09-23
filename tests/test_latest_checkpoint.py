@@ -9,7 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_latest_checkpoint_summary_contract():
     summary = json.loads((ROOT / "reports/majority_submission/summary.json").read_text())
     assert summary["verified_scored_system"]["private_auc"] == 0.91425
-    assert summary["candidate"]["status"] == "pending"
+    assert summary["candidate"]["status"] == "complete"
+    assert summary["candidate"]["public_auc"] == 0.9172
+    assert summary["candidate"]["private_auc"] == 0.91288
+    assert summary["candidate"]["private_delta_vs_retained"] < 0
     assert summary["candidate"]["automatic_promotion"] is False
     assert summary["supervision_audit"]["resolved_majority_pairs"] == 10
     assert summary["supervision_audit"]["discarded_tie_pairs"] == 1
@@ -51,14 +54,26 @@ def test_closeout_metrics_match_scored_receipt():
     assert final["late_submission"] is True
 
 
-def test_closeout_does_not_promote_unscored_candidate():
+def test_closeout_rejects_scored_majority_candidate():
     closeout = json.loads((ROOT / "reports/portfolio/closeout.json").read_text())
     candidate = closeout["supplementary_candidate"]
     assert candidate["submission_ref"] == "56444879"
-    assert candidate["public_auc"] is None and candidate["private_auc"] is None
+    assert candidate["last_verified_status"] == "complete"
+    assert candidate["public_auc"] == 0.9172
+    assert candidate["private_auc"] == 0.91288
+    assert candidate["private_delta_vs_retained"] < 0
     assert candidate["promoted"] is False
     assert candidate["blocks_portfolio_closeout"] is False
     assert all(value is False for value in closeout["publication_boundary"].values())
+
+
+def test_closeout_records_frontier_extension_without_hidden_score_selection():
+    closeout = json.loads((ROOT / "reports/portfolio/closeout.json").read_text())
+    frontier = closeout["frontier_extension"]
+    assert frontier["qwen14b_status"] == "completed_not_promoted_as_standalone"
+    assert frontier["qwen14b_policy_macro_auc"] < frontier["qwen4b_reference_policy_macro_auc"]
+    assert frontier["fixed_4b14b_blend_policy_macro_auc"] > frontier["qwen4b_reference_policy_macro_auc"]
+    assert frontier["private_leaderboard_score_used_for_selection"] is False
 
 
 def test_closeout_source_hashes_are_exact():
