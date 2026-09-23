@@ -13,10 +13,7 @@ def test_qwen14b_frontier_checkpoint_is_internally_consistent():
     assert metrics["qwen14b"]["rule_macro_auc"] < metrics["qwen4b"]["rule_macro_auc"]
     assert metrics["blend_50_50"]["rule_macro_auc"] > metrics["qwen4b"]["rule_macro_auc"]
 
-    expected_gain = (
-        metrics["blend_50_50"]["rule_macro_auc"]
-        - metrics["qwen4b"]["rule_macro_auc"]
-    )
+    expected_gain = metrics["blend_50_50"]["rule_macro_auc"] - metrics["qwen4b"]["rule_macro_auc"]
     assert data["development_result"]["blend_gain_vs_qwen4b"] == expected_gain
 
     for rule, baseline in metrics["qwen4b"]["per_rule_auc"].items():
