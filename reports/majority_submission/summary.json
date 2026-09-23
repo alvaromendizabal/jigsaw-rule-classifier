@@ -18,10 +18,11 @@
     "submission_ref": "56444879",
     "kernel": "alvaromendizabal/jigsaw-majority-4b3061daa2",
     "notebook_version": 1,
-    "status_as_of_utc": "2026-09-21T23:08:21.271489+00:00",
-    "status": "pending",
-    "public_auc": null,
-    "private_auc": null,
+    "status_as_of_utc": "2026-09-22T22:47:35.410321+00:00",
+    "status": "complete",
+    "public_auc": 0.9172,
+    "private_auc": 0.91288,
+    "private_delta_vs_retained": -0.00137,
     "automatic_promotion": false
   },
   "supervision_audit": {
@@ -74,11 +75,11 @@
     "save_reopen_verified": true,
     "next_cell_sentinel_verified": true
   },
-  "decision": "Retain the scored 4B system as the verified best until the candidate receives an official score. Do not promote from preview completion or the supervision audit alone.",
-  "next_high_value_direction": "After this one-factor submission resolves, prioritize stronger backbone capacity and complementary-model diversity (not another broad raw-feature sweep).",
+  "decision": "Reject the strict-majority candidate as a scored regression and retain the original conflict-drop Qwen3-4B system.",
+  "next_high_value_direction": "Prioritize model diversity and stronger training mechanisms. The subsequent 14B AWS study confirmed useful blend complementarity despite weaker standalone development AUC.",
   "limitations": [
-    "Annotation-occurrence majorities may reflect repeated supports, not independent label votes. This is an exploratory supervision recipe, not proof of better labels.",
-    "The candidate submission was pending at the captured status snapshot; no candidate AUC is claimed here.",
+    "Annotation-occurrence majorities may reflect repeated supports, not independent label votes.",
+    "The official score establishes this candidate as a regression relative to the retained 4B system; it does not prove majority resolution is universally harmful.",
     "The 881-row development cohort used elsewhere in the project has been inspected repeatedly and is not a fresh independent holdout.",
     "AWS-private data, row-level predictions, checkpoints, credentials, and full logs are intentionally excluded from this public checkpoint."
   ]
