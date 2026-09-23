@@ -72,7 +72,10 @@ def test_closeout_records_frontier_extension_without_hidden_score_selection():
     frontier = closeout["frontier_extension"]
     assert frontier["qwen14b_status"] == "completed_not_promoted_as_standalone"
     assert frontier["qwen14b_policy_macro_auc"] < frontier["qwen4b_reference_policy_macro_auc"]
-    assert frontier["fixed_4b14b_blend_policy_macro_auc"] > frontier["qwen4b_reference_policy_macro_auc"]
+    assert (
+        frontier["fixed_4b14b_blend_policy_macro_auc"]
+        > frontier["qwen4b_reference_policy_macro_auc"]
+    )
     assert frontier["private_leaderboard_score_used_for_selection"] is False
 
 
