@@ -36,6 +36,10 @@ The latest Qwen3-14B AWS study reports:
 
 Standalone 14B is therefore not promoted. The blend improves both observed policies and is retained as evidence of model complementarity. Its grouped-bootstrap interval crosses zero, so no leaderboard improvement is claimed. See [docs/QWEN14B_FRONTIER.md](docs/QWEN14B_FRONTIER.md).
 
+The subsequent Qwen2.5-14B extension tested whether a different backbone family could add complementary ranking signal. On the same 881-row / two-policy development cohort, the final frozen five-model prior reaches **0.740351 policy-macro AUC**, up **0.005757** over the previous four-model global deployment reference (**0.734595**). Both observed policies improve, and the grouped-bootstrap 95% interval for the gain is **[+0.000128, +0.011706]** with **0.9783 probability of a positive gain**.
+
+A compact 2/3-model deployment study was retained as a valid negative result after failing stability gates, and an aggressively optimized leave-one-policy-out blend was rejected after a policy regression. Exact ensemble weights remain private. See [docs/FIVE_MODEL_FRONTIER.md](docs/FIVE_MODEL_FRONTIER.md).
+
 ## Data and operational boundaries
 
 The neural competition path uses original competition training labels and legitimate supplied support labels. Released hidden targets are excluded. Development query bodies are removed from adaptation sources across rules.
@@ -50,6 +54,6 @@ No production threshold, automatic content deletion, account penalty, fairness c
 
 ## Frontier research status
 
-Post-closeout research is explicitly separated from the retained scored system. Current evidence favors diverse ensembles over standalone backbone scaling. The next score-focused step is group-safe multi-model OOF ensemble selection before another official submission.
+Post-closeout research is explicitly separated from the retained scored system. Current evidence favors complementary multi-backbone ensembles over standalone parameter scaling. A five-model candidate has passed the public development promotion gate but has **not** received an official Kaggle score. The next score-focused step is one immutable scored submission; further model selection remains in AWS and does not use leaderboard scores.
 
 The separate historical 0.6B embedding/routing artifact remains documented in [HISTORICAL_MODEL_CARD.md](HISTORICAL_MODEL_CARD.md) and must not be confused with the retained 4B system.
