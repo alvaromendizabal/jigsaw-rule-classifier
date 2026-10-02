@@ -1,6 +1,6 @@
 # Jigsaw · Rule-conditioned NLP
 
-**A reproducible rule-conditioned NLP portfolio: lexical baselines → support-adapted Qwen3-4B → transfer analysis → AWS backbone/diversity research.**
+**A reproducible rule-conditioned NLP portfolio: lexical baselines → support-adapted Qwen3-4B → transfer analysis → AWS multi-backbone ensemble research.**
 
 Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
@@ -8,7 +8,7 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 **0.91425 private ROC AUC · 0.91808 public ROC AUC · +0.29469 private AUC over the lexical baseline**
 
-[Latest 14B frontier review](notebooks/28_qwen14b_frontier_review.ipynb) · [Project review](notebooks/27_latest_system_checkpoint.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md)
+[Latest five-model frontier](notebooks/29_five_model_frontier_review.ipynb) · [14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) · [Project review](notebooks/27_latest_system_checkpoint.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md)
 
 ## The problem
 
@@ -25,25 +25,30 @@ Community moderation is not a fixed toxicity task. A comment can be acceptable u
 
 The retained 4B system improves private AUC by **0.29469** over the lexical baseline and remains **0.01505 AUC** below the documented historical winning private score. These were successful **late submissions**; no original placement, medal, or leaderboard percentile is claimed. AUC is a ranking metric, not classification accuracy.
 
-## Latest frontier result: 14B adds diversity
+## Latest frontier result: Qwen2.5 adds useful diversity
 
-The latest AWS-only experiment independently implemented a winner-aligned `Qwen3-14B` route with one LoRA epoch, decision-position loss, support weighting, expanded decision verbalizers, conflict-drop supervision, and within-policy ranks.
+The Qwen3-14B study showed that larger models were not automatically better, but that weaker standalone models could still add useful ensemble diversity. The next AWS-only extension therefore introduced a separate **Qwen2.5-14B** route and evaluated it through a held-out-policy screen, full two-policy OOF confirmation, compression controls, and a fixed global deployment gate.
 
 On the fixed 881-comment / two-policy development cohort:
 
-| Candidate | Policy-macro AUC | Change vs 4B |
+| Candidate | Policy-macro AUC | Change |
 | --- | ---: | ---: |
-| Qwen3-4B | 0.719893 | — |
-| Qwen3-14B | 0.708455 | −0.011438 |
-| **Fixed 50/50 4B + 14B rank blend** | **0.730175** | **+0.010282** |
+| Prior four-model global deployment | 0.734595 | — |
+| Qwen2.5-14B standalone | 0.730772 | −0.003823 |
+| Fixed Qwen2.5 insertion | 0.738231 | +0.003636 vs prior global |
+| **Promoted five-model global candidate** | **0.740351** | **+0.005757** |
 
-The standalone 14B model is **not promoted**. The blend improves both observed policies and is the largest development blend gain measured so far, but its grouped-bootstrap interval crosses zero. The result is evidence of **complementarity**, not proof of hidden-test improvement. [Frontier report](docs/QWEN14B_FRONTIER.md) · [Machine-readable checkpoint](reports/checkpoints/qwen14b_frontier.json).
+The promoted candidate improves both observed policies (**+0.008060 Advertising, +0.003454 Legal Advice**) and its grouped-bootstrap interval for the gain is **[+0.000128, +0.011706]**, with **0.9783 probability of a positive gain**.
+
+Two controls prevented overclaiming: an aggressively optimized leave-one-policy-out blend was rejected after a policy regression, and a 2/3-model compression study was preserved as a valid negative result because its strongest compact candidate failed the stability gate. The exact deployment weights remain private; GitHub publishes aggregate evidence, model-family identities, validation decisions, and tests.
+
+This is **development evidence only**. The official retained Kaggle result remains **0.91808 public / 0.91425 private AUC** until the frozen candidate receives an official score. [Frontier report](docs/FIVE_MODEL_FRONTIER.md) · [Machine-readable checkpoint](reports/checkpoints/five_model_frontier.json).
 
 ## What I built
 
 **Task-adapted neural ranking.** The retained scored path uses Qwen3-4B-Instruct-2507, LoRA adaptation from original training labels plus legitimate supplied support labels, one-position decision loss, forward-only final-token scoring, length-sorted inference, restored row ordering, and within-rule rank normalization.
 
-**Transfer-aware model research.** A separate fixed 881-comment study isolates support adaptation: policy-macro AUC rises from **0.61460 to 0.71989** on the same 4B backbone. Subsequent Phi, 8B, and 14B studies preserve negative results and model diversity rather than selecting on private leaderboard scores.
+**Transfer-aware model research.** A separate fixed 881-comment study isolates support adaptation: policy-macro AUC rises from **0.61460 to 0.71989** on the same 4B backbone. Subsequent Phi, 8B, 14B, and Qwen2.5 studies preserve negative results, test complementary error structure, and use group-safe OOF evidence rather than private leaderboard scores.
 
 **A large feature/generalization campaign.** The separate four-policy feature campaign records **323 fixed fits**. The full feature model reached **0.7989 familiar-policy AUC but 0.5515 held-out-policy AUC**, demonstrating why more engineered features alone did not solve policy transfer.
 
@@ -65,7 +70,8 @@ AWS remains the canonical private workspace for raw data, model weights, row-lev
 
 | Start with | What it demonstrates |
 | --- | --- |
-| [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) | Latest backbone/diversity result and next ensemble direction |
+| [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) | Latest Qwen2.5 diversity result, negative compression control, and promoted development ensemble |
+| [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) | Backbone scaling result that motivated diversity-first ensemble research |
 | [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) | Retained Kaggle result, matched adaptation evidence, and feature-transfer lesson |
 | [26 · Public-method map](notebooks/26_top_solution_integration.ipynb) | Leading-solution mechanisms and independent implementation plan |
 | [03 · Results](notebooks/03_saved_results.ipynb) | Detailed model comparisons and decisions |
@@ -74,13 +80,16 @@ AWS remains the canonical private workspace for raw data, model weights, row-lev
 
 ## Current research state
 
-The public portfolio remains complete and reviewable, while competitive frontier research has been reopened. The current evidence says:
+The public portfolio remains complete and reviewable, while competitive frontier research is active. Current evidence says:
 
 - majority conflict resolution regressed on the hidden leaderboard;
-- 8B and Phi add limited but uncertain blend gains;
-- 14B is weaker alone on the fixed development cohort but adds materially more blend diversity;
-- the next score-focused milestone is leakage-safe multi-model OOF ensemble selection before spending another Kaggle submission.
+- standalone Qwen3-14B is weaker than 4B, but adds useful ranking diversity;
+- Qwen2.5-14B is also weaker alone, yet materially improves a fixed ensemble;
+- a leakage-aware five-model global candidate improves both observed policies and passes the grouped-bootstrap promotion gate;
+- compact 2/3-model deployment variants were rejected on stability rather than promoted for convenience;
+- Deep Mutual Learning remains blocked by historical source-parity uncertainty and has **not** produced a valid negative scientific result.
 
-No claim is made that the 14B blend has improved the 0.91425 private leaderboard score yet.
+The frozen five-model candidate is development-promoted but **not yet Kaggle-scored**. The next competition action is one actual scored submission, with model development remaining in AWS and no leaderboard score used for model selection.
+
 
 [Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [License](LICENSE) · [Historical closeout](docs/PROJECT_CLOSEOUT.md)
