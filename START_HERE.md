@@ -2,15 +2,15 @@
 
 **Retained scored system: support-adapted Qwen3-4B, 0.91425 private / 0.91808 public Kaggle ROC AUC.**
 
-The portfolio is reviewable without AWS, Kaggle, model weights, or private data. Frontier research has been reopened after the original closeout; the latest public evidence is the completed Qwen3-14B AWS study.
+The portfolio is reviewable without AWS, Kaggle, model weights, or private data. Frontier research has been reopened after the original closeout; the latest public evidence is the completed five-model Qwen2.5 diversity/ensemble study.
 
 ## Fastest review path
 
-1. Open [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) for the latest backbone/diversity experiment.
-2. Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the retained scored system and overall research narrative.
-3. Read the [model card](MODEL_CARD.md) for data/operational boundaries.
-4. Read [QWEN14B_FRONTIER.md](docs/QWEN14B_FRONTIER.md) for the latest AWS execution and decision.
-5. Continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb).
+1. Open [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) for the latest Qwen2.5 diversity/ensemble result.
+2. Read [FIVE_MODEL_FRONTIER.md](docs/FIVE_MODEL_FRONTIER.md) for the staged screen → full OOF → compression → global validation decision path.
+3. Open [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) for the backbone-scaling result that motivated diversity-first research.
+4. Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the retained scored system and overall research narrative.
+5. Read the [model card](MODEL_CARD.md) for data/operational boundaries, then continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb).
 
 ## Reproduce the public notebooks
 
@@ -18,7 +18,7 @@ The aggregate notebooks require no model loading and no cloud access.
 
 ```bash
 uv sync --locked --group dev
-uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/28_qwen14b_frontier_review.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-qwen14b-frontier-review.ipynb'); print('Saved /tmp/jigsaw-qwen14b-frontier-review.ipynb')"
+uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/29_five_model_frontier_review.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-five-model-frontier-review.ipynb'); print('Saved /tmp/jigsaw-five-model-frontier-review.ipynb')"
 ```
 
 Saved Plotly and SVG outputs are already embedded.
@@ -27,7 +27,7 @@ Saved Plotly and SVG outputs are already embedded.
 
 The retained scored model remains [scripts/kaggle_adaptation.py](scripts/kaggle_adaptation.py), with [decision-position training](scripts/decision_training.py), [pinned settings](configs/kaggle_adaptation.json), and the self-contained [submission notebook](kaggle/submission.ipynb).
 
-The Qwen3-14B frontier result is **development evidence only**. Its public configuration is [configs/qwen3_14b_frontier.json](configs/qwen3_14b_frontier.json), and its aggregate checkpoint is [reports/checkpoints/qwen14b_frontier.json](reports/checkpoints/qwen14b_frontier.json).
+The Qwen3-14B and five-model frontier results are **development evidence only**. Their aggregate checkpoints are [reports/checkpoints/qwen14b_frontier.json](reports/checkpoints/qwen14b_frontier.json) and [reports/checkpoints/five_model_frontier.json](reports/checkpoints/five_model_frontier.json). The exact promoted ensemble weights and private row-level predictions remain outside GitHub.
 
 ## AWS and GitHub serve different purposes
 
@@ -39,7 +39,9 @@ Do not treat GitHub as an AWS mirror. Do not publish raw competition rows, priva
 
 ## Current score-focused direction
 
-The latest evidence favors **model diversity over standalone parameter count**. The 14B model is weaker alone on the fixed development cohort, while a fixed 4B+14B rank blend improves both observed policies. The next milestone is leakage-safe multi-model OOF ensemble selection across preserved 4B, 8B, 14B, and Phi predictions. Only a fixed candidate that survives those AWS gates should be sent to Kaggle for one official score.
+The strongest public development evidence now favors **complementary multi-backbone ranking** over standalone parameter count. Qwen2.5-14B is weaker alone than the incumbent ensemble, but a fixed five-model prior improves both observed policies and passes the grouped-bootstrap promotion gate. A compact deployment control was rejected on stability, and Deep Mutual Learning remains blocked before a valid scientific test because historical source parity is incomplete.
+
+The five-model candidate is frozen at the development level but **has not yet received a Kaggle score**. The next competition action is one actual scored submission. Model development and validation remain in AWS; Kaggle is reserved for the real submission rather than exploratory preflight work.
 
 <details>
 <summary>Existing tested operator continuation</summary>
