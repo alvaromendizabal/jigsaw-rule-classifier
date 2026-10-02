@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "status": "development_candidate_promoted_pending_official_score",
+  "scope": "AWS-only multi-backbone OOF ensemble research using original competition training labels and legitimate supplied supports; aggregate public evidence only",
+  "retained_kaggle": {
+    "public_auc": 0.91808,
+    "private_auc": 0.91425,
+    "historical_winner_private_auc": 0.9293,
+    "gap_to_historical_winner": 0.01505,
+    "unchanged_by_frontier_research": true
+  },
+  "development_cohort": {
+    "rows": 881,
+    "policies": 2,
+    "warning": "Repeatedly examined development cohort; not a fresh independent holdout and not a Kaggle leaderboard score."
+  },
+  "models": {
+    "incumbent": [
+      "Qwen3-4B",
+      "Qwen3-8B",
+      "Qwen3-14B",
+      "Phi-4-mini"
+    ],
+    "added": "Qwen2.5-14B-Instruct",
+    "qwen25_revision": "63af63299c76dc5f79e0b0801e11304f95760ec2",
+    "exact_deployment_weights_public": false
+  },
+  "screen": {
+    "held_out_policy": "Advertising",
+    "rows": 234,
+    "incumbent_policy_transfer_auc": 0.689627,
+    "qwen25_standalone_auc": 0.68791,
+    "fixed_insertion_auc": 0.696754,
+    "fixed_insertion_gain": 0.007127,
+    "bootstrap_mean_gain": 0.006703,
+    "bootstrap_probability_positive": 0.89,
+    "bootstrap_ci_95": [
+      -0.003915,
+      0.019061
+    ],
+    "spearman_vs_incumbent": 0.7656,
+    "decision": "promote_qwen25_to_full_oof"
+  },
+  "full_oof": {
+    "qwen25_rows": 881,
+    "qwen25_prediction_sha256": "a7ad39113a7c3309665ec0625fdc95c89b9a0fb4a8d1384e15922510ac4848dd",
+    "incumbent_policy_transfer_macro_auc": 0.732075913,
+    "qwen25_standalone_macro_auc": 0.730772,
+    "fixed_insertion_macro_auc": 0.738231,
+    "fixed_insertion_gain": 0.006155,
+    "per_policy_gain": {
+      "advertising": 0.009478,
+      "legal_advice": 0.002833
+    },
+    "grouped_bootstrap": {
+      "mean_gain": 0.00602,
+      "ci_95": [
+        0.000735,
+        0.011509
+      ],
+      "probability_positive": 0.984
+    },
+    "optimized_lopo_candidate": {
+      "macro_auc": 0.735226,
+      "gain": 0.00315,
+      "worst_policy_delta": -0.00922,
+      "promoted": false,
+      "reason": "policy regression"
+    }
+  },
+  "compression_study": {
+    "status": "valid_negative",
+    "best_compact_candidate": "two-backbone fixed blend",
+    "macro_auc": 0.7389,
+    "gain_vs_policy_transfer_incumbent": 0.006824,
+    "bootstrap_probability_positive": 0.8095,
+    "per_policy_gain": {
+      "advertising": 0.01784,
+      "legal_advice": -0.00419
+    },
+    "promoted": false,
+    "reason": "failed preregistered confidence and policy-regression gates"
+  },
+  "global_deployment_validation": {
+    "prior_four_model_global_macro_auc": 0.7345945697,
+    "promoted_five_model_global_macro_auc": 0.740351,
+    "gain": 0.005757,
+    "per_policy_gain": {
+      "advertising": 0.00806,
+      "legal_advice": 0.003454
+    },
+    "grouped_bootstrap": {
+      "ci_95": [
+        0.000128,
+        0.011706
+      ],
+      "probability_positive": 0.9783
+    },
+    "deployment_candidate_frozen": true,
+    "exact_weights_public": false,
+    "private_leaderboard_score_used_for_selection": false
+  },
+  "blocked_research": {
+    "deep_mutual_learning": {
+      "status": "blocked_before_scientific_test",
+      "reason": "historical Qwen3-14B source/prompt parity was not recovered strongly enough for a valid DML comparison",
+      "interpretation": "implementation/source-state blocker, not a negative DML result"
+    }
+  },
+  "execution": {
+    "workspace": "AWS SageMaker Studio",
+    "last_gpu_instance": "ml.g6e.8xlarge",
+    "gpu": "NVIDIA L40S",
+    "qwen25_full_oof_runtime_seconds": 1206.8,
+    "qwen25_full_oof_peak_framework_gpu_gib": 14.13,
+    "competition_score_used_for_selection": false
+  },
+  "publication_boundary": {
+    "includes": [
+      "aggregate metrics",
+      "model-family identities",
+      "validation decisions",
+      "prediction checksum",
+      "negative-result summary"
+    ],
+    "excludes": [
+      "raw comments",
+      "row-level predictions",
+      "exact ensemble weights",
+      "adapter/model weights",
+      "optimizer state",
+      "private caches",
+      "credentials",
+      "full cloud logs"
+    ],
+    "aws_remains_canonical": true
+  },
+  "next_step": "Build one actual submission notebook for the frozen five-model candidate outside Kaggle, then use Kaggle only for the scored submission. No additional Kaggle preflight/development runs."
+}
