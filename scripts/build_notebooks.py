@@ -644,7 +644,7 @@ else:
                 "print('Worker seconds:', round(capacity['inference']['elapsed_seconds'], 1))\n"
                 "for fold in capacity['inference']['folds']:\n"
                 "    print('Fold', fold['fold'], 'optimizer steps', fold['training']['optimizer_steps'], 'resumed at', fold['training']['resumed_step'], 'peak GPU GiB', round(fold['peak_gpu_gib'], 2))\n"
-                "print('The verified Kaggle reference remains Version 3: 0.91425 private AUC; winning reference 0.92930.')\n",
+                "print('The verified Kaggle reference remains Version 3: 0.91425 private AUC; no external leaderboard benchmark is used for this decision.')\n",
             ),
         ]
     ).cells
@@ -686,7 +686,7 @@ else:
                 "print('Worker seconds:', round(context['inference']['elapsed_seconds'], 1))\n"
                 "for fold in context['inference']['folds']:\n"
                 "    print('Fold', fold['fold'], 'rows', fold['rows'], 'baseline margin difference', fold['parity_max_abs_margin'], 'replay verified', fold['batch_replay_verified'])\n"
-                "print('No new Kaggle submission. Verified private AUC remains 0.91425; gap to 0.92930 remains 0.01505.')\n",
+                "print('No new Kaggle submission. Verified private AUC remains 0.91425; this research does not use external leaderboard comparisons for selection.')\n",
             ),
         ]
     ).cells
