@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This post-closeout extension tests a winner-aligned Qwen3-14B route in the project's
+This post-closeout extension tests a public-method-aligned Qwen3-14B route in the project's
 canonical AWS workspace. The experiment was designed to answer two questions without using
 private leaderboard scores for model selection:
 

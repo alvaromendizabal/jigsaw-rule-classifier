@@ -3,7 +3,6 @@
   "scope": "Original-training/supplied-support manual feature campaign through Round 13",
   "status": "research_open_no_new_Kaggle_score",
   "accepted_recorded_private_auc": 0.91425,
-  "historical_target_private_auc": 0.9293,
   "score_scope_note": "Local two-policy exploratory AUC is not comparable to a hidden Kaggle score. Repeated adaptive use and in-sample adapted training margins remain limitations.",
   "studies": [
     {

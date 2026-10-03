@@ -1,10 +1,8 @@
 {
   "status": "completed_not_promoted_as_standalone",
-  "scope": "AWS-only winner-aligned Qwen3-14B capacity/diversity study; original labels and supplied supports only",
+  "scope": "AWS-only public-method-aligned Qwen3-14B capacity/diversity study; original labels and supplied supports only",
   "baseline_kaggle_public_auc": 0.91808,
   "baseline_kaggle_private_auc": 0.91425,
-  "historical_winner_private_auc": 0.9293,
-  "gap_to_historical_winner": 0.01505,
   "aws_run_id": "d99f74c1728d0f9a4722",
   "executed_utc": "2026-09-23T02:20:06.885051+00:00",
   "model": {

@@ -140,4 +140,4 @@ reset, reinstall, or delete the preserved project to make it look synchronized.
   selection objective is cosine similarity, not a moderation-label oracle.
 
 Feature research remains open. Do not claim the 0.91425 recorded accepted private
-AUC improved or that the 0.92930 historical reference has been beaten.
+AUC improved from this bounded feature study alone.

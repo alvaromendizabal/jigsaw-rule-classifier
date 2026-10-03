@@ -21,9 +21,8 @@ Community moderation is not a fixed toxicity task. A comment can be acceptable u
 | Original lexical reference | 0.59191 | 0.61956 | Baseline |
 | **Support-adapted Qwen3-4B** | **0.91808** | **0.91425** | **Retained scored system** |
 | Strict-majority 4B candidate | 0.91720 | 0.91288 | Rejected regression |
-| Historical competition winner | — | 0.92930 | External benchmark |
 
-The retained 4B system improves private AUC by **0.29469** over the lexical baseline and remains **0.01505 AUC** below the documented historical winning private score. These were successful **late submissions**; no original placement, medal, or leaderboard percentile is claimed. AUC is a ranking metric, not classification accuracy.
+The retained 4B system improves private AUC by **0.29469** over the lexical baseline. These were successful **late submissions**; no original placement, medal, or leaderboard percentile is claimed. AUC is a ranking metric, not classification accuracy.
 
 ## Latest frontier result: Qwen2.5 adds useful diversity
 

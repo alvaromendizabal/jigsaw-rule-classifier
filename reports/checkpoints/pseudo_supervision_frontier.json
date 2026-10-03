@@ -5,8 +5,6 @@
   "retained_kaggle": {
     "public_auc": 0.91808,
     "private_auc": 0.91425,
-    "historical_winner_private_auc": 0.9293,
-    "gap_to_historical_winner": 0.01505,
     "unchanged_by_frontier_research": true
   },
   "development_cohort": {

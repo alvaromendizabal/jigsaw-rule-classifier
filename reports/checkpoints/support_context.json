@@ -330,7 +330,7 @@
       "requested_utc": "2026-09-10T18:39:28.651374+00:00"
     },
     "one_job_this_milestone": true,
-    "parity_max_abs_margin": 1e-05,
+    "parity_max_abs_margin": 0.00001,
     "prior_successful_allocation_seconds": [
       {
         "job": "jigsaw-backbone-capacity-20260910",
@@ -650,7 +650,5 @@
   "public_report": "reports/support_context",
   "next_step": "CPU audit and semantic/contrastive support selection using retained original-data representations; one separately frozen comparison only after selection and recovery checks. Not launched.",
   "kaggle_entry_changed": false,
-  "baseline_kaggle_private_auc": 0.91425,
-  "winning_private_auc": 0.9293,
-  "gap": 0.01505
+  "baseline_kaggle_private_auc": 0.91425
 }

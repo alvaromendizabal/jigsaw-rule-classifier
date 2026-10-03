@@ -65,8 +65,8 @@ There are zero model fits, zero neural forward passes, zero blends, and zero tun
 No performance promotion gate is being applied, and no weighted or routed predictor is produced.
 Ranking disagreement is evidence for studying representation gaps, not a promised ensemble gain.
 Every result remains exploratory because these 881 queries have repeatedly informed choices.
-No AUC from this audit is a new Kaggle score. The 0.91425 accepted private score and 0.92930 target
-are a different evaluation; subtracting this cohort's AUC from either would be invalid.
+No AUC from this audit is a new Kaggle score. The 0.91425 accepted private score is a
+different evaluation; subtracting this cohort's AUC from it would be invalid.
 
 ## Subsequent research choices, not launched here
 
