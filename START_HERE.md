@@ -2,15 +2,16 @@
 
 **Retained scored system: support-adapted Qwen3-4B, 0.91425 private / 0.91808 public Kaggle ROC AUC.**
 
-The portfolio is reviewable without AWS, Kaggle, model weights, or private data. Frontier research has been reopened after the original closeout; the latest public evidence is the completed five-model Qwen2.5 diversity/ensemble study.
+The portfolio is reviewable without AWS, Kaggle, model weights, or private data. The latest public evidence extends the promoted five-model candidate with two completed AWS supervision stress tests: owned pseudo-supervision and public external soft labels.
 
 ## Fastest review path
 
-1. Open [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) for the latest Qwen2.5 diversity/ensemble result.
-2. Read [FIVE_MODEL_FRONTIER.md](docs/FIVE_MODEL_FRONTIER.md) for the staged screen → full OOF → compression → global validation decision path.
-3. Open [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) for the backbone-scaling result that motivated diversity-first research.
-4. Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the retained scored system and overall research narrative.
-5. Read the [model card](MODEL_CARD.md) for data/operational boundaries, then continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb).
+1. Open [30 · Pseudo-supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) for the latest completed AWS research and negative-result decisions.
+2. Read [PSEUDO_SUPERVISION_FRONTIER.md](docs/PSEUDO_SUPERVISION_FRONTIER.md) for the E33/E36 supervision, external-data and L4 engineering evidence.
+3. Open [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) for the promoted Qwen2.5 diversity/ensemble candidate.
+4. Open [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) for the backbone-scaling result that motivated diversity-first research.
+5. Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the retained scored system and overall research narrative.
+6. Read the [model card](MODEL_CARD.md), then continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb).
 
 ## Reproduce the public notebooks
 
@@ -18,7 +19,7 @@ The aggregate notebooks require no model loading and no cloud access.
 
 ```bash
 uv sync --locked --group dev
-uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/29_five_model_frontier_review.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-five-model-frontier-review.ipynb'); print('Saved /tmp/jigsaw-five-model-frontier-review.ipynb')"
+uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/30_pseudo_supervision_frontier_review.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-pseudo-supervision-frontier-review.ipynb'); print('Saved /tmp/jigsaw-pseudo-supervision-frontier-review.ipynb')"
 ```
 
 Saved Plotly and SVG outputs are already embedded.
@@ -27,7 +28,7 @@ Saved Plotly and SVG outputs are already embedded.
 
 The retained scored model remains [scripts/kaggle_adaptation.py](scripts/kaggle_adaptation.py), with [decision-position training](scripts/decision_training.py), [pinned settings](configs/kaggle_adaptation.json), and the self-contained [submission notebook](kaggle/submission.ipynb).
 
-The Qwen3-14B and five-model frontier results are **development evidence only**. Their aggregate checkpoints are [reports/checkpoints/qwen14b_frontier.json](reports/checkpoints/qwen14b_frontier.json) and [reports/checkpoints/five_model_frontier.json](reports/checkpoints/five_model_frontier.json). The exact promoted ensemble weights and private row-level predictions remain outside GitHub.
+The Qwen3-14B, five-model, and supervision-frontier results are **development evidence only**. Their aggregate checkpoints are [reports/checkpoints/qwen14b_frontier.json](reports/checkpoints/qwen14b_frontier.json), [reports/checkpoints/five_model_frontier.json](reports/checkpoints/five_model_frontier.json), and [reports/checkpoints/pseudo_supervision_frontier.json](reports/checkpoints/pseudo_supervision_frontier.json). Exact ensemble weights, teacher-score arrays, and private row-level predictions remain outside GitHub.
 
 ## AWS and GitHub serve different purposes
 
@@ -39,9 +40,9 @@ Do not treat GitHub as an AWS mirror. Do not publish raw competition rows, priva
 
 ## Current score-focused direction
 
-The strongest public development evidence now favors **complementary multi-backbone ranking** over standalone parameter count. Qwen2.5-14B is weaker alone than the incumbent ensemble, but a fixed five-model prior improves both observed policies and passes the grouped-bootstrap promotion gate. A compact deployment control was rejected on stability, and Deep Mutual Learning remains blocked before a valid scientific test because historical source parity is incomplete.
+The strongest public development candidate remains the **five-model complementary ranking ensemble**. Two follow-on supervision mechanisms have now been tested without leaderboard selection: small-cohort Qwen pseudo-supervision was a valid negative, while public external soft labels improved a complementary DeBERTa student relative to its control but still trailed the incumbent and regressed one policy.
 
-The five-model candidate is frozen at the development level but **has not yet received a Kaggle score**. The next competition action is one actual scored submission. Model development and validation remain in AWS; Kaggle is reserved for the real submission rather than exploratory preflight work.
+The five-model candidate is frozen at the development level and **has not yet received a Kaggle score**. The next AWS research step is a bounded cross-rule hard-negative transfer screen using immutable cached representations; Deep Mutual Learning remains blocked until exact 14B source/prompt parity is recovered. Kaggle remains reserved for real scored submissions rather than exploratory development.
 
 <details>
 <summary>Existing tested operator continuation</summary>

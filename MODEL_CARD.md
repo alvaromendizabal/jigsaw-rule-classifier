@@ -40,6 +40,8 @@ The subsequent Qwen2.5-14B extension tested whether a different backbone family 
 
 A compact 2/3-model deployment study was retained as a valid negative result after failing stability gates, and an aggressively optimized leave-one-policy-out blend was rejected after a policy regression. Exact ensemble weights remain private. See [docs/FIVE_MODEL_FRONTIER.md](docs/FIVE_MODEL_FRONTIER.md).
 
+Two later supervision studies kept that five-model candidate fixed. E33 tested three owned uncertainty/disagreement pseudo-supervision variants and closed as a valid negative: the best candidate improved policy-macro AUC by only **+0.000193** with **0.507** bootstrap probability of a positive gain. E36 then used 10,000 deterministic public Reddit moderation comments, fold-specific Qwen soft labels, and a complementary DeBERTa-v3-base student. External soft labels improved the DeBERTa student over its matched control by **+0.004259**, but the fixed blend still trailed the incumbent by **-0.005671** and regressed Legal Advice by **-0.012798**. See [docs/PSEUDO_SUPERVISION_FRONTIER.md](docs/PSEUDO_SUPERVISION_FRONTIER.md).
+
 ## Data and operational boundaries
 
 The neural competition path uses original competition training labels and legitimate supplied support labels. Released hidden targets are excluded. Development query bodies are removed from adaptation sources across rules.
@@ -54,6 +56,6 @@ No production threshold, automatic content deletion, account penalty, fairness c
 
 ## Frontier research status
 
-Post-closeout research is explicitly separated from the retained scored system. Current evidence favors complementary multi-backbone ensembles over standalone parameter scaling. A five-model candidate has passed the public development promotion gate but has **not** received an official Kaggle score. The next score-focused step is one immutable scored submission; further model selection remains in AWS and does not use leaderboard scores.
+Post-closeout research is explicitly separated from the retained scored system. Current evidence favors complementary multi-backbone ensembles over standalone parameter scaling, while two distinct pseudo-supervision/external-data routes have now been preserved as valid negative results. The five-model candidate has passed the public development promotion gate but has **not** received an official Kaggle score. Active AWS research now prioritizes cross-rule hard-negative transfer and other structurally distinct representation objectives; further model selection does not use leaderboard scores.
 
 The separate historical 0.6B embedding/routing artifact remains documented in [HISTORICAL_MODEL_CARD.md](HISTORICAL_MODEL_CARD.md) and must not be confused with the retained 4B system.

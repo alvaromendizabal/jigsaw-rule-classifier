@@ -1,6 +1,6 @@
 # Jigsaw · Rule-conditioned NLP
 
-**A reproducible rule-conditioned NLP portfolio: lexical baselines → support-adapted Qwen3-4B → transfer analysis → AWS multi-backbone ensemble research.**
+**A reproducible rule-conditioned NLP portfolio: lexical baselines → support-adapted Qwen3-4B → transfer analysis → AWS multi-backbone ensembles → pseudo-supervision and external-data stress tests.**
 
 Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
@@ -8,7 +8,7 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 **0.91425 private ROC AUC · 0.91808 public ROC AUC · +0.29469 private AUC over the lexical baseline**
 
-[Latest five-model frontier](notebooks/29_five_model_frontier_review.ipynb) · [14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) · [Project review](notebooks/27_latest_system_checkpoint.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md)
+[Latest supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) · [Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) · [14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) · [Start here](START_HERE.md) · [Model card](MODEL_CARD.md)
 
 ## The problem
 
@@ -44,6 +44,16 @@ Two controls prevented overclaiming: an aggressively optimized leave-one-policy-
 
 This is **development evidence only**. The official retained Kaggle result remains **0.91808 public / 0.91425 private AUC** until the frozen candidate receives an official score. [Frontier report](docs/FIVE_MODEL_FRONTIER.md) · [Machine-readable checkpoint](reports/checkpoints/five_model_frontier.json).
 
+## Follow-on frontier: pseudo-supervision and external data
+
+The promoted five-model development candidate remained the fixed reference while two structurally different supervision routes were tested in AWS.
+
+**Owned pseudo-supervision (E33).** Three uncertainty/disagreement variants completed six matched policy fits. The best point estimate reached **0.740544 policy-macro AUC**, only **+0.000193** over the incumbent, with **0.507** bootstrap probability of a positive gain. The route is retained as a valid negative rather than tuned further.
+
+**External soft labels + DeBERTa (E36).** A deterministic **10,000-comment** public Reddit moderation corpus was labeled by fold-specific Qwen teachers and used to train a complementary DeBERTa-v3-base student. External soft labels improved the DeBERTa student by **+0.004259** over its labeled-only control, but the fixed candidate still trailed the incumbent by **-0.005671** and regressed Legal Advice by **-0.012798**. That route is also a valid negative.
+
+These experiments narrow the next mechanism to **cross-rule hard-negative transfer** on the immutable Qwen representation cache. Deep Mutual Learning remains blocked before a valid scientific test. [Frontier report](docs/PSEUDO_SUPERVISION_FRONTIER.md) · [Aggregate checkpoint](reports/checkpoints/pseudo_supervision_frontier.json).
+
 ## What I built
 
 **Task-adapted neural ranking.** The retained scored path uses Qwen3-4B-Instruct-2507, LoRA adaptation from original training labels plus legitimate supplied support labels, one-position decision loss, forward-only final-token scoring, length-sorted inference, restored row ordering, and within-rule rank normalization.
@@ -70,7 +80,8 @@ AWS remains the canonical private workspace for raw data, model weights, row-lev
 
 | Start with | What it demonstrates |
 | --- | --- |
-| [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) | Latest Qwen2.5 diversity result, negative compression control, and promoted development ensemble |
+| [30 · Supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) | Owned pseudo-supervision and public external-data stress tests, both preserved as valid negatives |
+| [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) | Qwen2.5 diversity result, negative compression control, and promoted development ensemble |
 | [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) | Backbone scaling result that motivated diversity-first ensemble research |
 | [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) | Retained Kaggle result, matched adaptation evidence, and feature-transfer lesson |
 | [26 · Public-method map](notebooks/26_top_solution_integration.ipynb) | Leading-solution mechanisms and independent implementation plan |
@@ -87,9 +98,11 @@ The public portfolio remains complete and reviewable, while competitive frontier
 - Qwen2.5-14B is also weaker alone, yet materially improves a fixed ensemble;
 - a leakage-aware five-model global candidate improves both observed policies and passes the grouped-bootstrap promotion gate;
 - compact 2/3-model deployment variants were rejected on stability rather than promoted for convenience;
+- small-cohort uncertainty/disagreement pseudo-supervision completed as a valid negative;
+- public external soft labels improved a DeBERTa student relative to its matched control but did not beat the incumbent;
 - Deep Mutual Learning remains blocked by historical source-parity uncertainty and has **not** produced a valid negative scientific result.
 
-The frozen five-model candidate is development-promoted but **not yet Kaggle-scored**. The next competition action is one actual scored submission, with model development remaining in AWS and no leaderboard score used for model selection.
+The frozen five-model candidate remains development-promoted but **not yet Kaggle-scored**. Active AWS research now prioritizes cross-rule hard-negative transfer and other structurally distinct representation objectives before the next scored submission; leaderboard feedback is not used for model selection.
 
 
 [Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [License](LICENSE) · [Historical closeout](docs/PROJECT_CLOSEOUT.md)

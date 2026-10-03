@@ -32,9 +32,16 @@
     "qwen4b_reference_policy_macro_auc": 0.7198933966592936,
     "fixed_4b14b_blend_policy_macro_auc": 0.7301752652852838,
     "fixed_blend_gain": 0.01028186862599012,
-    "fixed_blend_ci_95": [-0.0042902097033746004, 0.024501236890247125],
+    "fixed_blend_ci_95": [
+      -0.0042902097033746004,
+      0.024501236890247125
+    ],
     "private_leaderboard_score_used_for_selection": false,
-    "next_milestone": "Leakage-safe multi-model OOF ensemble selection across preserved 4B, 8B, 14B, and Phi predictions"
+    "next_milestone": "Cross-rule hard-negative transfer on immutable cached Qwen representations",
+    "five_model_status": "development_promoted_pending_official_score",
+    "five_model_policy_macro_auc": 0.7403513925597156,
+    "e33_status": "completed_valid_negative",
+    "e36_status": "completed_valid_negative"
   },
   "publication_boundary": {
     "aws_modified": false,
@@ -54,8 +61,8 @@
     "reports/majority_submission/summary.json": "16b0668ff5aceb7cee3f3ab8461dde8098ec421e995d5dbd11fdcedf4fe85ef9",
     "reports/checkpoints/qwen14b_frontier.json": "10d14f786c6e340b0ace28ec3e2806af5da927b6aebe251b6cf644dcaa93a19c",
     "configs/qwen3_14b_frontier.json": "6c1d9fae3d0c21df793ff7b06a359df68671f8d96e0523b45aa47f970fc4d05d",
-    "configs/top_solution_integration.json": "ce35c968b0362eb19883bec67b0237a393198ba66188542c995e07b87749a979"
+    "configs/top_solution_integration.json": "e0d09a1bb8e5ecf1383705e15384f117df71a59e67eb02117e18b543683677e9"
   },
-  "future_work": "Frontier research reopened: prioritize group-safe ensemble selection, then DML or uncertainty-selected pseudo-labeling if ensemble evidence does not transfer",
-  "interpretation": "The retained 4B leaderboard result remains canonical. Majority supervision regressed; 14B is weaker alone on the fixed development cohort but adds useful blend diversity. No hidden-score improvement is claimed for the frontier blend."
+  "future_work": "Run the bounded cross-rule hard-negative transfer screen; keep DML blocked until exact Qwen3-14B source/prompt parity is recovered.",
+  "interpretation": "The retained 4B leaderboard result remains canonical. The five-model ensemble is the strongest development candidate. E33 small-cohort pseudo-supervision and E36 external-soft-label DeBERTa completed as valid negative results. No hidden-score improvement is claimed for unscored frontier candidates."
 }
