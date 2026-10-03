@@ -1,48 +1,69 @@
 # Start here
 
-**Retained scored system: support-adapted Qwen3-4B, 0.91425 private / 0.91808 public Kaggle ROC AUC.**
+**Retained scored system: support-adapted Qwen3-4B · 0.91808 public / 0.91425 private ROC AUC · +0.29469 private AUC over the lexical baseline.**
 
-The portfolio is reviewable without AWS, Kaggle, model weights, or private data. The latest public evidence extends the promoted five-model candidate with two completed AWS supervision stress tests: owned pseudo-supervision and public external soft labels.
+This repository is designed for two audiences at once: a hiring manager who wants the story quickly, and an ML practitioner who wants to inspect the evidence, validation, and engineering.
 
-## Fastest review path
+## Pick a review path
 
-1. Open [30 · Pseudo-supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) for the latest completed AWS research and negative-result decisions.
-2. Read [PSEUDO_SUPERVISION_FRONTIER.md](docs/PSEUDO_SUPERVISION_FRONTIER.md) for the E33/E36 supervision, external-data and L4 engineering evidence.
-3. Open [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) for the promoted Qwen2.5 diversity/ensemble candidate.
-4. Open [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) for the backbone-scaling result that motivated diversity-first research.
-5. Open [27 · Project review](notebooks/27_latest_system_checkpoint.ipynb) for the retained scored system and overall research narrative.
-6. Read the [model card](MODEL_CARD.md), then continue to [03 · Detailed results](notebooks/03_saved_results.ipynb), [02 · Feature research](notebooks/02_baseline_and_review.ipynb), and [01 · Validation](notebooks/01_data_and_validation.ipynb).
+### 30 seconds · recruiter / hiring manager
+Read the [README](README.md).
 
-## Reproduce the public notebooks
+It gives the problem, headline result, architecture, selected research evidence, stack, and the three artifacts worth opening.
 
-The aggregate notebooks require no model loading and no cloud access.
+### 3–5 minutes · technical hiring manager
+Open [27 · Project overview](notebooks/27_latest_system_checkpoint.ipynb).
+
+It shows the retained system, the project’s measured baseline-to-neural improvement, adaptation evidence, and the overall research narrative in one executed notebook.
+
+### 10–15 minutes · ML engineer / data scientist
+Open:
+
+1. [29 · Five-model frontier](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, OOF ensemble evidence, stability gates, and rejected controls.
+2. [01 · Validation](notebooks/01_data_and_validation.ipynb) — whole-policy holdouts, text-purge boundaries, grouped evaluation, and leakage controls.
+3. [Model card](MODEL_CARD.md) — retained system, limitations, and public/private artifact boundaries.
+
+### Deep research review
+Continue to:
+
+- [30 · Pseudo-supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) — owned pseudo-supervision and public external-data experiments.
+- [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) — capacity vs diversity.
+- [02 · Feature research](notebooks/02_baseline_and_review.ipynb) — the larger 323-fit feature/generalization campaign.
+- [03 · Detailed results](notebooks/03_saved_results.ipynb) — broader experiment decisions and comparisons.
+
+## What this project demonstrates
+
+- **End-to-end model ownership:** data audit → adaptation → inference → validation → ensemble selection → publication.
+- **Modern NLP:** Qwen3, Qwen2.5, Phi, DeBERTa, LoRA, teacher/student soft labels, decision-token scoring.
+- **Transfer-aware data science:** whole-policy holdouts, grouped OOF evidence, ablations, uncertainty, promotion gates, negative-result discipline.
+- **AWS/GPU engineering:** SageMaker, L4 benchmarking, VRAM debugging, checkpoint reuse, gradient checkpointing, resumability.
+- **Reproducibility:** pinned revisions, checksums, immutable experiment contracts, executed notebooks, CI, machine-readable checkpoints.
+- **Judgment:** larger models and more data are not automatically promoted; every candidate has to earn its place through the validation contract.
+
+## Reproduce the public overview
+
+The employer-facing aggregate notebooks require no model loading and no cloud account.
 
 ```bash
 uv sync --locked --group dev
-uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/30_pseudo_supervision_frontier_review.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-pseudo-supervision-frontier-review.ipynb'); print('Saved /tmp/jigsaw-pseudo-supervision-frontier-review.ipynb')"
+uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/27_latest_system_checkpoint.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-project-overview.ipynb'); print('Saved /tmp/jigsaw-project-overview.ipynb')"
 ```
 
-Saved Plotly and SVG outputs are already embedded.
-
-## Reproduce the retained neural inference separately
-
-The retained scored model remains [scripts/kaggle_adaptation.py](scripts/kaggle_adaptation.py), with [decision-position training](scripts/decision_training.py), [pinned settings](configs/kaggle_adaptation.json), and the self-contained [submission notebook](kaggle/submission.ipynb).
-
-The Qwen3-14B, five-model, and supervision-frontier results are **development evidence only**. Their aggregate checkpoints are [reports/checkpoints/qwen14b_frontier.json](reports/checkpoints/qwen14b_frontier.json), [reports/checkpoints/five_model_frontier.json](reports/checkpoints/five_model_frontier.json), and [reports/checkpoints/pseudo_supervision_frontier.json](reports/checkpoints/pseudo_supervision_frontier.json). Exact ensemble weights, teacher-score arrays, and private row-level predictions remain outside GitHub.
+Saved Plotly/SVG evidence is already embedded in the tracked notebook.
 
 ## AWS and GitHub serve different purposes
 
-**AWS:** raw comments/labels, row-level predictions, model weights, optimizer checkpoints, caches, resumable training state, full logs.
+**AWS:** raw comments/labels, row-level predictions, model weights, optimizer checkpoints, teacher-score arrays, caches, resumable training state, and full operational logs.
 
-**GitHub:** source, compact configs, tests, aggregate results, attribution, and executed review notebooks.
+**GitHub:** source, compact configs, aggregate results, attribution, tests, and executed review notebooks.
 
-Do not treat GitHub as an AWS mirror. Do not publish raw competition rows, private predictions, model weights, caches, credentials, or full training logs.
+The public repository is intentionally semi-reproducible rather than an AWS mirror.
 
-## Current score-focused direction
+## Current research direction
 
-The strongest public development candidate remains the **five-model complementary ranking ensemble**. Two follow-on supervision mechanisms have now been tested without leaderboard selection: small-cohort Qwen pseudo-supervision was a valid negative, while public external soft labels improved a complementary DeBERTa student relative to its control but still trailed the incumbent and regressed one policy.
+The strongest development candidate remains the fixed five-model complementary ranking ensemble. Small-cohort pseudo-supervision and the 10k external-text/DeBERTa route were both completed and preserved as valid negative results.
 
-The five-model candidate is frozen at the development level and **has not yet received a Kaggle score**. The next AWS research step is a bounded cross-rule hard-negative transfer screen using immutable cached representations; Deep Mutual Learning remains blocked until exact 14B source/prompt parity is recovered. Kaggle remains reserved for real scored submissions rather than exploratory development.
+The next bounded AWS mechanism is **cross-rule hard-negative transfer using immutable cached Qwen representations**. Deep Mutual Learning remains blocked until exact Qwen3-14B source/prompt parity is recovered.
 
 <details>
 <summary>Existing tested operator continuation</summary>
