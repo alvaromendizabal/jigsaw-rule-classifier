@@ -6,7 +6,7 @@ Competitive research was subsequently reopened. This document therefore distingu
 
 ## Retained scored result
 
-The retained Qwen3-4B system improved private AUC by **0.29469** over the 0.61956 lexical reference. The documented historical winner scored 0.92930 private AUC, leaving a **0.01505** absolute gap.
+The retained Qwen3-4B system improved private AUC by **0.29469** over the 0.61956 lexical reference. That scored result remains the canonical competition outcome for the portfolio.
 
 The matched 881-comment study shows support adaptation at fixed backbone: **0.614600 → 0.719893** policy-macro AUC. The repeatedly inspected cohort is development evidence, not a fresh final holdout.
 
