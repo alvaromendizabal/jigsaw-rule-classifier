@@ -721,7 +721,6 @@
             "status": "research_open_no_new_Kaggle_score",
             "top_level_keys": [
               "accepted_recorded_private_auc",
-              "historical_target_private_auc",
               "publication",
               "schema",
               "scope",
