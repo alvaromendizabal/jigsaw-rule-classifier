@@ -16,7 +16,8 @@ This track converts publicly documented competition methods into independent, te
 | Qwen3-14B adaptation | Recreated + AWS validated | Standalone not promoted; blend complementary |
 | Multi-model weighted ensemble | Recreated + AWS validated | Five-model fixed prior promoted on two-policy development evidence |
 | Qwen2.5-14B diversity route | Recreated + AWS validated | Standalone weaker; fixed ensemble contribution promoted |
-| Uncertainty-selected pseudo-labeling | Not implemented | High-value capability gap |
+| Uncertainty-selected pseudo-labeling | Recreated + AWS validated | E33 completed 6/6; valid negative, best Δ +0.000193 |
+| External soft-label student | Recreated + AWS validated | 10k public Reddit texts improved DeBERTa control but not the incumbent |
 | Deep Mutual Learning | Blocked before valid scientific test | Historical 14B source/prompt parity remains incomplete |
 | Task-trained contrastive BGE route | Not implemented | Diversity route, lower priority than ensemble/DML |
 
@@ -41,17 +42,19 @@ structurally new training mechanisms**.
 ## Current priority
 
 1. Preserve the frozen five-model development candidate; do not reopen nearby weight tuning.
-2. Build the actual immutable competition submission outside Kaggle and spend one official score.
-3. Keep Kaggle out of development/preflight work; AWS remains canonical for modeling.
-4. If the official score transfers, preserve it and continue from the stronger base.
-5. If it does not transfer, prioritize uncertainty-selected pseudo-supervision or unblock DML only after exact source parity is recovered.
-6. Do not interpret DML implementation failures as evidence against the method.
+2. Keep E33 closed: small-cohort same-family pseudo-supervision is a valid negative.
+3. Keep E36 closed: external soft labels help the DeBERTa control but do not beat the incumbent.
+4. Test cross-rule hard-negative transfer next using the immutable cached Qwen representation space.
+5. Escalate to task-trained contrastive/ranking objectives only if the bounded hard-negative screen provides evidence.
+6. Keep Deep Mutual Learning blocked until exact Qwen3-14B source/prompt parity is recovered.
+7. Keep Kaggle out of development/preflight work; AWS remains canonical for modeling.
 
 ## Validation and publication boundary
 
 AWS remains canonical for model training, checkpoints, row-level predictions, and private logs. GitHub publishes aggregate metrics/configuration, implementation source, tests, attribution, and executed notebooks.
 
-The [five-model frontier report](FIVE_MODEL_FRONTIER.md) and
-[`reports/checkpoints/five_model_frontier.json`](../reports/checkpoints/five_model_frontier.json)
-record the latest completed stage. The earlier [Qwen3-14B frontier report](QWEN14B_FRONTIER.md)
-preserves the capacity experiment that motivated the diversity-first direction.
+The [pseudo-supervision frontier report](PSEUDO_SUPERVISION_FRONTIER.md) and
+[`reports/checkpoints/pseudo_supervision_frontier.json`](../reports/checkpoints/pseudo_supervision_frontier.json)
+record the latest completed stage. The [five-model frontier report](FIVE_MODEL_FRONTIER.md)
+preserves the promoted development ensemble, while [QWEN14B_FRONTIER.md](QWEN14B_FRONTIER.md)
+records the capacity experiment that motivated the diversity-first direction.
