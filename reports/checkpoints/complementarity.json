@@ -2,8 +2,6 @@
   "status": "completed_not_promoted",
   "scope": "Authorized second-model development comparison; original labels and supplied supports only",
   "baseline_kaggle_private_auc": 0.91425,
-  "leaderboard_private_auc": 0.9293,
-  "measured_private_gap": 0.01505,
   "model_id": "microsoft/Phi-4-mini-instruct",
   "revision": "5a149550068a1eb93398160d8953f5f56c3603e9",
   "plan_sha256": "3440d879c2fb307ea496c45160fed44048bbd26eea2b0f4e2c66dda750fcc0b7",
