@@ -42,12 +42,11 @@ The competition closed October 23, 2025; new entries are late evaluations.
 
 ## Methods the first campaign missed
 
-The winner trained on labeled support examples supplied with test policies,
+A public competition solution trained on labeled support examples supplied with test policies,
 deduplicated without subreddit, adapted language models with a Yes/No-only loss,
-and combined predictions using ranks within each policy. His reported 4B Qwen
-private result was 0.9198 and the six-model ensemble reached 0.9293. These are the
-author's results, not a reproduction by this project.
-[First-place write-up](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/1st-place-solution).
+and combined predictions using ranks within each policy. Those documented mechanisms
+are used as research references rather than score targets.
+[Public write-up](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/1st-place-solution).
 
 The third-place solution also adapted to supplied examples. It constructed
 features from adapted last-token representations and distances to positive and
@@ -286,11 +285,10 @@ Publication validation initially hit a non-JSON NumPy array in the new Plotly di
 
 The next authorized experiment pins **microsoft/Phi-4-mini-instruct** revision
 `5a149550068a1eb93398160d8953f5f56c3603e9` (May 1, 2025), with eleven upstream
-asset checksums and the MIT license. This is a distinct 3.8B model family that the
-winner also used in an early small-model ensemble. The verified winning private
-leaderboard score is **0.92930**; the current measured gap is **0.01505**.
-[Pinned model](https://huggingface.co/microsoft/Phi-4-mini-instruct/tree/5a149550068a1eb93398160d8953f5f56c3603e9)
-· [Private leaderboard](https://www.kaggle.com/competitions/jigsaw-agile-community-rules/leaderboard).
+asset checksums and the MIT license. This is a distinct 3.8B model family that a
+public competition solution also used in an early small-model ensemble. That makes it
+a useful architecture-diversity reference without turning an external score into a target.
+[Pinned model](https://huggingface.co/microsoft/Phi-4-mini-instruct/tree/5a149550068a1eb93398160d8953f5f56c3603e9).
 
 Reuse the exact completed Qwen study's two folds, 881 novel queries and saved
 predictions, identified by the plan and artifact SHA256 values in
@@ -347,9 +345,9 @@ promotion. No blend weights are tuned after seeing these results. These remain
 exploratory development findings on two previously examined rules, not hidden
 competition scores or a newly untouched holdout.
 
-The existing **0.91425 private Kaggle AUC** remains the scored reference, **0.01505**
-below the winning 0.92930. The next representation test is a fixed **Qwen3-8B
-capacity comparison**, reusing the same 4B predictions and eligible plan. It must
+The existing **0.91425 private Kaggle AUC** remains the scored reference. The next
+representation test is a fixed **Qwen3-8B capacity comparison**, reusing the same 4B
+predictions and eligible plan. It must
 be registered separately and pass its own development and offline runtime gates.
 
 Reproduce the aggregate export from the private completed evaluation with
@@ -420,9 +418,8 @@ submitted to Kaggle**. The fixed weights and thresholds remain unchanged.
 
 These negative findings limit this specific one-epoch adaptation and fixed blend
 on two development rules. They do not prove that larger models cannot help other
-policies. The actual scored reference stays **0.91808 public / 0.91425 private**,
-with **0.01505** still needed to match the winning private **0.92930**. No new
-competition score or leaderboard improvement is claimed.
+policies. The actual scored reference stays **0.91808 public / 0.91425 private**.
+No new competition score or leaderboard improvement is claimed.
 
 ![Verified larger-backbone comparison](../reports/backbone_capacity/comparison.svg)
 
@@ -497,7 +494,7 @@ or consumed protected cohort is opened. Only the byte-identical original
 This bounded step ends after the comparison and a durable draft PR. Notebook
 publication, offline candidate validation and any new hidden submission are
 separate milestones. The current 4B Kaggle result remains 0.91425 private AUC;
-the 0.01505 gap to 0.92930 is unclosed until measured otherwise.
+this bounded study does not change that scored reference.
 
 We are not restricted to 4B. The completed 8B study failed its promotion gate;
 it does not rule out other models. At 16-bit precision, 9B and 27B weights alone
@@ -574,10 +571,10 @@ same policy, with query texts excluded. Missing thread context cannot be invente
 | Model diversity and fixed rank ensembles | Phi and 8B comparisons failed promotion gates; size alone is not a demonstrated gain |
 | Public external policy examples / context | Requires license, pre-deadline availability, relevance and contamination review before use |
 
-The **0.01505** private-score gap remains unallocated: current evidence cannot
-separate its causes into feature, model and ensemble contributions. These are
-open hypotheses, not a promise that any one family closes the gap. Broader
-research proceeds through bounded experiments, not an immediate model sweep.
+The remaining transfer error is not assigned to a single component: current evidence
+cannot separate its causes into feature, model and ensemble contributions. These are
+open hypotheses, not a promise that any one family solves the problem. Broader research
+proceeds through bounded experiments, not an immediate model sweep.
 
 The label-free selection audit covers all **881** queries. Advertising selects
 112 distinct positive and 116 distinct negative examples; legal advice selects
@@ -717,8 +714,8 @@ purchase or subscription was made.
 This metadata-only milestone records consent and the concrete billing failure.
 It does not constitute model progress: no support-context predictions,
 development AUC, Kaggle submission or model promotion occurred. The best verified
-private AUC remains **0.91425**, **0.01505** below the historical winning score.
-The frozen candidate, retained adapters, input hashes, query exclusions and
+private AUC remains **0.91425**. The frozen candidate, retained adapters, input hashes,
+query exclusions and
 1e-5 parity gate remain unchanged. Reuse the successful local S3 check and
 completed tests; do not restart AWS capacity queues or repeatedly retry HF.
 
@@ -811,7 +808,7 @@ The registered 1,000-draw paired group bootstrap gives simultaneous 95% gain
 interval **[-0.011587, 0.017511]**. Positive macro gain passes; positive interval
 and no-policy-regression both fail. **Do not promote this prompt candidate.**
 No blending, prompt search, further GPU run or Kaggle submission was triggered.
-Private Kaggle AUC remains **0.91425**, **0.01505** below the historical winner.
+Private Kaggle AUC remains **0.91425**.
 
 Public aggregates and source-checked Plotly/SVG comparison are in
 [the canonical report](../reports/support_context/metadata.json). Private
