@@ -128,11 +128,11 @@ or environment variable dumps. The helper does not change AWS resources or GitHu
 - Clarke et al., 2023, *Rule By Example*: https://aclanthology.org/2023.acl-long.22/ .
   Motivates a future rule-grounded contrastive-representation study. This regex
   feature experiment is not an implementation or reproduction of that paper.
-- Guanshuo Xu, 2025, competition first-place solution:
+- Guanshuo Xu, 2025, public competition write-up:
   https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/1st-place-solution .
   Reports support-based fine-tuning, deduplication, answer-token training/scoring,
-  per-rule rankings and a multi-model ensemble. Historical private ensemble
-  score: 0.9293. It does not prove that hand-engineered features alone close our gap.
+  per-rule rankings and a multi-model ensemble. It is used here as a method reference;
+  it does not prove that hand-engineered features alone improve our retained system.
 
 ## Next decision
 
@@ -140,4 +140,4 @@ Record the real matched additions/removals and per-policy uncertainty. Publish
 verified evidence before another follow-up. A better behavior relation may merit
 a support-grounded semantic representation test, while a failed one remains a
 recorded negative result. Do not claim this round exhausts feature research or
-that it produces a model guaranteed to beat the historical winning score.
+that it guarantees hidden-evaluation improvement.
