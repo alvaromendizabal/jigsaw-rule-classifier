@@ -19,7 +19,6 @@ These rank scores are not calibrated probabilities. The scored runtime is record
 | Kaggle public | 0.91808 ROC AUC | Successful late evaluation |
 | Kaggle private | 0.91425 ROC AUC | Retained leaderboard result |
 | Private gain over lexical baseline | +0.29469 AUC | End-to-end improvement |
-| Historical winner | 0.92930 private AUC | External benchmark |
 | Strict-majority candidate | 0.91720 public / 0.91288 private | Rejected regression |
 
 No original placement, medal, percentile, accuracy percentage, or state-of-the-art claim is implied.
