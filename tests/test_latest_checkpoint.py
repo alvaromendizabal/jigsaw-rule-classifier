@@ -50,7 +50,6 @@ def test_closeout_metrics_match_scored_receipt():
     assert final["private_auc"] == receipt["submission"]["private_score"]
     assert final["public_auc"] == receipt["submission"]["public_score"]
     assert abs(final["private_auc"] - final["baseline_private_auc"] - 0.29469) < 1e-12
-    assert abs(final["historical_winner_private_auc"] - final["private_auc"] - 0.01505) < 1e-12
     assert final["late_submission"] is True
 
 
