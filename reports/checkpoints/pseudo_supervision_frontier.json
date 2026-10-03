@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "status": "completed_valid_negative_frontier",
+  "scope": "AWS-only follow-on research after the five-model development candidate; aggregate public evidence only",
+  "retained_kaggle": {
+    "public_auc": 0.91808,
+    "private_auc": 0.91425,
+    "historical_winner_private_auc": 0.9293,
+    "gap_to_historical_winner": 0.01505,
+    "unchanged_by_frontier_research": true
+  },
+  "development_cohort": {
+    "rows": 881,
+    "policies": 2,
+    "incumbent_id": "capacity_prior20",
+    "incumbent_policy_macro_auc": 0.7403513925597156,
+    "warning": "Repeatedly examined development cohort; not a fresh independent holdout and not a Kaggle leaderboard score.",
+    "exact_ensemble_weights_public": false
+  },
+  "e33_owned_pseudo_supervision": {
+    "status": "valid_negative",
+    "completed_units": 6,
+    "total_units": 6,
+    "method": "OOF-teacher uncertainty/disagreement selection on the existing Qwen3-4B adaptation route",
+    "variants": [
+      {
+        "id": "e33_u20_soft",
+        "macro_auc": 0.7394858696576023,
+        "delta_vs_incumbent": -0.0008655229021132804,
+        "advertising_delta": 0.0007835820895522039,
+        "legal_advice_delta": -0.0025146278937789868,
+        "bootstrap_probability_positive": 0.296,
+        "promoted": false
+      },
+      {
+        "id": "e33_d20_soft",
+        "macro_auc": 0.7405200426898209,
+        "delta_vs_incumbent": 0.00016865013010525232,
+        "advertising_delta": 0.0013059701492537101,
+        "legal_advice_delta": -0.0009686698890432055,
+        "bootstrap_probability_positive": 0.526,
+        "promoted": false
+      },
+      {
+        "id": "e33_u20_soft_gce",
+        "macro_auc": 0.7405443463296422,
+        "delta_vs_incumbent": 0.00019295376992656266,
+        "advertising_delta": 0.00011194029850747356,
+        "legal_advice_delta": 0.00027396724134565176,
+        "bootstrap_probability_positive": 0.507,
+        "promoted": false
+      }
+    ],
+    "selected": "e33_u20_soft_gce",
+    "selected_promoted": false,
+    "promotion_gate": {
+      "macro_delta_min": 0.004,
+      "no_policy_regression": true,
+      "bootstrap_probability_positive_min": 0.9
+    },
+    "execution": {
+      "instance": "ml.g6.4xlarge",
+      "gpu": "NVIDIA L4",
+      "elapsed_seconds": 1938.371122432,
+      "peak_gpu_gib": 8.271947383880615,
+      "selected_inference_batch": 8
+    },
+    "decision": "Close small-cohort same-family pseudo-supervision; do not tune adjacent pseudo-label fractions."
+  },
+  "e36_external_softlabel_deberta": {
+    "status": "valid_negative",
+    "completed_units": 6,
+    "total_units": 6,
+    "method": "Public Reddit moderation text -> fold-specific Qwen soft labels -> complementary DeBERTa-v3-base student",
+    "external_corpus": {
+      "rows": 10000,
+      "source_commit": "c0403539e4994439393066a7449713f647e49ef4",
+      "content_sha256": "2140bd549d6eb49a60533814826ddee7b5f926f0fd3614d89f5b74d88625f1bd",
+      "source_topic_labels_used": false
+    },
+    "student": {
+      "model_id": "microsoft/deberta-v3-base",
+      "revision": "de19fe7db5162df5f3d8f0b41321c0267288fd74",
+      "weight_sha256": "57cbd0cad054ba5be8d4c6965b836e132f029edbbe3ed9c5bc9ef4fe1c40c34e",
+      "selected_micro_batch": 16,
+      "effective_batch": 32,
+      "peak_gpu_gib": 4.1888322830200195
+    },
+    "variants": [
+      {
+        "id": "d0_labeled_only",
+        "standalone_macro_auc": 0.5872298742875903,
+        "blend20_macro_auc": 0.7304210523087582,
+        "delta_vs_incumbent": -0.009930340250957403,
+        "gain_vs_deberta_control": 0,
+        "advertising_delta": -0.008843283582089634,
+        "legal_advice_delta": -0.011017396919825395,
+        "bootstrap_probability_positive": 0.01,
+        "promoted": false
+      },
+      {
+        "id": "d1_external_soft",
+        "standalone_macro_auc": 0.6442643391767022,
+        "blend20_macro_auc": 0.7346799125057284,
+        "delta_vs_incumbent": -0.00567148005398721,
+        "gain_vs_deberta_control": 0.004258860196970193,
+        "advertising_delta": 0.0014552238805969342,
+        "legal_advice_delta": -0.012798183988571576,
+        "bootstrap_probability_positive": 0.071,
+        "promoted": false
+      },
+      {
+        "id": "d2_external_extremes",
+        "standalone_macro_auc": 0.6384560332230552,
+        "blend20_macro_auc": 0.7336985782034817,
+        "delta_vs_incumbent": -0.006652814356233883,
+        "gain_vs_deberta_control": 0.003277525894723521,
+        "advertising_delta": -0.0018283582089552164,
+        "legal_advice_delta": -0.01147727050351266,
+        "bootstrap_probability_positive": 0.04,
+        "promoted": false
+      }
+    ],
+    "selected": "d1_external_soft",
+    "selected_promoted": false,
+    "promotion_gate": {
+      "macro_delta_min": 0.003,
+      "no_policy_regression": true,
+      "bootstrap_probability_positive_min": 0.9,
+      "gain_vs_labeled_only_control_min": 0.001
+    },
+    "execution": {
+      "instance": "ml.g6.4xlarge",
+      "gpu": "NVIDIA L4",
+      "elapsed_seconds": 457.38430784900083,
+      "estimated_command_cost_usd": 0.2195
+    },
+    "decision": "External soft labels improve the DeBERTa student relative to its matched control but do not beat the incumbent; close this formulation."
+  },
+  "blocked_research": {
+    "deep_mutual_learning": {
+      "status": "blocked_before_scientific_test",
+      "reason": "historical Qwen3-14B source/prompt parity remains below the threshold required for a valid comparison",
+      "interpretation": "implementation/source-state blocker, not a negative DML result"
+    }
+  },
+  "publication_boundary": {
+    "includes": [
+      "aggregate metrics",
+      "public model/dataset identities",
+      "validation decisions",
+      "execution summaries",
+      "negative-result evidence"
+    ],
+    "excludes": [
+      "raw comments",
+      "row-level predictions",
+      "exact ensemble weights",
+      "adapter/model weights",
+      "optimizer state",
+      "teacher-score arrays",
+      "private caches",
+      "credentials",
+      "full cloud logs"
+    ],
+    "aws_remains_canonical": true
+  },
+  "next_step": {
+    "id": "cross_rule_hard_negative_transfer",
+    "status": "planned_not_yet_scientific_evidence",
+    "summary": "Use immutable cached Qwen representations to test training-only hard-negative geometry under whole-policy transfer before stronger contrastive training."
+  }
+}
