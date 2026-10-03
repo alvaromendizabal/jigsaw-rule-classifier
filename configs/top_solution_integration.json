@@ -16,12 +16,9 @@
     "per-rule rank normalization"
   ],
   "highest_priority_gaps": [
-    "conflicting duplicate supervision is currently dropped instead of majority/soft resolution",
-    "current decision verbalizers omit the single-letter Y/N variants used by a top solution",
-    "current scored backbone is 4B while multiple public 14B routes score materially higher",
-    "no two-stage uncertainty pseudo-label route is in the current scored pipeline",
-    "no Deep Mutual Learning peer training is in the current pipeline",
-    "no task-trained contrastive BGE normal/flipped-rule route is in the current ensemble"
+    "cross-rule hard-negative transfer has not yet completed a current nested whole-policy screen",
+    "Deep Mutual Learning peer training remains blocked by incomplete Qwen3-14B source/prompt parity",
+    "no task-trained contrastive ranking route is in the current ensemble"
   ],
   "phase_1_4b_parity_arms": [
     {
@@ -120,5 +117,22 @@
       "private_auc": 0.92049,
       "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/3rd-place-solution"
     }
-  ]
+  ],
+  "completed_frontier_followups": [
+    {
+      "id": "e33_owned_pseudo_supervision",
+      "status": "valid_negative",
+      "evidence": "6/6 AWS units completed; best policy-macro delta +0.000193; no promotion"
+    },
+    {
+      "id": "e36_external_softlabel_deberta",
+      "status": "valid_negative",
+      "evidence": "10k public external texts improved the DeBERTa control by +0.004259, but the fixed blend remained -0.005671 below the incumbent and regressed Legal Advice"
+    }
+  ],
+  "current_next_step": {
+    "id": "cross_rule_hard_negative_transfer",
+    "status": "planned",
+    "boundary": "reuse immutable cached Qwen representations; whole-policy transfer; no leaderboard selection"
+  }
 }
