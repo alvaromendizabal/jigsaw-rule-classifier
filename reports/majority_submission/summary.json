@@ -7,8 +7,6 @@
     "model": "support-adapted Qwen3-4B",
     "public_auc": 0.91808,
     "private_auc": 0.91425,
-    "winning_private_auc": 0.9293,
-    "private_gap_to_winner": 0.01505,
     "scope": "late Kaggle score using original competition boundary and supplied support labels"
   },
   "candidate": {
