@@ -1,10 +1,8 @@
 {
   "schema": 1,
   "name": "top_solution_integration",
-  "objective": "Close the hidden-leaderboard gap using independently implemented, evidence-backed competition methods while preserving the existing full-feature Stage-2 route.",
+  "objective": "Improve rule-conditioned transfer using independently implemented, evidence-backed competition methods while preserving the existing full-feature Stage-2 route.",
   "current_private_auc": 0.91425,
-  "winning_private_auc": 0.9293,
-  "gap_to_winner": 0.01505,
   "no_hard_feature_top_k": true,
   "full_compatible_feature_matrix_remains_candidate": true,
   "already_present": [
@@ -83,38 +81,32 @@
   },
   "public_method_evidence": [
     {
-      "name": "first_place",
-      "private_auc": 0.9293,
+      "name": "support_adaptation_ensemble",
       "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/1st-place-solution",
       "public_code": "https://www.kaggle.com/code/wowfattie/1st-place-code",
       "code_license": "Apache-2.0"
     },
     {
       "name": "dml_data_augmentation",
-      "private_auc": 0.92894,
       "public_code": "https://www.kaggle.com/code/yangjiahua/jigsaw-dml-no-subreddit-dataaugment",
       "code_license": "Apache-2.0"
     },
     {
-      "name": "fourth_place_salsa",
-      "private_auc": 0.9286,
+      "name": "salsa_data_augmentation",
       "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/4th-place-solution"
     },
     {
-      "name": "sixth_place_dml",
-      "private_auc": 0.92781,
+      "name": "deep_mutual_learning",
       "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/6th-place-solution",
       "public_code": "https://www.kaggle.com/code/ducnh279/6th-place-solution-deep-mutual-learning",
       "code_license": "Apache-2.0"
     },
     {
-      "name": "eleventh_place_post_pseudolabel",
-      "private_auc": 0.92734,
+      "name": "post_pseudolabeling",
       "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/11th-place-solution"
     },
     {
-      "name": "third_place_qwen3_14b_subensemble",
-      "private_auc": 0.92049,
+      "name": "qwen3_14b_subensemble",
       "url": "https://www.kaggle.com/competitions/jigsaw-agile-community-rules/writeups/3rd-place-solution"
     }
   ],
