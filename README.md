@@ -8,7 +8,7 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 **0.91808 public ROC AUC · 0.91425 private ROC AUC · +0.29469 private AUC over the lexical baseline**
 
-[**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb) · [Start here](START_HERE.md)
+[**2-minute employer case study**](CASE_STUDY.md) · [**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb)
 
 ## At a glance
 
@@ -82,11 +82,12 @@ Negative results are deliberately preserved. A method is promoted only when it c
 
 ## Review the work
 
-For the fastest employer review, start with only these three artifacts:
+For the fastest employer review, use this path:
 
-1. [**Project overview · notebook 27**](notebooks/27_latest_system_checkpoint.ipynb) — the retained system, measured improvement, adaptation evidence, and overall project story.
-2. [**Five-model frontier · notebook 29**](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, ensemble validation, and model-selection discipline.
-3. [**Validation · notebook 01**](notebooks/01_data_and_validation.ipynb) — leakage controls, whole-policy transfer, and evaluation design.
+1. [**Employer case study**](CASE_STUDY.md) — the complete problem → system → validation → engineering → result story in one concise read.
+2. [**Project overview · notebook 27**](notebooks/27_latest_system_checkpoint.ipynb) — the retained system, measured improvement, adaptation evidence, and overall project story.
+3. [**Five-model frontier · notebook 29**](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, ensemble validation, and model-selection discipline.
+4. [**Validation · notebook 01**](notebooks/01_data_and_validation.ipynb) — leakage controls, whole-policy transfer, and evaluation design.
 
 For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_CARD.md), the [post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md), and the [pseudo-supervision frontier](docs/PSEUDO_SUPERVISION_FRONTIER.md).
 
