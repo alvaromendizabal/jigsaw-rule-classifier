@@ -27,6 +27,7 @@ Open:
 Continue to:
 
 - [30 · Pseudo-supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) — owned pseudo-supervision and public external-data experiments.
+- [Post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md) — Llama adaptation, pairwise ranking, semantic retrieval, ModernBERT/Ettin context, NLI transfer, and the decisions they produced.
 - [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) — capacity vs diversity.
 - [02 · Feature research](notebooks/02_baseline_and_review.ipynb) — the larger 323-fit feature/generalization campaign.
 - [03 · Detailed results](notebooks/03_saved_results.ipynb) — broader experiment decisions and comparisons.
@@ -61,9 +62,9 @@ The public repository is intentionally semi-reproducible rather than an AWS mirr
 
 ## Current research direction
 
-The strongest development candidate remains the fixed five-model complementary ranking ensemble. Small-cohort pseudo-supervision and the 10k external-text/DeBERTa route were both completed and preserved as valid negative results.
+The accepted development champion remains the fixed five-model complementary ranking ensemble. Post-closeout research has now tested complementary Llama adaptation, pairwise ranking, semantic support retrieval, a ModernBERT/Ettin encoder with support context, and pretrained NLI transfer. The Llama route produced the strongest new point estimate but did not clear the registered confidence gate; the other formulations were preserved as valid negatives rather than micro-tuned indefinitely.
 
-The next bounded AWS mechanism is **cross-rule hard-negative transfer using immutable cached Qwen representations**. Deep Mutual Learning remains blocked until exact Qwen3-14B source/prompt parity is recovered.
+Active AWS research is now focused on **Qwen3-14B provenance and live replay** so higher-upside cross-model training can be evaluated from a verified historical component. Cached historical rankings have been reconciled, but live model/prompt parity remains a prerequisite. The public aggregate evidence is summarized in [POST_CLOSEOUT_FRONTIER.md](docs/POST_CLOSEOUT_FRONTIER.md).
 
 <details>
 <summary>Existing tested operator continuation</summary>
