@@ -17,8 +17,8 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 | **Retained scored system** | Support-adapted Qwen3-4B · **0.91808 public / 0.91425 private ROC AUC** |
 | **Measured improvement** | **+0.29469 private AUC** over the project’s lexical reference |
 | **Development ensemble** | Five-backbone AWS candidate at **0.740351 policy-macro AUC** on the fixed 881-row / two-policy development cohort |
-| **Transfer research** | Support adaptation, whole-policy holdouts, group-safe OOF evaluation, multi-backbone diversity, pseudo-supervision, external-data studies |
-| **Experiment scale** | 323-fit feature/generalization campaign plus neural studies spanning Qwen3-4B/8B/14B, Qwen2.5-14B, Phi-4-mini, and DeBERTa-v3-base |
+| **Transfer research** | Support adaptation, whole-policy holdouts, group-safe OOF evaluation, multi-backbone diversity, retrieval, ranking, context, and entailment studies |
+| **Experiment scale** | 323-fit feature/generalization campaign plus neural studies spanning Qwen3/Qwen2.5, Phi, Llama, ModernBERT/Ettin, and DeBERTa NLI families |
 | **Engineering** | AWS SageMaker, GPU benchmarking, resumable checkpoints, immutable data/model identities, executed notebooks, Plotly evidence, GitHub Actions CI |
 
 ## The problem
@@ -65,6 +65,8 @@ flowchart LR
 | **Feature/generalization campaign** | 323 fixed fits; familiar-policy AUC **0.7989** vs held-out-policy AUC **0.5515** | Demonstrated transfer bottleneck |
 | **Owned pseudo-supervision** | Six matched fits; best delta only **+0.000193** | Valid negative |
 | **10k external-text + DeBERTa study** | External soft labels improved the matched DeBERTa control by **+0.004259**, but the resulting blend did not beat the incumbent | Valid negative |
+| **Complementary Llama study** | A support-adapted challenger reached **0.743436** policy-macro AUC vs **0.740351** for the accepted development incumbent, but missed the registered confidence gate | Preserve, not promote |
+| **Architecture / context / retrieval frontier** | Pairwise ranking, semantic retrieval, ModernBERT/Ettin context, and NLI variants were tested with matched controls and rejected when they failed promotion gates | Valid negatives |
 
 Negative results are deliberately preserved. A method is promoted only when it clears the registered validation and stability gates; implementation failures are tracked separately from scientific negatives.
 
@@ -86,7 +88,7 @@ For the fastest employer review, start with only these three artifacts:
 2. [**Five-model frontier · notebook 29**](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, ensemble validation, and model-selection discipline.
 3. [**Validation · notebook 01**](notebooks/01_data_and_validation.ipynb) — leakage controls, whole-policy transfer, and evaluation design.
 
-For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_CARD.md), and the [pseudo-supervision frontier](docs/PSEUDO_SUPERVISION_FRONTIER.md).
+For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_CARD.md), the [post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md), and the [pseudo-supervision frontier](docs/PSEUDO_SUPERVISION_FRONTIER.md).
 
 ## Repository map
 
