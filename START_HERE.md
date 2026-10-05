@@ -11,7 +11,12 @@ Read the [README](README.md).
 
 It gives the problem, headline result, architecture, selected research evidence, stack, and the three artifacts worth opening.
 
-### 3–5 minutes · technical hiring manager
+### 2–3 minutes · hiring manager / technical recruiter
+Read the [employer case study](CASE_STUDY.md).
+
+It gives the complete problem, model architecture, validation strategy, official result, AWS/GPU engineering, research decisions, and reproducibility boundary without requiring notebook inspection.
+
+### 5–8 minutes · technical hiring manager
 Open [27 · Project overview](notebooks/27_latest_system_checkpoint.ipynb).
 
 It shows the retained system, the project’s measured baseline-to-neural improvement, adaptation evidence, and the overall research narrative in one executed notebook.
