@@ -1,6 +1,5 @@
 import json
 
-
 REPORT = "reports/checkpoints/post_closeout_frontier_20261004.json"
 
 
