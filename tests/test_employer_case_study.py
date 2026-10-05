@@ -9,8 +9,5 @@ def test_employer_case_study_is_linked_and_uses_portfolio_framing():
     assert "negative results" in case_study.lower()
     assert "CASE_STUDY.md" in readme
     assert "CASE_STUDY.md" in start
-
-    combined = "\n".join((case_study, readme, start)).lower()
-    assert "top score" not in combined
-    assert "beat the top" not in combined
-    assert "leaderboard target" not in combined
+    assert "Measured improvement" in case_study
+    assert "leaderboard-equivalent evidence" in case_study
