@@ -60,3 +60,6 @@ No production threshold, automatic content deletion, account penalty, fairness c
 Post-closeout research is explicitly separated from the retained scored system. Current evidence favors complementary multi-backbone ensembles and strict champion/challenger gates over standalone scaling or repeated context/objective tuning. Pseudo-supervision, hard-negative transfer, pairwise continuation, semantic retrieval, ModernBERT/Ettin context, and NLI variants have been preserved when they produced valid negative evidence rather than being tuned after the fact. The five-model candidate has passed the public development promotion gate but has **not** received an official Kaggle score. Active AWS research now prioritizes provenance-verified Qwen3-14B live replay as a prerequisite for controlled cross-model learning; further model selection does not use leaderboard scores.
 
 The separate historical 0.6B embedding/routing artifact remains documented in [HISTORICAL_MODEL_CARD.md](HISTORICAL_MODEL_CARD.md) and must not be confused with the retained 4B system.
+
+
+For a concise employer-facing technical narrative, see the [project case study](CASE_STUDY.md).
