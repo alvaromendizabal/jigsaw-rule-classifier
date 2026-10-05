@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "title": "Post-closeout frontier research aggregate",
+  "evaluation": {
+    "metric": "policy_macro_roc_auc",
+    "direction": "higher_is_better",
+    "rows": 881,
+    "policies": 2,
+    "incumbent_score": 0.7403513925597156,
+    "repeated_development_cohort": true,
+    "leaderboard_comparable": false
+  },
+  "studies": [
+    {
+      "id": "llama_support_adaptation",
+      "family": "llama",
+      "candidate_score": 0.743436428,
+      "delta_vs_incumbent": 0.0030850354402844,
+      "status": "preserved_unpromoted",
+      "conclusion": "higher point estimate; confidence gate not cleared"
+    },
+    {
+      "id": "pairwise_ranking",
+      "family": "llama",
+      "candidate_score": 0.742856827,
+      "status": "valid_negative",
+      "conclusion": "ranking objective did not improve the preserved Llama challenger"
+    },
+    {
+      "id": "semantic_support_retrieval",
+      "family": "llama_plus_retrieval",
+      "candidate_score": 0.742220156,
+      "status": "valid_negative",
+      "conclusion": "retrieval improved context controls but did not clear incumbent/stability gates"
+    },
+    {
+      "id": "ettin_rule_only",
+      "family": "modernbert",
+      "candidate_score": 0.734825034,
+      "status": "valid_negative",
+      "conclusion": "bidirectional encoder did not improve the incumbent"
+    },
+    {
+      "id": "ettin_single_view_support",
+      "family": "modernbert",
+      "candidate_score": 0.724932959,
+      "status": "valid_negative",
+      "conclusion": "support context materially regressed the rule-only encoder control"
+    },
+    {
+      "id": "ettin_four_view_support",
+      "family": "modernbert",
+      "candidate_score": 0.725281538,
+      "status": "valid_negative",
+      "conclusion": "four-view averaging was only slightly better than single-view context"
+    },
+    {
+      "id": "nli_direct_rule",
+      "family": "deberta_nli",
+      "candidate_score": 0.733967702,
+      "status": "valid_negative",
+      "conclusion": "frozen direct-rule entailment did not improve the incumbent"
+    },
+    {
+      "id": "nli_clause_decomposition",
+      "family": "deberta_nli",
+      "candidate_score": 0.738409876,
+      "status": "valid_negative",
+      "conclusion": "clause decomposition improved the NLI control but remained below the incumbent"
+    },
+    {
+      "id": "nli_supervised_adaptation",
+      "family": "deberta_nli",
+      "candidate_score": 0.737115968,
+      "status": "valid_negative",
+      "conclusion": "supervised NLI adaptation remained below the incumbent"
+    }
+  ],
+  "current_frontier": {
+    "area": "qwen14b_provenance_and_cross_model_learning",
+    "state": "active",
+    "note": "cached historical rankings reconciled; live model/prompt parity remains a prerequisite"
+  },
+  "public_boundary": {
+    "raw_comments": false,
+    "row_level_predictions": false,
+    "exact_ensemble_weights": false,
+    "model_or_optimizer_state": false,
+    "teacher_score_arrays": false,
+    "private_caches": false,
+    "aggregate_metrics": true,
+    "aggregate_decisions": true
+  }
+}
