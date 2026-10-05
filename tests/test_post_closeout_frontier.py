@@ -1,13 +1,12 @@
 import json
-import pathlib
 
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-REPORT = ROOT / "reports/checkpoints/post_closeout_frontier_20261004.json"
+REPORT = "reports/checkpoints/post_closeout_frontier_20261004.json"
 
 
 def test_frontier_receipt_is_aggregate_and_consistent():
-    data = json.loads(REPORT.read_text())
+    with open(REPORT, encoding="utf-8") as handle:
+        data = json.load(handle)
 
     assert data["schema"] == 1
     assert data["evaluation"]["metric"] == "policy_macro_roc_auc"
