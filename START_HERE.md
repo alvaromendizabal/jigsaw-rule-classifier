@@ -32,7 +32,8 @@ Open:
 Continue to:
 
 - [30 · Pseudo-supervision frontier](notebooks/30_pseudo_supervision_frontier_review.ipynb) — owned pseudo-supervision and public external-data experiments.
-- [Post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md) — Llama adaptation, pairwise ranking, semantic retrieval, ModernBERT/Ettin context, NLI transfer, and the decisions they produced.
+- [Post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md) — Llama adaptation, pairwise ranking, semantic retrieval, ModernBERT/Ettin context, NLI transfer, fixed-teacher transfer, and reciprocal learning.
+- [Reproducibility guide](docs/REPRODUCIBILITY.md) — clean-room review commands, CI evidence, and the deliberate public/private boundary.
 - [28 · Qwen3-14B frontier](notebooks/28_qwen14b_frontier_review.ipynb) — capacity vs diversity.
 - [02 · Feature research](notebooks/02_baseline_and_review.ipynb) — the larger 323-fit feature/generalization campaign.
 - [03 · Detailed results](notebooks/03_saved_results.ipynb) — broader experiment decisions and comparisons.
@@ -40,7 +41,7 @@ Continue to:
 ## What this project demonstrates
 
 - **End-to-end model ownership:** data audit → adaptation → inference → validation → ensemble selection → publication.
-- **Modern NLP:** Qwen3, Qwen2.5, Phi, DeBERTa, LoRA, teacher/student soft labels, decision-token scoring.
+- **Modern NLP:** Qwen3, Qwen2.5, Phi, Llama, DeBERTa, LoRA, teacher/student soft labels, reciprocal learning, and decision-token scoring.
 - **Transfer-aware data science:** whole-policy holdouts, grouped OOF evidence, ablations, uncertainty, promotion gates, negative-result discipline.
 - **AWS/GPU engineering:** SageMaker, L4 benchmarking, VRAM debugging, checkpoint reuse, gradient checkpointing, resumability.
 - **Reproducibility:** pinned revisions, checksums, immutable experiment contracts, executed notebooks, CI, machine-readable checkpoints.
@@ -55,7 +56,7 @@ uv sync --locked --group dev
 uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/27_latest_system_checkpoint.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-project-overview.ipynb'); print('Saved /tmp/jigsaw-project-overview.ipynb')"
 ```
 
-Saved Plotly/SVG evidence is already embedded in the tracked notebook.
+Saved Plotly/SVG evidence is already embedded in the tracked notebook. For the broader clean-room contract, commands, and artifact boundaries, see [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 ## AWS and GitHub serve different purposes
 
@@ -67,9 +68,11 @@ The public repository is intentionally semi-reproducible rather than an AWS mirr
 
 ## Current research direction
 
-The accepted development champion remains the fixed five-model complementary ranking ensemble. Post-closeout research has now tested complementary Llama adaptation, pairwise ranking, semantic support retrieval, a ModernBERT/Ettin encoder with support context, and pretrained NLI transfer. The Llama route produced the strongest new point estimate but did not clear the registered confidence gate; the other formulations were preserved as valid negatives rather than micro-tuned indefinitely.
+The accepted development champion remains the fixed five-model complementary ranking ensemble. Post-closeout research has now tested complementary Llama adaptation, pairwise ranking, semantic support retrieval, ModernBERT/Ettin context, pretrained NLI transfer, fixed-teacher transfer, and dynamic reciprocal learning.
 
-Active AWS research is now focused on **Qwen3-14B provenance and live replay** so higher-upside cross-model training can be evaluated from a verified historical component. Cached historical rankings have been reconciled, but live model/prompt parity remains a prerequisite. The public aggregate evidence is summarized in [POST_CLOSEOUT_FRONTIER.md](docs/POST_CLOSEOUT_FRONTIER.md).
+The strongest retained development diagnostic is a matched native Llama continuation at **0.743973** policy-macro AUC. Fixed-teacher transfer, label-anchored transfer, and a two-round reciprocal-learning pilot all completed as valid negatives against matched controls and registered promotion gates. Those directions are closed rather than micro-tuned.
+
+Active AWS research has moved to **paired-demonstration supervised adaptation**: labeled examples are introduced during continuation training, not only at inference. This is a materially different training-distribution hypothesis and reuses the strongest native controls. The public aggregate cross-model evidence is summarized in [POST_CLOSEOUT_FRONTIER.md](docs/POST_CLOSEOUT_FRONTIER.md) and [reports/checkpoints/cross_model_frontier_20261006.json](reports/checkpoints/cross_model_frontier_20261006.json).
 
 <details>
 <summary>Existing tested operator continuation</summary>

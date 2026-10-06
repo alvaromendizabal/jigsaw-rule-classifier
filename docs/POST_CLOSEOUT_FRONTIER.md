@@ -1,4 +1,4 @@
-# Frontier research · architecture, context, retrieval, and entailment
+# Frontier research · architecture, context, transfer, and cross-model learning
 
 This document summarizes the post-ensemble research program that followed the five-model development frontier. It is intentionally **aggregate and employer-facing**: raw comments, row-level predictions, exact ensemble weights, optimizer/model state, private caches, credentials, and full cloud logs remain outside GitHub.
 
@@ -15,7 +15,7 @@ The purpose of this phase was not to accumulate experiments. It was to test mate
 | Selection rule | Registered controls + policy-specific stability + uncertainty gates |
 | Caveat | Repeatedly inspected development cohort; not an untouched holdout or leaderboard score |
 
-The public receipt is stored in [`reports/checkpoints/post_closeout_frontier_20261004.json`](../reports/checkpoints/post_closeout_frontier_20261004.json).
+The original architecture/context receipt is stored in [`reports/checkpoints/post_closeout_frontier_20261004.json`](../reports/checkpoints/post_closeout_frontier_20261004.json). The later cross-model receipt is stored in [`reports/checkpoints/cross_model_frontier_20261006.json`](../reports/checkpoints/cross_model_frontier_20261006.json).
 
 ## Research map
 
@@ -81,6 +81,40 @@ Earlier post-closeout screens tested frozen hard-negative transfer, owned pseudo
 
 **Decision:** keep the evidence; do not repeatedly micro-tune dead directions.
 
+### 7. Matched native continuation and fixed-teacher transfer
+
+The strongest later Llama control came from ordinary continuation with the same training schedule used to evaluate teacher-guided alternatives.
+
+- matched native continuation: **0.743973**
+- fixed-teacher probability transfer: **0.743455**
+- label-anchored margin transfer: **0.743644**
+
+Both teacher-guided formulations finished below their matched native continuation.
+
+**Decision:** preserve the native continuation as a strong diagnostic reference and close these fixed-teacher formulations. Do not sweep nearby temperatures, loss weights, or blend weights after the registered comparison failed.
+
+### 8. Dynamic reciprocal learning
+
+A separate two-round reciprocal pilot tested whether changing peers could outperform fixed-teacher transfer.
+
+- matched native peer control: **0.742236**
+- reciprocal primary: **0.742539**
+- delta versus matched control: **+0.000303**
+- grouped-bootstrap positive fraction: **76.9%**
+- 95% interval: **[-0.000512, +0.001205]**
+
+The point estimate moved slightly upward versus the matched control, but the effect was small, the uncertainty interval crossed zero, and the result remained below the stronger native-continuation reference.
+
+**Decision:** valid negative. Close this fixed reciprocal pilot rather than selecting a favorable directional diagnostic or tuning adjacent temperatures/weights.
+
+### 9. Next frontier: contextual training, not more inference-only context
+
+Earlier retrieval/context studies mostly changed which examples appeared at inference. The next AWS experiment changes the **training distribution** instead: paired labeled demonstrations are introduced during supervised Llama continuation, while native/plain and native/context controls are reused.
+
+This design asks a new question: can the model learn to use examples because it was trained under that context structure, rather than simply being shown more context at inference?
+
+The public repository records the mechanism and controls, but the exact competitive prompt construction, row-level examples, checkpoints, and private predictions remain in AWS.
+
 ## What the research program demonstrates
 
 ### Controlled attribution
@@ -136,9 +170,11 @@ Private on AWS:
 
 ## Current frontier
 
-The next active research direction is **historical Qwen3-14B provenance/live-replay recovery**. Cached historical rankings have been reconciled; live model/prompt parity is still required before higher-upside cross-model training can proceed.
+Qwen3-14B live replay and peer-training qualification are now resolved. Fixed-teacher and reciprocal cross-model experiments have completed and are retained as valid negatives under their registered controls.
 
-The intended next capability is controlled cross-model learning/teacher transfer with matched continuation controls. Fixed teacher targets are treated as distillation/teacher transfer; they are not mislabeled as Deep Mutual Learning unless models actually teach one another during training.
+The active AWS direction is **paired-demonstration supervised adaptation**. It introduces labeled demonstrations during continuation training and evaluates them in a fixed factorial design against reused native controls. This is materially different from the closed inference-only retrieval/context routes.
+
+The repository remains intentionally semi-reproducible. Review the exact public contract in [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
 
 ## Employer review takeaway
 
