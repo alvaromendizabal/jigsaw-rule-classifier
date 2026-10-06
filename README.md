@@ -8,7 +8,7 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 **0.91808 public ROC AUC · 0.91425 private ROC AUC · +0.29469 private AUC over the lexical baseline**
 
-[**2-minute employer case study**](CASE_STUDY.md) · [**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb)
+[**2-minute employer case study**](CASE_STUDY.md) · [**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb) · [**Reproducibility**](docs/REPRODUCIBILITY.md)
 
 ## At a glance
 
@@ -17,7 +17,7 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 | **Retained scored system** | Support-adapted Qwen3-4B · **0.91808 public / 0.91425 private ROC AUC** |
 | **Measured improvement** | **+0.29469 private AUC** over the project’s lexical reference |
 | **Development ensemble** | Five-backbone AWS candidate at **0.740351 policy-macro AUC** on the fixed 881-row / two-policy development cohort |
-| **Transfer research** | Support adaptation, whole-policy holdouts, group-safe OOF evaluation, multi-backbone diversity, retrieval, ranking, context, and entailment studies |
+| **Transfer research** | Support adaptation, whole-policy holdouts, group-safe OOF evaluation, multi-backbone diversity, retrieval, ranking, entailment, fixed-teacher transfer, and reciprocal-learning studies |
 | **Experiment scale** | 323-fit feature/generalization campaign plus neural studies spanning Qwen3/Qwen2.5, Phi, Llama, ModernBERT/Ettin, and DeBERTa NLI families |
 | **Engineering** | AWS SageMaker, GPU benchmarking, resumable checkpoints, immutable data/model identities, executed notebooks, Plotly evidence, GitHub Actions CI |
 
@@ -67,6 +67,7 @@ flowchart LR
 | **10k external-text + DeBERTa study** | External soft labels improved the matched DeBERTa control by **+0.004259**, but the resulting blend did not beat the incumbent | Valid negative |
 | **Complementary Llama study** | A support-adapted challenger reached **0.743436** policy-macro AUC vs **0.740351** for the accepted development incumbent, but missed the registered confidence gate | Preserve, not promote |
 | **Architecture / context / retrieval frontier** | Pairwise ranking, semantic retrieval, ModernBERT/Ettin context, and NLI variants were tested with matched controls and rejected when they failed promotion gates | Valid negatives |
+| **Cross-model learning frontier** | Native Llama continuation reached **0.743973**; fixed-teacher, anchored-margin, and two-round reciprocal learning were tested against matched controls and failed preregistered promotion gates | Preserve native reference; cross-model variants are valid negatives |
 
 Negative results are deliberately preserved. A method is promoted only when it clears the registered validation and stability gates; implementation failures are tracked separately from scientific negatives.
 
@@ -88,8 +89,9 @@ For the fastest employer review, use this path:
 2. [**Project overview · notebook 27**](notebooks/27_latest_system_checkpoint.ipynb) — the retained system, measured improvement, adaptation evidence, and overall project story.
 3. [**Five-model frontier · notebook 29**](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, ensemble validation, and model-selection discipline.
 4. [**Validation · notebook 01**](notebooks/01_data_and_validation.ipynb) — leakage controls, whole-policy transfer, and evaluation design.
+5. [**Reproducibility guide**](docs/REPRODUCIBILITY.md) — clean-room review commands, CI coverage, and the public/private artifact contract.
 
-For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_CARD.md), the [post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md), and the [pseudo-supervision frontier](docs/PSEUDO_SUPERVISION_FRONTIER.md).
+For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_CARD.md), the [post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md), the [reproducibility guide](docs/REPRODUCIBILITY.md), and the [pseudo-supervision frontier](docs/PSEUDO_SUPERVISION_FRONTIER.md).
 
 ## Repository map
 
@@ -108,6 +110,6 @@ For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_
 
 ## Reproducibility boundary
 
-AWS is the canonical workspace for raw competition data, model weights, optimizer state, row-level predictions, teacher-score arrays, and private operational logs. GitHub publishes the code, compact configs, aggregate evidence, tests, and executed notebooks needed to review the engineering and scientific decisions without exposing private competition artifacts.
+AWS is the canonical workspace for raw competition data, model weights, optimizer state, row-level predictions, teacher-score arrays, and private operational logs. GitHub publishes the code, compact configs, aggregate evidence, tests, and executed notebooks needed to review the engineering and scientific decisions without exposing private competition artifacts. The exact public review contract is documented in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 [Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [Model card](MODEL_CARD.md) · [Start here](START_HERE.md)
