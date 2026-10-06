@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "scope": "aggregate employer-facing cross-model frontier receipt",
+  "generated_utc": "2026-10-06T02:30:00Z",
+  "metric": "policy_macro_roc_auc",
+  "evaluation": {
+    "rows": 881,
+    "policies": 2,
+    "repeatedly_inspected_development_cohort": true,
+    "untouched_holdout": false,
+    "directly_comparable_to_official_score": false
+  },
+  "official_retained": {
+    "public_roc_auc": 0.91808,
+    "private_roc_auc": 0.91425
+  },
+  "accepted_development_incumbent": {
+    "id": "capacity_prior20",
+    "policy_macro_roc_auc": 0.7403513925597156
+  },
+  "studies": [
+    {
+      "id": "E34",
+      "label": "support-adapted Llama challenger",
+      "policy_macro_roc_auc": 0.743436428,
+      "decision": "preserve_not_promote",
+      "reason": "point estimate improved but registered confidence gate did not clear"
+    },
+    {
+      "id": "E48",
+      "label": "matched native Llama continuation",
+      "policy_macro_roc_auc": 0.743972793,
+      "decision": "diagnostic_reference",
+      "reason": "strongest retained development diagnostic; not a promoted champion"
+    },
+    {
+      "id": "E47",
+      "label": "fixed Qwen teacher probability transfer",
+      "policy_macro_roc_auc": 0.743455376,
+      "decision": "valid_negative",
+      "reason": "did not beat matched native continuation"
+    },
+    {
+      "id": "E49",
+      "label": "label-anchored margin transfer",
+      "policy_macro_roc_auc": 0.743644429,
+      "decision": "valid_negative",
+      "reason": "did not beat matched native continuation"
+    },
+    {
+      "id": "E31",
+      "label": "two-round reciprocal mutual-learning pilot",
+      "matched_native_control_auc": 0.742236066,
+      "primary_auc": 0.742538805,
+      "delta_vs_matched_control": 0.000302739,
+      "bootstrap_positive_fraction": 0.769,
+      "bootstrap_ci95": [
+        -0.00051183,
+        0.00120533
+      ],
+      "decision": "valid_negative",
+      "reason": "small positive point estimate versus matched control but failed preregistered magnitude and confidence gates"
+    }
+  ],
+  "current_frontier": {
+    "id": "E44",
+    "label": "paired-demonstration supervised adaptation",
+    "status": "planned_in_aws",
+    "public_summary": "tests whether labeled demonstrations help when introduced during supervised continuation rather than only at inference"
+  },
+  "public_boundary": {
+    "includes": [
+      "aggregate metrics",
+      "matched-control decisions",
+      "evaluation caveats",
+      "experiment identifiers"
+    ],
+    "excludes": [
+      "row-level predictions",
+      "raw competition text",
+      "exact ensemble weights",
+      "private prompts",
+      "model or optimizer checkpoints",
+      "private AWS paths"
+    ]
+  }
+}
