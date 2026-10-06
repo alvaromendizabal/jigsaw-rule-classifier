@@ -101,9 +101,13 @@ The program includes:
 - multi-view support context;
 - bidirectional encoder adaptation;
 - pretrained entailment transfer;
-- rule-clause decomposition.
+- rule-clause decomposition;
+- fixed-teacher transfer and matched native continuation;
+- reciprocal peer training with refreshed predictions.
 
 Most of these later experiments were not promoted.
+
+The cross-model phase is a representative example. A matched native Llama continuation reached **0.743973** policy-macro AUC on the fixed development cohort. Fixed-teacher probability transfer (**0.743455**), label-anchored transfer (**0.743644**), and a two-round reciprocal-learning pilot (**0.742539** versus **0.742236** for its matched native peer control) all failed their preregistered promotion gates. Rather than sweep nearby temperatures or blend weights, those formulations were closed and the research moved to a materially different training-distribution hypothesis.
 
 That is a feature of the project, not a weakness: each experiment was designed to answer a specific question, and negative results were retained when they reduced uncertainty.
 
@@ -119,7 +123,7 @@ That decision captures the project’s model-governance philosophy:
 
 > a newer or higher-scoring model does not replace the incumbent until the evidence is strong enough.
 
-The same rule was applied to ranking, retrieval, context, encoder, and entailment experiments.
+The same rule was applied to ranking, retrieval, context, encoder, entailment, teacher-transfer, and reciprocal-learning experiments.
 
 ## Engineering architecture
 
@@ -204,7 +208,7 @@ The repository is deliberately **semi-reproducible**.
 - large caches;
 - full operational logs.
 
-This boundary lets an employer inspect engineering quality and scientific reasoning without turning the repository into a complete competitive artifact dump.
+This boundary lets an employer inspect engineering quality and scientific reasoning without turning the repository into a complete competitive artifact dump. The clean-room review contract and executable public paths are documented in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 ## Quality gates
 
@@ -248,6 +252,8 @@ Portfolio updates are merged only after the exact pull-request head passes the f
 
 **Negative experiments create value when they close a direction.** The project records failed hypotheses so subsequent work can move to genuinely different mechanisms.
 
+**Cross-model complexity is not automatically useful.** Fixed-teacher and reciprocal-learning variants were evaluated against matched native controls; small point-estimate changes were rejected when they did not clear magnitude and uncertainty gates.
+
 **Operational reliability is part of model quality.** Checkpoints, hashes, memory gates, and regression tests directly reduce wasted compute and ambiguous results.
 
 ## Review path
@@ -259,6 +265,7 @@ For a deeper technical review:
 3. [Validation notebook](notebooks/01_data_and_validation.ipynb) — leakage controls and transfer evaluation.
 4. [Post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md) — ranking, retrieval, context, encoder, and NLI studies.
 5. [Model card](MODEL_CARD.md) and [data card](DATA_CARD.md) — intended use, evidence boundaries, and limitations.
+6. [Reproducibility guide](docs/REPRODUCIBILITY.md) — clean-room commands, CI coverage, and the public/private boundary.
 
 ## Bottom line
 
