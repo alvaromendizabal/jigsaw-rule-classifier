@@ -17,9 +17,9 @@ Read the [employer case study](CASE_STUDY.md).
 It gives the complete problem, model architecture, validation strategy, official result, AWS/GPU engineering, research decisions, and reproducibility boundary without requiring notebook inspection.
 
 ### 5–8 minutes · technical hiring manager
-Open [27 · Project overview](notebooks/27_latest_system_checkpoint.ipynb).
+Open [31 · Completed project review](notebooks/31_complete_project_review.ipynb).
 
-It shows the retained system, the project’s measured baseline-to-neural improvement, adaptation evidence, and the overall research narrative in one executed notebook.
+It shows the delivered result, matched-control research decisions, and the completed public review scope in one executed notebook. [Notebook 27](notebooks/27_latest_system_checkpoint.ipynb) preserves the earlier system overview.
 
 ### 10–15 minutes · ML engineer / data scientist
 Open:
@@ -53,10 +53,10 @@ The employer-facing aggregate notebooks require no model loading and no cloud ac
 
 ```bash
 uv sync --locked --group dev
-uv run python -c "from pathlib import Path; import nbformat; from nbclient import NotebookClient; p=Path('notebooks/27_latest_system_checkpoint.ipynb'); n=nbformat.read(p, as_version=4); NotebookClient(n, timeout=90, kernel_name='python3', resources={'metadata': {'path': str(Path.cwd())}}).execute(); nbformat.write(n, '/tmp/jigsaw-project-overview.ipynb'); print('Saved /tmp/jigsaw-project-overview.ipynb')"
+uv run python scripts/review_portfolio.py --execute
 ```
 
-Saved Plotly/SVG evidence is already embedded in the tracked notebook. For the broader clean-room contract, commands, and artifact boundaries, see [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+The command saves and reopens `runs/portfolio_review/31_complete_project_review.ipynb`. Saved Plotly/SVG evidence is already embedded in the tracked notebook. For the broader clean-room contract, commands, and artifact boundaries, see [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 ## AWS and GitHub serve different purposes
 
@@ -72,7 +72,7 @@ The accepted development champion remains the fixed five-model complementary ran
 
 The strongest retained development diagnostic is a matched native Llama continuation at **0.743973** policy-macro AUC. Fixed-teacher transfer, label-anchored transfer, and a two-round reciprocal-learning pilot all completed as valid negatives against matched controls and registered promotion gates. Those directions are closed rather than micro-tuned.
 
-Active AWS research has moved to **paired-demonstration supervised adaptation**: labeled examples are introduced during continuation training, not only at inference. This is a materially different training-distribution hypothesis and reuses the strongest native controls. The public aggregate cross-model evidence is summarized in [POST_CLOSEOUT_FRONTIER.md](docs/POST_CLOSEOUT_FRONTIER.md) and [reports/checkpoints/cross_model_frontier_20261006.json](reports/checkpoints/cross_model_frontier_20261006.json).
+The October 6 public receipt marks **paired-demonstration supervised adaptation** as planned in AWS: labeled examples are introduced during continuation training, not only at inference. This is a proposed training-distribution hypothesis using the strongest native controls. Its completion and current AWS resource state are not established by that receipt. The public aggregate cross-model evidence is summarized in [POST_CLOSEOUT_FRONTIER.md](docs/POST_CLOSEOUT_FRONTIER.md) and [reports/checkpoints/cross_model_frontier_20261006.json](reports/checkpoints/cross_model_frontier_20261006.json).
 
 <details>
 <summary>Existing tested operator continuation</summary>

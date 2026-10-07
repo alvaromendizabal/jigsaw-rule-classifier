@@ -2,7 +2,7 @@
 
 **Retained scored model:** support-adapted Qwen3-4B-Instruct-2507.  
 **Owner:** Alvaro Mendizabal.  
-**Status:** retained leaderboard system; post-closeout frontier research active.
+**Status:** completed retained scored system and research portfolio; optional frontier studies tracked separately.
 
 ## Task and retained model
 
@@ -63,7 +63,7 @@ No production threshold, automatic content deletion, account penalty, fairness c
 
 Post-closeout research is explicitly separated from the retained scored system. Current evidence favors complementary multi-backbone ensembles and strict champion/challenger gates over standalone scaling or repeated nearby tuning. Pseudo-supervision, hard-negative transfer, pairwise continuation, semantic retrieval, ModernBERT/Ettin context, NLI, fixed-teacher transfer, and reciprocal-learning variants have been preserved when they produced valid negative evidence rather than being tuned after the fact. The five-model candidate has passed the public development promotion gate but has **not** received an official Kaggle score.
 
-The current AWS frontier is paired-demonstration supervised adaptation: labeled examples are introduced during continuation training while matched native controls stay frozen. This is intentionally distinct from earlier inference-only context experiments. Further model selection does not use leaderboard scores. Public reproducibility and private-artifact boundaries are documented in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+The October 6 aggregate receipt marks paired-demonstration supervised adaptation as planned in AWS: labeled examples are introduced during continuation training while matched native controls stay frozen. This is intentionally distinct from earlier inference-only context experiments. Further model selection does not use leaderboard scores. Public reproducibility and private-artifact boundaries are documented in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 The separate historical 0.6B embedding/routing artifact remains documented in [HISTORICAL_MODEL_CARD.md](HISTORICAL_MODEL_CARD.md) and must not be confused with the retained 4B system.
 

@@ -8,7 +8,11 @@ Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
 
 **0.91808 public ROC AUC · 0.91425 private ROC AUC · +0.29469 private AUC over the lexical baseline**
 
-[**2-minute employer case study**](CASE_STUDY.md) · [**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb) · [**Reproducibility**](docs/REPRODUCIBILITY.md)
+[**2-minute employer case study**](CASE_STUDY.md) · [**Completed project review**](notebooks/31_complete_project_review.ipynb) · [**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb) · [**Reproducibility**](docs/REPRODUCIBILITY.md)
+
+**Delivery status:** the scored NLP system and research-and-engineering portfolio are complete. Optional model research remains separate. Scores below come from the September 10, 2026 late-evaluation receipt; the latest published research summary is dated October 6, 2026. No original competition rank or production deployment is claimed.
+
+**Reproduce the short review:** after `uv sync --locked --group dev`, run `uv run python scripts/review_portfolio.py --execute`. It loads public aggregate receipts, runs no model, and verifies saved Plotly/SVG output after reopening the notebook. [Exact scope and commands](docs/REPRODUCIBILITY.md).
 
 ## At a glance
 
@@ -86,7 +90,7 @@ Negative results are deliberately preserved. A method is promoted only when it c
 For the fastest employer review, use this path:
 
 1. [**Employer case study**](CASE_STUDY.md) — the complete problem → system → validation → engineering → result story in one concise read.
-2. [**Project overview · notebook 27**](notebooks/27_latest_system_checkpoint.ipynb) — the retained system, measured improvement, adaptation evidence, and overall project story.
+2. [**Completed review · notebook 31**](notebooks/31_complete_project_review.ipynb) — the delivered result, latest matched-control decisions, and explicit completion/reproduction boundaries.
 3. [**Five-model frontier · notebook 29**](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, ensemble validation, and model-selection discipline.
 4. [**Validation · notebook 01**](notebooks/01_data_and_validation.ipynb) — leakage controls, whole-policy transfer, and evaluation design.
 5. [**Reproducibility guide**](docs/REPRODUCIBILITY.md) — clean-room review commands, CI coverage, and the public/private artifact contract.
