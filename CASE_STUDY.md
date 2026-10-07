@@ -4,7 +4,7 @@
 
 Python · PyTorch · Transformers · LoRA · scikit-learn · AWS SageMaker · Jupyter
 
-**Delivered result: 0.91808 public / 0.91425 private ROC AUC**, a **+0.29469 private AUC** improvement over the lexical reference. These are successful late Kaggle evaluations, not an original competition placement. The research-and-engineering portfolio is complete; optional frontier work is documented separately.
+**Delivered result: 0.91808 public / 0.91425 private ROC AUC**. **Measured improvement:** **+0.29469 private AUC** over the lexical reference. These are successful late Kaggle evaluations, not an original competition placement. The research-and-engineering portfolio is complete; optional frontier work is documented separately.
 
 [Executed current review](notebooks/31_complete_project_review.ipynb) · [Model card](MODEL_CARD.md) · [Reproduce the public evidence](docs/REPRODUCIBILITY.md)
 
@@ -26,7 +26,7 @@ The [scored receipt](reports/checkpoints/kaggle_adaptation.json) records the exa
 
 A familiar-policy score can hide poor generalization. A 323-fit feature campaign measured **0.7989 familiar-policy AUC versus 0.5515 held-out-policy AUC**, exposing that bottleneck.
 
-The validation framework separates familiar-policy and whole-policy views, purges query text from fitted/support sources, preserves grouped out-of-fold predictions, and compares fixed controls with grouped uncertainty. The later **881-comment, two-policy** cohort has been repeatedly inspected. It is development evidence, not an untouched holdout or a substitute for hidden scoring. The separate post-competition research artifact also remains explicitly labeled.
+The validation framework separates familiar-policy and whole-policy views, purges query text from fitted/support sources, preserves grouped out-of-fold predictions, and compares fixed controls with grouped uncertainty. The later **881-comment, two-policy** cohort has been repeatedly inspected. These development results are not leaderboard-equivalent evidence or an untouched holdout. The separate post-competition research artifact also remains explicitly labeled.
 
 ## Model selection with evidence
 
@@ -40,7 +40,7 @@ Later cross-model studies tested materially different hypotheses against matched
 | Label-anchored transfer | 0.743644 versus the same native control | Valid negative |
 | Reciprocal learning | 0.742539 versus 0.742236 peer control; interval crosses zero | Valid negative |
 
-A higher point estimate does not automatically replace the incumbent. Preserving these results prevents repeated spending on unsupported directions. [Current receipt](reports/checkpoints/cross_model_frontier_20261006.json) · [Five-model evidence](notebooks/29_five_model_frontier_review.ipynb)
+A higher point estimate does not automatically replace the incumbent. Preserving negative results prevents repeated spending on unsupported directions. [Current receipt](reports/checkpoints/cross_model_frontier_20261006.json) · [Five-model evidence](notebooks/29_five_model_frontier_review.ipynb)
 
 ## Engineering ownership
 
