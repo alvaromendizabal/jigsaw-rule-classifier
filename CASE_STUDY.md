@@ -1,272 +1,57 @@
 # Case study · Rule-conditioned moderation NLP
 
-**Role:** end-to-end ML/AI research and engineering  
-**Domain:** NLP / policy-conditioned classification  
-**Stack:** Python, PyTorch, Transformers, PEFT/LoRA, scikit-learn, AWS SageMaker, Plotly, Jupyter, GitHub Actions  
-**Verified result:** **0.91808 public / 0.91425 private ROC AUC**  
-**Measured improvement:** **+0.29469 private AUC** over the project’s lexical baseline
+**Alvaro Mendizabal · end-to-end ML research and engineering**
 
-This case study is the fastest technical review of the project. It focuses on the decisions, validation, engineering, and results that best demonstrate applied ML ownership. Detailed experiment evidence remains available in the notebooks and research reports.
+Python · PyTorch · Transformers · LoRA · scikit-learn · AWS SageMaker · Jupyter
 
-## The problem
+**Delivered result: 0.91808 public / 0.91425 private ROC AUC**. **Measured improvement:** **+0.29469 private AUC** over the lexical reference. These are successful late Kaggle evaluations, not an original competition placement. The research-and-engineering portfolio is complete; optional frontier work is documented separately.
 
-The task is not generic toxicity detection. Each comment must be evaluated against a **supplied community rule**, and the same text can be acceptable under one rule and violate another.
+[Executed current review](notebooks/31_complete_project_review.ipynb) · [Model card](MODEL_CARD.md) · [Reproduce the public evidence](docs/REPRODUCIBILITY.md)
 
-That changes the modeling problem in three important ways:
+## Problem and delivered system
 
-- the decision is conditional on natural-language policy text;
-- positive and negative support examples provide task context at inference time;
-- generalization to unfamiliar policies matters more than memorizing frequent lexical patterns.
+Community moderation is conditional: the same comment may be acceptable under one rule and violate another. The task is to rank comments against a supplied natural-language policy, using legitimate positive and negative examples as context.
 
-The project therefore treats rule understanding, support conditioning, transfer validation, and model complementarity as first-class design problems.
+I built a support-adapted Qwen3-4B system with LoRA, decision-position supervision, forward-only answer scoring, length-sorted batches, restored row order, and within-policy ranking. Original training labels and supplied support labels are eligible; organizer-released hidden targets are excluded from the competition path.
 
-## The result
+| Successful late evaluation | Public ROC AUC | Private ROC AUC |
+| --- | ---: | ---: |
+| Lexical reference | 0.59191 | 0.61956 |
+| Retained support-adapted 4B | **0.91808** | **0.91425** |
+| Absolute improvement | +0.32617 | +0.29469 |
 
-The retained scored system uses a support-adapted Qwen3-4B model and achieved:
+The [scored receipt](reports/checkpoints/kaggle_adaptation.json) records the exact notebook version and verification date. This end-to-end comparison changes both backbone and training method. A separate matched 4B study isolates support adaptation: policy-macro AUC rose from **0.61460 to 0.71989** on the same development cohort.
 
-| Evaluation | ROC AUC |
-| --- | ---: |
-| Public | **0.91808** |
-| Private | **0.91425** |
-| Private improvement over lexical baseline | **+0.29469** |
+## The difficult part: evaluating transfer
 
-The development research program later produced a stronger multi-backbone ensemble on the fixed internal cohort and a promising Llama challenger. Those development results are kept separate from official scored results and are not presented as leaderboard-equivalent evidence.
+A familiar-policy score can hide poor generalization. A 323-fit feature campaign measured **0.7989 familiar-policy AUC versus 0.5515 held-out-policy AUC**, exposing that bottleneck.
 
-## What I built
+The validation framework separates familiar-policy and whole-policy views, purges query text from fitted/support sources, preserves grouped out-of-fold predictions, and compares fixed controls with grouped uncertainty. The later **881-comment, two-policy** cohort has been repeatedly inspected. These development results are not leaderboard-equivalent evidence or an untouched holdout. The separate post-competition research artifact also remains explicitly labeled.
 
-### 1. A rule-conditioned neural ranking system
+## Model selection with evidence
 
-The retained path combines:
+Larger standalone models were not consistently better. Multi-backbone diversity produced a five-model development candidate at **0.740351 policy-macro AUC**, but it has no official Kaggle score. Exact private ensemble construction remains unpublished.
 
-- a Qwen3 instruction-tuned backbone;
-- LoRA adaptation on legitimate labeled examples and supplied support examples;
-- decision-position supervision rather than full-sequence language-model loss;
-- forward-only answer scoring;
-- stable length-sorted inference with restored row order;
-- within-policy ranking for the final score representation.
+Later cross-model studies tested materially different hypotheses against matched native controls:
 
-The goal was to make the model reason about the **relationship between a comment and a supplied rule**, rather than learn a generic toxicity shortcut.
+| Study | Development outcome | Decision |
+| --- | --- | --- |
+| Fixed-teacher transfer | 0.743455 versus 0.743973 native control | Valid negative |
+| Label-anchored transfer | 0.743644 versus the same native control | Valid negative |
+| Reciprocal learning | 0.742539 versus 0.742236 peer control; interval crosses zero | Valid negative |
 
-### 2. A transfer-aware validation framework
+A higher point estimate does not automatically replace the incumbent. Preserving negative results prevents repeated spending on unsupported directions. [Current receipt](reports/checkpoints/cross_model_frontier_20261006.json) · [Five-model evidence](notebooks/29_five_model_frontier_review.ipynb)
 
-A large part of the project is validation engineering.
+## Engineering ownership
 
-The evaluation framework includes:
+AWS SageMaker is the canonical research environment. I implemented immutable source/data/model identities, checksum validation, resumable optimizer and inference state, atomic publication, bounded runtime gates, heartbeats, GPU memory/throughput benchmarks, and regression tests for observed failures. Completed predictions and checkpoints are reused.
 
-- familiar-policy and held-out-policy views;
-- normalized-text overlap controls;
-- train/validation support-text purging;
-- group-safe out-of-fold predictions;
-- fixed incumbent comparisons;
-- policy-macro ROC AUC;
-- paired/grouped bootstrap uncertainty;
-- explicit promotion and kill gates.
+GitHub provides locked dependencies, reusable validation/runtime modules, aggregate receipts, executed Plotly/SVG notebooks, and CI. The current review verifies saved numerical output against source receipts, rejects stale or incomplete execution, and re-executes in real Jupyter kernels with save/reopen checks.
 
-Development results are labeled as development evidence. Official competition scores remain separate.
+## Reproduction, attribution and limits
 
-This distinction matters because a model can improve a point estimate while still fail the stability or uncertainty criteria required for promotion.
+An employer can reproduce public component checks and aggregate evidence without AWS credentials or model downloads. Full competitive reproduction needs privately retained raw data, row predictions, model state and ensemble construction. Existing public source/configuration remains available; this boundary is not a claim that every implementation detail is secret.
 
-### 3. A multi-backbone ensemble research program
+Public leading-solution ideas informed support adaptation and representation comparisons. [The attribution record](docs/TOP_SOLUTION_INTEGRATION.md) distinguishes those sources from my validation, implementation, controlled experiments, recovery system and delivery work.
 
-The project evaluates model families for **complementary errors**, not only standalone accuracy.
-
-Research includes:
-
-- Qwen3-4B;
-- Qwen3-8B;
-- Qwen3-14B;
-- Qwen2.5-14B;
-- Phi-4-mini;
-- Llama-family support adaptation;
-- DeBERTa and NLI formulations;
-- ModernBERT/Ettin encoder experiments.
-
-The strongest accepted development ensemble combines multiple backbones after group-safe comparison and stability testing.
-
-The research repeatedly showed that a larger model is not automatically a better system. Several weaker standalone models still provided useful ensemble diversity, while other seemingly promising architectures were rejected.
-
-### 4. A controlled frontier experiment program
-
-After the strongest ensemble was established, the project tested materially different mechanisms rather than endlessly tuning one family.
-
-The program includes:
-
-- support adaptation;
-- pseudo-supervision;
-- teacher/student soft-label transfer;
-- hard-negative representation transfer;
-- pairwise ranking continuation;
-- semantic support retrieval;
-- asymmetric retrieval;
-- multi-view support context;
-- bidirectional encoder adaptation;
-- pretrained entailment transfer;
-- rule-clause decomposition;
-- fixed-teacher transfer and matched native continuation;
-- reciprocal peer training with refreshed predictions.
-
-Most of these later experiments were not promoted.
-
-The cross-model phase is a representative example. A matched native Llama continuation reached **0.743973** policy-macro AUC on the fixed development cohort. Fixed-teacher probability transfer (**0.743455**), label-anchored transfer (**0.743644**), and a two-round reciprocal-learning pilot (**0.742539** versus **0.742236** for its matched native peer control) all failed their preregistered promotion gates. Rather than sweep nearby temperatures or blend weights, those formulations were closed and the research moved to a materially different training-distribution hypothesis.
-
-That is a feature of the project, not a weakness: each experiment was designed to answer a specific question, and negative results were retained when they reduced uncertainty.
-
-## A representative model-governance decision
-
-A support-adapted Llama challenger reached **0.743436 policy-macro AUC** on the repeatedly inspected development cohort versus **0.740351** for the accepted development incumbent.
-
-It was **not promoted**.
-
-Why? The point estimate improved, but the registered uncertainty gate did not clear.
-
-That decision captures the project’s model-governance philosophy:
-
-> a newer or higher-scoring model does not replace the incumbent until the evidence is strong enough.
-
-The same rule was applied to ranking, retrieval, context, encoder, entailment, teacher-transfer, and reciprocal-learning experiments.
-
-## Engineering architecture
-
-The scientific work runs inside an AWS-first execution system designed for long-running GPU experiments.
-
-```mermaid
-flowchart LR
-    A[Audited labels + supplied examples] --> B[Training / validation contracts]
-    B --> C[Support-adapted transformer models]
-    C --> D[Checkpointed GPU training]
-    D --> E[Resumable inference shards]
-    E --> F[Group-safe evaluation]
-    F --> G[Champion / challenger decision]
-
-    H[Immutable model + data identities] --> D
-    I[Structured logs + heartbeats] --> D
-    J[GPU throughput / memory benchmarks] --> D
-    K[Aggregate public evidence] --> L[Executed notebooks + GitHub CI]
-    G --> K
-```
-
-### Reliability features
-
-The workflow includes:
-
-- pinned model revisions;
-- content-addressed source/data identities;
-- checksum verification;
-- resumable optimizer state;
-- resumable prediction shards;
-- atomic result publication;
-- structured JSONL logs;
-- human-readable heartbeats;
-- cost telemetry;
-- memory and disk gates;
-- GPU batch-size benchmarking;
-- regression tests for previously observed failures.
-
-This prevents expensive experiments from silently restarting or producing ambiguous evidence after partial failure.
-
-## GPU and performance engineering
-
-The project uses AWS SageMaker with NVIDIA L4-class GPU execution for the current research workflow.
-
-Performance work includes:
-
-- representative long-sequence benchmarks before expensive stages;
-- safe microbatch selection;
-- gradient accumulation;
-- gradient checkpointing;
-- mixed-precision execution where numerically appropriate;
-- GPU-memory and host-memory telemetry;
-- checkpoint-safe timeout handling;
-- avoiding CPU/thread oversubscription;
-- reuse of verified cached model/data assets.
-
-Performance decisions are treated as part of experiment correctness because faster settings are rejected when they materially alter predictions or gradients.
-
-## Reproducibility without publishing private competitive state
-
-The repository is deliberately **semi-reproducible**.
-
-### Public on GitHub
-
-- reusable source modules;
-- compact configuration contracts;
-- validation and metric code;
-- aggregate experiment evidence;
-- model/data cards;
-- executed analytical notebooks;
-- regression tests;
-- GitHub Actions quality gates;
-- machine-readable aggregate receipts.
-
-### Private in AWS
-
-- raw competition comments and labels;
-- row-level predictions;
-- model and optimizer checkpoints;
-- exact private ensemble construction;
-- teacher-score arrays;
-- large caches;
-- full operational logs.
-
-This boundary lets an employer inspect engineering quality and scientific reasoning without turning the repository into a complete competitive artifact dump. The clean-room review contract and executable public paths are documented in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
-
-## Quality gates
-
-The repository’s CI validates more than unit tests.
-
-The current quality workflow covers:
-
-- Python compilation;
-- Ruff lint and formatting;
-- pytest;
-- reproducible notebook construction;
-- execution of the public evidence notebooks;
-- checkpoint reuse;
-- synthetic offline inference;
-- original-preview notebook verification;
-- pinned encoder verification;
-- public evidence rendering.
-
-Portfolio updates are merged only after the exact pull-request head passes the full workflow.
-
-## What the project demonstrates
-
-| Capability | Evidence |
-| --- | --- |
-| **End-to-end ML ownership** | problem framing → data audit → model adaptation → validation → GPU execution → ensemble selection → publication |
-| **Modern NLP / LLM work** | Qwen, Llama, Phi, DeBERTa, ModernBERT/Ettin, PEFT/LoRA, retrieval, NLI, teacher/student methods |
-| **Scientific judgment** | controlled ablations, matched controls, uncertainty gates, preserved negative results |
-| **Validation rigor** | whole-policy transfer views, text purging, group-safe OOF evaluation, metric separation |
-| **ML engineering** | resumability, immutable provenance, GPU benchmarking, checkpointing, failure recovery |
-| **Cloud execution** | AWS SageMaker as the canonical research environment |
-| **Reproducibility** | pinned identities, aggregate receipts, executed notebooks, regression tests, CI |
-| **Communication** | outcome-first README, model/data cards, review paths, research summaries |
-
-## Strongest lessons
-
-**Model size is not a strategy.** Larger standalone models were sometimes weaker, while complementary models improved the ensemble.
-
-**Validation design can matter more than a small metric gain.** A higher development score is not sufficient when uncertainty or policy-specific behavior is weak.
-
-**Support context is useful only when the model and distribution support it.** More examples, retrieval, or multi-view context can hurt.
-
-**Negative experiments create value when they close a direction.** The project records failed hypotheses so subsequent work can move to genuinely different mechanisms.
-
-**Cross-model complexity is not automatically useful.** Fixed-teacher and reciprocal-learning variants were evaluated against matched native controls; small point-estimate changes were rejected when they did not clear magnitude and uncertainty gates.
-
-**Operational reliability is part of model quality.** Checkpoints, hashes, memory gates, and regression tests directly reduce wasted compute and ambiguous results.
-
-## Review path
-
-For a deeper technical review:
-
-1. [Project overview notebook](notebooks/27_latest_system_checkpoint.ipynb) — retained system and overall research narrative.
-2. [Five-model frontier notebook](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone complementarity and ensemble discipline.
-3. [Validation notebook](notebooks/01_data_and_validation.ipynb) — leakage controls and transfer evaluation.
-4. [Post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md) — ranking, retrieval, context, encoder, and NLI studies.
-5. [Model card](MODEL_CARD.md) and [data card](DATA_CARD.md) — intended use, evidence boundaries, and limitations.
-6. [Reproducibility guide](docs/REPRODUCIBILITY.md) — clean-room commands, CI coverage, and the public/private boundary.
-
-## Bottom line
-
-This project is an end-to-end applied ML system, not a single competition notebook. It demonstrates the combination of **NLP modeling, experimental design, statistical validation, AWS/GPU engineering, reproducibility, and model-governance judgment** expected in serious ML engineering and applied-science work.
+The delivered system is a research classifier, not a deployed autonomous moderation service. Its rank scores are not calibrated probabilities, and no production threshold, multilingual guarantee or fairness certification is claimed. The latest receipt marks E44 paired-demonstration adaptation as planned; it is not required to review the completed deliverable.
