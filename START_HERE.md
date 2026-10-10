@@ -66,9 +66,9 @@ The command saves and reopens `runs/portfolio_review/31_complete_project_review.
 
 **GitHub:** source, compact configs, aggregate results, attribution, tests, and executed review notebooks.
 
-The public repository is intentionally semi-reproducible rather than an AWS mirror.
+The public components, synthetic demo and aggregate evidence checks run independently from the public checkout. Full private-model reruns require the separately retained AWS artifacts.
 
-## Current research direction
+## Dated research record · October 6, 2026
 
 The accepted development champion remains the fixed five-model complementary ranking ensemble. Post-closeout research has now tested complementary Llama adaptation, pairwise ranking, semantic support retrieval, ModernBERT/Ettin context, pretrained NLI transfer, fixed-teacher transfer, and dynamic reciprocal learning.
 
