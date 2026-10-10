@@ -42,6 +42,12 @@ Later cross-model studies tested materially different hypotheses against matched
 
 A higher point estimate does not automatically replace the incumbent. Preserving negative results prevents repeated spending on unsupported directions. [Current receipt](reports/checkpoints/cross_model_frontier_20261006.json) · [Five-model evidence](notebooks/29_five_model_frontier_review.ipynb)
 
+## An inspectable public demo
+
+I built [Policy Lens](https://alvaro-policy-lens.tartmacaw2.chatgpt.site) to make the rule/comment/support relationship visible. The browser learns a TF–IDF vocabulary from authored examples, compares the strongest violation and allowed matches, and exposes the exact contributing terms. Reviewers can edit all inputs, compare policies and export the result. Exact query/support copies are purged and contradictory examples are rejected.
+
+This lightweight support matcher is a public engineering demonstration. Its margin is not a calibrated probability, and it does not run the historical Qwen model. [Run and test it](docs/REPRODUCIBILITY.md).
+
 ## Engineering ownership
 
 AWS SageMaker is the canonical research environment. I implemented immutable source/data/model identities, checksum validation, resumable optimizer and inference state, atomic publication, bounded runtime gates, heartbeats, GPU memory/throughput benchmarks, and regression tests for observed failures. Completed predictions and checkpoints are reused.
@@ -52,6 +58,6 @@ GitHub provides locked dependencies, reusable validation/runtime modules, aggreg
 
 An employer can reproduce public component checks and aggregate evidence without AWS credentials or model downloads. Full competitive reproduction needs privately retained raw data, row predictions, model state and ensemble construction. Existing public source/configuration remains available; this boundary is not a claim that every implementation detail is secret.
 
-Public leading-solution ideas informed support adaptation and representation comparisons. [The attribution record](docs/TOP_SOLUTION_INTEGRATION.md) distinguishes those sources from my validation, implementation, controlled experiments, recovery system and delivery work.
+Published methods informed support adaptation and representation comparisons. [The attribution record](docs/TOP_SOLUTION_INTEGRATION.md) distinguishes those sources from my validation, implementation, controlled experiments, recovery system and delivery work.
 
 The delivered system is a research classifier, not a deployed autonomous moderation service. Its rank scores are not calibrated probabilities, and no production threshold, multilingual guarantee or fairness certification is claimed. The latest receipt marks E44 paired-demonstration adaptation as planned; it is not required to review the completed deliverable.

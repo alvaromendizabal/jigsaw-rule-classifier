@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Policy Lens · Jigsaw NLP Lab</title>
+    <meta
+      name="description"
+      content="A hands-on, browser-local NLP lab. Change a rule, edit examples, and inspect the lexical evidence behind a policy-conditioned score."
+    />
+    <link
+      rel="canonical"
+      href="https://alvaro-policy-lens.tartmacaw2.chatgpt.site/"
+    />
+    <meta property="og:title" content="Policy Lens · Jigsaw NLP Lab" />
+    <meta
+      property="og:description"
+      content="Same comment, different context. An interactive, transparent lexical NLP demonstration."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://alvaro-policy-lens.tartmacaw2.chatgpt.site/"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <noscript
+      ><p class="noscript">
+        Enable JavaScript to run this local, interactive text demonstration.
+      </p></noscript
+    >
+    <div class="shell">
+      <header class="masthead">
+        <a
+          class="wordmark"
+          href="https://github.com/alvaromendizabal/jigsaw-rule-classifier"
+          ><span class="lens-mark" aria-hidden="true"><i></i><i></i></span
+          ><span>POLICY LENS <small>BY ALVARO MENDIZABAL</small></span></a
+        >
+        <div class="header-right">
+          <span class="local"><i></i> Runs on your device</span
+          ><a
+            href="https://github.com/alvaromendizabal/jigsaw-rule-classifier/tree/main/public-demo"
+            target="_blank"
+            rel="noreferrer"
+            >Source <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </header>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">JIGSAW / AN INTERACTIVE NLP LAB</p>
+          <h1>Same comment.<br /><em>Different boundary.</em></h1>
+        </div>
+        <div class="intro-note">
+          <p>
+            A rule gives context. Examples draw the line.<br />Change either,
+            then look inside the result.
+          </p>
+          <div class="scope-tag">
+            FICTIONAL EXAMPLES · TRANSPARENT LEXICAL MODEL
+          </div>
+          <p class="scope-copy">
+            A public engineering demo, separate from the project’s trained
+            neural models. No uploads, API calls or saved text.
+          </p>
+        </div>
+      </section>
+      <main>
+        <div class="workbench">
+          <section class="editor" aria-labelledby="editor-title">
+            <div class="section-heading">
+              <span class="step">01</span>
+              <h2 id="editor-title">Set the context</h2>
+              <span class="edit-hint">Make it your own</span>
+            </div>
+            <label class="field-label" for="policy"
+              >Start with a fictional policy</label
+            ><select id="policy"></select>
+            <label class="field-label" for="rule"
+              >The rule <span>editable</span></label
+            ><textarea
+              id="rule"
+              maxlength="600"
+              rows="3"
+              spellcheck="false"
+            ></textarea>
+            <div class="comment-heading">
+              <label class="field-label" for="query">The comment</label
+              ><span id="character-count" class="character-count"></span>
+            </div>
+            <textarea
+              id="query"
+              maxlength="1200"
+              rows="4"
+              spellcheck="false"
+            ></textarea>
+            <div class="sample-row">
+              <span>Try</span>
+              <div id="query-presets" class="query-presets"></div>
+            </div>
+            <details id="examples-details" class="examples-details">
+              <summary>
+                <span>Edit the labeled examples</span
+                ><span id="example-count">8 examples</span>
+              </summary>
+              <p class="help">
+                One example per line, up to 8 per label. These are authored
+                fictional text; your edits remain on this device.
+              </p>
+              <div class="example-inputs">
+                <div>
+                  <label for="violation" class="field-label"
+                    ><i class="label-dot violation-dot"></i> Violates this
+                    rule</label
+                  ><textarea
+                    id="violation"
+                    rows="7"
+                    spellcheck="false"
+                    maxlength="4008"
+                  ></textarea>
+                </div>
+                <div>
+                  <label for="allowed" class="field-label"
+                    ><i class="label-dot allowed-dot"></i> Allowed by this
+                    rule</label
+                  ><textarea
+                    id="allowed"
+                    rows="7"
+                    spellcheck="false"
+                    maxlength="4008"
+                  ></textarea>
+                </div>
+              </div>
+            </details>
+            <div class="editor-actions">
+              <button id="analyze" class="primary">
+                Analyze context <span aria-hidden="true">↗</span></button
+              ><button id="reset" class="text-button">Reset lab</button>
+            </div>
+            <p id="input-status" class="input-status" role="status">
+              Ready to inspect.
+            </p>
+            <p id="error" class="error" role="alert" hidden></p>
+          </section>
+          <section
+            id="result-panel"
+            class="results"
+            aria-labelledby="results-title"
+          >
+            <div class="section-heading">
+              <span class="step">02</span>
+              <h2 id="results-title">Read the evidence</h2>
+              <span id="result-status" class="status">READY</span>
+            </div>
+            <div class="score-top">
+              <p id="outcome" class="outcome">Analyze a comment to begin.</p>
+              <div class="score-number">
+                <strong id="margin">—</strong><span>similarity margin</span>
+              </div>
+            </div>
+            <div
+              class="margin-chart"
+              role="img"
+              id="margin-chart"
+              aria-label="Signed similarity margin"
+            >
+              <div class="margin-track">
+                <span class="midpoint"></span
+                ><span id="margin-marker" class="margin-marker"></span>
+              </div>
+              <div class="margin-axis">
+                <span>−1 · Allowed examples</span
+                ><span>Violation examples · +1</span>
+              </div>
+            </div>
+            <p id="score-explanation" class="score-explanation">
+              This is a lexical comparison, not a probability or a moderation
+              verdict.
+            </p>
+            <div class="support-stats">
+              <div>
+                <strong id="coverage">—</strong
+                ><span>comment words covered</span>
+              </div>
+              <div>
+                <strong id="support-count">—</strong
+                ><span>examples after overlap removal</span>
+              </div>
+              <div>
+                <strong id="feature-count">—</strong
+                ><span>fitted lexical features</span>
+              </div>
+            </div>
+            <div class="evidence-heading">
+              <h3>Closest labeled examples</h3>
+              <span>Click a row to inspect</span>
+            </div>
+            <p class="help evidence-help">
+              The margin subtracts the mean of up to 2 closest allowed matches
+              from the mean of up to 2 closest violation matches.
+            </p>
+            <div id="evidence-list" class="evidence-list"></div>
+            <div class="evidence-footer">
+              <button id="show-all" class="text-button">
+                Show all examples</button
+              ><button id="export" class="export-button" disabled>
+                Export JSON <span aria-hidden="true">↓</span>
+              </button>
+            </div>
+          </section>
+        </div>
+        <section class="microscope" aria-labelledby="microscope-title">
+          <div class="section-heading">
+            <span class="step">03</span>
+            <h2 id="microscope-title">Inspect the match</h2>
+            <span class="edit-hint">An explanation you can add up</span>
+          </div>
+          <div class="microscope-grid">
+            <div>
+              <p class="small-label">COMMENT · SHARED WORDS HIGHLIGHTED</p>
+              <p id="highlighted-query" class="highlighted-query"></p>
+              <p id="selected-description" class="selected-description"></p>
+            </div>
+            <div class="feature-inspector">
+              <div class="feature-heading">
+                <p class="small-label">FEATURE CONTRIBUTIONS</p>
+                <span id="contribution-total"></span>
+              </div>
+              <div id="features" class="features"></div>
+              <p id="feature-note" class="help"></p>
+            </div>
+          </div>
+        </section>
+        <section class="comparison" aria-labelledby="comparison-title">
+          <div class="comparison-intro">
+            <div>
+              <p class="eyebrow">CHANGE THE CONTEXT, KEEP THE COMMENT</p>
+              <h2 id="comparison-title">Three rules. One piece of text.</h2>
+            </div>
+            <p>
+              Each context fits its own examples. Different margins reflect
+              different lexical boundaries, not comparable confidence estimates.
+            </p>
+          </div>
+          <p id="comparison-status" class="help" role="status"></p>
+          <div id="comparisons" class="comparison-grid"></div>
+        </section>
+        <details class="method">
+          <summary>What this small model does — and where it stops</summary>
+          <div class="method-grid">
+            <div>
+              <h3>Fit only on the examples</h3>
+              <p>
+                The model builds word and adjacent content-word-pair features
+                from the labeled examples. Inverse document frequency is fitted
+                on those examples only. Exact copies of the query are removed
+                first; conflicting labels are rejected.
+              </p>
+            </div>
+            <div>
+              <h3>Make rule context explicit</h3>
+              <p>
+                Features whose words appear in the rule receive a fixed 1.5×
+                weight. Normalized TF–IDF vectors are compared by cosine
+                similarity. Up to two nearest examples per label determine the
+                signed margin. This is surface matching, not semantic
+                understanding.
+              </p>
+            </div>
+            <div>
+              <h3>Know the limit</h3>
+              <p>
+                Low overlap produces “not enough lexical evidence.” Similarity
+                cannot reliably resolve intent, negation, quotation, exceptions
+                or unseen wording. These editable examples provide no accuracy
+                estimate. No Qwen model or private project inference code is
+                included.
+              </p>
+            </div>
+          </div>
+        </details>
+      </main>
+      <footer>
+        <span>Alvaro Mendizabal / Applied ML engineering</span
+        ><span
+          >Authored synthetic starters · Local text processing · No automatic
+          moderation</span
+        >
+      </footer>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

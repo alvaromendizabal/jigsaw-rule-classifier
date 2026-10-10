@@ -1,41 +1,28 @@
-# Project closeout · historical release and frontier extension
+# Project closeout · scored research and public demonstration
 
-The original portfolio closeout retained the support-adapted Qwen3-4B system at **0.91808 public / 0.91425 private ROC AUC**. That scored result remains the canonical leaderboard system.
+This release presents the rule-conditioned NLP system I built and its measured research record, alongside an interactive public demonstration and repeatable review commands. It does not change historical scores or launch new model research.
 
-Competitive research was subsequently reopened. This document therefore distinguishes the **historical completed release** from the newer frontier extension rather than pretending the later experiments did not happen.
+## Delivered work
 
-## Retained scored result
+| Layer | Evidence |
+|---|---|
+| Retained support-adapted Qwen3-4B system | **0.91808 public / 0.91425 private ROC AUC** in successful late evaluation |
+| Controlled support-adaptation study | **0.614600 → 0.719893** policy-macro AUC on the matched 881-comment cohort |
+| Transfer and multi-backbone research | Whole-policy comparisons, five-model development evidence and preserved negative findings |
+| Reliable execution | Source/data/model identities, recoverable optimizer/inference state and validated artifacts |
+| Public demonstration | [Policy Lens](https://alvaro-policy-lens.tartmacaw2.chatgpt.site): authored support matching, editable context and inspectable contributions |
+| Review and verification | [Case study](../CASE_STUDY.md), [review guide](EMPLOYER_REVIEW_GUIDE.md), [reproduction commands](REPRODUCIBILITY.md) |
 
-The retained Qwen3-4B system improved private AUC by **0.29469** over the 0.61956 lexical reference. That scored result remains the canonical competition outcome for the portfolio.
+## Results retained without revision
 
-The matched 881-comment study shows support adaptation at fixed backbone: **0.614600 → 0.719893** policy-macro AUC. The repeatedly inspected cohort is development evidence, not a fresh final holdout.
+The retained model improved private AUC by **0.29469** over the 0.61956 lexical baseline. That comparison changes both backbone and training method; the matched 4B study isolates adaptation more directly.
 
-## Post-closeout frontier extension
+Strict-majority conflict handling scored **0.91720 public / 0.91288 private**, below the retained system, and was rejected. Later multi-model work reached **0.740351** policy-macro AUC on the fixed development cohort. Teacher-transfer and reciprocal-learning variants failed registered promotion gates. None of those development outcomes is an official score for a new system.
 
-Three later directions are now resolved enough to update the public record:
+The repeatedly inspected two-policy cohort is not an untouched confirmation set. Historical notebook and frontier documents retain their dates and experimental context; their earlier next-step language is not a commitment to automatic additional research.
 
-- **Strict-majority conflict handling:** scored **0.91720 public / 0.91288 private**, a regression versus the retained 4B system. Rejected.
-- **Qwen3-8B / Phi diversity studies:** standalone models did not beat the retained development reference; fixed blends produced small positive but uncertain gains.
-- **Qwen3-14B AWS study:** standalone 14B scored **0.708455** policy-macro AUC versus **0.719893** for 4B on the fixed development cohort. A fixed 50/50 4B+14B rank blend reached **0.730175**, improving both observed policies by a combined **+0.010282** policy-macro AUC.
+## Public implementation boundary
 
-The 14B blend interval crosses zero and has not been hidden-scored. The correct conclusion is **complementarity worth further ensemble study**, not a promotion claim.
+Policy Lens fits a TF–IDF support matcher locally on fictional examples. Its lexical margin is not a probability or the Qwen model's output. Public Python commands verify components and replay aggregate evidence; private weights, raw comments, row predictions, optimizer state and exact ensemble construction remain outside the release.
 
-[Latest frontier report](QWEN14B_FRONTIER.md) · [Executed notebook](../notebooks/28_qwen14b_frontier_review.ipynb).
-
-## Publication boundary
-
-**GitHub:** public source, compact configurations, tests, aggregate evidence, attribution, and executed review notebooks.
-
-**AWS/private storage:** raw comments/labels, row-level predictions, model weights, optimizer/checkpoint state, environments, caches, and operational logs.
-
-This boundary is intentional. The repository is an employer-facing research artifact, not a backup of the cloud workspace.
-
-## Employer-facing description
-
-> Built an end-to-end rule-conditioned NLP system using Qwen3-4B and LoRA, reaching 0.91425 private Kaggle ROC AUC (+0.29469 over the lexical baseline). Extended the system with transfer-aware feature research, resumable AWS experiments, Qwen3-8B/14B and Phi backbone studies, and model-diversity analysis. Preserved negative results and separated hidden leaderboard scoring from development selection.
-
-## Current next step
-
-The latest evidence points toward leakage-safe ensemble selection across preserved 4B, 8B, 14B, and Phi OOF predictions. Another Kaggle submission should be reserved for a fixed candidate after that AWS evidence is available.
-
-The original closeout remains valid as a historical release boundary; this frontier extension is an additional research phase.
+Completion refers to the delivered public engineering and review surface. The classifier is not presented as a deployed autonomous moderation service. [Model card](../MODEL_CARD.md) · [Method credits](TOP_SOLUTION_INTEGRATION.md)
