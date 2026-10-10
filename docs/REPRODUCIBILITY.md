@@ -1,6 +1,23 @@
 # Reproducibility guide
 
-This repository is intentionally **semi-reproducible**. It publishes the code, validation logic, compact experiment contracts, aggregate evidence, executed notebooks, and regression tests needed to review the engineering and scientific decisions while keeping competition-sensitive state private.
+The public review supports runnable components and aggregate evidence. It publishes the code, validation logic, compact experiment contracts, aggregate evidence, executed notebooks, and regression tests needed to review the engineering and scientific decisions while keeping competition-sensitive state private.
+
+## Run Policy Lens in the browser
+
+[Open the public demo](https://alvaro-policy-lens.tartmacaw2.chatgpt.site), or serve the checkout locally. The JavaScript modules require an HTTP origin.
+
+```bash
+python -m http.server 8000
+```
+
+Open `http://localhost:8000/public-demo/`. Edit a policy, comment and support examples; inspect the matching terms and compare the same comment across fictional policies. TF–IDF vocabulary and IDF are fitted on examples only. A fixed rule-term weight and up to two strongest matches per class produce a violation-versus-allowed margin. Exact query copies are purged, contradictory labels are rejected and unsupported wording can abstain.
+
+```bash
+node tools/test_public_demo.mjs
+```
+
+The browser has no backend, model download or telemetry. Its authored examples and lexical margins are separate from the historical Qwen system and official scores. The Node command exercises the public demo; the Python commands below replay aggregate evidence and component checks.
+
 
 ## Five-minute public review
 
@@ -108,7 +125,7 @@ The latest public cross-model receipt is:
 
 It records only aggregate metrics, matched-control comparisons, and decisions. It excludes row-level outputs, exact ensemble weights, private paths, and checkpoint state.
 
-## Clean-room review contract
+## Public review contract
 
 An external reviewer should be able to verify:
 
@@ -120,7 +137,7 @@ An external reviewer should be able to verify:
 - offline/synthetic inference
 - provenance and checksum handling
 
-An external reviewer should **not** be able to recreate the private leaderboard system solely from this repository.
+The private scored-system artifacts are outside this public review contract.
 
 ## CI as executable evidence
 

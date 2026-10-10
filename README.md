@@ -1,119 +1,62 @@
 # Jigsaw · Rule-conditioned NLP
 
-**An end-to-end NLP research system for deciding whether a comment violates a supplied community rule — built from lexical baselines through support-adapted Qwen models, transfer-aware validation, AWS multi-backbone ensembles, and controlled supervision research.**
-
-Built by [Alvaro Mendizabal](https://github.com/alvaromendizabal).
+**Alvaro Mendizabal · NLP · Evaluation design · AWS ML engineering**
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)
 
-**0.91808 public ROC AUC · 0.91425 private ROC AUC · +0.29469 private AUC over the lexical baseline**
+![Rule-conditioned NLP: one comment, different rules](docs/assets/public-demo-hero.svg)
 
-[**2-minute employer case study**](CASE_STUDY.md) · [**Completed project review**](notebooks/31_complete_project_review.ipynb) · [**3-minute project overview**](notebooks/27_latest_system_checkpoint.ipynb) · [**Five-model research**](notebooks/29_five_model_frontier_review.ipynb) · [**Validation design**](notebooks/01_data_and_validation.ipynb) · [**Reproducibility**](docs/REPRODUCIBILITY.md)
+I built a system that ranks whether a comment violates a supplied community rule. My work covers support-adapted Qwen models, text-overlap purging, policy-transfer evaluation, multi-backbone research and recoverable AWS execution.
 
-**Delivery status:** the scored NLP system and research-and-engineering portfolio are complete. Optional model research remains separate. Scores below come from the September 10, 2026 late-evaluation receipt; the latest published research summary is dated October 6, 2026. No original competition rank or production deployment is claimed.
+**Recorded late evaluation: 0.91808 public / 0.91425 private ROC AUC**, an absolute **+0.29469 private AUC** improvement over the project's lexical baseline. A separate matched-backbone study isolated the support-adaptation gain; the public demo below illustrates the input and evidence contracts with a lightweight, inspectable method.
 
-**Reproduce the short review:** after `uv sync --locked --group dev`, run `uv run python scripts/review_portfolio.py --execute`. It loads public aggregate receipts, runs no model, and verifies saved Plotly/SVG output after reopening the notebook. [Exact scope and commands](docs/REPRODUCIBILITY.md).
+**Start here:** [Policy Lens demo](https://alvaro-policy-lens.tartmacaw2.chatgpt.site) · [Case study](CASE_STUDY.md) · [Three-minute review](docs/EMPLOYER_REVIEW_GUIDE.md) · [Run locally](docs/REPRODUCIBILITY.md)
 
-## At a glance
+## Try Policy Lens
 
-| Area | Evidence |
-| --- | --- |
-| **Retained scored system** | Support-adapted Qwen3-4B · **0.91808 public / 0.91425 private ROC AUC** |
-| **Measured improvement** | **+0.29469 private AUC** over the project’s lexical reference |
-| **Development ensemble** | Five-backbone AWS candidate at **0.740351 policy-macro AUC** on the fixed 881-row / two-policy development cohort |
-| **Transfer research** | Support adaptation, whole-policy holdouts, group-safe OOF evaluation, multi-backbone diversity, retrieval, ranking, entailment, fixed-teacher transfer, and reciprocal-learning studies |
-| **Experiment scale** | 323-fit feature/generalization campaign plus neural studies spanning Qwen3/Qwen2.5, Phi, Llama, ModernBERT/Ettin, and DeBERTa NLI families |
-| **Engineering** | AWS SageMaker, GPU benchmarking, resumable checkpoints, immutable data/model identities, executed notebooks, Plotly evidence, GitHub Actions CI |
+[Open the public demo](https://alvaro-policy-lens.tartmacaw2.chatgpt.site) without installation. To run the same module-based source locally, serve the checkout:
 
-## The problem
+```bash
+python -m http.server 8000
+```
 
-Community moderation is not a fixed toxicity task. The same comment may be acceptable under one policy and violate another. This project ranks comments by whether they violate a **supplied rule**, while using permitted/prohibited examples as context and explicitly testing whether learned behavior transfers beyond familiar policies.
+Open `http://localhost:8000/public-demo/`. Edit the rule, comment and allowed/violation examples. Compare the same comment across three fictional policies, inspect matching terms and support examples, and export the result.
+
+The browser fits TF–IDF on supplied examples only and computes a contrast between violation and allowed support matches. Exact query/support duplicates are purged; conflicting examples are rejected. Its margin is not a probability. This authored-text demo runs locally without Qwen weights, a backend or account access.
+
+```bash
+node tools/test_public_demo.mjs
+```
 
 ## What I built
 
-**A task-adapted neural ranking system.** The retained path uses Qwen3-4B-Instruct-2507 with LoRA adaptation, supplied support examples, one-position decision loss, forward-only answer scoring, length-sorted inference, restored row order, and within-policy rank normalization.
+| Capability | Evidence |
+|---|---|
+| Support-adapted neural ranking | Qwen3-4B + LoRA; matched development AUC **0.61460 → 0.71989** |
+| Transfer-aware evaluation | Whole-policy holdouts, query/support purging and group-safe uncertainty |
+| Controlled model research | Five-backbone development candidate **0.740351** policy-macro AUC; separate from official scores |
+| Recoverable execution | Model/data/source identities, optimizer and inference checkpoints, artifact checksums |
+| Reviewable decisions | Executed notebooks, aggregate receipts, regression tests and CI |
 
-**A transfer-aware validation framework.** Familiar-policy and whole-policy holdouts are separated, text overlap is purged across train/validation boundaries, model selection uses group-safe evidence, and development results are kept distinct from official scored results.
+## Results and interpretation
 
-**A multi-backbone research program.** Qwen3-8B, Qwen3-14B, Phi-4-mini, and Qwen2.5-14B were evaluated for complementary error structure rather than assuming larger standalone models would automatically win. The strongest fixed five-model development candidate improved both observed policies.
+A 323-fit feature campaign measured **0.7989 familiar-policy AUC versus 0.5515 held-out-policy AUC**. That contrast exposed a transfer problem that a single familiar-policy score would have hidden.
 
-**A reproducible AWS experimentation platform.** Training and research run in SageMaker with pinned model revisions, content-addressed artifacts, resumable optimizer/checkpoint state, GPU memory/throughput benchmarks, explicit promotion gates, and structured failure handling.
+Later teacher-transfer and reciprocal-learning studies did not clear their registered promotion gates. I preserved those negatives and retained the stronger controls. The repeatedly inspected 881-comment/two-policy cohort is development evidence, not an untouched holdout.
 
-## System architecture
+[Scored receipt](reports/checkpoints/kaggle_adaptation.json) · [Executed project review](notebooks/31_complete_project_review.ipynb) · [Research decisions](CASE_STUDY.md)
 
-```mermaid
-flowchart LR
-    A[Original labels] --> D[Audited training pairs]
-    B[Positive / negative support examples] --> D
-    D --> E[Support-adapted Qwen3-4B + LoRA]
-    E --> F[Decision-token scores]
-    F --> G[Within-policy ranks]
-    G --> H[Retained scored system]
+## Run the public Python review
 
-    I[Preserved OOF predictions] --> J[4B / 8B / 14B / Phi / Qwen2.5 research]
-    J --> K[Group-safe ensemble evaluation]
-    K --> L[Five-model development candidate]
-
-    M[Public external text] --> N[Qwen teacher labels]
-    N --> O[DeBERTa student study]
-    O --> P[Recorded negative result]
+```bash
+uv sync --locked --group dev
+uv run python scripts/review_portfolio.py --execute
 ```
 
-## Selected research evidence
+This executes the aggregate review and verifies its saved Plotly/SVG outputs. It runs no neural model. [Environment, tests and evidence scope](docs/REPRODUCIBILITY.md)
 
-| Study | Result | Decision |
-| --- | --- | --- |
-| **Support adaptation** | Policy-macro AUC **0.61460 → 0.71989** on the fixed 4B development study | Keep |
-| **Qwen3-14B capacity study** | 14B weaker standalone, but useful in a fixed rank blend | Preserve for diversity |
-| **Qwen2.5 diversity study** | Five-model candidate reached **0.740351**, **+0.005757** over the prior four-model development reference | Development-promoted |
-| **Feature/generalization campaign** | 323 fixed fits; familiar-policy AUC **0.7989** vs held-out-policy AUC **0.5515** | Demonstrated transfer bottleneck |
-| **Owned pseudo-supervision** | Six matched fits; best delta only **+0.000193** | Valid negative |
-| **10k external-text + DeBERTa study** | External soft labels improved the matched DeBERTa control by **+0.004259**, but the resulting blend did not beat the incumbent | Valid negative |
-| **Complementary Llama study** | A support-adapted challenger reached **0.743436** policy-macro AUC vs **0.740351** for the accepted development incumbent, but missed the registered confidence gate | Preserve, not promote |
-| **Architecture / context / retrieval frontier** | Pairwise ranking, semantic retrieval, ModernBERT/Ettin context, and NLI variants were tested with matched controls and rejected when they failed promotion gates | Valid negatives |
-| **Cross-model learning frontier** | Native Llama continuation reached **0.743973**; fixed-teacher, anchored-margin, and two-round reciprocal learning were tested against matched controls and failed preregistered promotion gates | Preserve native reference; cross-model variants are valid negatives |
+## Explore the system
 
-Negative results are deliberately preserved. A method is promoted only when it clears the registered validation and stability gates; implementation failures are tracked separately from scientific negatives.
+[Case study](CASE_STUDY.md) · [Validation notebook](notebooks/01_data_and_validation.ipynb) · [Five-model study](notebooks/29_five_model_frontier_review.ipynb) · [Model card](MODEL_CARD.md) · [Closeout](docs/PROJECT_CLOSEOUT.md)
 
-## Engineering quality
-
-- **Immutable provenance:** model revisions, source/data fingerprints, checksums, and experiment contracts.
-- **Resumability:** checkpoints and completed inference assets are reused instead of recomputed.
-- **GPU efficiency:** real-workload batch benchmarks, L4 memory diagnostics, gradient checkpointing, and accumulation when needed.
-- **Leakage controls:** query/support separation, whole-policy holdouts, text-overlap purging, frozen prediction gates, and grouped uncertainty.
-- **Evidence-first publication:** executed notebooks with saved Plotly/SVG outputs plus machine-readable aggregate checkpoints.
-- **CI:** compile, lint, formatting, pytest, notebook execution, checkpoint reuse, offline inference, pinned-encoder verification, and evidence rendering.
-- **Public/private boundary:** raw comments, row-level predictions, exact ensemble weights, model/checkpoint state, credentials, and private caches remain outside GitHub.
-
-## Review the work
-
-For the fastest employer review, use this path:
-
-1. [**Employer case study**](CASE_STUDY.md) — the complete problem → system → validation → engineering → result story in one concise read.
-2. [**Completed review · notebook 31**](notebooks/31_complete_project_review.ipynb) — the delivered result, latest matched-control decisions, and explicit completion/reproduction boundaries.
-3. [**Five-model frontier · notebook 29**](notebooks/29_five_model_frontier_review.ipynb) — multi-backbone diversity, ensemble validation, and model-selection discipline.
-4. [**Validation · notebook 01**](notebooks/01_data_and_validation.ipynb) — leakage controls, whole-policy transfer, and evaluation design.
-5. [**Reproducibility guide**](docs/REPRODUCIBILITY.md) — clean-room review commands, CI coverage, and the public/private artifact contract.
-
-For deeper research, see [START_HERE.md](START_HERE.md), the [model card](MODEL_CARD.md), the [post-closeout frontier](docs/POST_CLOSEOUT_FRONTIER.md), the [reproducibility guide](docs/REPRODUCIBILITY.md), and the [pseudo-supervision frontier](docs/PSEUDO_SUPERVISION_FRONTIER.md).
-
-## Repository map
-
-| Path | Purpose |
-| --- | --- |
-| `notebooks/` | Executed employer-facing analysis and review notebooks |
-| `src/jigsaw_rules/` | Reusable validation, modeling, metrics, feature, and runtime modules |
-| `scripts/` | Training, evaluation, notebook, publication, and verification workflows |
-| `configs/` | Compact experiment/model contracts |
-| `reports/` | Aggregate evidence, checksummed checkpoints, and saved visual outputs |
-| `tests/` | Regression, leakage, reproducibility, notebook, and publication-boundary tests |
-
-## Tech stack
-
-**Python 3.12 · PyTorch · Transformers · PEFT/LoRA · scikit-learn · pandas/NumPy/SciPy · AWS SageMaker · Plotly · Jupyter · GitHub Actions**
-
-## Reproducibility boundary
-
-AWS is the canonical workspace for raw competition data, model weights, optimizer state, row-level predictions, teacher-score arrays, and private operational logs. GitHub publishes the code, compact configs, aggregate evidence, tests, and executed notebooks needed to review the engineering and scientific decisions without exposing private competition artifacts. The exact public review contract is documented in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
-
-[Competition](https://www.kaggle.com/competitions/jigsaw-agile-community-rules) · [Data card](DATA_CARD.md) · [Model card](MODEL_CARD.md) · [Start here](START_HERE.md)
+The public release contains reusable code, authored examples, aggregate receipts and executed notebooks. Raw comments, private predictions, weights, optimizer state, credentials and exact private ensemble construction remain excluded. Historical scores are late evaluations, not a claim of original competition placement or production moderation readiness. [Source credits](docs/TOP_SOLUTION_INTEGRATION.md)

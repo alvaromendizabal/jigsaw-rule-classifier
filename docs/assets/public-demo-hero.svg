@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="620" viewBox="0 0 1320 620" role="img" aria-labelledby="title desc">
+<title id="title">Rule-Conditioned Nlp — Alvaro Mendizabal</title><desc id="desc">Concept illustration for the public project demonstration. No measured performance or private data is shown.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10222C"/><stop offset="1" stop-color="#1B3B43"/></linearGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/></pattern></defs>
+<rect width="1320" height="620" rx="24" fill="url(#bg)"/><rect width="1320" height="620" rx="24" fill="url(#grid)"/>
+<style>text{font-family:Arial,Helvetica,sans-serif}.small{fill:#B8CDD0;font-size:13px;letter-spacing:1.1px;font-weight:700}</style>
+<rect x="56" y="64" width="12" height="12" rx="3" fill="#B4E4C4"/><text x="82" y="76" class="small">RULE-CONDITIONED NLP</text>
+<text x="56" y="207" fill="#F5F3EA" font-size="58" font-weight="700" letter-spacing="-1.5">One comment.</text>
+<text x="56" y="282" fill="#B4E4C4" font-size="58" font-weight="700" letter-spacing="-1.5">Different rules.</text>
+<text x="60" y="345" fill="#BDD1D4" font-size="19">Support examples → evidence → a reviewable decision</text>
+<path d="M60 388h92" stroke="#B4E4C4" stroke-width="3"/>
+<text x="60" y="434" fill="#D4E0DC" font-size="16">INTERACTIVE DEMO · RESEARCH EVIDENCE · PUBLIC CODE</text>
+<text x="60" y="548" fill="#A8C0C5" font-size="15">Alvaro Mendizabal · Machine Learning Engineering</text>
+<rect x="780" y="135" width="450" height="110" rx="14" fill="#173D43" stroke="#52767A"/><text x="805" y="169" class="small">POLICY + EXAMPLES</text><path d="M805 190h260m-260 19h350" stroke="#A4BCC0" stroke-width="7" stroke-linecap="round"/><rect x="825" y="273" width="365" height="79" rx="14" fill="#203139" stroke="#52767A"/><text x="850" y="307" class="small">COMMENT TO REVIEW</text><path d="M850 327h225" stroke="#A4BCC0" stroke-width="7" stroke-linecap="round"/><path d="M1006 247v23m0 84v30" stroke="#B4E4C4" stroke-width="3"/><rect x="780" y="387" width="450" height="83" rx="14" fill="#B4E4C4"/><text x="806" y="421" fill="#12252E" font-size="21" font-weight="700">Matched evidence, visible reasoning</text><text x="806" y="448" fill="#294B4C" font-size="15">SUPPORT MATCHING · TRANSFER · AUDITABILITY</text>
+<text x="60" y="590" fill="#829FA7" font-size="12">CONCEPT ILLUSTRATION · No measured performance or private data shown</text>
+</svg>

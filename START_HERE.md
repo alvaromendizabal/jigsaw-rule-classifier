@@ -4,6 +4,8 @@
 
 This repository is designed for two audiences at once: a hiring manager who wants the story quickly, and an ML practitioner who wants to inspect the evidence, validation, and engineering.
 
+[Try Policy Lens](https://alvaro-policy-lens.tartmacaw2.chatgpt.site): edit a fictional policy and comment, inspect lexical support matches and export the explanation. [Run locally and verify](docs/REPRODUCIBILITY.md). This lightweight demo is separate from the scored Qwen system.
+
 ## Pick a review path
 
 ### 30 seconds · recruiter / hiring manager
