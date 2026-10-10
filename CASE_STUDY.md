@@ -6,7 +6,7 @@ Python · PyTorch · Transformers · LoRA · scikit-learn · AWS SageMaker · Ju
 
 **Delivered result: 0.91808 public / 0.91425 private ROC AUC**. **Measured improvement:** **+0.29469 private AUC** over the lexical reference. These are successful late Kaggle evaluations, not an original competition placement. The research-and-engineering portfolio is complete; optional frontier work is documented separately.
 
-[Executed current review](notebooks/31_complete_project_review.ipynb) · [Model card](MODEL_CARD.md) · [Reproduce the public evidence](docs/REPRODUCIBILITY.md)
+[Executed current review](notebooks/31_complete_project_review.ipynb) · [Model card](MODEL_CARD.md) · [Run the public evidence checks](docs/REPRODUCIBILITY.md)
 
 ## Problem and delivered system
 
@@ -48,16 +48,16 @@ I built [Policy Lens](https://alvaro-policy-lens.tartmacaw2.chatgpt.site) to mak
 
 This lightweight support matcher is a public engineering demonstration. Its margin is not a calibrated probability, and it does not run the historical Qwen model. [Run and test it](docs/REPRODUCIBILITY.md).
 
-## Engineering ownership
+## Engineering contributions
 
-AWS SageMaker is the canonical research environment. I implemented immutable source/data/model identities, checksum validation, resumable optimizer and inference state, atomic publication, bounded runtime gates, heartbeats, GPU memory/throughput benchmarks, and regression tests for observed failures. Completed predictions and checkpoints are reused.
+I designed and implemented the validation, training/inference integration, controlled experiments, recovery system and delivery workflow documented here. AWS SageMaker is the canonical research environment. The execution layer uses immutable source/data/model identities, checksum validation, resumable optimizer and inference state, atomic publication, bounded runtime gates, heartbeats, GPU memory/throughput benchmarks, and regression tests for observed failures. Completed predictions and checkpoints are reused.
 
 GitHub provides locked dependencies, reusable validation/runtime modules, aggregate receipts, executed Plotly/SVG notebooks, and CI. The current review verifies saved numerical output against source receipts, rejects stale or incomplete execution, and re-executes in real Jupyter kernels with save/reopen checks.
 
-## Reproduction, attribution and limits
+## Public verification and deployment limits
 
-An employer can reproduce public component checks and aggregate evidence without AWS credentials or model downloads. Full competitive reproduction needs privately retained raw data, row predictions, model state and ensemble construction. Existing public source/configuration remains available; this boundary is not a claim that every implementation detail is secret.
-
-Published methods informed support adaptation and representation comparisons. [The attribution record](docs/TOP_SOLUTION_INTEGRATION.md) distinguishes those sources from my validation, implementation, controlled experiments, recovery system and delivery work.
+An employer can run public component checks and verify aggregate evidence without AWS credentials or model downloads. Re-running the complete research system needs privately retained raw data, row predictions, model state and ensemble construction. Existing public source/configuration remains available; this boundary is not a claim that every implementation detail is secret.
 
 The delivered system is a research classifier, not a deployed autonomous moderation service. Its rank scores are not calibrated probabilities, and no production threshold, multilingual guarantee or fairness certification is claimed. The latest receipt marks E44 paired-demonstration adaptation as planned; it is not required to review the completed deliverable.
+
+[Methods and source notices](docs/TOP_SOLUTION_INTEGRATION.md) · [Reproducibility](docs/REPRODUCIBILITY.md) · [Model card](MODEL_CARD.md)
