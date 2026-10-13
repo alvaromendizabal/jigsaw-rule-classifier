@@ -54,6 +54,15 @@
       "implementation": "scripts/review_portfolio.py",
       "tests": "tests/test_complete_review.py",
       "evidence": "reports/checkpoints/kaggle_adaptation.json"
+    },
+    {
+      "audience": "Data science",
+      "title": "Test the failure boundary, not only the happy path.",
+      "decision": "Execute visible authored challenges against the shipped engine; separate retrieval or decision coverage from successful outcomes and retain every failure.",
+      "boundary": "These synthetic diagnostics do not estimate neural-model quality or production accuracy.",
+      "implementation": "tools/evaluate_public_challenges.mjs",
+      "tests": "tools/test_public_challenges.mjs",
+      "evidence": "reports/public_challenges.json"
     }
   ],
   "commands": [
@@ -68,6 +77,14 @@
       "runtime": "node",
       "entry": "tools/test_public_demo.mjs",
       "args": []
+    },
+    {
+      "id": "public-challenge-evaluation",
+      "runtime": "node",
+      "entry": "tools/evaluate_public_challenges.mjs",
+      "args": [
+        "--check"
+      ]
     }
   ],
   "read_more": [
@@ -82,9 +99,22 @@
     {
       "path": "docs/EMPLOYER_REVIEW_GUIDE.md",
       "label": "Technical review"
+    },
+    {
+      "path": "docs/PUBLIC_CHALLENGES.md",
+      "label": "Challenge results and failure analysis"
     }
   ],
   "schema_version": 1,
   "repository": "alvaromendizabal/jigsaw-rule-classifier",
-  "reviewed_base_commit": "5d7aac39868106b75755f9ea15f248b82ad72fef"
+  "reviewed_base_commit": "9c6e3016e6fb080b86057358b3074ce4bc3ddc52",
+  "source_dependencies": [
+    "examples/public_challenges.json",
+    "tools/public_challenge_adapter.mjs",
+    "reports/public_challenges.html",
+    "public-demo/app.js",
+    "public-demo/engine.js",
+    "public-demo/index.html",
+    "public-demo/styles.css"
+  ]
 }
