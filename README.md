@@ -1,5 +1,7 @@
 # Jigsaw · Rule-conditioned NLP
 
+> **Inspect the engineering:** [Source-linked review brief](review/README.md) · [Run the verified public checks](review/README.md#one-command-an-inspectable-result) · [Review-kit CI](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/employer-review.yml)
+
 **Alvaro Mendizabal · NLP · Evaluation design · AWS ML engineering**
 
 [![Quality](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml/badge.svg)](https://github.com/alvaromendizabal/jigsaw-rule-classifier/actions/workflows/quality.yml)

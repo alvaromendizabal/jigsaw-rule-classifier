@@ -1,0 +1,90 @@
+{
+  "title": "One comment. Different rules. Explicit evidence.",
+  "discipline": "NLP / policy transfer / evaluation engineering",
+  "summary": "Rule-conditioned classification with support-adapted language models, leakage-aware evaluation, and checkpointed research. Review how the system distinguishes policy transfer from memorizing overlapping comments.",
+  "signals": [
+    {
+      "value": "Rule + text",
+      "label": "Policy-conditioned prediction interface"
+    },
+    {
+      "value": "+0.10529",
+      "label": "Recorded matched support-adaptation AUC gain"
+    },
+    {
+      "value": "5 backbones",
+      "label": "Documented development-model study"
+    }
+  ],
+  "scope": "The dependency-free check verifies the browser publication boundary. Optional Node checks execute the actual TF-IDF policy engine, duplicate purging, conflicting-support rejection, and controls. Historical neural results are reviewed separately through saved evidence.",
+  "private_boundary": "Private comments, labels, model weights, embeddings, prediction rows, exact ensemble specifications, and active inference orchestration remain excluded. Synthetic margins are not calibrated probabilities.",
+  "cards": [
+    {
+      "audience": "Applied AI",
+      "title": "Condition on the policy, not only the comment.",
+      "decision": "Represent supplied rules and support examples explicitly rather than treating moderation as a fixed global label.",
+      "boundary": "The small public lexical demo is not the retained Qwen model.",
+      "implementation": "src/jigsaw_rules/formatting.py",
+      "tests": "tests/test_formatting.py",
+      "evidence": "reports/checkpoints/support_adaptation.json"
+    },
+    {
+      "audience": "Data science",
+      "title": "Make query/support leakage an explicit failure mode.",
+      "decision": "Use policy-aware evaluation and purge overlapping query text from fitted or support sources.",
+      "boundary": "The repeatedly inspected development population is not a fresh holdout.",
+      "implementation": "src/jigsaw_rules/splits.py",
+      "tests": "tests/test_splits_model.py",
+      "evidence": "docs/REPRODUCIBILITY.md"
+    },
+    {
+      "audience": "ML engineering",
+      "title": "Preserve resumable inference and training boundaries.",
+      "decision": "Keep run identities, checkpoints, and reporting contracts in the execution layer instead of relying on notebook state.",
+      "boundary": "Published components do not reconstruct private model artifacts.",
+      "implementation": "src/jigsaw_rules/runtime.py",
+      "tests": "tests/test_runtime_pipeline.py",
+      "evidence": "docs/REPRODUCIBILITY.md"
+    },
+    {
+      "audience": "Data science",
+      "title": "Distinguish a matched effect from a later aggregate score.",
+      "decision": "Reconcile saved submission comparisons and development evidence without merging incompatible populations.",
+      "boundary": "The review validates published arithmetic, not unseen-label predictions.",
+      "implementation": "scripts/review_portfolio.py",
+      "tests": "tests/test_complete_review.py",
+      "evidence": "reports/checkpoints/kaggle_adaptation.json"
+    }
+  ],
+  "commands": [
+    {
+      "id": "publication-contract",
+      "runtime": "python",
+      "entry": "tools/check_public_demo.py",
+      "args": []
+    },
+    {
+      "id": "browser-policy-engine",
+      "runtime": "node",
+      "entry": "tools/test_public_demo.mjs",
+      "args": []
+    }
+  ],
+  "read_more": [
+    {
+      "path": "CASE_STUDY.md",
+      "label": "Case study"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "label": "Research reproduction"
+    },
+    {
+      "path": "docs/EMPLOYER_REVIEW_GUIDE.md",
+      "label": "Technical review"
+    }
+  ],
+  "schema_version": 1,
+  "repository": "alvaromendizabal/jigsaw-rule-classifier",
+  "reviewed_base_commit": "5d7aac39868106b75755f9ea15f248b82ad72fef"
+}
