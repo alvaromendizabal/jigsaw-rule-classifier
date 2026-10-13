@@ -30,6 +30,8 @@ The browser fits TF–IDF on supplied examples only and computes a contrast betw
 node tools/test_public_demo.mjs
 ```
 
+**Inspect the failure boundary:** the [executable challenge review](docs/PUBLIC_CHALLENGES.md) runs 24 visible authored cases through this exact engine, keeps all eight diagnostic misses, and separates label agreement from abstention. A printable report, per-policy slices, source hashes, and CI verification make the behavior reviewable without neural weights.
+
 ## What I built
 
 | Capability | Evidence |

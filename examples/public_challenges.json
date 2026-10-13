@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "scope": "AUTHORED_SYNTHETIC_CHALLENGES",
+  "purpose": "Visible diagnostic examples authored from fictional policies. Not a held-out benchmark, neural evaluation, or deployment estimate.",
+  "cases": [
+    {"id":"promotion-buy","policy":"promotion","slice":"direct","query":"Buy my drawing course today with a discount code.","expected":"violation"},
+    {"id":"promotion-referral","policy":"promotion","slice":"direct","query":"Sign up using my referral link and get a bonus.","expected":"violation"},
+    {"id":"promotion-review","policy":"promotion","slice":"direct","query":"I wrote an independent review of the notebook paper quality.","expected":"allowed"},
+    {"id":"promotion-question","policy":"promotion","slice":"direct","query":"Does anyone know a free drawing tutorial?","expected":"allowed"},
+    {"id":"attacks-insult","policy":"attacks","slice":"direct","query":"You are a useless idiot. Stop posting that worthless comment.","expected":"violation"},
+    {"id":"attacks-argument","policy":"attacks","slice":"direct","query":"Your argument has incomplete evidence and I disagree with it.","expected":"allowed"},
+    {"id":"spoilers-ending","policy":"spoilers","slice":"direct","query":"The culprit is the detective partner in the final episode.","expected":"violation"},
+    {"id":"spoilers-lighting","policy":"spoilers","slice":"direct","query":"I loved the lighting and production design in The Lantern.","expected":"allowed"},
+    {"id":"promotion-negation","policy":"promotion","slice":"negation","query":"Do not buy my course or use my referral link; I am not selling anything.","expected":"allowed"},
+    {"id":"attacks-negation","policy":"attacks","slice":"negation","query":"You are not stupid or a useless fool; your comment is welcome.","expected":"allowed"},
+    {"id":"spoilers-negation","policy":"spoilers","slice":"negation","query":"I will not reveal whether the captain dies in the closing scene.","expected":"allowed"},
+    {"id":"promotion-quoted","policy":"promotion","slice":"quotation","query":"The advertising lecture analyzes the phrase buy my course with a discount code.","expected":"allowed"},
+    {"id":"attacks-quoted","policy":"attacks","slice":"quotation","query":"The phrase you are clueless is quoted to discuss this rule, not to attack anyone.","expected":"allowed"},
+    {"id":"spoilers-warning","policy":"spoilers","slice":"exception","query":"SPOILER WARNING: the captain dies in the closing scene.","expected":"allowed"},
+    {"id":"promotion-paraphrase","policy":"promotion","slice":"paraphrase","query":"Enroll in my premium masterclass; checkout details are on my page.","expected":"violation"},
+    {"id":"attacks-paraphrase","policy":"attacks","slice":"paraphrase","query":"Your intellect is beneath contempt, you imbecile.","expected":"violation"},
+    {"id":"spoilers-paraphrase","policy":"spoilers","slice":"paraphrase","query":"In the finale the murderer turns out to be the investigator's colleague.","expected":"violation"},
+    {"id":"cross-promotion","policy":"promotion","slice":"policy-conditioning","query":"Buy my drawing course with a discount code.","expected":"violation"},
+    {"id":"cross-attacks","policy":"attacks","slice":"policy-conditioning","query":"Buy my drawing course with a discount code.","expected":"allowed"},
+    {"id":"cross-spoilers","policy":"spoilers","slice":"policy-conditioning","query":"Buy my drawing course with a discount code.","expected":"allowed"},
+    {"id":"unicode-width","policy":"promotion","slice":"normalization","query":"Ｂｕｙ ｍｙ ｄｒａｗｉｎｇ ｃｏｕｒｓｅ ｗｉｔｈ ａ ｄｉｓｃｏｕｎｔ ｃｏｄｅ．","expected":"violation"},
+    {"id":"unicode-case","policy":"attacks","slice":"normalization","query":"YOUR COMMENT IS WORTHLESS, YOU USELESS FOOL!","expected":"violation"},
+    {"id":"unrelated-promotion","policy":"promotion","slice":"unsupported","query":"zxqv987 telescope nebula","expected":"abstain"},
+    {"id":"unrelated-attacks","policy":"attacks","slice":"unsupported","query":"zxqv987 telescope nebula","expected":"abstain"}
+  ]
+}
