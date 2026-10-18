@@ -1,0 +1,67 @@
+name: Apply final support-adaptation project
+on:
+  push:
+    branches: [cleanup/final-project-20261018]
+    paths: [.github/workflows/zz-final-curation.yml]
+permissions:
+  contents: write
+jobs:
+  curate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      TOKENIZERS_PARALLELISM: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: '0.12.10'
+          python-version: '3.12.13'
+          enable-cache: false
+      - name: Apply the explicit final-component selection
+        run: python3 .cleanup/apply.py
+      - name: Lock only retained dependencies, format and regenerate exact embedded source
+        run: |
+          uv lock
+          uv sync --frozen --group dev --extra semantic
+          uv run --frozen --extra semantic ruff format src scripts tests
+          uv run --frozen --extra semantic ruff check --fix src scripts tests
+          uv run --frozen --extra semantic ruff format src scripts tests
+          uv run --frozen --extra semantic ruff check src scripts tests
+          uv run --frozen python scripts/build_adapted_notebook.py
+          python3 -B -S review/run.py --render
+      - name: Exercise retained behavior, native Qwen and LoRA recovery, and the CPU control
+        run: |
+          git rm -rf .cleanup
+          uv run --frozen --extra semantic pytest -q
+          python3 -S scripts/review_portfolio.py --json
+          python3 -S -O scripts/review_portfolio.py --json
+          uv run --frozen jigsaw demo --root "$RUNNER_TEMP/jigsaw-cpu-demo"
+          uv run --frozen jigsaw demo --root "$RUNNER_TEMP/jigsaw-cpu-demo"
+          uv run --frozen jigsaw review --root "$RUNNER_TEMP/jigsaw-cpu-demo" --allow-synthetic
+          python3 -B -S review/run.py --output "$RUNNER_TEMP/jigsaw-review" --with-node
+          python3 -B -S review/run.py --output "$RUNNER_TEMP/jigsaw-review" --with-node --check
+      - name: Publish only reviewed source to the cleanup branch
+        run: |
+          git add -A
+          git diff --cached --check
+          if git diff --cached --name-only | grep '^.github/workflows/'; then exit 1; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Curate retained Qwen support adaptation; retire unused model campaigns and operator tooling'
+          git push origin HEAD:cleanup/final-project-20261018
+          git archive --format=zip --output="$RUNNER_TEMP/source.zip" HEAD
+          git rev-parse HEAD > "$RUNNER_TEMP/commit.txt"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: final-policy-source
+          path: |
+            ${{ runner.temp }}/source.zip
+            ${{ runner.temp }}/commit.txt
+          if-no-files-found: warn
+          retention-days: 3
