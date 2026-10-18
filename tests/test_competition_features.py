@@ -1,18 +1,14 @@
 import json
 from pathlib import Path
 
-import numpy as np
 import pytest
 
 from scripts.competition_features import (
-    cached_batch,
-    feature_banks,
     prepare_prompts,
     score_logits,
     support_pairs,
 )
-from tests.test_instructions import Tokenizer
-from tests.test_research import frame
+from tests.fixtures import Tokenizer, frame
 
 
 def spec():
@@ -62,40 +58,6 @@ def test_augmentation_excludes_available_targets_conflicts_and_validation_text()
     assert pairs.equals(reversed_pairs)
 
 
-def test_checkpoint_reuses_without_model_and_rejects_corruption(tmp_path):
-    def encode(texts):
-        return np.ones((len(texts), 3)), np.ones((len(texts), 8))
-
-    _, _, path = cached_batch(tmp_path, {"revision": "a"}, ["authored"], encode)
-
-    def forbidden(texts):
-        raise AssertionError("Model must not run on valid restored shards")
-
-    cached_batch(tmp_path, {"revision": "a"}, ["authored"], forbidden)
-    with pytest.raises(AssertionError):
-        cached_batch(tmp_path, {"revision": "b"}, ["authored"], forbidden)
-    (path / "features.npz").write_bytes(b"corrupted")
-    with pytest.raises(ValueError, match="checksum"):
-        cached_batch(tmp_path, {"revision": "a"}, ["authored"], forbidden)
-
-
-def test_bank_counts_and_context_ablation():
-    rng = np.random.default_rng(2025)
-    scores, vectors = rng.random((4, 3, 3)), rng.normal(size=(4, 3, 2560))
-    banks = feature_banks(scores, vectors)
-    unique_names = {n for _, names in banks.values() for n in names}
-    assert len(unique_names) == 15369
-    changed = vectors.copy()
-    changed[:, 1:] += 1
-    alternative = feature_banks(scores, changed)
-    assert np.array_equal(banks["rule_embedding"][0], alternative["rule_embedding"][0])
-    assert not np.array_equal(
-        banks["context_interactions"][0], alternative["context_interactions"][0]
-    )
-    with pytest.raises(ValueError, match="aligned"):
-        feature_banks(scores, vectors[:2])
-
-
 def test_answer_mass_is_separate_from_binary_probability():
     torch = pytest.importorskip("torch")
     logits = torch.tensor([[0.0, 0.0, 0.0, 0.0, 8.0]])
@@ -103,21 +65,6 @@ def test_answer_mass_is_separate_from_binary_probability():
     assert result[0, 0] == 0.5
     assert result[0, 1] == 0.0
     assert result[0, 2] < 0.01  # Most mass lies on a non-answer token.
-
-
-def test_screen_is_independent_of_validation_features_and_labels():
-    from scripts.evaluate_competition_features import fit_bank
-
-    rng = np.random.default_rng(2025)
-    matrix = rng.normal(size=(60, 40))
-    labels = np.arange(60) % 2
-    names = [f"candidate/{i}" for i in range(40)]
-    ti, vi = np.arange(40), np.arange(40, 60)
-    _, first = fit_bank(matrix, names, labels, ti, vi, spec())
-    matrix[vi] = matrix[vi] * 100 + 1000
-    labels[vi] = 1 - labels[vi]
-    _, second = fit_bank(matrix, names, labels, ti, vi, spec())
-    assert first == second
 
 
 def test_last_token_hidden_projection_matches_causal_lm():

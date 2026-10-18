@@ -8,13 +8,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 from jigsaw_rules.data import EXAMPLES, TEXT, normalize, validate_frame
-from jigsaw_rules.runtime import atomic_bytes, atomic_json, digest
 
 PROMPTS = ("rule", "support", "rule_support")
 
@@ -167,61 +164,3 @@ class FrozenEncoder:
             scores = score_logits(logits, self.groups)
             vectors = torch.nn.functional.normalize(hidden.float(), dim=1)
         return scores.cpu().numpy(), vectors.cpu().numpy()
-
-
-def cached_batch(path: Path, contract: dict, texts: list[str], encoder):
-    """Verify a committed shard before touching model weights; reject corruption."""
-    key = content_hash({"contract": contract, "texts": texts})
-    path = path / key
-    marker = path / "complete.json"
-    if marker.exists():
-        record = json.loads(marker.read_text())
-        if record["key"] != key or digest(path / "features.npz") != record["sha256"]:
-            raise ValueError("Feature checkpoint checksum mismatch")
-    else:
-        import io
-
-        scores, vectors = encoder(texts)
-        if scores.shape != (len(texts), 3) or vectors.shape[0] != len(texts):
-            raise ValueError("Encoder output is not aligned")
-        if not np.isfinite(scores).all() or not np.isfinite(vectors).all():
-            raise ValueError("Encoder returned nonfinite features")
-        payload = io.BytesIO()
-        np.savez_compressed(payload, scores=scores, vectors=vectors)
-        atomic_bytes(path / "features.npz", payload.getvalue())
-        atomic_json(marker, {"key": key, "sha256": digest(path / "features.npz")})
-    with np.load(path / "features.npz", allow_pickle=False) as data:
-        return data["scores"], data["vectors"], path
-
-
-def feature_banks(scores: np.ndarray, vectors: np.ndarray):
-    """Meaningful context ablations and their coordinate-level interactions."""
-    if scores.ndim != 3 or scores.shape[1:] != (3, 3):
-        raise ValueError("Expected row/prompt/score schema")
-    if vectors.ndim != 3 or vectors.shape[:2] != scores.shape[:2]:
-        raise ValueError("Representations and scores are not aligned")
-    if not np.isfinite(scores).all() or not np.isfinite(vectors).all():
-        raise ValueError("Nonfinite feature bank")
-    banks = {}
-    for i, prompt in enumerate(PROMPTS):
-        banks[prompt + "_likelihood"] = (
-            scores[:, i].astype(float),
-            [prompt + "/" + s for s in ("probability", "log_odds", "answer_mass")],
-        )
-        banks[prompt + "_embedding"] = (
-            vectors[:, i].astype(float),
-            [f"{prompt}/coordinate_{j:04d}" for j in range(vectors.shape[-1])],
-        )
-    interactions = {
-        "joint_minus_rule": vectors[:, 2] - vectors[:, 0],
-        "joint_minus_support": vectors[:, 2] - vectors[:, 1],
-        "rule_times_support": vectors[:, 0] * vectors[:, 1],
-    }
-    banks["context_interactions"] = (
-        np.concatenate(list(interactions.values()), axis=1).astype(float),
-        [f"{key}/coordinate_{j:04d}" for key in interactions for j in range(vectors.shape[-1])],
-    )
-    scalar = np.concatenate([banks[p + "_likelihood"][0] for p in PROMPTS], axis=1)
-    names = [name for p in PROMPTS for name in banks[p + "_likelihood"][1]]
-    banks["all_likelihood"] = (scalar, names)
-    return banks

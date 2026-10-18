@@ -1,18 +1,15 @@
 import copy
 import json
 
-import numpy as np
 import pandas as pd
 import pytest
 
 from jigsaw_rules.data import synthetic
+from scripts.decision_training import decision_loss, train_adapter
 from scripts.support_adaptation import (
     add_adapter,
     build_study,
-    decision_loss,
     decision_prompts,
-    prototype_features,
-    train_adapter,
     validate_study,
 )
 from tests.test_competition_features import ChatTokenizer, spec
@@ -159,79 +156,3 @@ def test_peft_decision_representation_and_loss_use_last_token():
             decision_loss(model, inputs, targets),
             torch.nn.functional.cross_entropy(expected, targets),
         )
-
-
-def test_prototype_geometry_uses_only_supplied_reference_labels():
-    query = np.array([[1.0, 0.0], [0.0, 1.0]])
-    reference = np.array([[1.0, 0.0], [0.8, 0.2], [0.0, 1.0], [0.2, 0.8]])
-    matrix, names = prototype_features(query, reference, [1, 1, 0, 0])
-    assert matrix.shape == (2, 9) and len(set(names)) == 9
-    assert matrix[0, 6] > matrix[1, 6]
-    with pytest.raises(ValueError, match="Both support classes"):
-        prototype_features(query, reference, [1, 1, 1, 1])
-
-
-def test_evaluation_pipeline_and_verified_stage_reuse(tmp_path, monkeypatch):
-    from pathlib import Path
-
-    from jigsaw_rules.data import EXAMPLES
-    from jigsaw_rules.runtime import atomic_json, digest
-    from scripts import evaluate_support_adaptation as evaluation
-    from scripts.competition_features import content_hash
-
-    repo = Path(__file__).resolve().parents[1]
-    raw = tmp_path / "data/raw"
-    synthetic(raw)
-    frame = pd.read_csv(raw / "train.csv")
-    for name in EXAMPLES:
-        frame[name] = [f"authored support {name} {i % 12}" for i in range(len(frame))]
-    frame.to_csv(raw / "train.csv", index=False)
-    plan = build_study(frame)
-    atomic_json(tmp_path / "plan.json", plan)
-    config = json.loads((repo / "configs/support_adaptation.json").read_text())
-    config.update(
-        plan_sha256=digest(tmp_path / "plan.json"), bootstrap_replicates=100, screen_maximum=6
-    )
-    atomic_json(tmp_path / "configs/support_adaptation.json", config)
-    atomic_json(tmp_path / "configs/competition_features.json", spec())
-    for name in ("support_adaptation.py", "evaluate_competition_features.py"):
-        path = tmp_path / "scripts" / name
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes((repo / "scripts" / name).read_bytes())
-    contract = {
-        "config": config,
-        "model_spec": spec(),
-        "source": {"support_adaptation.py": digest(tmp_path / "scripts/support_adaptation.py")},
-    }
-    cloud = tmp_path / "cloud"
-    atomic_json(cloud / "contract.json", contract)
-    rng = np.random.default_rng(91)
-    records = []
-    for index, fold in enumerate(plan["folds"]):
-        values = {"query_row_ids": [row["row_id"] for row in fold["queries"]]}
-        for prefix, rows in (("train", fold["training"]), ("query", fold["queries"])):
-            for model in ("frozen", "adapted"):
-                vectors = rng.normal(size=(len(rows), 16))
-                values[f"{prefix}_{model}_vectors"] = (
-                    vectors / np.linalg.norm(vectors, axis=1)[:, None]
-                )
-                values[f"{prefix}_{model}_scores"] = rng.normal(size=(len(rows), 3))
-        path = cloud / f"fold_{index}/representations.npz"
-        path.parent.mkdir(parents=True)
-        np.savez_compressed(path, **values)
-        records.append({"sha256": digest(path)})
-    atomic_json(cloud / "complete.json", {"run_id": content_hash(contract)[:20], "folds": records})
-    result = evaluation.run(tmp_path, cloud, tmp_path / "plan.json", tmp_path / "evaluation")
-    assert len(json.loads((result / "results.json").read_text())) == 12
-    assert json.loads((result / "protocol.json").read_text())["rows"] == len(frame)
-
-    def refuse(*args, **kwargs):
-        raise AssertionError("Valid completed evaluation must not fit again")
-
-    monkeypatch.setattr(evaluation, "fit_bank", refuse)
-    assert (
-        evaluation.run(tmp_path, cloud, tmp_path / "plan.json", tmp_path / "evaluation") == result
-    )
-    (cloud / "fold_0/representations.npz").write_bytes(b"corrupted")
-    with pytest.raises(ValueError, match="checksum"):
-        evaluation.run(tmp_path, cloud, tmp_path / "plan.json", tmp_path / "evaluation")

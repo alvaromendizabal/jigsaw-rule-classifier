@@ -1,106 +1,48 @@
-"""Reject stale, partial and misleading employer-facing evidence."""
+"""Original final-result receipts stay independently inspectable."""
 
 import json
 import shutil
 from pathlib import Path
 
-import nbformat
 import pytest
 
-from scripts.review_portfolio import INPUTS, MIME, NOTEBOOK, ROOT, evidence, verify
+from scripts.review_portfolio import review
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_saved_complete_review_matches_aggregate_receipts():
-    result = verify(nbformat.read(ROOT / NOTEBOOK, as_version=4))
-    assert result["private_auc"] == 0.91425
-    assert result["plotly"] == result["svg"] == 2
-
-
-def test_saved_frontier_has_real_values_and_matching_fallback():
-    from scripts.review_portfolio import FRONTIER_NOTEBOOK
-
-    result = verify(nbformat.read(ROOT / FRONTIER_NOTEBOOK, as_version=4))
-    assert result["plotly"] == result["svg"] == 1
+def test_final_arithmetic_and_original_evidence():
+    result = review(ROOT)
+    assert result["status"] == "passed"
+    assert result["matched_development"]["gain"] == pytest.approx(0.1052933125268161)
+    assert len(result["source_sha256"]) == 11
 
 
 @pytest.mark.parametrize(
-    "mutation", ["source", "summary", "plot", "svg", "geometry", "error", "partial"]
+    "section,name", [("support_adaptation", "results.json"), ("baseline", "results.json")]
 )
-def test_saved_review_rejects_corruption(mutation):
-    notebook = nbformat.read(ROOT / NOTEBOOK, as_version=4)
-    code = [c for c in notebook.cells if c.cell_type == "code"]
-    plot = next(o for c in code for o in c.outputs if MIME in o.get("data", {}))
-    if mutation == "source":
-        code[0].source += "\nprint('unreviewed')"
-    elif mutation == "summary":
-        code[-1].outputs = []
-    elif mutation == "plot":
-        plot.data[MIME]["data"][0]["x"][0] = 0.99
-    elif mutation == "svg":
-        del plot.data["image/svg+xml"]
-    elif mutation == "geometry":
-        import re
-
-        plot.data["image/svg+xml"] = re.sub(
-            r'width="[0-9.]+" height="27"', 'width="1.00" height="27"', plot.data["image/svg+xml"]
-        )
-    elif mutation == "error":
-        code[-1].outputs.append(nbformat.v4.new_output("stream", name="stderr", text="failed"))
-    else:
-        code[-1].execution_count = None
-    with pytest.raises(ValueError):
-        verify(notebook)
+def test_modified_scientific_evidence_is_rejected(tmp_path, section, name):
+    shutil.copytree(ROOT / "reports", tmp_path / "reports")
+    (tmp_path / "reports" / section / name).write_text("[]")
+    with pytest.raises(ValueError, match="checksum"):
+        review(tmp_path)
 
 
-@pytest.fixture
-def evidence_root(tmp_path):
-    for relative in INPUTS:
-        target = tmp_path / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / relative, target)
-    return tmp_path
+def test_changed_submitted_score_is_not_accepted(tmp_path):
+    shutil.copytree(ROOT / "reports", tmp_path / "reports")
+    path = tmp_path / "reports/checkpoints/kaggle_adaptation.json"
+    value = json.loads(path.read_text())
+    value["submission"]["private_score"] = 0.99
+    path.write_text(json.dumps(value))
+    with pytest.raises(ValueError, match="Private result changed"):
+        review(tmp_path)
 
 
-@pytest.mark.parametrize("value", [float("nan"), float("inf"), True, -0.1, 1.1])
-def test_official_evidence_rejects_invalid_auc(evidence_root, value):
-    path = evidence_root / INPUTS[0]
-    data = json.loads(path.read_text())
-    data["submission"]["public_score"] = value
-    path.write_text(json.dumps(data))
-    with pytest.raises(ValueError):
-        evidence(evidence_root)
-
-
-def test_receipt_change_invalidates_saved_output(evidence_root):
-    path = evidence_root / INPUTS[2]
-    data = json.loads(path.read_text())
-    data["generated_utc"] = "2026-10-07T00:00:00Z"
-    path.write_text(json.dumps(data))
-    with pytest.raises(ValueError, match="inputs changed"):
-        verify(nbformat.read(ROOT / NOTEBOOK, as_version=4), evidence_root)
-
-
-def test_reciprocal_control_cannot_be_substituted(evidence_root):
-    path = evidence_root / INPUTS[2]
-    data = json.loads(path.read_text())
-    reciprocal = next(s for s in data["studies"] if s["id"] == "E31")
-    reciprocal["matched_native_control_auc"] = 0.1
-    path.write_text(json.dumps(data))
-    with pytest.raises(ValueError, match="arithmetic"):
-        evidence(evidence_root)
-
-
-def test_untouched_holdout_claim_is_rejected(evidence_root):
-    path = evidence_root / INPUTS[2]
-    data = json.loads(path.read_text())
-    data["evaluation"]["untouched_holdout"] = True
-    path.write_text(json.dumps(data))
-    with pytest.raises(ValueError, match="scope"):
-        evidence(evidence_root)
-
-
-def test_review_runs_without_private_inputs():
-    summary = evidence()
-    assert summary["development_cohort"] == {"rows": 881, "policies": 2}
-    assert summary["next_study"] == {"id": "E44", "status": "planned_in_aws"}
-    assert all(Path(p).parts[0] in {"reports", "scripts"} for p in INPUTS)
+def test_metadata_cannot_escape_the_evidence_directory(tmp_path):
+    shutil.copytree(ROOT / "reports", tmp_path / "reports")
+    path = tmp_path / "reports/baseline/metadata.json"
+    value = json.loads(path.read_text())
+    value["files"]["../../outside"] = "0" * 64
+    path.write_text(json.dumps(value))
+    with pytest.raises(ValueError, match="escapes"):
+        review(tmp_path)

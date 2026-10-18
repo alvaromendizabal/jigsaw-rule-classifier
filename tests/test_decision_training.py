@@ -54,30 +54,6 @@ def test_scaled_optimizer_recovery_is_exact(tmp_path, precision):
         train_adapter(tiny_model(), output=tmp_path / "resume", **args)
 
 
-def test_disabled_scaling_preserves_original_training(tmp_path):
-    torch = pytest.importorskip("torch")
-    pytest.importorskip("peft")
-    from peft import get_peft_model_state_dict
-
-    from scripts.support_adaptation import train_adapter as original
-
-    args = {
-        "tokenizer": TinyTokenizer(),
-        "texts": [f"authored {i}" for i in range(8)],
-        "labels": [0, 1] * 4,
-        "repeats": [1] * 8,
-        "spec": training_spec(),
-        "log": SilentLog(),
-    }
-    old = tiny_model()
-    original(old, output=tmp_path / "old", **args)
-    new = tiny_model()
-    train_adapter(new, output=tmp_path / "new", **args)
-    expected = get_peft_model_state_dict(old, save_embedding_layers=False)
-    for key, value in get_peft_model_state_dict(new, save_embedding_layers=False).items():
-        torch.testing.assert_close(value, expected[key], rtol=0, atol=0)
-
-
 def test_gradient_overflow_retries_same_step_and_saves_scaler(tmp_path):
     torch = pytest.importorskip("torch")
     pytest.importorskip("peft")
