@@ -5,80 +5,47 @@ on:
   pull_request:
 permissions:
   contents: read
-concurrency:
-  group: quality-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  retained-system:
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
-      UV_LINK_MODE: copy
-      JIGSAW_CLOUD: '0'
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '2'
-      GIT_CONFIG_COUNT: '1'
-      GIT_CONFIG_KEY_0: init.defaultBranch
-      GIT_CONFIG_VALUE_0: main
+      TOKENIZERS_PARALLELISM: 'false'
     steps:
-      - name: Check out the project
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Preserve the exact tracked source
-        run: |
-          mkdir -p logs
-          git archive --format=zip --output=logs/source.zip HEAD
-          git rev-parse HEAD > logs/source_commit.txt
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          python-version: '3.12'
-      - run: python -m pip install uv==0.11.33
-      - run: uv sync --locked --extra semantic --group dev
-      - name: Verify saved employer review and frontier charts
-        run: |
-          uv run python scripts/review_portfolio.py
-          uv run python scripts/review_portfolio.py --frontier
-      - name: Execute employer review and frontier in real Jupyter kernels
-        run: |
-          uv run python scripts/review_portfolio.py --execute
-          uv run python scripts/review_portfolio.py --execute --frontier
-      - name: Retain executed employer review
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
-          name: employer-review-notebooks
-          retention-days: 30
+          version: '0.12.10'
+          python-version: '3.12.13'
+          enable-cache: true
+      - name: Install the retained locked environment
+        run: uv sync --locked --group dev --extra semantic
+      - name: Check every maintained source file
+        run: |
+          uv run --frozen --extra semantic ruff check src scripts tests
+          uv run --frozen --extra semantic ruff format --check src scripts tests
+      - name: Native Qwen, LoRA, exact resume and invalid-input contracts
+        run: uv run --frozen --extra semantic pytest -q
+      - name: Independently verify original final-result arithmetic
+        run: |
+          python3 -S scripts/review_portfolio.py --json
+          python3 -S -O scripts/review_portfolio.py --json
+      - name: Rebuild exact offline notebook source without private weights
+        run: |
+          uv run --frozen python scripts/build_adapted_notebook.py
+          git diff --exit-code -- kaggle/submission.ipynb
+      - name: Fit the authored CPU control and prove checked reuse
+        run: |
+          uv run --frozen jigsaw demo --root "$RUNNER_TEMP/jigsaw-cpu-demo"
+          uv run --frozen jigsaw demo --root "$RUNNER_TEMP/jigsaw-cpu-demo"
+          uv run --frozen jigsaw review --root "$RUNNER_TEMP/jigsaw-cpu-demo" --allow-synthetic
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: synthetic-control-review
+          path: ${{ runner.temp }}/jigsaw-cpu-demo/reports/private/
           if-no-files-found: error
-          path: runs/portfolio_review/*.ipynb
-      - run: uv run --extra semantic python scripts/verify.py
-      - name: Execute the five public evidence notebooks
-        run: uv run --extra semantic python scripts/execute_notebooks.py --publish
-      - name: Verify checkpoint reuse
-        run: uv run --extra semantic python scripts/execute_notebooks.py --publish
-      - name: Test standalone offline Kaggle inference on synthetic data
-        run: uv run --extra semantic python scripts/execute_notebooks.py --synthetic
-      - name: Verify standalone notebook on original competition preview data
-        run: uv run --extra semantic python scripts/verify_submission.py
-      - name: Verify the real pinned encoder
-        run: uv run --extra semantic python scripts/verify_semantic.py
-      - name: Render the public evidence
-        run: |
-          uv run --extra semantic python scripts/build_baseline_report.py
-          uv run --extra semantic python scripts/build_semantic_report.py
-      - name: Retain test and notebook evidence
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: quality-evidence
-          retention-days: 30
-          if-no-files-found: error
-          path: |
-            logs/
-            notebooks/
-            kaggle/submission.ipynb
-            runs/notebook_execution/
-            runs/notebook_verification/kaggle_output/
-            reports/baseline/comparison.svg
-            reports/semantic/integration.json
-            reports/semantic/comparison.svg
-            reports/checkpoints/submission.json
-            runs/model_download.jsonl
+          retention-days: 14
