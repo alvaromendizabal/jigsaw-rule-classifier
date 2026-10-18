@@ -1,4 +1,4 @@
-name: Employer review kit
+name: Public review
 on:
   pull_request:
   push:

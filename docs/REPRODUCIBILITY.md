@@ -2,6 +2,10 @@
 
 The public review supports runnable components and aggregate evidence. It publishes the code, validation logic, compact experiment contracts, aggregate evidence, executed notebooks, and regression tests needed to review the engineering and scientific decisions while keeping competition-sensitive state private.
 
+For a package-free review, start with `python3 -S review/run.py --output /tmp/jigsaw-review --with-node`.
+For a browser download, use the [export replay command](DEMO_REPLAY.md). Both paths
+execute public components; the optional Node path is tested on Node.js 22 and 24.
+
 ## Run Policy Lens in the browser
 
 [Open the public demo](https://alvaro-policy-lens.tartmacaw2.chatgpt.site), or serve the checkout locally. The JavaScript modules require an HTTP origin.
