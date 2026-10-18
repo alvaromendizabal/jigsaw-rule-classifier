@@ -23,7 +23,9 @@ jobs:
           python-version: '3.12.13'
           enable-cache: false
       - name: Apply the explicit final-component selection
-        run: python3 .cleanup/apply.py
+        run: |
+          python3 .cleanup/apply.py
+          python3 -c "from pathlib import Path; p=Path('pyproject.toml'); p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n')"
       - name: Lock only retained dependencies, format and regenerate exact embedded source
         run: |
           uv lock
