@@ -92,7 +92,75 @@ def load_project(root: Path) -> dict:
     require(len(dependencies) == len(set(dependencies)), "Duplicate source dependencies")
     for name in dependencies:
         local_file(root, name)
+    scoped_files(root, project)
     return project
+
+
+def scoped_files(root: Path, project: dict) -> set[str]:
+    """Inventory declared public source trees, including additions and removals."""
+    paths = set(project.get("source_files", []))
+    for name in paths:
+        local_file(root, name)
+    scopes = project.get("source_scopes", [])
+    require(isinstance(scopes, list), "Invalid source scopes")
+    for scope in scopes:
+        directory, suffixes = scope["directory"], scope["suffixes"]
+        require(isinstance(directory, str) and directory not in {"", "."}, "Invalid source scope")
+        relative = Path(directory)
+        require(not relative.is_absolute() and ".." not in relative.parts, "Unsafe source scope")
+        require(
+            "\\" not in directory and relative.as_posix() == directory, "Noncanonical source scope"
+        )
+        require(
+            isinstance(suffixes, list)
+            and bool(suffixes)
+            and all(isinstance(s, str) and re.fullmatch(r"\.[a-z0-9]+", s) for s in suffixes),
+            "Invalid source suffixes",
+        )
+        folder = root / relative
+        require(
+            not any(
+                (root / Path(*relative.parts[:i])).is_symlink()
+                for i in range(1, len(relative.parts) + 1)
+            ),
+            "Symlink source scope",
+        )
+        require(folder.is_dir(), "Missing source scope: " + directory)
+        found = set()
+        for path in folder.rglob("*"):
+            require(not path.is_symlink(), "Symlink in source scope")
+            if path.is_file() and path.suffix in suffixes:
+                name = path.relative_to(root).as_posix()
+                local_file(root, name)
+                found.add(name)
+        require(bool(found), "Empty source scope: " + directory)
+        paths.update(found)
+    return paths
+
+
+def checkout_identity(root: Path) -> dict:
+    """Use immutable links only when Git confirms an unchanged tracked checkout."""
+    try:
+        commit = subprocess.run(
+            ["git", "rev-parse", "--verify", "HEAD"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=5,
+        ).stdout.strip()
+        status = subprocess.run(
+            ["git", "status", "--porcelain", "--untracked-files=normal"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=5,
+        ).stdout.strip()
+        require(re.fullmatch(r"[0-9a-f]{40}", commit) is not None, "Invalid Git identity")
+        return {"commit": commit, "clean": not status}
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return {"commit": None, "clean": False}
 
 
 def source_hashes(root: Path, project: dict) -> dict[str, str]:
@@ -103,13 +171,17 @@ def source_hashes(root: Path, project: dict) -> dict[str, str]:
         paths.update(card[kind] for kind in ("implementation", "tests", "evidence"))
     paths.update(item["path"] for item in project["read_more"])
     paths.update(project.get("source_dependencies", []))
+    paths.update(scoped_files(root, project))
     return {name: digest(local_file(root, name)) for name in sorted(paths)}
 
 
 def page(project: dict, receipt: dict | None = None, root: Path = ROOT) -> str:
     """Render an offline brief; static briefs never claim test success."""
     esc = html.escape
-    base = "https://github.com/" + project["repository"] + "/blob/main/"
+    revision = "main"
+    if receipt is not None and receipt.get("checkout", {}).get("clean") is True:
+        revision = receipt["checkout"]["commit"]
+    base = "https://github.com/" + project["repository"] + "/blob/" + revision + "/"
 
     def link(path: str, label: str) -> str:
         return '<a href="' + base + quote(path, safe="/") + '">' + esc(label) + "</a>"
@@ -141,7 +213,10 @@ def page(project: dict, receipt: dict | None = None, root: Path = ROOT) -> str:
             "<table><caption>Commands executed for this receipt</caption><thead><tr>"
             "<th>Check</th><th>Outcome</th><th>Seconds</th></tr></thead><tbody>"
             + rows
-            + '</tbody></table><p><a href="receipt.json">Machine-readable receipt</a>'
+            + "</tbody></table><p>"
+            + str(len(receipt["source_sha256"]))
+            + " public source and evidence files fingerprinted. "
+            + '<a href="receipt.json">Machine-readable receipt</a>'
             ' · <a href="manifest.json">Artifact checksums</a></p>'
         )
     more = " · ".join(link(item["path"], item["label"]) for item in project["read_more"])
@@ -193,6 +268,29 @@ def verify(output: Path, root: Path, project: dict, with_node: bool) -> dict:
     require(
         all(c["status"] == "passed" and c["returncode"] == 0 for c in receipt["checks"]),
         "A command did not pass",
+    )
+    checkout = receipt.get("checkout", {})
+    require(type(checkout.get("clean")) is bool, "Invalid checkout status")
+    commit = checkout.get("commit")
+    require(
+        commit is None
+        or (isinstance(commit, str) and re.fullmatch(r"[0-9a-f]{40}", commit) is not None),
+        "Invalid checkout commit",
+    )
+    require(not checkout["clean"] or commit is not None, "Clean checkout needs a commit")
+    selected = [c for c in project["commands"] if c["runtime"] == "python" or with_node]
+    for check, command in zip(receipt["checks"], selected, strict=True):
+        require(
+            check["entry"] == command["entry"]
+            and check["args"] == command.get("args", [])
+            and check["log"] == command["id"] + ".log",
+            "Command identity differs from configuration",
+        )
+        require(check["log"] in names, "Missing command log")
+    require(
+        local_file(output, "index.html").read_text(encoding="utf-8")
+        == page(project, receipt, root),
+        "Review page does not match receipt",
     )
     return receipt
 
@@ -279,6 +377,12 @@ def execute(root: Path, project: dict, output: Path, with_node: bool, timeout: i
             "with_node": with_node,
             "seconds": round(time.monotonic() - started, 3),
             "source_sha256": before,
+            "checkout": checkout_identity(root),
+            "node": subprocess.run(
+                ["node", "--version"], capture_output=True, text=True, check=True, timeout=5
+            ).stdout.strip()
+            if with_node
+            else None,
             "checks": checks,
         }
         (staging / "receipt.json").write_text(

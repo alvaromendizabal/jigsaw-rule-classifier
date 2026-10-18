@@ -57,6 +57,15 @@ The fingerprint also binds the explicit `source_dependencies` list, including br
 
 Private comments, labels, model weights, embeddings, prediction rows, exact ensemble specifications, and active inference orchestration remain excluded. Synthetic margins are not calibrated probabilities.
 
+## Replay and source identity
+
+The optional Node path also runs the [browser-export replay tests](../docs/DEMO_REPLAY.md).
+The receipt inventories the declared demo and tool source trees, so added or removed
+files invalidate reuse. It binds the exact configured command arguments, required
+logs and rendered HTML. A clean Git checkout records its commit and produces
+immutable source links; local edits are explicitly recorded as an uncommitted state.
+These checks establish local consistency, not a signature of historical results.
+
 This review adds no training result and changes no historical score, selection decision, notebook output, source attribution, or license. A synthetic demonstration, an aggregate evidence check, public reference training, and exact private-model replay are different reproducibility levels.
 
 ## Verify the review kit itself

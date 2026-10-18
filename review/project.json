@@ -63,6 +63,15 @@
       "implementation": "tools/evaluate_public_challenges.mjs",
       "tests": "tools/test_public_challenges.mjs",
       "evidence": "reports/public_challenges.json"
+    },
+    {
+      "audience": "ML engineering",
+      "title": "Replay an editable analysis from its exact inputs.",
+      "decision": "Recompute every context, lexical contribution and validation error and bind the result to source hashes.",
+      "boundary": "Replay validates computational consistency; it does not establish moderation correctness.",
+      "implementation": "tools/replay_public_demo.mjs",
+      "tests": "tools/test_replay_public_demo.mjs",
+      "evidence": "docs/DEMO_REPLAY.md"
     }
   ],
   "commands": [
@@ -85,6 +94,12 @@
       "args": [
         "--check"
       ]
+    },
+    {
+      "id": "export-replay-contract",
+      "runtime": "node",
+      "entry": "tools/test_replay_public_demo.mjs",
+      "args": []
     }
   ],
   "read_more": [
@@ -107,7 +122,7 @@
   ],
   "schema_version": 1,
   "repository": "alvaromendizabal/jigsaw-rule-classifier",
-  "reviewed_base_commit": "9c6e3016e6fb080b86057358b3074ce4bc3ddc52",
+  "reviewed_base_commit": "611513cd5d39c00c6e6184c36f6fb501a4a5422d",
   "source_dependencies": [
     "examples/public_challenges.json",
     "tools/public_challenge_adapter.mjs",
@@ -116,5 +131,23 @@
     "public-demo/engine.js",
     "public-demo/index.html",
     "public-demo/styles.css"
+  ],
+  "source_scopes": [
+    {
+      "directory": "public-demo",
+      "suffixes": [
+        ".js",
+        ".html",
+        ".css",
+        ".svg"
+      ]
+    },
+    {
+      "directory": "tools",
+      "suffixes": [
+        ".py",
+        ".mjs"
+      ]
+    }
   ]
 }

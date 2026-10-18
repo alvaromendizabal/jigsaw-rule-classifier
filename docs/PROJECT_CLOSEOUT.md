@@ -26,3 +26,16 @@ The repeatedly inspected two-policy cohort is not an untouched confirmation set.
 Policy Lens fits a TF–IDF support matcher locally on fictional examples. Its lexical margin is not a probability or the Qwen model's output. Public Python commands verify components and replay aggregate evidence; private weights, raw comments, row predictions, optimizer state and exact ensemble construction remain outside the release.
 
 Completion refers to the delivered public engineering and review surface. The classifier is not presented as a deployed autonomous moderation service. [Model card](../MODEL_CARD.md) · [Method credits](TOP_SOLUTION_INTEGRATION.md)
+
+## October 18, 2026 maintenance closeout
+
+Browser exports can now be independently replayed from their exact edited inputs,
+including explanations, purged overlaps, abstentions and inactive-context errors.
+The public review receipt also binds command arguments, required logs, generated
+HTML and complete demo/tool source inventories. Node.js 22 and 24 exercise the replay
+contract in CI. These changes add verification capability, with no new model score.
+
+The repository audit retained existing research modules, notebooks, aggregate
+receipts and third-party licenses because they remain part of the test and evidence
+paths. Identical license text under two model-asset directories is required attribution,
+not disposable duplication. No private research data or weights were added.

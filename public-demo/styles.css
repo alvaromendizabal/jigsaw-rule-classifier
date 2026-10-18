@@ -1014,3 +1014,7 @@ footer {
     transition: none !important;
   }
 }
+
+.replay-note { margin: 22px 0; font-size: 14px; line-height: 1.7; }
+.replay-note a { color: inherit; text-underline-offset: 3px; }
+.replay-note a:focus-visible { outline: 3px solid #285d76; outline-offset: 4px; }
