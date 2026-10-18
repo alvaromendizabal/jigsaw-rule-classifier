@@ -1,63 +1,21 @@
-# Case study · Rule-conditioned moderation NLP
+# Case study · Adapt to the rule, not just the comment
 
-**Alvaro Mendizabal · end-to-end ML research and engineering**
+A moderation label depends on the policy being applied. A fixed global classifier can confuse policy transfer with repeated exposure to the same text. I built a rule-conditioned classifier, a support-adaptation procedure, a leakage-aware comparison and recoverable offline inference.
 
-Python · PyTorch · Transformers · LoRA · scikit-learn · AWS SageMaker · Jupyter
+## Selected approach and ownership
 
-**Delivered result: 0.91808 public / 0.91425 private ROC AUC**. **Measured improvement:** **+0.29469 private AUC** over the lexical reference. These are successful late Kaggle evaluations, not an original competition placement. The research-and-engineering portfolio is complete; optional frontier work is documented separately.
+The retained system uses the credited Qwen3-4B-Instruct-2507 backbone with one LoRA adapter. My work covers eligible-label construction, support/query purging, decision prompts, last-token scoring, checkpoint recovery, exact-ID output contracts and the public diagnostic interface. The backbone and its tokenizer are upstream assets, not my invented architecture. [Credits](docs/TOP_SOLUTION_INTEGRATION.md)
 
-[Executed current review](notebooks/31_complete_project_review.ipynb) · [Model card](MODEL_CARD.md) · [Run the public evidence checks](docs/REPRODUCIBILITY.md)
+The [actual trainer](scripts/decision_training.py) keeps optimizer, scheduler, loss-scaler and random states with completed checkpoints. [Native miniature-model tests](tests/test_decision_training.py) check exact recovery after interruption and retries after overflow. The [inference component](scripts/kaggle_adaptation.py) verifies model inputs, restores original row order and rejects corrupt cached predictions.
 
-## Problem and delivered system
+## Evidence and the final decision
 
-Community moderation is conditional: the same comment may be acceptable under one rule and violate another. The task is to rank comments against a supplied natural-language policy, using legitimate positive and negative examples as context.
+The historical submitted system recorded **0.91808 public / 0.91425 private AUC**. A controlled same-backbone study measured **0.61460 frozen versus 0.71989 adapted policy-macro AUC** on 881 novel comments across two previously examined rules. That **+0.10529** effect is different from the end-to-end comparison with a lexical control; pooling them would conflate populations and model changes. [Original submitted record](reports/checkpoints/kaggle_adaptation.json) · [Matched protocol](reports/support_adaptation/protocol.json)
 
-I built a support-adapted Qwen3-4B system with LoRA, decision-position supervision, forward-only answer scoring, length-sorted batches, restored row order, and within-policy ranking. Original training labels and supplied support labels are eligible; organizer-released hidden targets are excluded from the competition path.
+The selected direct decision path is preserved. Alternate feature readouts, unused backbones and later unpromoted experiments are not part of the maintained release. Original compact comparison records remain unchanged where needed to substantiate selection.
 
-| Successful late evaluation | Public ROC AUC | Private ROC AUC |
-| --- | ---: | ---: |
-| Lexical reference | 0.59191 | 0.61956 |
-| Retained support-adapted 4B | **0.91808** | **0.91425** |
-| Absolute improvement | +0.32617 | +0.29469 |
+## What can be reproduced publicly
 
-The [scored receipt](reports/checkpoints/kaggle_adaptation.json) records the exact notebook version and verification date. This end-to-end comparison changes both backbone and training method. A separate matched 4B study isolates support adaptation: policy-macro AUC rose from **0.61460 to 0.71989** on the same development cohort.
+A clone can train the lexical control end to end on authored data, verify the original aggregate arithmetic, exercise the actual native Qwen/LoRA interfaces on tiny generated models, regenerate the offline source notebook and replay browser decisions. The browser's 24 visible authored challenges retain eight misses. Those diagnostics reveal failure modes; they do not establish production moderation accuracy.
 
-## The difficult part: evaluating transfer
-
-A familiar-policy score can hide poor generalization. A 323-fit feature campaign measured **0.7989 familiar-policy AUC versus 0.5515 held-out-policy AUC**, exposing that bottleneck.
-
-The validation framework separates familiar-policy and whole-policy views, purges query text from fitted/support sources, preserves grouped out-of-fold predictions, and compares fixed controls with grouped uncertainty. The later **881-comment, two-policy** cohort has been repeatedly inspected. These development results are not leaderboard-equivalent evidence or an untouched holdout. The separate post-competition research artifact also remains explicitly labeled.
-
-## Model selection with evidence
-
-Larger standalone models were not consistently better. Multi-backbone diversity produced a five-model development candidate at **0.740351 policy-macro AUC**, but it has no official Kaggle score. Exact private ensemble construction remains unpublished.
-
-Later cross-model studies tested materially different hypotheses against matched native controls:
-
-| Study | Development outcome | Decision |
-| --- | --- | --- |
-| Fixed-teacher transfer | 0.743455 versus 0.743973 native control | Valid negative |
-| Label-anchored transfer | 0.743644 versus the same native control | Valid negative |
-| Reciprocal learning | 0.742539 versus 0.742236 peer control; interval crosses zero | Valid negative |
-
-A higher point estimate does not automatically replace the incumbent. Preserving negative results prevents repeated spending on unsupported directions. [Current receipt](reports/checkpoints/cross_model_frontier_20261006.json) · [Five-model evidence](notebooks/29_five_model_frontier_review.ipynb)
-
-## An inspectable public demo
-
-I built [Policy Lens](https://alvaro-policy-lens.tartmacaw2.chatgpt.site) to make the rule/comment/support relationship visible. The browser learns a TF–IDF vocabulary from authored examples, compares the strongest violation and allowed matches, and exposes the exact contributing terms. Reviewers can edit all inputs, compare policies and export the result. Exact query/support copies are purged and contradictory examples are rejected.
-
-This lightweight support matcher is a public engineering demonstration. Its margin is not a calibrated probability, and it does not run the historical Qwen model. [Run and test it](docs/REPRODUCIBILITY.md).
-
-## Engineering contributions
-
-I designed and implemented the validation, training/inference integration, controlled experiments, recovery system and delivery workflow documented here. AWS SageMaker is the canonical research environment. The execution layer uses immutable source/data/model identities, checksum validation, resumable optimizer and inference state, atomic publication, bounded runtime gates, heartbeats, GPU memory/throughput benchmarks, and regression tests for observed failures. Completed predictions and checkpoints are reused.
-
-GitHub provides locked dependencies, reusable validation/runtime modules, aggregate receipts, executed Plotly/SVG notebooks, and CI. The current review verifies saved numerical output against source receipts, rejects stale or incomplete execution, and re-executes in real Jupyter kernels with save/reopen checks.
-
-## Public verification and deployment limits
-
-An employer can run public component checks and verify aggregate evidence without AWS credentials or model downloads. Re-running the complete research system needs privately retained raw data, row predictions, model state and ensemble construction. Existing public source/configuration remains available; this boundary is not a claim that every implementation detail is secret.
-
-The delivered system is a research classifier, not a deployed autonomous moderation service. Its rank scores are not calibrated probabilities, and no production threshold, multilingual guarantee or fairness certification is claimed. The latest receipt marks E44 paired-demonstration adaptation as planned; it is not required to review the completed deliverable.
-
-[Methods and source notices](docs/TOP_SOLUTION_INTEGRATION.md) · [Reproducibility](docs/REPRODUCIBILITY.md) · [Model card](MODEL_CARD.md)
+Private datasets, adapters, model weights and prediction rows are excluded. No live service or full-score reproduction is claimed. [Commands and boundaries](docs/REPRODUCIBILITY.md)

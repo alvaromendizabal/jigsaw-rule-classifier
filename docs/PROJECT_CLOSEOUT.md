@@ -1,41 +1,5 @@
-# Project closeout · scored research and public demonstration
+# Maintained release scope
 
-This release presents the rule-conditioned NLP system I built and its measured research record, alongside an interactive public demonstration and repeatable review commands. It does not change historical scores or launch new model research.
+The retained approach is support-adapted Qwen3-4B-Instruct-2507 with a trainable lexical control, exact-resume execution, offline source packaging and explicit validation boundaries. Original measured results remain unchanged. Later unpromoted feature banks, alternate-backbone/teacher campaigns, duplicated research notebooks and AWS operator launchers have been retired from the maintained tree.
 
-## Delivered work
-
-| Layer | Evidence |
-|---|---|
-| Retained support-adapted Qwen3-4B system | **0.91808 public / 0.91425 private ROC AUC** in successful late evaluation |
-| Controlled support-adaptation study | **0.614600 → 0.719893** policy-macro AUC on the matched 881-comment cohort |
-| Transfer and multi-backbone research | Whole-policy comparisons, five-model development evidence and preserved negative findings |
-| Reliable execution | Source/data/model identities, recoverable optimizer/inference state and validated artifacts |
-| Public demonstration | [Policy Lens](https://alvaro-policy-lens.tartmacaw2.chatgpt.site): authored support matching, editable context and inspectable contributions |
-| Review and verification | [Case study](../CASE_STUDY.md), [review guide](EMPLOYER_REVIEW_GUIDE.md), [reproduction commands](REPRODUCIBILITY.md) |
-
-## Results retained without revision
-
-The retained model improved private AUC by **0.29469** over the 0.61956 lexical baseline. That comparison changes both backbone and training method; the matched 4B study isolates adaptation more directly.
-
-Strict-majority conflict handling scored **0.91720 public / 0.91288 private**, below the retained system, and was rejected. Later multi-model work reached **0.740351** policy-macro AUC on the fixed development cohort. Teacher-transfer and reciprocal-learning variants failed registered promotion gates. None of those development outcomes is an official score for a new system.
-
-The repeatedly inspected two-policy cohort is not an untouched confirmation set. Historical notebook and frontier documents retain their dates and experimental context; their earlier next-step language is not a commitment to automatic additional research.
-
-## Public implementation boundary
-
-Policy Lens fits a TF–IDF support matcher locally on fictional examples. Its lexical margin is not a probability or the Qwen model's output. Public Python commands verify components and replay aggregate evidence; private weights, raw comments, row predictions, optimizer state and exact ensemble construction remain outside the release.
-
-Completion refers to the delivered public engineering and review surface. The classifier is not presented as a deployed autonomous moderation service. [Model card](../MODEL_CARD.md) · [Method credits](TOP_SOLUTION_INTEGRATION.md)
-
-## October 18, 2026 maintenance closeout
-
-Browser exports can now be independently replayed from their exact edited inputs,
-including explanations, purged overlaps, abstentions and inactive-context errors.
-The public review receipt also binds command arguments, required logs, generated
-HTML and complete demo/tool source inventories. Node.js 22 and 24 exercise the replay
-contract in CI. These changes add verification capability, with no new model score.
-
-The repository audit retained existing research modules, notebooks, aggregate
-receipts and third-party licenses because they remain part of the test and evidence
-paths. Identical license text under two model-asset directories is required attribution,
-not disposable duplication. No private research data or weights were added.
+Public reproducibility is scoped to the documented control, native miniature-model contracts, evidence arithmetic and authored browser analysis. Private datasets, adapters, model weights and full prediction rows are not distributed. [Reproduction](REPRODUCIBILITY.md) · [Model card](../MODEL_CARD.md)

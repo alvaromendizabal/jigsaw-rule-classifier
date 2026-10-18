@@ -12,8 +12,8 @@
       "label": "Recorded matched support-adaptation AUC gain"
     },
     {
-      "value": "5 backbones",
-      "label": "Documented development-model study"
+      "value": "4B + LoRA",
+      "label": "Retained support-adapted model"
     }
   ],
   "scope": "The dependency-free check verifies the browser publication boundary. Optional Node checks execute the actual TF-IDF policy engine, duplicate purging, conflicting-support rejection, and controls. Historical neural results are reviewed separately through saved evidence.",
@@ -24,8 +24,8 @@
       "title": "Condition on the policy, not only the comment.",
       "decision": "Represent supplied rules and support examples explicitly rather than treating moderation as a fixed global label.",
       "boundary": "The small public lexical demo is not the retained Qwen model.",
-      "implementation": "src/jigsaw_rules/formatting.py",
-      "tests": "tests/test_formatting.py",
+      "implementation": "scripts/support_adaptation.py",
+      "tests": "tests/test_support_adaptation.py",
       "evidence": "reports/checkpoints/support_adaptation.json"
     },
     {
@@ -75,6 +75,14 @@
     }
   ],
   "commands": [
+    {
+      "id": "original-final-evidence",
+      "runtime": "python",
+      "entry": "scripts/review_portfolio.py",
+      "args": [
+        "--json"
+      ]
+    },
     {
       "id": "publication-contract",
       "runtime": "python",

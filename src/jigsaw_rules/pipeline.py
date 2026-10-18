@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 from filelock import FileLock
 
-from jigsaw_rules.cloud import backup
 from jigsaw_rules.data import audit, load_data, validate_submission
 from jigsaw_rules.metrics import evaluate
 from jigsaw_rules.model import LexicalClassifier
@@ -29,14 +28,13 @@ def run_baseline(
     data_dir: Path | None = None,
     folds: int = 3,
     seed: int = 2025,
-    cloud: dict | None = None,
 ) -> Path:
     (root / "runs").mkdir(parents=True, exist_ok=True)
     with FileLock(str(root / "runs/pipeline.lock"), timeout=1):
-        return _run_baseline(root, data_dir=data_dir, folds=folds, seed=seed, cloud=cloud)
+        return _run_baseline(root, data_dir=data_dir, folds=folds, seed=seed)
 
 
-def _run_baseline(root: Path, *, data_dir, folds, seed, cloud) -> Path:
+def _run_baseline(root: Path, *, data_dir, folds, seed) -> Path:
     data_dir = data_dir or root / "data/raw"
     train, test, sample = load_data(data_dir)
     is_synthetic = (data_dir / "SYNTHETIC.txt").exists()
@@ -53,12 +51,7 @@ def _run_baseline(root: Path, *, data_dir, folds, seed, cloud) -> Path:
     run_dir.mkdir(parents=True, exist_ok=True)
     atomic_json(run_dir / "provenance.json", provenance)
 
-    def sync():
-        if cloud:
-            backup(root, cloud["bucket"], cloud["region"])
-
     stage(run_dir, "audit", lambda dest: atomic_json(dest / "audit.json", audit(train, test)))
-    sync()
     results, all_oof = [], []
     for protocol in config["protocols"]:
         splits = make_splits(train, protocol, folds, seed)
@@ -99,7 +92,6 @@ def _run_baseline(root: Path, *, data_dir, folds, seed, cloud) -> Path:
                     )
 
                 dest = stage(run_dir, f"{protocol}_{name}_{fold}", fit_fold)
-                sync()
                 chunks.append(pd.read_csv(dest / "predictions.csv"))
             oof = pd.concat(chunks, ignore_index=True)
             if (
@@ -142,7 +134,6 @@ def _run_baseline(root: Path, *, data_dir, folds, seed, cloud) -> Path:
         )
 
     stage(run_dir, "full_training", full_fit)
-    sync()
 
     def report(dest):
         atomic_json(dest / "results.json", results)
@@ -153,7 +144,6 @@ def _run_baseline(root: Path, *, data_dir, folds, seed, cloud) -> Path:
 
     stage(run_dir, "review", report)
     atomic_json(run_dir / "status.json", {"status": "completed", "synthetic": is_synthetic})
-    sync()
     print(f"RUN_COMPLETED {run_dir}", flush=True)
     print(f"REPORT {run_dir / 'review/report.html'}", flush=True)
     return run_dir
